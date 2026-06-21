@@ -25,13 +25,18 @@ TEMPO_MAP = {"slow": 1, "medium": 2, "medium-fast": 3, "fast": 4, "varied": 2.5}
 COMPLEXITY_MAP = {"low": 1, "medium": 2, "high": 3}
 INSTRUMENT_GROUPS = {
     "tenor saxophone": "tenor_sax", "saxophone": "tenor_sax",
+    "soprano saxophone": "tenor_sax", "alto saxophone": "tenor_sax",
     "piano": "piano",
     "vocals": "vocals",
     "bass": "bass",
     "trumpet": "trumpet",
+    "guitar": "guitar",
 }
+INST_GROUP_VALUES = ["tenor_sax", "piano", "vocals", "bass", "trumpet", "guitar", "other"]
+DISCOVERY_SOURCES = ["self", "claude-recommendation", "autoplay"]
 MOOD_THRESHOLD = 3
 SUBGENRE_THRESHOLD = 3
+LABEL_THRESHOLD = 3
 
 
 def load_data():
@@ -45,19 +50,31 @@ def engineer_features(tracks):
     rows = []
     all_moods = {}
     all_subgenres = {}
+    all_labels = {}
 
     for t in tracks:
         for m in t.get("moods", []):
             all_moods[m] = all_moods.get(m, 0) + 1
         for s in t.get("subgenres", []):
             all_subgenres[s] = all_subgenres.get(s, 0) + 1
+        label = t.get("label")
+        if label:
+            all_labels[label] = all_labels.get(label, 0) + 1
 
     common_moods = sorted([m for m, c in all_moods.items() if c >= MOOD_THRESHOLD])
     common_subgenres = sorted([s for s, c in all_subgenres.items() if c >= SUBGENRE_THRESHOLD])
+    common_labels = sorted([l for l, c in all_labels.items() if c >= LABEL_THRESHOLD])
 
     eras = sorted(set(t.get("era", "Unknown") for t in tracks))
 
-    for t in tracks:
+    artist_track_indices = {}
+    for i, t in enumerate(tracks):
+        artist_track_indices.setdefault(t.get("artist", "Unknown"), []).append(i)
+    global_mean = np.mean([t["rating"] for t in tracks])
+
+    has_audio = sum(1 for t in tracks if t.get("audio_features")) >= 3
+
+    for idx, t in enumerate(tracks):
         row = {}
         row["energy"] = t.get("energy", 5)
         row["year"] = t.get("year") or 1960
@@ -70,7 +87,7 @@ def engineer_features(tracks):
 
         instrument = t.get("primary_instrument", "other")
         group = INSTRUMENT_GROUPS.get(instrument, "other")
-        for g in ["tenor_sax", "piano", "vocals", "bass", "trumpet", "other"]:
+        for g in INST_GROUP_VALUES:
             row[f"inst_{g}"] = 1 if group == g else 0
 
         track_moods = t.get("moods", [])
@@ -84,13 +101,52 @@ def engineer_features(tracks):
         row["mood_count"] = len(track_moods)
         row["subgenre_count"] = len(track_subgenres)
 
+        instr_lower = [i.lower() for i in t.get("instrumentation", [])]
+        instr_joined = " ".join(instr_lower)
+        row["ensemble_size"] = len(instr_lower)
+        row["has_guitar"] = int("guitar" in instr_joined)
+        row["has_strings"] = int("strings" in instr_joined or "orchestra" in instr_joined)
+        row["has_vocals"] = int("vocal" in instr_joined)
+        row["is_pianoless"] = int("piano" not in instr_joined)
+        row["has_trombone"] = int("trombone" in instr_joined)
+
+        track_label = t.get("label")
+        for l in common_labels:
+            row[f"label_{l}"] = 1 if track_label == l else 0
+
+        row["key_player_count"] = len(t.get("key_players", []))
+
+        source = t.get("discovered_from", "self")
+        for s in DISCOVERY_SOURCES:
+            row[f"source_{s}"] = 1 if source == s else 0
+
+        row["has_favorite_moments"] = 1 if t.get("favorite_moments") else 0
+        row["energy_tempo"] = row["energy"] * row["tempo"]
+
+        artist = t.get("artist", "Unknown")
+        artist_indices = artist_track_indices[artist]
+        if len(artist_indices) > 1:
+            other_ratings = [tracks[j]["rating"] for j in artist_indices if j != idx]
+            row["artist_mean_rating"] = np.mean(other_ratings)
+        else:
+            row["artist_mean_rating"] = global_mean
+        row["artist_track_count"] = len(artist_indices)
+
+        if has_audio:
+            audio = t.get("audio_features") or {}
+            row["duration_s"] = audio.get("duration_s", 300)
+            row["popularity"] = audio.get("popularity", 50)
+            row["tempo_bpm"] = audio.get("tempo_bpm", 120)
+            row["time_signature"] = audio.get("time_signature", 4)
+            row["is_live"] = int(audio.get("is_live", False))
+
         rows.append(row)
 
     df = pd.DataFrame(rows)
     ratings = pd.Series([t["rating"] for t in tracks])
     feature_names = list(df.columns)
 
-    return df, ratings, feature_names, common_moods, common_subgenres
+    return df, ratings, feature_names, common_moods, common_subgenres, common_labels
 
 
 def readable_name(feat):
@@ -102,6 +158,30 @@ def readable_name(feat):
         return f"{feat[4:]} era"
     if feat.startswith("inst_"):
         return f"{feat[5:].replace('_', ' ').title()} instrument"
+    if feat.startswith("label_"):
+        return f"{feat[6:]} label"
+    if feat.startswith("source_"):
+        return f'"{feat[7:]}" source'
+    NAMES = {
+        "energy_tempo": "Energy × Tempo",
+        "artist_mean_rating": "Artist Avg Rating",
+        "artist_track_count": "Artist Track Count",
+        "ensemble_size": "Ensemble Size",
+        "has_guitar": "Has Guitar",
+        "has_strings": "Has Strings",
+        "has_vocals": "Has Vocals",
+        "is_pianoless": "Pianoless",
+        "has_trombone": "Has Trombone",
+        "key_player_count": "Key Player Count",
+        "has_favorite_moments": "Has Fav Moments",
+        "duration_s": "Duration",
+        "popularity": "Spotify Popularity",
+        "tempo_bpm": "Tempo (BPM)",
+        "time_signature": "Time Signature",
+        "is_live": "Live Recording",
+    }
+    if feat in NAMES:
+        return NAMES[feat]
     return feat.replace("_", " ").title()
 
 
@@ -367,10 +447,11 @@ def main():
     print(f"Loaded {len(tracks)} tracks (albums filtered out)")
 
     print("Engineering features...")
-    X, y, feature_names, common_moods, common_subgenres = engineer_features(tracks)
+    X, y, feature_names, common_moods, common_subgenres, common_labels = engineer_features(tracks)
     print(f"Feature matrix: {X.shape[0]} samples x {X.shape[1]} features")
     print(f"Common moods ({len(common_moods)}): {common_moods}")
     print(f"Common subgenres ({len(common_subgenres)}): {common_subgenres}")
+    print(f"Common labels ({len(common_labels)}): {common_labels}")
 
     print("\nTraining models...")
     model_results = train_models(X, y)
@@ -449,6 +530,7 @@ def main():
         "feature_names": feature_names,
         "common_moods": common_moods,
         "common_subgenres": common_subgenres,
+        "common_labels": common_labels,
         "eras": eras,
     }, MODEL_PATH)
     print(f"Model saved to {MODEL_PATH}")
