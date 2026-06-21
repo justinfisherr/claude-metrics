@@ -51,6 +51,7 @@ def track_to_features(track, model_data):
     row["tempo"] = TEMPO_MAP.get(track.get("tempo", "medium"), 2.5)
     row["harmonic_complexity"] = COMPLEXITY_MAP.get(track.get("harmonic_complexity", "medium"), 2)
     row["replayability"] = track.get("replayability", 5)
+    row["playthrough"] = track.get("playthrough", 0.75)
 
     track_era = track.get("era", "Unknown")
     for era in eras:
