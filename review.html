@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Track Review — Jazz Taste</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: rgba(15, 31, 56, 0.92);
+      --panel-2: #0b1a30;
+      --border: rgba(93, 155, 224, 0.18);
+      --border-strong: rgba(74, 158, 255, 0.45);
+      --text: #d7e6f7;
+      --muted: #87a2c3;
+      --muted-2: #557193;
+      --accent: #4a9eff;
+      --accent-soft: rgba(74, 158, 255, 0.14);
+      --good: #50c878;
+      --bad: #ff6b6b;
+      --warning: #ffc144;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    html { width: 100%; -webkit-text-size-adjust: 100%; }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(74, 158, 255, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(255, 193, 68, 0.08), transparent 28rem),
+        linear-gradient(180deg, #07111f 0%, #09172a 48%, #06101e 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+    }
+
+    .tab-bar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px clamp(14px, 3vw, 28px);
+      background: rgba(7, 17, 31, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-link {
+      display: inline-block;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.5);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.14s, color 0.14s, border-color 0.14s;
+    }
+
+    .tab-link:hover, .tab-link.active {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+      color: var(--accent);
+    }
+
+    .wrapper {
+      width: min(640px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 54px) clamp(14px, 3vw, 28px) clamp(34px, 6vw, 70px);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel-2);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--border-strong);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .slider-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(74, 158, 255, 0.2);
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid #fff;
+    }
+
+    .slider-value {
+      min-width: 42px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .toggle-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel-2);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+
+    .toggle-btn.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .toggle-btn:hover:not(.selected) {
+      border-color: var(--border-strong);
+      color: var(--text);
+    }
+
+    .skip-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .skip-row span {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent), #3a7bd5);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.15s;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(74, 158, 255, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      background: var(--good);
+      color: #07111f;
+      font-weight: 800;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 999;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .pending-reviews {
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .pending-reviews h2 {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    .review-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel-2);
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .review-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .review-card-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .review-card-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .review-card-rating {
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .review-card-delete {
+      background: none;
+      border: none;
+      color: var(--muted-2);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px 8px;
+      margin-left: 8px;
+    }
+
+    .review-card-delete:hover {
+      color: var(--bad);
+    }
+
+    .export-btn {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 12px;
+    }
+
+    .export-btn:hover {
+      background: var(--accent-soft);
+    }
+
+    .clear-btn {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255,107,107,0.3);
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--bad);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .empty-state {
+      color: var(--muted-2);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="tab-bar">
+    <a class="tab-link" href="index.html">Dashboard</a>
+    <a class="tab-link" href="dictionary.html">Attribute Dictionary</a>
+    <a class="tab-link active" href="review.html">Review</a>
+  </nav>
+
+  <div class="wrapper">
+    <h1>Track Review</h1>
+    <p class="subtitle">Rate a track and copy the review to paste into Claude.</p>
+
+    <form id="review-form">
+      <div class="row">
+        <div class="form-group">
+          <label>Track Title</label>
+          <input type="text" id="title" placeholder="e.g. Cantaloupe Island" required>
+        </div>
+        <div class="form-group">
+          <label>Artist</label>
+          <input type="text" id="artist" placeholder="e.g. Herbie Hancock" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="slider-group">
+          <input type="range" id="rating" min="1" max="10" step="0.5" value="6">
+          <span class="slider-value" id="rating-val">6</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Replayability</label>
+        <div class="slider-group">
+          <input type="range" id="replayability" min="1" max="10" step="1" value="5">
+          <span class="slider-value" id="replay-val">5</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Liked? (would you add to a playlist?)</label>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn" data-value="true" onclick="setLiked(this)">Yes</button>
+          <button type="button" class="toggle-btn" data-value="false" onclick="setLiked(this)">No</button>
+        </div>
+        <input type="hidden" id="liked" value="">
+      </div>
+
+      <div class="form-group">
+        <label>Playthrough</label>
+        <div class="slider-group">
+          <input type="range" id="playthrough" min="0" max="100" step="5" value="100">
+          <span class="slider-value" id="play-val">100%</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Skipped at (optional)</label>
+        <div class="skip-row">
+          <input type="text" id="skip-at" placeholder="e.g. 1:32">
+          <span>of</span>
+          <input type="text" id="skip-total" placeholder="e.g. 5:02">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Notes</label>
+        <textarea id="notes" placeholder="How did it make you feel? What stood out?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Favorite Moments (optional)</label>
+        <input type="text" id="fav-moments" placeholder="e.g. The intro, Bill Evans piano section">
+      </div>
+
+      <button type="submit" class="submit-btn">Add Review</button>
+    </form>
+
+    <div class="pending-reviews">
+      <h2>Pending Reviews</h2>
+      <div id="reviews-list"></div>
+      <button class="export-btn" id="export-btn" style="display:none">Copy All to Clipboard</button>
+      <button class="clear-btn" id="clear-btn" style="display:none">Clear All</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    let reviews = JSON.parse(localStorage.getItem('jazz-reviews') || '[]');
+
+    function save() {
+      localStorage.setItem('jazz-reviews', JSON.stringify(reviews));
+      renderReviews();
+    }
+
+    function setLiked(btn) {
+      document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('liked').value = btn.dataset.value;
+    }
+
+    function ratingColor(r) {
+      if (r >= 9) return '#50c878';
+      if (r >= 7) return '#4a9eff';
+      if (r >= 5) return '#ffc144';
+      return '#ff6b6b';
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    document.getElementById('rating').addEventListener('input', e => {
+      document.getElementById('rating-val').textContent = e.target.value;
+    });
+    document.getElementById('replayability').addEventListener('input', e => {
+      document.getElementById('replay-val').textContent = e.target.value;
+    });
+    document.getElementById('playthrough').addEventListener('input', e => {
+      document.getElementById('play-val').textContent = e.target.value + '%';
+    });
+
+    document.getElementById('review-form').addEventListener('submit', e => {
+      e.preventDefault();
+
+      const liked = document.getElementById('liked').value;
+      if (liked === '') {
+        showToast('Select Liked: Yes or No');
+        return;
+      }
+
+      const review = {
+        title: document.getElementById('title').value.trim(),
+        artist: document.getElementById('artist').value.trim(),
+        rating: parseFloat(document.getElementById('rating').value),
+        replayability: parseInt(document.getElementById('replayability').value),
+        liked: liked === 'true',
+        playthrough: parseInt(document.getElementById('playthrough').value),
+        skipAt: document.getElementById('skip-at').value.trim() || null,
+        skipTotal: document.getElementById('skip-total').value.trim() || null,
+        notes: document.getElementById('notes').value.trim(),
+        favMoments: document.getElementById('fav-moments').value.trim() || null,
+        timestamp: new Date().toISOString(),
+      };
+
+      reviews.push(review);
+      save();
+      showToast('Review added!');
+      document.getElementById('review-form').reset();
+      document.getElementById('rating-val').textContent = '6';
+      document.getElementById('replay-val').textContent = '5';
+      document.getElementById('play-val').textContent = '100%';
+      document.querySelectorAll('.toggle-group .toggle-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('liked').value = '';
+    });
+
+    function renderReviews() {
+      const list = document.getElementById('reviews-list');
+      const exportBtn = document.getElementById('export-btn');
+      const clearBtn = document.getElementById('clear-btn');
+
+      if (!reviews.length) {
+        list.innerHTML = '<div class="empty-state">No reviews yet. Rate some tracks above.</div>';
+        exportBtn.style.display = 'none';
+        clearBtn.style.display = 'none';
+        return;
+      }
+
+      exportBtn.style.display = 'block';
+      clearBtn.style.display = 'block';
+
+      list.innerHTML = reviews.map((r, i) => `
+        <div class="review-card">
+          <div class="review-card-info">
+            <span class="review-card-title">${r.title} — ${r.artist}</span>
+            <span class="review-card-meta">${r.liked ? 'Liked' : 'Not liked'} · Replay: ${r.replayability}/10 · Played: ${r.playthrough}%${r.skipAt ? ' · Skipped at ' + r.skipAt + '/' + r.skipTotal : ''}</span>
+          </div>
+          <span class="review-card-rating" style="color:${ratingColor(r.rating)}">${r.rating}/10</span>
+          <button class="review-card-delete" onclick="deleteReview(${i})" title="Delete">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function deleteReview(i) {
+      reviews.splice(i, 1);
+      save();
+    }
+
+    document.getElementById('export-btn').addEventListener('click', () => {
+      const text = reviews.map(r => {
+        let line = `${r.title} — ${r.artist}: ${r.rating}/10, ${r.liked ? 'like' : 'no like'}, replayability ${r.replayability}/10, playthrough ${r.playthrough}%`;
+        if (r.skipAt) line += `, skipped at ${r.skipAt}/${r.skipTotal}`;
+        if (r.notes) line += `. ${r.notes}`;
+        if (r.favMoments) line += ` Favorite moments: ${r.favMoments}.`;
+        return line;
+      }).join('\n\n');
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied to clipboard! Paste to Claude.');
+      });
+    });
+
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      if (confirm('Clear all pending reviews?')) {
+        reviews = [];
+        save();
+        showToast('Cleared');
+      }
+    });
+
+    renderReviews();
+  </script>
+</body>
+</html>
