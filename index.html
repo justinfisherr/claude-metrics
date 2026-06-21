@@ -596,6 +596,72 @@
       opacity: 0;
       pointer-events: none;
     }
+
+    .hof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .hof-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(7, 17, 31, 0.72);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hof-card.perfect {
+      border-color: var(--border-strong);
+      background: linear-gradient(145deg, rgba(74, 158, 255, 0.1), rgba(7, 17, 31, 0.72) 60%), rgba(7, 17, 31, 0.72);
+    }
+
+    .hof-rating {
+      font-size: 1.6rem;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .hof-card.perfect .hof-rating {
+      color: var(--accent);
+    }
+
+    .hof-title {
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hof-artist {
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .hof-meta {
+      color: var(--muted-2);
+      font-size: 0.72rem;
+    }
+
+    .hof-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .hof-tag {
+      padding: 2px 7px;
+      border: 1px solid rgba(74, 158, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(74, 158, 255, 0.07);
+      color: var(--muted);
+      font-size: 0.67rem;
+    }
   </style>
 </head>
 
@@ -793,6 +859,76 @@
         </div>
       </article>
 
+      <!-- Hall of Fame -->
+      <article class="panel span-12">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Hall of Fame</h2>
+              <p class="panel-note">Your 9s and 10s — the tracks that define your taste</p>
+            </div>
+          </div>
+          <p class="panel-desc">Every track you've rated <strong>9 or 10 out of 10</strong>, displayed as cards sorted by score. These are your taste anchors — the tracks the recommendation model uses as its north star. Moods shown are the tags logged at rating time. Era and year give a sense of where in jazz history your absolute favorites live.</p>
+          <div id="hall-of-fame"></div>
+        </div>
+      </article>
+
+      <!-- Year vs Rating -->
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Year vs Rating</h2>
+              <p class="panel-note">Where in jazz history your taste lives</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = year of recording. <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Shows exactly which era of jazz history your highest ratings cluster in — and where you've barely explored. Hover any dot for the title, artist, and year.</p>
+          <div class="chart-shell"><canvas id="yearRatingChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Duration vs Rating -->
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Duration vs Rating</h2>
+              <p class="panel-note">Does track length affect your score?</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = track length in minutes (from <code>audio_features.duration_s</code>). <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Reveals your pacing sensitivity — whether longer tracks tend to get docked, and what your sweet spot for runtime is. Only tracks with a logged duration are shown.</p>
+          <div class="chart-shell"><canvas id="durationRatingChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Rating by Instrument -->
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Rating by Instrument</h2>
+              <p class="panel-note">Average score per primary instrument</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating grouped by <code>primary_instrument</code> of each track, for instruments with at least 2 logged tracks. The number after each bar shows how many tracks that instrument leads in your dataset. Shows whether your documented preferences (piano, lyrical sax) show up in the actual rating data.</p>
+          <div class="chart-shell"><canvas id="instrumentChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Label Breakdown -->
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Label Breakdown</h2>
+              <p class="panel-note">Average rating and track count by record label</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating per record label, for labels with at least 2 logged tracks. Bar color intensity reflects average score; track count is shown on each bar. Answers whether your intuition about certain labels (Blue Note, Impulse!, Prestige) actually predicts quality for you — or if it's just the artists on those labels doing the work.</p>
+          <div class="chart-shell"><canvas id="labelChart"></canvas></div>
+        </div>
+      </article>
+
       <article class="panel span-12" id="history-panel" hidden>
         <div class="panel-inner">
           <div class="panel-header">
@@ -923,6 +1059,11 @@
         renderArtistJourneys(data);
         renderMoodRating(data);
         renderReplayability(data);
+        renderHallOfFame(data);
+        renderYearRating(data);
+        renderDurationRating(data);
+        renderInstrumentRatings(data);
+        renderLabelRatings(data);
         renderHistory(data);
         setStatus('Dashboard loaded');
       })
@@ -1641,6 +1782,193 @@
       });
       markup += '</table></div>';
       container.innerHTML = markup;
+    }
+
+    function renderHallOfFame(data) {
+      const container = document.getElementById('hall-of-fame');
+      if (!container) return;
+      const top = (data?.predictions || [])
+        .filter(p => p.actual >= 9)
+        .sort((a, b) => b.actual - a.actual || a.title.localeCompare(b.title));
+
+      if (!top.length) {
+        container.innerHTML = '<div class="empty-state">No tracks rated 9+ yet.</div>';
+        return;
+      }
+
+      container.innerHTML = '<div class="hof-grid">' + top.map(t => `
+        <div class="hof-card${t.actual === 10 ? ' perfect' : ''}">
+          <div class="hof-rating">${t.actual}/10</div>
+          <div class="hof-title">${html(t.title)}</div>
+          <div class="hof-artist">${html(t.artist)}</div>
+          <div class="hof-meta">${html(t.era || '')}${t.year ? ' · ' + t.year : ''}</div>
+          <div class="hof-tags">${(t.moods || []).slice(0, 4).map(m => `<span class="hof-tag">${html(m)}</span>`).join('')}</div>
+        </div>
+      `).join('') + '</div>';
+    }
+
+    function renderYearRating(data) {
+      const ctx = document.getElementById('yearRatingChart');
+      if (!ctx) return;
+      const predictions = (data?.predictions || []).filter(p => p.year);
+
+      new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Tracks',
+            data: predictions.map(p => ({ x: p.year, y: p.actual, title: p.title, artist: p.artist, era: p.era })),
+            backgroundColor: predictions.map(p => colorFor(p.cluster)),
+            borderColor: predictions.map(p => colorFor(p.cluster)),
+            pointRadius: IS_MOBILE ? 4 : 5,
+            pointHoverRadius: IS_MOBILE ? 7 : 8,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} (${c.raw.x}) · ${c.raw.y}/10`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Year', color: GR.label, font: { weight: 800 } }, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      });
+    }
+
+    function renderDurationRating(data) {
+      const ctx = document.getElementById('durationRatingChart');
+      if (!ctx) return;
+      const predictions = (data?.predictions || []).filter(p => p.duration_s);
+
+      new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Tracks',
+            data: predictions.map(p => ({ x: Math.round(p.duration_s / 60 * 10) / 10, y: p.actual, title: p.title, artist: p.artist })),
+            backgroundColor: predictions.map(p => colorFor(p.cluster)),
+            borderColor: predictions.map(p => colorFor(p.cluster)),
+            pointRadius: IS_MOBILE ? 4 : 5,
+            pointHoverRadius: IS_MOBILE ? 7 : 8,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · ${c.raw.x} min · ${c.raw.y}/10`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Duration (minutes)', color: GR.label, font: { weight: 800 } }, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      });
+    }
+
+    function renderInstrumentRatings(data) {
+      const ctx = document.getElementById('instrumentChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.primary_instrument) return;
+        groups[p.primary_instrument] = groups[p.primary_instrument] || [];
+        groups[p.primary_instrument].push(p.actual);
+      });
+
+      const sorted = Object.entries(groups)
+        .filter(([, ratings]) => ratings.length >= 2)
+        .map(([inst, ratings]) => ({ inst, avg: ratings.reduce((s, r) => s + r, 0) / ratings.length, count: ratings.length }))
+        .sort((a, b) => b.avg - a.avg);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.inst),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 7,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      });
+    }
+
+    function renderLabelRatings(data) {
+      const ctx = document.getElementById('labelChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.label) return;
+        groups[p.label] = groups[p.label] || [];
+        groups[p.label].push(p.actual);
+      });
+
+      const sorted = Object.entries(groups)
+        .filter(([, ratings]) => ratings.length >= 2)
+        .map(([label, ratings]) => ({ label, avg: ratings.reduce((s, r) => s + r, 0) / ratings.length, count: ratings.length }))
+        .sort((a, b) => b.avg - a.avg);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.label),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 7,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      });
     }
 
     (function () {

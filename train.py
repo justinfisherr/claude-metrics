@@ -433,6 +433,8 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "duration_s": audio.get("duration_s"),
             "popularity": audio.get("popularity"),
             "replayability": t.get("replayability"),
+            "primary_instrument": t.get("primary_instrument"),
+            "label": t.get("label"),
         })
     return results
 
