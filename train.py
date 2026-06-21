@@ -150,19 +150,13 @@ def engineer_features(tracks):
 
 
 def readable_name(feat):
-    if feat.startswith("mood_"):
-        return f'"{feat[5:].title()}" mood'
-    if feat.startswith("subgenre_"):
-        return f'"{feat[9:].replace("_", " ").title()}" subgenre'
-    if feat.startswith("era_"):
-        return f"{feat[4:]} era"
-    if feat.startswith("inst_"):
-        return f"{feat[5:].replace('_', ' ').title()} instrument"
-    if feat.startswith("label_"):
-        return f"{feat[6:]} label"
-    if feat.startswith("source_"):
-        return f'"{feat[7:]}" source'
     NAMES = {
+        "energy": "Energy",
+        "year": "Year",
+        "tempo": "Tempo",
+        "harmonic_complexity": "Harmonic Complexity",
+        "mood_count": "Mood Count",
+        "subgenre_count": "Subgenre Count",
         "energy_tempo": "Energy × Tempo",
         "artist_mean_rating": "Artist Avg Rating",
         "artist_track_count": "Artist Track Count",
@@ -182,6 +176,18 @@ def readable_name(feat):
     }
     if feat in NAMES:
         return NAMES[feat]
+    if feat.startswith("mood_"):
+        return f'"{feat[5:].title()}" mood'
+    if feat.startswith("subgenre_"):
+        return f'"{feat[9:].replace("_", " ").title()}" subgenre'
+    if feat.startswith("era_"):
+        return f"{feat[4:]} era"
+    if feat.startswith("inst_"):
+        return f"{feat[5:].replace('_', ' ').title()} instrument"
+    if feat.startswith("label_"):
+        return f"{feat[6:]} label"
+    if feat.startswith("source_"):
+        return f'"{feat[7:]}" source'
     return feat.replace("_", " ").title()
 
 
