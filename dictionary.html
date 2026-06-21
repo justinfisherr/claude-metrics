@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Attribute Dictionary — Jazz Taste</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --bg-soft: #0a1628;
+      --panel: rgba(15, 31, 56, 0.92);
+      --panel-2: #0b1a30;
+      --border: rgba(93, 155, 224, 0.18);
+      --border-strong: rgba(74, 158, 255, 0.45);
+      --text: #d7e6f7;
+      --muted: #87a2c3;
+      --muted-2: #557193;
+      --accent: #4a9eff;
+      --accent-soft: rgba(74, 158, 255, 0.14);
+      --good: #50c878;
+      --bad: #ff6b6b;
+      --warning: #ffc144;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --page-pad: clamp(14px, 3vw, 28px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(74, 158, 255, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(255, 193, 68, 0.08), transparent 28rem),
+        linear-gradient(180deg, #07111f 0%, #09172a 48%, #06101e 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    .tab-bar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px clamp(14px, 3vw, 28px);
+      background: rgba(7, 17, 31, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-link {
+      display: inline-block;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.5);
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.14s, color 0.14s, border-color 0.14s;
+    }
+
+    .tab-link:hover {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+      color: var(--accent);
+    }
+
+    .tab-link.active {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+      color: var(--accent);
+    }
+
+    .wrapper {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 54px) var(--page-pad) clamp(34px, 6vw, 70px);
+    }
+
+    .page-header {
+      margin-bottom: clamp(20px, 4vw, 34px);
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(0.72rem, 2vw, 0.84rem);
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 8px 0 0;
+      color: #ffffff;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 850;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    .subtitle {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: clamp(0.92rem, 2.4vw, 1.05rem);
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h2 {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .attr-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--panel);
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .attr-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .attr-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .attr-signal {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .signal-positive {
+      background: rgba(80, 200, 120, 0.15);
+      color: var(--good);
+      border: 1px solid rgba(80, 200, 120, 0.3);
+    }
+
+    .signal-negative {
+      background: rgba(255, 107, 107, 0.15);
+      color: var(--bad);
+      border: 1px solid rgba(255, 107, 107, 0.3);
+    }
+
+    .signal-context {
+      background: rgba(255, 193, 68, 0.15);
+      color: var(--warning);
+      border: 1px solid rgba(255, 193, 68, 0.3);
+    }
+
+    .attr-def {
+      color: var(--text);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .attr-examples {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .attr-examples strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .attr-quote {
+      font-style: italic;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      margin-top: 6px;
+      padding-left: 10px;
+      border-left: 2px solid var(--border);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="tab-bar">
+    <a class="tab-link" href="index.html">Dashboard</a>
+    <a class="tab-link active" href="dictionary.html">Attribute Dictionary</a>
+  </nav>
+
+  <div class="wrapper">
+    <div class="page-header">
+      <p class="eyebrow">Jazz Taste Model</p>
+      <h1>Attribute Dictionary</h1>
+      <p class="subtitle">The personal vocabulary Justin uses to describe what works and what doesn't. These are the words that predict ratings better than any audio feature.</p>
+    </div>
+
+    <!-- POSITIVE SIGNALS -->
+    <div class="section">
+      <h2>Positive Signals — What Makes a Track Land</h2>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Sexy / Sensual</span>
+          <span class="attr-signal signal-positive">Strongest positive</span>
+        </div>
+        <div class="attr-def">A track that feels intimate, seductive, and emotionally charged in a physical way. Not just pretty — it has heat. The quality of making you lean in, not sit back. Often paired with tender sax playing, slow tempos, and dark harmonic color.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> God Bless the Child (10) — "super sexy, the sax playing is tender." Equinox (8.5) — "very bluesy, moody, sexy." Tryin' Times (9) — "sexy as hell." Goodbye Pork Pie Hat (10) — "sexy and mournfully romantic." Moanin'/Blakey (7.5) — "really sexy and cool."
+        </div>
+        <div class="attr-quote">"Sensual" mood tags average 9.4/10 — the highest of any mood in the dataset.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Fuck-You Attitude</span>
+          <span class="attr-signal signal-positive">Strong positive</span>
+        </div>
+        <div class="attr-def">An unhurried, self-assured coolness. The track sounds like the musician doesn't care whether you're listening — they're playing for themselves. Not aggressive or confrontational, but effortlessly confident. The opposite of trying to impress.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> So What (10) — the archetypal cool. St. Thomas (8) — "cool in a similar way to So What — expression, fuck-you attitude." Equinox (8.5) — "fuck-you unhurried attitude." Moanin'/Blakey (7.5) — "has that fuck-you attitude."
+        </div>
+        <div class="attr-quote">Tracks with this quality never rate below 7.5. It's the most reliable positive signal in the dataset.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Romantic / Tender</span>
+          <span class="attr-signal signal-positive">Core preference</span>
+        </div>
+        <div class="attr-def">Emotionally open and vulnerable music that conveys love, longing, or deep affection. Not saccharine — it has weight. Often involves muted trumpet, lyrical sax, or intimate piano. The feeling of something precious and fragile.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Love Theme from Spartacus (10) — "so romantic." It Never Entered My Mind (9) — "pretty, romantic." Naima (8) — "beautiful." Wild Is The Wind (8) — "so pretty."
+        </div>
+        <div class="attr-quote">"Romantic" appears in 15 tracks — the second most common mood. But it's necessary, not sufficient. A romantic track can still miss if it drags or lacks melodic identity.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Communal / Celebratory</span>
+          <span class="attr-signal signal-positive">10/10 territory</span>
+        </div>
+        <div class="attr-def">High-energy music that feels like a group celebration rather than a performance. Gospel-tinged, joyful, and inclusive. The energy is shared between players, not directed at an audience. It's a party you're inside, not watching.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Better Git It in Your Soul (10) — "like Moanin' but somehow more dynamic." Moanin'/Mingus Big Band (9) — "high passion, high energy but in a fun way."
+        </div>
+        <div class="attr-quote">Both communal/celebratory tracks are rated 9+. This is one of only two paths to a perfect 10 (the other is sexy/tragic ballads).</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Bittersweet</span>
+          <span class="attr-signal signal-positive">Strong positive</span>
+        </div>
+        <div class="attr-def">Sad but not defeated. Music that holds sorrow and hope simultaneously — the Dorian quality. Not tragic (that's too heavy without light). Not melancholic (that can be passive). Bittersweet is active sadness with beauty in it.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Peace Piece (9) — "bittersweet feeling." Infant Eyes (7.5) — "tender and mysterious." The "sad but hopeful" quality that defines the Dorian mode sweet spot.
+        </div>
+        <div class="attr-quote">Dorian mode tracks average 10.0. The bittersweet quality of Dorian — minor color with a raised 6th that adds warmth — is the sound of Justin's emotional center.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Structural Variety</span>
+          <span class="attr-signal signal-positive">Engagement signal</span>
+        </div>
+        <div class="attr-def">When a track has distinct sections, shifts, or surprises that prevent monotony. Not just head-solos-head, but real compositional architecture. Mode switches, tempo changes, unexpected entries. Keeps the ear interested and prevents sleepiness.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Blue Train (8) — "creatively had 3 different sections — loved the structural variety." Open Letter to Duke (8) — "nice surprise with a beautiful back half." Flamenco Sketches (6) — "the switches really stopped it from getting sleepy."
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Never Gets Tired of It</span>
+          <span class="attr-signal signal-positive">Maximum replayability</span>
+        </div>
+        <div class="attr-def">The highest compliment. A track with infinite replay value — it works every time, in every mood, and reveals something new on each listen. The track equivalent of a comfort meal that's also a masterpiece.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> My Favorite Things (10) — "never gets tired of it." Love Theme from Spartacus (10) — "never gets tired of it." Tezeta (9) — "every time it ends, wants to listen again."
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Wants It on Vinyl</span>
+          <span class="attr-signal signal-positive">Highest album honor</span>
+        </div>
+        <div class="attr-def">When an album earns the desire to own physically. Signals deep emotional attachment, high replayability, and the belief that this is something worth holding onto permanently. Reserved for albums, not individual tracks.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Mingus Ah Um (8) — "wants it on vinyl." This is the album-level equivalent of "never gets tired of it."
+        </div>
+      </div>
+    </div>
+
+    <!-- NEGATIVE SIGNALS -->
+    <div class="section">
+      <h2>Negative Signals — What Kills a Track</h2>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Flat / Forgettable</span>
+          <span class="attr-signal signal-negative">Strongest negative</span>
+        </div>
+        <div class="attr-def">The worst thing a track can be. Not bad — invisible. It plays and nothing happens inside. No emotional response, no moment worth remembering. The musical equivalent of a conversation you can't recall having. Often the result of missing melodic identity or emotional specificity.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> John S. (3) — "not great, a little flat." Circle (3) — "forgettable." Blue 7 (4) — "in context of the album, didn't land." Embraceable You (5) — "forgot why he liked it."
+        </div>
+        <div class="attr-quote">"Flat" is the opposite of everything Justin values. It's not that the music is technically bad — it's that it has no identity.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Corny</span>
+          <span class="attr-signal signal-negative">Floor-level negative</span>
+        </div>
+        <div class="attr-def">Performed emotion instead of felt emotion. When a track or performance signals "this is touching" rather than actually being touching. The gap between the intent and the delivery is audible. Saccharine, forced sincerity, or cliched emotional beats.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> That Old Feeling (2) — "felt corny. New lowest rating in the dataset." April In Paris (6) — "good but a little too cliche."
+        </div>
+        <div class="attr-quote">"Corny" produced the lowest rating in the entire dataset. It's the anti-authenticity signal — the exact opposite of what makes jazz work for Justin.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Showtimey</span>
+          <span class="attr-signal signal-negative">Performance penalty</span>
+        </div>
+        <div class="attr-def">Virtuosity for display rather than expression. When a musician is showing you how good they are instead of playing the music. Technical fireworks that feel directed at an audience rather than emerging from the composition. The feeling of being performed at.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Moment's Notice (6) — "felt a little showtimey." The opposite of "fuck-you attitude" — showtimey musicians care too much about the audience.
+        </div>
+        <div class="attr-quote">Showtimey tracks get rated but don't get replayed. The rating says "I see the talent." The replayability says "I don't need to hear it again."</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Drags On / Sleepy</span>
+          <span class="attr-signal signal-negative">Pacing failure</span>
+        </div>
+        <div class="attr-def">When a track loses momentum and can't sustain its emotional idea across its runtime. Not the same as "slow" — slow tracks can be riveting. Dragging is when the slowness becomes empty, when space stops being intentional and starts feeling like nothing's happening. "Sleepy" is the more extreme version — when a track actively lulls you out of engagement.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Blue in Green (8) — "kinda drags on." Where Are You? (5) — "on reflection, a bit too slow, revised to 5." Laura (5) — "almost lulls me to sleep." Flamenco Sketches (6) — mode switches "stopped it from getting sleepy."
+        </div>
+        <div class="attr-quote">Justin is highly pacing-sensitive. Tracks under 7 minutes are safer. Structural variety is the antidote to sleepiness.</div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Solo Show</span>
+          <span class="attr-signal signal-negative">Ensemble failure</span>
+        </div>
+        <div class="attr-def">When a track feels like one musician performing and everyone else backing them up. The ensemble disappears and it becomes a showcase for a single player. The opposite of communal — instead of music being made together, it's one person on a stage.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Parker's Mood (3) — "seems like a solo show." This is a recurring issue with bebop-era tracks where the lead player dominates.
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Too Tragic</span>
+          <span class="attr-signal signal-negative">Emotional overload</span>
+        </div>
+        <div class="attr-def">When sadness has no counterweight. Tragedy without hope, sorrow without beauty, darkness without a crack of light. Justin wants depth — he doesn't want despair. The distinction between "bittersweet" (positive) and "tragic" (negative) is whether there's something to hold onto.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Alabama (6) — "a little too tragic — no sense of optimism." He respects the piece but needs certain emotional conditions to appreciate it.
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Not Jazzy Enough</span>
+          <span class="attr-signal signal-negative">Genre boundary</span>
+        </div>
+        <div class="attr-def">When a piece crosses out of jazz territory into classical, easy listening, or ambient. Justin wants the rhythmic identity, harmonic language, and improvisational freedom of jazz even in quiet, spacious pieces. Without those, a track might be beautiful but it's not what he's here for.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> A Single Petal of a Rose (7) — "likes it but feels it's not jazzy enough."
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTEXTUAL SIGNALS -->
+    <div class="section">
+      <h2>Contextual Signals — Modifiers That Shape the Rating</h2>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Cool</span>
+          <span class="attr-signal signal-context">Amplifier</span>
+        </div>
+        <div class="attr-def">Not temperature — attitude. An effortless confidence that makes you feel cooler just listening to it. Related to "fuck-you attitude" but lighter. A track can be cool without being defiant. Cool is the swagger, fuck-you is the commitment.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Early Summer (7) — "very cool." Don't Let Me Be Misunderstood (6) — "cool!" Strode Rode (8) — "really cool."
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Fun</span>
+          <span class="attr-signal signal-context">Amplifier</span>
+        </div>
+        <div class="attr-def">Tracks that are genuinely enjoyable to listen to — not profound, not challenging, just a good time. Fun alone doesn't make a masterpiece, but it prevents a track from feeling like homework. Often associated with groove, playfulness, and accessible energy.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Tezeta (9) — "very fun and contemporary." Fables of Faubus (7.5) — "another fun one." The Bridge (6) — "surprisingly fun." Moanin'/Blakey (7.5) — "whole thing is fun."
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Predictable</span>
+          <span class="attr-signal signal-context">Replay killer</span>
+        </div>
+        <div class="attr-def">When you know where a track is going before it gets there. A track can be good on first listen but predictable on second. This tanks replayability more than rating — the initial experience might be fine, but there's no reason to come back.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Song for My Father (5) — "a little predictable to come back to."
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Grows On You</span>
+          <span class="attr-signal signal-context">Slow burn</span>
+        </div>
+        <div class="attr-def">Tracks that don't land immediately but reveal themselves over time or across sections. A track that starts meh but earns its rating through a specific moment or shift. The opposite of front-loaded — back-loaded tracks that reward patience.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> Strode Rode (8) — "at first didn't like it but when the drum breaks came in — that was sick." Song for My Father (5) — "at first eh, but then solos were playful and fun."
+        </div>
+      </div>
+
+      <div class="attr-card">
+        <div class="attr-header">
+          <span class="attr-name">Basic</span>
+          <span class="attr-signal signal-context">Mild negative</span>
+        </div>
+        <div class="attr-def">Pleasant but lacking depth or distinctiveness. A track that's fine but doesn't assert a personality. Not flat (which is invisible) — basic is visible but unremarkable. It does what you'd expect and nothing more.</div>
+        <div class="attr-examples">
+          <strong>Examples:</strong> In Your Own Sweet Way (6) — "good but kind of basic in taste."
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
