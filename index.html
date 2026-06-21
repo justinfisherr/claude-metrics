@@ -921,6 +921,8 @@
       <a class="nav-link" href="#artist-journeys-panel">Artist Journeys</a>
       <a class="nav-link" href="#mood-rating-panel">Mood × Rating</a>
       <a class="nav-link" href="#replayability-panel">Replayability</a>
+      <a class="nav-link" href="#playthrough-panel">Playthrough</a>
+      <a class="nav-link" href="#playthrough-era-panel">Playthrough by Era</a>
       <a class="nav-link" href="#hof-panel">Hall of Fame</a>
       <a class="nav-link" href="#albums-panel">Albums</a>
       <a class="nav-link" href="#year-rating-panel">Year vs Rating</a>
@@ -1128,6 +1130,34 @@
           </div>
           <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = replayability (1–10). <strong>Y axis</strong> = your rating. Tracks on the diagonal line are perfectly aligned — you rate them as much as you'd replay them. <strong>Above the line</strong> = one-listen masterpieces (rated high, wouldn't replay). <strong>Below the line</strong> = guilty pleasures (replay more than the rating suggests). Hover any dot for the title.</p>
           <div class="chart-shell"><canvas id="replayChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Playthrough vs Rating -->
+      <article class="panel span-6" id="playthrough-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Playthrough vs Rating</h2>
+              <p class="panel-note">How far you get before skipping</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = how much of the track you listened to (0–100%). <strong>Y axis</strong> = your rating. Tracks in the <strong>top-right</strong> = loved and listened fully. <strong>Bottom-left</strong> = bailed early and rated low. <strong>Top-left</strong> = rated well but didn't finish (rare). <strong>Bottom-right</strong> = sat through it but didn't like it. Hover for title.</p>
+          <div class="chart-shell"><canvas id="playthroughChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Playthrough by Era -->
+      <article class="panel span-6" id="playthrough-era-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Playthrough by Era</h2>
+              <p class="panel-note">Which eras hold your attention</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average playthrough percentage per era. Shows which musical eras keep you listening vs which ones you bail on. A low bar means you're skipping early — the era isn't holding you regardless of individual track quality.</p>
+          <div class="chart-shell"><canvas id="playthroughEraChart"></canvas></div>
         </div>
       </article>
 
@@ -1456,6 +1486,8 @@
         renderArtistJourneys(data);
         renderMoodRating(data);
         renderReplayability(data);
+        renderPlaythrough(data);
+        renderPlaythroughByEra(data);
         renderHallOfFame(data);
         renderAlbums(data);
         renderYearRating(data);
@@ -2135,6 +2167,108 @@
           scales: {
             x: { title: { display: true, text: 'Replayability', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } },
             y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      });
+    }
+
+    function renderPlaythrough(data) {
+      const ctx = document.getElementById('playthroughChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const pts = predictions.filter(p => p.playthrough != null);
+
+      if (!pts.length) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No playthrough data yet.</div>';
+        return;
+      }
+
+      new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Tracks',
+              data: pts.map(p => ({ x: Math.round(p.playthrough * 100), y: p.actual, title: p.title, artist: p.artist })),
+              backgroundColor: pts.map(p => colorFor(p.cluster)),
+              borderColor: pts.map(p => colorFor(p.cluster)),
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            }
+          ]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · Rating: ${c.raw.y}/10 · Listened: ${c.raw.x}%`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Playthrough %', color: GR.label, font: { weight: 800 } }, min: 0, max: 105, grid: { color: GR.grid }, ticks: { color: GR.tick, callback: v => v + '%' } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      });
+    }
+
+    function renderPlaythroughByEra(data) {
+      const ctx = document.getElementById('playthroughEraChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.era || p.playthrough == null) return;
+        if (!groups[p.era]) groups[p.era] = [];
+        groups[p.era].push(p.playthrough);
+      });
+
+      const sorted = Object.entries(groups)
+        .filter(([, vals]) => vals.length >= 2)
+        .map(([era, vals]) => ({ era, avg: vals.reduce((s, v) => s + v, 0) / vals.length, count: vals.length }))
+        .sort((a, b) => b.avg - a.avg);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.era),
+          datasets: [{
+            label: 'Avg Playthrough',
+            data: sorted.map(s => Math.round(s.avg * 100)),
+            backgroundColor: sorted.map((s) => {
+              const pct = s.avg;
+              if (pct >= 0.9) return 'rgba(80,200,120,0.65)';
+              if (pct >= 0.75) return 'rgba(74,158,255,0.65)';
+              if (pct >= 0.6) return 'rgba(255,193,68,0.65)';
+              return 'rgba(255,107,107,0.65)';
+            }),
+            borderColor: sorted.map((s) => {
+              const pct = s.avg;
+              if (pct >= 0.9) return 'rgba(80,200,120,1)';
+              if (pct >= 0.75) return 'rgba(74,158,255,1)';
+              if (pct >= 0.6) return 'rgba(255,193,68,1)';
+              return 'rgba(255,107,107,1)';
+            }),
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}% · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 100, grid: { color: GR.grid }, ticks: { color: GR.tick, callback: v => v + '%' } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
           }
         })
       });
