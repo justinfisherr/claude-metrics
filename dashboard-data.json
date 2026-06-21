@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-21T07:50:58.764395",
+    "generated_at": "2026-06-21T09:08:17.615097",
     "total_tracks": 64,
     "total_albums_excluded": 3,
     "mood_threshold": 3,
@@ -45,7 +45,10 @@
       "key": "Em",
       "mode": "dorian",
       "duration_s": 824,
-      "popularity": 51
+      "popularity": 51,
+      "replayability": null,
+      "primary_instrument": "soprano saxophone",
+      "label": "Atlantic"
     },
     {
       "title": "Love Theme from Spartacus",
@@ -69,7 +72,10 @@
       "key": "Bbm",
       "mode": "minor",
       "duration_s": 250,
-      "popularity": 11
+      "popularity": 11,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Moodsville"
     },
     {
       "title": "So What",
@@ -93,7 +99,10 @@
       "key": "Dm",
       "mode": "dorian",
       "duration_s": 563,
-      "popularity": 65
+      "popularity": 65,
+      "replayability": null,
+      "primary_instrument": "trumpet",
+      "label": "Columbia"
     },
     {
       "title": "Blue in Green",
@@ -117,7 +126,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 338,
-      "popularity": 68
+      "popularity": 68,
+      "replayability": null,
+      "primary_instrument": "trumpet",
+      "label": "Columbia"
     },
     {
       "title": "Peace Piece",
@@ -141,7 +153,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 404,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "Riverside"
     },
     {
       "title": "A Single Petal of a Rose",
@@ -165,7 +180,10 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 245,
-      "popularity": 52
+      "popularity": 52,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "Pablo"
     },
     {
       "title": "Tezeta",
@@ -189,7 +207,10 @@
       "key": "Am",
       "mode": "pentatonic",
       "duration_s": 369,
-      "popularity": 58
+      "popularity": 58,
+      "replayability": null,
+      "primary_instrument": "vibraphone",
+      "label": "Amha"
     },
     {
       "title": "Moanin'",
@@ -213,7 +234,10 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 539,
-      "popularity": 51
+      "popularity": 51,
+      "replayability": null,
+      "primary_instrument": "saxophone",
+      "label": "Dreyfus Jazz"
     },
     {
       "title": "All the Things You Are",
@@ -237,7 +261,10 @@
       "key": "Ab",
       "mode": "major",
       "duration_s": 170,
-      "popularity": 42
+      "popularity": 42,
+      "replayability": null,
+      "primary_instrument": "trumpet",
+      "label": "Guild"
     },
     {
       "title": "It Never Entered My Mind",
@@ -262,7 +289,10 @@
       "key": "F",
       "mode": "major",
       "duration_s": 323,
-      "popularity": 62
+      "popularity": 62,
+      "replayability": null,
+      "primary_instrument": "trumpet",
+      "label": "Prestige"
     },
     {
       "title": "Goodbye Pork Pie Hat",
@@ -287,7 +317,10 @@
       "key": "Db",
       "mode": "blues",
       "duration_s": 344,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Columbia"
     },
     {
       "title": "Blue Train",
@@ -312,7 +345,10 @@
       "key": "Eb",
       "mode": "blues",
       "duration_s": 643,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Blue Note"
     },
     {
       "title": "Laura",
@@ -336,7 +372,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 180,
-      "popularity": 26
+      "popularity": 26,
+      "replayability": null,
+      "primary_instrument": "alto saxophone",
+      "label": "Clef"
     },
     {
       "title": "Moment's Notice",
@@ -360,7 +399,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 550,
-      "popularity": 49
+      "popularity": 49,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Blue Note"
     },
     {
       "title": "God Bless the Child",
@@ -385,7 +427,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 449,
-      "popularity": 60
+      "popularity": 60,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Prestige"
     },
     {
       "title": "You Don't Know What Love Is",
@@ -408,7 +453,10 @@
       "key": "Fm",
       "mode": "minor",
       "duration_s": 389,
-      "popularity": 47
+      "popularity": 47,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Prestige"
     },
     {
       "title": "In a Sentimental Mood",
@@ -432,7 +480,10 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 325,
-      "popularity": 30
+      "popularity": 30,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "RCA Victor"
     },
     {
       "title": "Where Are You?",
@@ -456,7 +507,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 311,
-      "popularity": 52
+      "popularity": 52,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "RCA Victor"
     },
     {
       "title": "St. Thomas",
@@ -480,7 +534,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 408,
-      "popularity": 50
+      "popularity": 50,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Prestige"
     },
     {
       "title": "Strode Rode",
@@ -504,7 +561,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 315,
-      "popularity": 45
+      "popularity": 45,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Prestige"
     },
     {
       "title": "Moritat (Mack the Knife)",
@@ -527,7 +587,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 604,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Prestige"
     },
     {
       "title": "Blue 7",
@@ -550,7 +613,10 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 678,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Prestige"
     },
     {
       "title": "Without a Song",
@@ -573,7 +639,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 449,
-      "popularity": 47
+      "popularity": 47,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "RCA Victor"
     },
     {
       "title": "John S.",
@@ -596,7 +665,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 466,
-      "popularity": 39
+      "popularity": 39,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "RCA Victor"
     },
     {
       "title": "The Bridge",
@@ -620,7 +692,10 @@
       "key": "F",
       "mode": "major",
       "duration_s": 359,
-      "popularity": 41
+      "popularity": 41,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "RCA Victor"
     },
     {
       "title": "You Do Something to Me",
@@ -643,7 +718,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 409,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "RCA Victor"
     },
     {
       "title": "Naima",
@@ -668,7 +746,10 @@
       "key": "Ab",
       "mode": "major",
       "duration_s": 265,
-      "popularity": 62
+      "popularity": 62,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Atlantic"
     },
     {
       "title": "Alabama",
@@ -692,7 +773,10 @@
       "key": "Cm",
       "mode": "minor",
       "duration_s": 308,
-      "popularity": 55
+      "popularity": 55,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Impulse!"
     },
     {
       "title": "Equinox",
@@ -717,7 +801,10 @@
       "key": "C#m",
       "mode": "blues",
       "duration_s": 487,
-      "popularity": 53
+      "popularity": 53,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Atlantic"
     },
     {
       "title": "Parker's Mood",
@@ -740,7 +827,10 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 184,
-      "popularity": 28
+      "popularity": 28,
+      "replayability": null,
+      "primary_instrument": "alto saxophone",
+      "label": "Savoy"
     },
     {
       "title": "Circle",
@@ -763,7 +853,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 315,
-      "popularity": 15
+      "popularity": 15,
+      "replayability": null,
+      "primary_instrument": "trumpet",
+      "label": "Prestige"
     },
     {
       "title": "My Funny Valentine",
@@ -788,7 +881,10 @@
       "key": "Cm",
       "mode": "minor",
       "duration_s": 141,
-      "popularity": 66
+      "popularity": 66,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Pacific Jazz"
     },
     {
       "title": "That Old Feeling",
@@ -811,7 +907,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 183,
-      "popularity": 24
+      "popularity": 24,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Pacific Jazz"
     },
     {
       "title": "What Are You Doing the Rest of Your Life",
@@ -835,7 +934,10 @@
       "key": "Am",
       "mode": "minor",
       "duration_s": 245,
-      "popularity": 56
+      "popularity": 56,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "MGM"
     },
     {
       "title": "West Coast Blues",
@@ -858,7 +960,10 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 448,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": null,
+      "primary_instrument": "guitar",
+      "label": "Riverside"
     },
     {
       "title": "In Your Own Sweet Way",
@@ -881,7 +986,10 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 294,
-      "popularity": 27
+      "popularity": 27,
+      "replayability": null,
+      "primary_instrument": "guitar",
+      "label": null
     },
     {
       "title": "Infant Eyes",
@@ -906,7 +1014,10 @@
       "key": "Ebm",
       "mode": "minor",
       "duration_s": 415,
-      "popularity": 23
+      "popularity": 23,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Blue Note"
     },
     {
       "title": "Song for My Father",
@@ -930,7 +1041,10 @@
       "key": "Fm",
       "mode": "minor",
       "duration_s": 438,
-      "popularity": 58
+      "popularity": 58,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "Blue Note"
     },
     {
       "title": "Better Git It in Your Soul",
@@ -955,7 +1069,10 @@
       "key": "F",
       "mode": "blues",
       "duration_s": 445,
-      "popularity": 50
+      "popularity": 50,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Boogie Stop Shuffle",
@@ -979,7 +1096,10 @@
       "key": "C",
       "mode": "blues",
       "duration_s": 303,
-      "popularity": 41
+      "popularity": 41,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Self-Portrait in Three Colors",
@@ -1002,7 +1122,10 @@
       "key": "Ab",
       "mode": "major",
       "duration_s": 190,
-      "popularity": 39
+      "popularity": 39,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Open Letter to Duke",
@@ -1026,7 +1149,10 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 297,
-      "popularity": 29
+      "popularity": 29,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Bird Calls",
@@ -1050,7 +1176,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 378,
-      "popularity": 32
+      "popularity": 32,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Fables of Faubus",
@@ -1074,7 +1203,10 @@
       "key": "Dm",
       "mode": "minor",
       "duration_s": 494,
-      "popularity": 39
+      "popularity": 39,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Pussy Cat Dues",
@@ -1097,7 +1229,10 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 555,
-      "popularity": 31
+      "popularity": 31,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Jelly Roll",
@@ -1120,7 +1255,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 377,
-      "popularity": 35
+      "popularity": 35,
+      "replayability": null,
+      "primary_instrument": "bass",
+      "label": "Columbia"
     },
     {
       "title": "Wild Is The Wind",
@@ -1144,7 +1282,10 @@
       "key": "Cm",
       "mode": "minor",
       "duration_s": 422,
-      "popularity": 20
+      "popularity": 20,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Philips"
     },
     {
       "title": "Don't Let Me Be Misunderstood",
@@ -1167,7 +1308,10 @@
       "key": "Bbm",
       "mode": "minor",
       "duration_s": 166,
-      "popularity": 66
+      "popularity": 66,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Philips"
     },
     {
       "title": "Solitude",
@@ -1191,7 +1335,10 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 208,
-      "popularity": 68
+      "popularity": 68,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Clef"
     },
     {
       "title": "Crazy He Calls Me",
@@ -1215,7 +1362,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 185,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Decca"
     },
     {
       "title": "Lover Man",
@@ -1238,7 +1388,10 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 198,
-      "popularity": 45
+      "popularity": 45,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Decca"
     },
     {
       "title": "All of Me",
@@ -1262,7 +1415,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 217,
-      "popularity": 1
+      "popularity": 1,
+      "replayability": null,
+      "primary_instrument": "alto saxophone",
+      "label": "Clef"
     },
     {
       "title": "April In Paris",
@@ -1285,7 +1441,10 @@
       "key": "C",
       "mode": "major",
       "duration_s": 187,
-      "popularity": 50
+      "popularity": 50,
+      "replayability": null,
+      "primary_instrument": "alto saxophone",
+      "label": "Clef"
     },
     {
       "title": "Tryin' Times",
@@ -1309,7 +1468,10 @@
       "key": "Fm",
       "mode": "minor",
       "duration_s": 308,
-      "popularity": 44
+      "popularity": 44,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Atlantic"
     },
     {
       "title": "Embraceable You",
@@ -1331,7 +1493,10 @@
       "key": "F",
       "mode": "major",
       "duration_s": 236,
-      "popularity": 49
+      "popularity": 49,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": null
     },
     {
       "title": "Early Summer",
@@ -1354,7 +1519,10 @@
       "key": "G",
       "mode": "major",
       "duration_s": 644,
-      "popularity": 55
+      "popularity": 55,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "Trio"
     },
     {
       "title": "My Foolish Heart",
@@ -1377,7 +1545,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 298,
-      "popularity": 34
+      "popularity": 34,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "Riverside"
     },
     {
       "title": "Love Theme From The Robe",
@@ -1400,7 +1571,10 @@
       "key": "Eb",
       "mode": "minor",
       "duration_s": 242,
-      "popularity": 49
+      "popularity": 49,
+      "replayability": null,
+      "primary_instrument": "oboe",
+      "label": "Moodsville"
     },
     {
       "title": "To Her Ladyship",
@@ -1423,7 +1597,10 @@
       "key": "Eb",
       "mode": "minor",
       "duration_s": 540,
-      "popularity": 22
+      "popularity": 22,
+      "replayability": null,
+      "primary_instrument": "tenor saxophone",
+      "label": "Impulse!"
     },
     {
       "title": "'Round Midnight",
@@ -1446,7 +1623,10 @@
       "key": "Ebm",
       "mode": "minor",
       "duration_s": 383,
-      "popularity": 38
+      "popularity": 38,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": null
     },
     {
       "title": "In a Sentimental Mood",
@@ -1469,7 +1649,10 @@
       "key": "F",
       "mode": "major",
       "duration_s": 255,
-      "popularity": 69
+      "popularity": 69,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": null
     },
     {
       "title": "The Kid from Red Bank",
@@ -1492,7 +1675,10 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 162,
-      "popularity": 33
+      "popularity": 33,
+      "replayability": null,
+      "primary_instrument": "piano",
+      "label": "Roulette"
     },
     {
       "title": "Nefertiti",
@@ -1515,7 +1701,10 @@
       "key": "Dm",
       "mode": "dorian",
       "duration_s": 458,
-      "popularity": 42
+      "popularity": 42,
+      "replayability": null,
+      "primary_instrument": "trumpet",
+      "label": "Columbia"
     },
     {
       "title": "My One and Only Love",
@@ -1540,7 +1729,10 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 294,
-      "popularity": 55
+      "popularity": 55,
+      "replayability": null,
+      "primary_instrument": "vocals",
+      "label": "Impulse!"
     }
   ],
   "feature_importance": [
@@ -2466,6 +2658,16 @@
       "mae": 1.293,
       "best_k": 2,
       "silhouette_score": 0.0928
+    },
+    {
+      "run_date": "2026-06-21",
+      "dataset_size": 64,
+      "best_model": "random_forest",
+      "r_squared": 0.459,
+      "rmse": 1.5927,
+      "mae": 1.2317,
+      "best_k": 2,
+      "silhouette_score": 0.0896
     },
     {
       "run_date": "2026-06-21",
