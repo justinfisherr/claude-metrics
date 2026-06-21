@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Jazz Taste Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --bg-soft: #0a1628;
+      --panel: rgba(15, 31, 56, 0.92);
+      --panel-2: #0b1a30;
+      --border: rgba(93, 155, 224, 0.18);
+      --border-strong: rgba(74, 158, 255, 0.45);
+      --text: #d7e6f7;
+      --muted: #87a2c3;
+      --muted-2: #557193;
+      --accent: #4a9eff;
+      --accent-soft: rgba(74, 158, 255, 0.14);
+      --good: #50c878;
+      --bad: #ff6b6b;
+      --warning: #ffc144;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --page-pad: clamp(14px, 3vw, 28px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100svh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(74, 158, 255, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(255, 193, 68, 0.08), transparent 28rem),
+        linear-gradient(180deg, #07111f 0%, #09172a 48%, #06101e 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .wrapper {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 54px) var(--page-pad) clamp(34px, 6vw, 70px);
+    }
+
+    .page-header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: clamp(20px, 4vw, 34px);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(0.72rem, 2vw, 0.84rem);
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(2rem, 7vw, 4.5rem);
+      font-weight: 850;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(0.92rem, 2.4vw, 1.05rem);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 4px auto 0;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(10, 22, 40, 0.65);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(74, 158, 255, 0.12);
+    }
+
+    .status.is-error .status-dot {
+      background: var(--bad);
+      box-shadow: 0 0 0 5px rgba(255, 107, 107, 0.12);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 20px);
+      align-items: stretch;
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-6 { grid-column: span 6; }
+
+    .panel {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .panel-inner {
+      display: grid;
+      gap: 16px;
+      height: 100%;
+      padding: clamp(16px, 3vw, 22px);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel h2 {
+      margin: 0;
+      color: #eef6ff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .panel-note {
+      margin: 3px 0 0;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(7, 17, 31, 0.72);
+      padding: 15px;
+    }
+
+    .card.best {
+      border-color: var(--border-strong);
+      background:
+        linear-gradient(145deg, rgba(74, 158, 255, 0.13), rgba(7, 17, 31, 0.72) 55%),
+        rgba(7, 17, 31, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .card h3 {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .metric {
+      overflow-wrap: anywhere;
+      color: #ffffff;
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .detail {
+      margin-top: 7px;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 20px;
+      padding: 3px 8px;
+      border: 1px solid rgba(74, 158, 255, 0.28);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #90c8ff;
+      font-size: 0.6rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .caveat {
+      margin: 0;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      font-style: italic;
+    }
+
+    .chart-shell {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      height: clamp(270px, 34vw, 395px);
+    }
+
+    .chart-shell.compact {
+      height: clamp(250px, 30vw, 360px);
+    }
+
+    .chart-shell.tall {
+      height: clamp(320px, 42vw, 470px);
+    }
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .cluster-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .cluster-tag {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-left-width: 4px;
+      border-radius: var(--radius-sm);
+      background: rgba(7, 17, 31, 0.64);
+      padding: 12px;
+    }
+
+    .cluster-tag .name {
+      overflow-wrap: anywhere;
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    .cluster-tag .info {
+      margin-top: 5px;
+      color: var(--muted-2);
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    .table-scroll {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .heatmap-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      background: rgba(7, 17, 31, 0.46);
+      font-size: 0.72rem;
+    }
+
+    .heatmap-table th,
+    .heatmap-table td {
+      padding: 8px 9px;
+      border: 1px solid rgba(93, 155, 224, 0.16);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .heatmap-table th {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: #0a1628;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .heatmap-table tr:first-child th {
+      position: static;
+    }
+
+    .empty-state {
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(7, 17, 31, 0.4);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .span-6 { grid-column: span 12; }
+      .cards { grid-template-columns: 1fr; }
+      .cluster-summary { grid-template-columns: 1fr; }
+      .panel-header { flex-direction: column; }
+    }
+
+    @media (max-width: 640px) {
+      .wrapper {
+        padding-top: 26px;
+      }
+
+      .page-header {
+        text-align: left;
+      }
+
+      .subtitle,
+      .status {
+        margin-left: 0;
+      }
+
+      .grid {
+        gap: 12px;
+      }
+
+      .panel {
+        border-radius: 16px;
+      }
+
+      .panel-inner {
+        gap: 13px;
+        padding: 14px;
+      }
+
+      .panel-header {
+        gap: 6px;
+        padding-bottom: 10px;
+      }
+
+      .panel h2 {
+        font-size: 0.76rem;
+      }
+
+      .panel-note,
+      .detail,
+      .caveat,
+      .cluster-tag .info {
+        font-size: 0.73rem;
+      }
+
+      .card {
+        padding: 13px;
+      }
+
+      .chart-shell,
+      .chart-shell.compact {
+        height: 280px;
+      }
+
+      .chart-shell.tall {
+        height: 330px;
+      }
+
+      .heatmap-table {
+        min-width: 520px;
+        font-size: 0.67rem;
+      }
+
+      .heatmap-table th,
+      .heatmap-table td {
+        padding: 7px 8px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .chart-shell,
+      .chart-shell.compact {
+        height: 255px;
+      }
+
+      .chart-shell.tall {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrapper">
+    <header class="page-header">
+      <p class="eyebrow">Taste model dashboard</p>
+      <h1>Jazz Taste Analysis</h1>
+      <p class="subtitle">Model trained on <span id="track-count">—</span> rated tracks.</p>
+      <div class="status" id="status" role="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="status-text">Loading dashboard-data.json</span>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Jazz taste analysis charts">
+      <article class="panel span-12" id="metrics-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Model Performance</h2>
+              <p class="panel-note">Cross-validation summary and dataset size</p>
+            </div>
+          </div>
+          <div class="cards" id="metrics-cards"></div>
+          <p class="caveat" id="caveat-text"></p>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Taste Clusters</h2>
+              <p class="panel-note">Tracks grouped by similarity</p>
+            </div>
+          </div>
+          <div class="chart-shell tall"><canvas id="clusterChart"></canvas></div>
+          <div class="cluster-summary" id="cluster-summary"></div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Feature Importance</h2>
+              <p class="panel-note">Most influential model features</p>
+            </div>
+          </div>
+          <div class="chart-shell tall"><canvas id="importanceChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Predicted vs Actual Rating</h2>
+              <p class="panel-note">How close the model got</p>
+            </div>
+          </div>
+          <div class="chart-shell"><canvas id="predActualChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Rating Distribution</h2>
+              <p class="panel-note">Ratings split by cluster</p>
+            </div>
+          </div>
+          <div class="chart-shell"><canvas id="distChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Cluster Profiles</h2>
+              <p class="panel-note">Feature fingerprints for each cluster</p>
+            </div>
+          </div>
+          <div class="chart-shell"><canvas id="radarChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Correlations</h2>
+              <p class="panel-note">Scrollable on smaller screens</p>
+            </div>
+          </div>
+          <div id="heatmap-container"></div>
+        </div>
+      </article>
+
+      <article class="panel span-12" id="history-panel" hidden>
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Model Over Time</h2>
+              <p class="panel-note">Performance as the dataset grows</p>
+            </div>
+          </div>
+          <div class="chart-shell compact"><canvas id="historyChart"></canvas></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const CLUSTER_COLORS = [
+      'rgba(74, 158, 255, 0.86)',
+      'rgba(255, 107, 107, 0.86)',
+      'rgba(80, 200, 120, 0.86)',
+      'rgba(255, 193, 68, 0.86)',
+      'rgba(178, 117, 255, 0.86)',
+      'rgba(75, 220, 225, 0.86)',
+    ];
+
+    const CLUSTER_BG = [
+      'rgba(74, 158, 255, 0.13)',
+      'rgba(255, 107, 107, 0.13)',
+      'rgba(80, 200, 120, 0.13)',
+      'rgba(255, 193, 68, 0.13)',
+      'rgba(178, 117, 255, 0.13)',
+      'rgba(75, 220, 225, 0.13)',
+    ];
+
+    const GR = {
+      grid: 'rgba(93, 155, 224, 0.16)',
+      tick: '#7190b3',
+      label: '#91bdf0',
+      text: '#d7e6f7',
+      panel: '#0f1f38',
+      border: 'rgba(93, 155, 224, 0.26)',
+    };
+
+    const IS_MOBILE = window.matchMedia('(max-width: 640px)').matches;
+
+    Chart.defaults.color = GR.text;
+    Chart.defaults.font.family = 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    Chart.defaults.maintainAspectRatio = false;
+    Chart.defaults.responsive = true;
+
+    const basePlugins = {
+      legend: {
+        position: IS_MOBILE ? 'bottom' : 'top',
+        labels: {
+          color: GR.text,
+          boxWidth: 10,
+          boxHeight: 10,
+          padding: IS_MOBILE ? 10 : 14,
+          font: { size: IS_MOBILE ? 10 : 11, weight: 650 }
+        }
+      },
+      tooltip: {
+        backgroundColor: GR.panel,
+        borderColor: GR.border,
+        borderWidth: 1,
+        padding: 10,
+        titleColor: '#fff',
+        bodyColor: GR.text,
+        displayColors: true,
+      }
+    };
+
+    function colorFor(index) {
+      return CLUSTER_COLORS[index % CLUSTER_COLORS.length];
+    }
+
+    function bgFor(index) {
+      return CLUSTER_BG[index % CLUSTER_BG.length];
+    }
+
+    function html(value) {
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function profilesFrom(data) {
+      const raw = data?.clusters?.cluster_profiles || [];
+      return Array.isArray(raw) ? raw : Object.values(raw);
+    }
+
+    function setStatus(message, isError = false) {
+      const status = document.getElementById('status');
+      document.getElementById('status-text').textContent = message;
+      status.classList.toggle('is-error', isError);
+    }
+
+    function chartOptions(overrides = {}) {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        resizeDelay: 120,
+        interaction: { mode: 'nearest', intersect: false },
+        plugins: basePlugins,
+        ...overrides,
+        plugins: { ...basePlugins, ...(overrides.plugins || {}) }
+      };
+    }
+
+    fetch('dashboard-data.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`Could not load dashboard-data.json (${response.status})`);
+        return response.json();
+      })
+      .then(data => {
+        renderMetrics(data);
+        renderClusterScatter(data);
+        renderFeatureImportance(data);
+        renderPredVsActual(data);
+        renderDistribution(data);
+        renderRadar(data);
+        renderHeatmap(data);
+        renderHistory(data);
+        setStatus('Dashboard loaded');
+      })
+      .catch(error => {
+        console.error(error);
+        setStatus('Could not load dashboard-data.json', true);
+        document.getElementById('metrics-cards').innerHTML = `
+          <div class="empty-state" style="grid-column: 1 / -1;">
+            Put this HTML file in the same folder as <strong>dashboard-data.json</strong>, then open it through a local server.
+            Directly opening the file may block fetch() in some browsers.
+          </div>
+        `;
+      });
+
+    function renderMetrics(data) {
+      document.getElementById('track-count').textContent = data?.meta?.total_tracks ?? '—';
+      const container = document.getElementById('metrics-cards');
+      container.innerHTML = '';
+
+      const models = [
+        { key: 'ridge', name: 'Ridge Regression' },
+        { key: 'random_forest', name: 'Random Forest' },
+      ];
+
+      models.forEach(model => {
+        const stats = data?.models?.[model.key];
+        if (!stats) return;
+
+        const isBest = data?.meta?.best_model === model.key;
+        const card = document.createElement('div');
+        card.className = `card${isBest ? ' best' : ''}`;
+        card.innerHTML = `
+          <h3>${html(model.name)}${isBest ? '<span class="badge">Best</span>' : ''}</h3>
+          <div class="metric">R² = ${html(stats.r_squared)}</div>
+          <div class="detail">RMSE: ${html(stats.rmse)} &middot; MAE: ${html(stats.mae)}</div>
+        `;
+        container.appendChild(card);
+      });
+
+      const dataset = document.createElement('div');
+      dataset.className = 'card';
+      dataset.innerHTML = `
+        <h3>Dataset</h3>
+        <div class="metric">${html(data?.meta?.total_tracks ?? '—')} tracks</div>
+        <div class="detail">${html(data?.meta?.feature_count ?? '—')} features &middot; ${html(data?.clusters?.best_k ?? '—')} clusters</div>
+      `;
+      container.appendChild(dataset);
+
+      document.getElementById('caveat-text').textContent =
+        `Trained on ${data?.meta?.total_tracks ?? '—'} tracks with Leave-One-Out Cross-Validation. Small dataset — patterns are suggestive, not definitive.`;
+    }
+
+    function renderClusterScatter(data) {
+      const ctx = document.getElementById('clusterChart');
+      const profiles = profilesFrom(data);
+      const datasets = [];
+      const clusterCount = data?.clusters?.best_k ?? profiles.length;
+
+      for (let cluster = 0; cluster < clusterCount; cluster++) {
+        const points = (data?.predictions || []).filter(point => point.cluster === cluster);
+        const profile = profiles[cluster] || {};
+        const label = profile.top_moods?.slice(0, 2).join(', ') || `Cluster ${cluster + 1}`;
+
+        datasets.push({
+          label,
+          data: points.map(point => ({
+            x: point.pca_x,
+            y: point.pca_y,
+            title: point.title,
+            artist: point.artist,
+            rating: point.actual,
+          })),
+          backgroundColor: colorFor(cluster),
+          borderColor: colorFor(cluster),
+          pointRadius: points.map(point => Math.max(IS_MOBILE ? 4 : 5, (IS_MOBILE ? 2 : 3) + Number(point.actual || 0) * (IS_MOBILE ? 0.45 : 0.65))),
+          pointHoverRadius: IS_MOBILE ? 7 : 9,
+        });
+      }
+
+      new Chart(ctx, {
+        type: 'scatter',
+        data: { datasets },
+        options: chartOptions({
+          plugins: {
+            tooltip: {
+              ...basePlugins.tooltip,
+              callbacks: {
+                label: context => {
+                  const point = context.raw;
+                  return `${point.title || 'Untitled'} — ${point.artist || 'Unknown'} (${point.rating ?? '—'}/10)`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: GR.grid }, ticks: { display: false } },
+            y: { grid: { color: GR.grid }, ticks: { display: false } },
+          }
+        })
+      });
+
+      const container = document.getElementById('cluster-summary');
+      container.innerHTML = '';
+
+      profiles.forEach((profile, index) => {
+        const tag = document.createElement('div');
+        tag.className = 'cluster-tag';
+        tag.style.borderLeftColor = colorFor(index);
+        tag.innerHTML = `
+          <div class="name">${html(profile.top_moods?.slice(0, 3).join(', ') || `Cluster ${index + 1}`)}</div>
+          <div class="info">${html(profile.size ?? '—')} tracks &middot; avg ${html(profile.mean_rating ?? '—')}/10 &middot; energy ${html(profile.mean_energy ?? '—')}</div>
+          <div class="info">${html(profile.representative_tracks?.slice(0, 2).join(', ') || '')}</div>
+        `;
+        container.appendChild(tag);
+      });
+    }
+
+    function renderFeatureImportance(data) {
+      const ctx = document.getElementById('importanceChart');
+      const features = (data?.feature_importance || []).slice(0, IS_MOBILE ? 9 : 12).reverse();
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: features.map(item => item.feature),
+          datasets: [{
+            label: 'Importance',
+            data: features.map(item => item.importance),
+            backgroundColor: features.map(item => item.direction === 'positive' ? 'rgba(80, 200, 120, 0.62)' : 'rgba(255, 107, 107, 0.62)'),
+            borderColor: features.map(item => item.direction === 'positive' ? 'rgba(80, 200, 120, 0.95)' : 'rgba(255, 107, 107, 0.95)'),
+            borderWidth: 1,
+            borderRadius: 7,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: basePlugins.tooltip,
+          },
+          scales: {
+            x: {
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, font: { size: IS_MOBILE ? 10 : 11 } }
+            },
+            y: {
+              grid: { display: false },
+              ticks: {
+                color: GR.text,
+                font: { size: IS_MOBILE ? 10 : 11, weight: 650 },
+                callback(value) {
+                  const label = this.getLabelForValue(value);
+                  return IS_MOBILE && label.length > 16 ? `${label.slice(0, 16)}…` : label;
+                }
+              }
+            }
+          }
+        })
+      });
+    }
+
+    function renderPredVsActual(data) {
+      const ctx = document.getElementById('predActualChart');
+      const predictions = data?.predictions || [];
+      const liked = predictions.filter(point => point.liked);
+      const notLiked = predictions.filter(point => !point.liked);
+
+      new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Liked',
+              data: liked.map(point => ({ x: point.actual, y: point.predicted, title: point.title })),
+              backgroundColor: 'rgba(80, 200, 120, 0.66)',
+              borderColor: 'rgba(80, 200, 120, 0.95)',
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            },
+            {
+              label: 'Not Liked',
+              data: notLiked.map(point => ({ x: point.actual, y: point.predicted, title: point.title })),
+              backgroundColor: 'rgba(255, 107, 107, 0.66)',
+              borderColor: 'rgba(255, 107, 107, 0.95)',
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            },
+            {
+              label: 'Perfect',
+              data: [{ x: 1, y: 1 }, { x: 10, y: 10 }],
+              type: 'line',
+              borderColor: 'rgba(74, 158, 255, 0.34)',
+              borderDash: [6, 6],
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: false,
+            }
+          ]
+        },
+        options: chartOptions({
+          plugins: {
+            tooltip: {
+              ...basePlugins.tooltip,
+              callbacks: {
+                label: context => {
+                  const point = context.raw;
+                  return point.title ? `${point.title}: actual ${point.x}, predicted ${point.y}` : 'Perfect prediction line';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Actual', color: GR.label, font: { weight: 800 } },
+              min: 1,
+              max: 10,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: {
+              title: { display: true, text: 'Predicted', color: GR.label, font: { weight: 800 } },
+              min: 1,
+              max: 10,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            },
+          }
+        })
+      });
+    }
+
+    function renderDistribution(data) {
+      const ctx = document.getElementById('distChart');
+      const bins = data?.distributions?.ratings?.bins || [];
+      const profiles = profilesFrom(data);
+      const byCluster = data?.distributions?.ratings_by_cluster || [];
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: bins.map(bin => String(bin)),
+          datasets: byCluster.map((cluster, index) => ({
+            label: profiles[index]?.top_moods?.[0] || `Cluster ${cluster.cluster + 1}`,
+            data: bins.map(bin => (cluster.ratings || []).filter(rating => rating === bin).length),
+            backgroundColor: colorFor(index),
+            borderRadius: 7,
+            borderSkipped: false,
+          }))
+        },
+        options: chartOptions({
+          scales: {
+            x: {
+              stacked: true,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick }
+            },
+            y: {
+              stacked: true,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, precision: 0, stepSize: 1 }
+            }
+          }
+        })
+      });
+    }
+
+    function renderRadar(data) {
+      const ctx = document.getElementById('radarChart');
+      const profiles = profilesFrom(data).filter(profile => profile?.radar?.labels?.length);
+      if (!profiles.length) return;
+
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: profiles[0].radar.labels,
+          datasets: profiles.map((profile, index) => ({
+            label: profile.top_moods?.slice(0, 2).join(', ') || `Cluster ${index + 1}`,
+            data: profile.radar.values,
+            borderColor: colorFor(index),
+            backgroundColor: bgFor(index),
+            pointBackgroundColor: colorFor(index),
+            pointBorderColor: '#0f1f38',
+            pointRadius: IS_MOBILE ? 2 : 3,
+            borderWidth: 1.8,
+          }))
+        },
+        options: chartOptions({
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 1,
+              grid: { color: GR.grid },
+              angleLines: { color: GR.grid },
+              pointLabels: { color: GR.text, font: { size: IS_MOBILE ? 9 : 10, weight: 650 } },
+              ticks: { display: false }
+            }
+          }
+        })
+      });
+    }
+
+    function renderHeatmap(data) {
+      const container = document.getElementById('heatmap-container');
+      const heatmap = data?.correlations?.heatmap;
+      if (!heatmap?.labels?.length || !heatmap?.matrix?.length) {
+        container.innerHTML = '<div class="empty-state">No correlation data available.</div>';
+        return;
+      }
+
+      const { labels, matrix } = heatmap;
+      let markup = '<div class="table-scroll" aria-label="Correlation heatmap" tabindex="0"><table class="heatmap-table"><tr><th></th>';
+      labels.forEach(label => markup += `<th>${html(label)}</th>`);
+      markup += '</tr>';
+
+      matrix.forEach((row, rowIndex) => {
+        markup += `<tr><th>${html(labels[rowIndex])}</th>`;
+        row.forEach(value => {
+          const numeric = Number(value) || 0;
+          const alpha = Math.min(Math.abs(numeric) * 0.56, 0.58);
+          const bg = numeric < 0 ? `rgba(255,107,107,${alpha})` : `rgba(74,158,255,${alpha})`;
+          markup += `<td style="background:${bg};color:#d7e6f7">${html(value)}</td>`;
+        });
+        markup += '</tr>';
+      });
+
+      markup += '</table></div>';
+      container.innerHTML = markup;
+    }
+
+    function renderHistory(data) {
+      if (!data?.history || data.history.length < 2) return;
+
+      document.getElementById('history-panel').hidden = false;
+      const ctx = document.getElementById('historyChart');
+
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: data.history.map(item => `${item.dataset_size} tracks`),
+          datasets: [
+            {
+              label: 'R²',
+              data: data.history.map(item => item.r_squared),
+              borderColor: 'rgba(80, 200, 120, 0.92)',
+              backgroundColor: 'rgba(80, 200, 120, 0.12)',
+              yAxisID: 'y',
+              tension: 0.32,
+              pointRadius: IS_MOBILE ? 3 : 4,
+              pointBackgroundColor: 'rgba(80, 200, 120, 1)',
+            },
+            {
+              label: 'RMSE',
+              data: data.history.map(item => item.rmse),
+              borderColor: 'rgba(255, 107, 107, 0.92)',
+              backgroundColor: 'rgba(255, 107, 107, 0.12)',
+              yAxisID: 'y1',
+              tension: 0.32,
+              pointRadius: IS_MOBILE ? 3 : 4,
+              pointBackgroundColor: 'rgba(255, 107, 107, 1)',
+            }
+          ]
+        },
+        options: chartOptions({
+          scales: {
+            x: { grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: {
+              position: 'left',
+              title: { display: true, text: 'R²', color: 'rgba(80,200,120,0.9)', font: { weight: 800 } },
+              grid: { color: GR.grid },
+              ticks: { color: 'rgba(80,200,120,0.8)' }
+            },
+            y1: {
+              position: 'right',
+              title: { display: true, text: 'RMSE', color: 'rgba(255,107,107,0.9)', font: { weight: 800 } },
+              grid: { drawOnChartArea: false },
+              ticks: { color: 'rgba(255,107,107,0.8)' }
+            }
+          }
+        })
+      });
+    }
+  </script>
+</body>
+</html>
