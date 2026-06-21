@@ -523,6 +523,79 @@
         height: 300px;
       }
     }
+
+    .panel-desc {
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border-left: 2px solid var(--border-strong);
+      background: rgba(74, 158, 255, 0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.6;
+    }
+
+    .panel-desc strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .panel-desc code {
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: rgba(74, 158, 255, 0.1);
+      color: #90c8ff;
+      font-size: 0.72rem;
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+    }
+
+    .accordion-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+    }
+
+    .accordion-arrow {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(74, 158, 255, 0.08);
+      color: var(--accent);
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.22s ease, background 0.15s;
+    }
+
+    .accordion-toggle[aria-expanded="false"] .accordion-arrow {
+      transform: rotate(-90deg);
+    }
+
+    .accordion-toggle:hover .accordion-arrow {
+      background: rgba(74, 158, 255, 0.18);
+    }
+
+    .accordion-body {
+      overflow: hidden;
+      transition: max-height 0.28s ease, opacity 0.22s ease;
+    }
+
+    .accordion-body.collapsed {
+      max-height: 0 !important;
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -547,6 +620,7 @@
               <p class="panel-note">Cross-validation summary and dataset size</p>
             </div>
           </div>
+          <p class="panel-desc">Two regression models are trained on your dataset using <strong>Leave-One-Out Cross-Validation (LOOCV)</strong> — each track is held out once and predicted from the remaining tracks, then scores are averaged. <strong>R²</strong> (0–1) measures how much variance in your ratings the model explains; 1.0 is perfect, 0 means the model is no better than always guessing the mean. <strong>RMSE</strong> (Root Mean Squared Error) and <strong>MAE</strong> (Mean Absolute Error) express average prediction error in rating points — lower is better. The card highlighted in blue is the winning model used for all downstream scoring and the <code>predict.py</code> script.</p>
           <div class="cards" id="metrics-cards"></div>
           <p class="caveat" id="caveat-text"></p>
         </div>
@@ -560,6 +634,7 @@
               <p class="panel-note">Tracks grouped by similarity</p>
             </div>
           </div>
+          <p class="panel-desc">Your tracks are grouped using <strong>K-Means clustering</strong> on PCA-reduced features. <strong>PCA</strong> (Principal Component Analysis) compresses all musical features into two dimensions — tracks close together share similar audio and mood profiles. <strong>Dot size</strong> scales with your rating: bigger = higher score. <strong>Color</strong> = cluster membership. The cluster labels shown in the legend and summary cards are the most common moods in that group. Hover any dot for the track title, artist, and rating.</p>
           <div class="chart-shell tall"><canvas id="clusterChart"></canvas></div>
           <div class="cluster-summary" id="cluster-summary"></div>
         </div>
@@ -573,6 +648,7 @@
               <p class="panel-note">Most influential model features</p>
             </div>
           </div>
+          <p class="panel-desc">Shows which input variables drive the model's predictions most. <strong>Green bars</strong> = feature pushes predicted rating up. <strong>Red bars</strong> = pushes it down. Importance is normalized 0–1 relative to the top feature. Key feature families: <code>era_*</code> (musical era like Modal or Hard Bop), <code>mood_*</code> (tagged mood like romantic or bluesy), <code>inst_*</code> (primary instrument group), <code>subgenre_*</code> (tagged subgenre), <code>artist_mean_rating</code> (your average rating for other tracks by the same artist), <code>energy</code> (1–10 scale), <code>tempo</code> (slow→fast mapped 1–4), <code>harmonic_complexity</code> (low/med/high → 1–3), and <code>replayability</code> (low/med/high → 1–3).</p>
           <div class="chart-shell tall"><canvas id="importanceChart"></canvas></div>
         </div>
       </article>
@@ -585,6 +661,7 @@
               <p class="panel-note">How close the model got</p>
             </div>
           </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = your actual rating (1–10). <strong>Y axis</strong> = the model's LOOCV prediction. Dots on the <strong>dashed diagonal</strong> are perfect predictions. Dots <em>above</em> the line = model over-predicted; <em>below</em> = under-predicted. <strong>Green</strong> = tracks you marked "liked", <strong>red</strong> = not liked. Large horizontal gaps are your model's biggest misses — useful data points to investigate. Hover any dot for the track name.</p>
           <div class="chart-shell"><canvas id="predActualChart"></canvas></div>
         </div>
       </article>
@@ -597,6 +674,7 @@
               <p class="panel-note">Ratings split by cluster</p>
             </div>
           </div>
+          <p class="panel-desc">A stacked bar chart showing how many tracks you rated at each score level (2–10). <strong>Color</strong> = cluster. Reading the full bar height tells you how many tracks earned each score total; reading each color segment tells you which cluster those tracks belong to. Reveals whether you rate generously or strictly overall, and whether certain clusters consistently land at higher or lower scores than others.</p>
           <div class="chart-shell"><canvas id="distChart"></canvas></div>
         </div>
       </article>
@@ -609,6 +687,7 @@
               <p class="panel-note">Feature fingerprints for each cluster</p>
             </div>
           </div>
+          <p class="panel-desc">A radar chart overlaying each cluster's average feature values. <strong>Axes</strong>: <code>Energy</code> (0–1, normalized from the 1–10 scale), <code>Complexity</code> (low/med/high → 0–1), <code>Tempo</code> (slow–fast → 0–1), then seven <strong>mood frequencies</strong> — the fraction of tracks in that cluster carrying each mood tag (romantic, tender, joyful, bluesy, cool, melancholic, sensual). Clusters that peak on different axes have meaningfully distinct sonic characters. A cluster with a wide romantic + tender footprint but low energy maps directly to your known ballad preference.</p>
           <div class="chart-shell"><canvas id="radarChart"></canvas></div>
         </div>
       </article>
@@ -621,6 +700,7 @@
               <p class="panel-note">Scrollable on smaller screens</p>
             </div>
           </div>
+          <p class="panel-desc"><strong>Pearson correlation coefficients</strong> between the top features and your rating, plus pairwise between features. Values range –1 to +1. <strong>Blue</strong> = positive correlation (feature tends to appear more on tracks you rate higher). <strong>Red</strong> = negative. The <strong>Rating row/column</strong> is the most actionable: it shows raw data correlations independent of the model — what actually predicts your scores before any ML weighting. High absolute values in that row = strong direct signals. Scroll horizontally on small screens.</p>
           <div id="heatmap-container"></div>
         </div>
       </article>
@@ -633,6 +713,7 @@
               <p class="panel-note">Your jazz universe — brighter stars = higher ratings, lines connect same artist</p>
             </div>
           </div>
+          <p class="panel-desc">A PCA scatter rendered as a starfield. <strong>Position</strong> = the same PCA X/Y coordinates used in Taste Clusters — tracks close together sound alike to the model. <strong>Star size and brightness</strong> scale with your rating: your 10/10s are the biggest, brightest stars. <strong>Color</strong> = cluster membership. <strong>Lines</strong> connect tracks by the same artist, so you can see where an artist's catalog scatters across sonic space. Artist name labels appear for artists with 3+ tracks. <strong>Hover</strong> any star to see the track title, artist, and rating.</p>
           <div class="constellation-wrap">
             <canvas id="constellationCanvas"></canvas>
             <div class="constellation-tip" id="constellation-tip"></div>
@@ -648,6 +729,7 @@
               <p class="panel-note">Track keys mapped to the circle — closer to center = higher rating</p>
             </div>
           </div>
+          <p class="panel-desc">Each track is plotted on the <strong>circle of fifths</strong> by its <code>key</code> field (from <code>audio_features</code>). <strong>Angular position</strong> = root key (C, G, D, A, E, B, Gb, Db, Ab, Eb, Bb, F going clockwise). <strong>Distance from center</strong> = your rating, inverted: tracks closer to the center scored higher; tracks near the outer ring scored lower. <strong>Color</strong> = musical mode: yellow = Dorian, purple = blues, red = minor, green = major, orange = pentatonic. Hover any dot for title, artist, rating, key, and mode. Reveals whether your highest-rated tracks cluster in particular keys or modes (Dorian is your documented anchor).</p>
           <div class="constellation-wrap" style="height:380px">
             <canvas id="cofCanvas"></canvas>
             <div class="constellation-tip" id="cof-tip"></div>
@@ -663,6 +745,7 @@
               <p class="panel-note">Spotify popularity vs your personal rating</p>
             </div>
           </div>
+          <p class="panel-desc"><strong>X axis</strong> = Spotify popularity score (0–100, from <code>audio_features.popularity</code>) — a crowd consensus measure based on recent streams. <strong>Y axis</strong> = your personal rating (1–10). <strong>Blue dots</strong> = you roughly agree with the mainstream. <strong>Yellow dots</strong> = significant divergence (your rating vs. popularity differ by more than 35% of their respective scales). Tracks in the <strong>top-left</strong> are hidden gems you love that the world undervalues. Tracks in the <strong>bottom-right</strong> are popular but didn't land for you. Only tracks with a Spotify popularity score are shown.</p>
           <div class="chart-shell tall"><canvas id="tasteVsWorldChart"></canvas></div>
         </div>
       </article>
@@ -675,6 +758,7 @@
               <p class="panel-note">Each block is a track — width = duration, color = rating</p>
             </div>
           </div>
+          <p class="panel-desc">Only artists with <strong>3 or more rated tracks</strong> appear here, sorted by average rating (highest first). Each <strong>block</strong> is a track: <strong>width</strong> scales with <code>audio_features.duration_s</code> relative to the longest track in the dataset (wider = longer song). <strong>Color tier</strong>: green = 9–10, blue = 7–8, yellow = 5–6, red = &lt;5. The number on the right is the artist's mean rating across all their logged tracks. Hover a block to see the title and score. Useful for spotting within-artist variance — an artist with mixed colors has a wide range; a solid-green row is a consistent favorite.</p>
           <div id="artist-journeys"></div>
         </div>
       </article>
@@ -682,12 +766,18 @@
       <article class="panel span-6">
         <div class="panel-inner">
           <div class="panel-header">
-            <div>
-              <h2>Mood × Rating</h2>
-              <p class="panel-note">Which moods show up at each rating level</p>
-            </div>
+            <button class="accordion-toggle" id="mood-toggle" aria-expanded="false" aria-controls="mood-body">
+              <div>
+                <h2>Mood × Rating</h2>
+                <p class="panel-note">Which moods show up at each rating level</p>
+              </div>
+              <span class="accordion-arrow" aria-hidden="true">▼</span>
+            </button>
           </div>
-          <div id="mood-rating-grid"></div>
+          <div class="accordion-body collapsed" id="mood-body">
+            <p class="panel-desc">A cross-tab of <strong>mood tags</strong> (rows) vs <strong>rating buckets</strong> (columns: 2–3, 4–5, 6–7, 8–9, 10). Each cell shows how many of your tracks carry that mood and fall in that rating range. <strong>Green</strong> = high-rating bucket (8–10). <strong>Blue</strong> = mid-range (6–7). <strong>Red</strong> = low-range (2–5). Darker shading = more tracks. Read across a row to see if a mood consistently predicts high or low scores — that's direct signal for the model. Moods that appear almost exclusively in the green columns are strong positive predictors; moods spread across all columns carry less information.</p>
+            <div id="mood-rating-grid"></div>
+          </div>
         </div>
       </article>
 
@@ -1553,6 +1643,37 @@
       container.innerHTML = markup;
     }
 
+    (function () {
+      const toggle = document.getElementById('mood-toggle');
+      const body = document.getElementById('mood-body');
+      if (!toggle || !body) return;
+
+      function open() {
+        body.classList.remove('collapsed');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function close() {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          body.classList.add('collapsed');
+        });
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', () => {
+        toggle.getAttribute('aria-expanded') === 'true' ? close() : open();
+      });
+
+      // Re-measure after renderMoodRating populates the content
+      const observer = new MutationObserver(() => {
+        if (toggle.getAttribute('aria-expanded') === 'true') {
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+      observer.observe(body, { childList: true, subtree: true });
+    })();
   </script>
 </body>
 </html>
