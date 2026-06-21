@@ -438,6 +438,12 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "replayability": t.get("replayability"),
             "primary_instrument": t.get("primary_instrument"),
             "label": t.get("label"),
+            "harmonic_complexity": t.get("harmonic_complexity"),
+            "discovered_from": t.get("discovered_from"),
+            "ensemble_size": len(t.get("instrumentation") or []),
+            "is_pianoless": int("piano" not in " ".join(t.get("instrumentation") or []).lower()),
+            "has_vocals": int("vocal" in " ".join(t.get("instrumentation") or []).lower()),
+            "has_guitar": int("guitar" in " ".join(t.get("instrumentation") or []).lower()),
         })
     return results
 

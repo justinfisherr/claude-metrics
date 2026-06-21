@@ -662,10 +662,146 @@
       color: var(--muted);
       font-size: 0.67rem;
     }
+
+    /* ── Section nav ── */
+    .section-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px clamp(14px, 3vw, 28px);
+      background: rgba(7, 17, 31, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-search {
+      flex-shrink: 0;
+      width: 140px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(74, 158, 255, 0.06);
+      color: var(--text);
+      font-size: 0.78rem;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .nav-search::placeholder { color: var(--muted-2); }
+    .nav-search:focus {
+      border-color: var(--border-strong);
+      background: rgba(74, 158, 255, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 5px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.5);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.14s, color 0.14s, border-color 0.14s;
+    }
+
+    .nav-link:hover {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+      color: var(--accent);
+    }
+
+    .nav-link.nav-hidden { display: none; }
+
+    /* ── Misses table ── */
+    .misses-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .misses-table th {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .misses-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(93, 155, 224, 0.08);
+      color: var(--text);
+    }
+
+    .misses-table tr:last-child td { border-bottom: none; }
+
+    .miss-diff {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .miss-diff.over { color: var(--bad); }
+    .miss-diff.under { color: var(--warning); }
+
+    @media (max-width: 640px) {
+      .nav-search { width: 100px; }
+    }
   </style>
 </head>
 
 <body>
+  <nav class="section-nav" aria-label="Jump to section">
+    <input class="nav-search" id="nav-search" type="search" placeholder="Search…" aria-label="Filter sections">
+    <div class="nav-links" role="list">
+      <a class="nav-link" href="#metrics-panel">Model Performance</a>
+      <a class="nav-link" href="#clusters-panel">Taste Clusters</a>
+      <a class="nav-link" href="#importance-panel">Feature Importance</a>
+      <a class="nav-link" href="#pred-actual-panel">Predicted vs Actual</a>
+      <a class="nav-link" href="#distribution-panel">Rating Distribution</a>
+      <a class="nav-link" href="#radar-panel">Cluster Profiles</a>
+      <a class="nav-link" href="#correlations-panel">Correlations</a>
+      <a class="nav-link" href="#constellation-panel">Constellation</a>
+      <a class="nav-link" href="#cof-panel">Circle of Fifths</a>
+      <a class="nav-link" href="#taste-world-panel">Taste vs World</a>
+      <a class="nav-link" href="#artist-journeys-panel">Artist Journeys</a>
+      <a class="nav-link" href="#mood-rating-panel">Mood × Rating</a>
+      <a class="nav-link" href="#replayability-panel">Replayability</a>
+      <a class="nav-link" href="#hof-panel">Hall of Fame</a>
+      <a class="nav-link" href="#year-rating-panel">Year vs Rating</a>
+      <a class="nav-link" href="#duration-rating-panel">Duration vs Rating</a>
+      <a class="nav-link" href="#instrument-panel">By Instrument</a>
+      <a class="nav-link" href="#label-panel">Label Breakdown</a>
+      <a class="nav-link" href="#misses-panel">Biggest Misses</a>
+      <a class="nav-link" href="#top-artists-panel">Top Artists</a>
+      <a class="nav-link" href="#era-panel">Era Breakdown</a>
+      <a class="nav-link" href="#harmonic-panel">Harmonic Complexity</a>
+      <a class="nav-link" href="#discovery-panel">Discovery Source</a>
+      <a class="nav-link" href="#sound-panel">Sound Profile</a>
+      <a class="nav-link" href="#ensemble-panel">Ensemble Size</a>
+      <a class="nav-link" href="#history-panel">Model Over Time</a>
+    </div>
+  </nav>
   <main class="wrapper">
     <header class="page-header">
       <p class="eyebrow">Taste model dashboard</p>
@@ -692,7 +828,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="clusters-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -706,7 +842,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="importance-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -719,7 +855,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="pred-actual-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -732,7 +868,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="distribution-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -745,7 +881,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="radar-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -758,7 +894,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="correlations-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -771,7 +907,7 @@
         </div>
       </article>
 
-      <article class="panel span-12">
+      <article class="panel span-12" id="constellation-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -787,7 +923,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="cof-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -803,7 +939,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="taste-world-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -816,7 +952,7 @@
         </div>
       </article>
 
-      <article class="panel span-12">
+      <article class="panel span-12" id="artist-journeys-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -829,7 +965,7 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="mood-rating-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <button class="accordion-toggle" id="mood-toggle" aria-expanded="false" aria-controls="mood-body">
@@ -847,20 +983,21 @@
         </div>
       </article>
 
-      <article class="panel span-6">
+      <article class="panel span-6" id="replayability-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
               <h2>Replayability vs Rating</h2>
-              <p class="panel-note">How likely to replay vs how good it is — divergences reveal guilty pleasures and one-listen wonders</p>
+              <p class="panel-note">Average rating grouped by how often you'd replay a track</p>
             </div>
           </div>
-          <div class="chart-shell tall"><canvas id="replayChart"></canvas></div>
+          <p class="panel-desc">Bars show your average rating for tracks tagged <code>low</code>, <code>medium</code>, or <code>high</code> replayability. <strong>Divergence is the signal</strong> — a track you rate highly but mark low-replay is a one-listen masterpiece; a low-rated track you keep returning to is a guilty pleasure. Set <code>replayability</code> when logging tracks to populate this panel.</p>
+          <div class="chart-shell"><canvas id="replayChart"></canvas></div>
         </div>
       </article>
 
       <!-- Hall of Fame -->
-      <article class="panel span-12">
+      <article class="panel span-12" id="hof-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -874,7 +1011,7 @@
       </article>
 
       <!-- Year vs Rating -->
-      <article class="panel span-6">
+      <article class="panel span-6" id="year-rating-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -888,7 +1025,7 @@
       </article>
 
       <!-- Duration vs Rating -->
-      <article class="panel span-6">
+      <article class="panel span-6" id="duration-rating-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -902,7 +1039,7 @@
       </article>
 
       <!-- Rating by Instrument -->
-      <article class="panel span-6">
+      <article class="panel span-6" id="instrument-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -916,7 +1053,7 @@
       </article>
 
       <!-- Label Breakdown -->
-      <article class="panel span-6">
+      <article class="panel span-6" id="label-panel">
         <div class="panel-inner">
           <div class="panel-header">
             <div>
@@ -926,6 +1063,101 @@
           </div>
           <p class="panel-desc">Average rating per record label, for labels with at least 2 logged tracks. Bar color intensity reflects average score; track count is shown on each bar. Answers whether your intuition about certain labels (Blue Note, Impulse!, Prestige) actually predicts quality for you — or if it's just the artists on those labels doing the work.</p>
           <div class="chart-shell"><canvas id="labelChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Biggest Misses -->
+      <article class="panel span-12" id="misses-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Biggest Misses</h2>
+              <p class="panel-note">Tracks the model got most wrong</p>
+            </div>
+          </div>
+          <p class="panel-desc">The 8 tracks with the largest <strong>absolute residual</strong> (actual − predicted). <strong>Over-predicted</strong> <span style="color:var(--bad)">▲</span> means the model thought you'd rate it higher than you did — the track has the right features on paper but didn't land. <strong>Under-predicted</strong> <span style="color:var(--warning)">▼</span> means the model underestimated it — probably because the features don't capture why you loved it (e.g., a specific moment, a personal memory). These are your best clues for adding new features.</p>
+          <div id="misses-container"></div>
+        </div>
+      </article>
+
+      <!-- Top Artists + Era Breakdown -->
+      <article class="panel span-6" id="top-artists-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Top Artists</h2>
+              <p class="panel-note">Average rating per artist (2+ tracks)</p>
+            </div>
+          </div>
+          <p class="panel-desc">Artists with at least <strong>2 rated tracks</strong>, sorted by average score. Bar width = average rating; number on the right = track count. Shows who you consistently love vs. who you return to hoping it clicks. An artist with a high average and many tracks is a proven anchor; an artist with a high average but only 2–3 tracks is worth exploring more.</p>
+          <div class="chart-shell tall"><canvas id="topArtistsChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="era-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Era Breakdown</h2>
+              <p class="panel-note">Average rating by jazz era</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating grouped by musical <strong>era</strong> — Bebop, Hard Bop, Cool Jazz, Modal, Post-Bop, Swing. Bar intensity reflects average score; track count is shown per bar. Shows where in jazz history your taste lives and which eras you've barely explored. Modal and Hard Bop dominate your dataset; this shows whether that preference actually maps to higher scores.</p>
+          <div class="chart-shell tall"><canvas id="eraChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Harmonic Complexity + Discovery Source -->
+      <article class="panel span-6" id="harmonic-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Harmonic Complexity</h2>
+              <p class="panel-note">Average rating by low / medium / high complexity</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating for tracks tagged <code>low</code>, <code>medium</code>, or <code>high</code> <strong>harmonic complexity</strong>. Tests whether you prefer cerebral harmony or simpler, groove-first structures. If high-complexity tracks consistently rate higher, that's a strong signal to weight the <code>harmonic_complexity</code> feature more in recommendations. Track count shown per bar.</p>
+          <div class="chart-shell"><canvas id="harmonicChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="discovery-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Discovery Source</h2>
+              <p class="panel-note">Do Claude recommendations land better than self-finds?</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating by how the track was discovered: <code>self</code> (you found it), <code>claude-recommendation</code> (I suggested it), or <code>autoplay</code> (happened upon it). The <strong>honest test</strong> of recommendation quality — if Claude-recommended tracks consistently score higher than self-discovered, the model is outperforming your browse habits. If not, it's directional data to improve the system.</p>
+          <div class="chart-shell"><canvas id="discoveryChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Sound Profile + Ensemble Size -->
+      <article class="panel span-6" id="sound-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Sound Profile</h2>
+              <p class="panel-note">Average rating by instrumentation features</p>
+            </div>
+          </div>
+          <p class="panel-desc">Compares average rating across binary instrumentation features — <strong>piano present vs. absent</strong>, <strong>vocals vs. instrumental</strong>, <strong>guitar vs. no guitar</strong>. Each pair tells a story: if pianoless tracks rate significantly higher, that's a genuine taste signal; if ratings are similar, the piano/no-piano distinction isn't meaningful for you. These map directly to <code>is_pianoless</code>, <code>has_vocals</code>, and <code>has_guitar</code> model features.</p>
+          <div class="chart-shell"><canvas id="soundProfileChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="ensemble-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Ensemble Size vs Rating</h2>
+              <p class="panel-note">Do you prefer small groups or large ensembles?</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = number of instruments listed in <code>instrumentation</code> (proxy for ensemble size: 2 = duo, 4 = quartet, 8+ = big band). <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Reveals whether your ratings systematically favor the intimacy of small combos or the richness of larger groups. Hover any dot for the track name.</p>
+          <div class="chart-shell"><canvas id="ensembleChart"></canvas></div>
         </div>
       </article>
 
@@ -1064,6 +1296,13 @@
         renderDurationRating(data);
         renderInstrumentRatings(data);
         renderLabelRatings(data);
+        renderBiggestMisses(data);
+        renderTopArtists(data);
+        renderEraRatings(data);
+        renderHarmonicComplexity(data);
+        renderDiscoverySource(data);
+        renderSoundProfile(data);
+        renderEnsembleSize(data);
         renderHistory(data);
         setStatus('Dashboard loaded');
       })
@@ -1686,58 +1925,409 @@
     }
 
     function renderReplayability(data) {
+      const ctx = document.getElementById('replayChart');
+      if (!ctx) return;
       const predictions = data?.predictions || [];
       const pts = predictions.filter(p => p.replayability != null);
-      if (!pts.length) return;
 
-      const datasets = [];
+      if (!pts.length) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No replayability data yet — set <code>high</code>, <code>medium</code>, or <code>low</code> when logging tracks.</div>';
+        return;
+      }
+
+      const levels = ['low', 'medium', 'high'];
+      const groups = {};
+      levels.forEach(l => { groups[l] = []; });
+      pts.forEach(p => { if (groups[p.replayability]) groups[p.replayability].push(p.actual); });
+
+      const counts = levels.map(l => groups[l].length);
+      const avgs = levels.map(l => groups[l].length
+        ? Math.round(groups[l].reduce((s, r) => s + r, 0) / groups[l].length * 100) / 100
+        : null);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Low', 'Medium', 'High'],
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: ['rgba(255,107,107,0.65)', 'rgba(255,193,68,0.65)', 'rgba(80,200,120,0.65)'],
+            borderColor: ['rgba(255,107,107,1)', 'rgba(255,193,68,1)', 'rgba(80,200,120,1)'],
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      });
+    }
+
+    function renderBiggestMisses(data) {
+      const container = document.getElementById('misses-container');
+      if (!container) return;
+      const predictions = data?.predictions || [];
+
+      const sorted = [...predictions]
+        .sort((a, b) => Math.abs(b.residual) - Math.abs(a.residual))
+        .slice(0, 8);
+
+      if (!sorted.length) {
+        container.innerHTML = '<div class="empty-state">No prediction data.</div>';
+        return;
+      }
+
+      let m = '<table class="misses-table"><thead><tr><th>Track</th><th>Artist</th><th>Actual</th><th>Predicted</th><th>Diff</th></tr></thead><tbody>';
+      sorted.forEach(p => {
+        const diff = p.residual;
+        const sign = diff > 0 ? '+' : '';
+        const cls = diff > 0 ? 'under' : 'over';
+        const arrow = diff > 0 ? '▼' : '▲';
+        m += `<tr>
+          <td>${html(p.title)}</td>
+          <td style="color:var(--muted)">${html(p.artist)}</td>
+          <td style="font-weight:800">${p.actual}</td>
+          <td style="color:var(--muted)">${p.predicted}</td>
+          <td><span class="miss-diff ${cls}">${arrow} ${sign}${Math.abs(diff).toFixed(1)}</span></td>
+        </tr>`;
+      });
+      m += '</tbody></table>';
+      container.innerHTML = m;
+    }
+
+    function renderTopArtists(data) {
+      const ctx = document.getElementById('topArtistsChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const groups = {};
+      predictions.forEach(p => {
+        groups[p.artist] = groups[p.artist] || [];
+        groups[p.artist].push(p.actual);
+      });
+      const sorted = Object.entries(groups)
+        .filter(([, r]) => r.length >= 2)
+        .map(([artist, ratings]) => ({
+          artist,
+          avg: ratings.reduce((s, r) => s + r, 0) / ratings.length,
+          count: ratings.length,
+        }))
+        .sort((a, b) => b.avg - a.avg);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.artist),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 6,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      });
+    }
+
+    function renderEraRatings(data) {
+      const ctx = document.getElementById('eraChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.era || p.era === 'Unknown') return;
+        groups[p.era] = groups[p.era] || [];
+        groups[p.era].push(p.actual);
+      });
+      const sorted = Object.entries(groups)
+        .map(([era, ratings]) => ({
+          era,
+          avg: ratings.reduce((s, r) => s + r, 0) / ratings.length,
+          count: ratings.length,
+        }))
+        .sort((a, b) => b.avg - a.avg);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.era),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 6,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      });
+    }
+
+    function renderHarmonicComplexity(data) {
+      const ctx = document.getElementById('harmonicChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const levels = ['low', 'medium', 'high'];
+      const groups = {};
+      levels.forEach(l => { groups[l] = []; });
+      predictions.forEach(p => {
+        const k = (p.harmonic_complexity || '').toLowerCase();
+        if (groups[k]) groups[k].push(p.actual);
+      });
+      const counts = levels.map(l => groups[l].length);
+      const avgs = levels.map(l => groups[l].length
+        ? Math.round(groups[l].reduce((s, r) => s + r, 0) / groups[l].length * 100) / 100
+        : null);
+
+      if (counts.every(c => c === 0)) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No harmonic complexity data yet.</div>';
+        return;
+      }
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Low', 'Medium', 'High'],
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: ['rgba(74,158,255,0.55)', 'rgba(178,117,255,0.55)', 'rgba(80,200,120,0.55)'],
+            borderColor: ['rgba(74,158,255,1)', 'rgba(178,117,255,1)', 'rgba(80,200,120,1)'],
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      });
+    }
+
+    function renderDiscoverySource(data) {
+      const ctx = document.getElementById('discoveryChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const sources = ['self', 'claude-recommendation', 'autoplay'];
+      const labels = ['Self-found', 'Claude Pick', 'Autoplay'];
+      const groups = {};
+      sources.forEach(s => { groups[s] = []; });
+      predictions.forEach(p => {
+        const src = p.discovered_from || 'self';
+        if (groups[src]) groups[src].push(p.actual);
+      });
+      const counts = sources.map(s => groups[s].length);
+      const avgs = sources.map(s => groups[s].length
+        ? Math.round(groups[s].reduce((a, r) => a + r, 0) / groups[s].length * 100) / 100
+        : null);
+
+      if (counts.every(c => c === 0)) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No discovery source data yet.</div>';
+        return;
+      }
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: ['rgba(74,158,255,0.65)', 'rgba(80,200,120,0.65)', 'rgba(255,193,68,0.65)'],
+            borderColor: ['rgba(74,158,255,1)', 'rgba(80,200,120,1)', 'rgba(255,193,68,1)'],
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      });
+    }
+
+    function renderSoundProfile(data) {
+      const ctx = document.getElementById('soundProfileChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      if (!predictions.length) return;
+
+      const pairs = [
+        { label: 'Has Piano', filter: p => !p.is_pianoless },
+        { label: 'No Piano', filter: p => !!p.is_pianoless },
+        { label: 'Has Vocals', filter: p => !!p.has_vocals },
+        { label: 'Instrumental', filter: p => !p.has_vocals },
+        { label: 'Has Guitar', filter: p => !!p.has_guitar },
+        { label: 'No Guitar', filter: p => !p.has_guitar },
+      ];
+
+      const colors = [
+        'rgba(74,158,255,0.65)', 'rgba(74,158,255,0.3)',
+        'rgba(80,200,120,0.65)', 'rgba(80,200,120,0.3)',
+        'rgba(255,193,68,0.65)', 'rgba(255,193,68,0.3)',
+      ];
+
+      const avgs = pairs.map(({ filter }) => {
+        const group = predictions.filter(filter);
+        return group.length
+          ? Math.round(group.reduce((s, p) => s + p.actual, 0) / group.length * 100) / 100
+          : null;
+      });
+      const counts = pairs.map(({ filter }) => predictions.filter(filter).length);
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: pairs.map(p => p.label),
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: colors,
+            borderColor: colors.map(c => c.replace(/[\d.]+\)$/, '1)')),
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      });
+    }
+
+    function renderEnsembleSize(data) {
+      const ctx = document.getElementById('ensembleChart');
+      if (!ctx) return;
+      const predictions = (data?.predictions || []).filter(p => p.ensemble_size > 0);
+
+      if (!predictions.length) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No instrumentation data yet.</div>';
+        return;
+      }
+
       const k = data?.clusters?.best_k || 1;
+      const datasets = [];
       for (let c = 0; c < k; c++) {
-        const cluster = pts.filter(p => p.cluster === c);
+        const pts = predictions.filter(p => p.cluster === c);
+        const profiles = (data?.clusters?.cluster_profiles || []);
+        const label = profiles[c]?.top_moods?.slice(0, 2).join(', ') || `Cluster ${c + 1}`;
         datasets.push({
-          label: `Cluster ${c}`,
-          data: cluster.map(p => ({ x: p.replayability, y: p.actual, title: p.title, artist: p.artist })),
-          backgroundColor: CLUSTER_COLORS[c % CLUSTER_COLORS.length],
-          pointRadius: 5,
-          pointHoverRadius: 8,
+          label,
+          data: pts.map(p => ({ x: p.ensemble_size, y: p.actual, title: p.title, artist: p.artist })),
+          backgroundColor: colorFor(c),
+          borderColor: colorFor(c),
+          pointRadius: IS_MOBILE ? 4 : 5,
+          pointHoverRadius: IS_MOBILE ? 7 : 8,
         });
       }
 
-      // diagonal reference line
-      datasets.push({
-        label: 'Perfect correlation',
-        data: [{ x: 1, y: 1 }, { x: 10, y: 10 }],
-        type: 'line',
-        borderColor: 'rgba(255,255,255,0.15)',
-        borderDash: [6, 4],
-        borderWidth: 1,
-        pointRadius: 0,
-        fill: false,
-      });
-
-      new Chart(document.getElementById('replayChart'), {
+      new Chart(ctx, {
         type: 'scatter',
         data: { datasets },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: { title: { display: true, text: 'Replayability', color: '#87a2c3' }, min: 0.5, max: 10.5, grid: { color: 'rgba(93,155,224,0.08)' }, ticks: { color: '#87a2c3' } },
-            y: { title: { display: true, text: 'Rating', color: '#87a2c3' }, min: 0.5, max: 10.5, grid: { color: 'rgba(93,155,224,0.08)' }, ticks: { color: '#87a2c3' } },
-          },
+        options: chartOptions({
           plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: ctx => {
-                  const d = ctx.raw;
-                  if (!d.title) return '';
-                  return `${d.title} — ${d.artist} | Replay: ${d.x}, Rating: ${d.y}`;
-                }
-              }
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · ${c.raw.x} instruments · ${c.raw.y}/10`
+            }}
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Ensemble Size (instruments)', color: GR.label, font: { weight: 800 } },
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: {
+              title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } },
+              min: 1, max: 10,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
             }
           }
-        }
+        })
       });
     }
 
@@ -2001,6 +2591,19 @@
         }
       });
       observer.observe(body, { childList: true, subtree: true });
+    })();
+
+    // Section nav search
+    (function () {
+      const input = document.getElementById('nav-search');
+      if (!input) return;
+      const links = document.querySelectorAll('.nav-link');
+      input.addEventListener('input', () => {
+        const q = input.value.toLowerCase().trim();
+        links.forEach(link => {
+          link.classList.toggle('nav-hidden', !!q && !link.textContent.toLowerCase().includes(q));
+        });
+      });
     })();
   </script>
 </body>
