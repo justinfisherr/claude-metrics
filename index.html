@@ -985,7 +985,7 @@
               <p class="panel-note">Most influential model features</p>
             </div>
           </div>
-          <p class="panel-desc">Shows which input variables drive the model's predictions most. <strong>Green bars</strong> = feature pushes predicted rating up. <strong>Red bars</strong> = pushes it down. Importance is normalized 0–1 relative to the top feature. Key feature families: <code>era_*</code> (musical era like Modal or Hard Bop), <code>mood_*</code> (tagged mood like romantic or bluesy), <code>inst_*</code> (primary instrument group), <code>subgenre_*</code> (tagged subgenre), <code>artist_mean_rating</code> (your average rating for other tracks by the same artist), <code>energy</code> (1–10 scale), <code>tempo</code> (slow→fast mapped 1–4), <code>harmonic_complexity</code> (low/med/high → 1–3), and <code>replayability</code> (low/med/high → 1–3).</p>
+          <p class="panel-desc">Shows which input variables drive the model's predictions most. <strong>Green bars</strong> = feature pushes predicted rating up. <strong>Red bars</strong> = pushes it down. Importance is normalized 0–1 relative to the top feature. Key feature families: <code>era_*</code> (musical era like Modal or Hard Bop), <code>mood_*</code> (tagged mood like romantic or bluesy), <code>inst_*</code> (primary instrument group), <code>subgenre_*</code> (tagged subgenre), <code>artist_mean_rating</code> (your average rating for other tracks by the same artist), <code>energy</code> (1–10 scale), <code>tempo</code> (slow→fast mapped 1–4), <code>harmonic_complexity</code> (low/med/high → 1–3), and <code>replayability</code> (1–10 scale).</p>
           <div class="chart-shell tall"><canvas id="importanceChart"></canvas></div>
         </div>
       </article>
@@ -1126,7 +1126,7 @@
               <p class="panel-note">Average rating grouped by how often you'd replay a track</p>
             </div>
           </div>
-          <p class="panel-desc">Bars show your average rating for tracks tagged <code>low</code>, <code>medium</code>, or <code>high</code> replayability. <strong>Divergence is the signal</strong> — a track you rate highly but mark low-replay is a one-listen masterpiece; a low-rated track you keep returning to is a guilty pleasure. Set <code>replayability</code> when logging tracks to populate this panel.</p>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = replayability (1–10). <strong>Y axis</strong> = your rating. Tracks on the diagonal line are perfectly aligned — you rate them as much as you'd replay them. <strong>Above the line</strong> = one-listen masterpieces (rated high, wouldn't replay). <strong>Below the line</strong> = guilty pleasures (replay more than the rating suggests). Hover any dot for the title.</p>
           <div class="chart-shell"><canvas id="replayChart"></canvas></div>
         </div>
       </article>
@@ -2094,50 +2094,47 @@
       const ctx = document.getElementById('replayChart');
       if (!ctx) return;
       const predictions = data?.predictions || [];
-      const pts = predictions.filter(p => p.replayability != null);
+      const pts = predictions.filter(p => p.replayability != null && typeof p.replayability === 'number');
 
       if (!pts.length) {
-        ctx.parentElement.innerHTML = '<div class="empty-state">No replayability data yet — set <code>high</code>, <code>medium</code>, or <code>low</code> when logging tracks.</div>';
+        ctx.parentElement.innerHTML = '<div class="empty-state">No replayability data yet.</div>';
         return;
       }
 
-      const levels = ['low', 'medium', 'high'];
-      const groups = {};
-      levels.forEach(l => { groups[l] = []; });
-      pts.forEach(p => { if (groups[p.replayability]) groups[p.replayability].push(p.actual); });
-
-      const counts = levels.map(l => groups[l].length);
-      const avgs = levels.map(l => groups[l].length
-        ? Math.round(groups[l].reduce((s, r) => s + r, 0) / groups[l].length * 100) / 100
-        : null);
-
       new Chart(ctx, {
-        type: 'bar',
+        type: 'scatter',
         data: {
-          labels: ['Low', 'Medium', 'High'],
-          datasets: [{
-            label: 'Avg Rating',
-            data: avgs,
-            backgroundColor: ['rgba(255,107,107,0.65)', 'rgba(255,193,68,0.65)', 'rgba(80,200,120,0.65)'],
-            borderColor: ['rgba(255,107,107,1)', 'rgba(255,193,68,1)', 'rgba(80,200,120,1)'],
-            borderWidth: 1.5,
-            borderRadius: 8,
-            borderSkipped: false,
-          }]
+          datasets: [
+            {
+              label: 'Tracks',
+              data: pts.map(p => ({ x: p.replayability, y: p.actual, title: p.title, artist: p.artist })),
+              backgroundColor: pts.map(p => colorFor(p.cluster)),
+              borderColor: pts.map(p => colorFor(p.cluster)),
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            },
+            {
+              label: 'Diagonal',
+              data: [{ x: 1, y: 1 }, { x: 10, y: 10 }],
+              type: 'line',
+              borderColor: 'rgba(255,255,255,0.12)',
+              borderDash: [6, 4],
+              borderWidth: 1,
+              pointRadius: 0,
+              pointHoverRadius: 0,
+            }
+          ]
         },
         options: chartOptions({
           plugins: {
             legend: { display: false },
-            tooltip: { ...basePlugins.tooltip, callbacks: {
-              label: c => {
-                const i = c.dataIndex;
-                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
-              }
+            tooltip: { ...basePlugins.tooltip, filter: c => c.datasetIndex === 0, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · Rating: ${c.raw.y}/10 · Replay: ${c.raw.x}/10`
             }}
           },
           scales: {
-            x: { grid: { display: false }, ticks: { color: GR.text, font: { weight: 700 } } },
-            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+            x: { title: { display: true, text: 'Replayability', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
           }
         })
       });
