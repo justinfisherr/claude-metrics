@@ -27,7 +27,6 @@ MODEL_PATH = SCRIPT_DIR / "model.joblib"
 
 TEMPO_MAP = {"slow": 1, "medium": 2, "medium-fast": 3, "fast": 4, "varied": 2.5}
 COMPLEXITY_MAP = {"low": 1, "medium": 2, "high": 3}
-REPLAYABILITY_MAP = {"low": 1, "medium": 2, "high": 3}
 INSTRUMENT_GROUPS = {
     "tenor saxophone": "tenor_sax", "saxophone": "tenor_sax",
     "soprano saxophone": "tenor_sax", "alto saxophone": "tenor_sax",
@@ -85,9 +84,7 @@ def engineer_features(tracks):
         row["year"] = t.get("year") or 1960
         row["tempo"] = TEMPO_MAP.get(t.get("tempo", "medium"), 2.5)
         row["harmonic_complexity"] = COMPLEXITY_MAP.get(t.get("harmonic_complexity", "medium"), 2)
-        replay = t.get("replayability")
-        row["replayability"] = REPLAYABILITY_MAP.get(replay, 0)
-        row["has_replayability"] = 1 if replay is not None else 0
+        row["replayability"] = t.get("replayability", 5)
 
         track_era = t.get("era", "Unknown")
         for era in eras:
@@ -175,6 +172,7 @@ def readable_name(feat):
         "is_pianoless": "Pianoless",
         "has_trombone": "Has Trombone",
         "key_player_count": "Key Player Count",
+        "replayability": "Replayability",
         "has_favorite_moments": "Has Fav Moments",
         "duration_s": "Duration",
         "popularity": "Spotify Popularity",
@@ -434,6 +432,7 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "mode": audio.get("mode"),
             "duration_s": audio.get("duration_s"),
             "popularity": audio.get("popularity"),
+            "replayability": t.get("replayability"),
         })
     return results
 

@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generated_at": "2026-06-21T07:48:10.770297",
-    "total_tracks": 64,
+    "generated_at": "2026-06-21T01:06:36.713621",
+    "total_tracks": 62,
     "total_albums_excluded": 3,
     "mood_threshold": 3,
     "subgenre_threshold": 3,
     "best_model": "random_forest",
-    "feature_count": 78
+    "feature_count": 75
   },
   "models": {
     "ridge": {
-      "r_squared": 0.0159,
-      "rmse": 2.1482,
-      "mae": 1.6514,
+      "r_squared": 0.6991,
+      "rmse": 1.1892,
+      "mae": 0.932,
       "best_alpha": 0.01
     },
     "random_forest": {
-      "r_squared": 0.459,
-      "rmse": 1.5927,
-      "mae": 1.2317,
+      "r_squared": 0.9187,
+      "rmse": 0.6182,
+      "mae": 0.4474,
       "max_depth": 3,
       "n_estimators": 50
     }
@@ -28,12 +28,12 @@
       "title": "My Favorite Things",
       "artist": "John Coltrane",
       "actual": 10,
-      "predicted": 5.35,
-      "residual": 4.65,
+      "predicted": 9.35,
+      "residual": 0.65,
       "cluster": 0,
       "liked": true,
-      "pca_x": 1.8351,
-      "pca_y": -2.732,
+      "pca_x": 1.6726,
+      "pca_y": -2.8887,
       "year": 1961,
       "energy": 9,
       "tempo": "medium-fast",
@@ -45,18 +45,19 @@
       "key": "Em",
       "mode": "dorian",
       "duration_s": 824,
-      "popularity": 51
+      "popularity": 51,
+      "replayability": 10
     },
     {
       "title": "Love Theme from Spartacus",
       "artist": "Yusef Lateef",
       "actual": 10,
-      "predicted": 7.24,
-      "residual": 2.76,
+      "predicted": 9.34,
+      "residual": 0.66,
       "cluster": 1,
       "liked": true,
-      "pca_x": -2.9563,
-      "pca_y": 0.9893,
+      "pca_x": -2.9199,
+      "pca_y": 1.0786,
       "year": 1961,
       "energy": 2,
       "tempo": "slow",
@@ -69,18 +70,19 @@
       "key": "Bbm",
       "mode": "minor",
       "duration_s": 250,
-      "popularity": 11
+      "popularity": 11,
+      "replayability": 10
     },
     {
       "title": "So What",
       "artist": "Miles Davis",
       "actual": 10,
-      "predicted": 7.89,
-      "residual": 2.11,
-      "cluster": 1,
+      "predicted": 9.38,
+      "residual": 0.62,
+      "cluster": 0,
       "liked": true,
-      "pca_x": 0.8025,
-      "pca_y": -2.5965,
+      "pca_x": 0.5364,
+      "pca_y": -3.1278,
       "year": 1959,
       "energy": 4,
       "tempo": "medium",
@@ -93,18 +95,19 @@
       "key": "Dm",
       "mode": "dorian",
       "duration_s": 563,
-      "popularity": 65
+      "popularity": 65,
+      "replayability": 9
     },
     {
       "title": "Blue in Green",
       "artist": "Miles Davis",
       "actual": 8,
-      "predicted": 8.3,
-      "residual": -0.3,
+      "predicted": 6.77,
+      "residual": 1.23,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.7908,
-      "pca_y": -1.6682,
+      "pca_x": -1.9033,
+      "pca_y": -2.2806,
       "year": 1959,
       "energy": 2,
       "tempo": "slow",
@@ -117,18 +120,19 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 338,
-      "popularity": 68
+      "popularity": 68,
+      "replayability": 5
     },
     {
       "title": "Peace Piece",
       "artist": "Bill Evans",
       "actual": 9,
-      "predicted": 8.22,
-      "residual": 0.78,
+      "predicted": 7.91,
+      "residual": 1.09,
       "cluster": 1,
       "liked": true,
-      "pca_x": -3.0898,
-      "pca_y": -0.7632,
+      "pca_x": -3.125,
+      "pca_y": -0.6191,
       "year": 1958,
       "energy": 1,
       "tempo": "slow",
@@ -141,18 +145,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 404,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": 7
     },
     {
       "title": "A Single Petal of a Rose",
       "artist": "Duke Ellington",
       "actual": 7,
-      "predicted": 8.11,
-      "residual": -1.11,
+      "predicted": 6.89,
+      "residual": 0.11,
       "cluster": 1,
       "liked": true,
-      "pca_x": -3.5361,
-      "pca_y": -1.1649,
+      "pca_x": -3.5687,
+      "pca_y": -0.8504,
       "year": 1959,
       "energy": 1,
       "tempo": "slow",
@@ -165,18 +170,19 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 245,
-      "popularity": 52
+      "popularity": 52,
+      "replayability": 5
     },
     {
       "title": "Tezeta",
       "artist": "Mulatu Astatke",
       "actual": 9,
-      "predicted": 7.79,
-      "residual": 1.21,
+      "predicted": 9.53,
+      "residual": -0.53,
       "cluster": 1,
       "liked": true,
-      "pca_x": -0.6641,
-      "pca_y": -1.9019,
+      "pca_x": -0.6532,
+      "pca_y": -2.1025,
       "year": 1969,
       "energy": 6,
       "tempo": "medium",
@@ -189,18 +195,19 @@
       "key": "Am",
       "mode": "pentatonic",
       "duration_s": 369,
-      "popularity": 58
+      "popularity": 58,
+      "replayability": 10
     },
     {
       "title": "Moanin'",
       "artist": "Mingus Big Band",
       "actual": 9,
-      "predicted": 7.81,
-      "residual": 1.19,
+      "predicted": 8.93,
+      "residual": 0.07,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.1749,
-      "pca_y": -3.6541,
+      "pca_x": 4.0902,
+      "pca_y": -3.8848,
       "year": 1993,
       "energy": 9,
       "tempo": "fast",
@@ -213,18 +220,19 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 539,
-      "popularity": 51
+      "popularity": 51,
+      "replayability": 8
     },
     {
       "title": "All the Things You Are",
       "artist": "Dizzy Gillespie",
       "actual": 7,
-      "predicted": 7.86,
-      "residual": -0.86,
+      "predicted": 7.14,
+      "residual": -0.14,
       "cluster": 1,
       "liked": true,
-      "pca_x": 0.6122,
-      "pca_y": -5.3826,
+      "pca_x": 0.3944,
+      "pca_y": -4.6234,
       "year": 1945,
       "energy": 8,
       "tempo": "fast",
@@ -237,18 +245,19 @@
       "key": "Ab",
       "mode": "major",
       "duration_s": 170,
-      "popularity": 42
+      "popularity": 42,
+      "replayability": 6
     },
     {
       "title": "It Never Entered My Mind",
       "artist": "Miles Davis",
       "actual": 9,
-      "predicted": 8.38,
-      "residual": 0.62,
+      "predicted": 8.94,
+      "residual": 0.06,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.0849,
-      "pca_y": 0.0789,
+      "pca_x": -1.0679,
+      "pca_y": -0.4871,
       "year": 1956,
       "energy": 2,
       "tempo": "slow",
@@ -262,18 +271,19 @@
       "key": "F",
       "mode": "major",
       "duration_s": 323,
-      "popularity": 62
+      "popularity": 62,
+      "replayability": 8
     },
     {
       "title": "Goodbye Pork Pie Hat",
       "artist": "Charles Mingus",
       "actual": 10,
-      "predicted": 8.14,
-      "residual": 1.86,
-      "cluster": 1,
+      "predicted": 9.37,
+      "residual": 0.63,
+      "cluster": 0,
       "liked": true,
-      "pca_x": 0.8108,
-      "pca_y": 0.6727,
+      "pca_x": 0.963,
+      "pca_y": -0.1143,
       "year": 1959,
       "energy": 2,
       "tempo": "slow",
@@ -287,18 +297,19 @@
       "key": "Db",
       "mode": "blues",
       "duration_s": 344,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": 9
     },
     {
       "title": "Blue Train",
       "artist": "John Coltrane",
       "actual": 8,
-      "predicted": 8.33,
-      "residual": -0.33,
+      "predicted": 8.04,
+      "residual": -0.04,
       "cluster": 0,
       "liked": true,
-      "pca_x": 5.1979,
-      "pca_y": -0.6227,
+      "pca_x": 5.2475,
+      "pca_y": -1.0811,
       "year": 1957,
       "energy": 7,
       "tempo": "medium-fast",
@@ -312,18 +323,19 @@
       "key": "Eb",
       "mode": "blues",
       "duration_s": 643,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": 7
     },
     {
       "title": "Laura",
       "artist": "Charlie Parker",
       "actual": 5,
-      "predicted": 8.03,
-      "residual": -3.03,
+      "predicted": 3.96,
+      "residual": 1.04,
       "cluster": 1,
       "liked": false,
-      "pca_x": -3.3857,
-      "pca_y": -1.5773,
+      "pca_x": -3.5315,
+      "pca_y": -0.6347,
       "year": 1950,
       "energy": 2,
       "tempo": "slow",
@@ -336,18 +348,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 180,
-      "popularity": 26
+      "popularity": 26,
+      "replayability": 2
     },
     {
       "title": "Moment's Notice",
       "artist": "John Coltrane",
       "actual": 6,
-      "predicted": 8.17,
-      "residual": -2.17,
+      "predicted": 4.87,
+      "residual": 1.13,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.8764,
-      "pca_y": -0.9092,
+      "pca_x": 4.7235,
+      "pca_y": -0.7983,
       "year": 1957,
       "energy": 9,
       "tempo": "fast",
@@ -360,18 +373,19 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 550,
-      "popularity": 49
+      "popularity": 49,
+      "replayability": 3
     },
     {
       "title": "God Bless the Child",
       "artist": "Sonny Rollins",
       "actual": 10,
-      "predicted": 8.33,
-      "residual": 1.67,
+      "predicted": 9.33,
+      "residual": 0.67,
       "cluster": 1,
       "liked": true,
-      "pca_x": -0.0715,
-      "pca_y": 3.5383,
+      "pca_x": 0.1488,
+      "pca_y": 2.8408,
       "year": 1956,
       "energy": 2,
       "tempo": "slow",
@@ -385,18 +399,19 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 449,
-      "popularity": 60
+      "popularity": 60,
+      "replayability": 9
     },
     {
       "title": "You Don't Know What Love Is",
       "artist": "Sonny Rollins",
       "actual": 6,
-      "predicted": 5.37,
-      "residual": 0.63,
+      "predicted": 4.93,
+      "residual": 1.07,
       "cluster": 1,
       "liked": false,
-      "pca_x": 0.3449,
-      "pca_y": 2.0621,
+      "pca_x": 0.2813,
+      "pca_y": 2.0459,
       "year": 1956,
       "energy": 2,
       "tempo": "slow",
@@ -408,18 +423,19 @@
       "key": "Fm",
       "mode": "minor",
       "duration_s": 389,
-      "popularity": 47
+      "popularity": 47,
+      "replayability": 3
     },
     {
       "title": "In a Sentimental Mood",
       "artist": "Sonny Rollins",
       "actual": 8,
-      "predicted": 7.24,
-      "residual": 0.76,
+      "predicted": 8.03,
+      "residual": -0.03,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.6495,
-      "pca_y": 5.9894,
+      "pca_x": -1.5783,
+      "pca_y": 6.2261,
       "year": 1962,
       "energy": 2,
       "tempo": "slow",
@@ -432,18 +448,19 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 325,
-      "popularity": 30
+      "popularity": 30,
+      "replayability": 7
     },
     {
       "title": "Where Are You?",
       "artist": "Sonny Rollins",
       "actual": 5,
-      "predicted": 7.67,
-      "residual": -2.67,
+      "predicted": 4.22,
+      "residual": 0.78,
       "cluster": 1,
       "liked": false,
-      "pca_x": -0.9279,
-      "pca_y": 5.6272,
+      "pca_x": -0.8232,
+      "pca_y": 6.0129,
       "year": 1962,
       "energy": 2,
       "tempo": "slow",
@@ -456,18 +473,19 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 311,
-      "popularity": 52
+      "popularity": 52,
+      "replayability": 2
     },
     {
       "title": "St. Thomas",
       "artist": "Sonny Rollins",
       "actual": 8,
-      "predicted": 7.81,
-      "residual": 0.19,
+      "predicted": 7.97,
+      "residual": 0.03,
       "cluster": 0,
       "liked": true,
-      "pca_x": 3.4101,
-      "pca_y": -0.1193,
+      "pca_x": 3.357,
+      "pca_y": -0.2252,
       "year": 1956,
       "energy": 7,
       "tempo": "medium-fast",
@@ -480,18 +498,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 408,
-      "popularity": 50
+      "popularity": 50,
+      "replayability": 7
     },
     {
       "title": "Strode Rode",
       "artist": "Sonny Rollins",
       "actual": 8,
-      "predicted": 7.44,
-      "residual": 0.56,
+      "predicted": 7.97,
+      "residual": 0.03,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.4425,
-      "pca_y": 0.0239,
+      "pca_x": 4.4666,
+      "pca_y": 0.0424,
       "year": 1956,
       "energy": 8,
       "tempo": "fast",
@@ -504,18 +523,19 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 315,
-      "popularity": 45
+      "popularity": 45,
+      "replayability": 7
     },
     {
       "title": "Moritat (Mack the Knife)",
       "artist": "Sonny Rollins",
       "actual": 7,
-      "predicted": 4.22,
-      "residual": 2.78,
+      "predicted": 6.88,
+      "residual": 0.12,
       "cluster": 0,
       "liked": true,
-      "pca_x": 3.4146,
-      "pca_y": 0.7575,
+      "pca_x": 3.3133,
+      "pca_y": 0.7917,
       "year": 1956,
       "energy": 6,
       "tempo": "medium",
@@ -527,18 +547,19 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 604,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": 5
     },
     {
       "title": "Blue 7",
       "artist": "Sonny Rollins",
       "actual": 4,
-      "predicted": 5.16,
-      "residual": -1.16,
+      "predicted": 4.25,
+      "residual": -0.25,
       "cluster": 0,
       "liked": false,
-      "pca_x": 3.2873,
-      "pca_y": 0.8562,
+      "pca_x": 2.9805,
+      "pca_y": 1.186,
       "year": 1956,
       "energy": 5,
       "tempo": "medium",
@@ -550,18 +571,19 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 678,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": 2
     },
     {
       "title": "Without a Song",
       "artist": "Sonny Rollins",
       "actual": 6.5,
-      "predicted": 5.52,
-      "residual": 0.98,
+      "predicted": 6.14,
+      "residual": 0.36,
       "cluster": 1,
       "liked": true,
-      "pca_x": 0.0329,
-      "pca_y": 4.4644,
+      "pca_x": -0.0333,
+      "pca_y": 4.9836,
       "year": 1962,
       "energy": 4,
       "tempo": "medium",
@@ -573,18 +595,19 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 449,
-      "popularity": 47
+      "popularity": 47,
+      "replayability": 4
     },
     {
       "title": "John S.",
       "artist": "Sonny Rollins",
       "actual": 3,
-      "predicted": 5.45,
-      "residual": -2.45,
+      "predicted": 3.46,
+      "residual": -0.46,
       "cluster": 0,
       "liked": false,
-      "pca_x": 1.8372,
-      "pca_y": 3.421,
+      "pca_x": 1.6991,
+      "pca_y": 4.1327,
       "year": 1962,
       "energy": 6,
       "tempo": "medium-fast",
@@ -596,18 +619,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 466,
-      "popularity": 39
+      "popularity": 39,
+      "replayability": 1
     },
     {
       "title": "The Bridge",
       "artist": "Sonny Rollins",
       "actual": 6,
-      "predicted": 7.37,
-      "residual": -1.37,
+      "predicted": 6.53,
+      "residual": -0.53,
       "cluster": 0,
       "liked": true,
-      "pca_x": 2.9007,
-      "pca_y": 3.1256,
+      "pca_x": 2.9061,
+      "pca_y": 3.7251,
       "year": 1962,
       "energy": 7,
       "tempo": "fast",
@@ -620,18 +644,19 @@
       "key": "F",
       "mode": "major",
       "duration_s": 359,
-      "popularity": 41
+      "popularity": 41,
+      "replayability": 4
     },
     {
       "title": "You Do Something to Me",
       "artist": "Sonny Rollins",
       "actual": 5,
-      "predicted": 4.75,
-      "residual": 0.25,
+      "predicted": 4.96,
+      "residual": 0.04,
       "cluster": 1,
       "liked": true,
-      "pca_x": -0.3954,
-      "pca_y": 4.6188,
+      "pca_x": -0.4617,
+      "pca_y": 5.3442,
       "year": 1962,
       "energy": 4,
       "tempo": "medium",
@@ -643,18 +668,19 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 409,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": 3
     },
     {
       "title": "Naima",
       "artist": "John Coltrane",
       "actual": 8,
-      "predicted": 8.23,
-      "residual": -0.23,
+      "predicted": 8.03,
+      "residual": -0.03,
       "cluster": 1,
       "liked": true,
-      "pca_x": -0.7964,
-      "pca_y": 3.3011,
+      "pca_x": -0.6729,
+      "pca_y": 2.721,
       "year": 1960,
       "energy": 2,
       "tempo": "slow",
@@ -668,18 +694,19 @@
       "key": "Ab",
       "mode": "major",
       "duration_s": 265,
-      "popularity": 62
+      "popularity": 62,
+      "replayability": 7
     },
     {
       "title": "Alabama",
       "artist": "John Coltrane",
       "actual": 6,
-      "predicted": 7.64,
-      "residual": -1.64,
+      "predicted": 6.56,
+      "residual": -0.56,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.0156,
-      "pca_y": 2.75,
+      "pca_x": -0.7835,
+      "pca_y": 2.3888,
       "year": 1963,
       "energy": 2,
       "tempo": "slow",
@@ -692,18 +719,19 @@
       "key": "Cm",
       "mode": "minor",
       "duration_s": 308,
-      "popularity": 55
+      "popularity": 55,
+      "replayability": 4
     },
     {
       "title": "Equinox",
       "artist": "John Coltrane",
       "actual": 8.5,
-      "predicted": 8.22,
-      "residual": 0.28,
+      "predicted": 9.11,
+      "residual": -0.61,
       "cluster": 0,
       "liked": true,
-      "pca_x": 2.6072,
-      "pca_y": 0.9587,
+      "pca_x": 2.7098,
+      "pca_y": 0.3436,
       "year": 1960,
       "energy": 5,
       "tempo": "medium",
@@ -717,18 +745,19 @@
       "key": "C#m",
       "mode": "blues",
       "duration_s": 487,
-      "popularity": 53
+      "popularity": 53,
+      "replayability": 8
     },
     {
       "title": "Parker's Mood",
       "artist": "Charlie Parker",
       "actual": 3,
-      "predicted": 3.9,
-      "residual": -0.9,
+      "predicted": 3.43,
+      "residual": -0.43,
       "cluster": 1,
       "liked": false,
-      "pca_x": -0.078,
-      "pca_y": -0.5823,
+      "pca_x": -0.2358,
+      "pca_y": 0.1525,
       "year": 1948,
       "energy": 3,
       "tempo": "slow",
@@ -740,18 +769,19 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 184,
-      "popularity": 28
+      "popularity": 28,
+      "replayability": 1
     },
     {
       "title": "Circle",
       "artist": "Miles Davis",
       "actual": 3,
-      "predicted": 4.24,
-      "residual": -1.24,
+      "predicted": 3.43,
+      "residual": -0.43,
       "cluster": 1,
       "liked": false,
-      "pca_x": 0.4515,
-      "pca_y": -2.8802,
+      "pca_x": 0.2196,
+      "pca_y": -2.1581,
       "year": 1951,
       "energy": 5,
       "tempo": "medium",
@@ -763,18 +793,19 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 315,
-      "popularity": 15
+      "popularity": 15,
+      "replayability": 1
     },
     {
       "title": "My Funny Valentine",
       "artist": "Chet Baker",
       "actual": 8,
-      "predicted": 8.14,
-      "residual": -0.14,
+      "predicted": 9.23,
+      "residual": -1.23,
       "cluster": 1,
       "liked": true,
-      "pca_x": -4.9656,
-      "pca_y": 0.2171,
+      "pca_x": -4.8598,
+      "pca_y": -0.5924,
       "year": 1954,
       "energy": 1,
       "tempo": "slow",
@@ -788,18 +819,19 @@
       "key": "Cm",
       "mode": "minor",
       "duration_s": 141,
-      "popularity": 66
+      "popularity": 66,
+      "replayability": 8
     },
     {
       "title": "That Old Feeling",
       "artist": "Chet Baker",
       "actual": 2,
-      "predicted": 4.15,
-      "residual": -2.15,
+      "predicted": 3.45,
+      "residual": -1.45,
       "cluster": 1,
       "liked": false,
-      "pca_x": -2.9627,
-      "pca_y": -2.3037,
+      "pca_x": -3.128,
+      "pca_y": -2.4614,
       "year": 1954,
       "energy": 3,
       "tempo": "medium",
@@ -811,18 +843,19 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 183,
-      "popularity": 24
+      "popularity": 24,
+      "replayability": 1
     },
     {
       "title": "What Are You Doing the Rest of Your Life",
       "artist": "Bill Evans",
       "actual": 7,
-      "predicted": 8.03,
-      "residual": -1.03,
+      "predicted": 7.13,
+      "residual": -0.13,
       "cluster": 1,
       "liked": true,
-      "pca_x": -3.3167,
-      "pca_y": 0.4975,
+      "pca_x": -3.2904,
+      "pca_y": 0.6641,
       "year": 1970,
       "energy": 2,
       "tempo": "slow",
@@ -835,18 +868,19 @@
       "key": "Am",
       "mode": "minor",
       "duration_s": 245,
-      "popularity": 56
+      "popularity": 56,
+      "replayability": 6
     },
     {
       "title": "West Coast Blues",
       "artist": "Wes Montgomery",
       "actual": 2,
-      "predicted": 4.94,
-      "residual": -2.94,
+      "predicted": 3.69,
+      "residual": -1.69,
       "cluster": 0,
       "liked": false,
-      "pca_x": 2.227,
-      "pca_y": 0.7679,
+      "pca_x": 2.0667,
+      "pca_y": 1.1499,
       "year": 1960,
       "energy": 5,
       "tempo": "medium",
@@ -858,18 +892,19 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 448,
-      "popularity": 40
+      "popularity": 40,
+      "replayability": 1
     },
     {
       "title": "In Your Own Sweet Way",
       "artist": "Wes Montgomery",
       "actual": 6,
-      "predicted": 3.75,
-      "residual": 2.25,
+      "predicted": 6.45,
+      "residual": -0.45,
       "cluster": 1,
       "liked": true,
-      "pca_x": -0.4997,
-      "pca_y": -0.1601,
+      "pca_x": -0.6083,
+      "pca_y": 0.469,
       "year": null,
       "energy": 4,
       "tempo": "medium",
@@ -881,18 +916,19 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 294,
-      "popularity": 27
+      "popularity": 27,
+      "replayability": 4
     },
     {
       "title": "Infant Eyes",
       "artist": "Wayne Shorter",
       "actual": 7.5,
-      "predicted": 7.52,
-      "residual": -0.02,
+      "predicted": 8.23,
+      "residual": -0.73,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.0703,
-      "pca_y": 3.7394,
+      "pca_x": -0.9588,
+      "pca_y": 3.5502,
       "year": 1964,
       "energy": 2,
       "tempo": "slow",
@@ -906,18 +942,19 @@
       "key": "Ebm",
       "mode": "minor",
       "duration_s": 415,
-      "popularity": 23
+      "popularity": 23,
+      "replayability": 7
     },
     {
       "title": "Song for My Father",
       "artist": "Horace Silver",
       "actual": 5,
-      "predicted": 8.47,
-      "residual": -3.47,
+      "predicted": 5.07,
+      "residual": -0.07,
       "cluster": 0,
       "liked": true,
-      "pca_x": 3.1881,
-      "pca_y": -0.4073,
+      "pca_x": 3.2305,
+      "pca_y": -0.6611,
       "year": 1965,
       "energy": 6,
       "tempo": "medium",
@@ -930,18 +967,19 @@
       "key": "Fm",
       "mode": "minor",
       "duration_s": 438,
-      "popularity": 58
+      "popularity": 58,
+      "replayability": 3
     },
     {
       "title": "Better Git It in Your Soul",
       "artist": "Charles Mingus",
       "actual": 10,
-      "predicted": 7.68,
-      "residual": 2.32,
+      "predicted": 9.33,
+      "residual": 0.67,
       "cluster": 0,
       "liked": true,
-      "pca_x": 6.8708,
-      "pca_y": -1.75,
+      "pca_x": 6.8815,
+      "pca_y": -2.6247,
       "year": 1959,
       "energy": 10,
       "tempo": "fast",
@@ -955,18 +993,19 @@
       "key": "F",
       "mode": "blues",
       "duration_s": 445,
-      "popularity": 50
+      "popularity": 50,
+      "replayability": 10
     },
     {
       "title": "Boogie Stop Shuffle",
       "artist": "Charles Mingus",
       "actual": 7,
-      "predicted": 7.36,
-      "residual": -0.36,
+      "predicted": 7.11,
+      "residual": -0.11,
       "cluster": 0,
       "liked": true,
-      "pca_x": 6.0647,
-      "pca_y": -0.8576,
+      "pca_x": 5.9951,
+      "pca_y": -1.2222,
       "year": 1959,
       "energy": 8,
       "tempo": "fast",
@@ -979,18 +1018,19 @@
       "key": "C",
       "mode": "blues",
       "duration_s": 303,
-      "popularity": 41
+      "popularity": 41,
+      "replayability": 6
     },
     {
       "title": "Self-Portrait in Three Colors",
       "artist": "Charles Mingus",
       "actual": 6.5,
-      "predicted": 4.1,
-      "residual": 2.4,
+      "predicted": 6.17,
+      "residual": 0.33,
       "cluster": 0,
       "liked": true,
-      "pca_x": 1.7377,
-      "pca_y": 1.6558,
+      "pca_x": 1.7502,
+      "pca_y": 1.279,
       "year": 1959,
       "energy": 2,
       "tempo": "slow",
@@ -1002,18 +1042,19 @@
       "key": "Ab",
       "mode": "major",
       "duration_s": 190,
-      "popularity": 39
+      "popularity": 39,
+      "replayability": 4
     },
     {
       "title": "Open Letter to Duke",
       "artist": "Charles Mingus",
       "actual": 8,
-      "predicted": 6.97,
-      "residual": 1.03,
+      "predicted": 8.03,
+      "residual": -0.03,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.2473,
-      "pca_y": 0.8774,
+      "pca_x": 4.3462,
+      "pca_y": 0.4315,
       "year": 1959,
       "energy": 6,
       "tempo": "varied",
@@ -1026,18 +1067,19 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 297,
-      "popularity": 29
+      "popularity": 29,
+      "replayability": 7
     },
     {
       "title": "Bird Calls",
       "artist": "Charles Mingus",
       "actual": 6.5,
-      "predicted": 7.65,
-      "residual": -1.15,
+      "predicted": 6.21,
+      "residual": 0.29,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.5315,
-      "pca_y": 0.0301,
+      "pca_x": 4.476,
+      "pca_y": -0.3081,
       "year": 1959,
       "energy": 7,
       "tempo": "varied",
@@ -1050,18 +1092,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 378,
-      "popularity": 32
+      "popularity": 32,
+      "replayability": 4
     },
     {
       "title": "Fables of Faubus",
       "artist": "Charles Mingus",
       "actual": 7.5,
-      "predicted": 7.6,
-      "residual": -0.1,
+      "predicted": 6.97,
+      "residual": 0.53,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.1963,
-      "pca_y": 0.0571,
+      "pca_x": 4.1725,
+      "pca_y": -0.2959,
       "year": 1959,
       "energy": 6,
       "tempo": "medium",
@@ -1074,18 +1117,19 @@
       "key": "Dm",
       "mode": "minor",
       "duration_s": 494,
-      "popularity": 39
+      "popularity": 39,
+      "replayability": 6
     },
     {
       "title": "Pussy Cat Dues",
       "artist": "Charles Mingus",
       "actual": 5,
-      "predicted": 4.74,
-      "residual": 0.26,
+      "predicted": 5.12,
+      "residual": -0.12,
       "cluster": 0,
       "liked": true,
-      "pca_x": 4.4977,
-      "pca_y": 0.415,
+      "pca_x": 4.4027,
+      "pca_y": 0.1491,
       "year": 1959,
       "energy": 5,
       "tempo": "medium",
@@ -1097,18 +1141,19 @@
       "key": "Bb",
       "mode": "blues",
       "duration_s": 555,
-      "popularity": 31
+      "popularity": 31,
+      "replayability": 3
     },
     {
       "title": "Jelly Roll",
       "artist": "Charles Mingus",
       "actual": 5,
-      "predicted": 4.67,
-      "residual": 0.33,
+      "predicted": 5.15,
+      "residual": -0.15,
       "cluster": 0,
       "liked": true,
-      "pca_x": 3.906,
-      "pca_y": 0.1289,
+      "pca_x": 3.8252,
+      "pca_y": -0.2073,
       "year": 1959,
       "energy": 5,
       "tempo": "medium",
@@ -1120,18 +1165,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 377,
-      "popularity": 35
+      "popularity": 35,
+      "replayability": 3
     },
     {
       "title": "Wild Is The Wind",
       "artist": "Nina Simone",
       "actual": 8,
-      "predicted": 7.97,
-      "residual": 0.03,
+      "predicted": 8.04,
+      "residual": -0.04,
       "cluster": 1,
       "liked": true,
-      "pca_x": -4.1966,
-      "pca_y": 0.5713,
+      "pca_x": -4.1566,
+      "pca_y": 0.0628,
       "year": 1966,
       "energy": 3,
       "tempo": "slow",
@@ -1144,18 +1190,19 @@
       "key": "Cm",
       "mode": "minor",
       "duration_s": 422,
-      "popularity": 20
+      "popularity": 20,
+      "replayability": 7
     },
     {
       "title": "Don't Let Me Be Misunderstood",
       "artist": "Nina Simone",
       "actual": 6,
-      "predicted": 5.62,
-      "residual": 0.38,
+      "predicted": 7.16,
+      "residual": -1.16,
       "cluster": 1,
       "liked": true,
-      "pca_x": -2.3814,
-      "pca_y": -2.0754,
+      "pca_x": -2.4605,
+      "pca_y": -2.5212,
       "year": 1964,
       "energy": 5,
       "tempo": "medium",
@@ -1167,18 +1214,19 @@
       "key": "Bbm",
       "mode": "minor",
       "duration_s": 166,
-      "popularity": 66
+      "popularity": 66,
+      "replayability": 5
     },
     {
       "title": "Solitude",
       "artist": "Billie Holiday",
       "actual": 8,
-      "predicted": 7.9,
-      "residual": 0.1,
+      "predicted": 8.05,
+      "residual": -0.05,
       "cluster": 1,
       "liked": true,
-      "pca_x": -6.2951,
-      "pca_y": -0.8322,
+      "pca_x": -6.3164,
+      "pca_y": -1.0625,
       "year": 1956,
       "energy": 2,
       "tempo": "slow",
@@ -1191,18 +1239,19 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 208,
-      "popularity": 68
+      "popularity": 68,
+      "replayability": 7
     },
     {
       "title": "Crazy He Calls Me",
       "artist": "Billie Holiday",
       "actual": 8,
-      "predicted": 7.9,
-      "residual": 0.1,
+      "predicted": 8.05,
+      "residual": -0.05,
       "cluster": 1,
       "liked": true,
-      "pca_x": -5.561,
-      "pca_y": -1.1541,
+      "pca_x": -5.595,
+      "pca_y": -1.3927,
       "year": 1949,
       "energy": 2,
       "tempo": "slow",
@@ -1215,18 +1264,19 @@
       "key": "Eb",
       "mode": "major",
       "duration_s": 185,
-      "popularity": 57
+      "popularity": 57,
+      "replayability": 7
     },
     {
       "title": "Lover Man",
       "artist": "Billie Holiday",
       "actual": 4,
-      "predicted": 5.23,
-      "residual": -1.23,
+      "predicted": 4.09,
+      "residual": -0.09,
       "cluster": 1,
       "liked": false,
-      "pca_x": -5.4223,
-      "pca_y": -1.3197,
+      "pca_x": -5.573,
+      "pca_y": -1.2782,
       "year": 1944,
       "energy": 2,
       "tempo": "slow",
@@ -1238,18 +1288,19 @@
       "key": "Db",
       "mode": "major",
       "duration_s": 198,
-      "popularity": 45
+      "popularity": 45,
+      "replayability": 2
     },
     {
       "title": "All of Me",
       "artist": "Charlie Parker",
       "actual": 8,
-      "predicted": 7.39,
-      "residual": 0.61,
+      "predicted": 8.05,
+      "residual": -0.05,
       "cluster": 1,
       "liked": true,
-      "pca_x": 0.3903,
-      "pca_y": -4.1304,
+      "pca_x": 0.2169,
+      "pca_y": -3.1093,
       "year": 1953,
       "energy": 7,
       "tempo": "medium-fast",
@@ -1262,18 +1313,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 217,
-      "popularity": 1
+      "popularity": 1,
+      "replayability": 7
     },
     {
       "title": "April In Paris",
       "artist": "Charlie Parker",
       "actual": 6,
-      "predicted": 5.36,
-      "residual": 0.64,
+      "predicted": 6.39,
+      "residual": -0.39,
       "cluster": 1,
       "liked": true,
-      "pca_x": -2.5774,
-      "pca_y": -2.6851,
+      "pca_x": -2.7325,
+      "pca_y": -1.6632,
       "year": 1950,
       "energy": 3,
       "tempo": "medium",
@@ -1285,18 +1337,19 @@
       "key": "C",
       "mode": "major",
       "duration_s": 187,
-      "popularity": 50
+      "popularity": 50,
+      "replayability": 4
     },
     {
       "title": "Tryin' Times",
       "artist": "Roberta Flack",
       "actual": 9,
-      "predicted": 7.54,
-      "residual": 1.46,
+      "predicted": 8.79,
+      "residual": 0.21,
       "cluster": 1,
       "liked": true,
-      "pca_x": -2.9792,
-      "pca_y": -1.5456,
+      "pca_x": -2.8782,
+      "pca_y": -2.5215,
       "year": 1969,
       "energy": 3,
       "tempo": "slow",
@@ -1309,18 +1362,19 @@
       "key": "Fm",
       "mode": "minor",
       "duration_s": 308,
-      "popularity": 44
+      "popularity": 44,
+      "replayability": 8
     },
     {
       "title": "Embraceable You",
       "artist": "Barry Harris",
       "actual": 5,
-      "predicted": 5.49,
-      "residual": -0.49,
+      "predicted": 3.89,
+      "residual": 1.11,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.6603,
-      "pca_y": -1.3667,
+      "pca_x": -1.8248,
+      "pca_y": -0.7499,
       "year": null,
       "energy": 2,
       "tempo": "slow",
@@ -1331,18 +1385,19 @@
       "key": "F",
       "mode": "major",
       "duration_s": 236,
-      "popularity": 49
+      "popularity": 49,
+      "replayability": 2
     },
     {
       "title": "Early Summer",
       "artist": "Ryo Fukui",
       "actual": 7,
-      "predicted": 5.24,
-      "residual": 1.76,
+      "predicted": 7.19,
+      "residual": -0.19,
       "cluster": 1,
       "liked": true,
-      "pca_x": 0.009,
-      "pca_y": -1.3424,
+      "pca_x": -0.1016,
+      "pca_y": -0.9721,
       "year": 1976,
       "energy": 6,
       "tempo": "medium-fast",
@@ -1354,18 +1409,19 @@
       "key": "G",
       "mode": "major",
       "duration_s": 644,
-      "popularity": 55
+      "popularity": 55,
+      "replayability": 6
     },
     {
       "title": "My Foolish Heart",
       "artist": "Bill Evans",
       "actual": 3,
-      "predicted": 4.28,
-      "residual": -1.28,
+      "predicted": 4.21,
+      "residual": -1.21,
       "cluster": 1,
       "liked": false,
-      "pca_x": -3.599,
-      "pca_y": -0.4833,
+      "pca_x": -3.6979,
+      "pca_y": -0.3039,
       "year": 1961,
       "energy": 1,
       "tempo": "slow",
@@ -1377,18 +1433,19 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 298,
-      "popularity": 34
+      "popularity": 34,
+      "replayability": 2
     },
     {
       "title": "Love Theme From The Robe",
       "artist": "Yusef Lateef",
       "actual": 7,
-      "predicted": 4.96,
-      "residual": 2.04,
+      "predicted": 6.89,
+      "residual": 0.11,
       "cluster": 1,
       "liked": true,
-      "pca_x": -2.9008,
-      "pca_y": 0.4425,
+      "pca_x": -2.9384,
+      "pca_y": 0.5572,
       "year": 1961,
       "energy": 2,
       "tempo": "slow",
@@ -1400,18 +1457,19 @@
       "key": "Eb",
       "mode": "minor",
       "duration_s": 242,
-      "popularity": 49
+      "popularity": 49,
+      "replayability": 5
     },
     {
       "title": "To Her Ladyship",
       "artist": "John Coltrane",
       "actual": 5,
-      "predicted": 4.36,
-      "residual": 0.64,
+      "predicted": 5.01,
+      "residual": -0.01,
       "cluster": 1,
       "liked": true,
-      "pca_x": -1.9144,
-      "pca_y": 2.1317,
+      "pca_x": -1.754,
+      "pca_y": 2.0188,
       "year": 1962,
       "energy": 2,
       "tempo": "slow",
@@ -1423,18 +1481,19 @@
       "key": "Eb",
       "mode": "minor",
       "duration_s": 540,
-      "popularity": 22
+      "popularity": 22,
+      "replayability": 3
     },
     {
       "title": "'Round Midnight",
       "artist": "McCoy Tyner",
       "actual": 3,
-      "predicted": 4.16,
-      "residual": -1.16,
+      "predicted": 3.35,
+      "residual": -0.35,
       "cluster": 1,
       "liked": false,
-      "pca_x": -2.5729,
-      "pca_y": -0.3859,
+      "pca_x": -2.7114,
+      "pca_y": 0.3061,
       "year": null,
       "energy": 2,
       "tempo": "slow",
@@ -1446,18 +1505,19 @@
       "key": "Ebm",
       "mode": "minor",
       "duration_s": 383,
-      "popularity": 38
+      "popularity": 38,
+      "replayability": 1
     },
     {
       "title": "In a Sentimental Mood",
       "artist": "Duke Ellington",
       "actual": 3,
-      "predicted": 6.1,
-      "residual": -3.1,
+      "predicted": 3.32,
+      "residual": -0.32,
       "cluster": 1,
       "liked": false,
-      "pca_x": -4.1026,
-      "pca_y": -1.4518,
+      "pca_x": -4.2364,
+      "pca_y": -0.9335,
       "year": 1935,
       "energy": 2,
       "tempo": "slow",
@@ -1469,18 +1529,19 @@
       "key": "F",
       "mode": "major",
       "duration_s": 255,
-      "popularity": 69
+      "popularity": 69,
+      "replayability": 1
     },
     {
       "title": "The Kid from Red Bank",
       "artist": "Count Basie",
       "actual": 4,
-      "predicted": 4.35,
-      "residual": -0.35,
-      "cluster": 0,
+      "predicted": 4.04,
+      "residual": -0.04,
+      "cluster": 1,
       "liked": false,
-      "pca_x": 0.3518,
-      "pca_y": -4.7097,
+      "pca_x": 0.1075,
+      "pca_y": -3.8963,
       "year": 1958,
       "energy": 8,
       "tempo": "fast",
@@ -1492,673 +1553,621 @@
       "key": "Bb",
       "mode": "major",
       "duration_s": 162,
-      "popularity": 33
-    },
-    {
-      "title": "Nefertiti",
-      "artist": "Miles Davis",
-      "actual": 4,
-      "predicted": 4.62,
-      "residual": -0.62,
-      "cluster": 1,
-      "liked": false,
-      "pca_x": 0.7196,
-      "pca_y": -1.2815,
-      "year": 1968,
-      "energy": 3,
-      "tempo": "medium",
-      "era": "Modal",
-      "moods": [
-        "contemplative",
-        "mysterious"
-      ],
-      "key": "Dm",
-      "mode": "dorian",
-      "duration_s": 458,
-      "popularity": 42
-    },
-    {
-      "title": "My One and Only Love",
-      "artist": "John Coltrane & Johnny Hartman",
-      "actual": 8,
-      "predicted": 7.86,
-      "residual": 0.14,
-      "cluster": 1,
-      "liked": true,
-      "pca_x": -3.5568,
-      "pca_y": 2.0302,
-      "year": 1963,
-      "energy": 2,
-      "tempo": "slow",
-      "era": "Post-Bop",
-      "moods": [
-        "romantic",
-        "tender",
-        "sensual",
-        "intimate"
-      ],
-      "key": "Eb",
-      "mode": "major",
-      "duration_s": 294,
-      "popularity": 55
+      "popularity": 33,
+      "replayability": 2
     }
   ],
   "feature_importance": [
     {
-      "feature": "Mood Count",
-      "importance": 0.6409,
-      "direction": "positive"
-    },
-    {
-      "feature": "Spotify Popularity",
-      "importance": 0.1441,
-      "direction": "positive"
-    },
-    {
-      "feature": "Duration",
-      "importance": 0.033,
+      "feature": "Replayability",
+      "importance": 0.9823,
       "direction": "positive"
     },
     {
       "feature": "Artist Track Count",
-      "importance": 0.0285,
+      "importance": 0.0057,
       "direction": "positive"
     },
     {
-      "feature": "Year",
-      "importance": 0.0232,
-      "direction": "positive"
-    },
-    {
-      "feature": "Artist Avg Rating",
-      "importance": 0.019,
-      "direction": "positive"
-    },
-    {
-      "feature": "\"Post-Bop\" subgenre",
-      "importance": 0.0161,
-      "direction": "positive"
-    },
-    {
-      "feature": "\"self\" source",
-      "importance": 0.0128,
-      "direction": "positive"
-    },
-    {
-      "feature": "Ensemble Size",
-      "importance": 0.0114,
+      "feature": "Duration",
+      "importance": 0.0027,
       "direction": "positive"
     },
     {
       "feature": "Hard Bop era",
-      "importance": 0.0114,
+      "importance": 0.0017,
       "direction": "positive"
     },
     {
       "feature": "Tempo (BPM)",
-      "importance": 0.0113,
+      "importance": 0.0015,
+      "direction": "positive"
+    },
+    {
+      "feature": "\"Ballad\" subgenre",
+      "importance": 0.0013,
+      "direction": "positive"
+    },
+    {
+      "feature": "Artist Avg Rating",
+      "importance": 0.0013,
+      "direction": "positive"
+    },
+    {
+      "feature": "Ensemble Size",
+      "importance": 0.0009,
+      "direction": "positive"
+    },
+    {
+      "feature": "Spotify Popularity",
+      "importance": 0.0008,
+      "direction": "positive"
+    },
+    {
+      "feature": "Year",
+      "importance": 0.0006,
+      "direction": "positive"
+    },
+    {
+      "feature": "Harmonic Complexity",
+      "importance": 0.0004,
+      "direction": "positive"
+    },
+    {
+      "feature": "\"self\" source",
+      "importance": 0.0003,
+      "direction": "positive"
+    },
+    {
+      "feature": "Energy \u00d7 Tempo",
+      "importance": 0.0003,
       "direction": "positive"
     },
     {
       "feature": "Energy",
-      "importance": 0.0092,
+      "importance": 0.0001,
       "direction": "positive"
     },
     {
-      "feature": "Key Player Count",
-      "importance": 0.0059,
-      "direction": "positive"
-    },
-    {
-      "feature": "\"Romantic\" mood",
-      "importance": 0.0053,
-      "direction": "positive"
-    },
-    {
-      "feature": "Pianoless",
-      "importance": 0.005,
+      "feature": "\"Playful\" mood",
+      "importance": 0.0,
       "direction": "positive"
     }
   ],
   "correlations": {
     "feature_rating": [
       {
+        "feature": "Replayability",
+        "correlation": 0.9633,
+        "p_value": 0.0
+      },
+      {
         "feature": "Mood Count",
-        "correlation": 0.6778,
+        "correlation": 0.6727,
         "p_value": 0.0
       },
       {
         "feature": "\"Joyful\" mood",
-        "correlation": 0.3688,
-        "p_value": 0.0027
+        "correlation": 0.3719,
+        "p_value": 0.0029
       },
       {
         "feature": "\"Sensual\" mood",
-        "correlation": 0.339,
-        "p_value": 0.0061
+        "correlation": 0.3365,
+        "p_value": 0.0075
       },
       {
         "feature": "Spotify Popularity",
-        "correlation": 0.3075,
-        "p_value": 0.0134
-      },
-      {
-        "feature": "\"Passionate\" mood",
-        "correlation": 0.2822,
-        "p_value": 0.0239
-      },
-      {
-        "feature": "Atlantic label",
-        "correlation": 0.2739,
-        "p_value": 0.0285
-      },
-      {
-        "feature": "\"autoplay\" source",
-        "correlation": -0.264,
-        "p_value": 0.035
+        "correlation": 0.303,
+        "p_value": 0.0167
       },
       {
         "feature": "Year",
-        "correlation": 0.2636,
-        "p_value": 0.0353
+        "correlation": 0.2881,
+        "p_value": 0.0231
+      },
+      {
+        "feature": "Modal era",
+        "correlation": 0.2846,
+        "p_value": 0.025
+      },
+      {
+        "feature": "\"Passionate\" mood",
+        "correlation": 0.2846,
+        "p_value": 0.025
+      },
+      {
+        "feature": "\"Modal Jazz\" subgenre",
+        "correlation": 0.2846,
+        "p_value": 0.025
+      },
+      {
+        "feature": "Atlantic label",
+        "correlation": 0.276,
+        "p_value": 0.0299
+      },
+      {
+        "feature": "\"autoplay\" source",
+        "correlation": -0.2701,
+        "p_value": 0.0338
       },
       {
         "feature": "Piano instrument",
-        "correlation": -0.254,
-        "p_value": 0.0428
-      },
-      {
-        "feature": "\"Bittersweet\" mood",
-        "correlation": 0.2441,
-        "p_value": 0.052
+        "correlation": -0.2623,
+        "p_value": 0.0394
       },
       {
         "feature": "Has Guitar",
-        "correlation": -0.2427,
-        "p_value": 0.0533
+        "correlation": -0.2502,
+        "p_value": 0.0498
       },
       {
-        "feature": "\"Tender\" mood",
-        "correlation": 0.2342,
-        "p_value": 0.0625
+        "feature": "\"Bittersweet\" mood",
+        "correlation": 0.2457,
+        "p_value": 0.0543
       },
       {
         "feature": "\"Bluesy\" mood",
-        "correlation": -0.222,
-        "p_value": 0.0779
-      },
-      {
-        "feature": "\"World Jazz\" subgenre",
-        "correlation": 0.2139,
-        "p_value": 0.0897
+        "correlation": -0.2285,
+        "p_value": 0.0741
       },
       {
         "feature": "Guitar instrument",
-        "correlation": -0.2138,
-        "p_value": 0.0898
+        "correlation": -0.2187,
+        "p_value": 0.0877
       },
       {
-        "feature": "\"Romantic\" mood",
-        "correlation": 0.2125,
-        "p_value": 0.0919
+        "feature": "\"World Jazz\" subgenre",
+        "correlation": 0.2153,
+        "p_value": 0.0929
       },
       {
-        "feature": "Artist Avg Rating",
-        "correlation": -0.1996,
-        "p_value": 0.1138
+        "feature": "\"Tender\" mood",
+        "correlation": 0.2144,
+        "p_value": 0.0943
+      },
+      {
+        "feature": "Columbia label",
+        "correlation": 0.213,
+        "p_value": 0.0965
       },
       {
         "feature": "Riverside label",
-        "correlation": -0.1958,
-        "p_value": 0.1211
+        "correlation": -0.2007,
+        "p_value": 0.1177
       },
       {
         "feature": "\"Beautiful\" mood",
-        "correlation": 0.1954,
-        "p_value": 0.1217
+        "correlation": 0.1956,
+        "p_value": 0.1275
       },
       {
-        "feature": "\"self\" source",
-        "correlation": 0.1888,
+        "feature": "\"Romantic\" mood",
+        "correlation": 0.1919,
         "p_value": 0.1351
       },
       {
         "feature": "Time Signature",
-        "correlation": 0.1885,
-        "p_value": 0.1357
+        "correlation": 0.1913,
+        "p_value": 0.1363
       },
       {
         "feature": "Bebop era",
-        "correlation": -0.1849,
-        "p_value": 0.1436
+        "correlation": -0.1908,
+        "p_value": 0.1375
       },
       {
         "feature": "\"Bebop\" subgenre",
-        "correlation": -0.1849,
-        "p_value": 0.1436
-      },
-      {
-        "feature": "\"Melancholic\" mood",
-        "correlation": 0.1826,
-        "p_value": 0.1487
-      },
-      {
-        "feature": "\"Reflective\" mood",
-        "correlation": 0.1777,
-        "p_value": 0.1601
-      },
-      {
-        "feature": "Has Trombone",
-        "correlation": 0.1768,
-        "p_value": 0.1623
-      },
-      {
-        "feature": "Live Recording",
-        "correlation": -0.1724,
-        "p_value": 0.1732
-      },
-      {
-        "feature": "Modal era",
-        "correlation": 0.1695,
-        "p_value": 0.1805
-      },
-      {
-        "feature": "\"Modal Jazz\" subgenre",
-        "correlation": 0.1695,
-        "p_value": 0.1805
+        "correlation": -0.1908,
+        "p_value": 0.1375
       },
       {
         "feature": "Duration",
-        "correlation": 0.1675,
-        "p_value": 0.1859
+        "correlation": 0.1883,
+        "p_value": 0.1427
+      },
+      {
+        "feature": "\"self\" source",
+        "correlation": 0.186,
+        "p_value": 0.1478
+      },
+      {
+        "feature": "\"Melancholic\" mood",
+        "correlation": 0.1822,
+        "p_value": 0.1563
+      },
+      {
+        "feature": "Artist Avg Rating",
+        "correlation": -0.1803,
+        "p_value": 0.1607
+      },
+      {
+        "feature": "\"Reflective\" mood",
+        "correlation": 0.178,
+        "p_value": 0.1662
+      },
+      {
+        "feature": "Live Recording",
+        "correlation": -0.1766,
+        "p_value": 0.1698
+      },
+      {
+        "feature": "Has Trombone",
+        "correlation": 0.1759,
+        "p_value": 0.1716
       },
       {
         "feature": "Ensemble Size",
-        "correlation": 0.1669,
-        "p_value": 0.1874
-      },
-      {
-        "feature": "\"Post-Bop\" subgenre",
-        "correlation": -0.1647,
-        "p_value": 0.1933
+        "correlation": 0.1749,
+        "p_value": 0.1741
       },
       {
         "feature": "\"Piano Ballad\" subgenre",
-        "correlation": -0.1616,
-        "p_value": 0.202
-      },
-      {
-        "feature": "Columbia label",
-        "correlation": 0.1583,
-        "p_value": 0.2116
-      },
-      {
-        "feature": "Hard Bop era",
-        "correlation": 0.156,
-        "p_value": 0.2184
+        "correlation": -0.1661,
+        "p_value": 0.197
       },
       {
         "feature": "RCA Victor label",
-        "correlation": -0.1478,
-        "p_value": 0.244
+        "correlation": -0.153,
+        "p_value": 0.2351
+      },
+      {
+        "feature": "Hard Bop era",
+        "correlation": 0.1529,
+        "p_value": 0.2355
       },
       {
         "feature": "Pianoless",
-        "correlation": -0.1447,
-        "p_value": 0.254
+        "correlation": -0.1511,
+        "p_value": 0.2412
       },
       {
         "feature": "Subgenre Count",
-        "correlation": -0.1435,
-        "p_value": 0.2581
+        "correlation": -0.148,
+        "p_value": 0.251
       },
       {
         "feature": "Swing era",
-        "correlation": -0.1354,
-        "p_value": 0.2862
+        "correlation": -0.1404,
+        "p_value": 0.2763
       },
       {
         "feature": "Has Strings",
-        "correlation": -0.1354,
-        "p_value": 0.2862
+        "correlation": -0.1404,
+        "p_value": 0.2763
       },
       {
         "feature": "Energy \u00d7 Tempo",
-        "correlation": 0.1336,
-        "p_value": 0.2927
-      },
-      {
-        "feature": "Tenor Sax instrument",
-        "correlation": 0.1299,
-        "p_value": 0.3063
+        "correlation": 0.1367,
+        "p_value": 0.2892
       },
       {
         "feature": "Cool Jazz era",
-        "correlation": -0.1286,
-        "p_value": 0.3114
+        "correlation": -0.1329,
+        "p_value": 0.3033
       },
       {
         "feature": "\"Pleasant\" mood",
-        "correlation": -0.1286,
-        "p_value": 0.3114
+        "correlation": -0.1329,
+        "p_value": 0.3033
+      },
+      {
+        "feature": "\"Post-Bop\" subgenre",
+        "correlation": -0.1309,
+        "p_value": 0.3107
+      },
+      {
+        "feature": "Tenor Sax instrument",
+        "correlation": 0.1258,
+        "p_value": 0.3298
       },
       {
         "feature": "\"Cool\" mood",
-        "correlation": 0.1239,
-        "p_value": 0.3292
+        "correlation": 0.1234,
+        "p_value": 0.3393
       },
       {
         "feature": "Other instrument",
-        "correlation": 0.1179,
-        "p_value": 0.3534
+        "correlation": 0.1182,
+        "p_value": 0.3603
       },
       {
         "feature": "Energy",
-        "correlation": 0.1137,
-        "p_value": 0.3709
-      },
-      {
-        "feature": "\"Groovy\" mood",
-        "correlation": -0.1046,
-        "p_value": 0.4107
-      },
-      {
-        "feature": "\"Playful\" mood",
-        "correlation": -0.0838,
-        "p_value": 0.5101
-      },
-      {
-        "feature": "\"Dynamic\" mood",
-        "correlation": 0.0773,
-        "p_value": 0.5436
-      },
-      {
-        "feature": "\"Nostalgic\" mood",
-        "correlation": 0.0773,
-        "p_value": 0.5436
-      },
-      {
-        "feature": "Artist Track Count",
-        "correlation": 0.0723,
-        "p_value": 0.5703
-      },
-      {
-        "feature": "Key Player Count",
-        "correlation": 0.0673,
-        "p_value": 0.5974
-      },
-      {
-        "feature": "Bass instrument",
-        "correlation": 0.0627,
-        "p_value": 0.6224
-      },
-      {
-        "feature": "\"claude-recommendation\" source",
-        "correlation": -0.0609,
-        "p_value": 0.6326
-      },
-      {
-        "feature": "\"Contemplative\" mood",
-        "correlation": -0.0592,
-        "p_value": 0.6421
-      },
-      {
-        "feature": "Prestige label",
-        "correlation": 0.0518,
-        "p_value": 0.6843
-      },
-      {
-        "feature": "Tempo",
-        "correlation": 0.0512,
-        "p_value": 0.688
-      },
-      {
-        "feature": "\"Cool Jazz\" subgenre",
-        "correlation": -0.0508,
-        "p_value": 0.69
-      },
-      {
-        "feature": "\"Fun\" mood",
-        "correlation": -0.0487,
-        "p_value": 0.7021
-      },
-      {
-        "feature": "Has Fav Moments",
-        "correlation": 0.0452,
-        "p_value": 0.7231
-      },
-      {
-        "feature": "\"Hard Bop\" subgenre",
-        "correlation": 0.0409,
-        "p_value": 0.7482
+        "correlation": 0.1165,
+        "p_value": 0.3674
       },
       {
         "feature": "Trumpet instrument",
-        "correlation": 0.0379,
-        "p_value": 0.7662
+        "correlation": 0.1097,
+        "p_value": 0.3959
       },
       {
-        "feature": "Vocals instrument",
-        "correlation": 0.0373,
-        "p_value": 0.7698
+        "feature": "\"Groovy\" mood",
+        "correlation": -0.1088,
+        "p_value": 0.3997
       },
       {
-        "feature": "\"Vocal Jazz\" subgenre",
-        "correlation": 0.0373,
-        "p_value": 0.7698
+        "feature": "\"Playful\" mood",
+        "correlation": -0.0874,
+        "p_value": 0.4992
       },
       {
-        "feature": "Has Vocals",
-        "correlation": 0.0373,
-        "p_value": 0.7698
+        "feature": "Key Player Count",
+        "correlation": 0.0781,
+        "p_value": 0.5462
+      },
+      {
+        "feature": "\"Dynamic\" mood",
+        "correlation": 0.0766,
+        "p_value": 0.554
+      },
+      {
+        "feature": "\"Nostalgic\" mood",
+        "correlation": 0.0766,
+        "p_value": 0.554
+      },
+      {
+        "feature": "Artist Track Count",
+        "correlation": 0.076,
+        "p_value": 0.5572
+      },
+      {
+        "feature": "\"claude-recommendation\" source",
+        "correlation": -0.0704,
+        "p_value": 0.5866
+      },
+      {
+        "feature": "Tempo",
+        "correlation": 0.0632,
+        "p_value": 0.6254
+      },
+      {
+        "feature": "Bass instrument",
+        "correlation": 0.0605,
+        "p_value": 0.6405
+      },
+      {
+        "feature": "\"Cool Jazz\" subgenre",
+        "correlation": -0.0542,
+        "p_value": 0.6756
+      },
+      {
+        "feature": "\"Fun\" mood",
+        "correlation": -0.0524,
+        "p_value": 0.6861
+      },
+      {
+        "feature": "Prestige label",
+        "correlation": 0.0494,
+        "p_value": 0.703
       },
       {
         "feature": "\"Blues\" subgenre",
-        "correlation": -0.0354,
-        "p_value": 0.7815
+        "correlation": -0.0395,
+        "p_value": 0.7604
       },
       {
-        "feature": "Impulse! label",
-        "correlation": -0.0251,
-        "p_value": 0.8441
-      },
-      {
-        "feature": "Clef label",
-        "correlation": 0.0205,
-        "p_value": 0.8723
-      },
-      {
-        "feature": "Post-Bop era",
-        "correlation": 0.016,
-        "p_value": 0.8999
-      },
-      {
-        "feature": "Tempo (BPM)",
-        "correlation": -0.0098,
-        "p_value": 0.9385
-      },
-      {
-        "feature": "\"Big Band\" subgenre",
-        "correlation": 0.0091,
-        "p_value": 0.9433
-      },
-      {
-        "feature": "\"Soul Jazz\" subgenre",
-        "correlation": 0.0091,
-        "p_value": 0.9433
+        "feature": "\"Hard Bop\" subgenre",
+        "correlation": 0.0342,
+        "p_value": 0.7916
       },
       {
         "feature": "Harmonic Complexity",
-        "correlation": -0.0087,
-        "p_value": 0.9456
+        "correlation": 0.0221,
+        "p_value": 0.8648
       },
       {
         "feature": "\"Ballad\" subgenre",
-        "correlation": 0.0081,
-        "p_value": 0.9491
+        "correlation": -0.0204,
+        "p_value": 0.8752
+      },
+      {
+        "feature": "Clef label",
+        "correlation": 0.0186,
+        "p_value": 0.8861
+      },
+      {
+        "feature": "Post-Bop era",
+        "correlation": -0.0122,
+        "p_value": 0.9253
+      },
+      {
+        "feature": "Has Fav Moments",
+        "correlation": 0.0106,
+        "p_value": 0.9351
+      },
+      {
+        "feature": "\"Big Band\" subgenre",
+        "correlation": 0.0073,
+        "p_value": 0.9553
+      },
+      {
+        "feature": "\"Soul Jazz\" subgenre",
+        "correlation": 0.0073,
+        "p_value": 0.9553
+      },
+      {
+        "feature": "Vocals instrument",
+        "correlation": 0.005,
+        "p_value": 0.9692
+      },
+      {
+        "feature": "\"Vocal Jazz\" subgenre",
+        "correlation": 0.005,
+        "p_value": 0.9692
+      },
+      {
+        "feature": "Has Vocals",
+        "correlation": 0.005,
+        "p_value": 0.9692
       },
       {
         "feature": "Blue Note label",
-        "correlation": 0.0056,
-        "p_value": 0.965
+        "correlation": 0.0034,
+        "p_value": 0.979
+      },
+      {
+        "feature": "Tempo (BPM)",
+        "correlation": -0.0016,
+        "p_value": 0.9902
       }
     ],
     "heatmap": {
       "labels": [
         "Rating",
+        "Replayability",
         "Mood Count",
         "\"Joyful\" mood",
         "\"Sensual\" mood",
         "Spotify Popularity",
-        "\"Passionate\" mood",
-        "Atlantic label",
-        "\"autoplay\" source",
         "Year",
-        "Piano instrument",
-        "\"Bittersweet\" mood"
+        "Modal era",
+        "\"Passionate\" mood",
+        "\"Modal Jazz\" subgenre",
+        "Atlantic label"
       ],
       "matrix": [
         [
           1.0,
-          0.678,
-          0.369,
-          0.339,
-          0.308,
-          0.282,
-          0.274,
-          -0.264,
-          0.264,
-          -0.254,
-          0.244
-        ],
-        [
-          0.678,
-          1.0,
-          0.201,
-          0.426,
+          0.963,
+          0.673,
+          0.372,
+          0.337,
+          0.303,
+          0.288,
           0.285,
-          0.184,
-          0.186,
-          -0.116,
-          0.081,
-          -0.244,
-          0.36
-        ],
-        [
-          0.369,
-          0.201,
-          1.0,
-          -0.102,
-          0.026,
-          0.396,
-          0.116,
-          -0.078,
-          0.222,
-          -0.151,
-          -0.09
-        ],
-        [
-          0.339,
-          0.426,
-          -0.102,
-          1.0,
-          0.187,
-          0.211,
-          0.406,
-          -0.065,
-          0.085,
-          -0.125,
-          0.165
-        ],
-        [
-          0.308,
           0.285,
-          0.026,
-          0.187,
-          1.0,
-          0.06,
-          0.143,
-          -0.19,
-          0.048,
-          0.168,
-          0.108
+          0.285,
+          0.276
         ],
         [
-          0.282,
-          0.184,
-          0.396,
-          0.211,
-          0.06,
+          0.963,
           1.0,
-          0.248,
-          -0.049,
-          0.422,
-          -0.095,
-          -0.057
+          0.685,
+          0.439,
+          0.33,
+          0.266,
+          0.297,
+          0.242,
+          0.297,
+          0.242,
+          0.306
         ],
         [
-          0.274,
-          0.186,
-          0.116,
-          0.406,
-          0.143,
-          0.248,
+          0.673,
+          0.685,
           1.0,
-          -0.057,
-          0.113,
-          -0.111,
-          0.2
+          0.213,
+          0.376,
+          0.272,
+          0.088,
+          -0.013,
+          0.193,
+          -0.013,
+          0.195
         ],
         [
-          -0.264,
-          -0.116,
-          -0.078,
-          -0.065,
-          -0.19,
-          -0.049,
-          -0.057,
+          0.372,
+          0.439,
+          0.213,
           1.0,
-          -0.024,
-          0.108,
-          -0.057
+          -0.094,
+          0.029,
+          0.235,
+          0.157,
+          0.395,
+          0.157,
+          0.114
         ],
         [
-          0.264,
-          0.081,
-          0.222,
-          0.085,
-          0.048,
-          0.422,
-          0.113,
-          -0.024,
+          0.337,
+          0.33,
+          0.376,
+          -0.094,
           1.0,
-          0.058,
-          0.011
+          0.164,
+          0.07,
+          -0.059,
+          0.247,
+          -0.059,
+          0.466
         ],
         [
-          -0.254,
-          -0.244,
-          -0.151,
-          -0.125,
-          0.168,
-          -0.095,
-          -0.111,
-          0.108,
-          0.058,
+          0.303,
+          0.266,
+          0.272,
+          0.029,
+          0.164,
           1.0,
-          0.067
+          0.046,
+          0.259,
+          0.062,
+          0.259,
+          0.146
         ],
         [
-          0.244,
-          0.36,
-          -0.09,
-          0.165,
-          0.108,
-          -0.057,
-          0.2,
-          -0.057,
-          0.011,
-          0.067,
+          0.288,
+          0.297,
+          0.088,
+          0.235,
+          0.07,
+          0.046,
+          1.0,
+          0.021,
+          0.434,
+          0.021,
+          0.121
+        ],
+        [
+          0.285,
+          0.242,
+          -0.013,
+          0.157,
+          -0.059,
+          0.259,
+          0.021,
+          1.0,
+          -0.051,
+          1.0,
+          0.247
+        ],
+        [
+          0.285,
+          0.297,
+          0.193,
+          0.395,
+          0.247,
+          0.062,
+          0.434,
+          -0.051,
+          1.0,
+          -0.051,
+          0.247
+        ],
+        [
+          0.285,
+          0.242,
+          -0.013,
+          0.157,
+          -0.059,
+          0.259,
+          0.021,
+          1.0,
+          -0.051,
+          1.0,
+          0.247
+        ],
+        [
+          0.276,
+          0.306,
+          0.195,
+          0.114,
+          0.466,
+          0.146,
+          0.121,
+          0.247,
+          0.247,
+          0.247,
           1.0
         ]
       ]
@@ -2171,37 +2180,37 @@
       4
     ],
     "silhouette_scores": [
-      0.0896,
-      0.0653,
+      0.0918,
+      0.0635,
       0
     ],
     "inertias": [
-      4146.85,
-      3867.33,
-      3643.379879280504
+      3957.17,
+      3711.09,
+      3492.883643814571
     ],
     "best_k": 2,
     "cluster_profiles": [
       {
         "id": 0,
         "label": "Cluster 0",
-        "size": 22,
-        "mean_rating": 6.55,
-        "mean_energy": 6.64,
+        "size": 23,
+        "mean_rating": 6.96,
+        "mean_energy": 6.26,
         "top_moods": [
           "joyful",
           "groovy",
           "bluesy",
-          "fun",
-          "playful"
+          "playful",
+          "fun"
         ],
         "top_eras": [
           "Hard Bop",
-          "Post-Bop",
-          "Modal"
+          "Modal",
+          "Post-Bop"
         ],
         "dominant_tempo": "medium",
-        "mean_complexity": 1.91,
+        "mean_complexity": 1.96,
         "representative_tracks": [
           "St. Thomas",
           "Jelly Roll",
@@ -2221,25 +2230,25 @@
             "Sensual"
           ],
           "values": [
-            0.664,
-            0.636,
-            0.705,
-            0.0,
-            0.045,
-            0.227,
-            0.227,
-            0.136,
-            0.0,
-            0.045
+            0.626,
+            0.652,
+            0.663,
+            0.043,
+            0.043,
+            0.217,
+            0.217,
+            0.13,
+            0.043,
+            0.087
           ]
         }
       },
       {
         "id": 1,
         "label": "Cluster 1",
-        "size": 42,
-        "mean_rating": 6.6,
-        "mean_energy": 2.83,
+        "size": 39,
+        "mean_rating": 6.38,
+        "mean_energy": 2.97,
         "top_moods": [
           "tender",
           "romantic",
@@ -2249,14 +2258,14 @@
         ],
         "top_eras": [
           "Post-Bop",
-          "Hard Bop",
+          "Swing",
           "Bebop"
         ],
         "dominant_tempo": "slow",
-        "mean_complexity": 2.26,
+        "mean_complexity": 2.23,
         "representative_tracks": [
           "'Round Midnight",
-          "It Never Entered My Mind",
+          "Embraceable You",
           "Love Theme From The Robe"
         ],
         "radar": {
@@ -2273,16 +2282,16 @@
             "Sensual"
           ],
           "values": [
-            0.283,
-            0.754,
-            0.351,
-            0.381,
-            0.405,
-            0.048,
-            0.024,
-            0.048,
-            0.214,
-            0.095
+            0.297,
+            0.744,
+            0.365,
+            0.359,
+            0.41,
+            0.051,
+            0.026,
+            0.051,
+            0.205,
+            0.051
           ]
         }
       }
@@ -2307,13 +2316,13 @@
       "counts": [
         2,
         6,
-        4,
+        3,
         8,
         7,
         3,
         7,
         2,
-        13,
+        12,
         1,
         5,
         6
@@ -2325,7 +2334,6 @@
         "ratings": [
           2,
           3,
-          4,
           4,
           5,
           5,
@@ -2343,6 +2351,8 @@
           8,
           8.5,
           9,
+          10,
+          10,
           10,
           10
         ]
@@ -2383,13 +2393,10 @@
           8,
           8,
           8,
-          8,
           9,
           9,
           9,
           9,
-          10,
-          10,
           10,
           10
         ]
@@ -2486,6 +2493,16 @@
       "mae": 1.2317,
       "best_k": 2,
       "silhouette_score": 0.0896
+    },
+    {
+      "run_date": "2026-06-21",
+      "dataset_size": 62,
+      "best_model": "random_forest",
+      "r_squared": 0.9187,
+      "rmse": 0.6182,
+      "mae": 0.4474,
+      "best_k": 2,
+      "silhouette_score": 0.0918
     }
   ]
 }
