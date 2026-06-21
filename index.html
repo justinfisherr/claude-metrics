@@ -36,7 +36,6 @@
 
     html {
       width: 100%;
-      overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
     }
@@ -764,6 +763,61 @@
     .miss-diff.over { color: var(--bad); }
     .miss-diff.under { color: var(--warning); }
 
+    /* ── Breakdown dropdowns ── */
+    .breakdown-dropdown {
+      margin-top: 14px;
+    }
+
+    .breakdown-select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel-2);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .breakdown-select:focus {
+      border-color: var(--border-strong);
+    }
+
+    .breakdown-tracks {
+      margin-top: 8px;
+    }
+
+    .breakdown-track {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      border-bottom: 1px solid rgba(93, 155, 224, 0.08);
+      font-size: 0.8rem;
+    }
+
+    .breakdown-track:last-child { border-bottom: none; }
+
+    .breakdown-track-title {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .breakdown-track-artist {
+      color: var(--muted);
+      margin-left: 6px;
+      font-weight: 400;
+    }
+
+    .breakdown-track-rating {
+      flex-shrink: 0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
     @media (max-width: 640px) {
       .nav-search { width: 100px; }
     }
@@ -1000,13 +1054,18 @@
       <article class="panel span-12" id="hof-panel">
         <div class="panel-inner">
           <div class="panel-header">
-            <div>
-              <h2>Hall of Fame</h2>
-              <p class="panel-note">Your 9s and 10s — the tracks that define your taste</p>
-            </div>
+            <button class="accordion-toggle" id="hof-toggle" aria-expanded="false" aria-controls="hof-body">
+              <div>
+                <h2>Hall of Fame</h2>
+                <p class="panel-note">Your 9s and 10s — the tracks that define your taste</p>
+              </div>
+              <span class="accordion-arrow" aria-hidden="true">▼</span>
+            </button>
           </div>
-          <p class="panel-desc">Every track you've rated <strong>9 or 10 out of 10</strong>, displayed as cards sorted by score. These are your taste anchors — the tracks the recommendation model uses as its north star. Moods shown are the tags logged at rating time. Era and year give a sense of where in jazz history your absolute favorites live.</p>
-          <div id="hall-of-fame"></div>
+          <div class="accordion-body collapsed" id="hof-body">
+            <p class="panel-desc">Your top 20 tracks rated <strong>9 or 10 out of 10</strong>, displayed as cards sorted by score. These are your taste anchors — the tracks the recommendation model uses as its north star. Moods shown are the tags logged at rating time. Era and year give a sense of where in jazz history your absolute favorites live.</p>
+            <div id="hall-of-fame"></div>
+          </div>
         </div>
       </article>
 
@@ -1049,6 +1108,12 @@
           </div>
           <p class="panel-desc">Average rating grouped by <code>primary_instrument</code> of each track, for instruments with at least 2 logged tracks. The number after each bar shows how many tracks that instrument leads in your dataset. Shows whether your documented preferences (piano, lyrical sax) show up in the actual rating data.</p>
           <div class="chart-shell"><canvas id="instrumentChart"></canvas></div>
+          <div class="breakdown-dropdown">
+            <select id="instrument-select" class="breakdown-select">
+              <option value="">View tracks by instrument…</option>
+            </select>
+            <div id="instrument-tracks" class="breakdown-tracks"></div>
+          </div>
         </div>
       </article>
 
@@ -1063,6 +1128,12 @@
           </div>
           <p class="panel-desc">Average rating per record label, for labels with at least 2 logged tracks. Bar color intensity reflects average score; track count is shown on each bar. Answers whether your intuition about certain labels (Blue Note, Impulse!, Prestige) actually predicts quality for you — or if it's just the artists on those labels doing the work.</p>
           <div class="chart-shell"><canvas id="labelChart"></canvas></div>
+          <div class="breakdown-dropdown">
+            <select id="label-select" class="breakdown-select">
+              <option value="">View tracks by label…</option>
+            </select>
+            <div id="label-tracks" class="breakdown-tracks"></div>
+          </div>
         </div>
       </article>
 
@@ -2379,7 +2450,8 @@
       if (!container) return;
       const top = (data?.predictions || [])
         .filter(p => p.actual >= 9)
-        .sort((a, b) => b.actual - a.actual || a.title.localeCompare(b.title));
+        .sort((a, b) => b.actual - a.actual || a.title.localeCompare(b.title))
+        .slice(0, 20);
 
       if (!top.length) {
         container.innerHTML = '<div class="empty-state">No tracks rated 9+ yet.</div>';
@@ -2461,6 +2533,26 @@
       });
     }
 
+    function ratingColor(r) {
+      if (r >= 9) return 'var(--good)';
+      if (r >= 7) return 'var(--accent)';
+      if (r >= 5) return 'var(--warning)';
+      return 'var(--bad)';
+    }
+
+    function renderBreakdownTracks(tracks, containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      if (!tracks.length) { container.innerHTML = ''; return; }
+      const sorted = [...tracks].sort((a, b) => b.actual - a.actual);
+      container.innerHTML = sorted.map(t => `
+        <div class="breakdown-track">
+          <div><span class="breakdown-track-title">${html(t.title)}</span><span class="breakdown-track-artist">— ${html(t.artist)}</span></div>
+          <span class="breakdown-track-rating" style="color:${ratingColor(t.actual)}">${t.actual}/10</span>
+        </div>
+      `).join('');
+    }
+
     function renderInstrumentRatings(data) {
       const ctx = document.getElementById('instrumentChart');
       if (!ctx) return;
@@ -2469,13 +2561,13 @@
       const groups = {};
       predictions.forEach(p => {
         if (!p.primary_instrument) return;
-        groups[p.primary_instrument] = groups[p.primary_instrument] || [];
-        groups[p.primary_instrument].push(p.actual);
+        if (!groups[p.primary_instrument]) groups[p.primary_instrument] = [];
+        groups[p.primary_instrument].push(p);
       });
 
       const sorted = Object.entries(groups)
-        .filter(([, ratings]) => ratings.length >= 2)
-        .map(([inst, ratings]) => ({ inst, avg: ratings.reduce((s, r) => s + r, 0) / ratings.length, count: ratings.length }))
+        .filter(([, tracks]) => tracks.length >= 2)
+        .map(([inst, tracks]) => ({ inst, avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length, count: tracks.length, tracks }))
         .sort((a, b) => b.avg - a.avg);
 
       new Chart(ctx, {
@@ -2509,6 +2601,20 @@
           }
         })
       });
+
+      const select = document.getElementById('instrument-select');
+      if (select) {
+        sorted.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s.inst;
+          opt.textContent = `${s.inst} (${s.count} tracks, avg ${Math.round(s.avg * 10) / 10})`;
+          select.appendChild(opt);
+        });
+        select.addEventListener('change', () => {
+          const item = sorted.find(s => s.inst === select.value);
+          renderBreakdownTracks(item ? item.tracks : [], 'instrument-tracks');
+        });
+      }
     }
 
     function renderLabelRatings(data) {
@@ -2519,13 +2625,13 @@
       const groups = {};
       predictions.forEach(p => {
         if (!p.label) return;
-        groups[p.label] = groups[p.label] || [];
-        groups[p.label].push(p.actual);
+        if (!groups[p.label]) groups[p.label] = [];
+        groups[p.label].push(p);
       });
 
       const sorted = Object.entries(groups)
-        .filter(([, ratings]) => ratings.length >= 2)
-        .map(([label, ratings]) => ({ label, avg: ratings.reduce((s, r) => s + r, 0) / ratings.length, count: ratings.length }))
+        .filter(([, tracks]) => tracks.length >= 2)
+        .map(([label, tracks]) => ({ label, avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length, count: tracks.length, tracks }))
         .sort((a, b) => b.avg - a.avg);
 
       new Chart(ctx, {
@@ -2559,11 +2665,25 @@
           }
         })
       });
+
+      const select = document.getElementById('label-select');
+      if (select) {
+        sorted.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s.label;
+          opt.textContent = `${s.label} (${s.count} tracks, avg ${Math.round(s.avg * 10) / 10})`;
+          select.appendChild(opt);
+        });
+        select.addEventListener('change', () => {
+          const item = sorted.find(s => s.label === select.value);
+          renderBreakdownTracks(item ? item.tracks : [], 'label-tracks');
+        });
+      }
     }
 
-    (function () {
-      const toggle = document.getElementById('mood-toggle');
-      const body = document.getElementById('mood-body');
+    function initAccordion(toggleId, bodyId) {
+      const toggle = document.getElementById(toggleId);
+      const body = document.getElementById(bodyId);
       if (!toggle || !body) return;
 
       function open() {
@@ -2584,14 +2704,16 @@
         toggle.getAttribute('aria-expanded') === 'true' ? close() : open();
       });
 
-      // Re-measure after renderMoodRating populates the content
       const observer = new MutationObserver(() => {
         if (toggle.getAttribute('aria-expanded') === 'true') {
           body.style.maxHeight = body.scrollHeight + 'px';
         }
       });
       observer.observe(body, { childList: true, subtree: true });
-    })();
+    }
+
+    initAccordion('mood-toggle', 'mood-body');
+    initAccordion('hof-toggle', 'hof-body');
 
     // Section nav search
     (function () {
