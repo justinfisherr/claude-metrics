@@ -156,6 +156,8 @@
       gap: 16px;
       height: 100%;
       padding: clamp(16px, 3vw, 22px);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .panel-header {
@@ -255,10 +257,93 @@
       font-style: italic;
     }
 
+    .constellation-wrap {
+      position: relative;
+      width: 100%;
+      min-width: 380px;
+      height: 420px;
+    }
+    .constellation-wrap canvas {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: var(--radius-sm);
+      cursor: crosshair;
+    }
+    .constellation-tip {
+      display: none;
+      position: absolute;
+      padding: 8px 12px;
+      background: var(--panel);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.82rem;
+      pointer-events: none;
+      z-index: 10;
+      white-space: nowrap;
+      line-height: 1.55;
+    }
+    .artist-journeys-scroll {
+      min-width: 480px;
+    }
+    .artist-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .artist-name {
+      width: 130px;
+      min-width: 130px;
+      text-align: right;
+      font-size: 0.82rem;
+      font-weight: 650;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .artist-blocks {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex: 1;
+    }
+    .artist-block {
+      height: 30px;
+      border-radius: 4px;
+      min-width: 18px;
+      cursor: default;
+      position: relative;
+      transition: opacity 0.15s;
+    }
+    .artist-block:hover { opacity: 0.7; }
+    .artist-block:hover::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 8px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      z-index: 5;
+      color: var(--text);
+    }
+    .artist-avg {
+      font-size: 0.78rem;
+      color: var(--muted);
+      min-width: 36px;
+      text-align: right;
+    }
+
     .chart-shell {
       position: relative;
       width: 100%;
-      min-width: 0;
+      min-width: 380px;
       height: clamp(270px, 34vw, 395px);
     }
 
@@ -540,6 +625,72 @@
         </div>
       </article>
 
+      <article class="panel span-12">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Taste Constellation</h2>
+              <p class="panel-note">Your jazz universe — brighter stars = higher ratings, lines connect same artist</p>
+            </div>
+          </div>
+          <div class="constellation-wrap">
+            <canvas id="constellationCanvas"></canvas>
+            <div class="constellation-tip" id="constellation-tip"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Circle of Fifths</h2>
+              <p class="panel-note">Track keys mapped to the circle — closer to center = higher rating</p>
+            </div>
+          </div>
+          <div class="constellation-wrap" style="height:380px">
+            <canvas id="cofCanvas"></canvas>
+            <div class="constellation-tip" id="cof-tip"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Your Taste vs The World</h2>
+              <p class="panel-note">Spotify popularity vs your personal rating</p>
+            </div>
+          </div>
+          <div class="chart-shell tall"><canvas id="tasteVsWorldChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-12">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Artist Journeys</h2>
+              <p class="panel-note">Each block is a track — width = duration, color = rating</p>
+            </div>
+          </div>
+          <div id="artist-journeys"></div>
+        </div>
+      </article>
+
+      <article class="panel span-6">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Mood × Rating</h2>
+              <p class="panel-note">Which moods show up at each rating level</p>
+            </div>
+          </div>
+          <div id="mood-rating-grid"></div>
+        </div>
+      </article>
+
       <article class="panel span-12" id="history-panel" hidden>
         <div class="panel-inner">
           <div class="panel-header">
@@ -664,6 +815,11 @@
         renderDistribution(data);
         renderRadar(data);
         renderHeatmap(data);
+        renderConstellation(data);
+        renderCircleOfFifths(data);
+        renderTasteVsWorld(data);
+        renderArtistJourneys(data);
+        renderMoodRating(data);
         renderHistory(data);
         setStatus('Dashboard loaded');
       })
@@ -1046,6 +1202,288 @@
         })
       });
     }
+    function renderConstellation(data) {
+      const canvas = document.getElementById('constellationCanvas');
+      const tip = document.getElementById('constellation-tip');
+      const wrap = canvas.parentElement;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = wrap.clientWidth * dpr;
+      canvas.height = wrap.clientHeight * dpr;
+      canvas.style.width = wrap.clientWidth + 'px';
+      canvas.style.height = wrap.clientHeight + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      const w = wrap.clientWidth, h = wrap.clientHeight;
+      const predictions = data?.predictions || [];
+
+      ctx.fillStyle = '#040b14';
+      ctx.fillRect(0, 0, w, h);
+      for (let i = 0; i < 150; i++) {
+        ctx.beginPath();
+        ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 1.1, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(180,210,255,${Math.random() * 0.25 + 0.05})`;
+        ctx.fill();
+      }
+
+      const xs = predictions.map(p => p.pca_x), ys = predictions.map(p => p.pca_y);
+      const xMin = Math.min(...xs), xMax = Math.max(...xs), yMin = Math.min(...ys), yMax = Math.max(...ys);
+      const pad = 55;
+      const positions = predictions.map(p => ({
+        x: pad + ((p.pca_x - xMin) / (xMax - xMin || 1)) * (w - 2 * pad),
+        y: pad + ((p.pca_y - yMin) / (yMax - yMin || 1)) * (h - 2 * pad),
+        r: 2 + (p.actual / 10) * 7,
+        rating: p.actual, title: p.title, artist: p.artist, cluster: p.cluster,
+      }));
+
+      const groups = {};
+      positions.forEach(p => { groups[p.artist] = groups[p.artist] || []; groups[p.artist].push(p); });
+      Object.values(groups).forEach(g => {
+        if (g.length < 2) return;
+        ctx.strokeStyle = 'rgba(74,158,255,0.1)';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        g.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.stroke();
+      });
+
+      const starC = [[74,158,255],[255,130,110],[100,220,150],[255,200,70]];
+      positions.forEach(p => {
+        const [r,g,b] = starC[p.cluster % starC.length];
+        const br = 0.3 + (p.rating / 10) * 0.7;
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+        grad.addColorStop(0, `rgba(${r},${g},${b},${br * 0.45})`);
+        grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2); ctx.fillStyle = grad; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${br})`; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 0.35, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${br * 0.7})`; ctx.fill();
+      });
+
+      ctx.font = '10px Inter,sans-serif'; ctx.textAlign = 'center';
+      Object.entries(groups).forEach(([name, g]) => {
+        if (g.length < 3) return;
+        const avgX = g.reduce((s, p) => s + p.x, 0) / g.length;
+        const topY = Math.min(...g.map(p => p.y));
+        ctx.fillStyle = 'rgba(180,210,255,0.45)';
+        ctx.fillText(name, avgX, topY - 16);
+      });
+
+      canvas.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        let found = positions.find(p => (mx-p.x)**2 + (my-p.y)**2 < (p.r+8)**2);
+        if (found) {
+          tip.style.display = 'block';
+          tip.style.left = Math.min(found.x + 16, w - 180) + 'px';
+          tip.style.top = (found.y - 10) + 'px';
+          tip.innerHTML = `<strong>${html(found.title)}</strong><br>${html(found.artist)} — ${found.rating}/10`;
+        } else tip.style.display = 'none';
+      });
+      canvas.addEventListener('mouseleave', () => tip.style.display = 'none');
+    }
+
+    function renderCircleOfFifths(data) {
+      const canvas = document.getElementById('cofCanvas');
+      const tip = document.getElementById('cof-tip');
+      const wrap = canvas.parentElement;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = wrap.clientWidth * dpr;
+      canvas.height = wrap.clientHeight * dpr;
+      canvas.style.width = wrap.clientWidth + 'px';
+      canvas.style.height = wrap.clientHeight + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      const w = wrap.clientWidth, h = wrap.clientHeight;
+      const cx = w / 2, cy = h / 2, maxR = Math.min(cx, cy) - 36;
+
+      ctx.fillStyle = '#040b14';
+      ctx.fillRect(0, 0, w, h);
+
+      const keys = ['C','G','D','A','E','B','Gb','Db','Ab','Eb','Bb','F'];
+      const sharp = {'C#':'Db','D#':'Eb','F#':'Gb','G#':'Ab','A#':'Bb'};
+
+      [2,4,6,8,10].forEach(rat => {
+        const r = maxR * (1 - (rat - 1) / 10);
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(74,158,255,0.08)'; ctx.lineWidth = 1; ctx.stroke();
+        if (rat === 10) {
+          ctx.fillStyle = 'rgba(74,158,255,0.2)'; ctx.font = '9px Inter,sans-serif';
+          ctx.textAlign = 'right'; ctx.fillText('10', cx - r - 5, cy + 3);
+        }
+      });
+
+      ctx.font = 'bold 12px Inter,sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      keys.forEach((k, i) => {
+        const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
+        ctx.fillStyle = 'rgba(180,210,255,0.55)';
+        ctx.fillText(k, cx + (maxR + 20) * Math.cos(a), cy + (maxR + 20) * Math.sin(a));
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + maxR * Math.cos(a), cy + maxR * Math.sin(a));
+        ctx.strokeStyle = 'rgba(74,158,255,0.05)'; ctx.stroke();
+      });
+
+      const modeC = { dorian:[255,200,60], blues:[180,100,255], minor:[255,120,120], major:[80,200,160], pentatonic:[255,160,60] };
+      const predictions = data?.predictions || [];
+      const jitter = {};
+      const positions = [];
+
+      predictions.forEach(p => {
+        if (!p.key) return;
+        const root = p.key.replace(/m$/,'');
+        const norm = sharp[root] || root;
+        const ki = keys.indexOf(norm);
+        if (ki < 0) return;
+        jitter[ki] = (jitter[ki] || 0) + 1;
+        const ang = (ki / 12) * Math.PI * 2 - Math.PI / 2 + (jitter[ki] - 1) * 0.09 - 0.15;
+        const rat = p.actual || 5;
+        const r = maxR * (1 - (rat - 1) / 10);
+        const px = cx + r * Math.cos(ang), py = cy + r * Math.sin(ang);
+        const dr = 3 + (rat / 10) * 5;
+        const [cr,cg,cb] = modeC[p.mode] || modeC.major;
+        const br = 0.4 + (rat / 10) * 0.6;
+
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, dr * 2.5);
+        grad.addColorStop(0, `rgba(${cr},${cg},${cb},${br * 0.35})`);
+        grad.addColorStop(1, `rgba(${cr},${cg},${cb},0)`);
+        ctx.beginPath(); ctx.arc(px, py, dr * 2.5, 0, Math.PI * 2); ctx.fillStyle = grad; ctx.fill();
+        ctx.beginPath(); ctx.arc(px, py, dr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${cr},${cg},${cb},${br})`; ctx.fill();
+        positions.push({ x: px, y: py, r: dr, title: p.title, artist: p.artist, rating: rat, key: p.key, mode: p.mode });
+      });
+
+      ctx.font = '9px Inter,sans-serif'; ctx.textAlign = 'left';
+      let ly = 14;
+      Object.entries(modeC).forEach(([m, [r,g,b]]) => {
+        ctx.beginPath(); ctx.arc(12, ly, 4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},0.8)`; ctx.fill();
+        ctx.fillStyle = 'rgba(180,210,255,0.5)'; ctx.fillText(m, 22, ly + 3);
+        ly += 15;
+      });
+
+      canvas.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        let found = positions.find(p => (mx-p.x)**2 + (my-p.y)**2 < (p.r+7)**2);
+        if (found) {
+          tip.style.display = 'block';
+          tip.style.left = Math.min(found.x + 14, w - 200) + 'px';
+          tip.style.top = (found.y - 10) + 'px';
+          tip.innerHTML = `<strong>${html(found.title)}</strong><br>${html(found.artist)} — ${found.rating}/10<br>${html(found.key)} ${html(found.mode)}`;
+        } else tip.style.display = 'none';
+      });
+      canvas.addEventListener('mouseleave', () => tip.style.display = 'none');
+    }
+
+    function renderTasteVsWorld(data) {
+      const ctx = document.getElementById('tasteVsWorldChart');
+      const predictions = (data?.predictions || []).filter(p => p.popularity != null);
+
+      new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Tracks',
+            data: predictions.map(p => ({ x: p.popularity, y: p.actual, title: p.title, artist: p.artist })),
+            backgroundColor: predictions.map(p => {
+              const diff = Math.abs(p.popularity / 100 - p.actual / 10);
+              return diff > 0.35 ? 'rgba(255,193,68,0.72)' : 'rgba(74,158,255,0.65)';
+            }),
+            pointRadius: IS_MOBILE ? 4 : 5.5,
+            pointHoverRadius: IS_MOBILE ? 7 : 9,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => { const p = c.raw; return `${p.title} — ${p.artist} | Pop: ${p.x}, You: ${p.y}/10`; }
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Spotify Popularity', color: GR.label, font: { weight: 800 } }, min: 0, max: 80, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      });
+    }
+
+    function renderArtistJourneys(data) {
+      const container = document.getElementById('artist-journeys');
+      const predictions = data?.predictions || [];
+      const artists = {};
+      predictions.forEach(p => { artists[p.artist] = artists[p.artist] || []; artists[p.artist].push(p); });
+
+      const sorted = Object.entries(artists)
+        .filter(([_, t]) => t.length >= 3)
+        .map(([name, tracks]) => ({ name, tracks, mean: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length }))
+        .sort((a, b) => b.mean - a.mean);
+
+      const maxDur = Math.max(...predictions.map(p => p.duration_s || 300));
+
+      function rc(r) {
+        if (r >= 9) return 'rgba(80,200,120,0.82)';
+        if (r >= 7) return 'rgba(74,158,255,0.72)';
+        if (r >= 5) return 'rgba(255,193,68,0.68)';
+        return 'rgba(255,107,107,0.68)';
+      }
+
+      let m = '<div class="artist-journeys-scroll">';
+      sorted.forEach(({ name, tracks, mean }) => {
+        m += `<div class="artist-row"><div class="artist-name">${html(name)}</div><div class="artist-blocks">`;
+        tracks.forEach(t => {
+          const w = Math.max(18, ((t.duration_s || 300) / maxDur) * 180);
+          m += `<div class="artist-block" style="width:${w}px;background:${rc(t.actual)}" data-label="${html(t.title)} (${t.actual})"></div>`;
+        });
+        m += `</div><div class="artist-avg">${mean.toFixed(1)}</div></div>`;
+      });
+      m += '</div>';
+      container.innerHTML = m;
+    }
+
+    function renderMoodRating(data) {
+      const container = document.getElementById('mood-rating-grid');
+      const predictions = data?.predictions || [];
+      const buckets = [
+        { label: '2–3', min: 2, max: 3.5 },
+        { label: '4–5', min: 3.5, max: 5.5 },
+        { label: '6–7', min: 5.5, max: 7.5 },
+        { label: '8–9', min: 7.5, max: 9.5 },
+        { label: '10', min: 9.5, max: 10.5 },
+      ];
+
+      const mc = {};
+      predictions.forEach(p => {
+        (p.moods || []).forEach(mood => {
+          mc[mood] = mc[mood] || {};
+          buckets.forEach(b => { mc[mood][b.label] = mc[mood][b.label] || 0; if (p.actual >= b.min && p.actual < b.max) mc[mood][b.label]++; });
+        });
+      });
+
+      const moods = Object.keys(mc).sort((a, b) => {
+        const ta = Object.values(mc[a]).reduce((s, v) => s + v, 0);
+        const tb = Object.values(mc[b]).reduce((s, v) => s + v, 0);
+        return tb - ta;
+      });
+      const mx = Math.max(...moods.flatMap(m => Object.values(mc[m])));
+
+      let markup = '<div class="table-scroll" tabindex="0"><table class="heatmap-table"><tr><th></th>';
+      buckets.forEach(b => markup += `<th>${b.label}</th>`);
+      markup += '</tr>';
+      moods.forEach(mood => {
+        markup += `<tr><th>${html(mood)}</th>`;
+        buckets.forEach(b => {
+          const c = mc[mood][b.label] || 0;
+          const a = c > 0 ? Math.min(c / mx * 0.65 + 0.15, 0.72) : 0;
+          const bg = c === 0 ? 'transparent' : b.min >= 7.5 ? `rgba(80,200,120,${a})` : b.max <= 5.5 ? `rgba(255,107,107,${a})` : `rgba(74,158,255,${a})`;
+          markup += `<td style="background:${bg}">${c || ''}</td>`;
+        });
+        markup += '</tr>';
+      });
+      markup += '</table></div>';
+      container.innerHTML = markup;
+    }
+
   </script>
 </body>
 </html>

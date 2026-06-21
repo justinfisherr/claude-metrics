@@ -404,8 +404,10 @@ def build_predictions(tracks, model_results, best_labels, coords):
     best = model_results["best_model"]
     preds = model_results["ridge_preds"] if best == "ridge" else model_results["rf_preds"]
 
-    return [
-        {
+    results = []
+    for i, t in enumerate(tracks):
+        audio = t.get("audio_features") or {}
+        results.append({
             "title": t["title"],
             "artist": t["artist"],
             "actual": t["rating"],
@@ -415,9 +417,17 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "liked": t.get("liked", True),
             "pca_x": round(float(coords[i, 0]), 4),
             "pca_y": round(float(coords[i, 1]), 4),
-        }
-        for i, t in enumerate(tracks)
-    ]
+            "year": t.get("year"),
+            "energy": t.get("energy", 5),
+            "tempo": t.get("tempo", "medium"),
+            "era": t.get("era", "Unknown"),
+            "moods": t.get("moods", []),
+            "key": audio.get("key"),
+            "mode": audio.get("mode"),
+            "duration_s": audio.get("duration_s"),
+            "popularity": audio.get("popularity"),
+        })
+    return results
 
 
 def build_distributions(tracks, best_labels):

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-20T23:29:48.316636",
+    "generated_at": "2026-06-20T23:42:14.003255",
     "total_tracks": 62,
     "total_albums_excluded": 3,
     "mood_threshold": 3,
@@ -33,7 +33,19 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 1.5951,
-      "pca_y": -2.6379
+      "pca_y": -2.6379,
+      "year": 1961,
+      "energy": 9,
+      "tempo": "medium-fast",
+      "era": "Modal",
+      "moods": [
+        "spiritual",
+        "joyful"
+      ],
+      "key": "Em",
+      "mode": "dorian",
+      "duration_s": 824,
+      "popularity": 51
     },
     {
       "title": "Love Theme from Spartacus",
@@ -44,7 +56,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -2.9851,
-      "pca_y": 1.3246
+      "pca_y": 1.3246,
+      "year": 1961,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "romantic",
+        "melancholic",
+        "tender"
+      ],
+      "key": "Bbm",
+      "mode": "minor",
+      "duration_s": 250,
+      "popularity": 11
     },
     {
       "title": "So What",
@@ -55,7 +80,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 0.4698,
-      "pca_y": -2.7545
+      "pca_y": -2.7545,
+      "year": 1959,
+      "energy": 4,
+      "tempo": "medium",
+      "era": "Modal",
+      "moods": [
+        "reflective",
+        "spacious",
+        "contemplative"
+      ],
+      "key": "Dm",
+      "mode": "dorian",
+      "duration_s": 563,
+      "popularity": 65
     },
     {
       "title": "Blue in Green",
@@ -66,7 +104,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -1.9287,
-      "pca_y": -1.948
+      "pca_y": -1.948,
+      "year": 1959,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Modal",
+      "moods": [
+        "melancholic",
+        "reflective",
+        "tender"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 338,
+      "popularity": 68
     },
     {
       "title": "Peace Piece",
@@ -77,7 +128,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -3.1464,
-      "pca_y": -0.5461
+      "pca_y": -0.5461,
+      "year": 1958,
+      "energy": 1,
+      "tempo": "slow",
+      "era": "Cool Jazz",
+      "moods": [
+        "bittersweet",
+        "meditative",
+        "serene"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 404,
+      "popularity": 57
     },
     {
       "title": "A Single Petal of a Rose",
@@ -88,7 +152,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -3.5684,
-      "pca_y": -0.8715
+      "pca_y": -0.8715,
+      "year": 1959,
+      "energy": 1,
+      "tempo": "slow",
+      "era": "Swing",
+      "moods": [
+        "tender",
+        "elegant",
+        "introspective"
+      ],
+      "key": "Db",
+      "mode": "major",
+      "duration_s": 245,
+      "popularity": 52
     },
     {
       "title": "Tezeta",
@@ -99,7 +176,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.7328,
-      "pca_y": -1.8078
+      "pca_y": -1.8078,
+      "year": 1969,
+      "energy": 6,
+      "tempo": "medium",
+      "era": "Post-Bop",
+      "moods": [
+        "joyful",
+        "nostalgic",
+        "vibrant"
+      ],
+      "key": "Am",
+      "mode": "pentatonic",
+      "duration_s": 369,
+      "popularity": 58
     },
     {
       "title": "Moanin'",
@@ -110,7 +200,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.0329,
-      "pca_y": -3.7246
+      "pca_y": -3.7246,
+      "year": 1993,
+      "energy": 9,
+      "tempo": "fast",
+      "era": "Hard Bop",
+      "moods": [
+        "joyful",
+        "passionate",
+        "exuberant"
+      ],
+      "key": "Bb",
+      "mode": "blues",
+      "duration_s": 539,
+      "popularity": 51
     },
     {
       "title": "All the Things You Are",
@@ -121,7 +224,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": 0.3882,
-      "pca_y": -4.8756
+      "pca_y": -4.8756,
+      "year": 1945,
+      "energy": 8,
+      "tempo": "fast",
+      "era": "Bebop",
+      "moods": [
+        "lively",
+        "sophisticated",
+        "animated"
+      ],
+      "key": "Ab",
+      "mode": "major",
+      "duration_s": 170,
+      "popularity": 42
     },
     {
       "title": "It Never Entered My Mind",
@@ -132,7 +248,21 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -1.1174,
-      "pca_y": -0.1675
+      "pca_y": -0.1675,
+      "year": 1956,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "romantic",
+        "melancholic",
+        "tender",
+        "reflective"
+      ],
+      "key": "F",
+      "mode": "major",
+      "duration_s": 323,
+      "popularity": 62
     },
     {
       "title": "Goodbye Pork Pie Hat",
@@ -143,7 +273,21 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 0.8998,
-      "pca_y": 0.2774
+      "pca_y": 0.2774,
+      "year": 1959,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "mournful",
+        "romantic",
+        "melancholic",
+        "sensual"
+      ],
+      "key": "Db",
+      "mode": "blues",
+      "duration_s": 344,
+      "popularity": 57
     },
     {
       "title": "Blue Train",
@@ -154,7 +298,21 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 5.2191,
-      "pca_y": -0.9755
+      "pca_y": -0.9755,
+      "year": 1957,
+      "energy": 7,
+      "tempo": "medium-fast",
+      "era": "Hard Bop",
+      "moods": [
+        "groovy",
+        "sassy",
+        "joyful",
+        "bluesy"
+      ],
+      "key": "Eb",
+      "mode": "blues",
+      "duration_s": 643,
+      "popularity": 57
     },
     {
       "title": "Laura",
@@ -165,7 +323,20 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -3.4859,
-      "pca_y": -0.9486
+      "pca_y": -0.9486,
+      "year": 1950,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Bebop",
+      "moods": [
+        "haunting",
+        "melancholic",
+        "languid"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 180,
+      "popularity": 26
     },
     {
       "title": "Moment's Notice",
@@ -176,7 +347,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.7459,
-      "pca_y": -0.9127
+      "pca_y": -0.9127,
+      "year": 1957,
+      "energy": 9,
+      "tempo": "fast",
+      "era": "Hard Bop",
+      "moods": [
+        "exuberant",
+        "showstopping",
+        "dynamic"
+      ],
+      "key": "Eb",
+      "mode": "major",
+      "duration_s": 550,
+      "popularity": 49
     },
     {
       "title": "God Bless the Child",
@@ -187,7 +371,21 @@
       "cluster": 1,
       "liked": true,
       "pca_x": 0.0883,
-      "pca_y": 3.2488
+      "pca_y": 3.2488,
+      "year": 1956,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "romantic",
+        "sensual",
+        "tender",
+        "bittersweet"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 449,
+      "popularity": 60
     },
     {
       "title": "You Don't Know What Love Is",
@@ -198,7 +396,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": 0.3093,
-      "pca_y": 2.0433
+      "pca_y": 2.0433,
+      "year": 1956,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "melancholic",
+        "reflective"
+      ],
+      "key": "Fm",
+      "mode": "minor",
+      "duration_s": 389,
+      "popularity": 47
     },
     {
       "title": "In a Sentimental Mood",
@@ -209,7 +419,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -1.5903,
-      "pca_y": 6.3011
+      "pca_y": 6.3011,
+      "year": 1962,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "romantic",
+        "tender",
+        "beautiful"
+      ],
+      "key": "Db",
+      "mode": "major",
+      "duration_s": 325,
+      "popularity": 30
     },
     {
       "title": "Where Are You?",
@@ -220,7 +443,20 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -0.7737,
-      "pca_y": 5.8792
+      "pca_y": 5.8792,
+      "year": 1962,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "peaceful",
+        "happy",
+        "tender"
+      ],
+      "key": "Eb",
+      "mode": "major",
+      "duration_s": 311,
+      "popularity": 52
     },
     {
       "title": "St. Thomas",
@@ -231,7 +467,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 3.3313,
-      "pca_y": -0.1688
+      "pca_y": -0.1688,
+      "year": 1956,
+      "energy": 7,
+      "tempo": "medium-fast",
+      "era": "Hard Bop",
+      "moods": [
+        "joyful",
+        "cool",
+        "expressive"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 408,
+      "popularity": 50
     },
     {
       "title": "Strode Rode",
@@ -242,7 +491,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.4471,
-      "pca_y": 0.0157
+      "pca_y": 0.0157,
+      "year": 1956,
+      "energy": 8,
+      "tempo": "fast",
+      "era": "Hard Bop",
+      "moods": [
+        "dynamic",
+        "exciting",
+        "cool"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 315,
+      "popularity": 45
     },
     {
       "title": "Moritat (Mack the Knife)",
@@ -253,7 +515,19 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 3.327,
-      "pca_y": 0.6919
+      "pca_y": 0.6919,
+      "year": 1956,
+      "energy": 6,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "playful",
+        "groovy"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 604,
+      "popularity": 40
     },
     {
       "title": "Blue 7",
@@ -264,7 +538,19 @@
       "cluster": 0,
       "liked": false,
       "pca_x": 3.0267,
-      "pca_y": 1.0265
+      "pca_y": 1.0265,
+      "year": 1956,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "bluesy",
+        "contemplative"
+      ],
+      "key": "Bb",
+      "mode": "blues",
+      "duration_s": 678,
+      "popularity": 40
     },
     {
       "title": "Without a Song",
@@ -275,7 +561,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.0031,
-      "pca_y": 4.8476
+      "pca_y": 4.8476,
+      "year": 1962,
+      "energy": 4,
+      "tempo": "medium",
+      "era": "Post-Bop",
+      "moods": [
+        "lyrical",
+        "reflective"
+      ],
+      "key": "Eb",
+      "mode": "major",
+      "duration_s": 449,
+      "popularity": 47
     },
     {
       "title": "John S.",
@@ -286,7 +584,19 @@
       "cluster": 0,
       "liked": false,
       "pca_x": 1.7663,
-      "pca_y": 3.8139
+      "pca_y": 3.8139,
+      "year": 1962,
+      "energy": 6,
+      "tempo": "medium-fast",
+      "era": "Post-Bop",
+      "moods": [
+        "flat",
+        "unengaging"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 466,
+      "popularity": 39
     },
     {
       "title": "The Bridge",
@@ -297,7 +607,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 2.938,
-      "pca_y": 3.468
+      "pca_y": 3.468,
+      "year": 1962,
+      "energy": 7,
+      "tempo": "fast",
+      "era": "Post-Bop",
+      "moods": [
+        "fun",
+        "lively",
+        "energetic"
+      ],
+      "key": "F",
+      "mode": "major",
+      "duration_s": 359,
+      "popularity": 41
     },
     {
       "title": "You Do Something to Me",
@@ -308,7 +631,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.416,
-      "pca_y": 5.1078
+      "pca_y": 5.1078,
+      "year": 1962,
+      "energy": 4,
+      "tempo": "medium",
+      "era": "Post-Bop",
+      "moods": [
+        "pleasant",
+        "romantic"
+      ],
+      "key": "Eb",
+      "mode": "major",
+      "duration_s": 409,
+      "popularity": 40
     },
     {
       "title": "Naima",
@@ -319,7 +654,21 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.7144,
-      "pca_y": 3.0918
+      "pca_y": 3.0918,
+      "year": 1960,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "romantic",
+        "tender",
+        "beautiful",
+        "bittersweet"
+      ],
+      "key": "Ab",
+      "mode": "major",
+      "duration_s": 265,
+      "popularity": 62
     },
     {
       "title": "Alabama",
@@ -330,7 +679,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.7635,
-      "pca_y": 2.3668
+      "pca_y": 2.3668,
+      "year": 1963,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "mournful",
+        "tragic",
+        "solemn"
+      ],
+      "key": "Cm",
+      "mode": "minor",
+      "duration_s": 308,
+      "popularity": 55
     },
     {
       "title": "Equinox",
@@ -341,7 +703,21 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 2.6639,
-      "pca_y": 0.604
+      "pca_y": 0.604,
+      "year": 1960,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "bluesy",
+        "moody",
+        "sensual",
+        "cool"
+      ],
+      "key": "C#m",
+      "mode": "blues",
+      "duration_s": 487,
+      "popularity": 53
     },
     {
       "title": "Parker's Mood",
@@ -352,7 +728,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -0.1695,
-      "pca_y": -0.2055
+      "pca_y": -0.2055,
+      "year": 1948,
+      "energy": 3,
+      "tempo": "slow",
+      "era": "Bebop",
+      "moods": [
+        "bluesy",
+        "raw"
+      ],
+      "key": "Bb",
+      "mode": "blues",
+      "duration_s": 184,
+      "popularity": 28
     },
     {
       "title": "Circle",
@@ -363,7 +751,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": 0.2837,
-      "pca_y": -2.5599
+      "pca_y": -2.5599,
+      "year": 1951,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Bebop",
+      "moods": [
+        "flat",
+        "non-captivating"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 315,
+      "popularity": 15
     },
     {
       "title": "My Funny Valentine",
@@ -374,7 +774,21 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -4.9119,
-      "pca_y": -0.2261
+      "pca_y": -0.2261,
+      "year": 1954,
+      "energy": 1,
+      "tempo": "slow",
+      "era": "Cool Jazz",
+      "moods": [
+        "romantic",
+        "melancholic",
+        "tender",
+        "intimate"
+      ],
+      "key": "Cm",
+      "mode": "minor",
+      "duration_s": 141,
+      "popularity": 66
     },
     {
       "title": "That Old Feeling",
@@ -385,7 +799,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -3.0782,
-      "pca_y": -2.6141
+      "pca_y": -2.6141,
+      "year": 1954,
+      "energy": 3,
+      "tempo": "medium",
+      "era": "Cool Jazz",
+      "moods": [
+        "corny",
+        "saccharine"
+      ],
+      "key": "Eb",
+      "mode": "major",
+      "duration_s": 183,
+      "popularity": 24
     },
     {
       "title": "What Are You Doing the Rest of Your Life",
@@ -396,7 +822,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -3.3015,
-      "pca_y": 0.7313
+      "pca_y": 0.7313,
+      "year": 1970,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "beautiful",
+        "romantic",
+        "tender"
+      ],
+      "key": "Am",
+      "mode": "minor",
+      "duration_s": 245,
+      "popularity": 56
     },
     {
       "title": "West Coast Blues",
@@ -407,7 +846,19 @@
       "cluster": 0,
       "liked": false,
       "pca_x": 2.1411,
-      "pca_y": 0.8
+      "pca_y": 0.8,
+      "year": 1960,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "bluesy",
+        "groovy"
+      ],
+      "key": "Bb",
+      "mode": "blues",
+      "duration_s": 448,
+      "popularity": 40
     },
     {
       "title": "In Your Own Sweet Way",
@@ -418,7 +869,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.5785,
-      "pca_y": 0.2195
+      "pca_y": 0.2195,
+      "year": null,
+      "energy": 4,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "pleasant",
+        "nice"
+      ],
+      "key": "Db",
+      "mode": "major",
+      "duration_s": 294,
+      "popularity": 27
     },
     {
       "title": "Infant Eyes",
@@ -429,7 +892,21 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.9889,
-      "pca_y": 3.7912
+      "pca_y": 3.7912,
+      "year": 1964,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "tender",
+        "mysterious",
+        "bittersweet",
+        "beautiful"
+      ],
+      "key": "Ebm",
+      "mode": "minor",
+      "duration_s": 415,
+      "popularity": 23
     },
     {
       "title": "Song for My Father",
@@ -440,7 +917,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 3.264,
-      "pca_y": -0.7888
+      "pca_y": -0.7888,
+      "year": 1965,
+      "energy": 6,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "playful",
+        "fun",
+        "groovy"
+      ],
+      "key": "Fm",
+      "mode": "minor",
+      "duration_s": 438,
+      "popularity": 58
     },
     {
       "title": "Better Git It in Your Soul",
@@ -451,7 +941,21 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 6.8053,
-      "pca_y": -2.3055
+      "pca_y": -2.3055,
+      "year": 1959,
+      "energy": 10,
+      "tempo": "fast",
+      "era": "Hard Bop",
+      "moods": [
+        "joyful",
+        "ecstatic",
+        "passionate",
+        "communal"
+      ],
+      "key": "F",
+      "mode": "blues",
+      "duration_s": 445,
+      "popularity": 50
     },
     {
       "title": "Boogie Stop Shuffle",
@@ -462,7 +966,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 5.9907,
-      "pca_y": -1.2445
+      "pca_y": -1.2445,
+      "year": 1959,
+      "energy": 8,
+      "tempo": "fast",
+      "era": "Hard Bop",
+      "moods": [
+        "groovy",
+        "fun",
+        "energetic"
+      ],
+      "key": "C",
+      "mode": "blues",
+      "duration_s": 303,
+      "popularity": 41
     },
     {
       "title": "Self-Portrait in Three Colors",
@@ -473,7 +990,19 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 1.7667,
-      "pca_y": 1.3358
+      "pca_y": 1.3358,
+      "year": 1959,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "tender",
+        "introspective"
+      ],
+      "key": "Ab",
+      "mode": "major",
+      "duration_s": 190,
+      "popularity": 39
     },
     {
       "title": "Open Letter to Duke",
@@ -484,7 +1013,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.3246,
-      "pca_y": 0.5464
+      "pca_y": 0.5464,
+      "year": 1959,
+      "energy": 6,
+      "tempo": "varied",
+      "era": "Hard Bop",
+      "moods": [
+        "dynamic",
+        "beautiful",
+        "surprising"
+      ],
+      "key": "Db",
+      "mode": "major",
+      "duration_s": 297,
+      "popularity": 29
     },
     {
       "title": "Bird Calls",
@@ -495,7 +1037,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.493,
-      "pca_y": -0.3305
+      "pca_y": -0.3305,
+      "year": 1959,
+      "energy": 7,
+      "tempo": "varied",
+      "era": "Hard Bop",
+      "moods": [
+        "atmospheric",
+        "playful",
+        "experimental"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 378,
+      "popularity": 32
     },
     {
       "title": "Fables of Faubus",
@@ -506,7 +1061,20 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.1648,
-      "pca_y": -0.249
+      "pca_y": -0.249,
+      "year": 1959,
+      "energy": 6,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "sardonic",
+        "fun",
+        "political"
+      ],
+      "key": "Dm",
+      "mode": "minor",
+      "duration_s": 494,
+      "popularity": 39
     },
     {
       "title": "Pussy Cat Dues",
@@ -517,7 +1085,19 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 4.4353,
-      "pca_y": 0.0826
+      "pca_y": 0.0826,
+      "year": 1959,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "bluesy",
+        "meandering"
+      ],
+      "key": "Bb",
+      "mode": "blues",
+      "duration_s": 555,
+      "popularity": 31
     },
     {
       "title": "Jelly Roll",
@@ -528,7 +1108,19 @@
       "cluster": 0,
       "liked": true,
       "pca_x": 3.8556,
-      "pca_y": -0.2545
+      "pca_y": -0.2545,
+      "year": 1959,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Hard Bop",
+      "moods": [
+        "nostalgic",
+        "playful"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 377,
+      "popularity": 35
     },
     {
       "title": "Wild Is The Wind",
@@ -539,7 +1131,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -4.1943,
-      "pca_y": 0.3029
+      "pca_y": 0.3029,
+      "year": 1966,
+      "energy": 3,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "romantic",
+        "beautiful",
+        "tender"
+      ],
+      "key": "Cm",
+      "mode": "minor",
+      "duration_s": 422,
+      "popularity": 20
     },
     {
       "title": "Don't Let Me Be Misunderstood",
@@ -550,7 +1155,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -2.4696,
-      "pca_y": -2.4667
+      "pca_y": -2.4667,
+      "year": 1964,
+      "energy": 5,
+      "tempo": "medium",
+      "era": "Post-Bop",
+      "moods": [
+        "cool",
+        "assertive"
+      ],
+      "key": "Bbm",
+      "mode": "minor",
+      "duration_s": 166,
+      "popularity": 66
     },
     {
       "title": "Solitude",
@@ -561,7 +1178,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -6.3497,
-      "pca_y": -0.9097
+      "pca_y": -0.9097,
+      "year": 1956,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Swing",
+      "moods": [
+        "melancholic",
+        "beautiful",
+        "tender"
+      ],
+      "key": "Db",
+      "mode": "major",
+      "duration_s": 208,
+      "popularity": 68
     },
     {
       "title": "Crazy He Calls Me",
@@ -572,7 +1202,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -5.6233,
-      "pca_y": -1.2896
+      "pca_y": -1.2896,
+      "year": 1949,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Swing",
+      "moods": [
+        "romantic",
+        "nostalgic",
+        "iconic"
+      ],
+      "key": "Eb",
+      "mode": "major",
+      "duration_s": 185,
+      "popularity": 57
     },
     {
       "title": "Lover Man",
@@ -583,7 +1226,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -5.5354,
-      "pca_y": -1.408
+      "pca_y": -1.408,
+      "year": 1944,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Swing",
+      "moods": [
+        "melancholic",
+        "languid"
+      ],
+      "key": "Db",
+      "mode": "major",
+      "duration_s": 198,
+      "popularity": 45
     },
     {
       "title": "All of Me",
@@ -594,7 +1249,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": 0.2005,
-      "pca_y": -3.3749
+      "pca_y": -3.3749,
+      "year": 1953,
+      "energy": 7,
+      "tempo": "medium-fast",
+      "era": "Bebop",
+      "moods": [
+        "joyful",
+        "swinging",
+        "fun"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 217,
+      "popularity": 1
     },
     {
       "title": "April In Paris",
@@ -605,7 +1273,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -2.7077,
-      "pca_y": -1.986
+      "pca_y": -1.986,
+      "year": 1950,
+      "energy": 3,
+      "tempo": "medium",
+      "era": "Bebop",
+      "moods": [
+        "romantic",
+        "pleasant"
+      ],
+      "key": "C",
+      "mode": "major",
+      "duration_s": 187,
+      "popularity": 50
     },
     {
       "title": "Tryin' Times",
@@ -616,7 +1296,20 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -2.9417,
-      "pca_y": -2.1434
+      "pca_y": -2.1434,
+      "year": 1969,
+      "energy": 3,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "sensual",
+        "passionate",
+        "sexy"
+      ],
+      "key": "Fm",
+      "mode": "minor",
+      "duration_s": 308,
+      "popularity": 44
     },
     {
       "title": "Embraceable You",
@@ -627,7 +1320,18 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -1.7731,
-      "pca_y": -1.0258
+      "pca_y": -1.0258,
+      "year": null,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Hard Bop",
+      "moods": [
+        "pleasant"
+      ],
+      "key": "F",
+      "mode": "major",
+      "duration_s": 236,
+      "popularity": 49
     },
     {
       "title": "Early Summer",
@@ -638,7 +1342,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -0.1119,
-      "pca_y": -1.0256
+      "pca_y": -1.0256,
+      "year": 1976,
+      "energy": 6,
+      "tempo": "medium-fast",
+      "era": "Post-Bop",
+      "moods": [
+        "cool",
+        "flowing"
+      ],
+      "key": "G",
+      "mode": "major",
+      "duration_s": 644,
+      "popularity": 55
     },
     {
       "title": "My Foolish Heart",
@@ -649,7 +1365,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -3.655,
-      "pca_y": -0.3917
+      "pca_y": -0.3917,
+      "year": 1961,
+      "energy": 1,
+      "tempo": "slow",
+      "era": "Cool Jazz",
+      "moods": [
+        "tender",
+        "romantic"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 298,
+      "popularity": 34
     },
     {
       "title": "Love Theme From The Robe",
@@ -660,7 +1388,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -2.9475,
-      "pca_y": 0.6606
+      "pca_y": 0.6606,
+      "year": 1961,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "romantic",
+        "tender"
+      ],
+      "key": "Eb",
+      "mode": "minor",
+      "duration_s": 242,
+      "popularity": 49
     },
     {
       "title": "To Her Ladyship",
@@ -671,7 +1411,19 @@
       "cluster": 1,
       "liked": true,
       "pca_x": -1.7262,
-      "pca_y": 1.9489
+      "pca_y": 1.9489,
+      "year": 1962,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "tender",
+        "pretty"
+      ],
+      "key": "Eb",
+      "mode": "minor",
+      "duration_s": 540,
+      "popularity": 22
     },
     {
       "title": "'Round Midnight",
@@ -682,7 +1434,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -2.6545,
-      "pca_y": 0.0653
+      "pca_y": 0.0653,
+      "year": null,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Post-Bop",
+      "moods": [
+        "moody",
+        "dark"
+      ],
+      "key": "Ebm",
+      "mode": "minor",
+      "duration_s": 383,
+      "popularity": 38
     },
     {
       "title": "In a Sentimental Mood",
@@ -693,7 +1457,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": -4.1818,
-      "pca_y": -1.1627
+      "pca_y": -1.1627,
+      "year": 1935,
+      "energy": 2,
+      "tempo": "slow",
+      "era": "Swing",
+      "moods": [
+        "romantic",
+        "classic"
+      ],
+      "key": "F",
+      "mode": "major",
+      "duration_s": 255,
+      "popularity": 69
     },
     {
       "title": "The Kid from Red Bank",
@@ -704,7 +1480,19 @@
       "cluster": 1,
       "liked": false,
       "pca_x": 0.1521,
-      "pca_y": -4.2914
+      "pca_y": -4.2914,
+      "year": 1958,
+      "energy": 8,
+      "tempo": "fast",
+      "era": "Swing",
+      "moods": [
+        "fun",
+        "swinging"
+      ],
+      "key": "Bb",
+      "mode": "major",
+      "duration_s": 162,
+      "popularity": 33
     }
   ],
   "feature_importance": [
@@ -1588,6 +2376,16 @@
       "mae": 1.259,
       "best_k": 2,
       "silhouette_score": 0.0953
+    },
+    {
+      "run_date": "2026-06-20",
+      "dataset_size": 62,
+      "best_model": "random_forest",
+      "r_squared": 0.4221,
+      "rmse": 1.6481,
+      "mae": 1.293,
+      "best_k": 2,
+      "silhouette_score": 0.0928
     },
     {
       "run_date": "2026-06-20",
