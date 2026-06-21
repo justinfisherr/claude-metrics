@@ -47,8 +47,10 @@ LABEL_THRESHOLD = 3
 def load_data():
     text = TRAINING_DATA_PATH.read_text()
     match = re.search(r"```json\s*\n(.+?)\n```", text, re.DOTALL)
-    tracks = json.loads(match.group(1))
-    return [t for t in tracks if t.get("entity_type") != "album"]
+    all_entries = json.loads(match.group(1))
+    tracks = [t for t in all_entries if t.get("entity_type") != "album"]
+    albums = [t for t in all_entries if t.get("entity_type") == "album"]
+    return tracks, albums
 
 
 def engineer_features(tracks):
@@ -477,8 +479,8 @@ def load_history():
 
 def main():
     print("Loading data...")
-    tracks = load_data()
-    print(f"Loaded {len(tracks)} tracks (albums filtered out)")
+    tracks, albums = load_data()
+    print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
 
     print("Engineering features...")
     X, y, feature_names, common_moods, common_subgenres, common_labels = engineer_features(tracks)
@@ -531,7 +533,7 @@ def main():
         "meta": {
             "generated_at": datetime.now().isoformat(),
             "total_tracks": len(tracks),
-            "total_albums_excluded": 3,
+            "total_albums": len(albums),
             "mood_threshold": MOOD_THRESHOLD,
             "subgenre_threshold": SUBGENRE_THRESHOLD,
             "best_model": best,
@@ -547,6 +549,21 @@ def main():
         "clusters": cluster_results,
         "distributions": distributions,
         "history": history,
+        "albums": [{
+            "title": a.get("title"),
+            "artist": a.get("artist"),
+            "year": a.get("year"),
+            "label": a.get("label"),
+            "era": a.get("era"),
+            "rating": a.get("rating"),
+            "liked": a.get("liked"),
+            "replayability": a.get("replayability"),
+            "moods": a.get("moods", []),
+            "subgenres": a.get("subgenres", []),
+            "notes": a.get("notes"),
+            "notable_qualities": a.get("notable_qualities", []),
+            "favorite_moments": a.get("favorite_moments"),
+        } for a in albums],
     }
 
     OUTPUT_PATH.write_text(json.dumps(output, indent=2))

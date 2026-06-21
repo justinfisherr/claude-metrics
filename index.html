@@ -662,6 +662,85 @@
       font-size: 0.67rem;
     }
 
+    /* ── Album cards ── */
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+    }
+
+    .album-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(7, 17, 31, 0.72);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .album-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .album-card-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .album-card-artist {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .album-card-rating {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+    }
+
+    .album-card-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: var(--muted-2);
+    }
+
+    .album-card-meta span {
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(74, 158, 255, 0.05);
+    }
+
+    .album-card-notes {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .album-card-qualities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .album-card-qualities span {
+      padding: 2px 7px;
+      border: 1px solid rgba(74, 158, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(74, 158, 255, 0.07);
+      color: var(--muted);
+      font-size: 0.67rem;
+    }
+
     /* ── Section nav ── */
     .section-nav {
       position: sticky;
@@ -842,6 +921,7 @@
       <a class="nav-link" href="#mood-rating-panel">Mood × Rating</a>
       <a class="nav-link" href="#replayability-panel">Replayability</a>
       <a class="nav-link" href="#hof-panel">Hall of Fame</a>
+      <a class="nav-link" href="#albums-panel">Albums</a>
       <a class="nav-link" href="#year-rating-panel">Year vs Rating</a>
       <a class="nav-link" href="#duration-rating-panel">Duration vs Rating</a>
       <a class="nav-link" href="#instrument-panel">By Instrument</a>
@@ -1066,6 +1146,19 @@
             <p class="panel-desc">Your top 20 tracks rated <strong>9 or 10 out of 10</strong>, displayed as cards sorted by score. These are your taste anchors — the tracks the recommendation model uses as its north star. Moods shown are the tags logged at rating time. Era and year give a sense of where in jazz history your absolute favorites live.</p>
             <div id="hall-of-fame"></div>
           </div>
+        </div>
+      </article>
+
+      <!-- Albums -->
+      <article class="panel span-12" id="albums-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Albums</h2>
+              <p class="panel-note">Full albums you've rated as a whole</p>
+            </div>
+          </div>
+          <div id="albums-list"></div>
         </div>
       </article>
 
@@ -1363,6 +1456,7 @@
         renderMoodRating(data);
         renderReplayability(data);
         renderHallOfFame(data);
+        renderAlbums(data);
         renderYearRating(data);
         renderDurationRating(data);
         renderInstrumentRatings(data);
@@ -2465,6 +2559,43 @@
           <div class="hof-artist">${html(t.artist)}</div>
           <div class="hof-meta">${html(t.era || '')}${t.year ? ' · ' + t.year : ''}</div>
           <div class="hof-tags">${(t.moods || []).slice(0, 4).map(m => `<span class="hof-tag">${html(m)}</span>`).join('')}</div>
+        </div>
+      `).join('') + '</div>';
+    }
+
+    function renderAlbums(data) {
+      const container = document.getElementById('albums-list');
+      if (!container) return;
+      const albums = data?.albums || [];
+
+      if (!albums.length) {
+        container.innerHTML = '<div class="empty-state">No albums rated yet.</div>';
+        return;
+      }
+
+      const sorted = [...albums].sort((a, b) => b.rating - a.rating);
+      container.innerHTML = '<div class="album-grid">' + sorted.map(a => `
+        <div class="album-card">
+          <div class="album-card-header">
+            <div>
+              <div class="album-card-title">${html(a.title)}</div>
+              <div class="album-card-artist">${html(a.artist)}</div>
+            </div>
+            <span class="album-card-rating" style="color:${ratingColor(a.rating)}">${a.rating}/10</span>
+          </div>
+          <div class="album-card-meta">
+            ${a.era ? `<span>${html(a.era)}</span>` : ''}
+            ${a.year ? `<span>${a.year}</span>` : ''}
+            ${a.label ? `<span>${html(a.label)}</span>` : ''}
+            <span>${a.liked ? '👍 Liked' : '👎 Not liked'}</span>
+            <span>Replay: ${a.replayability}/10</span>
+          </div>
+          ${a.notes ? `<div class="album-card-notes">"${html(a.notes)}"</div>` : ''}
+          ${(a.notable_qualities || []).length ? `
+            <div class="album-card-qualities">
+              ${a.notable_qualities.map(q => `<span>${html(q)}</span>`).join('')}
+            </div>
+          ` : ''}
         </div>
       `).join('') + '</div>';
     }
