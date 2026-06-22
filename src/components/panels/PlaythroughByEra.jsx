@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
-import { GR } from '../../utils/chartDefaults';
+import { GR, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
 
@@ -15,6 +15,8 @@ function ptColor(pct) {
 }
 
 export default function PlaythroughByEra({ data }) {
+  const [selected, setSelected] = useState('');
+
   if (!data) return null;
   const predictions = data.predictions || [];
 
@@ -23,15 +25,16 @@ export default function PlaythroughByEra({ data }) {
     predictions.forEach(p => {
       if (!p.era || p.playthrough == null) return;
       if (!groups[p.era]) groups[p.era] = [];
-      groups[p.era].push(p.playthrough);
+      groups[p.era].push(p);
     });
 
     return Object.entries(groups)
-      .filter(([, vals]) => vals.length >= 2)
-      .map(([era, vals]) => ({
+      .filter(([, tracks]) => tracks.length >= 2)
+      .map(([era, tracks]) => ({
         era,
-        avg: vals.reduce((s, v) => s + v, 0) / vals.length,
-        count: vals.length,
+        avg: tracks.reduce((s, t) => s + t.playthrough, 0) / tracks.length,
+        count: tracks.length,
+        tracks,
       }))
       .sort((a, b) => b.avg - a.avg);
   }, [predictions]);
@@ -63,6 +66,9 @@ export default function PlaythroughByEra({ data }) {
     maintainAspectRatio: false,
     indexAxis: 'y',
     interaction: { mode: 'nearest', intersect: false },
+    onClick: (evt, elements) => {
+      if (elements.length) setSelected(sorted[elements[0].index].era);
+    },
     plugins: {
       legend: { display: false },
       tooltip: {
@@ -119,6 +125,30 @@ export default function PlaythroughByEra({ data }) {
       <div className="chart-shell">
         <Bar data={chartData} options={options} />
       </div>
+      {selected && (() => {
+        const item = sorted.find(s => s.era === selected);
+        if (!item) return null;
+        const tracks = [...item.tracks].sort((a, b) => b.actual - a.actual);
+        return (
+          <div className="breakdown-dropdown">
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+              <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{selected}</strong>
+              <button onClick={() => setSelected('')} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
+            </div>
+            <div className="breakdown-tracks">
+              {tracks.map((t, i) => (
+                <div key={i} className="breakdown-track">
+                  <div>
+                    <span className="breakdown-track-title">{t.title}</span>
+                    <span className="breakdown-track-artist">— {t.artist}</span>
+                  </div>
+                  <span className="breakdown-track-rating" style={{color: ratingColor(t.actual)}}>{t.actual}/10 · {Math.round(t.playthrough * 100)}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </Panel>
   );
 }

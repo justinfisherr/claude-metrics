@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
-import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
+import { GR, CLUSTER_COLORS, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
 
@@ -12,6 +12,8 @@ function colorFor(index) {
 }
 
 export default function EraBreakdown({ data }) {
+  const [selected, setSelected] = useState('');
+
   if (!data) return null;
   const predictions = data.predictions || [];
 
@@ -31,14 +33,15 @@ export default function EraBreakdown({ data }) {
     predictions.forEach(p => {
       if (!p.era || p.era === 'Unknown') return;
       groups[p.era] = groups[p.era] || [];
-      groups[p.era].push(p.actual);
+      groups[p.era].push(p);
     });
 
     return Object.entries(groups)
-      .map(([era, ratings]) => ({
+      .map(([era, tracks]) => ({
         era,
-        avg: ratings.reduce((s, r) => s + r, 0) / ratings.length,
-        count: ratings.length,
+        avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length,
+        count: tracks.length,
+        tracks,
       }))
       .sort((a, b) => b.avg - a.avg);
   }, [predictions]);
@@ -63,6 +66,9 @@ export default function EraBreakdown({ data }) {
     maintainAspectRatio: false,
     indexAxis: 'y',
     interaction: { mode: 'nearest', intersect: false },
+    onClick: (evt, elements) => {
+      if (elements.length) setSelected(sorted[elements[0].index].era);
+    },
     plugins: {
       legend: { display: false },
       tooltip: {
@@ -113,6 +119,30 @@ export default function EraBreakdown({ data }) {
       <div className="chart-shell tall">
         <Bar data={chartData} options={options} />
       </div>
+      {selected && (() => {
+        const item = sorted.find(s => s.era === selected);
+        if (!item) return null;
+        const tracks = [...item.tracks].sort((a, b) => b.actual - a.actual);
+        return (
+          <div className="breakdown-dropdown">
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+              <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{selected}</strong>
+              <button onClick={() => setSelected('')} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
+            </div>
+            <div className="breakdown-tracks">
+              {tracks.map((t, i) => (
+                <div key={i} className="breakdown-track">
+                  <div>
+                    <span className="breakdown-track-title">{t.title}</span>
+                    <span className="breakdown-track-artist">— {t.artist}</span>
+                  </div>
+                  <span className="breakdown-track-rating" style={{color: ratingColor(t.actual)}}>{t.actual}/10</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </Panel>
   );
 }

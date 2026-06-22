@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, RadialLinearScale, Filler, Tooltip, Legend } from 'chart.js';
-import { GR } from '../../utils/chartDefaults';
+import { GR, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, RadialLinearScale, Filler, Tooltip, Legend);
 
@@ -38,6 +39,8 @@ function profilesFrom(data) {
 }
 
 export default function ClusterProfiles({ data }) {
+  const [selected, setSelected] = useState(null);
+
   if (!data) return null;
 
   const profiles = profilesFrom(data).filter(p => p?.radar?.labels?.length);
@@ -109,6 +112,58 @@ export default function ClusterProfiles({ data }) {
       </p>
       <div className="chart-shell">
         <Radar data={chartData} options={chartOptions} />
+      </div>
+      <div className="breakdown-dropdown">
+        <div style={{display:'flex',flexWrap:'wrap',gap:'6px',marginBottom:'8px'}}>
+          {profiles.map((profile, index) => {
+            const label = profile.top_moods?.slice(0, 2).join(', ') || `Cluster ${index + 1}`;
+            return (
+              <button
+                key={index}
+                onClick={() => setSelected(selected === index ? null : index)}
+                style={{
+                  background: selected === index ? colorFor(index) : 'transparent',
+                  border: `1px solid ${colorFor(index)}`,
+                  color: selected === index ? '#0f1f38' : colorFor(index),
+                  cursor: 'pointer',
+                  fontSize: '0.78rem',
+                  padding: '3px 10px',
+                  borderRadius: '12px',
+                  fontWeight: 650,
+                }}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </div>
+        {selected != null && (() => {
+          const predictions = data?.predictions || [];
+          const tracks = predictions
+            .filter(p => p.cluster === selected)
+            .sort((a, b) => b.actual - a.actual);
+          if (!tracks.length) return null;
+          const label = profiles[selected]?.top_moods?.slice(0, 2).join(', ') || `Cluster ${selected + 1}`;
+          return (
+            <>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+                <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{label} ({tracks.length} tracks)</strong>
+                <button onClick={() => setSelected(null)} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
+              </div>
+              <div className="breakdown-tracks">
+                {tracks.map((t, i) => (
+                  <div key={i} className="breakdown-track">
+                    <div>
+                      <span className="breakdown-track-title">{t.title}</span>
+                      <span className="breakdown-track-artist">— {t.artist}</span>
+                    </div>
+                    <span className="breakdown-track-rating" style={{color: ratingColor(t.actual)}}>{t.actual}/10</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          );
+        })()}
       </div>
     </Panel>
   );

@@ -1,18 +1,21 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
-import { GR } from '../../utils/chartDefaults';
+import { GR, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 export default function InstrumentCombos({ data }) {
-  const { filtered, labels, avgs, colors, empty } = useMemo(() => {
+  const [selected, setSelected] = useState('');
+
+  const { filtered, labels, avgs, colors, empty, comboTracks } = useMemo(() => {
     const ps = data?.predictions || [];
-    if (!ps.length) return { filtered: [], labels: [], avgs: [], colors: [], empty: true };
+    if (!ps.length) return { filtered: [], labels: [], avgs: [], colors: [], empty: true, comboTracks: {} };
 
     const combos = {};
+    const tracksByCombo = {};
     ps.forEach(p => {
       const parts = [];
       if (p.primary_instrument) parts.push(p.primary_instrument);
@@ -25,13 +28,15 @@ export default function InstrumentCombos({ data }) {
       combos[key].sum += p.actual;
       combos[key].n++;
       if (p.liked) combos[key].liked++;
+      if (!tracksByCombo[key]) tracksByCombo[key] = [];
+      tracksByCombo[key].push(p);
     });
 
     const f = Object.entries(combos)
       .filter(([, v]) => v.n >= 2)
       .sort((a, b) => (b[1].sum / b[1].n) - (a[1].sum / a[1].n));
 
-    if (!f.length) return { filtered: f, labels: [], avgs: [], colors: [], empty: true };
+    if (!f.length) return { filtered: f, labels: [], avgs: [], colors: [], empty: true, comboTracks: {} };
 
     return {
       filtered: f,
@@ -39,6 +44,7 @@ export default function InstrumentCombos({ data }) {
       avgs: f.map(e => +(e[1].sum / e[1].n).toFixed(2)),
       colors: f.map(e => e[1].liked / e[1].n > 0.5 ? '#50c878' : '#ff6b6b'),
       empty: false,
+      comboTracks: tracksByCombo,
     };
   }, [data]);
 
@@ -57,6 +63,12 @@ export default function InstrumentCombos({ data }) {
     indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
+    onClick: (evt, elements) => {
+      if (elements.length) {
+        const comboKey = filtered[elements[0].index][0];
+        setSelected(comboKey);
+      }
+    },
     plugins: {
       legend: { display: false },
       tooltip: {
@@ -102,6 +114,28 @@ export default function InstrumentCombos({ data }) {
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>
+      {selected && comboTracks[selected] && (() => {
+        const tracks = [...comboTracks[selected]].sort((a, b) => b.actual - a.actual);
+        return (
+          <div className="breakdown-dropdown">
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+              <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{selected}</strong>
+              <button onClick={() => setSelected('')} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
+            </div>
+            <div className="breakdown-tracks">
+              {tracks.map((t, i) => (
+                <div key={i} className="breakdown-track">
+                  <div>
+                    <span className="breakdown-track-title">{t.title}</span>
+                    <span className="breakdown-track-artist">— {t.artist}</span>
+                  </div>
+                  <span className="breakdown-track-rating" style={{color: ratingColor(t.actual)}}>{t.actual}/10</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </Panel>
   );
 }

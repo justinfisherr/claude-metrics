@@ -1,13 +1,14 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
-import { GR } from '../../utils/chartDefaults';
+import { GR, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
 export default function MoodPolarity({ data }) {
+  const [selected, setSelected] = useState('');
   const ps = data?.predictions || [];
 
   const hidden = useMemo(() => {
@@ -80,6 +81,54 @@ export default function MoodPolarity({ data }) {
       )}
       <div className="chart-shell">
         <Scatter data={chartData} options={chartOptions} />
+      </div>
+      <div className="breakdown-dropdown">
+        <div style={{display:'flex',gap:'8px',marginBottom:'8px'}}>
+          {['High Polarity', 'Low Polarity'].map(label => (
+            <button
+              key={label}
+              onClick={() => setSelected(selected === label ? '' : label)}
+              style={{
+                background: selected === label ? 'var(--accent)' : 'transparent',
+                border: '1px solid var(--accent)',
+                color: selected === label ? '#0f1f38' : 'var(--accent)',
+                cursor: 'pointer',
+                fontSize: '0.78rem',
+                padding: '3px 10px',
+                borderRadius: '12px',
+                fontWeight: 650,
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        {selected && (() => {
+          const tracks = selected === 'High Polarity'
+            ? ps.filter(p => p.mood_polarity >= 2)
+            : ps.filter(p => p.mood_polarity <= -1);
+          const sorted = [...tracks].sort((a, b) => b.actual - a.actual);
+          if (!sorted.length) return <div style={{color:'var(--muted)',fontSize:'0.8rem'}}>No tracks in this range.</div>;
+          return (
+            <>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+                <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{selected} ({sorted.length} tracks)</strong>
+                <button onClick={() => setSelected('')} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
+              </div>
+              <div className="breakdown-tracks">
+                {sorted.map((t, i) => (
+                  <div key={i} className="breakdown-track">
+                    <div>
+                      <span className="breakdown-track-title">{t.title}</span>
+                      <span className="breakdown-track-artist">— {t.artist}</span>
+                    </div>
+                    <span className="breakdown-track-rating" style={{color: ratingColor(t.actual)}}>{t.actual}/10 · polarity: {t.mood_polarity}</span>
+                  </div>
+                ))}
+              </div>
+            </>
+          );
+        })()}
       </div>
     </Panel>
   );

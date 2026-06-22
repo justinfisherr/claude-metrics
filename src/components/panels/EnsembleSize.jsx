@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
-import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
+import { GR, CLUSTER_COLORS, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
 
@@ -12,6 +12,8 @@ function colorFor(index) {
 }
 
 export default function EnsembleSize({ data }) {
+  const [selected, setSelected] = useState(null);
+
   const { datasets, empty } = useMemo(() => {
     const predictions = (data?.predictions || []).filter(p => p.ensemble_size > 0);
     if (!predictions.length) return { datasets: [], empty: true };
@@ -50,6 +52,12 @@ export default function EnsembleSize({ data }) {
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    onClick: (evt, elements) => {
+      if (elements.length) {
+        const point = datasets[elements[0].datasetIndex].data[elements[0].index];
+        setSelected(point.x);
+      }
+    },
     plugins: {
       tooltip: {
         callbacks: {
@@ -112,6 +120,31 @@ export default function EnsembleSize({ data }) {
       <div className="chart-shell">
         <Scatter data={chartData} options={chartOptions} />
       </div>
+      {selected != null && (() => {
+        const tracks = (data?.predictions || [])
+          .filter(p => p.ensemble_size === selected)
+          .sort((a, b) => b.actual - a.actual);
+        if (!tracks.length) return null;
+        return (
+          <div className="breakdown-dropdown">
+            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
+              <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{selected} Players</strong>
+              <button onClick={() => setSelected(null)} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
+            </div>
+            <div className="breakdown-tracks">
+              {tracks.map((t, i) => (
+                <div key={i} className="breakdown-track">
+                  <div>
+                    <span className="breakdown-track-title">{t.title}</span>
+                    <span className="breakdown-track-artist">— {t.artist}</span>
+                  </div>
+                  <span className="breakdown-track-rating" style={{color: ratingColor(t.actual)}}>{t.actual}/10</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </Panel>
   );
 }
