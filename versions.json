@@ -1,8 +1,9 @@
 {
-  "current_version": "1.01",
+  "current_version": "2.00",
   "versions": [
     {
       "version": "1.00",
+      "name": "Bulbasaur",
       "major": 1,
       "minor": 0,
       "run_date": "2026-06-21T18:52:34.966172",
@@ -40,6 +41,28 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "2.00",
+      "name": "Charmander",
+      "major": 2,
+      "minor": 0,
+      "run_date": "2026-06-21T21:14:53.164051",
+      "dataset_size": 81,
+      "best_model": "random_forest",
+      "r_squared": 0.8865,
+      "rmse": 0.8281,
+      "mae": 0.6285,
+      "feature_count": 102,
+      "best_k": 2,
+      "notes": "New features: mood polarity, artist role, intro grab, early bail",
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v2.00/dashboard-data.json",
+        "model": "versions/v2.00/model.joblib",
+        "training_data": "versions/v2.00/training-data.md"
       }
     }
   ]

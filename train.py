@@ -523,7 +523,7 @@ def next_version(manifest, is_major=False):
     return f"{major}.{minor + 1:02d}"
 
 
-def save_version_artifacts(version_str, manifest, metrics_summary, is_major, notes=""):
+def save_version_artifacts(version_str, manifest, metrics_summary, is_major, name="", notes=""):
     artifacts = {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib",
@@ -544,6 +544,7 @@ def save_version_artifacts(version_str, manifest, metrics_summary, is_major, not
     major, minor = version_str.split(".")
     version_entry = {
         "version": version_str,
+        "name": name,
         "major": int(major),
         "minor": int(minor),
         "run_date": datetime.now().isoformat(),
@@ -570,6 +571,8 @@ def main():
     parser = argparse.ArgumentParser(description="Train jazz taste model")
     parser.add_argument("--major", action="store_true",
                         help="Major version bump (new training data era)")
+    parser.add_argument("--name", type=str, default="",
+                        help="Codename for this version (e.g. Charmander)")
     parser.add_argument("--notes", type=str, default="",
                         help="Version notes (why this release)")
     args = parser.parse_args()
@@ -697,8 +700,9 @@ def main():
         "best_k": cluster_results["best_k"],
     }
     save_version_artifacts(new_version, manifest, metrics_summary,
-                           is_major=args.major, notes=args.notes)
-    print(f"\nVersion {new_version} saved")
+                           is_major=args.major, name=args.name, notes=args.notes)
+    label = f"{new_version} ({args.name})" if args.name else new_version
+    print(f"\nVersion {label} saved")
     if args.major:
         print(f"  Major release — snapshot saved to versions/v{new_version}/")
 

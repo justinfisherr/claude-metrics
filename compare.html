@@ -234,7 +234,8 @@
         const selA = document.getElementById('version-a');
         const selB = document.getElementById('version-b');
         sorted.forEach((v, i) => {
-          const text = `v${v.version}${v.is_major ? ' ★' : ''} — ${v.dataset_size} tracks`;
+          const vName = v.name ? ` "${v.name}"` : '';
+          const text = `v${v.version}${vName}${v.is_major ? ' ★' : ''} — ${v.dataset_size} tracks`;
           selA.add(new Option(text, v.version));
           selB.add(new Option(text, v.version));
         });
