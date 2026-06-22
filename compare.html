@@ -134,7 +134,10 @@
     .delta-high { color: var(--warning); font-weight: 700; }
 
     /* Feature bars */
-    .feat-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .feat-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; overflow: hidden; }
+    @media (max-width: 700px) { .feat-compare { grid-template-columns: 1fr; } }
+    .feat-col { min-width: 0; overflow: hidden; }
+    .feat-col canvas { max-width: 100%; }
     .feat-col h3 {
       font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
       letter-spacing: 0.06em; color: var(--muted); margin: 0 0 8px;
