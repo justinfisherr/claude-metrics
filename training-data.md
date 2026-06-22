@@ -5,7 +5,7 @@ tags: [music, jazz, dataset, training-data]
 
 # Jazz Preferences — Training Data
 
-**Entities logged: 76** (73 tracks, 3 albums)
+**Entities logged: 84** (81 tracks, 3 albums)
 
 *Phase 1 — Data Collection active. Target: 50 tracks.*
 
@@ -4511,6 +4511,529 @@ tags: [music, jazz, dataset, training-data]
     },
     "replayability": 2,
     "playthrough": 0.25
+  },
+  {
+    "title": "Lush Life",
+    "artist": "John Coltrane & Johnny Hartman",
+    "album": "John Coltrane and Johnny Hartman",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "vocal ballad"
+    ],
+    "moods": [
+      "pretty",
+      "sleepy",
+      "uninteresting",
+      "lovely"
+    ],
+    "instrumentation": [
+      "vocals",
+      "tenor sax",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Johnny Hartman - vocals",
+      "John Coltrane - tenor sax",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "corny",
+      "didn't finish"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": "Corny.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 330,
+      "popularity": 49,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.1
+  },
+  {
+    "title": "Afro Blue",
+    "artist": "John Coltrane",
+    "album": "Live at Birdland",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz",
+      "afro-cuban jazz"
+    ],
+    "moods": [
+      "dramatic",
+      "intense",
+      "restless",
+      "experimental",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "tenor sax",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor sax",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "really didn't like it",
+      "didn't finish"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": "Really didn't like this one.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 649,
+      "popularity": 32,
+      "tempo_bpm": 150,
+      "time_signature": 6,
+      "key": "Fm",
+      "mode": "dorian",
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.2
+  },
+  {
+    "title": "Fleurette Africaine",
+    "artist": "Duke Ellington",
+    "album": "Money Jungle",
+    "year": 1963,
+    "label": "United Artists",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "warm",
+      "pretty",
+      "lovely",
+      "intimate",
+      "sexy",
+      "sensual",
+      "captivating",
+      "melancholic",
+      "bittersweet",
+      "nostalgic",
+      "moody",
+      "meditative",
+      "sparse",
+      "experimental",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano",
+      "Charles Mingus - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "just beautiful",
+      "immediate connection",
+      "trio perfection"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Just beautiful.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 216,
+      "popularity": 41,
+      "tempo_bpm": 55,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 10,
+    "playthrough": 1.0
+  },
+  {
+    "title": "In a Sentimental Mood",
+    "artist": "Duke Ellington & John Coltrane",
+    "album": "Duke Ellington & John Coltrane",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "lovely",
+      "captivating",
+      "bittersweet",
+      "longing",
+      "lush",
+      "background"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor sax",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano",
+      "John Coltrane - tenor sax",
+      "Aaron Bell - bass",
+      "Sam Woodyard - drums"
+    ],
+    "notable_qualities": [
+      "Coltrane is the only thing interesting",
+      "definitive version of the standard"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": "Coltrane is the only thing interesting",
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 255,
+      "popularity": 69,
+      "tempo_bpm": 64,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Fall",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "bittersweet",
+      "gentle",
+      "sleepy",
+      "uninteresting",
+      "flat"
+    ],
+    "instrumentation": [
+      "tenor sax",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Wayne Shorter - tenor sax",
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - piano",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "didn't finish",
+      "didn't connect"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 305,
+      "popularity": 7,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "Bbm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.15
+  },
+  {
+    "title": "Waltz for Debby",
+    "artist": "Bill Evans Trio",
+    "album": "Waltz for Debby",
+    "year": 1961,
+    "label": "Riverside",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio",
+      "cool jazz"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "joyful",
+      "cute",
+      "swinging",
+      "captivating",
+      "nostalgic",
+      "lush",
+      "spacious",
+      "smooth",
+      "background"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano",
+      "Scott LaFaro - bass",
+      "Paul Motian - drums"
+    ],
+    "notable_qualities": [
+      "when the whole band kicked in was amazing",
+      "gentle waltz melody"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": "When the whole band kicked in.. was amazing",
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 420,
+      "popularity": 41,
+      "tempo_bpm": 168,
+      "time_signature": 3,
+      "key": "F",
+      "mode": "major",
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.3
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "Miles Davis",
+    "album": "Cookin' with the Miles Davis Quintet",
+    "year": 1957,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "hopeful",
+      "pretty",
+      "cute",
+      "intimate",
+      "captivating",
+      "sensual",
+      "bittersweet",
+      "melancholic",
+      "longing",
+      "mournful",
+      "nostalgic",
+      "moody",
+      "dark",
+      "sparse",
+      "meditative",
+      "spacious",
+      "gentle",
+      "smooth",
+      "background"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor sax",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "John Coltrane - tenor sax",
+      "Red Garland - piano",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "muted trumpet vulnerability",
+      "same quintet as It Never Entered My Mind"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 265,
+      "popularity": 27,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.35
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "Chet Baker",
+    "album": "Chet Baker Sings",
+    "year": 1954,
+    "label": "Pacific Jazz",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "vocal ballad"
+    ],
+    "moods": [
+      "romantic",
+      "longing",
+      "dramatic",
+      "repetitive",
+      "uninteresting",
+      "background",
+      "flat",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "vocals",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Chet Baker - vocals/trumpet",
+      "Russ Freeman - piano"
+    ],
+    "notable_qualities": [
+      "flat vocal delivery",
+      "didn't connect"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 293,
+      "popularity": 41,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.65
   }
 ]
 ```
