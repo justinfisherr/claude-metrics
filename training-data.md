@@ -5,7 +5,7 @@ tags: [music, jazz, dataset, training-data]
 
 # Jazz Preferences — Training Data
 
-**Entities logged: 85** (82 tracks, 3 albums)
+**Entities logged: 84** (81 tracks, 3 albums)
 
 *Phase 1 — Data Collection active. Target: 50 tracks.*
 
@@ -4556,7 +4556,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": "Corny.",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
@@ -4617,7 +4617,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": "Really didn't like this one.",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4688,7 +4688,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": "Just beautiful.",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4751,7 +4751,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": "Coltrane is the only thing interesting",
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4814,7 +4814,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4879,7 +4879,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": "When the whole band kicked in.. was amazing",
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4956,7 +4956,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -5018,7 +5018,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": "2026-06-21",
+    "date_added": "2026-06-22",
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
@@ -5036,66 +5036,403 @@ tags: [music, jazz, dataset, training-data]
     "playthrough": 0.65
   },
   {
-    "title": "Warm Valley",
-    "artist": "Duke Ellington",
-    "album": "Money Jungle",
-    "year": 1963,
-    "label": "United Artists",
-    "era": "Post-Bop",
+    "title": "Django",
+    "artist": "The Modern Jazz Quartet",
+    "album": "Django",
+    "year": 1954,
+    "label": "Prestige",
+    "era": "Cool Jazz",
     "subgenres": [
-      "post-bop",
-      "piano trio"
+      "cool jazz",
+      "third stream"
+    ],
+    "moods": [
+      "lovely",
+      "joyful",
+      "cool",
+      "sensual",
+      "smooth",
+      "experimental",
+      "background"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Milt Jackson - vibraphone",
+      "John Lewis - piano",
+      "Percy Heath - bass",
+      "Kenny Clarke - drums"
+    ],
+    "notable_qualities": [
+      "elegiac MJQ tribute to Django Reinhardt",
+      "pretty but didn't pull him back",
+      "background quality despite craft"
+    ],
+    "rating": 7.5,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 275,
+      "popularity": 42,
+      "tempo_bpm": 90,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.55
+  },
+  {
+    "title": "Chelsea Bridge",
+    "artist": "Ben Webster",
+    "album": "The Soul of Ben Webster",
+    "year": 1958,
+    "label": "Verve",
+    "era": "Swing",
+    "subgenres": [
+      "ballad",
+      "swing"
     ],
     "moods": [
       "romantic",
+      "tender",
+      "warm",
+      "hopeful",
       "pretty",
       "lovely",
+      "bluesy",
+      "captivating",
+      "sexy",
+      "sensual",
+      "melancholic",
+      "bittersweet",
+      "mournful",
+      "nostalgic",
+      "longing",
+      "lush",
+      "sparse",
+      "gentle",
       "meditative",
-      "flat",
+      "spacious",
+      "smooth"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ben Webster - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "breathy sensual tenor ballad",
+      "instant favorite",
+      "new artist discovery for Justin",
+      "tragedy held beautifully"
+    ],
+    "rating": 9.5,
+    "liked": true,
+    "notes": "Wow never heard of this guy.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 221,
+      "popularity": 35,
+      "tempo_bpm": 64,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Central Park West",
+    "artist": "John Coltrane",
+    "album": "Coltrane's Sound",
+    "year": 1960,
+    "label": "Atlantic",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "pretty",
+      "lovely",
+      "nostalgic",
+      "gentle",
+      "sparse",
+      "spacious",
       "sleepy",
-      "background",
-      "uninteresting"
+      "background"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "gentle modal ballad",
+      "pretty but drifted into sleepy/background",
+      "half-listened then moved on"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 251,
+      "popularity": 51,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "E",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.5
+  },
+  {
+    "title": "Ruby, My Dear",
+    "artist": "Thelonious Monk & John Coltrane",
+    "album": "Thelonious Monk with John Coltrane",
+    "year": 1957,
+    "label": "Jazzland",
+    "era": "Bebop",
+    "subgenres": [
+      "ballad",
+      "bebop"
+    ],
+    "moods": [
+      "pretty",
+      "lovely",
+      "bluesy",
+      "sensual",
+      "sexy",
+      "melancholic",
+      "bittersweet",
+      "longing",
+      "spacious",
+      "smooth",
+      "uninteresting",
+      "sleepy",
+      "flat"
     ],
     "instrumentation": [
       "piano",
+      "tenor saxophone",
       "bass",
       "drums"
     ],
     "primary_instrument": "piano",
     "tempo": "slow",
     "energy": 2,
-    "harmonic_complexity": "medium",
+    "harmonic_complexity": "high",
     "key_players": [
-      "Duke Ellington - piano",
-      "Charles Mingus - bass",
-      "Max Roach - drums"
+      "Thelonious Monk - piano",
+      "John Coltrane - tenor saxophone"
     ],
     "notable_qualities": [
-      "same trio as Fleurette Africaine",
-      "didn't connect despite same format",
-      "didn't finish"
+      "Monk's most romantic ballad",
+      "first Monk entry in dataset",
+      "started sensual but drifted flat/uninteresting",
+      "skipped early (35% playthrough)"
     ],
-    "rating": 4.5,
-    "liked": false,
-    "notes": null,
+    "rating": 6,
+    "liked": null,
+    "notes": "",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-22",
     "recommended_by_model": true,
-    "recommendation_version": "v2.00",
+    "recommendation_version": "v6-fresh",
     "discovered_from": "claude-recommendation",
     "audio_features": {
-      "duration_s": 213,
-      "popularity": 20,
-      "tempo_bpm": 58,
+      "duration_s": 382,
+      "popularity": 54,
+      "tempo_bpm": 60,
       "time_signature": 4,
       "key": "Eb",
       "mode": "major",
       "is_live": false,
       "source": "spotify"
     },
-    "replayability": 1,
-    "playthrough": 0.25
+    "replayability": 3,
+    "playthrough": 0.35
+  },
+  {
+    "title": "Like Someone in Love",
+    "artist": "John Coltrane",
+    "album": "Lush Life",
+    "year": 1958,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "ballad",
+      "hard bop"
+    ],
+    "moods": [
+      "warm",
+      "pretty",
+      "lovely",
+      "romantic",
+      "bluesy",
+      "sexy",
+      "bittersweet",
+      "longing",
+      "dramatic",
+      "moody",
+      "spacious",
+      "lush",
+      "experimental",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "Earl May - bass",
+      "Art Taylor - drums"
+    ],
+    "notable_qualities": [
+      "pianoless trio ballad",
+      "listened all the way through",
+      "romantic and lush but ultimately uninteresting",
+      "liked status unset"
+    ],
+    "rating": 7,
+    "liked": null,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 298,
+      "popularity": 44,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Estate",
+    "artist": "Bill Evans",
+    "album": "You Must Believe in Spring",
+    "year": 1977,
+    "label": "Fantasy",
+    "era": "Neo-Bop",
+    "subgenres": [
+      "piano ballad",
+      "solo piano"
+    ],
+    "moods": [
+      "romantic",
+      "lovely",
+      "pretty",
+      "hopeful",
+      "nostalgic",
+      "spacious",
+      "sleepy",
+      "flat",
+      "background"
+    ],
+    "instrumentation": [
+      "piano"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "notable_qualities": [
+      "tender melancholy",
+      "romantic and bittersweet",
+      "harmonic complexity didn't prevent disengagement",
+      "rated lower than model expected"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 244,
+      "popularity": null,
+      "tempo_bpm": null,
+      "time_signature": null,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.5
   }
 ]
 ```
