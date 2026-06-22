@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-21T21:33:40.988547",
-    "version": "2.01",
+    "generated_at": "2026-06-22T11:00:38.685691",
+    "version": "2.02",
     "is_major": false,
     "total_tracks": 82,
     "total_albums": 3,
@@ -4476,6 +4476,1657 @@
       "mae": 0.649,
       "best_k": 3,
       "silhouette_score": 0.0698
+    },
+    {
+      "run_date": "2026-06-22",
+      "dataset_size": 82,
+      "best_model": "random_forest",
+      "r_squared": 0.8753,
+      "rmse": 0.8654,
+      "mae": 0.649,
+      "best_k": 3,
+      "silhouette_score": 0.0698
+    }
+  ],
+  "playlists": [
+    {
+      "name": "My Top Jazz Songs",
+      "id": "4ZnOuGzizWM1UIPZlhCAae",
+      "track_count": 20,
+      "matched_count": 20,
+      "avg_actual": 8.72,
+      "avg_predicted": 8.47,
+      "avg_energy": 4.7,
+      "avg_replayability": 8.05,
+      "top_moods": [
+        "joyful",
+        "tender",
+        "romantic",
+        "melancholic",
+        "bittersweet"
+      ],
+      "top_eras": [
+        "Hard Bop",
+        "Modal",
+        "Post-Bop"
+      ],
+      "tracks": [
+        {
+          "title": "My Favorite Things",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.17,
+          "moods": [
+            "spiritual",
+            "joyful"
+          ],
+          "era": "Modal",
+          "energy": 9,
+          "replayability": 10
+        },
+        {
+          "title": "Love Theme from Spartacus",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.13,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "So What",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.13,
+          "moods": [
+            "reflective",
+            "spacious",
+            "contemplative"
+          ],
+          "era": "Modal",
+          "energy": 4,
+          "replayability": 9
+        },
+        {
+          "title": "Peace Piece",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 9,
+          "predicted": 7.93,
+          "moods": [
+            "bittersweet",
+            "meditative",
+            "serene"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 7
+        },
+        {
+          "title": "Goodbye Pork Pie Hat",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.21,
+          "moods": [
+            "mournful",
+            "romantic",
+            "melancholic",
+            "sensual"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
+        },
+        {
+          "title": "God Bless the Child",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.06,
+          "moods": [
+            "romantic",
+            "sensual",
+            "tender",
+            "bittersweet"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
+        },
+        {
+          "title": "It Never Entered My Mind",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.4,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender",
+            "reflective"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 8
+        },
+        {
+          "title": "Tezeta",
+          "artist": "Mulatu Astatke",
+          "matched": true,
+          "actual": 9,
+          "predicted": 9.39,
+          "moods": [
+            "joyful",
+            "nostalgic",
+            "vibrant"
+          ],
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 10
+        },
+        {
+          "title": "Mercy, Mercy, Mercy",
+          "artist": "Cannonball Adderley",
+          "matched": true,
+          "actual": 6,
+          "predicted": 8.88,
+          "moods": [
+            "cool",
+            "bluesy",
+            "joyful",
+            "flat"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 8
+        },
+        {
+          "title": "Blue Train",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.13,
+          "moods": [
+            "groovy",
+            "sassy",
+            "joyful",
+            "bluesy"
+          ],
+          "era": "Hard Bop",
+          "energy": 7,
+          "replayability": 7
+        },
+        {
+          "title": "Blue in Green",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.65,
+          "moods": [
+            "melancholic",
+            "reflective",
+            "tender"
+          ],
+          "era": "Modal",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "Fleurette Africaine",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 9,
+          "predicted": 9.13,
+          "moods": [
+            "romantic",
+            "tender",
+            "warm",
+            "pretty",
+            "lovely",
+            "intimate",
+            "sexy",
+            "sensual",
+            "captivating",
+            "melancholic",
+            "bittersweet",
+            "nostalgic",
+            "moody",
+            "meditative",
+            "sparse",
+            "experimental",
+            "sleepy"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "Moanin'",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.4,
+          "moods": [
+            "joyful",
+            "passionate",
+            "exuberant"
+          ],
+          "era": "Hard Bop",
+          "energy": 9,
+          "replayability": 8
+        },
+        {
+          "title": "St. Thomas",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.07,
+          "moods": [
+            "joyful",
+            "cool",
+            "expressive"
+          ],
+          "era": "Hard Bop",
+          "energy": 7,
+          "replayability": 7
+        },
+        {
+          "title": "Strode Rode",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.05,
+          "moods": [
+            "dynamic",
+            "exciting",
+            "cool"
+          ],
+          "era": "Hard Bop",
+          "energy": 8,
+          "replayability": 7
+        },
+        {
+          "title": "Equinox",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8.5,
+          "predicted": 8.57,
+          "moods": [
+            "bluesy",
+            "moody",
+            "sensual",
+            "cool"
+          ],
+          "era": "Hard Bop",
+          "energy": 5,
+          "replayability": 8
+        },
+        {
+          "title": "Better Git It in Your Soul",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.11,
+          "moods": [
+            "joyful",
+            "ecstatic",
+            "passionate",
+            "communal"
+          ],
+          "era": "Hard Bop",
+          "energy": 10,
+          "replayability": 10
+        },
+        {
+          "title": "Open Letter to Duke",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.1,
+          "moods": [
+            "dynamic",
+            "beautiful",
+            "surprising"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 7
+        },
+        {
+          "title": "A Single Petal of a Rose",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.87,
+          "moods": [
+            "tender",
+            "elegant",
+            "introspective"
+          ],
+          "era": "Swing",
+          "energy": 1,
+          "replayability": 5
+        },
+        {
+          "title": "Naima",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.06,
+          "moods": [
+            "romantic",
+            "tender",
+            "beautiful",
+            "bittersweet"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 7
+        }
+      ]
+    },
+    {
+      "name": "Jazz Date",
+      "id": "6n2kibGIYXV5L3flumoiDw",
+      "track_count": 20,
+      "matched_count": 17,
+      "avg_actual": 7.38,
+      "avg_predicted": 7.1,
+      "avg_energy": 1.8,
+      "avg_replayability": 6.06,
+      "top_moods": [
+        "tender",
+        "romantic",
+        "bittersweet",
+        "melancholic",
+        "beautiful"
+      ],
+      "top_eras": [
+        "Post-Bop",
+        "Hard Bop",
+        "Cool Jazz"
+      ],
+      "tracks": [
+        {
+          "title": "God Bless the Child",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.06,
+          "moods": [
+            "romantic",
+            "sensual",
+            "tender",
+            "bittersweet"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
+        },
+        {
+          "title": "Love Theme from Spartacus",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.13,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "Goodbye Pork Pie Hat",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.21,
+          "moods": [
+            "mournful",
+            "romantic",
+            "melancholic",
+            "sensual"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
+        },
+        {
+          "title": "Peace Piece",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 9,
+          "predicted": 7.93,
+          "moods": [
+            "bittersweet",
+            "meditative",
+            "serene"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 7
+        },
+        {
+          "title": "It Never Entered My Mind",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.4,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender",
+            "reflective"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 8
+        },
+        {
+          "title": "Blue in Green",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.65,
+          "moods": [
+            "melancholic",
+            "reflective",
+            "tender"
+          ],
+          "era": "Modal",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "Naima",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.06,
+          "moods": [
+            "romantic",
+            "tender",
+            "beautiful",
+            "bittersweet"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Infant Eyes",
+          "artist": "Wayne Shorter",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 8.06,
+          "moods": [
+            "tender",
+            "mysterious",
+            "bittersweet",
+            "beautiful"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "What Are You Doing the Rest of Your Life",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 7,
+          "predicted": 7.01,
+          "moods": [
+            "beautiful",
+            "romantic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 6
+        },
+        {
+          "title": "My Foolish Heart",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 3,
+          "predicted": 4.51,
+          "moods": [
+            "tender",
+            "romantic"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 2
+        },
+        {
+          "title": "A Single Petal of a Rose",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.87,
+          "moods": [
+            "tender",
+            "elegant",
+            "introspective"
+          ],
+          "era": "Swing",
+          "energy": 1,
+          "replayability": 5
+        },
+        {
+          "title": "In a Sentimental Mood",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.07,
+          "moods": [
+            "romantic",
+            "tender",
+            "beautiful"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Love Theme From The Robe",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.83,
+          "moods": [
+            "romantic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "To Her Ladyship",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 5,
+          "predicted": 5.39,
+          "moods": [
+            "tender",
+            "pretty"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 3
+        },
+        {
+          "title": "'Round Midnight",
+          "artist": "McCoy Tyner",
+          "matched": true,
+          "actual": 3,
+          "predicted": 2.28,
+          "moods": [
+            "moody",
+            "dark"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 1
+        },
+        {
+          "title": "Embraceable You",
+          "artist": "Barry Harris",
+          "matched": true,
+          "actual": 5,
+          "predicted": 4.1,
+          "moods": [
+            "pleasant"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 2
+        },
+        {
+          "title": "Lover Man",
+          "artist": "Charlie Parker",
+          "matched": false
+        },
+        {
+          "title": "My One and Only Love",
+          "artist": "John Coltrane",
+          "matched": false
+        },
+        {
+          "title": "Fleurette Africaine",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 9,
+          "predicted": 9.13,
+          "moods": [
+            "romantic",
+            "tender",
+            "warm",
+            "pretty",
+            "lovely",
+            "intimate",
+            "sexy",
+            "sensual",
+            "captivating",
+            "melancholic",
+            "bittersweet",
+            "nostalgic",
+            "moody",
+            "meditative",
+            "sparse",
+            "experimental",
+            "sleepy"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "Chelsea Bridge",
+          "artist": "Ben Webster",
+          "matched": false
+        }
+      ]
+    },
+    {
+      "name": "Jazz Stank",
+      "id": "2Dj3wiGXPwGL3RjQDa6zG5",
+      "track_count": 7,
+      "matched_count": 6,
+      "avg_actual": 8.08,
+      "avg_predicted": 7.73,
+      "avg_energy": 7.5,
+      "avg_replayability": 7.17,
+      "top_moods": [
+        "joyful",
+        "passionate",
+        "fun",
+        "ecstatic",
+        "communal"
+      ],
+      "top_eras": [
+        "Hard Bop",
+        "Post-Bop"
+      ],
+      "tracks": [
+        {
+          "title": "Better Git It in Your Soul",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.11,
+          "moods": [
+            "joyful",
+            "ecstatic",
+            "passionate",
+            "communal"
+          ],
+          "era": "Hard Bop",
+          "energy": 10,
+          "replayability": 10
+        },
+        {
+          "title": "Moanin'",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.4,
+          "moods": [
+            "joyful",
+            "passionate",
+            "exuberant"
+          ],
+          "era": "Hard Bop",
+          "energy": 9,
+          "replayability": 8
+        },
+        {
+          "title": "Boogie Stop Shuffle",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 7,
+          "predicted": 7.12,
+          "moods": [
+            "groovy",
+            "fun",
+            "energetic"
+          ],
+          "era": "Hard Bop",
+          "energy": 8,
+          "replayability": 6
+        },
+        {
+          "title": "Fables of Faubus",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 6.78,
+          "moods": [
+            "sardonic",
+            "fun",
+            "political"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 6
+        },
+        {
+          "title": "Open Letter to Duke",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.1,
+          "moods": [
+            "dynamic",
+            "beautiful",
+            "surprising"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 7
+        },
+        {
+          "title": "Early Summer",
+          "artist": "Ryo Fukui",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.86,
+          "moods": [
+            "cool",
+            "flowing"
+          ],
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 6
+        },
+        {
+          "title": "Moanin'",
+          "artist": "Art Blakey",
+          "matched": false
+        }
+      ]
+    },
+    {
+      "name": "Jazz Vocals",
+      "id": "5MffriQAGUbFt2DcfkgYuU",
+      "track_count": 5,
+      "matched_count": 5,
+      "avg_actual": 7.2,
+      "avg_predicted": 7.41,
+      "avg_energy": 2.0,
+      "avg_replayability": 6.2,
+      "top_moods": [
+        "romantic",
+        "melancholic",
+        "tender",
+        "beautiful",
+        "intimate"
+      ],
+      "top_eras": [
+        "Swing",
+        "Cool Jazz",
+        "Post-Bop"
+      ],
+      "tracks": [
+        {
+          "title": "My Funny Valentine",
+          "artist": "Chet Baker",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.48,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender",
+            "intimate"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 8
+        },
+        {
+          "title": "Wild Is The Wind",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.04,
+          "moods": [
+            "romantic",
+            "beautiful",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 3,
+          "replayability": 7
+        },
+        {
+          "title": "Solitude",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.04,
+          "moods": [
+            "melancholic",
+            "beautiful",
+            "tender"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Crazy He Calls Me",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.04,
+          "moods": [
+            "romantic",
+            "nostalgic",
+            "iconic"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Lover Man",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 4,
+          "predicted": 4.45,
+          "moods": [
+            "melancholic",
+            "languid"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 2
+        }
+      ]
+    },
+    {
+      "name": "Jazz Pool",
+      "id": "3cnlae8AntzgbgmzdxRZOj",
+      "track_count": 51,
+      "matched_count": 46,
+      "avg_actual": 7.6,
+      "avg_predicted": 7.55,
+      "avg_energy": 4.0,
+      "avg_replayability": 6.57,
+      "top_moods": [
+        "romantic",
+        "tender",
+        "melancholic",
+        "joyful",
+        "sensual"
+      ],
+      "top_eras": [
+        "Hard Bop",
+        "Post-Bop",
+        "Swing"
+      ],
+      "tracks": [
+        {
+          "title": "All the Things You Are",
+          "artist": "Dizzy Gillespie",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.96,
+          "moods": [
+            "lively",
+            "sophisticated",
+            "animated"
+          ],
+          "era": "Bebop",
+          "energy": 8,
+          "replayability": 6
+        },
+        {
+          "title": "It Never Entered My Mind",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.4,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender",
+            "reflective"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 8
+        },
+        {
+          "title": "Tezeta",
+          "artist": "Mulatu Astatke",
+          "matched": true,
+          "actual": 9,
+          "predicted": 9.39,
+          "moods": [
+            "joyful",
+            "nostalgic",
+            "vibrant"
+          ],
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 10
+        },
+        {
+          "title": "Wild Is The Wind",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.04,
+          "moods": [
+            "romantic",
+            "beautiful",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 3,
+          "replayability": 7
+        },
+        {
+          "title": "Solitude",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.04,
+          "moods": [
+            "melancholic",
+            "beautiful",
+            "tender"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Crazy He Calls Me",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.04,
+          "moods": [
+            "romantic",
+            "nostalgic",
+            "iconic"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Love Theme From The Robe",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.83,
+          "moods": [
+            "romantic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "Moanin'",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.4,
+          "moods": [
+            "joyful",
+            "passionate",
+            "exuberant"
+          ],
+          "era": "Hard Bop",
+          "energy": 9,
+          "replayability": 8
+        },
+        {
+          "title": "Love Theme from Spartacus",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.13,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "My Favorite Things",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.17,
+          "moods": [
+            "spiritual",
+            "joyful"
+          ],
+          "era": "Modal",
+          "energy": 9,
+          "replayability": 10
+        },
+        {
+          "title": "Lover Man",
+          "artist": "Charlie Parker",
+          "matched": false
+        },
+        {
+          "title": "In a Sentimental Mood",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 3,
+          "predicted": 2.35,
+          "moods": [
+            "romantic",
+            "classic"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 1
+        },
+        {
+          "title": "To Her Ladyship",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 5,
+          "predicted": 5.39,
+          "moods": [
+            "tender",
+            "pretty"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 3
+        },
+        {
+          "title": "The Bridge",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 6,
+          "predicted": 6.47,
+          "moods": [
+            "fun",
+            "lively",
+            "energetic"
+          ],
+          "era": "Post-Bop",
+          "energy": 7,
+          "replayability": 4
+        },
+        {
+          "title": "In a Sentimental Mood",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.07,
+          "moods": [
+            "romantic",
+            "tender",
+            "beautiful"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "St. Thomas",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.07,
+          "moods": [
+            "joyful",
+            "cool",
+            "expressive"
+          ],
+          "era": "Hard Bop",
+          "energy": 7,
+          "replayability": 7
+        },
+        {
+          "title": "Strode Rode",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.05,
+          "moods": [
+            "dynamic",
+            "exciting",
+            "cool"
+          ],
+          "era": "Hard Bop",
+          "energy": 8,
+          "replayability": 7
+        },
+        {
+          "title": "Blue Train",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.13,
+          "moods": [
+            "groovy",
+            "sassy",
+            "joyful",
+            "bluesy"
+          ],
+          "era": "Hard Bop",
+          "energy": 7,
+          "replayability": 7
+        },
+        {
+          "title": "Goodbye Pork Pie Hat",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.21,
+          "moods": [
+            "mournful",
+            "romantic",
+            "melancholic",
+            "sensual"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
+        },
+        {
+          "title": "A Single Petal of a Rose",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.87,
+          "moods": [
+            "tender",
+            "elegant",
+            "introspective"
+          ],
+          "era": "Swing",
+          "energy": 1,
+          "replayability": 5
+        },
+        {
+          "title": "All of Me",
+          "artist": "Charlie Parker",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.02,
+          "moods": [
+            "joyful",
+            "swinging",
+            "fun"
+          ],
+          "era": "Bebop",
+          "energy": 7,
+          "replayability": 7
+        },
+        {
+          "title": "April In Paris",
+          "artist": "Charlie Parker",
+          "matched": true,
+          "actual": 6,
+          "predicted": 6.6,
+          "moods": [
+            "romantic",
+            "pleasant"
+          ],
+          "era": "Bebop",
+          "energy": 3,
+          "replayability": 4
+        },
+        {
+          "title": "Infant Eyes",
+          "artist": "Wayne Shorter",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 8.06,
+          "moods": [
+            "tender",
+            "mysterious",
+            "bittersweet",
+            "beautiful"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Peace Piece",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 9,
+          "predicted": 7.93,
+          "moods": [
+            "bittersweet",
+            "meditative",
+            "serene"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 7
+        },
+        {
+          "title": "So What",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.13,
+          "moods": [
+            "reflective",
+            "spacious",
+            "contemplative"
+          ],
+          "era": "Modal",
+          "energy": 4,
+          "replayability": 9
+        },
+        {
+          "title": "Blue in Green",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.65,
+          "moods": [
+            "melancholic",
+            "reflective",
+            "tender"
+          ],
+          "era": "Modal",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "Tryin' Times",
+          "artist": "Roberta Flack",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.37,
+          "moods": [
+            "sensual",
+            "passionate",
+            "sexy"
+          ],
+          "era": "Post-Bop",
+          "energy": 3,
+          "replayability": 8
+        },
+        {
+          "title": "Don't Let Me Be Misunderstood",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 6,
+          "predicted": 7.15,
+          "moods": [
+            "cool",
+            "assertive"
+          ],
+          "era": "Post-Bop",
+          "energy": 5,
+          "replayability": 5
+        },
+        {
+          "title": "Lover Man",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 4,
+          "predicted": 4.45,
+          "moods": [
+            "melancholic",
+            "languid"
+          ],
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 2
+        },
+        {
+          "title": "Embraceable You",
+          "artist": "Barry Harris",
+          "matched": true,
+          "actual": 5,
+          "predicted": 4.1,
+          "moods": [
+            "pleasant"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 2
+        },
+        {
+          "title": "My Foolish Heart",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 3,
+          "predicted": 4.51,
+          "moods": [
+            "tender",
+            "romantic"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 2
+        },
+        {
+          "title": "Early Summer",
+          "artist": "Ryo Fukui",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.86,
+          "moods": [
+            "cool",
+            "flowing"
+          ],
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 6
+        },
+        {
+          "title": "Better Git It in Your Soul",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.11,
+          "moods": [
+            "joyful",
+            "ecstatic",
+            "passionate",
+            "communal"
+          ],
+          "era": "Hard Bop",
+          "energy": 10,
+          "replayability": 10
+        },
+        {
+          "title": "Naima",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.06,
+          "moods": [
+            "romantic",
+            "tender",
+            "beautiful",
+            "bittersweet"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Equinox",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8.5,
+          "predicted": 8.57,
+          "moods": [
+            "bluesy",
+            "moody",
+            "sensual",
+            "cool"
+          ],
+          "era": "Hard Bop",
+          "energy": 5,
+          "replayability": 8
+        },
+        {
+          "title": "My Funny Valentine",
+          "artist": "Chet Baker",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.48,
+          "moods": [
+            "romantic",
+            "melancholic",
+            "tender",
+            "intimate"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 8
+        },
+        {
+          "title": "What Are You Doing the Rest of Your Life",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 7,
+          "predicted": 7.01,
+          "moods": [
+            "beautiful",
+            "romantic",
+            "tender"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 6
+        },
+        {
+          "title": "In Your Own Sweet Way",
+          "artist": "Wes Montgomery",
+          "matched": true,
+          "actual": 6,
+          "predicted": 6.53,
+          "moods": [
+            "pleasant",
+            "nice"
+          ],
+          "era": "Hard Bop",
+          "energy": 4,
+          "replayability": 4
+        },
+        {
+          "title": "Open Letter to Duke",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 8,
+          "predicted": 8.1,
+          "moods": [
+            "dynamic",
+            "beautiful",
+            "surprising"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 7
+        },
+        {
+          "title": "Boogie Stop Shuffle",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 7,
+          "predicted": 7.12,
+          "moods": [
+            "groovy",
+            "fun",
+            "energetic"
+          ],
+          "era": "Hard Bop",
+          "energy": 8,
+          "replayability": 6
+        },
+        {
+          "title": "Fables of Faubus",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 6.78,
+          "moods": [
+            "sardonic",
+            "fun",
+            "political"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 6
+        },
+        {
+          "title": "My One and Only Love",
+          "artist": "John Coltrane",
+          "matched": false
+        },
+        {
+          "title": "Moanin'",
+          "artist": "Art Blakey",
+          "matched": false
+        },
+        {
+          "title": "Blue Moon",
+          "artist": "Julie London",
+          "matched": true,
+          "actual": 8,
+          "predicted": 9.39,
+          "moods": [
+            "romantic",
+            "sensual",
+            "cute",
+            "tender"
+          ],
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 9
+        },
+        {
+          "title": "Cantaloupe Island",
+          "artist": "Herbie Hancock",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.34,
+          "moods": [
+            "sensual",
+            "cool",
+            "captivating",
+            "groovy"
+          ],
+          "era": "Hard Bop",
+          "energy": 7,
+          "replayability": 8
+        },
+        {
+          "title": "Mercy, Mercy, Mercy",
+          "artist": "Cannonball Adderley",
+          "matched": true,
+          "actual": 6,
+          "predicted": 8.88,
+          "moods": [
+            "cool",
+            "bluesy",
+            "joyful",
+            "flat"
+          ],
+          "era": "Hard Bop",
+          "energy": 6,
+          "replayability": 8
+        },
+        {
+          "title": "Fleurette Africaine",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 9,
+          "predicted": 9.13,
+          "moods": [
+            "romantic",
+            "tender",
+            "warm",
+            "pretty",
+            "lovely",
+            "intimate",
+            "sexy",
+            "sensual",
+            "captivating",
+            "melancholic",
+            "bittersweet",
+            "nostalgic",
+            "moody",
+            "meditative",
+            "sparse",
+            "experimental",
+            "sleepy"
+          ],
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "Waltz for Debby",
+          "artist": "Bill Evans",
+          "matched": false
+        },
+        {
+          "title": "You Don't Know What Love Is",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.83,
+          "moods": [
+            "romantic",
+            "hopeful",
+            "pretty",
+            "cute",
+            "intimate",
+            "captivating",
+            "sensual",
+            "bittersweet",
+            "melancholic",
+            "longing",
+            "mournful",
+            "nostalgic",
+            "moody",
+            "dark",
+            "sparse",
+            "meditative",
+            "spacious",
+            "gentle",
+            "smooth",
+            "background"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 4
+        },
+        {
+          "title": "God Bless the Child",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 10,
+          "predicted": 9.06,
+          "moods": [
+            "romantic",
+            "sensual",
+            "tender",
+            "bittersweet"
+          ],
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
+        },
+        {
+          "title": "Chelsea Bridge",
+          "artist": "Ben Webster",
+          "matched": false
+        }
+      ]
     }
   ],
   "albums": [

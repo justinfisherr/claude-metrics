@@ -24,7 +24,7 @@ src/
     shared/          — Panel, PanelHeader, Card, Navigation
     panels/          — 33 individual visualization components (one per chart/panel)
   hooks/             — useDashboardData (fetch + version switching)
-  pages/             — Dashboard, Compare, Review, Dictionary
+  pages/             — Dashboard, Compare, Review, Dictionary, Playlists
   styles/            — theme.css, panels.css, nav.css, components.css
   utils/             — chartDefaults, colors
 ```
@@ -119,6 +119,7 @@ When adding visualizations:
 - **Always commit `model.joblib` and `dashboard-data.json` together** after retraining — they're a matched pair.
 - **Push to `main` branch** on `justinfisherr/claude-metrics`.
 - **Test the dashboard locally** (`python3 -m http.server`) before pushing HTML changes.
+- **Update playlist data on every train.** Playlists are hardcoded in the PLAYLISTS constant in train.py. When Justin adds tracks to a Spotify playlist, update the PLAYLISTS array. The playlist aggregation runs automatically on every train (major and minor) -- no separate training needed.
 - **Back up training-data.md to git after every log.** Whenever new tracks are logged to `~/Documents/remote/Music/Jazz Dataset/training-data.md`, copy it into this repo and commit+push. This ensures we always have a versioned backup. The file was previously untracked and got corrupted with no way to recover except from Claude's file-history snapshots — never again.
   ```bash
   cp ~/Documents/remote/Music/Jazz\ Dataset/training-data.md ~/jazz-ml/training-data.md

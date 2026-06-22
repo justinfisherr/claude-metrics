@@ -571,6 +571,213 @@ def save_version_artifacts(version_str, manifest, metrics_summary, is_major, nam
     return version_str
 
 
+PLAYLISTS = [
+    {"name": "My Top Jazz Songs", "id": "4ZnOuGzizWM1UIPZlhCAae", "tracks": [
+        "My Favorite Things|John Coltrane",
+        "Love Theme from Spartacus|Yusef Lateef",
+        "So What|Miles Davis",
+        "Peace Piece|Bill Evans",
+        "Goodbye Pork Pie Hat|Charles Mingus",
+        "God Bless the Child|Sonny Rollins",
+        "It Never Entered My Mind|Miles Davis",
+        "Tezeta|Mulatu Astatke",
+        "Mercy, Mercy, Mercy|Cannonball Adderley",
+        "Blue Train|John Coltrane",
+        "Blue in Green|Miles Davis",
+        "Fleurette Africaine|Duke Ellington",
+        "Moanin'|Mingus Big Band",
+        "St. Thomas|Sonny Rollins",
+        "Strode Rode|Sonny Rollins",
+        "Equinox|John Coltrane",
+        "Better Git It in Your Soul|Charles Mingus",
+        "Open Letter to Duke|Charles Mingus",
+        "A Single Petal of a Rose|Duke Ellington",
+        "Naima|John Coltrane",
+    ]},
+    {"name": "Jazz Date", "id": "6n2kibGIYXV5L3flumoiDw", "tracks": [
+        "God Bless the Child|Sonny Rollins",
+        "Love Theme from Spartacus|Yusef Lateef",
+        "Goodbye Pork Pie Hat|Charles Mingus",
+        "Peace Piece|Bill Evans",
+        "It Never Entered My Mind|Miles Davis",
+        "Blue in Green|Miles Davis",
+        "Naima|John Coltrane",
+        "Infant Eyes|Wayne Shorter",
+        "What Are You Doing the Rest of Your Life|Bill Evans",
+        "My Foolish Heart|Bill Evans",
+        "A Single Petal of a Rose|Duke Ellington",
+        "In a Sentimental Mood|Sonny Rollins",
+        "Love Theme From The Robe|Yusef Lateef",
+        "To Her Ladyship|John Coltrane",
+        "'Round Midnight|McCoy Tyner",
+        "Embraceable You|Barry Harris",
+        "Lover Man|Charlie Parker",
+        "My One and Only Love|John Coltrane",
+        "Fleurette Africaine|Duke Ellington",
+        "Chelsea Bridge|Ben Webster",
+    ]},
+    {"name": "Jazz Stank", "id": "2Dj3wiGXPwGL3RjQDa6zG5", "tracks": [
+        "Better Git It in Your Soul|Charles Mingus",
+        "Moanin'|Mingus Big Band",
+        "Boogie Stop Shuffle|Charles Mingus",
+        "Fables of Faubus|Charles Mingus",
+        "Open Letter to Duke|Charles Mingus",
+        "Early Summer|Ryo Fukui",
+        "Moanin'|Art Blakey",
+    ]},
+    {"name": "Jazz Vocals", "id": "5MffriQAGUbFt2DcfkgYuU", "tracks": [
+        "My Funny Valentine|Chet Baker",
+        "Wild Is The Wind|Nina Simone",
+        "Solitude|Billie Holiday",
+        "Crazy He Calls Me|Billie Holiday",
+        "Lover Man|Billie Holiday",
+    ]},
+    {"name": "Jazz Pool", "id": "3cnlae8AntzgbgmzdxRZOj", "tracks": [
+        "All the Things You Are|Dizzy Gillespie",
+        "It Never Entered My Mind|Miles Davis",
+        "Tezeta|Mulatu Astatke",
+        "Wild Is The Wind|Nina Simone",
+        "Solitude|Billie Holiday",
+        "Crazy He Calls Me|Billie Holiday",
+        "Love Theme From The Robe|Yusef Lateef",
+        "Moanin'|Mingus Big Band",
+        "Love Theme from Spartacus|Yusef Lateef",
+        "My Favorite Things|John Coltrane",
+        "Lover Man|Charlie Parker",
+        "In a Sentimental Mood|Duke Ellington",
+        "To Her Ladyship|John Coltrane",
+        "The Bridge|Sonny Rollins",
+        "In a Sentimental Mood|Sonny Rollins",
+        "St. Thomas|Sonny Rollins",
+        "Strode Rode|Sonny Rollins",
+        "Blue Train|John Coltrane",
+        "Goodbye Pork Pie Hat|Charles Mingus",
+        "A Single Petal of a Rose|Duke Ellington",
+        "All of Me|Charlie Parker",
+        "April In Paris|Charlie Parker",
+        "Infant Eyes|Wayne Shorter",
+        "Peace Piece|Bill Evans",
+        "So What|Miles Davis",
+        "Blue in Green|Miles Davis",
+        "Tryin' Times|Roberta Flack",
+        "Don't Let Me Be Misunderstood|Nina Simone",
+        "Lover Man|Billie Holiday",
+        "Embraceable You|Barry Harris",
+        "My Foolish Heart|Bill Evans",
+        "Early Summer|Ryo Fukui",
+        "Better Git It in Your Soul|Charles Mingus",
+        "Naima|John Coltrane",
+        "Equinox|John Coltrane",
+        "My Funny Valentine|Chet Baker",
+        "What Are You Doing the Rest of Your Life|Bill Evans",
+        "In Your Own Sweet Way|Wes Montgomery",
+        "Open Letter to Duke|Charles Mingus",
+        "Boogie Stop Shuffle|Charles Mingus",
+        "Fables of Faubus|Charles Mingus",
+        "My One and Only Love|John Coltrane",
+        "Moanin'|Art Blakey",
+        "Blue Moon|Julie London",
+        "Cantaloupe Island|Herbie Hancock",
+        "Mercy, Mercy, Mercy|Cannonball Adderley",
+        "Fleurette Africaine|Duke Ellington",
+        "Waltz for Debby|Bill Evans",
+        "You Don't Know What Love Is|Miles Davis",
+        "God Bless the Child|Sonny Rollins",
+        "Chelsea Bridge|Ben Webster",
+    ]},
+]
+
+
+def _normalize_key(s):
+    """Normalize a track key for fuzzy matching: lowercase, strip punctuation, strip remaster suffixes."""
+    s = s.lower()
+    s = re.sub(r'\s*[-–—]\s*(remastered|remaster)(\s+\d{4})?\s*$', '', s)
+    s = re.sub(r"['’.,!?]", '', s)
+    s = s.strip()
+    return s
+
+
+def build_playlists(predictions):
+    """Match playlist tracks against predictions and compute aggregate stats."""
+    lookup = {}
+    for p in predictions:
+        key = _normalize_key(f"{p['title']}|{p['artist']}")
+        lookup[key] = p
+
+    results = []
+    for playlist in PLAYLISTS:
+        matched_tracks = []
+        all_tracks = []
+
+        for track_str in playlist["tracks"]:
+            key = _normalize_key(track_str)
+            title, artist = track_str.split("|", 1)
+            pred = lookup.get(key)
+
+            track_entry = {
+                "title": title.strip(),
+                "artist": artist.strip(),
+                "matched": pred is not None,
+            }
+            if pred:
+                track_entry["actual"] = pred["actual"]
+                track_entry["predicted"] = pred["predicted"]
+                track_entry["moods"] = pred.get("moods", [])
+                track_entry["era"] = pred.get("era", "Unknown")
+                track_entry["energy"] = pred.get("energy", 5)
+                track_entry["replayability"] = pred.get("replayability")
+                matched_tracks.append(pred)
+
+            all_tracks.append(track_entry)
+
+        # Aggregate stats for matched tracks
+        if matched_tracks:
+            avg_actual = round(sum(t["actual"] for t in matched_tracks) / len(matched_tracks), 2)
+            avg_predicted = round(sum(t["predicted"] for t in matched_tracks) / len(matched_tracks), 2)
+            avg_energy = round(sum(t.get("energy", 5) for t in matched_tracks) / len(matched_tracks), 1)
+            replay_vals = [t["replayability"] for t in matched_tracks if t.get("replayability") is not None]
+            avg_replayability = round(sum(replay_vals) / len(replay_vals), 2) if replay_vals else None
+
+            # Top moods across all matched tracks
+            mood_counts = {}
+            for t in matched_tracks:
+                for m in t.get("moods", []):
+                    mood_counts[m] = mood_counts.get(m, 0) + 1
+            top_moods = sorted(mood_counts.items(), key=lambda x: -x[1])[:5]
+            top_moods = [m[0] for m in top_moods]
+
+            # Top eras
+            era_counts = {}
+            for t in matched_tracks:
+                era = t.get("era", "Unknown")
+                era_counts[era] = era_counts.get(era, 0) + 1
+            top_eras = sorted(era_counts.items(), key=lambda x: -x[1])[:3]
+            top_eras = [e[0] for e in top_eras]
+        else:
+            avg_actual = None
+            avg_predicted = None
+            avg_energy = None
+            avg_replayability = None
+            top_moods = []
+            top_eras = []
+
+        results.append({
+            "name": playlist["name"],
+            "id": playlist["id"],
+            "track_count": len(playlist["tracks"]),
+            "matched_count": len(matched_tracks),
+            "avg_actual": avg_actual,
+            "avg_predicted": avg_predicted,
+            "avg_energy": avg_energy,
+            "avg_replayability": avg_replayability,
+            "top_moods": top_moods,
+            "top_eras": top_eras,
+            "tracks": all_tracks,
+        })
+
+    return results
+
+
 def main():
     parser = argparse.ArgumentParser(description="Train jazz taste model")
     parser.add_argument("--major", action="store_true",
@@ -657,6 +864,7 @@ def main():
         "clusters": cluster_results,
         "distributions": distributions,
         "history": history,
+        "playlists": build_playlists(predictions),
         "albums": [{
             "title": a.get("title"),
             "artist": a.get("artist"),

@@ -6,6 +6,7 @@ const PAGES = [
   { path: '/compare', label: 'Compare Models' },
   { path: '/review', label: 'Review' },
   { path: '/dictionary', label: 'Dictionary' },
+  { path: '/playlists', label: 'Playlists' },
 ];
 
 const SECTIONS = [

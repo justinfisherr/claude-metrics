@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Compare from './pages/Compare';
 import Review from './pages/Review';
 import Dictionary from './pages/Dictionary';
+import Playlists from './pages/Playlists';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/compare" element={<Compare />} />
         <Route path="/review" element={<Review />} />
         <Route path="/dictionary" element={<Dictionary />} />
+        <Route path="/playlists" element={<Playlists />} />
       </Routes>
     </DataProvider>
   );
