@@ -18,7 +18,8 @@
 .span-12 { grid-column: span 12; }
 
 @media (max-width: 900px) {
-  .span-6 { grid-column: span 12; }
+  .grid { grid-template-columns: 1fr; }
+  .span-6, .span-12 { grid-column: span 1; }
 }
 
 .panel-inner { padding: 1.2rem; }
