@@ -18,7 +18,6 @@ import MoodRating from '../components/panels/MoodRating';
 import Replayability from '../components/panels/Replayability';
 import Playthrough from '../components/panels/Playthrough';
 import PlaythroughByEra from '../components/panels/PlaythroughByEra';
-import HallOfFame from '../components/panels/HallOfFame';
 import Albums from '../components/panels/Albums';
 import YearRating from '../components/panels/YearRating';
 import DurationRating from '../components/panels/DurationRating';
@@ -99,8 +98,6 @@ export default function Dashboard() {
             <TasteSummary data={data} />
             <Changelog />
             <Metrics data={data} />
-            <HallOfFame data={data} />
-
             {/* Patterns */}
             <ClusterScatter data={data} />
             <ClusterProfiles data={data} />

@@ -6,6 +6,7 @@ import './styles/theme.css';
 import './styles/panels.css';
 import './styles/nav.css';
 import './styles/components.css';
+import './styles/wrapped.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

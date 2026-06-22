@@ -5,6 +5,7 @@ import Compare from './pages/Compare';
 import Review from './pages/Review';
 import Dictionary from './pages/Dictionary';
 import Playlists from './pages/Playlists';
+import Wrapped from './pages/Wrapped';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/review" element={<Review />} />
         <Route path="/dictionary" element={<Dictionary />} />
         <Route path="/playlists" element={<Playlists />} />
+        <Route path="/wrapped" element={<Wrapped />} />
       </Routes>
     </DataProvider>
   );

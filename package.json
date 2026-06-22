@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dashboard-data.json versions.json docs/ && cp -r versions docs/",
+    "build": "vite build && cp dashboard-data.json versions.json training-data.json artwork-cache.json docs/ && cp -r versions docs/",
     "lint": "eslint .",
     "preview": "vite preview"
   },

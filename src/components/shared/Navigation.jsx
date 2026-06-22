@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const PAGES = [
   { path: '/', label: 'Dashboard' },
+  { path: '/wrapped', label: 'Wrapped' },
   { path: '/compare', label: 'Compare Models' },
   { path: '/review', label: 'Review' },
   { path: '/dictionary', label: 'Dictionary' },
@@ -13,7 +14,6 @@ const SECTIONS = [
   { label: 'Overview', items: [
     { id: 'taste-summary-panel', label: 'Taste Summary' },
     { id: 'metrics-panel', label: 'Model' },
-    { id: 'hof-panel', label: 'Hall of Fame' },
   ]},
   { label: 'Patterns', items: [
     { id: 'clusters-panel', label: 'Clusters' },
