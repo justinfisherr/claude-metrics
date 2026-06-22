@@ -2997,7 +2997,7 @@ tags: [music, jazz, dataset, training-data]
       "powerful vocal delivery",
       "romantic ballad"
     ],
-    "rating": 8,
+    "rating": 9,
     "liked": true,
     "notes": "So pretty.",
     "favorite_moments": null,
@@ -5423,11 +5423,11 @@ tags: [music, jazz, dataset, training-data]
     "discovered_from": "claude-recommendation",
     "audio_features": {
       "duration_s": 244,
-      "popularity": null,
-      "tempo_bpm": null,
-      "time_signature": null,
-      "key": null,
-      "mode": null,
+      "popularity": 35,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
       "is_live": false,
       "source": "spotify"
     },
