@@ -178,12 +178,15 @@ function PlaylistCard({ playlist }) {
 }
 
 export default function Playlists() {
-  const { data, loading, error } = useDashboardData();
+  const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
 
   if (loading) return <div style={{ padding: 40, color: 'var(--muted)' }}>Loading...</div>;
   if (error) return <div style={{ padding: 40, color: 'var(--bad)' }}>Error: {error}</div>;
 
   const playlists = data?.playlists || [];
+  const loadableVersions = manifest
+    ? manifest.versions.filter(v => v.is_major || v.version === manifest.current_version)
+    : [];
 
   return (
     <>
@@ -196,6 +199,21 @@ export default function Playlists() {
             How your curated playlists perform against the taste model.
             Each playlist is matched against your rated tracks to show predicted and actual scores.
           </p>
+          {loadableVersions.length > 1 && (
+            <div style={{ marginTop: '12px' }}>
+              <select
+                className="version-select"
+                value={currentVersion || ''}
+                onChange={e => switchVersion(e.target.value)}
+              >
+                {[...loadableVersions].reverse().map(v => (
+                  <option key={v.version} value={v.version}>
+                    v{v.version}{v.name ? ` "${v.name}"` : ''}{v.is_major ? ' ★' : ''} — {v.dataset_size} tracks
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
 
         {playlists.length === 0 && (
