@@ -1,0 +1,5771 @@
+[
+  {
+    "title": "My Favorite Things",
+    "artist": "John Coltrane",
+    "album": "My Favorite Things",
+    "year": 1961,
+    "label": "Atlantic",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "joyful"
+    ],
+    "instrumentation": [
+      "soprano saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "soprano saxophone",
+    "tempo": "medium-fast",
+    "energy": 9,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - soprano saxophone",
+      "McCoy Tyner - piano"
+    ],
+    "notable_qualities": [
+      "soprano sax debut",
+      "extended modal vamp",
+      "waltz time",
+      "hypnotic repetition",
+      "McCoy Tyner modal voicings",
+      "gospel-tinged feel",
+      "landmark cultural status",
+      "all-time favorite"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "All-time favorite. Never gets tired of it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 824,
+      "popularity": 51,
+      "tempo_bpm": 170,
+      "time_signature": 3,
+      "key": "Em",
+      "mode": "dorian",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 10,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Love Theme from Spartacus",
+    "artist": "Yusef Lateef",
+    "album": "Eastern Sounds",
+    "year": 1961,
+    "label": "Moodsville",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "world jazz"
+    ],
+    "moods": [
+      "romantic",
+      "melancholic",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Yusef Lateef - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "lush harmonic voicings",
+      "deeply lyrical melody",
+      "intimate ensemble interplay",
+      "strong melodic identity",
+      "spacious and unhurried feel"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "Solid 10/10. So romantic. Never gets tired of it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 250,
+      "popularity": 11,
+      "tempo_bpm": 65,
+      "time_signature": 4,
+      "key": "Bbm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 10,
+    "playthrough": 1.0
+  },
+  {
+    "title": "So What",
+    "artist": "Miles Davis",
+    "album": "Kind of Blue",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "cool jazz"
+    ],
+    "moods": [
+      "reflective",
+      "spacious",
+      "contemplative"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "alto saxophone",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "John Coltrane - tenor saxophone",
+      "Cannonball Adderley - alto saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Jimmy Cobb - drums"
+    ],
+    "notable_qualities": [
+      "modal jazz landmark",
+      "iconic bass intro",
+      "spacious feel",
+      "all-star ensemble",
+      "minimal chord changes"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 563,
+      "popularity": 65,
+      "tempo_bpm": 136,
+      "time_signature": 4,
+      "key": "Dm",
+      "mode": "dorian",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Blue in Green",
+    "artist": "Miles Davis",
+    "album": "Kind of Blue",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "cool jazz"
+    ],
+    "moods": [
+      "melancholic",
+      "reflective",
+      "tender"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Jimmy Cobb - drums"
+    ],
+    "notable_qualities": [
+      "circular harmonic structure",
+      "lush Bill Evans voicings",
+      "deeply lyrical melody",
+      "intimate and sparse texture",
+      "slow-burning atmosphere"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Very nice and beautiful at times, but kinda drags on.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 338,
+      "popularity": 68,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 5,
+    "playthrough": 0.85
+  },
+  {
+    "title": "Peace Piece",
+    "artist": "Bill Evans",
+    "album": "Everybody Digs Bill Evans",
+    "year": 1958,
+    "label": "Riverside",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "impressionist jazz",
+      "piano solo"
+    ],
+    "moods": [
+      "bittersweet",
+      "meditative",
+      "serene"
+    ],
+    "instrumentation": [
+      "piano"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 1,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "notable_qualities": [
+      "solo piano",
+      "sustained ostinato bass note",
+      "free-form improvisation over static harmony",
+      "deeply introspective",
+      "impressionistic texture",
+      "bittersweet emotional quality"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Beautiful piano piece, bittersweet feeling. Wants to play like Bill Evans.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 404,
+      "popularity": 57,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "A Single Petal of a Rose",
+    "artist": "Duke Ellington",
+    "album": "The Queen's Suite",
+    "year": 1959,
+    "label": "Pablo",
+    "era": "Swing",
+    "subgenres": [
+      "piano solo",
+      "classical-influenced jazz"
+    ],
+    "moods": [
+      "tender",
+      "elegant",
+      "introspective"
+    ],
+    "instrumentation": [
+      "piano"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 1,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano"
+    ],
+    "notable_qualities": [
+      "solo piano",
+      "classical influence",
+      "delicate and refined",
+      "originally written for Queen Elizabeth II",
+      "impressionistic voicings"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Likes it but feels it's not jazzy enough.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 245,
+      "popularity": 52,
+      "tempo_bpm": 55,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 5,
+    "playthrough": 0.9
+  },
+  {
+    "title": "Tezeta",
+    "artist": "Mulatu Astatke",
+    "album": "Ethio Jazz",
+    "year": 1969,
+    "label": "Amha",
+    "era": "Post-Bop",
+    "subgenres": [
+      "Ethio-jazz",
+      "Afro-jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "joyful",
+      "nostalgic",
+      "vibrant"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums",
+      "percussion",
+      "horns"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Mulatu Astatke - vibraphone and arrangements"
+    ],
+    "notable_qualities": [
+      "Ethiopian pentatonic scales",
+      "infectious groove",
+      "unique Ethio-jazz fusion",
+      "highly replayable",
+      "contemporary and fun feel",
+      "distinctive modal color"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Very fun and contemporary. Every time it ends, wants to listen again.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 369,
+      "popularity": 58,
+      "tempo_bpm": 96,
+      "time_signature": 4,
+      "key": "Am",
+      "mode": "pentatonic",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 10,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Moanin'",
+    "artist": "Mingus Big Band",
+    "album": "Mingus Big Band 93: Nostalgia in Times Square",
+    "year": 1993,
+    "label": "Dreyfus Jazz",
+    "era": "Hard Bop",
+    "subgenres": [
+      "big band",
+      "hard bop"
+    ],
+    "moods": [
+      "joyful",
+      "passionate",
+      "exuberant"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "trombone",
+      "saxophone",
+      "piano",
+      "bass",
+      "drums",
+      "full big band"
+    ],
+    "primary_instrument": "saxophone",
+    "tempo": "fast",
+    "energy": 9,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Mingus Big Band ensemble"
+    ],
+    "notable_qualities": [
+      "big band arrangement of Mingus original",
+      "high-energy ensemble interplay",
+      "gospel-blues undercurrent",
+      "celebratory and passionate feel",
+      "powerful brass section",
+      "irresistible rhythmic drive"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "High passion, high energy but in a fun way. Usually doesn't love super energetic jazz but this one gets him going.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 539,
+      "popularity": 51,
+      "tempo_bpm": 160,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "All the Things You Are",
+    "artist": "Dizzy Gillespie",
+    "album": "Dizzy Gillespie and His Orchestra",
+    "year": 1945,
+    "label": "Guild",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "big band"
+    ],
+    "moods": [
+      "lively",
+      "sophisticated",
+      "animated"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Dizzy Gillespie - trumpet"
+    ],
+    "notable_qualities": [
+      "bebop harmonic sophistication",
+      "rapid chord changes",
+      "virtuosic trumpet playing",
+      "classic standard treated with bebop sensibility",
+      "captures something distinctive despite being outside usual preference zone"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Different style, typically prefers Miles Davis and beyond over bebop era (Dizzy/Bird), but this one captures something cool. Interested in hearing more from this era.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 170,
+      "popularity": 42,
+      "tempo_bpm": 200,
+      "time_signature": 4,
+      "key": "Ab",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 6,
+    "playthrough": 0.85
+  },
+  {
+    "title": "It Never Entered My Mind",
+    "artist": "Miles Davis",
+    "album": "Workin' with the Miles Davis Quintet",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano trio ballad"
+    ],
+    "moods": [
+      "romantic",
+      "melancholic",
+      "tender",
+      "reflective"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Red Garland - piano",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "deeply lyrical trumpet melody",
+      "romantic and intimate feel",
+      "sparse and pretty arrangement",
+      "muted trumpet vulnerability",
+      "same emotional vein as Blue in Green and Love Theme from Spartacus"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Recent favorite. Pretty, romantic. Same vein as Blue in Green and Love Theme from Spartacus.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 323,
+      "popularity": 62,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Goodbye Pork Pie Hat",
+    "artist": "Charles Mingus",
+    "album": "Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues",
+      "elegy"
+    ],
+    "moods": [
+      "mournful",
+      "romantic",
+      "melancholic",
+      "sensual"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "alto saxophone",
+      "trombone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone"
+    ],
+    "notable_qualities": [
+      "elegy for Lester Young",
+      "mournful and sensual melody",
+      "slow blues underpinning",
+      "rich horn textures",
+      "deeply lyrical",
+      "romantic and funereal simultaneously",
+      "one of the most covered Mingus compositions"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "Love the name. Sexy and mournfully romantic.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 344,
+      "popularity": 57,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Blue Train",
+    "artist": "John Coltrane",
+    "album": "Blue Train",
+    "year": 1957,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "groovy",
+      "sassy",
+      "joyful",
+      "bluesy"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "trombone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "Kenny Drew - piano",
+      "Lee Morgan - trumpet",
+      "Curtis Fuller - trombone",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "distinct three-section structure",
+      "blues-inflected hard bop feel",
+      "standout Kenny Drew piano section",
+      "sassy and groovy character",
+      "strong ensemble interplay beyond lead instrument",
+      "Coltrane's only Blue Note leader date",
+      "fun and replayable groove"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Very good, fun and groovy. Creatively had 3 different sections — loved the structural variety. Coltrane's part was good but so was Kenny Drew with his piano part. Likes this kind of sassy blues jazz fusion.",
+    "favorite_moments": "Kenny Drew piano section",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 643,
+      "popularity": 57,
+      "tempo_bpm": 136,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Laura",
+    "artist": "Charlie Parker",
+    "album": "Charlie Parker with Strings",
+    "year": 1950,
+    "label": "Clef",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "ballad",
+      "strings"
+    ],
+    "moods": [
+      "haunting",
+      "melancholic",
+      "languid"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "strings",
+      "oboe",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charlie Parker - alto saxophone"
+    ],
+    "notable_qualities": [
+      "lush string orchestration",
+      "haunting melodic quality",
+      "Bird at his most lyrical",
+      "slow and atmospheric",
+      "lacks energy to sustain engagement"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Something haunting about the performance but doesn't really capture me. Almost lulls me to sleep.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 180,
+      "popularity": 26,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.65
+  },
+  {
+    "title": "Moment's Notice",
+    "artist": "John Coltrane",
+    "album": "Blue Train",
+    "year": 1957,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "post-bop"
+    ],
+    "moods": [
+      "exuberant",
+      "showstopping",
+      "dynamic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "trombone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "energy": 9,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "Lee Morgan - trumpet",
+      "Curtis Fuller - trombone",
+      "Kenny Drew - piano",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "famously complex chord changes",
+      "extended multi-soloist format",
+      "each soloist gets distinct feature spotlight",
+      "showstopping energy",
+      "uptempo and relentless",
+      "one of Coltrane's most harmonically demanding compositions"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Fun! The different solos were very dynamic almost like a rap song with many features. It felt a little showtimey for me. I like it! Just might not revisit.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 550,
+      "popularity": 49,
+      "tempo_bpm": 240,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.8
+  },
+  {
+    "title": "God Bless the Child",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "sensual",
+      "tender",
+      "bittersweet"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "deeply tender sax playing",
+      "romantic and sexy",
+      "intimate ballad interpretation",
+      "restrained and lyrical",
+      "tragic emotional depth"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "God damn beautiful. Super sexy. Perfectly his style. The sax playing is tender.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 449,
+      "popularity": 60,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "melancholic",
+      "reflective"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "classic ballad reading",
+      "lyrical but didn't fully engage"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "Didn't quite capture him. Not a bad song but didn't quite do it for him. Not sure why.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 389,
+      "popularity": 47,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.75
+  },
+  {
+    "title": "In a Sentimental Mood",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "beautiful"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "beautiful Ellington ballad rendition",
+      "favorite version of this ballad",
+      "intimate sax-guitar interplay",
+      "pianoless quartet format"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Beautiful rendition of the Ellington ballad. Probably his favorite version of the ballad so far.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 325,
+      "popularity": 30,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "estimated"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Where Are You?",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "peaceful",
+      "happy",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "peaceful and happy quality",
+      "guitar passages especially appealing",
+      "revealed love of guitar in jazz",
+      "too slow on revisit — revised down from 8 to 5"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Initially rated 8/10 — peaceful, happy, loved the guitar. On reflection, a bit too slow. Revised to 5/10 don't like.",
+    "favorite_moments": "Guitar passages",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 311,
+      "popularity": 52,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.7
+  },
+  {
+    "title": "St. Thomas",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "calypso jazz"
+    ],
+    "moods": [
+      "joyful",
+      "cool",
+      "expressive"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "calypso groove",
+      "cool expressive attitude — same vibe as So What",
+      "joyful and fun",
+      "drum solo slightly disrupts momentum"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Fantastic. Cool in a similar way to So What — expression, fuck-you attitude. Drum solo is a bit much and kind of ruins the momentum.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 408,
+      "popularity": 50,
+      "tempo_bpm": 160,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Strode Rode",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "dynamic",
+      "exciting",
+      "cool"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "grows on you — initially didn't click",
+      "drum breaks with Rollins filling in are the highlight",
+      "Max Roach steals the show",
+      "dynamic interplay between drums and sax"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Really cool. At first didn't like it but when the drum breaks came in with Rollins filling in — that was sick. Max Roach almost steals the show.",
+    "favorite_moments": "Drum breaks with Rollins filling in",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 315,
+      "popularity": 45,
+      "tempo_bpm": 220,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Moritat (Mack the Knife)",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "playful",
+      "groovy"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "playful take on Threepenny Opera melody",
+      "groovy but less engaging than St. Thomas or Strode Rode"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Likes it but not as fun as St. Thomas or Strode Rode.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 604,
+      "popularity": 40,
+      "tempo_bpm": 150,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 5,
+    "playthrough": 0.9
+  },
+  {
+    "title": "Blue 7",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "contemplative"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "extended blues improvisation",
+      "thematic development",
+      "didn't engage in context of album"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Not quite as fun as Strode Rode. In context of the album, didn't land.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 678,
+      "popularity": 40,
+      "tempo_bpm": 130,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.6
+  },
+  {
+    "title": "Without a Song",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "lyrical",
+      "reflective"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "good but not captivating",
+      "guitar appreciated",
+      "standard ballad treatment"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Good but doesn't love it. Loves the guitar though.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 449,
+      "popularity": 47,
+      "tempo_bpm": 112,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.8
+  },
+  {
+    "title": "John S.",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "flat",
+      "unengaging"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "H.T. Saunders - drums"
+    ],
+    "notable_qualities": [
+      "felt flat",
+      "didn't engage"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Not great. A little flat.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 466,
+      "popularity": 39,
+      "tempo_bpm": 180,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.5
+  },
+  {
+    "title": "The Bridge",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "fun",
+      "lively",
+      "energetic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "surprisingly fun",
+      "uptempo bebop-adjacent energy",
+      "Jim Hall guitar is a highlight",
+      "good time despite not being typical preference"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Surprisingly fun. More uptempo bebop style but definitely a good time, especially Jim Hall's guitar. Not a favorite but a like.",
+    "favorite_moments": "Jim Hall guitar",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 359,
+      "popularity": 41,
+      "tempo_bpm": 200,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.85
+  },
+  {
+    "title": "You Do Something to Me",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "pleasant",
+      "romantic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "decent closer",
+      "Cole Porter standard",
+      "pleasant but not deeply engaging"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Finished decent. A like but 5/10. Thought he'd love it because of God Bless the Child but didn't hit the same.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 409,
+      "popularity": 40,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.8
+  },
+  {
+    "entity_type": "album",
+    "title": "The Bridge",
+    "artist": "Sonny Rollins",
+    "album": "The Bridge",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "varied",
+      "intimate"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "varied",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Jim Hall - guitar",
+      "Bob Cranshaw - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "pianoless quartet format",
+      "Jim Hall guitar is consistently the highlight",
+      "too uneven — peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
+      "didn't hold up as well as Saxophone Colossus"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "Ultimately a 6/10 not like. Thought he'd love it because of God Bless the Child but the album is uneven. Jim Hall's guitar is consistently the best part.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "replayability": 3,
+    "playthrough": 1.0
+  },
+  {
+    "entity_type": "album",
+    "title": "Saxophone Colossus",
+    "artist": "Sonny Rollins",
+    "album": "Saxophone Colossus",
+    "year": 1956,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "calypso jazz",
+      "ballad",
+      "blues"
+    ],
+    "moods": [
+      "varied",
+      "romantic",
+      "cool",
+      "groovy",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "varied",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Doug Watkins - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "great variety across tracks",
+      "Max Roach almost steals the show",
+      "will revisit",
+      "first album rated as entity"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Great album, will revisit. Max Roach is insane on drums and almost steals the show on several tracks like Moritat and Strode Rode.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v1-sonny-rollins",
+    "discovered_from": "claude-recommendation",
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Naima",
+    "artist": "John Coltrane",
+    "album": "Giant Steps",
+    "year": 1960,
+    "label": "Atlantic",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "beautiful",
+      "bittersweet"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "Wynton Kelly - piano",
+      "Paul Chambers - bass",
+      "Jimmy Cobb - drums"
+    ],
+    "notable_qualities": [
+      "beautiful and tender",
+      "written for Coltrane's first wife",
+      "deeply romantic ballad",
+      "lush harmonic movement"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Beautiful. Likes it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v2-coltrane",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 265,
+      "popularity": 62,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Ab",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Alabama",
+    "artist": "John Coltrane",
+    "album": "Live at Birdland",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "elegy",
+      "protest"
+    ],
+    "moods": [
+      "mournful",
+      "tragic",
+      "solemn"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "response to 16th Street Baptist Church bombing",
+      "melody follows MLK eulogy rhythm",
+      "too tragic without optimism",
+      "needs certain emotional state to appreciate"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Good but a little too tragic — no sense of optimism. Not the worst thing but feels like he has to be in a certain state to appreciate it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v2-coltrane",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 308,
+      "popularity": 55,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Cm",
+      "mode": "minor",
+      "is_live": true,
+      "source": "estimated"
+    },
+    "replayability": 4,
+    "playthrough": 0.9
+  },
+  {
+    "title": "Equinox",
+    "artist": "John Coltrane",
+    "album": "Coltrane's Sound",
+    "year": 1960,
+    "label": "Atlantic",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "moody",
+      "sensual",
+      "cool"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "bluesy moody and sexy",
+      "unhurried fuck-you attitude",
+      "strong blues groove",
+      "cool without being showy"
+    ],
+    "rating": 8.5,
+    "liked": true,
+    "notes": "Amazing. Very bluesy, moody, sexy with that fuck-you unhurried attitude.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v2-coltrane",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 487,
+      "popularity": 53,
+      "tempo_bpm": 108,
+      "time_signature": 4,
+      "key": "C#m",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Parker's Mood",
+    "artist": "Charlie Parker",
+    "album": "Bird: The Savoy Recordings",
+    "year": 1948,
+    "label": "Savoy",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "raw"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charlie Parker - alto saxophone",
+      "John Lewis - piano",
+      "Curly Russell - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "Bird at his most emotional",
+      "slow blues",
+      "still reads as solo show to Justin",
+      "bebop exploration — negative result"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Whatever. Seems like a solo show. Feels like one day he'll understand Bird's greatness but it just doesn't land yet.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v2-exploration",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 184,
+      "popularity": 28,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.45
+  },
+  {
+    "title": "Circle",
+    "artist": "Miles Davis",
+    "album": "Dig",
+    "year": 1951,
+    "label": "Prestige",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "hard bop"
+    ],
+    "moods": [
+      "flat",
+      "non-captivating"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "alto saxophone",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet"
+    ],
+    "notable_qualities": [
+      "pre-modal Miles",
+      "forgettable",
+      "lacks the spacing and restraint of later Miles",
+      "auto-played — not a recommendation"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Forgettable. Loves Miles's trumpet playing but this sounds like he hadn't found his spacing yet. Feels off, non-captivating.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "autoplay",
+    "audio_features": {
+      "duration_s": 315,
+      "popularity": 15,
+      "tempo_bpm": 160,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "estimated"
+    },
+    "replayability": 1,
+    "playthrough": 0.5
+  },
+  {
+    "title": "My Funny Valentine",
+    "artist": "Chet Baker",
+    "album": "Chet Baker Sings",
+    "year": 1954,
+    "label": "Pacific Jazz",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "melancholic",
+      "tender",
+      "intimate"
+    ],
+    "instrumentation": [
+      "vocals",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 1,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Chet Baker - vocals and trumpet"
+    ],
+    "notable_qualities": [
+      "first vocalist track to score 8+",
+      "favorite version of this ballad",
+      "Chet Baker has a beautiful voice",
+      "intimate and instrument-like vocal quality",
+      "breaks the vocal aversion"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Favorite version of the ballad. Chet Baker has a beautiful voice. First vocalist track to score well — vocal aversion has limits.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v2-exploration",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 141,
+      "popularity": 66,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "Cm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "That Old Feeling",
+    "artist": "Chet Baker",
+    "album": "Chet Baker Sings",
+    "year": 1954,
+    "label": "Pacific Jazz",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "vocal jazz"
+    ],
+    "moods": [
+      "corny",
+      "saccharine"
+    ],
+    "instrumentation": [
+      "vocals",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 3,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Chet Baker - vocals and trumpet"
+    ],
+    "notable_qualities": [
+      "felt corny",
+      "new lowest rating in dataset",
+      "same artist as 8/10 My Funny Valentine — shows song choice matters more than vocalist",
+      "introduces 'corny' as a negative signal"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Felt corny. New lowest rating in the dataset.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "autoplay",
+    "audio_features": {
+      "duration_s": 183,
+      "popularity": 24,
+      "tempo_bpm": 116,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.4
+  },
+  {
+    "title": "What Are You Doing the Rest of Your Life",
+    "artist": "Bill Evans",
+    "album": "From Left to Right",
+    "year": 1970,
+    "label": "MGM",
+    "era": "Post-Bop",
+    "subgenres": [
+      "impressionist jazz",
+      "piano ballad"
+    ],
+    "moods": [
+      "beautiful",
+      "romantic",
+      "tender"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "notable_qualities": [
+      "Michel Legrand standard",
+      "very beautiful",
+      "continues Bill Evans perfect streak (all 7+)",
+      "romantic piano ballad"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Very beautiful. Auto-played randomly.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "autoplay",
+    "audio_features": {
+      "duration_s": 245,
+      "popularity": 56,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "Am",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 6,
+    "playthrough": 0.9
+  },
+  {
+    "title": "West Coast Blues",
+    "artist": "Wes Montgomery",
+    "album": "The Incredible Jazz Guitar of Wes Montgomery",
+    "year": 1960,
+    "label": "Riverside",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues",
+      "guitar jazz"
+    ],
+    "moods": [
+      "bluesy",
+      "groovy"
+    ],
+    "instrumentation": [
+      "guitar",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "guitar",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Wes Montgomery - guitar",
+      "Tommy Flanagan - piano",
+      "Percy Heath - bass",
+      "Albert Heath - drums"
+    ],
+    "notable_qualities": [
+      "definite no",
+      "can't explain why — just not interesting",
+      "guitar + blues groove combo didn't land",
+      "Wes Montgomery octave technique not enough"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Definite no. Can't explain it but just not interesting.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v3-variety",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 448,
+      "popularity": 40,
+      "tempo_bpm": 108,
+      "time_signature": 3,
+      "key": "Bb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.5
+  },
+  {
+    "title": "In Your Own Sweet Way",
+    "artist": "Wes Montgomery",
+    "album": null,
+    "year": null,
+    "label": null,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad",
+      "guitar jazz"
+    ],
+    "moods": [
+      "pleasant",
+      "nice"
+    ],
+    "instrumentation": [
+      "guitar",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "guitar",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Wes Montgomery - guitar"
+    ],
+    "notable_qualities": [
+      "previously heard",
+      "good but basic in taste",
+      "Dave Brubeck standard"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Has heard before. Good but kind of basic in taste.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 294,
+      "popularity": 27,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.75
+  },
+  {
+    "title": "Infant Eyes",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1964,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "mysterious",
+      "bittersweet",
+      "beautiful"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - piano",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "previously heard",
+      "very close to top jazz playlist",
+      "tender and mysterious ballad",
+      "written about Shorter's daughter"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Has heard before. Very good, very close to making it to top jazz tracks playlist.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v3-variety",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 415,
+      "popularity": 23,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Ebm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Song for My Father",
+    "artist": "Horace Silver",
+    "album": "Song for My Father",
+    "year": 1965,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "Latin jazz"
+    ],
+    "moods": [
+      "playful",
+      "fun",
+      "groovy"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Horace Silver - piano",
+      "Carmell Jones - trumpet",
+      "Joe Henderson - tenor saxophone",
+      "Teddy Smith - bass",
+      "Roger Humphries - drums"
+    ],
+    "notable_qualities": [
+      "Latin-tinged blues groove",
+      "slow start but solos won him over",
+      "playful and fun",
+      "a little predictable to come back to",
+      "Horace Silver now on his map"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Interesting — at first eh, but then solos were playful and fun. A little predictable to come back to. Horace is now on his map though.",
+    "favorite_moments": "The solos",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v3-variety",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 438,
+      "popularity": 58,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.85
+  },
+  {
+    "title": "Better Git It in Your Soul",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "gospel jazz",
+      "blues"
+    ],
+    "moods": [
+      "joyful",
+      "ecstatic",
+      "passionate",
+      "communal"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "fast",
+    "energy": 10,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "like Moanin' but somehow more dynamic",
+      "gospel-blues celebration",
+      "high energy but joyful and communal",
+      "will definitely revisit",
+      "second 10/10 high-energy track"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "Def 10/10, like Moanin' but somehow more dynamic. Will definitely be revisiting.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 445,
+      "popularity": 50,
+      "tempo_bpm": 200,
+      "time_signature": 6,
+      "key": "F",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 10,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Boogie Stop Shuffle",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues",
+      "boogie"
+    ],
+    "moods": [
+      "groovy",
+      "fun",
+      "energetic"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "great groove",
+      "boogie-blues energy"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Great.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 303,
+      "popularity": 41,
+      "tempo_bpm": 180,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 6,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Self-Portrait in Three Colors",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "introspective"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "John Handy - alto saxophone",
+      "Booker Ervin - tenor saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "nice but slightly underwhelming",
+      "short ballad"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Nice but slightly underwhelming.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 190,
+      "popularity": 39,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "Ab",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.9
+  },
+  {
+    "title": "Open Letter to Duke",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "Ellington tribute"
+    ],
+    "moods": [
+      "dynamic",
+      "beautiful",
+      "surprising"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "varied",
+    "energy": 6,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "John Handy - alto saxophone",
+      "Booker Ervin - tenor saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "nice surprise",
+      "beautiful back half",
+      "wants to revisit",
+      "structural evolution within the track"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Nice surprise with a beautiful back half that he wants to revisit again.",
+    "favorite_moments": "The back half",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 297,
+      "popularity": 29,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Bird Calls",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "avant-garde"
+    ],
+    "moods": [
+      "atmospheric",
+      "playful",
+      "experimental"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "varied",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "John Handy - alto saxophone",
+      "Booker Ervin - tenor saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "instruments literally sound like birds",
+      "Mingus atmosphere-building",
+      "interesting and creative",
+      "marks the album's energy shift"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Very interesting — Mingus is known for making atmospheres and wow did those instruments sound like birds. Marks where the album starts to fade energy-wise.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 378,
+      "popularity": 32,
+      "tempo_bpm": 140,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.85
+  },
+  {
+    "title": "Fables of Faubus",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "protest jazz"
+    ],
+    "moods": [
+      "sardonic",
+      "fun",
+      "political"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "John Handy - alto saxophone",
+      "Booker Ervin - tenor saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "satirical protest piece",
+      "fun and engaging",
+      "political jazz"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Another fun one.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 494,
+      "popularity": 39,
+      "tempo_bpm": 132,
+      "time_signature": 4,
+      "key": "Dm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 6,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Pussy Cat Dues",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "meandering"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "part of album's weaker back half"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Part of the album's fading second half.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 555,
+      "popularity": 31,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.7
+  },
+  {
+    "title": "Jelly Roll",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "stride",
+      "New Orleans jazz tribute"
+    ],
+    "moods": [
+      "nostalgic",
+      "playful"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "Jelly Roll Morton tribute",
+      "part of album's weaker back half"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Part of the album's fading second half.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 377,
+      "popularity": 35,
+      "tempo_bpm": 132,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.7
+  },
+  {
+    "entity_type": "album",
+    "title": "Mingus Ah Um",
+    "artist": "Charles Mingus",
+    "album": "Mingus Ah Um",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues",
+      "gospel jazz",
+      "protest jazz"
+    ],
+    "moods": [
+      "passionate",
+      "expressive",
+      "varied",
+      "celebratory"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "varied",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "strong first half with massive energy",
+      "slowly fades after Bird Calls",
+      "wants on vinyl",
+      "one of the better albums heard",
+      "passion, energy, and expression throughout",
+      "two 10/10 tracks on one album"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "One of the better albums heard. Such a strong first half with so much energy, passion, and expression. Slowly fades after Bird Calls but overall incredible. Wants it on vinyl.",
+    "favorite_moments": "First half — Better Git It in Your Soul through Open Letter to Duke",
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": true,
+    "recommendation_version": "v4-albums",
+    "discovered_from": "claude-recommendation",
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Wild Is The Wind",
+    "artist": "Nina Simone",
+    "album": "Wild Is the Wind",
+    "year": 1966,
+    "label": "Philips",
+    "era": "Post-Bop",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "beautiful",
+      "tender"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - vocals and piano"
+    ],
+    "notable_qualities": [
+      "so pretty",
+      "powerful vocal delivery",
+      "romantic ballad"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "So pretty.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 422,
+      "popularity": 20,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Cm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Don't Let Me Be Misunderstood",
+    "artist": "Nina Simone",
+    "album": "Broadway-Blues-Ballads",
+    "year": 1964,
+    "label": "Philips",
+    "era": "Post-Bop",
+    "subgenres": [
+      "vocal jazz",
+      "soul jazz"
+    ],
+    "moods": [
+      "cool",
+      "assertive"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Nina Simone - vocals and piano"
+    ],
+    "notable_qualities": [
+      "cool",
+      "assertive vocal"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Cool!",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 166,
+      "popularity": 66,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "Bbm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 5,
+    "playthrough": 0.9
+  },
+  {
+    "title": "Solitude",
+    "artist": "Billie Holiday",
+    "album": "Solitude",
+    "year": 1956,
+    "label": "Clef",
+    "era": "Swing",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "melancholic",
+      "beautiful",
+      "tender"
+    ],
+    "instrumentation": [
+      "vocals",
+      "orchestra"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Billie Holiday - vocals"
+    ],
+    "notable_qualities": [
+      "so pretty",
+      "melancholic ballad"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "So pretty.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 208,
+      "popularity": 68,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Crazy He Calls Me",
+    "artist": "Billie Holiday",
+    "album": "Solitude",
+    "year": 1949,
+    "label": "Decca",
+    "era": "Swing",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "nostalgic",
+      "iconic"
+    ],
+    "instrumentation": [
+      "vocals",
+      "orchestra"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Billie Holiday - vocals"
+    ],
+    "notable_qualities": [
+      "iconic from Fallout game",
+      "romantic ballad"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "8/10, iconic because of Fallout the game.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 185,
+      "popularity": 57,
+      "tempo_bpm": 68,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Lover Man",
+    "artist": "Billie Holiday",
+    "album": "Solitude",
+    "year": 1944,
+    "label": "Decca",
+    "era": "Swing",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "melancholic",
+      "languid"
+    ],
+    "instrumentation": [
+      "vocals",
+      "orchestra"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Billie Holiday - vocals"
+    ],
+    "notable_qualities": [
+      "prefers this ballad performed differently"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Prefers this ballad performed by someone else.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 198,
+      "popularity": 45,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "estimated"
+    },
+    "replayability": 2,
+    "playthrough": 0.6
+  },
+  {
+    "title": "All of Me",
+    "artist": "Charlie Parker",
+    "album": "Now's the Time",
+    "year": 1953,
+    "label": "Clef",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop"
+    ],
+    "moods": [
+      "joyful",
+      "swinging",
+      "fun"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charlie Parker - alto saxophone"
+    ],
+    "notable_qualities": [
+      "favorite Charlie Parker track",
+      "breaks Bird ceiling",
+      "fun and swinging"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Actually his favorite Charlie Parker. Breaks the Bird ceiling — first Parker track at 8+.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 217,
+      "popularity": 1,
+      "tempo_bpm": 180,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "April In Paris",
+    "artist": "Charlie Parker",
+    "album": "Charlie Parker with Strings",
+    "year": 1950,
+    "label": "Clef",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "strings"
+    ],
+    "moods": [
+      "romantic",
+      "pleasant"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "strings",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charlie Parker - alto saxophone"
+    ],
+    "notable_qualities": [
+      "a little too cliche"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Good but a little too cliche.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 187,
+      "popularity": 50,
+      "tempo_bpm": 80,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.8
+  },
+  {
+    "title": "Tryin' Times",
+    "artist": "Roberta Flack",
+    "album": "First Take",
+    "year": 1969,
+    "label": "Atlantic",
+    "era": "Post-Bop",
+    "subgenres": [
+      "vocal jazz",
+      "soul jazz"
+    ],
+    "moods": [
+      "sensual",
+      "passionate",
+      "sexy"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Roberta Flack - vocals and piano"
+    ],
+    "notable_qualities": [
+      "sexy as hell",
+      "highest-rated vocal track",
+      "passionate and intimate"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Sexy as hell. Highest-rated vocal track in the dataset.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 308,
+      "popularity": 44,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Embraceable You",
+    "artist": "Barry Harris",
+    "album": null,
+    "year": null,
+    "label": null,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano ballad"
+    ],
+    "moods": [
+      "pleasant"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Barry Harris - piano"
+    ],
+    "notable_qualities": [
+      "forgot why he liked it",
+      "pleasant but unmemorable"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Forgot why he liked it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 236,
+      "popularity": 49,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.6
+  },
+  {
+    "title": "Early Summer",
+    "artist": "Ryo Fukui",
+    "album": "Scenery",
+    "year": 1976,
+    "label": "Trio",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano jazz"
+    ],
+    "moods": [
+      "cool",
+      "flowing"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ryo Fukui - piano"
+    ],
+    "notable_qualities": [
+      "very cool",
+      "Japanese jazz pianist",
+      "flowing piano style"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Very cool.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 644,
+      "popularity": 55,
+      "tempo_bpm": 180,
+      "time_signature": 4,
+      "key": "G",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 6,
+    "playthrough": 0.9
+  },
+  {
+    "title": "My Foolish Heart",
+    "artist": "Bill Evans",
+    "album": "Waltz for Debby",
+    "year": 1961,
+    "label": "Riverside",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "piano trio",
+      "live"
+    ],
+    "moods": [
+      "tender",
+      "romantic"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 1,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano",
+      "Scott LaFaro - bass",
+      "Paul Motian - drums"
+    ],
+    "notable_qualities": [
+      "breaks Bill Evans perfect streak",
+      "good but doesn't revisit",
+      "Village Vanguard live recording"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Good but doesn't really revisit it. Breaks the Bill Evans perfect streak — first Evans track below 7.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 298,
+      "popularity": 34,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.55
+  },
+  {
+    "title": "Love Theme From The Robe",
+    "artist": "Yusef Lateef",
+    "album": "Eastern Sounds",
+    "year": 1961,
+    "label": "Moodsville",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "world jazz"
+    ],
+    "moods": [
+      "romantic",
+      "tender"
+    ],
+    "instrumentation": [
+      "oboe",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "oboe",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Yusef Lateef - oboe"
+    ],
+    "notable_qualities": [
+      "same album as Love Theme from Spartacus",
+      "good but not as strong as Spartacus"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Good. Same album as his 10/10 Spartacus.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 242,
+      "popularity": 49,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 5,
+    "playthrough": 0.9
+  },
+  {
+    "title": "To Her Ladyship",
+    "artist": "John Coltrane",
+    "album": "Coltrane",
+    "year": 1962,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "pretty"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano"
+    ],
+    "notable_qualities": [
+      "very pretty but doesn't revisit",
+      "has it on vinyl"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Very pretty but doesn't revisit. Has it on vinyl.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 540,
+      "popularity": 22,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.7
+  },
+  {
+    "title": "'Round Midnight",
+    "artist": "McCoy Tyner",
+    "album": null,
+    "year": null,
+    "label": null,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano ballad"
+    ],
+    "moods": [
+      "moody",
+      "dark"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "McCoy Tyner - piano"
+    ],
+    "notable_qualities": [
+      "not sure why he added it",
+      "doesn't connect"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Not sure why he added it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 383,
+      "popularity": 38,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Ebm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.4
+  },
+  {
+    "title": "In a Sentimental Mood",
+    "artist": "Duke Ellington",
+    "album": null,
+    "year": 1935,
+    "label": null,
+    "era": "Swing",
+    "subgenres": [
+      "swing",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "classic"
+    ],
+    "instrumentation": [
+      "piano",
+      "orchestra"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano"
+    ],
+    "notable_qualities": [
+      "classic but doesn't revisit this period",
+      "swing era miss"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Just a classic but doesn't revisit this period in general.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 255,
+      "popularity": 69,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.45
+  },
+  {
+    "title": "The Kid from Red Bank",
+    "artist": "Count Basie",
+    "album": "The Atomic Mr. Basie",
+    "year": 1958,
+    "label": "Roulette",
+    "era": "Swing",
+    "subgenres": [
+      "swing",
+      "big band"
+    ],
+    "moods": [
+      "fun",
+      "swinging"
+    ],
+    "instrumentation": [
+      "piano",
+      "big band"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Count Basie - piano"
+    ],
+    "notable_qualities": [
+      "fun but doesn't stick"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Fun but 4/10.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 162,
+      "popularity": 33,
+      "tempo_bpm": 240,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.65
+  },
+  {
+    "title": "Flamenco Sketches",
+    "artist": "Miles Davis",
+    "album": "Kind of Blue",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "cool jazz"
+    ],
+    "moods": [
+      "romantic",
+      "meditative",
+      "spacious",
+      "tender"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "alto saxophone",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 1,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "John Coltrane - tenor saxophone",
+      "Cannonball Adderley - alto saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Jimmy Cobb - drums"
+    ],
+    "notable_qualities": [
+      "five modal scales soloists move through at own pace",
+      "spacious and unhurried",
+      "really pretty but not quite sexy or tragic enough",
+      "mode switches prevent sleepiness",
+      "Bill Evans and Coltrane entries are the highlights"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "Really pretty. Not quite as sexy and tragic as he'd like. Favorite part was when Bill Evans and Coltrane came in. The switches really stopped it from getting sleepy.",
+    "favorite_moments": "Bill Evans and Coltrane entries",
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 566,
+      "popularity": 56,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "dorian",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Moanin'",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "album": "Moanin'",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "gospel jazz"
+    ],
+    "moods": [
+      "joyful",
+      "fun",
+      "cool",
+      "restless",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 8,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Art Blakey - drums",
+      "Bobby Timmons - piano",
+      "Lee Morgan - trumpet",
+      "Benny Golson - tenor saxophone",
+      "Jymie Merritt - bass"
+    ],
+    "notable_qualities": [
+      "really sexy and cool",
+      "fuck-you attitude",
+      "gospel piano call-and-response",
+      "whole thing is fun — no single highlight, all of it works",
+      "original version of the Mingus Big Band track he loved"
+    ],
+    "rating": 5,
+    "liked": true,
+    "notes": "Really sexy and cool. Has that fuck-you attitude. Whole thing is fun, no favorite parts — all of it works.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 576,
+      "popularity": 48,
+      "tempo_bpm": 132,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Lonely Woman",
+    "artist": "Ornette Coleman",
+    "album": "The Shape of Jazz to Come",
+    "year": 1959,
+    "label": "Atlantic",
+    "era": "Free Jazz",
+    "subgenres": [
+      "free jazz",
+      "avant-garde jazz"
+    ],
+    "moods": [
+      "flat",
+      "experimental"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Ornette Coleman - alto saxophone",
+      "Don Cherry - trumpet",
+      "Charlie Haden - bass",
+      "Billy Higgins - drums"
+    ],
+    "notable_qualities": [
+      "too experimental",
+      "too complex",
+      "not entertaining",
+      "flat",
+      "skipped at 1:32 of 5:02",
+      "first free jazz entry in dataset — confirmed miss"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": "Too experimental and complex. Not very entertaining. Flat. No replayability at all. Skipped at 1:32.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 302,
+      "popularity": 42,
+      "tempo_bpm": 132,
+      "time_signature": 4,
+      "key": "Dm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.31
+  },
+  {
+    "title": "Blue Moon",
+    "artist": "Julie London",
+    "album": "Julie Is Her Name",
+    "year": 1955,
+    "label": "Liberty",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "sensual",
+      "cute",
+      "tender"
+    ],
+    "instrumentation": [
+      "vocals",
+      "guitar",
+      "bass"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 1,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Julie London - vocals",
+      "Barney Kessel - guitar",
+      "Ray Leatherwood - bass"
+    ],
+    "notable_qualities": [
+      "very cute",
+      "very romantic",
+      "prefers her voice over Billie Holiday's version",
+      "loves the guitar",
+      "stripped back and pretty",
+      "whisper-intimate vocal delivery"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Liked it a lot. Very cute, very romantic. Prefers her voice over Billie Holiday's version surprisingly. Loves the guitar. Very stripped back and pretty.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 153,
+      "popularity": 51,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "The Sidewinder",
+    "artist": "Lee Morgan",
+    "album": "The Sidewinder",
+    "year": 1964,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "boogaloo"
+    ],
+    "moods": [
+      "repetitive",
+      "flat"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Lee Morgan - trumpet",
+      "Joe Henderson - tenor saxophone",
+      "Barry Harris - piano",
+      "Bob Cranshaw - bass",
+      "Billy Higgins - drums"
+    ],
+    "notable_qualities": [
+      "very repetitive",
+      "bored around the 1 minute mark",
+      "solos didn't do justice",
+      "skipped at 2:52 of 10:25",
+      "Lee Morgan as leader doesn't work like sideman"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Very repetitive. Got bored around the 1 minute mark. Doesn't mind repetitiveness but the trumpet and solos didn't do any justice. Skipped at 2:52.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 627,
+      "popularity": 35,
+      "tempo_bpm": 132,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "blues",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.28
+  },
+  {
+    "title": "Body and Soul",
+    "artist": "Coleman Hawkins",
+    "album": "Body & Soul",
+    "year": 1939,
+    "label": "Bluebird",
+    "era": "Swing",
+    "subgenres": [
+      "swing",
+      "ballad"
+    ],
+    "moods": [
+      "sleepy",
+      "languid"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Coleman Hawkins - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "wanted to turn it off early",
+      "Charlie Parker vibes but even less interesting",
+      "this era puts him to sleep",
+      "skipped at 1:50 of 3:02",
+      "pre-bop confirmed as a miss"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Wanted to turn it off pretty early. Charlie Parker vibes but even less interesting. This era just puts him to sleep. Skipped at 1:50.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 182,
+      "popularity": 54,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.61
+  },
+  {
+    "title": "Cantaloupe Island",
+    "artist": "Herbie Hancock",
+    "album": "Empyrean Isles",
+    "year": 1964,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "piano jazz"
+    ],
+    "moods": [
+      "sensual",
+      "cool",
+      "captivating",
+      "groovy"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "Ron Carter - bass",
+      "Tony Williams - drums"
+    ],
+    "notable_qualities": [
+      "knew right away he liked it",
+      "sexy, smooth, and captivating",
+      "intro is captivating and sexy",
+      "going into coolin playlist",
+      "Herbie Hancock as leader — first entry"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Right away when it starts could tell he liked it. Sexy, smooth, and captivating. The intro is just captivating. Going into the coolin playlist. Definitely wants to revisit.",
+    "favorite_moments": "The intro",
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 334,
+      "popularity": 64,
+      "tempo_bpm": 116,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Dolphin Dance",
+    "artist": "Herbie Hancock",
+    "album": "Maiden Voyage",
+    "year": 1965,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "cool",
+      "flat",
+      "sleepy",
+      "background"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor sax",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "George Coleman - tenor sax",
+      "Ron Carter - bass",
+      "Tony Williams - drums"
+    ],
+    "notable_qualities": [
+      "sax saved it",
+      "impressionistic but flat",
+      "didn't finish"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": "sax saved it",
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 556,
+      "popularity": 45,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.5
+  },
+  {
+    "title": "Watermelon Man",
+    "artist": "Herbie Hancock",
+    "album": "Takin' Off",
+    "year": 1962,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "boogaloo"
+    ],
+    "moods": [
+      "joyful",
+      "uninteresting",
+      "flat"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor sax",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "Dexter Gordon - tenor sax",
+      "Butch Warren - bass",
+      "Billy Higgins - drums"
+    ],
+    "notable_qualities": [
+      "cliche",
+      "didn't finish"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Cliche.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 429,
+      "popularity": 58,
+      "tempo_bpm": 132,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.55
+  },
+  {
+    "title": "Mercy, Mercy, Mercy",
+    "artist": "Cannonball Adderley",
+    "album": "Mercy, Mercy, Mercy! Live at \"The Club\"",
+    "year": 1966,
+    "label": "Capitol",
+    "era": "Hard Bop",
+    "subgenres": [
+      "soul jazz",
+      "hard bop"
+    ],
+    "moods": [
+      "cool",
+      "bluesy",
+      "joyful",
+      "flat"
+    ],
+    "instrumentation": [
+      "alto sax",
+      "cornet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto sax",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Cannonball Adderley - alto sax",
+      "Nat Adderley - cornet",
+      "Joe Zawinul - piano",
+      "Victor Gaskin - bass",
+      "Roy McCurdy - drums"
+    ],
+    "notable_qualities": [
+      "loved the intro",
+      "gospel-tinged groove",
+      "live recording energy"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Loved the intro.",
+    "favorite_moments": "The intro",
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 313,
+      "popularity": 53,
+      "tempo_bpm": 100,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 8,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Work Song",
+    "artist": "Nat Adderley",
+    "album": "Work Song",
+    "year": 1960,
+    "label": "Riverside",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "flat",
+      "background",
+      "cool",
+      "restless",
+      "warm",
+      "joyful"
+    ],
+    "instrumentation": [
+      "cornet",
+      "piano",
+      "guitar",
+      "bass",
+      "cello",
+      "drums"
+    ],
+    "primary_instrument": "cornet",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nat Adderley - cornet",
+      "Bobby Timmons - piano",
+      "Wes Montgomery - guitar",
+      "Sam Jones - bass",
+      "Percy Heath - cello",
+      "Louis Hayes - drums"
+    ],
+    "notable_qualities": [
+      "didn't finish",
+      "didn't connect"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-21",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 253,
+      "popularity": 47,
+      "tempo_bpm": 126,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.25
+  },
+  {
+    "title": "Lush Life",
+    "artist": "John Coltrane & Johnny Hartman",
+    "album": "John Coltrane and Johnny Hartman",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "vocal ballad"
+    ],
+    "moods": [
+      "pretty",
+      "sleepy",
+      "uninteresting",
+      "lovely"
+    ],
+    "instrumentation": [
+      "vocals",
+      "tenor sax",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Johnny Hartman - vocals",
+      "John Coltrane - tenor sax",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "corny",
+      "didn't finish"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": "Corny.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 330,
+      "popularity": 49,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.1
+  },
+  {
+    "title": "Afro Blue",
+    "artist": "John Coltrane",
+    "album": "Live at Birdland",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz",
+      "afro-cuban jazz"
+    ],
+    "moods": [
+      "dramatic",
+      "intense",
+      "restless",
+      "experimental",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "tenor sax",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor sax",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "really didn't like it",
+      "didn't finish"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": "Really didn't like this one.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 649,
+      "popularity": 32,
+      "tempo_bpm": 150,
+      "time_signature": 6,
+      "key": "Fm",
+      "mode": "dorian",
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.2
+  },
+  {
+    "title": "Fleurette Africaine",
+    "artist": "Duke Ellington",
+    "album": "Money Jungle",
+    "year": 1963,
+    "label": "United Artists",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "warm",
+      "pretty",
+      "lovely",
+      "intimate",
+      "sexy",
+      "sensual",
+      "captivating",
+      "melancholic",
+      "bittersweet",
+      "nostalgic",
+      "moody",
+      "meditative",
+      "sparse",
+      "experimental",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano",
+      "Charles Mingus - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "just beautiful",
+      "immediate connection",
+      "trio perfection"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Just beautiful.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 216,
+      "popularity": 41,
+      "tempo_bpm": 55,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 10,
+    "playthrough": 1.0
+  },
+  {
+    "title": "In a Sentimental Mood",
+    "artist": "Duke Ellington & John Coltrane",
+    "album": "Duke Ellington & John Coltrane",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "lovely",
+      "captivating",
+      "bittersweet",
+      "longing",
+      "lush",
+      "background"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor sax",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano",
+      "John Coltrane - tenor sax",
+      "Aaron Bell - bass",
+      "Sam Woodyard - drums"
+    ],
+    "notable_qualities": [
+      "Coltrane is the only thing interesting",
+      "definitive version of the standard"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": "Coltrane is the only thing interesting",
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 255,
+      "popularity": 69,
+      "tempo_bpm": 64,
+      "time_signature": 4,
+      "key": "F",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Fall",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "bittersweet",
+      "gentle",
+      "sleepy",
+      "uninteresting",
+      "flat"
+    ],
+    "instrumentation": [
+      "tenor sax",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Wayne Shorter - tenor sax",
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - piano",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "didn't finish",
+      "didn't connect"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 305,
+      "popularity": 7,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "Bbm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.15
+  },
+  {
+    "title": "Waltz for Debby",
+    "artist": "Bill Evans Trio",
+    "album": "Waltz for Debby",
+    "year": 1961,
+    "label": "Riverside",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio",
+      "cool jazz"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "joyful",
+      "cute",
+      "swinging",
+      "captivating",
+      "nostalgic",
+      "lush",
+      "spacious",
+      "smooth",
+      "background"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano",
+      "Scott LaFaro - bass",
+      "Paul Motian - drums"
+    ],
+    "notable_qualities": [
+      "when the whole band kicked in was amazing",
+      "gentle waltz melody"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": "When the whole band kicked in.. was amazing",
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 420,
+      "popularity": 41,
+      "tempo_bpm": 168,
+      "time_signature": 3,
+      "key": "F",
+      "mode": "major",
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.3
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "Miles Davis",
+    "album": "Cookin' with the Miles Davis Quintet",
+    "year": 1957,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "hopeful",
+      "pretty",
+      "cute",
+      "intimate",
+      "captivating",
+      "sensual",
+      "bittersweet",
+      "melancholic",
+      "longing",
+      "mournful",
+      "nostalgic",
+      "moody",
+      "dark",
+      "sparse",
+      "meditative",
+      "spacious",
+      "gentle",
+      "smooth",
+      "background"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor sax",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "John Coltrane - tenor sax",
+      "Red Garland - piano",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "muted trumpet vulnerability",
+      "same quintet as It Never Entered My Mind"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v5-gaps",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 265,
+      "popularity": 27,
+      "tempo_bpm": 56,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.35
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "Chet Baker",
+    "album": "Chet Baker Sings",
+    "year": 1954,
+    "label": "Pacific Jazz",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "vocal ballad"
+    ],
+    "moods": [
+      "romantic",
+      "longing",
+      "dramatic",
+      "repetitive",
+      "uninteresting",
+      "background",
+      "flat",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "vocals",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Chet Baker - vocals/trumpet",
+      "Russ Freeman - piano"
+    ],
+    "notable_qualities": [
+      "flat vocal delivery",
+      "didn't connect"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 293,
+      "popularity": 41,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.65
+  },
+  {
+    "title": "Django",
+    "artist": "The Modern Jazz Quartet",
+    "album": "Django",
+    "year": 1954,
+    "label": "Prestige",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "third stream"
+    ],
+    "moods": [
+      "lovely",
+      "joyful",
+      "cool",
+      "sensual",
+      "smooth",
+      "experimental",
+      "background"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Milt Jackson - vibraphone",
+      "John Lewis - piano",
+      "Percy Heath - bass",
+      "Kenny Clarke - drums"
+    ],
+    "notable_qualities": [
+      "elegiac MJQ tribute to Django Reinhardt",
+      "pretty but didn't pull him back",
+      "background quality despite craft"
+    ],
+    "rating": 7.5,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 275,
+      "popularity": 42,
+      "tempo_bpm": 90,
+      "time_signature": 4,
+      "key": "Fm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.55
+  },
+  {
+    "title": "Chelsea Bridge",
+    "artist": "Ben Webster",
+    "album": "The Soul of Ben Webster",
+    "year": 1958,
+    "label": "Verve",
+    "era": "Swing",
+    "subgenres": [
+      "ballad",
+      "swing"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "pretty",
+      "lovely",
+      "captivating",
+      "sexy",
+      "lush",
+      "gentle",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ben Webster - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "breathy sensual tenor ballad",
+      "instant favorite",
+      "new artist discovery for Justin",
+      "tragedy held beautifully"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Wow never heard of this guy.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 221,
+      "popularity": 35,
+      "tempo_bpm": 64,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Central Park West",
+    "artist": "John Coltrane",
+    "album": "Coltrane's Sound",
+    "year": 1960,
+    "label": "Atlantic",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "pretty",
+      "lovely",
+      "nostalgic",
+      "gentle",
+      "sparse",
+      "spacious",
+      "sleepy",
+      "background"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "gentle modal ballad",
+      "pretty but drifted into sleepy/background",
+      "half-listened then moved on"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 251,
+      "popularity": 51,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "E",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 4,
+    "playthrough": 0.5
+  },
+  {
+    "title": "Ruby, My Dear",
+    "artist": "Thelonious Monk & John Coltrane",
+    "album": "Thelonious Monk with John Coltrane",
+    "year": 1957,
+    "label": "Jazzland",
+    "era": "Bebop",
+    "subgenres": [
+      "ballad",
+      "bebop"
+    ],
+    "moods": [
+      "pretty",
+      "lovely",
+      "bluesy",
+      "sensual",
+      "sexy",
+      "melancholic",
+      "bittersweet",
+      "longing",
+      "spacious",
+      "smooth",
+      "uninteresting",
+      "sleepy",
+      "flat"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Thelonious Monk - piano",
+      "John Coltrane - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "Monk's most romantic ballad",
+      "first Monk entry in dataset",
+      "started sensual but drifted flat/uninteresting",
+      "skipped early (35% playthrough)"
+    ],
+    "rating": 6,
+    "liked": null,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 382,
+      "popularity": 54,
+      "tempo_bpm": 60,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 0.35
+  },
+  {
+    "title": "Like Someone in Love",
+    "artist": "John Coltrane",
+    "album": "Lush Life",
+    "year": 1958,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "ballad",
+      "hard bop"
+    ],
+    "moods": [
+      "warm",
+      "pretty",
+      "lovely",
+      "romantic",
+      "bluesy",
+      "sexy",
+      "bittersweet",
+      "longing",
+      "dramatic",
+      "moody",
+      "spacious",
+      "lush",
+      "experimental",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "Earl May - bass",
+      "Art Taylor - drums"
+    ],
+    "notable_qualities": [
+      "pianoless trio ballad",
+      "listened all the way through",
+      "romantic and lush but ultimately uninteresting",
+      "liked status unset"
+    ],
+    "rating": 7,
+    "liked": null,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 298,
+      "popularity": 44,
+      "tempo_bpm": 120,
+      "time_signature": 4,
+      "key": "C",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Estate",
+    "artist": "Bill Evans",
+    "album": "You Must Believe in Spring",
+    "year": 1977,
+    "label": "Fantasy",
+    "era": "Neo-Bop",
+    "subgenres": [
+      "piano ballad",
+      "solo piano"
+    ],
+    "moods": [
+      "romantic",
+      "lovely",
+      "pretty",
+      "hopeful",
+      "nostalgic",
+      "spacious",
+      "sleepy",
+      "flat",
+      "background"
+    ],
+    "instrumentation": [
+      "piano"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "notable_qualities": [
+      "tender melancholy",
+      "romantic and bittersweet",
+      "harmonic complexity didn't prevent disengagement",
+      "rated lower than model expected"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v6-fresh",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 244,
+      "popularity": 30,
+      "tempo_bpm": 72,
+      "time_signature": 4,
+      "key": "Bb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.5
+  },
+  {
+    "title": "Lover Man",
+    "artist": "Charlie Parker",
+    "album": "Charlie Parker with Strings",
+    "year": 1950,
+    "label": "Mercury",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "intimate",
+      "bittersweet",
+      "mournful",
+      "melancholic",
+      "dramatic",
+      "intense",
+      "spacious",
+      "smooth",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "alto sax",
+      "strings",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charlie Parker - alto sax"
+    ],
+    "notable_qualities": [
+      "Bird with strings",
+      "full playthrough"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 200,
+      "popularity": 42,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 1.0
+  },
+  {
+    "title": "My One and Only Love",
+    "artist": "John Coltrane",
+    "album": "John Coltrane and Johnny Hartman",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "vocal ballad"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "sexy",
+      "sensual",
+      "intimate",
+      "captivating",
+      "smooth"
+    ],
+    "instrumentation": [
+      "tenor sax",
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor sax",
+      "Johnny Hartman - vocals",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "sexy smooth",
+      "sax-plus-voice format"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Sexy smooth.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": null,
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 295,
+      "popularity": 55,
+      "tempo_bpm": 58,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 7,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Chameleon",
+    "artist": "Herbie Hancock",
+    "album": "Head Hunters",
+    "year": 1973,
+    "label": "Columbia",
+    "era": "Fusion",
+    "subgenres": [
+      "fusion",
+      "jazz-funk"
+    ],
+    "moods": [
+      "joyful",
+      "exuberant",
+      "playful",
+      "exciting",
+      "lively",
+      "dynamic",
+      "energetic",
+      "captivating",
+      "sophisticated",
+      "experimental",
+      "restless",
+      "ecstatic",
+      "animated",
+      "vibrant",
+      "expressive",
+      "surprising"
+    ],
+    "instrumentation": [
+      "electric piano",
+      "clavinet",
+      "synthesizer",
+      "bass",
+      "drums",
+      "percussion"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Herbie Hancock - electric piano/clavinet/synthesizer",
+      "Bennie Maupin - saxophone/clarinet",
+      "Paul Jackson - bass",
+      "Harvey Mason - drums",
+      "Bill Summers - percussion"
+    ],
+    "notable_qualities": [
+      "first fusion track in dataset",
+      "electric instrumentation",
+      "15-minute groove",
+      "captivating from first bar",
+      "outside both clusters"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "God damn. First fusion track - completely different from anything in the dataset.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v3.00",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 945,
+      "popularity": 56,
+      "tempo_bpm": 100,
+      "time_signature": 4,
+      "key": "Bbm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 9,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Stolen Moments",
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "beautiful",
+      "elegant",
+      "cool",
+      "bluesy",
+      "groovy",
+      "sassy",
+      "introspective",
+      "contemplative",
+      "reflective",
+      "moody",
+      "sparse",
+      "lush",
+      "sophisticated",
+      "flat",
+      "background",
+      "meandering"
+    ],
+    "instrumentation": [
+      "alto sax",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums",
+      "baritone sax"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Oliver Nelson - alto sax",
+      "Eric Dolphy - alto sax/flute",
+      "Freddie Hubbard - trumpet",
+      "Bill Evans - piano",
+      "George Barrow - baritone sax",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "notable_qualities": [
+      "six soloists",
+      "gorgeous blues melody",
+      "calculated risk recommendation"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v3.00",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 524,
+      "popularity": 48,
+      "tempo_bpm": 108,
+      "time_signature": 4,
+      "key": "Cm",
+      "mode": "minor",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.45
+  },
+  {
+    "title": "Monk's Mood",
+    "artist": "Thelonious Monk",
+    "album": "Thelonious Monk with John Coltrane",
+    "year": 1957,
+    "label": "Riverside",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano ballad"
+    ],
+    "moods": [
+      "tender",
+      "pretty",
+      "beautiful",
+      "sexy",
+      "passionate",
+      "longing",
+      "dark",
+      "introspective",
+      "spiritual",
+      "raw",
+      "haunting",
+      "tragic",
+      "melancholic",
+      "bittersweet",
+      "mournful",
+      "atmospheric",
+      "flat",
+      "non-captivating",
+      "unengaging"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor sax",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Thelonious Monk - piano",
+      "John Coltrane - tenor sax",
+      "Wilbur Ware - bass",
+      "Shadow Wilson - drums"
+    ],
+    "notable_qualities": [
+      "high-confidence pick that missed",
+      "all the right ingredients but didn't captivate"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-22",
+    "recommended_by_model": true,
+    "recommendation_version": "v3.00",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 347,
+      "popularity": 22,
+      "tempo_bpm": 52,
+      "time_signature": 4,
+      "key": "Db",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 2,
+    "playthrough": 0.25
+  }
+]
