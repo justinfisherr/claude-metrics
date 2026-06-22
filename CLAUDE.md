@@ -96,21 +96,29 @@ Dataset is small (~62 tracks), so avoid features that add noise without signal. 
 
 ## Dashboard
 
-The dashboard (`index.html`) is a single-page app using Chart.js with a dark theme. Current panels:
-- Model Performance, Taste Clusters (PCA), Feature Importance, Predicted vs Actual
-- Rating Distribution, Cluster Profiles (radar), Correlations (heatmap)
-- Taste Constellation (Canvas 2D), Circle of Fifths (Canvas 2D)
-- Your Taste vs The World (popularity scatter), Artist Journeys
-- Mood × Rating (heatmap, collapsible), Replayability vs Rating
-- Hall of Fame (collapsible, limit 20), Year vs Rating, Duration vs Rating
-- Rating by Instrument (with track list dropdown), Label Breakdown (with track list dropdown)
-- Biggest Misses, Top Artists, Era Breakdown, Harmonic Complexity, Discovery Source, Sound Profile
+The dashboard is a React + Vite SPA using Chart.js with a dark theme. Pages:
+- **Dashboard** (`/`) — Model Performance, Taste Clusters, Feature Importance, Predicted vs Actual, Rating Distribution, Cluster Profiles, Correlations, Constellation, Circle of Fifths, Taste vs World, Artist Journeys, Mood × Rating, Replayability, Year/Duration Rating, Instrument/Label Breakdown, Biggest Misses, Top Artists, Era Breakdown, Harmonic Complexity, Discovery Source, Sound Profile
+- **Wrapped** (`/wrapped`) — Cover Flow carousel (CSS scroll-driven animations) showing Top Tracks, Top Artists, Top Albums, Albums by Liked. Uses `training-data.json` and `artwork-cache.json`. Filter buttons for era, mood, instrument, liked status. Artists/albums require 2+ tracks reviewed.
+- **Compare** (`/compare`), **Review** (`/review`), **Dictionary** (`/dictionary`), **Playlists** (`/playlists`)
 
 When adding visualizations:
 - Match the dark-theme CSS variables (see `:root` block)
 - Use `panel span-6` or `panel span-12` grid layout
 - Add a nav link in the `<nav class="section-nav">` block
 - Wire the render function in the fetch chain
+
+### Build & Deploy
+The site deploys to GitHub Pages from the `docs/` directory. **After any frontend change, you must build and push the production assets:**
+```bash
+cd ~/jazz-ml && npm run build && git add docs/ && git commit -m "Build production assets" && git push
+```
+The build script (`npm run build`) runs `vite build` and copies `dashboard-data.json`, `versions.json`, `training-data.json`, and `artwork-cache.json` into `docs/`. Pushing source files alone will NOT update the live site.
+
+### Artwork Cache
+`artwork-cache.json` maps album and artist names to iTunes artwork URLs. When new albums are added to `training-data.json`, refresh the cache:
+```bash
+cd ~/jazz-ml && python3 fetch-artwork.py
+```
 
 ## Rules
 
