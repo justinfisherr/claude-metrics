@@ -616,7 +616,7 @@ PLAYLISTS = [
         "Fables of Faubus|Charles Mingus",
         "Open Letter to Duke|Charles Mingus",
         "Early Summer|Ryo Fukui",
-        "Moanin'|Art Blakey",
+        "Moanin'|Art Blakey & The Jazz Messengers",
     ]},
     {"name": "Jazz Vocals", "id": "5MffriQAGUbFt2DcfkgYuU", "tracks": [
         "My Funny Valentine|Chet Baker",
@@ -668,7 +668,7 @@ PLAYLISTS = [
         "Boogie Stop Shuffle|Charles Mingus",
         "Fables of Faubus|Charles Mingus",
         "My One and Only Love|John Coltrane",
-        "Moanin'|Art Blakey",
+        "Moanin'|Art Blakey & The Jazz Messengers",
         "Blue Moon|Julie London",
         "Cantaloupe Island|Herbie Hancock",
         "Mercy, Mercy, Mercy|Cannonball Adderley",
@@ -681,20 +681,25 @@ PLAYLISTS = [
 ]
 
 
-def _normalize_key(s):
-    """Normalize a track key for fuzzy matching: lowercase, strip punctuation, strip remaster suffixes."""
+def _normalize(s):
     s = s.lower()
-    s = re.sub(r'\s*[-–—]\s*(remastered|remaster)(\s+\d{4})?\s*$', '', s)
-    s = re.sub(r"['’.,!?]", '', s)
+    s = re.sub(r"\s*[-–—]\s*(remastered|remaster)(\s+\d{4})?\s*$", "", s)
+    s = re.sub(r"[‘’.,!?]", "", s)
+    s = re.sub(r"\s*&\s*(the\s+)?", " ", s)
+    s = re.sub(r"\s*(trio|quartet|quintet|sextet|big band|orchestra)\s*$", "", s)
     s = s.strip()
     return s
+
+
+def _normalize_key(title, artist):
+    return f"{_normalize(title)}|{_normalize(artist)}"
 
 
 def build_playlists(predictions):
     """Match playlist tracks against predictions and compute aggregate stats."""
     lookup = {}
     for p in predictions:
-        key = _normalize_key(f"{p['title']}|{p['artist']}")
+        key = _normalize_key(p['title'], p['artist'])
         lookup[key] = p
 
     results = []
@@ -703,8 +708,8 @@ def build_playlists(predictions):
         all_tracks = []
 
         for track_str in playlist["tracks"]:
-            key = _normalize_key(track_str)
             title, artist = track_str.split("|", 1)
+            key = _normalize_key(title.strip(), artist.strip())
             pred = lookup.get(key)
 
             track_entry = {

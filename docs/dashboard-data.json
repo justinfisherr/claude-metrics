@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-22T11:19:34.508240",
-    "version": "2.03",
+    "generated_at": "2026-06-22T11:30:01.515992",
+    "version": "2.05",
     "is_major": false,
     "total_tracks": 89,
     "total_albums": 3,
@@ -4809,6 +4809,26 @@
       "mae": 0.6702,
       "best_k": 2,
       "silhouette_score": 0.0606
+    },
+    {
+      "run_date": "2026-06-22",
+      "dataset_size": 89,
+      "best_model": "random_forest",
+      "r_squared": 0.868,
+      "rmse": 0.8615,
+      "mae": 0.6702,
+      "best_k": 2,
+      "silhouette_score": 0.0606
+    },
+    {
+      "run_date": "2026-06-22",
+      "dataset_size": 89,
+      "best_model": "random_forest",
+      "r_squared": 0.868,
+      "rmse": 0.8615,
+      "mae": 0.6702,
+      "best_k": 2,
+      "silhouette_score": 0.0606
     }
   ],
   "playlists": [
@@ -5515,17 +5535,17 @@
       "name": "Jazz Stank",
       "id": "2Dj3wiGXPwGL3RjQDa6zG5",
       "track_count": 7,
-      "matched_count": 6,
-      "avg_actual": 8.08,
-      "avg_predicted": 7.71,
-      "avg_energy": 7.5,
-      "avg_replayability": 7.17,
+      "matched_count": 7,
+      "avg_actual": 7.64,
+      "avg_predicted": 7.56,
+      "avg_energy": 7.6,
+      "avg_replayability": 6.71,
       "top_moods": [
         "joyful",
-        "passionate",
         "fun",
-        "ecstatic",
-        "communal"
+        "passionate",
+        "cool",
+        "ecstatic"
       ],
       "top_eras": [
         "Hard Bop",
@@ -5624,8 +5644,20 @@
         },
         {
           "title": "Moanin'",
-          "artist": "Art Blakey",
-          "matched": false
+          "artist": "Art Blakey & The Jazz Messengers",
+          "matched": true,
+          "actual": 5,
+          "predicted": 6.65,
+          "moods": [
+            "joyful",
+            "fun",
+            "cool",
+            "restless",
+            "uninteresting"
+          ],
+          "era": "Hard Bop",
+          "energy": 8,
+          "replayability": 4
         }
       ]
     },
@@ -5732,17 +5764,17 @@
       "name": "Jazz Pool",
       "id": "3cnlae8AntzgbgmzdxRZOj",
       "track_count": 51,
-      "matched_count": 49,
-      "avg_actual": 7.63,
-      "avg_predicted": 7.53,
-      "avg_energy": 3.9,
-      "avg_replayability": 6.41,
+      "matched_count": 51,
+      "avg_actual": 7.57,
+      "avg_predicted": 7.47,
+      "avg_energy": 4.0,
+      "avg_replayability": 6.29,
       "top_moods": [
         "romantic",
         "tender",
         "melancholic",
-        "sensual",
-        "joyful"
+        "joyful",
+        "sensual"
       ],
       "top_eras": [
         "Hard Bop",
@@ -6389,8 +6421,20 @@
         },
         {
           "title": "Moanin'",
-          "artist": "Art Blakey",
-          "matched": false
+          "artist": "Art Blakey & The Jazz Messengers",
+          "matched": true,
+          "actual": 5,
+          "predicted": 6.65,
+          "moods": [
+            "joyful",
+            "fun",
+            "cool",
+            "restless",
+            "uninteresting"
+          ],
+          "era": "Hard Bop",
+          "energy": 8,
+          "replayability": 4
         },
         {
           "title": "Blue Moon",
@@ -6472,7 +6516,25 @@
         {
           "title": "Waltz for Debby",
           "artist": "Bill Evans",
-          "matched": false
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.51,
+          "moods": [
+            "romantic",
+            "tender",
+            "joyful",
+            "cute",
+            "swinging",
+            "captivating",
+            "nostalgic",
+            "lush",
+            "spacious",
+            "smooth",
+            "background"
+          ],
+          "era": "Post-Bop",
+          "energy": 4,
+          "replayability": 3
         },
         {
           "title": "You Don't Know What Love Is",
