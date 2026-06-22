@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Model Comparison — Jazz Taste</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --bg-soft: #0a1628;
+      --panel: rgba(15, 31, 56, 0.92);
+      --panel-2: #0b1a30;
+      --border: rgba(93, 155, 224, 0.18);
+      --border-strong: rgba(74, 158, 255, 0.45);
+      --text: #d7e6f7;
+      --muted: #87a2c3;
+      --muted-2: #557193;
+      --accent: #4a9eff;
+      --accent-soft: rgba(74, 158, 255, 0.14);
+      --good: #50c878;
+      --bad: #ff6b6b;
+      --warning: #ffc144;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --page-pad: clamp(14px, 3vw, 28px);
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100svh; margin: 0; overflow-x: hidden;
+      background: radial-gradient(circle at top left, rgba(74,158,255,0.16), transparent 34rem),
+                  radial-gradient(circle at top right, rgba(255,193,68,0.08), transparent 28rem),
+                  var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .wrapper { max-width: 1100px; margin: 0 auto; padding: var(--page-pad); }
+
+    /* Nav bar */
+    .top-nav {
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px var(--page-pad);
+      background: rgba(7, 17, 31, 0.96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .hamburger-btn {
+      width: 32px; height: 32px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      cursor: pointer; padding: 6px;
+    }
+    .hamburger-btn:hover { background: var(--accent-soft); border-color: var(--border-strong); }
+    .hamburger-btn span { display: block; width: 16px; height: 2px; background: var(--muted); border-radius: 1px; }
+    .hamburger-btn:hover span { background: var(--accent); }
+    .page-menu {
+      display: none; position: absolute; top: 100%; left: var(--page-pad); z-index: 300;
+      min-width: 180px; background: var(--panel); border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm); box-shadow: var(--shadow); padding: 6px 0;
+    }
+    .page-menu.open { display: block; }
+    .page-menu a {
+      display: block; padding: 8px 16px; color: var(--text); text-decoration: none;
+      font-size: 0.82rem; font-weight: 600;
+    }
+    .page-menu a:hover { background: var(--accent-soft); }
+    .page-menu a.active { color: var(--accent); background: rgba(74,158,255,0.08); }
+    .nav-title { font-size: 0.82rem; font-weight: 700; color: var(--accent); }
+
+    /* Header */
+    .page-header { text-align: center; padding: 2rem 0 1.5rem; }
+    .page-header h1 { font-size: 1.6rem; margin: 0; }
+    .page-header .subtitle { color: var(--muted); font-size: 0.88rem; margin: 0.4rem 0 0; }
+
+    /* Selectors */
+    .compare-selectors {
+      display: flex; gap: 16px; justify-content: center; align-items: center;
+      flex-wrap: wrap; margin-bottom: 2rem;
+    }
+    .version-pick { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+    .version-pick label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+    .version-pick select {
+      background: rgba(10,22,40,0.65); border: 1px solid var(--border-strong);
+      border-radius: 6px; color: var(--accent); font-size: 0.88rem; font-weight: 650;
+      padding: 6px 12px; cursor: pointer; outline: none; min-width: 200px;
+    }
+    .version-pick select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+    .vs-label { font-size: 1.2rem; font-weight: 800; color: var(--muted-2); padding-top: 16px; }
+
+    /* Panels */
+    .panel {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.2rem; margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .panel h2 {
+      font-size: 0.78rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); margin: 0 0 1rem;
+    }
+
+    /* Metrics comparison */
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .metric-card {
+      background: var(--panel-2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 12px; text-align: center;
+    }
+    .metric-card .metric-label {
+      font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px;
+    }
+    .metric-card .metric-values { display: flex; justify-content: center; gap: 16px; }
+    .metric-card .metric-val { font-size: 1.1rem; font-weight: 700; }
+    .metric-card .metric-tag { font-size: 0.6rem; font-weight: 700; color: var(--muted-2); display: block; }
+    .better { color: var(--good); }
+    .worse { color: var(--bad); }
+
+    /* Prediction table */
+    .pred-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    .pred-table th {
+      padding: 7px 10px; border-bottom: 1px solid var(--border);
+      color: var(--muted); font-size: 0.7rem; font-weight: 800;
+      letter-spacing: 0.07em; text-transform: uppercase; text-align: left;
+    }
+    .pred-table td {
+      padding: 8px 10px; border-bottom: 1px solid rgba(93,155,224,0.08); color: var(--text);
+    }
+    .delta-high { color: var(--warning); font-weight: 700; }
+
+    /* Feature bars */
+    .feat-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .feat-col h3 {
+      font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--muted); margin: 0 0 8px;
+    }
+
+    /* Timeline chart */
+    .timeline-wrap { position: relative; height: 280px; }
+
+    /* Empty state */
+    .empty-state { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.9rem; }
+
+    #compare-content { display: none; }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <button class="hamburger-btn" id="hamburger-btn"><span></span><span></span><span></span></button>
+    <div class="page-menu" id="page-menu">
+      <a href="index.html">Dashboard</a>
+      <a href="compare.html" class="active">Compare Models</a>
+      <a href="review.html">Review</a>
+      <a href="dictionary.html">Dictionary</a>
+    </div>
+    <span class="nav-title">Model Comparison</span>
+  </nav>
+
+  <main class="wrapper">
+    <header class="page-header">
+      <h1>Model Comparison</h1>
+      <p class="subtitle">Compare performance across model versions</p>
+    </header>
+
+    <div class="compare-selectors">
+      <div class="version-pick">
+        <label>Version A</label>
+        <select id="version-a"></select>
+      </div>
+      <span class="vs-label">vs</span>
+      <div class="version-pick">
+        <label>Version B</label>
+        <select id="version-b"></select>
+      </div>
+    </div>
+
+    <div id="compare-content">
+      <div class="panel" id="metrics-panel">
+        <h2>Performance Metrics</h2>
+        <div class="metrics-grid" id="metrics-grid"></div>
+      </div>
+
+      <div class="panel" id="features-panel">
+        <h2>Feature Importance</h2>
+        <div class="feat-compare">
+          <div class="feat-col"><h3 id="feat-title-a">Version A</h3><canvas id="feat-chart-a"></canvas></div>
+          <div class="feat-col"><h3 id="feat-title-b">Version B</h3><canvas id="feat-chart-b"></canvas></div>
+        </div>
+      </div>
+
+      <div class="panel" id="predictions-panel">
+        <h2>Prediction Differences</h2>
+        <p style="font-size:0.75rem;color:var(--muted);margin:0 0 12px;">Tracks with the largest prediction delta between versions, sorted by disagreement.</p>
+        <div style="overflow-x:auto;"><table class="pred-table" id="pred-table"></table></div>
+      </div>
+
+      <div class="panel" id="timeline-panel">
+        <h2>Version Timeline</h2>
+        <div class="timeline-wrap"><canvas id="timeline-chart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="empty-state" id="empty-state">Select two versions to compare.</div>
+  </main>
+
+  <script>
+    let manifest = null;
+    const charts = [];
+
+    function destroyCharts() {
+      while (charts.length) { try { charts.pop().destroy(); } catch(e) {} }
+    }
+
+    document.getElementById('hamburger-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      document.getElementById('page-menu').classList.toggle('open');
+    });
+    document.addEventListener('click', () => document.getElementById('page-menu').classList.remove('open'));
+
+    fetch('versions.json')
+      .then(r => r.json())
+      .then(m => {
+        manifest = m;
+        const loadable = m.versions.filter(v => v.is_major || v.version === m.current_version);
+        const sorted = [...loadable].reverse();
+        const selA = document.getElementById('version-a');
+        const selB = document.getElementById('version-b');
+        sorted.forEach((v, i) => {
+          const text = `v${v.version}${v.is_major ? ' ★' : ''} — ${v.dataset_size} tracks`;
+          selA.add(new Option(text, v.version));
+          selB.add(new Option(text, v.version));
+        });
+        if (sorted.length >= 2) { selA.selectedIndex = 1; selB.selectedIndex = 0; }
+        selA.addEventListener('change', compare);
+        selB.addEventListener('change', compare);
+        compare();
+        renderTimeline(m);
+      })
+      .catch(() => {
+        document.getElementById('empty-state').textContent = 'No versions.json found. Run train.py first.';
+      });
+
+    function compare() {
+      const vA = document.getElementById('version-a').value;
+      const vB = document.getElementById('version-b').value;
+      if (!vA || !vB || vA === vB) return;
+      const entryA = manifest.versions.find(v => v.version === vA);
+      const entryB = manifest.versions.find(v => v.version === vB);
+      if (!entryA || !entryB) return;
+
+      document.getElementById('empty-state').style.display = 'none';
+      document.getElementById('compare-content').style.display = 'block';
+
+      renderMetrics(entryA, entryB);
+
+      Promise.all([
+        fetch(entryA.artifacts.dashboard_data).then(r => r.json()),
+        fetch(entryB.artifacts.dashboard_data).then(r => r.json()),
+      ]).then(([dataA, dataB]) => {
+        renderFeatures(dataA, dataB, entryA, entryB);
+        renderPredictions(dataA, dataB, entryA, entryB);
+      }).catch(err => console.error('Failed to load version data:', err));
+    }
+
+    function renderMetrics(a, b) {
+      const metrics = [
+        { key: 'r_squared', label: 'R²', higher: true, fmt: v => v.toFixed(4) },
+        { key: 'rmse', label: 'RMSE', higher: false, fmt: v => v.toFixed(4) },
+        { key: 'mae', label: 'MAE', higher: false, fmt: v => v.toFixed(4) },
+        { key: 'dataset_size', label: 'Tracks', higher: true, fmt: v => v },
+        { key: 'feature_count', label: 'Features', higher: null, fmt: v => v },
+        { key: 'best_k', label: 'Clusters', higher: null, fmt: v => v },
+      ];
+      const grid = document.getElementById('metrics-grid');
+      grid.innerHTML = metrics.map(m => {
+        const va = a[m.key], vb = b[m.key];
+        let clsA = '', clsB = '';
+        if (m.higher !== null && va !== vb) {
+          const aBetter = m.higher ? va > vb : va < vb;
+          clsA = aBetter ? 'better' : 'worse';
+          clsB = aBetter ? 'worse' : 'better';
+        }
+        return `<div class="metric-card">
+          <div class="metric-label">${m.label}</div>
+          <div class="metric-values">
+            <div><span class="metric-val ${clsA}">${m.fmt(va)}</span><span class="metric-tag">v${a.version}</span></div>
+            <div><span class="metric-val ${clsB}">${m.fmt(vb)}</span><span class="metric-tag">v${b.version}</span></div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderFeatures(dataA, dataB, entryA, entryB) {
+      destroyCharts();
+      document.getElementById('feat-title-a').textContent = `v${entryA.version}`;
+      document.getElementById('feat-title-b').textContent = `v${entryB.version}`;
+
+      function makeChart(canvasId, fi) {
+        const top = fi.slice(0, 10);
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        const c = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: top.map(f => f.feature),
+            datasets: [{
+              data: top.map(f => f.importance),
+              backgroundColor: top.map(f => f.direction === 'positive' ? '#50c878' : '#ff6b6b'),
+            }]
+          },
+          options: {
+            indexAxis: 'y', responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { color: 'rgba(93,155,224,0.1)' }, ticks: { color: '#87a2c3', font: { size: 10 } } },
+              y: { grid: { display: false }, ticks: { color: '#d7e6f7', font: { size: 10 } } },
+            }
+          }
+        });
+        charts.push(c);
+      }
+      makeChart('feat-chart-a', dataA.feature_importance || []);
+      makeChart('feat-chart-b', dataB.feature_importance || []);
+    }
+
+    function renderPredictions(dataA, dataB, entryA, entryB) {
+      const mapA = new Map(dataA.predictions.map(p => [`${p.title}|${p.artist}`, p]));
+      const mapB = new Map(dataB.predictions.map(p => [`${p.title}|${p.artist}`, p]));
+      const allKeys = new Set([...mapA.keys(), ...mapB.keys()]);
+      const rows = [];
+      for (const key of allKeys) {
+        const a = mapA.get(key), b = mapB.get(key);
+        const predA = a ? a.predicted : null, predB = b ? b.predicted : null;
+        const actual = (a || b).actual;
+        const delta = (predA !== null && predB !== null) ? Math.abs(predA - predB) : null;
+        const [title, artist] = key.split('|');
+        rows.push({ title, artist, actual, predA, predB, delta,
+          onlyA: !b, onlyB: !a });
+      }
+      rows.sort((a, b) => (b.delta ?? -1) - (a.delta ?? -1));
+      const top = rows.slice(0, 20);
+      const table = document.getElementById('pred-table');
+      table.innerHTML = `<thead><tr>
+        <th>Track</th><th>Artist</th><th>Actual</th>
+        <th>v${entryA.version}</th><th>v${entryB.version}</th><th>Delta</th>
+      </tr></thead><tbody>${top.map(r => {
+        const dCls = r.delta && r.delta > 1 ? 'delta-high' : '';
+        const fmtP = v => v !== null ? v.toFixed(2) : '—';
+        const fmtD = r.delta !== null ? r.delta.toFixed(2) : (r.onlyA ? 'A only' : 'B only');
+        return `<tr><td>${r.title}</td><td>${r.artist}</td><td>${r.actual}</td>
+          <td>${fmtP(r.predA)}</td><td>${fmtP(r.predB)}</td>
+          <td class="${dCls}">${fmtD}</td></tr>`;
+      }).join('')}</tbody>`;
+    }
+
+    function renderTimeline(m) {
+      const versions = m.versions;
+      if (versions.length < 2) return;
+      const ctx = document.getElementById('timeline-chart').getContext('2d');
+      const labels = versions.map(v => `v${v.version}`);
+      const c = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [
+            {
+              label: 'R²', data: versions.map(v => v.r_squared),
+              borderColor: '#50c878', backgroundColor: 'rgba(80,200,120,0.1)',
+              tension: 0.3, yAxisID: 'y',
+            },
+            {
+              label: 'RMSE', data: versions.map(v => v.rmse),
+              borderColor: '#ff6b6b', backgroundColor: 'rgba(255,107,107,0.1)',
+              tension: 0.3, yAxisID: 'y1',
+            }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { labels: { color: '#87a2c3' } },
+            annotation: versions.filter(v => v.is_major).length ? undefined : undefined,
+          },
+          scales: {
+            x: { grid: { color: 'rgba(93,155,224,0.1)' }, ticks: { color: '#87a2c3' } },
+            y: { position: 'left', title: { display: true, text: 'R²', color: '#50c878' },
+              grid: { color: 'rgba(93,155,224,0.1)' }, ticks: { color: '#50c878' } },
+            y1: { position: 'right', title: { display: true, text: 'RMSE', color: '#ff6b6b' },
+              grid: { drawOnChartArea: false }, ticks: { color: '#ff6b6b' } },
+          }
+        }
+      });
+      charts.push(c);
+
+      // Mark major releases with bold labels
+      versions.forEach((v, i) => {
+        if (v.is_major) {
+          const tick = ctx.canvas.parentElement;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

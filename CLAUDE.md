@@ -17,11 +17,20 @@ A self-improving system that learns Justin's jazz taste from rated tracks and re
 
 ## Key Workflows
 
-### Retrain the model
+### Retrain the model (minor version bump)
 ```bash
 python3 train.py
 ```
-Reads from the Obsidian vault training data, outputs updated `model.joblib` and `dashboard-data.json`. Always retrain after new tracks are added to the dataset.
+Auto-increments the minor version (1.01 → 1.02). Overwrites root `model.joblib` and `dashboard-data.json`. Updates `versions.json` with metrics. No snapshot directory created.
+
+### Major release retrain
+```bash
+python3 train.py --major --notes "Backfilled audio features"
+```
+Bumps to next major version (1.xx → 2.00). Creates a `versions/v2.00/` snapshot with frozen dashboard-data.json, model.joblib, and training-data.md. Use for data backfills, new attributes, or schema changes.
+
+### Compare model versions
+Open `compare.html` in a browser. Select two versions to see side-by-side metrics, feature importance, and prediction differences. The version timeline shows R² and RMSE across all versions.
 
 ### Score a candidate track
 ```bash

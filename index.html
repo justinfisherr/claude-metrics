@@ -845,6 +845,87 @@
 
     .nav-link.nav-hidden { display: none; }
 
+    /* ── Hamburger menu ── */
+    .hamburger-btn {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      transition: background 0.14s, border-color 0.14s;
+    }
+    .hamburger-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 1px;
+      transition: background 0.14s;
+    }
+    .hamburger-btn:hover span { background: var(--accent); }
+
+    .page-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: var(--page-pad);
+      z-index: 300;
+      min-width: 180px;
+      background: var(--panel);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 6px 0;
+    }
+    .page-menu.open { display: block; }
+    .page-menu a {
+      display: block;
+      padding: 8px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.12s;
+    }
+    .page-menu a:hover { background: var(--accent-soft); }
+    .page-menu a.active {
+      color: var(--accent);
+      background: rgba(74, 158, 255, 0.08);
+    }
+
+    /* ── Version select ── */
+    .version-select {
+      background: rgba(10, 22, 40, 0.65);
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 650;
+      padding: 4px 8px;
+      cursor: pointer;
+      outline: none;
+    }
+    .version-select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+    .version-select option {
+      background: var(--panel-2);
+      color: var(--text);
+    }
+
     /* ── Misses table ── */
     .misses-table {
       width: 100%;
@@ -942,8 +1023,15 @@
 
 <body>
   <nav class="section-nav" aria-label="Jump to section">
-    <a class="nav-link" href="dictionary.html" style="background:var(--accent-soft);border-color:var(--border-strong);color:var(--accent);margin-right:2px">Dictionary</a>
-    <a class="nav-link" href="review.html" style="background:var(--accent-soft);border-color:var(--border-strong);color:var(--accent);margin-right:4px">Review</a>
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Pages menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="page-menu" id="page-menu">
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="compare.html">Compare Models</a>
+      <a href="review.html">Review</a>
+      <a href="dictionary.html">Dictionary</a>
+    </div>
     <input class="nav-search" id="nav-search" type="search" placeholder="Search…" aria-label="Filter sections">
     <div class="nav-links" role="list">
       <a class="nav-link" href="#metrics-panel">Model Performance</a>
@@ -989,11 +1077,17 @@
       <div class="training-metadata">
         <div class="meta-item">
           <span class="label">Model Version</span>
-          <span class="value">v1.0</span>
+          <select id="version-select" class="version-select">
+            <option value="">Latest</option>
+          </select>
         </div>
         <div class="meta-item">
           <span class="label">Training Date</span>
-          <span class="value">2026-06-22 01:33</span>
+          <span class="value" id="training-date">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Features</span>
+          <span class="value" id="feature-count-meta">—</span>
         </div>
       </div>
     </header>
@@ -1515,53 +1609,114 @@
       };
     }
 
-    fetch('dashboard-data.json')
-      .then(response => {
-        if (!response.ok) throw new Error(`Could not load dashboard-data.json (${response.status})`);
-        return response.json();
-      })
-      .then(data => {
-        renderMetrics(data);
-        renderClusterScatter(data);
-        renderFeatureImportance(data);
-        renderPredVsActual(data);
-        renderDistribution(data);
-        renderRadar(data);
-        renderHeatmap(data);
-        renderConstellation(data);
-        renderCircleOfFifths(data);
-        renderTasteVsWorld(data);
-        renderArtistJourneys(data);
-        renderMoodRating(data);
-        renderReplayability(data);
-        renderPlaythrough(data);
-        renderPlaythroughByEra(data);
-        renderHallOfFame(data);
-        renderAlbums(data);
-        renderYearRating(data);
-        renderDurationRating(data);
-        renderInstrumentRatings(data);
-        renderLabelRatings(data);
-        renderBiggestMisses(data);
-        renderTopArtists(data);
-        renderEraRatings(data);
-        renderHarmonicComplexity(data);
-        renderDiscoverySource(data);
-        renderSoundProfile(data);
-        renderEnsembleSize(data);
-        renderHistory(data);
-        setStatus('Dashboard loaded');
-      })
-      .catch(error => {
-        console.error(error);
-        setStatus('Could not load dashboard-data.json', true);
-        document.getElementById('metrics-cards').innerHTML = `
-          <div class="empty-state" style="grid-column: 1 / -1;">
-            Put this HTML file in the same folder as <strong>dashboard-data.json</strong>, then open it through a local server.
-            Directly opening the file may block fetch() in some browsers.
-          </div>
-        `;
+    // ── Hamburger menu ──
+    document.getElementById('hamburger-btn').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('page-menu').classList.toggle('open');
+    });
+    document.addEventListener('click', function() {
+      document.getElementById('page-menu').classList.remove('open');
+    });
+
+    // ── Version-aware data loading ──
+    let versionsManifest = null;
+    const allCharts = [];
+
+    function destroyAllCharts() {
+      while (allCharts.length) {
+        try { allCharts.pop().destroy(); } catch(e) {}
+      }
+    }
+
+    function trackChart(chart) {
+      if (chart) allCharts.push(chart);
+      return chart;
+    }
+
+    function renderAll(data) {
+      destroyAllCharts();
+      document.getElementById('track-count').textContent = data?.meta?.total_tracks ?? '—';
+      if (data?.meta?.generated_at) {
+        document.getElementById('training-date').textContent =
+          new Date(data.meta.generated_at).toLocaleDateString();
+      }
+      document.getElementById('feature-count-meta').textContent = data?.meta?.feature_count ?? '—';
+      renderMetrics(data);
+      renderClusterScatter(data);
+      renderFeatureImportance(data);
+      renderPredVsActual(data);
+      renderDistribution(data);
+      renderRadar(data);
+      renderHeatmap(data);
+      renderConstellation(data);
+      renderCircleOfFifths(data);
+      renderTasteVsWorld(data);
+      renderArtistJourneys(data);
+      renderMoodRating(data);
+      renderReplayability(data);
+      renderPlaythrough(data);
+      renderPlaythroughByEra(data);
+      renderHallOfFame(data);
+      renderAlbums(data);
+      renderYearRating(data);
+      renderDurationRating(data);
+      renderInstrumentRatings(data);
+      renderLabelRatings(data);
+      renderBiggestMisses(data);
+      renderTopArtists(data);
+      renderEraRatings(data);
+      renderHarmonicComplexity(data);
+      renderDiscoverySource(data);
+      renderSoundProfile(data);
+      renderEnsembleSize(data);
+      renderHistory(data);
+    }
+
+    function loadDashboardData(path) {
+      setStatus('Loading...');
+      fetch(path)
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(data => { renderAll(data); setStatus('Dashboard loaded'); })
+        .catch(error => {
+          console.error(error);
+          setStatus('Could not load data', true);
+          document.getElementById('metrics-cards').innerHTML = `
+            <div class="empty-state" style="grid-column: 1 / -1;">
+              Put this HTML file in the same folder as <strong>dashboard-data.json</strong>, then open it through a local server.
+              Directly opening the file may block fetch() in some browsers.
+            </div>`;
+        });
+    }
+
+    function populateVersionDropdown(manifest) {
+      const select = document.getElementById('version-select');
+      select.innerHTML = '';
+      const loadable = manifest.versions.filter(v => v.is_major || v.version === manifest.current_version);
+      const sorted = [...loadable].reverse();
+      sorted.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.artifacts.dashboard_data;
+        opt.textContent = `v${v.version}${v.is_major ? ' ★' : ''} — ${v.dataset_size} tracks`;
+        if (v.version === manifest.current_version) opt.selected = true;
+        select.appendChild(opt);
       });
+      select.addEventListener('change', () => loadDashboardData(select.value));
+    }
+
+    // Init: try versions.json, fall back to direct load
+    fetch('versions.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(manifest => {
+        if (manifest && manifest.versions.length) {
+          versionsManifest = manifest;
+          populateVersionDropdown(manifest);
+          const current = manifest.versions.find(v => v.version === manifest.current_version);
+          loadDashboardData(current ? current.artifacts.dashboard_data : 'dashboard-data.json');
+        } else {
+          loadDashboardData('dashboard-data.json');
+        }
+      })
+      .catch(() => loadDashboardData('dashboard-data.json'));
 
     function renderMetrics(data) {
       document.getElementById('track-count').textContent = data?.meta?.total_tracks ?? '—';
@@ -1628,7 +1783,7 @@
         });
       }
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: { datasets },
         options: chartOptions({
@@ -1648,7 +1803,7 @@
             y: { grid: { color: GR.grid }, ticks: { display: false } },
           }
         })
-      });
+      }));
 
       const container = document.getElementById('cluster-summary');
       container.innerHTML = '';
@@ -1670,7 +1825,7 @@
       const ctx = document.getElementById('importanceChart');
       const features = (data?.feature_importance || []).slice(0, IS_MOBILE ? 9 : 12).reverse();
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: features.map(item => item.feature),
@@ -1708,7 +1863,7 @@
             }
           }
         })
-      });
+      }));
     }
 
     function renderPredVsActual(data) {
@@ -1717,7 +1872,7 @@
       const liked = predictions.filter(point => point.liked);
       const notLiked = predictions.filter(point => !point.liked);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [
@@ -1778,7 +1933,7 @@
             },
           }
         })
-      });
+      }));
     }
 
     function renderDistribution(data) {
@@ -1787,7 +1942,7 @@
       const profiles = profilesFrom(data);
       const byCluster = data?.distributions?.ratings_by_cluster || [];
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: bins.map(bin => String(bin)),
@@ -1813,7 +1968,7 @@
             }
           }
         })
-      });
+      }));
     }
 
     function renderRadar(data) {
@@ -1821,7 +1976,7 @@
       const profiles = profilesFrom(data).filter(profile => profile?.radar?.labels?.length);
       if (!profiles.length) return;
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'radar',
         data: {
           labels: profiles[0].radar.labels,
@@ -1848,7 +2003,7 @@
             }
           }
         })
-      });
+      }));
     }
 
     function renderHeatmap(data) {
@@ -1885,7 +2040,7 @@
       document.getElementById('history-panel').hidden = false;
       const ctx = document.getElementById('historyChart');
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'line',
         data: {
           labels: data.history.map(item => `${item.dataset_size} tracks`),
@@ -1929,7 +2084,7 @@
             }
           }
         })
-      });
+      }));
     }
     function renderConstellation(data) {
       const canvas = document.getElementById('constellationCanvas');
@@ -2108,7 +2263,7 @@
       const ctx = document.getElementById('tasteVsWorldChart');
       const predictions = (data?.predictions || []).filter(p => p.popularity != null);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [{
@@ -2134,7 +2289,7 @@
             y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
           }
         })
-      });
+      }));
     }
 
     function renderArtistJourneys(data) {
@@ -2181,7 +2336,7 @@
         return;
       }
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [
@@ -2217,7 +2372,7 @@
             y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
           }
         })
-      });
+      }));
     }
 
     function renderPlaythrough(data) {
@@ -2231,7 +2386,7 @@
         return;
       }
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [
@@ -2257,7 +2412,7 @@
             y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
           }
         })
-      });
+      }));
     }
 
     function renderPlaythroughByEra(data) {
@@ -2277,7 +2432,7 @@
         .map(([era, vals]) => ({ era, avg: vals.reduce((s, v) => s + v, 0) / vals.length, count: vals.length }))
         .sort((a, b) => b.avg - a.avg);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: sorted.map(s => s.era),
@@ -2319,7 +2474,7 @@
             y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
           }
         })
-      });
+      }));
     }
 
     function renderBiggestMisses(data) {
@@ -2372,7 +2527,7 @@
         }))
         .sort((a, b) => b.avg - a.avg);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: sorted.map(s => s.artist),
@@ -2402,7 +2557,7 @@
             y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
           }
         })
-      });
+      }));
     }
 
     function renderEraRatings(data) {
@@ -2423,7 +2578,7 @@
         }))
         .sort((a, b) => b.avg - a.avg);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: sorted.map(s => s.era),
@@ -2453,7 +2608,7 @@
             y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
           }
         })
-      });
+      }));
     }
 
     function renderHarmonicComplexity(data) {
@@ -2477,7 +2632,7 @@
         return;
       }
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: ['Low', 'Medium', 'High'],
@@ -2506,7 +2661,7 @@
             y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
           }
         })
-      });
+      }));
     }
 
     function renderDiscoverySource(data) {
@@ -2531,7 +2686,7 @@
         return;
       }
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels,
@@ -2560,7 +2715,7 @@
             y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
           }
         })
-      });
+      }));
     }
 
     function renderSoundProfile(data) {
@@ -2592,7 +2747,7 @@
       });
       const counts = pairs.map(({ filter }) => predictions.filter(filter).length);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: pairs.map(p => p.label),
@@ -2621,7 +2776,7 @@
             y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
           }
         })
-      });
+      }));
     }
 
     function renderEnsembleSize(data) {
@@ -2650,7 +2805,7 @@
         });
       }
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: { datasets },
         options: chartOptions({
@@ -2673,7 +2828,7 @@
             }
           }
         })
-      });
+      }));
     }
 
     function renderMoodRating(data) {
@@ -2785,7 +2940,7 @@
       if (!ctx) return;
       const predictions = (data?.predictions || []).filter(p => p.year);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [{
@@ -2809,7 +2964,7 @@
             y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
           }
         })
-      });
+      }));
     }
 
     function renderDurationRating(data) {
@@ -2817,7 +2972,7 @@
       if (!ctx) return;
       const predictions = (data?.predictions || []).filter(p => p.duration_s);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'scatter',
         data: {
           datasets: [{
@@ -2841,7 +2996,7 @@
             y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
           }
         })
-      });
+      }));
     }
 
     function ratingColor(r) {
@@ -2881,7 +3036,7 @@
         .map(([inst, tracks]) => ({ inst, avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length, count: tracks.length, tracks }))
         .sort((a, b) => b.avg - a.avg);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: sorted.map(s => s.inst),
@@ -2911,7 +3066,7 @@
             y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
           }
         })
-      });
+      }));
 
       const select = document.getElementById('instrument-select');
       if (select) {
@@ -2945,7 +3100,7 @@
         .map(([label, tracks]) => ({ label, avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length, count: tracks.length, tracks }))
         .sort((a, b) => b.avg - a.avg);
 
-      new Chart(ctx, {
+      trackChart(new Chart(ctx, {
         type: 'bar',
         data: {
           labels: sorted.map(s => s.label),
@@ -2975,7 +3130,7 @@
             y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
           }
         })
-      });
+      }));
 
       const select = document.getElementById('label-select');
       if (select) {

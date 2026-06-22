@@ -18,6 +18,7 @@ import joblib
 
 SCRIPT_DIR = Path(__file__).parent
 MODEL_PATH = SCRIPT_DIR / "model.joblib"
+VERSIONS_DIR = SCRIPT_DIR / "versions"
 
 TEMPO_MAP = {"slow": 1, "medium": 2, "medium-fast": 3, "fast": 4, "varied": 2.5}
 COMPLEXITY_MAP = {"low": 1, "medium": 2, "high": 3}
@@ -31,11 +32,15 @@ INST_GROUP_VALUES = ["tenor_sax", "piano", "vocals", "bass", "trumpet", "guitar"
 DISCOVERY_SOURCES = ["self", "claude-recommendation", "autoplay"]
 
 
-def load_model():
-    if not MODEL_PATH.exists():
-        print("No trained model found. Run `python3 train.py` first.")
+def load_model(version=None):
+    if version:
+        model_path = VERSIONS_DIR / f"v{version}" / "model.joblib"
+    else:
+        model_path = MODEL_PATH
+    if not model_path.exists():
+        print(f"No model found at {model_path}. Run `python3 train.py` first.")
         sys.exit(1)
-    return joblib.load(MODEL_PATH)
+    return joblib.load(model_path)
 
 
 def track_to_features(track, model_data):
@@ -174,9 +179,10 @@ def main():
     parser = argparse.ArgumentParser(description="Score jazz tracks against your taste model")
     parser.add_argument("--json", help="JSON string of a single track")
     parser.add_argument("--file", help="Path to JSON file with array of candidate tracks")
+    parser.add_argument("--version", help="Load model from a specific major version (e.g., '1.00')")
     args = parser.parse_args()
 
-    model_data = load_model()
+    model_data = load_model(version=args.version)
 
     if args.json:
         track = json.loads(args.json)

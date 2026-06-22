@@ -1,6 +1,8 @@
 import json
 import re
 import os
+import argparse
+import shutil
 import joblib
 from datetime import datetime, date
 from pathlib import Path
@@ -24,6 +26,8 @@ _TRAINING_DATA_CANDIDATES = [
 TRAINING_DATA_PATH = next((p for p in _TRAINING_DATA_CANDIDATES if p.exists()), _TRAINING_DATA_CANDIDATES[0])
 OUTPUT_PATH = SCRIPT_DIR / "dashboard-data.json"
 MODEL_PATH = SCRIPT_DIR / "model.joblib"
+VERSIONS_PATH = SCRIPT_DIR / "versions.json"
+VERSIONS_DIR = SCRIPT_DIR / "versions"
 
 TEMPO_MAP = {"slow": 1, "medium": 2, "medium-fast": 3, "fast": 4, "varied": 2.5}
 COMPLEXITY_MAP = {"low": 1, "medium": 2, "high": 3}
@@ -485,7 +489,72 @@ def load_history():
     return []
 
 
+def load_versions():
+    if VERSIONS_PATH.exists():
+        return json.loads(VERSIONS_PATH.read_text())
+    return {"current_version": "0.99", "versions": []}
+
+
+def next_version(manifest, is_major=False):
+    current = manifest["current_version"]
+    major, minor = current.split(".")
+    major, minor = int(major), int(minor)
+    if is_major:
+        return f"{major + 1}.00"
+    return f"{major}.{minor + 1:02d}"
+
+
+def save_version_artifacts(version_str, manifest, metrics_summary, is_major, notes=""):
+    artifacts = {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib",
+    }
+
+    if is_major:
+        version_dir = VERSIONS_DIR / f"v{version_str}"
+        version_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(OUTPUT_PATH, version_dir / "dashboard-data.json")
+        shutil.copy2(MODEL_PATH, version_dir / "model.joblib")
+        shutil.copy2(TRAINING_DATA_PATH, version_dir / "training-data.md")
+        artifacts = {
+            "dashboard_data": f"versions/v{version_str}/dashboard-data.json",
+            "model": f"versions/v{version_str}/model.joblib",
+            "training_data": f"versions/v{version_str}/training-data.md",
+        }
+
+    major, minor = version_str.split(".")
+    version_entry = {
+        "version": version_str,
+        "major": int(major),
+        "minor": int(minor),
+        "run_date": datetime.now().isoformat(),
+        "dataset_size": metrics_summary["dataset_size"],
+        "best_model": metrics_summary["best_model"],
+        "r_squared": metrics_summary["r_squared"],
+        "rmse": metrics_summary["rmse"],
+        "mae": metrics_summary["mae"],
+        "feature_count": metrics_summary["feature_count"],
+        "best_k": metrics_summary["best_k"],
+        "notes": notes,
+        "is_major": is_major,
+        "training_data_snapshot": is_major,
+        "artifacts": artifacts,
+    }
+
+    manifest["versions"].append(version_entry)
+    manifest["current_version"] = version_str
+    VERSIONS_PATH.write_text(json.dumps(manifest, indent=2))
+    return version_str
+
+
 def main():
+    parser = argparse.ArgumentParser(description="Train jazz taste model")
+    parser.add_argument("--major", action="store_true",
+                        help="Major version bump (new training data era)")
+    parser.add_argument("--notes", type=str, default="",
+                        help="Version notes (why this release)")
+    args = parser.parse_args()
+
     print("Loading data...")
     tracks, albums = load_data()
     print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
@@ -537,9 +606,14 @@ def main():
         "silhouette_score": max(cluster_results["silhouette_scores"]) if cluster_results["silhouette_scores"] else 0,
     })
 
+    manifest = load_versions()
+    new_version = next_version(manifest, is_major=args.major)
+
     output = {
         "meta": {
             "generated_at": datetime.now().isoformat(),
+            "version": new_version,
+            "is_major": args.major,
             "total_tracks": len(tracks),
             "total_albums": len(albums),
             "mood_threshold": MOOD_THRESHOLD,
@@ -593,6 +667,21 @@ def main():
         "eras": eras,
     }, MODEL_PATH)
     print(f"Model saved to {MODEL_PATH}")
+
+    metrics_summary = {
+        "dataset_size": len(tracks),
+        "best_model": best,
+        "r_squared": best_metrics["r_squared"],
+        "rmse": best_metrics["rmse"],
+        "mae": best_metrics["mae"],
+        "feature_count": X.shape[1],
+        "best_k": cluster_results["best_k"],
+    }
+    save_version_artifacts(new_version, manifest, metrics_summary,
+                           is_major=args.major, notes=args.notes)
+    print(f"\nVersion {new_version} saved")
+    if args.major:
+        print(f"  Major release — snapshot saved to versions/v{new_version}/")
 
 
 if __name__ == "__main__":
