@@ -8,19 +8,23 @@ const STORAGE_KEY = 'jazz-reviews';
 const MOOD_SECTIONS = [
   {
     label: 'Warm & romantic',
-    moods: ['romantic', 'tender', 'warm', 'joyful', 'hopeful', 'pretty', 'lovely', 'cute', 'intimate'],
+    moods: ['romantic', 'tender', 'warm', 'joyful', 'hopeful', 'pretty', 'lovely', 'cute', 'intimate', 'beautiful', 'elegant', 'serene', 'peaceful'],
   },
   {
     label: 'Jazz energy',
-    moods: ['cool', 'bluesy', 'groovy', 'swinging', 'sensual', 'captivating', 'sexy', 'fun'],
+    moods: ['cool', 'bluesy', 'groovy', 'swinging', 'sensual', 'captivating', 'sexy', 'fun', 'energetic', 'dynamic', 'lively', 'exciting', 'passionate', 'sassy', 'playful', 'exuberant'],
   },
   {
     label: 'Emotional depth',
-    moods: ['melancholic', 'bittersweet', 'mournful', 'nostalgic', 'longing', 'dramatic', 'intense', 'moody', 'dark'],
+    moods: ['melancholic', 'bittersweet', 'mournful', 'nostalgic', 'longing', 'dramatic', 'intense', 'moody', 'dark', 'haunting', 'tragic', 'solemn', 'introspective', 'contemplative', 'reflective', 'spiritual', 'raw'],
   },
   {
     label: 'Texture & feel',
-    moods: ['lush', 'sparse', 'gentle', 'restless', 'meditative', 'spacious', 'smooth'],
+    moods: ['lush', 'sparse', 'gentle', 'restless', 'meditative', 'spacious', 'smooth', 'atmospheric', 'flowing', 'mysterious', 'experimental', 'lyrical', 'sophisticated'],
+  },
+  {
+    label: 'Vibe & character',
+    moods: ['celebratory', 'communal', 'ecstatic', 'iconic', 'classic', 'expressive', 'surprising', 'vibrant', 'animated'],
   },
   {
     label: 'Sound & innovation',
@@ -28,7 +32,7 @@ const MOOD_SECTIONS = [
   },
   {
     label: 'Not landing',
-    moods: ['flat', 'languid', 'sleepy', 'repetitive', 'background', 'uninteresting'],
+    moods: ['flat', 'languid', 'sleepy', 'repetitive', 'background', 'uninteresting', 'corny', 'saccharine', 'meandering', 'non-captivating', 'unengaging', 'pleasant'],
   },
 ];
 
