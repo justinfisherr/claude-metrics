@@ -477,6 +477,10 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "is_pianoless": int("piano" not in " ".join(t.get("instrumentation") or []).lower()),
             "has_vocals": int("vocal" in " ".join(t.get("instrumentation") or []).lower()),
             "has_guitar": int("guitar" in " ".join(t.get("instrumentation") or []).lower()),
+            "mood_polarity": sum(1 for m in t.get("moods", []) if m in POSITIVE_MOODS) - sum(1 for m in t.get("moods", []) if m in NEGATIVE_MOODS),
+            "artist_is_leader": int(any(t.get("artist", "").lower().split("&")[0].strip() in kp.lower() for kp in t.get("key_players", []))),
+            "intro_grabbed": int(any(kw in (t.get("favorite_moments") or "").lower() + " " + (t.get("notes") or "").lower() + " " + " ".join(t.get("notable_qualities", [])).lower() for kw in ["intro", "right away"])),
+            "early_bail": int((t.get("playthrough") or 0.75) < 0.3),
         })
     return results
 

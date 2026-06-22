@@ -132,8 +132,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      width: fit-content;
+      flex-wrap: wrap;
+      gap: 14px;
       max-width: 100%;
       margin: 8px auto 0;
       padding: 10px 16px;
@@ -142,6 +142,7 @@
       background: rgba(10, 22, 40, 0.45);
       color: var(--muted);
       font-size: 0.78rem;
+      overflow: hidden;
     }
 
     .training-metadata .meta-item {
@@ -911,11 +912,12 @@
       border: 1px solid var(--border-strong);
       border-radius: 6px;
       color: var(--accent);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 650;
       padding: 4px 8px;
       cursor: pointer;
       outline: none;
+      max-width: 200px;
     }
     .version-select:focus {
       border-color: var(--accent);
@@ -1062,6 +1064,8 @@
       <a class="nav-link" href="#discovery-panel">Discovery Source</a>
       <a class="nav-link" href="#sound-panel">Sound Profile</a>
       <a class="nav-link" href="#ensemble-panel">Ensemble Size</a>
+      <a class="nav-link" href="#polarity-panel">Mood Polarity</a>
+      <a class="nav-link" href="#v2features-panel">v2 Features</a>
       <a class="nav-link" href="#history-panel">Model Over Time</a>
     </div>
   </nav>
@@ -1498,6 +1502,31 @@
         </div>
       </article>
 
+      <article class="panel span-6" id="polarity-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Mood Polarity vs Rating</h2>
+              <p class="panel-note">Net positive minus negative mood count</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = mood polarity (positive mood count minus negative mood count). Higher = more positive moods. <strong>Y axis</strong> = your rating. Tracks with strongly negative polarity (many "flat"/"uninteresting" tags) should cluster at the bottom.</p>
+          <div class="chart-shell"><canvas id="polarityChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="v2features-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>v2 Feature Breakdown</h2>
+              <p class="panel-note">Artist role, intro grab, early bail</p>
+            </div>
+          </div>
+          <div id="v2features-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"></div>
+        </div>
+      </article>
+
       <article class="panel span-12" id="history-panel" hidden>
         <div class="panel-inner">
           <div class="panel-header">
@@ -1669,6 +1698,8 @@
       renderDiscoverySource(data);
       renderSoundProfile(data);
       renderEnsembleSize(data);
+      renderMoodPolarity(data);
+      renderV2Features(data);
       renderHistory(data);
     }
 
@@ -2830,6 +2861,101 @@
           }
         })
       }));
+    }
+
+    function renderMoodPolarity(data) {
+      const ps = data.predictions;
+      if (!ps.length || ps[0].mood_polarity === undefined) {
+        document.getElementById('polarity-panel').hidden = true;
+        return;
+      }
+      const ctx = document.getElementById('polarityChart').getContext('2d');
+      const colors = ['#4a9eff','#50c878','#ffc144','#ff6b6b'];
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            data: ps.map(p => ({x: p.mood_polarity, y: p.actual, title: p.title, artist: p.artist})),
+            backgroundColor: ps.map(p => p.liked ? '#50c878' : '#ff6b6b'),
+            pointRadius: 5,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.raw.title} — ${ctx.raw.artist} (${ctx.raw.y}/10, polarity: ${ctx.raw.x})`
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Mood Polarity', color: GR.label, font: { weight: 800 } },
+              grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: {
+              title: { display: true, text: 'Rating', color: GR.label, font: { weight: 800 } },
+              min: 1, max: 10,
+              grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 }
+            }
+          }
+        }
+      }));
+    }
+
+    function renderV2Features(data) {
+      const ps = data.predictions;
+      if (!ps.length || ps[0].artist_is_leader === undefined) {
+        document.getElementById('v2features-panel').hidden = true;
+        return;
+      }
+      const grid = document.getElementById('v2features-grid');
+      const leader = ps.filter(p => p.artist_is_leader);
+      const sideman = ps.filter(p => !p.artist_is_leader);
+      const leaderAvg = leader.length ? (leader.reduce((s,p) => s+p.actual, 0) / leader.length).toFixed(1) : '—';
+      const sidemanAvg = sideman.length ? (sideman.reduce((s,p) => s+p.actual, 0) / sideman.length).toFixed(1) : '—';
+
+      const intro = ps.filter(p => p.intro_grabbed);
+      const noIntro = ps.filter(p => !p.intro_grabbed);
+      const introAvg = intro.length ? (intro.reduce((s,p) => s+p.actual, 0) / intro.length).toFixed(1) : '—';
+      const noIntroAvg = noIntro.length ? (noIntro.reduce((s,p) => s+p.actual, 0) / noIntro.length).toFixed(1) : '—';
+
+      const bail = ps.filter(p => p.early_bail);
+      const noBail = ps.filter(p => !p.early_bail);
+      const bailAvg = bail.length ? (bail.reduce((s,p) => s+p.actual, 0) / bail.length).toFixed(1) : '—';
+      const noBailAvg = noBail.length ? (noBail.reduce((s,p) => s+p.actual, 0) / noBail.length).toFixed(1) : '—';
+
+      const polarities = ps.map(p => p.mood_polarity).filter(v => v !== undefined);
+      const highPol = ps.filter(p => p.mood_polarity >= 3);
+      const lowPol = ps.filter(p => p.mood_polarity <= 0);
+      const highPolAvg = highPol.length ? (highPol.reduce((s,p) => s+p.actual, 0) / highPol.length).toFixed(1) : '—';
+      const lowPolAvg = lowPol.length ? (lowPol.reduce((s,p) => s+p.actual, 0) / lowPol.length).toFixed(1) : '—';
+
+      function card(title, rows) {
+        return `<div style="background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;">
+          <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:8px;">${title}</div>
+          ${rows.map(r => `<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.82rem;">
+            <span style="color:var(--text)">${r[0]}</span>
+            <span style="font-weight:700;color:${r[2] || 'var(--accent)'}">${r[1]}</span>
+          </div>`).join('')}
+        </div>`;
+      }
+
+      grid.innerHTML = card('Artist Role', [
+        [`As leader (${leader.length})`, `avg ${leaderAvg}`, ''],
+        [`As sideman (${sideman.length})`, `avg ${sidemanAvg}`, ''],
+      ]) + card('Intro Grab', [
+        [`Grabbed (${intro.length})`, `avg ${introAvg}`, 'var(--good)'],
+        [`No grab (${noIntro.length})`, `avg ${noIntroAvg}`, ''],
+      ]) + card('Early Bail (<30%)', [
+        [`Bailed (${bail.length})`, `avg ${bailAvg}`, 'var(--bad)'],
+        [`Stayed (${noBail.length})`, `avg ${noBailAvg}`, ''],
+      ]) + card('Mood Polarity', [
+        [`High (≥3) (${highPol.length})`, `avg ${highPolAvg}`, 'var(--good)'],
+        [`Low (≤0) (${lowPol.length})`, `avg ${lowPolAvg}`, 'var(--bad)'],
+      ]);
     }
 
     function renderMoodRating(data) {
