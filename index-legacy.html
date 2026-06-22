@@ -1,0 +1,3499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Jazz Taste Analysis</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --bg-soft: #0a1628;
+      --panel: rgba(15, 31, 56, 0.92);
+      --panel-2: #0b1a30;
+      --border: rgba(93, 155, 224, 0.18);
+      --border-strong: rgba(74, 158, 255, 0.45);
+      --text: #d7e6f7;
+      --muted: #87a2c3;
+      --muted-2: #557193;
+      --accent: #4a9eff;
+      --accent-soft: rgba(74, 158, 255, 0.14);
+      --good: #50c878;
+      --bad: #ff6b6b;
+      --warning: #ffc144;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --page-pad: clamp(14px, 3vw, 28px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100svh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(74, 158, 255, 0.16), transparent 34rem),
+        radial-gradient(circle at top right, rgba(255, 193, 68, 0.08), transparent 28rem),
+        linear-gradient(180deg, #07111f 0%, #09172a 48%, #06101e 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .wrapper {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 54px) var(--page-pad) clamp(34px, 6vw, 70px);
+    }
+
+    .page-header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: clamp(20px, 4vw, 34px);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(0.72rem, 2vw, 0.84rem);
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(2rem, 7vw, 4.5rem);
+      font-weight: 850;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(0.92rem, 2.4vw, 1.05rem);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 4px auto 0;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(10, 22, 40, 0.65);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(74, 158, 255, 0.12);
+    }
+
+    .status.is-error .status-dot {
+      background: var(--bad);
+      box-shadow: 0 0 0 5px rgba(255, 107, 107, 0.12);
+    }
+
+    .training-metadata {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      max-width: 100%;
+      margin: 8px auto 0;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(10, 22, 40, 0.45);
+      color: var(--muted);
+      font-size: 0.78rem;
+      overflow: hidden;
+    }
+
+    .training-metadata .meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .training-metadata .label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted-2);
+    }
+
+    .training-metadata .value {
+      font-size: 0.82rem;
+      font-weight: 650;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 20px);
+      align-items: stretch;
+    }
+
+    .span-12 { grid-column: span 12; }
+    .span-6 { grid-column: span 6; }
+
+    .panel {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .panel-inner {
+      display: grid;
+      gap: 16px;
+      height: 100%;
+      padding: clamp(16px, 3vw, 22px);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel h2 {
+      margin: 0;
+      color: #eef6ff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .panel-note {
+      margin: 3px 0 0;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(7, 17, 31, 0.72);
+      padding: 15px;
+    }
+
+    .card.best {
+      border-color: var(--border-strong);
+      background:
+        linear-gradient(145deg, rgba(74, 158, 255, 0.13), rgba(7, 17, 31, 0.72) 55%),
+        rgba(7, 17, 31, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .card h3 {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-transform: uppercase;
+    }
+
+    .metric {
+      overflow-wrap: anywhere;
+      color: #ffffff;
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .detail {
+      margin-top: 7px;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 20px;
+      padding: 3px 8px;
+      border: 1px solid rgba(74, 158, 255, 0.28);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #90c8ff;
+      font-size: 0.6rem;
+      font-weight: 850;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .caveat {
+      margin: 0;
+      color: var(--muted-2);
+      font-size: 0.78rem;
+      font-style: italic;
+    }
+
+    .constellation-wrap {
+      position: relative;
+      width: 100%;
+      min-width: 380px;
+      height: 420px;
+    }
+    .constellation-wrap canvas {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: var(--radius-sm);
+      cursor: crosshair;
+    }
+    .constellation-tip {
+      display: none;
+      position: absolute;
+      padding: 8px 12px;
+      background: var(--panel);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.82rem;
+      pointer-events: none;
+      z-index: 10;
+      white-space: nowrap;
+      line-height: 1.55;
+    }
+    .artist-journeys-scroll {
+      min-width: 480px;
+    }
+    .artist-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .artist-name {
+      width: 130px;
+      min-width: 130px;
+      text-align: right;
+      font-size: 0.82rem;
+      font-weight: 650;
+      color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .artist-blocks {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex: 1;
+    }
+    .artist-block {
+      height: 30px;
+      border-radius: 4px;
+      min-width: 18px;
+      cursor: default;
+      position: relative;
+      transition: opacity 0.15s;
+    }
+    .artist-block:hover { opacity: 0.7; }
+    .artist-block:hover::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 4px 8px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      z-index: 5;
+      color: var(--text);
+    }
+    .artist-avg {
+      font-size: 0.78rem;
+      color: var(--muted);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    .chart-shell {
+      position: relative;
+      width: 100%;
+      min-width: 380px;
+      height: clamp(270px, 34vw, 395px);
+    }
+
+    .chart-shell.compact {
+      height: clamp(250px, 30vw, 360px);
+    }
+
+    .chart-shell.tall {
+      height: clamp(320px, 42vw, 470px);
+    }
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .cluster-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .cluster-tag {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-left-width: 4px;
+      border-radius: var(--radius-sm);
+      background: rgba(7, 17, 31, 0.64);
+      padding: 12px;
+    }
+
+    .cluster-tag .name {
+      overflow-wrap: anywhere;
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 780;
+      line-height: 1.25;
+    }
+
+    .cluster-tag .info {
+      margin-top: 5px;
+      color: var(--muted-2);
+      font-size: 0.74rem;
+      line-height: 1.45;
+    }
+
+    .table-scroll {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .heatmap-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      background: rgba(7, 17, 31, 0.46);
+      font-size: 0.72rem;
+    }
+
+    .heatmap-table th,
+    .heatmap-table td {
+      padding: 8px 9px;
+      border: 1px solid rgba(93, 155, 224, 0.16);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .heatmap-table th {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      background: #0a1628;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .heatmap-table tr:first-child th {
+      position: static;
+    }
+
+    .empty-state {
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(7, 17, 31, 0.4);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .span-6 { grid-column: span 12; }
+      .cards { grid-template-columns: 1fr; }
+      .cluster-summary { grid-template-columns: 1fr; }
+      .panel-header { flex-direction: column; }
+    }
+
+    @media (max-width: 640px) {
+      .wrapper {
+        padding-top: 26px;
+      }
+
+      .page-header {
+        text-align: left;
+      }
+
+      .subtitle,
+      .status {
+        margin-left: 0;
+      }
+
+      .grid {
+        gap: 12px;
+      }
+
+      .panel {
+        border-radius: 16px;
+      }
+
+      .panel-inner {
+        gap: 13px;
+        padding: 14px;
+      }
+
+      .panel-header {
+        gap: 6px;
+        padding-bottom: 10px;
+      }
+
+      .panel h2 {
+        font-size: 0.76rem;
+      }
+
+      .panel-note,
+      .detail,
+      .caveat,
+      .cluster-tag .info {
+        font-size: 0.73rem;
+      }
+
+      .card {
+        padding: 13px;
+      }
+
+      .chart-shell,
+      .chart-shell.compact {
+        height: 280px;
+      }
+
+      .chart-shell.tall {
+        height: 330px;
+      }
+
+      .heatmap-table {
+        min-width: 520px;
+        font-size: 0.67rem;
+      }
+
+      .heatmap-table th,
+      .heatmap-table td {
+        padding: 7px 8px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .chart-shell,
+      .chart-shell.compact {
+        height: 255px;
+      }
+
+      .chart-shell.tall {
+        height: 300px;
+      }
+    }
+
+    .panel-desc {
+      margin: 10px 0 0;
+      padding: 10px 12px;
+      border-left: 2px solid var(--border-strong);
+      background: rgba(74, 158, 255, 0.04);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.6;
+    }
+
+    .panel-desc strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .panel-desc code {
+      padding: 1px 5px;
+      border-radius: 4px;
+      background: rgba(74, 158, 255, 0.1);
+      color: #90c8ff;
+      font-size: 0.72rem;
+      font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+    }
+
+    .accordion-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 10px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+    }
+
+    .accordion-arrow {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(74, 158, 255, 0.08);
+      color: var(--accent);
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.22s ease, background 0.15s;
+    }
+
+    .accordion-toggle[aria-expanded="false"] .accordion-arrow {
+      transform: rotate(-90deg);
+    }
+
+    .accordion-toggle:hover .accordion-arrow {
+      background: rgba(74, 158, 255, 0.18);
+    }
+
+    .accordion-body {
+      overflow: hidden;
+      transition: max-height 0.28s ease, opacity 0.22s ease;
+    }
+
+    .accordion-body.collapsed {
+      max-height: 0 !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .hof-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(7, 17, 31, 0.72);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hof-card.perfect {
+      border-color: var(--border-strong);
+      background: linear-gradient(145deg, rgba(74, 158, 255, 0.1), rgba(7, 17, 31, 0.72) 60%), rgba(7, 17, 31, 0.72);
+    }
+
+    .hof-rating {
+      font-size: 1.6rem;
+      font-weight: 850;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .hof-card.perfect .hof-rating {
+      color: var(--accent);
+    }
+
+    .hof-title {
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hof-artist {
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .hof-meta {
+      color: var(--muted-2);
+      font-size: 0.72rem;
+    }
+
+    .hof-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .hof-tag {
+      padding: 2px 7px;
+      border: 1px solid rgba(74, 158, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(74, 158, 255, 0.07);
+      color: var(--muted);
+      font-size: 0.67rem;
+    }
+
+    /* ── Album cards ── */
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+    }
+
+    .album-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(7, 17, 31, 0.72);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .album-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .album-card-title {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .album-card-artist {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .album-card-rating {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+    }
+
+    .album-card-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.75rem;
+      color: var(--muted-2);
+    }
+
+    .album-card-meta span {
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(74, 158, 255, 0.05);
+    }
+
+    .album-card-notes {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .album-card-qualities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .album-card-qualities span {
+      padding: 2px 7px;
+      border: 1px solid rgba(74, 158, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(74, 158, 255, 0.07);
+      color: var(--muted);
+      font-size: 0.67rem;
+    }
+
+    /* ── Section nav ── */
+    .section-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px clamp(14px, 3vw, 28px);
+      background: rgba(7, 17, 31, 0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-search {
+      flex-shrink: 0;
+      width: 140px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(74, 158, 255, 0.06);
+      color: var(--text);
+      font-size: 0.78rem;
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .nav-search::placeholder { color: var(--muted-2); }
+    .nav-search:focus {
+      border-color: var(--border-strong);
+      background: rgba(74, 158, 255, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 5px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(7, 17, 31, 0.5);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.14s, color 0.14s, border-color 0.14s;
+    }
+
+    .nav-link:hover {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+      color: var(--accent);
+    }
+
+    .nav-link.nav-hidden { display: none; }
+
+    .nav-section-label {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted-2);
+      white-space: nowrap;
+      padding: 3px 4px 3px 8px;
+      border-left: 2px solid var(--border-strong);
+    }
+
+    /* ── Hamburger menu ── */
+    .hamburger-btn {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      transition: background 0.14s, border-color 0.14s;
+    }
+    .hamburger-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--border-strong);
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 1px;
+      transition: background 0.14s;
+    }
+    .hamburger-btn:hover span { background: var(--accent); }
+
+    .page-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: var(--page-pad);
+      z-index: 300;
+      min-width: 180px;
+      background: var(--panel);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 6px 0;
+    }
+    .page-menu.open { display: block; }
+    .page-menu a {
+      display: block;
+      padding: 8px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.12s;
+    }
+    .page-menu a:hover { background: var(--accent-soft); }
+    .page-menu a.active {
+      color: var(--accent);
+      background: rgba(74, 158, 255, 0.08);
+    }
+
+    /* ── Version select ── */
+    .version-select {
+      background: rgba(10, 22, 40, 0.65);
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 650;
+      padding: 4px 8px;
+      cursor: pointer;
+      outline: none;
+      max-width: 200px;
+    }
+    .version-select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+    .version-select option {
+      background: var(--panel-2);
+      color: var(--text);
+    }
+
+    /* ── Misses table ── */
+    .misses-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .misses-table th {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    .misses-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(93, 155, 224, 0.08);
+      color: var(--text);
+    }
+
+    .misses-table tr:last-child td { border-bottom: none; }
+
+    .miss-diff {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .miss-diff.over { color: var(--bad); }
+    .miss-diff.under { color: var(--warning); }
+
+    /* ── Breakdown dropdowns ── */
+    .breakdown-dropdown {
+      margin-top: 14px;
+    }
+
+    .breakdown-select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--panel-2);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .breakdown-select:focus {
+      border-color: var(--border-strong);
+    }
+
+    .breakdown-tracks {
+      margin-top: 8px;
+    }
+
+    .breakdown-track {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      border-bottom: 1px solid rgba(93, 155, 224, 0.08);
+      font-size: 0.8rem;
+    }
+
+    .breakdown-track:last-child { border-bottom: none; }
+
+    .breakdown-track-title {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .breakdown-track-artist {
+      color: var(--muted);
+      margin-left: 6px;
+      font-weight: 400;
+    }
+
+    .breakdown-track-rating {
+      flex-shrink: 0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    @media (max-width: 640px) {
+      .nav-search { width: 100px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="section-nav" aria-label="Jump to section">
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Pages menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="page-menu" id="page-menu">
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="compare.html">Compare Models</a>
+      <a href="review.html">Review</a>
+      <a href="dictionary.html">Dictionary</a>
+    </div>
+    <input class="nav-search" id="nav-search" type="search" placeholder="Search…" aria-label="Filter sections">
+    <div class="nav-links" role="list">
+      <span class="nav-section-label">Overview</span>
+      <a class="nav-link" href="#taste-summary-panel">Taste Summary</a>
+      <a class="nav-link" href="#metrics-panel">Model</a>
+      <a class="nav-link" href="#hof-panel">Hall of Fame</a>
+      <span class="nav-section-label">Patterns</span>
+      <a class="nav-link" href="#clusters-panel">Clusters</a>
+      <a class="nav-link" href="#radar-panel">Profiles</a>
+      <a class="nav-link" href="#constellation-panel">Constellation</a>
+      <a class="nav-link" href="#importance-panel">Features</a>
+      <a class="nav-link" href="#correlations-panel">Correlations</a>
+      <span class="nav-section-label">Ratings</span>
+      <a class="nav-link" href="#pred-actual-panel">Predicted vs Actual</a>
+      <a class="nav-link" href="#distribution-panel">Distribution</a>
+      <a class="nav-link" href="#misses-panel">Biggest Misses</a>
+      <a class="nav-link" href="#year-rating-panel">By Year</a>
+      <a class="nav-link" href="#duration-rating-panel">By Duration</a>
+      <span class="nav-section-label">Music</span>
+      <a class="nav-link" href="#era-panel">Eras</a>
+      <a class="nav-link" href="#instrument-panel">Instruments</a>
+      <a class="nav-link" href="#instrument-combos-panel">Combos</a>
+      <a class="nav-link" href="#harmonic-panel">Harmony</a>
+      <a class="nav-link" href="#cof-panel">Circle of Fifths</a>
+      <a class="nav-link" href="#sound-panel">Sound Profile</a>
+      <a class="nav-link" href="#ensemble-panel">Ensemble</a>
+      <span class="nav-section-label">Artists</span>
+      <a class="nav-link" href="#top-artists-panel">Top Artists</a>
+      <a class="nav-link" href="#artist-journeys-panel">Journeys</a>
+      <a class="nav-link" href="#label-panel">Labels</a>
+      <a class="nav-link" href="#discovery-panel">Discovery</a>
+      <span class="nav-section-label">Engagement</span>
+      <a class="nav-link" href="#replayability-panel">Replayability</a>
+      <a class="nav-link" href="#playthrough-panel">Playthrough</a>
+      <a class="nav-link" href="#playthrough-era-panel">By Era</a>
+      <a class="nav-link" href="#mood-rating-panel">Mood × Rating</a>
+      <a class="nav-link" href="#polarity-panel">Mood Polarity</a>
+      <a class="nav-link" href="#v2features-panel">v2 Features</a>
+      <span class="nav-section-label">Meta</span>
+      <a class="nav-link" href="#taste-world-panel">Taste vs World</a>
+      <a class="nav-link" href="#albums-panel">Albums</a>
+      <a class="nav-link" href="#history-panel">History</a>
+    </div>
+  </nav>
+  <main class="wrapper">
+    <header class="page-header">
+      <p class="eyebrow">Taste model dashboard</p>
+      <h1>Jazz Taste Analysis</h1>
+      <p class="subtitle">Model trained on <span id="track-count">—</span> rated tracks.</p>
+      <div class="status" id="status" role="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="status-text">Loading dashboard-data.json</span>
+      </div>
+      <div class="training-metadata">
+        <div class="meta-item">
+          <span class="label">Model Version</span>
+          <select id="version-select" class="version-select">
+            <option value="">Latest</option>
+          </select>
+        </div>
+        <div class="meta-item">
+          <span class="label">Training Date</span>
+          <span class="value" id="training-date">—</span>
+        </div>
+        <div class="meta-item">
+          <span class="label">Features</span>
+          <span class="value" id="feature-count-meta">—</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="Jazz taste analysis charts">
+      <article class="panel span-12" id="taste-summary-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Your Taste at a Glance</h2>
+              <p class="panel-note">Auto-generated from your ratings</p>
+            </div>
+          </div>
+          <div id="taste-summary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;"></div>
+        </div>
+      </article>
+
+      <article class="panel span-12" id="metrics-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Model Performance</h2>
+              <p class="panel-note">Cross-validation summary and dataset size</p>
+            </div>
+          </div>
+          <p class="panel-desc">Two regression models are trained on your dataset using <strong>Leave-One-Out Cross-Validation (LOOCV)</strong> — each track is held out once and predicted from the remaining tracks, then scores are averaged. <strong>R²</strong> (0–1) measures how much variance in your ratings the model explains; 1.0 is perfect, 0 means the model is no better than always guessing the mean. <strong>RMSE</strong> (Root Mean Squared Error) and <strong>MAE</strong> (Mean Absolute Error) express average prediction error in rating points — lower is better. The card highlighted in blue is the winning model used for all downstream scoring and the <code>predict.py</code> script.</p>
+          <div class="cards" id="metrics-cards"></div>
+          <p class="caveat" id="caveat-text"></p>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="clusters-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Taste Clusters</h2>
+              <p class="panel-note">Tracks grouped by similarity</p>
+            </div>
+          </div>
+          <p class="panel-desc">Your tracks are grouped using <strong>K-Means clustering</strong> on PCA-reduced features. <strong>PCA</strong> (Principal Component Analysis) compresses all musical features into two dimensions — tracks close together share similar audio and mood profiles. <strong>Dot size</strong> scales with your rating: bigger = higher score. <strong>Color</strong> = cluster membership. The cluster labels shown in the legend and summary cards are the most common moods in that group. Hover any dot for the track title, artist, and rating.</p>
+          <div class="chart-shell tall"><canvas id="clusterChart"></canvas></div>
+          <div class="cluster-summary" id="cluster-summary"></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="importance-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Feature Importance</h2>
+              <p class="panel-note">Most influential model features</p>
+            </div>
+          </div>
+          <p class="panel-desc">Shows which input variables drive the model's predictions most. <strong>Green bars</strong> = feature pushes predicted rating up. <strong>Red bars</strong> = pushes it down. Importance is normalized 0–1 relative to the top feature. Key feature families: <code>era_*</code> (musical era like Modal or Hard Bop), <code>mood_*</code> (tagged mood like romantic or bluesy), <code>inst_*</code> (primary instrument group), <code>subgenre_*</code> (tagged subgenre), <code>artist_mean_rating</code> (your average rating for other tracks by the same artist), <code>energy</code> (1–10 scale), <code>tempo</code> (slow→fast mapped 1–4), <code>harmonic_complexity</code> (low/med/high → 1–3), and <code>replayability</code> (1–10 scale).</p>
+          <div class="chart-shell tall"><canvas id="importanceChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="pred-actual-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Predicted vs Actual Rating</h2>
+              <p class="panel-note">How close the model got</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = your actual rating (1–10). <strong>Y axis</strong> = the model's LOOCV prediction. Dots on the <strong>dashed diagonal</strong> are perfect predictions. Dots <em>above</em> the line = model over-predicted; <em>below</em> = under-predicted. <strong>Green</strong> = tracks you marked "liked", <strong>red</strong> = not liked. Large horizontal gaps are your model's biggest misses — useful data points to investigate. Hover any dot for the track name.</p>
+          <div class="chart-shell"><canvas id="predActualChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="distribution-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Rating Distribution</h2>
+              <p class="panel-note">Ratings split by cluster</p>
+            </div>
+          </div>
+          <p class="panel-desc">A stacked bar chart showing how many tracks you rated at each score level (2–10). <strong>Color</strong> = cluster. Reading the full bar height tells you how many tracks earned each score total; reading each color segment tells you which cluster those tracks belong to. Reveals whether you rate generously or strictly overall, and whether certain clusters consistently land at higher or lower scores than others.</p>
+          <div class="chart-shell"><canvas id="distChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="radar-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Cluster Profiles</h2>
+              <p class="panel-note">Feature fingerprints for each cluster</p>
+            </div>
+          </div>
+          <p class="panel-desc">A radar chart overlaying each cluster's average feature values. <strong>Axes</strong>: <code>Energy</code> (0–1, normalized from the 1–10 scale), <code>Complexity</code> (low/med/high → 0–1), <code>Tempo</code> (slow–fast → 0–1), then seven <strong>mood frequencies</strong> — the fraction of tracks in that cluster carrying each mood tag (romantic, tender, joyful, bluesy, cool, melancholic, sensual). Clusters that peak on different axes have meaningfully distinct sonic characters. A cluster with a wide romantic + tender footprint but low energy maps directly to your known ballad preference.</p>
+          <div class="chart-shell"><canvas id="radarChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="correlations-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Correlations</h2>
+              <p class="panel-note">Scrollable on smaller screens</p>
+            </div>
+          </div>
+          <p class="panel-desc"><strong>Pearson correlation coefficients</strong> between the top features and your rating, plus pairwise between features. Values range –1 to +1. <strong>Blue</strong> = positive correlation (feature tends to appear more on tracks you rate higher). <strong>Red</strong> = negative. The <strong>Rating row/column</strong> is the most actionable: it shows raw data correlations independent of the model — what actually predicts your scores before any ML weighting. High absolute values in that row = strong direct signals. Scroll horizontally on small screens.</p>
+          <div id="heatmap-container"></div>
+        </div>
+      </article>
+
+      <article class="panel span-12" id="constellation-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Taste Constellation</h2>
+              <p class="panel-note">Your jazz universe — brighter stars = higher ratings, lines connect same artist</p>
+            </div>
+          </div>
+          <p class="panel-desc">A PCA scatter rendered as a starfield. <strong>Position</strong> = the same PCA X/Y coordinates used in Taste Clusters — tracks close together sound alike to the model. <strong>Star size and brightness</strong> scale with your rating: your 10/10s are the biggest, brightest stars. <strong>Color</strong> = cluster membership. <strong>Lines</strong> connect tracks by the same artist, so you can see where an artist's catalog scatters across sonic space. Artist name labels appear for artists with 3+ tracks. <strong>Hover</strong> any star to see the track title, artist, and rating.</p>
+          <div class="constellation-wrap">
+            <canvas id="constellationCanvas"></canvas>
+            <div class="constellation-tip" id="constellation-tip"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="cof-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Circle of Fifths</h2>
+              <p class="panel-note">Track keys mapped to the circle — closer to center = higher rating</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each track is plotted on the <strong>circle of fifths</strong> by its <code>key</code> field (from <code>audio_features</code>). <strong>Angular position</strong> = root key (C, G, D, A, E, B, Gb, Db, Ab, Eb, Bb, F going clockwise). <strong>Distance from center</strong> = your rating, inverted: tracks closer to the center scored higher; tracks near the outer ring scored lower. <strong>Color</strong> = musical mode: yellow = Dorian, purple = blues, red = minor, green = major, orange = pentatonic. Hover any dot for title, artist, rating, key, and mode. Reveals whether your highest-rated tracks cluster in particular keys or modes (Dorian is your documented anchor).</p>
+          <div class="constellation-wrap" style="height:380px">
+            <canvas id="cofCanvas"></canvas>
+            <div class="constellation-tip" id="cof-tip"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="taste-world-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Your Taste vs The World</h2>
+              <p class="panel-note">Spotify popularity vs your personal rating</p>
+            </div>
+          </div>
+          <p class="panel-desc"><strong>X axis</strong> = Spotify popularity score (0–100, from <code>audio_features.popularity</code>) — a crowd consensus measure based on recent streams. <strong>Y axis</strong> = your personal rating (1–10). <strong>Blue dots</strong> = you roughly agree with the mainstream. <strong>Yellow dots</strong> = significant divergence (your rating vs. popularity differ by more than 35% of their respective scales). Tracks in the <strong>top-left</strong> are hidden gems you love that the world undervalues. Tracks in the <strong>bottom-right</strong> are popular but didn't land for you. Only tracks with a Spotify popularity score are shown.</p>
+          <div class="chart-shell tall"><canvas id="tasteVsWorldChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-12" id="artist-journeys-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Artist Journeys</h2>
+              <p class="panel-note">Each block is a track — width = duration, color = rating</p>
+            </div>
+          </div>
+          <p class="panel-desc">Only artists with <strong>3 or more rated tracks</strong> appear here, sorted by average rating (highest first). Each <strong>block</strong> is a track: <strong>width</strong> scales with <code>audio_features.duration_s</code> relative to the longest track in the dataset (wider = longer song). <strong>Color tier</strong>: green = 9–10, blue = 7–8, yellow = 5–6, red = &lt;5. The number on the right is the artist's mean rating across all their logged tracks. Hover a block to see the title and score. Useful for spotting within-artist variance — an artist with mixed colors has a wide range; a solid-green row is a consistent favorite.</p>
+          <div id="artist-journeys"></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="mood-rating-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <button class="accordion-toggle" id="mood-toggle" aria-expanded="false" aria-controls="mood-body">
+              <div>
+                <h2>Mood × Rating</h2>
+                <p class="panel-note">Which moods show up at each rating level</p>
+              </div>
+              <span class="accordion-arrow" aria-hidden="true">▼</span>
+            </button>
+          </div>
+          <div class="accordion-body collapsed" id="mood-body">
+            <p class="panel-desc">A cross-tab of <strong>mood tags</strong> (rows) vs <strong>rating buckets</strong> (columns: 2–3, 4–5, 6–7, 8–9, 10). Each cell shows how many of your tracks carry that mood and fall in that rating range. <strong>Green</strong> = high-rating bucket (8–10). <strong>Blue</strong> = mid-range (6–7). <strong>Red</strong> = low-range (2–5). Darker shading = more tracks. Read across a row to see if a mood consistently predicts high or low scores — that's direct signal for the model. Moods that appear almost exclusively in the green columns are strong positive predictors; moods spread across all columns carry less information.</p>
+            <div id="mood-rating-grid"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="replayability-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Replayability vs Rating</h2>
+              <p class="panel-note">Average rating grouped by how often you'd replay a track</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = replayability (1–10). <strong>Y axis</strong> = your rating. Tracks on the diagonal line are perfectly aligned — you rate them as much as you'd replay them. <strong>Above the line</strong> = one-listen masterpieces (rated high, wouldn't replay). <strong>Below the line</strong> = guilty pleasures (replay more than the rating suggests). Hover any dot for the title.</p>
+          <div class="chart-shell"><canvas id="replayChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Playthrough vs Rating -->
+      <article class="panel span-6" id="playthrough-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Playthrough vs Rating</h2>
+              <p class="panel-note">How far you get before skipping</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = how much of the track you listened to (0–100%). <strong>Y axis</strong> = your rating. Tracks in the <strong>top-right</strong> = loved and listened fully. <strong>Bottom-left</strong> = bailed early and rated low. <strong>Top-left</strong> = rated well but didn't finish (rare). <strong>Bottom-right</strong> = sat through it but didn't like it. Hover for title.</p>
+          <div class="chart-shell"><canvas id="playthroughChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Playthrough by Era -->
+      <article class="panel span-6" id="playthrough-era-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Playthrough by Era</h2>
+              <p class="panel-note">Which eras hold your attention</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average playthrough percentage per era. Shows which musical eras keep you listening vs which ones you bail on. A low bar means you're skipping early — the era isn't holding you regardless of individual track quality.</p>
+          <div class="chart-shell"><canvas id="playthroughEraChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Hall of Fame -->
+      <article class="panel span-12" id="hof-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <button class="accordion-toggle" id="hof-toggle" aria-expanded="false" aria-controls="hof-body">
+              <div>
+                <h2>Hall of Fame</h2>
+                <p class="panel-note">Your 9s and 10s — the tracks that define your taste</p>
+              </div>
+              <span class="accordion-arrow" aria-hidden="true">▼</span>
+            </button>
+          </div>
+          <div class="accordion-body collapsed" id="hof-body">
+            <p class="panel-desc">Your top 20 tracks rated <strong>9 or 10 out of 10</strong>, displayed as cards sorted by score. These are your taste anchors — the tracks the recommendation model uses as its north star. Moods shown are the tags logged at rating time. Era and year give a sense of where in jazz history your absolute favorites live.</p>
+            <div id="hall-of-fame"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Albums -->
+      <article class="panel span-12" id="albums-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Albums</h2>
+              <p class="panel-note">Full albums you've rated as a whole</p>
+            </div>
+          </div>
+          <div id="albums-list"></div>
+        </div>
+      </article>
+
+      <!-- Year vs Rating -->
+      <article class="panel span-6" id="year-rating-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Year vs Rating</h2>
+              <p class="panel-note">Where in jazz history your taste lives</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = year of recording. <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Shows exactly which era of jazz history your highest ratings cluster in — and where you've barely explored. Hover any dot for the title, artist, and year.</p>
+          <div class="chart-shell"><canvas id="yearRatingChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Duration vs Rating -->
+      <article class="panel span-6" id="duration-rating-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Duration vs Rating</h2>
+              <p class="panel-note">Does track length affect your score?</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = track length in minutes (from <code>audio_features.duration_s</code>). <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Reveals your pacing sensitivity — whether longer tracks tend to get docked, and what your sweet spot for runtime is. Only tracks with a logged duration are shown.</p>
+          <div class="chart-shell"><canvas id="durationRatingChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Rating by Instrument -->
+      <article class="panel span-6" id="instrument-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Rating by Instrument</h2>
+              <p class="panel-note">Average score per primary instrument</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating grouped by <code>primary_instrument</code> of each track, for instruments with at least 2 logged tracks. The number after each bar shows how many tracks that instrument leads in your dataset. Shows whether your documented preferences (piano, lyrical sax) show up in the actual rating data.</p>
+          <div class="chart-shell"><canvas id="instrumentChart"></canvas></div>
+          <div class="breakdown-dropdown">
+            <select id="instrument-select" class="breakdown-select">
+              <option value="">View tracks by instrument…</option>
+            </select>
+            <div id="instrument-tracks" class="breakdown-tracks"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel span-12" id="instrument-combos-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Instrument Combinations</h2>
+              <p class="panel-note">Which instrument pairings rate highest</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each bar shows an instrument combination that appears on 2+ tracks. <strong>Height</strong> = average rating. <strong>Color</strong> = green (liked), red (not liked), based on majority. <strong>Label</strong> = number of tracks with that combo. Reveals which ensemble textures resonate most.</p>
+          <div class="chart-shell"><canvas id="instrumentCombosChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Label Breakdown -->
+      <article class="panel span-6" id="label-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Label Breakdown</h2>
+              <p class="panel-note">Average rating and track count by record label</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating per record label, for labels with at least 2 logged tracks. Bar color intensity reflects average score; track count is shown on each bar. Answers whether your intuition about certain labels (Blue Note, Impulse!, Prestige) actually predicts quality for you — or if it's just the artists on those labels doing the work.</p>
+          <div class="chart-shell"><canvas id="labelChart"></canvas></div>
+          <div class="breakdown-dropdown">
+            <select id="label-select" class="breakdown-select">
+              <option value="">View tracks by label…</option>
+            </select>
+            <div id="label-tracks" class="breakdown-tracks"></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Biggest Misses -->
+      <article class="panel span-12" id="misses-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Biggest Misses</h2>
+              <p class="panel-note">Tracks the model got most wrong</p>
+            </div>
+          </div>
+          <p class="panel-desc">The 8 tracks with the largest <strong>absolute residual</strong> (actual − predicted). <strong>Over-predicted</strong> <span style="color:var(--bad)">▲</span> means the model thought you'd rate it higher than you did — the track has the right features on paper but didn't land. <strong>Under-predicted</strong> <span style="color:var(--warning)">▼</span> means the model underestimated it — probably because the features don't capture why you loved it (e.g., a specific moment, a personal memory). These are your best clues for adding new features.</p>
+          <div id="misses-container"></div>
+        </div>
+      </article>
+
+      <!-- Top Artists + Era Breakdown -->
+      <article class="panel span-6" id="top-artists-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Top Artists</h2>
+              <p class="panel-note">Average rating per artist (2+ tracks)</p>
+            </div>
+          </div>
+          <p class="panel-desc">Artists with at least <strong>2 rated tracks</strong>, sorted by average score. Bar width = average rating; number on the right = track count. Shows who you consistently love vs. who you return to hoping it clicks. An artist with a high average and many tracks is a proven anchor; an artist with a high average but only 2–3 tracks is worth exploring more.</p>
+          <div class="chart-shell tall"><canvas id="topArtistsChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="era-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Era Breakdown</h2>
+              <p class="panel-note">Average rating by jazz era</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating grouped by musical <strong>era</strong> — Bebop, Hard Bop, Cool Jazz, Modal, Post-Bop, Swing. Bar intensity reflects average score; track count is shown per bar. Shows where in jazz history your taste lives and which eras you've barely explored. Modal and Hard Bop dominate your dataset; this shows whether that preference actually maps to higher scores.</p>
+          <div class="chart-shell tall"><canvas id="eraChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Harmonic Complexity + Discovery Source -->
+      <article class="panel span-6" id="harmonic-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Harmonic Complexity</h2>
+              <p class="panel-note">Average rating by low / medium / high complexity</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating for tracks tagged <code>low</code>, <code>medium</code>, or <code>high</code> <strong>harmonic complexity</strong>. Tests whether you prefer cerebral harmony or simpler, groove-first structures. If high-complexity tracks consistently rate higher, that's a strong signal to weight the <code>harmonic_complexity</code> feature more in recommendations. Track count shown per bar.</p>
+          <div class="chart-shell"><canvas id="harmonicChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="discovery-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Discovery Source</h2>
+              <p class="panel-note">Do Claude recommendations land better than self-finds?</p>
+            </div>
+          </div>
+          <p class="panel-desc">Average rating by how the track was discovered: <code>self</code> (you found it), <code>claude-recommendation</code> (I suggested it), or <code>autoplay</code> (happened upon it). The <strong>honest test</strong> of recommendation quality — if Claude-recommended tracks consistently score higher than self-discovered, the model is outperforming your browse habits. If not, it's directional data to improve the system.</p>
+          <div class="chart-shell"><canvas id="discoveryChart"></canvas></div>
+        </div>
+      </article>
+
+      <!-- Sound Profile + Ensemble Size -->
+      <article class="panel span-6" id="sound-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Sound Profile</h2>
+              <p class="panel-note">Average rating by instrumentation features</p>
+            </div>
+          </div>
+          <p class="panel-desc">Compares average rating across binary instrumentation features — <strong>piano present vs. absent</strong>, <strong>vocals vs. instrumental</strong>, <strong>guitar vs. no guitar</strong>. Each pair tells a story: if pianoless tracks rate significantly higher, that's a genuine taste signal; if ratings are similar, the piano/no-piano distinction isn't meaningful for you. These map directly to <code>is_pianoless</code>, <code>has_vocals</code>, and <code>has_guitar</code> model features.</p>
+          <div class="chart-shell"><canvas id="soundProfileChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="ensemble-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Ensemble Size vs Rating</h2>
+              <p class="panel-note">Do you prefer small groups or large ensembles?</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = number of instruments listed in <code>instrumentation</code> (proxy for ensemble size: 2 = duo, 4 = quartet, 8+ = big band). <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Reveals whether your ratings systematically favor the intimacy of small combos or the richness of larger groups. Hover any dot for the track name.</p>
+          <div class="chart-shell"><canvas id="ensembleChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="polarity-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Mood Polarity vs Rating</h2>
+              <p class="panel-note">Net positive minus negative mood count</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each dot is a track. <strong>X axis</strong> = mood polarity (positive mood count minus negative mood count). Higher = more positive moods. <strong>Y axis</strong> = your rating. Tracks with strongly negative polarity (many "flat"/"uninteresting" tags) should cluster at the bottom.</p>
+          <div class="chart-shell"><canvas id="polarityChart"></canvas></div>
+        </div>
+      </article>
+
+      <article class="panel span-6" id="v2features-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>v2 Feature Breakdown</h2>
+              <p class="panel-note">Artist role, intro grab, early bail</p>
+            </div>
+          </div>
+          <div id="v2features-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"></div>
+        </div>
+      </article>
+
+      <article class="panel span-12" id="history-panel" hidden>
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Model Over Time</h2>
+              <p class="panel-note">Performance as the dataset grows</p>
+            </div>
+          </div>
+          <div class="chart-shell compact"><canvas id="historyChart"></canvas></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const CLUSTER_COLORS = [
+      'rgba(74, 158, 255, 0.86)',
+      'rgba(255, 107, 107, 0.86)',
+      'rgba(80, 200, 120, 0.86)',
+      'rgba(255, 193, 68, 0.86)',
+      'rgba(178, 117, 255, 0.86)',
+      'rgba(75, 220, 225, 0.86)',
+    ];
+
+    const CLUSTER_BG = [
+      'rgba(74, 158, 255, 0.13)',
+      'rgba(255, 107, 107, 0.13)',
+      'rgba(80, 200, 120, 0.13)',
+      'rgba(255, 193, 68, 0.13)',
+      'rgba(178, 117, 255, 0.13)',
+      'rgba(75, 220, 225, 0.13)',
+    ];
+
+    const GR = {
+      grid: 'rgba(93, 155, 224, 0.16)',
+      tick: '#7190b3',
+      label: '#91bdf0',
+      text: '#d7e6f7',
+      panel: '#0f1f38',
+      border: 'rgba(93, 155, 224, 0.26)',
+    };
+
+    const IS_MOBILE = window.matchMedia('(max-width: 640px)').matches;
+
+    Chart.defaults.color = GR.text;
+    Chart.defaults.font.family = 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    Chart.defaults.maintainAspectRatio = false;
+    Chart.defaults.responsive = true;
+
+    const basePlugins = {
+      legend: {
+        position: IS_MOBILE ? 'bottom' : 'top',
+        labels: {
+          color: GR.text,
+          boxWidth: 10,
+          boxHeight: 10,
+          padding: IS_MOBILE ? 10 : 14,
+          font: { size: IS_MOBILE ? 10 : 11, weight: 650 }
+        }
+      },
+      tooltip: {
+        backgroundColor: GR.panel,
+        borderColor: GR.border,
+        borderWidth: 1,
+        padding: 10,
+        titleColor: '#fff',
+        bodyColor: GR.text,
+        displayColors: true,
+      }
+    };
+
+    function colorFor(index) {
+      return CLUSTER_COLORS[index % CLUSTER_COLORS.length];
+    }
+
+    function bgFor(index) {
+      return CLUSTER_BG[index % CLUSTER_BG.length];
+    }
+
+    function html(value) {
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function profilesFrom(data) {
+      const raw = data?.clusters?.cluster_profiles || [];
+      return Array.isArray(raw) ? raw : Object.values(raw);
+    }
+
+    function setStatus(message, isError = false) {
+      const status = document.getElementById('status');
+      document.getElementById('status-text').textContent = message;
+      status.classList.toggle('is-error', isError);
+    }
+
+    function chartOptions(overrides = {}) {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        resizeDelay: 120,
+        interaction: { mode: 'nearest', intersect: false },
+        plugins: basePlugins,
+        ...overrides,
+        plugins: { ...basePlugins, ...(overrides.plugins || {}) }
+      };
+    }
+
+    // ── Hamburger menu ──
+    document.getElementById('hamburger-btn').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('page-menu').classList.toggle('open');
+    });
+    document.addEventListener('click', function() {
+      document.getElementById('page-menu').classList.remove('open');
+    });
+
+    // ── Version-aware data loading ──
+    let versionsManifest = null;
+    const allCharts = [];
+
+    function destroyAllCharts() {
+      while (allCharts.length) {
+        try { allCharts.pop().destroy(); } catch(e) {}
+      }
+    }
+
+    function trackChart(chart) {
+      if (chart) allCharts.push(chart);
+      return chart;
+    }
+
+    function renderAll(data) {
+      destroyAllCharts();
+      document.getElementById('track-count').textContent = data?.meta?.total_tracks ?? '—';
+      if (data?.meta?.generated_at) {
+        document.getElementById('training-date').textContent =
+          new Date(data.meta.generated_at).toLocaleDateString();
+      }
+      document.getElementById('feature-count-meta').textContent = data?.meta?.feature_count ?? '—';
+      renderTasteSummary(data);
+      renderMetrics(data);
+      renderClusterScatter(data);
+      renderFeatureImportance(data);
+      renderPredVsActual(data);
+      renderDistribution(data);
+      renderRadar(data);
+      renderHeatmap(data);
+      renderConstellation(data);
+      renderCircleOfFifths(data);
+      renderTasteVsWorld(data);
+      renderArtistJourneys(data);
+      renderMoodRating(data);
+      renderReplayability(data);
+      renderPlaythrough(data);
+      renderPlaythroughByEra(data);
+      renderHallOfFame(data);
+      renderAlbums(data);
+      renderYearRating(data);
+      renderDurationRating(data);
+      renderInstrumentRatings(data);
+      renderInstrumentCombos(data);
+      renderLabelRatings(data);
+      renderBiggestMisses(data);
+      renderTopArtists(data);
+      renderEraRatings(data);
+      renderHarmonicComplexity(data);
+      renderDiscoverySource(data);
+      renderSoundProfile(data);
+      renderEnsembleSize(data);
+      renderMoodPolarity(data);
+      renderV2Features(data);
+      renderHistory(data);
+    }
+
+    function loadDashboardData(path) {
+      setStatus('Loading...');
+      fetch(path)
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(data => { renderAll(data); setStatus('Dashboard loaded'); })
+        .catch(error => {
+          console.error(error);
+          setStatus('Could not load data', true);
+          document.getElementById('metrics-cards').innerHTML = `
+            <div class="empty-state" style="grid-column: 1 / -1;">
+              Put this HTML file in the same folder as <strong>dashboard-data.json</strong>, then open it through a local server.
+              Directly opening the file may block fetch() in some browsers.
+            </div>`;
+        });
+    }
+
+    function populateVersionDropdown(manifest) {
+      const select = document.getElementById('version-select');
+      select.innerHTML = '';
+      const loadable = manifest.versions.filter(v => v.is_major || v.version === manifest.current_version);
+      const sorted = [...loadable].reverse();
+      sorted.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v.artifacts.dashboard_data;
+        const vName = v.name ? ` "${v.name}"` : '';
+        opt.textContent = `v${v.version}${vName}${v.is_major ? ' ★' : ''} — ${v.dataset_size} tracks`;
+        if (v.version === manifest.current_version) opt.selected = true;
+        select.appendChild(opt);
+      });
+      select.addEventListener('change', () => loadDashboardData(select.value));
+    }
+
+    // Init: try versions.json, fall back to direct load
+    fetch('versions.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(manifest => {
+        if (manifest && manifest.versions.length) {
+          versionsManifest = manifest;
+          populateVersionDropdown(manifest);
+          const current = manifest.versions.find(v => v.version === manifest.current_version);
+          loadDashboardData(current ? current.artifacts.dashboard_data : 'dashboard-data.json');
+        } else {
+          loadDashboardData('dashboard-data.json');
+        }
+      })
+      .catch(() => loadDashboardData('dashboard-data.json'));
+
+    function renderTasteSummary(data) {
+      const ps = data.predictions;
+      if (!ps.length) return;
+      const el = document.getElementById('taste-summary');
+
+      const avgRating = (ps.reduce((s,p) => s+p.actual, 0) / ps.length).toFixed(1);
+      const liked = ps.filter(p => p.liked).length;
+      const likedPct = Math.round(liked / ps.length * 100);
+
+      // Top moods
+      const moodCounts = {};
+      ps.filter(p => p.actual >= 8).forEach(p => (p.moods||[]).forEach(m => { moodCounts[m] = (moodCounts[m]||0) + 1; }));
+      const topMoods = Object.entries(moodCounts).sort((a,b) => b[1]-a[1]).slice(0,5).map(e => e[0]);
+
+      // Worst moods (from low-rated tracks)
+      const badMoodCounts = {};
+      ps.filter(p => p.actual <= 4).forEach(p => (p.moods||[]).forEach(m => { badMoodCounts[m] = (badMoodCounts[m]||0) + 1; }));
+      const worstMoods = Object.entries(badMoodCounts).sort((a,b) => b[1]-a[1]).slice(0,4).map(e => e[0]);
+
+      // Top era
+      const eraCounts = {};
+      ps.forEach(p => { const e = p.era||'Unknown'; eraCounts[e] = eraCounts[e]||{sum:0,n:0}; eraCounts[e].sum += p.actual; eraCounts[e].n++; });
+      const topEra = Object.entries(eraCounts).filter(e => e[1].n >= 3).sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n))[0];
+
+      // Top artists
+      const artistCounts = {};
+      ps.forEach(p => { const a = p.artist; artistCounts[a] = artistCounts[a]||{sum:0,n:0,tracks:[]}; artistCounts[a].sum += p.actual; artistCounts[a].n++; artistCounts[a].tracks.push(p.actual); });
+      const topArtists = Object.entries(artistCounts).filter(e => e[1].n >= 2).sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n)).slice(0,3);
+
+      // Top instrument
+      const instCounts = {};
+      ps.forEach(p => { const inst = p.primary_instrument||'unknown'; instCounts[inst] = instCounts[inst]||{sum:0,n:0}; instCounts[inst].sum += p.actual; instCounts[inst].n++; });
+      const topInst = Object.entries(instCounts).filter(e => e[1].n >= 3).sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n))[0];
+
+      // Biggest surprise (largest positive residual)
+      const surprise = [...ps].sort((a,b) => b.residual - a.residual)[0];
+      // Biggest disappointment (largest negative residual)
+      const disappoint = [...ps].sort((a,b) => a.residual - b.residual)[0];
+
+      // Polarity insight
+      const highPol = ps.filter(p => (p.mood_polarity||0) >= 4);
+      const lowPol = ps.filter(p => (p.mood_polarity||0) <= 0);
+      const highPolAvg = highPol.length ? (highPol.reduce((s,p) => s+p.actual,0)/highPol.length).toFixed(1) : null;
+      const lowPolAvg = lowPol.length ? (lowPol.reduce((s,p) => s+p.actual,0)/lowPol.length).toFixed(1) : null;
+
+      function card(title, content, accent) {
+        return `<div style="background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;">
+          <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted-2);margin-bottom:6px;">${title}</div>
+          <div style="font-size:0.88rem;color:${accent||'var(--text)'};line-height:1.5;">${content}</div>
+        </div>`;
+      }
+
+      el.innerHTML = [
+        card('Dataset', `<span style="font-size:1.4rem;font-weight:800;color:var(--accent)">${ps.length}</span> tracks rated<br>
+          <span style="color:var(--good)">${likedPct}%</span> liked · avg <span style="font-weight:700">${avgRating}</span>/10`),
+        card('Sweet Spot', `${topMoods.map(m => `<span style="display:inline-block;padding:2px 8px;border-radius:99px;background:rgba(80,200,120,0.15);color:var(--good);font-size:0.75rem;font-weight:700;margin:2px;">${m}</span>`).join('')}
+          <div style="margin-top:6px;font-size:0.75rem;color:var(--muted)">Moods on your 8+ tracks</div>`),
+        card('Avoid', `${worstMoods.map(m => `<span style="display:inline-block;padding:2px 8px;border-radius:99px;background:rgba(255,107,107,0.15);color:var(--bad);font-size:0.75rem;font-weight:700;margin:2px;">${m}</span>`).join('')}
+          <div style="margin-top:6px;font-size:0.75rem;color:var(--muted)">Moods on your ≤4 tracks</div>`),
+        card('Best Era', topEra ? `<span style="font-weight:700;color:var(--accent)">${topEra[0]}</span> <span style="color:var(--muted)">(avg ${(topEra[1].sum/topEra[1].n).toFixed(1)}, ${topEra[1].n} tracks)</span>` : '—'),
+        card('Top Artists', topArtists.map(a => `<div><span style="font-weight:600">${a[0]}</span> <span style="color:var(--muted);font-size:0.75rem;">avg ${(a[1].sum/a[1].n).toFixed(1)} (${a[1].n} tracks)</span></div>`).join('')),
+        card('Best Lead', topInst ? `<span style="font-weight:700;color:var(--accent)">${topInst[0]}</span> <span style="color:var(--muted)">(avg ${(topInst[1].sum/topInst[1].n).toFixed(1)}, ${topInst[1].n} tracks)</span>` : '—'),
+        card('Biggest Surprise', surprise ? `<span style="font-weight:600">${surprise.title}</span><br><span style="color:var(--muted);font-size:0.78rem">${surprise.artist}</span><br><span style="color:var(--good)">Predicted ${surprise.predicted}, got ${surprise.actual}</span>` : '—'),
+        card('Mood Polarity', highPolAvg && lowPolAvg ? `Positive tracks: avg <span style="color:var(--good);font-weight:700">${highPolAvg}</span><br>Negative tracks: avg <span style="color:var(--bad);font-weight:700">${lowPolAvg}</span>` : 'Not enough data'),
+      ].join('');
+    }
+
+    function renderInstrumentCombos(data) {
+      const ps = data.predictions;
+      if (!ps.length) return;
+
+      // Build combo keys from instrumentation-like fields
+      const combos = {};
+      ps.forEach(p => {
+        const parts = [];
+        if (p.primary_instrument) parts.push(p.primary_instrument);
+        if (p.has_vocals) parts.push('vocals');
+        if (p.has_guitar) parts.push('guitar');
+        if (p.is_pianoless === 0 && p.primary_instrument !== 'piano') parts.push('piano');
+        parts.sort();
+        const key = parts.join(' + ');
+        if (!combos[key]) combos[key] = {sum: 0, n: 0, liked: 0};
+        combos[key].sum += p.actual;
+        combos[key].n++;
+        if (p.liked) combos[key].liked++;
+      });
+
+      const filtered = Object.entries(combos)
+        .filter(([k,v]) => v.n >= 2)
+        .sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n));
+
+      if (!filtered.length) { document.getElementById('instrument-combos-panel').hidden = true; return; }
+
+      const labels = filtered.map(e => `${e[0]} (${e[1].n})`);
+      const avgs = filtered.map(e => +(e[1].sum/e[1].n).toFixed(2));
+      const colors = filtered.map(e => e[1].liked/e[1].n > 0.5 ? '#50c878' : '#ff6b6b');
+
+      const ctx = document.getElementById('instrumentCombosChart').getContext('2d');
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            data: avgs,
+            backgroundColor: colors,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => `avg ${ctx.raw}/10` } }
+          },
+          scales: {
+            x: {
+              min: 0, max: 10,
+              title: { display: true, text: 'Average Rating', color: GR.label, font: { weight: 800 } },
+              grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: { grid: { display: false }, ticks: { color: GR.tick, font: { size: 10 } } }
+          }
+        }
+      }));
+    }
+
+    function renderMetrics(data) {
+      document.getElementById('track-count').textContent = data?.meta?.total_tracks ?? '—';
+      const container = document.getElementById('metrics-cards');
+      container.innerHTML = '';
+
+      const models = [
+        { key: 'ridge', name: 'Ridge Regression' },
+        { key: 'random_forest', name: 'Random Forest' },
+      ];
+
+      models.forEach(model => {
+        const stats = data?.models?.[model.key];
+        if (!stats) return;
+
+        const isBest = data?.meta?.best_model === model.key;
+        const card = document.createElement('div');
+        card.className = `card${isBest ? ' best' : ''}`;
+        card.innerHTML = `
+          <h3>${html(model.name)}${isBest ? '<span class="badge">Best</span>' : ''}</h3>
+          <div class="metric">R² = ${html(stats.r_squared)}</div>
+          <div class="detail">RMSE: ${html(stats.rmse)} &middot; MAE: ${html(stats.mae)}</div>
+        `;
+        container.appendChild(card);
+      });
+
+      const dataset = document.createElement('div');
+      dataset.className = 'card';
+      dataset.innerHTML = `
+        <h3>Dataset</h3>
+        <div class="metric">${html(data?.meta?.total_tracks ?? '—')} tracks</div>
+        <div class="detail">${html(data?.meta?.feature_count ?? '—')} features &middot; ${html(data?.clusters?.best_k ?? '—')} clusters</div>
+      `;
+      container.appendChild(dataset);
+
+      document.getElementById('caveat-text').textContent =
+        `Trained on ${data?.meta?.total_tracks ?? '—'} tracks with Leave-One-Out Cross-Validation. Small dataset — patterns are suggestive, not definitive.`;
+    }
+
+    function renderClusterScatter(data) {
+      const ctx = document.getElementById('clusterChart');
+      const profiles = profilesFrom(data);
+      const datasets = [];
+      const clusterCount = data?.clusters?.best_k ?? profiles.length;
+
+      for (let cluster = 0; cluster < clusterCount; cluster++) {
+        const points = (data?.predictions || []).filter(point => point.cluster === cluster);
+        const profile = profiles[cluster] || {};
+        const label = profile.top_moods?.slice(0, 2).join(', ') || `Cluster ${cluster + 1}`;
+
+        datasets.push({
+          label,
+          data: points.map(point => ({
+            x: point.pca_x,
+            y: point.pca_y,
+            title: point.title,
+            artist: point.artist,
+            rating: point.actual,
+          })),
+          backgroundColor: colorFor(cluster),
+          borderColor: colorFor(cluster),
+          pointRadius: points.map(point => Math.max(IS_MOBILE ? 4 : 5, (IS_MOBILE ? 2 : 3) + Number(point.actual || 0) * (IS_MOBILE ? 0.45 : 0.65))),
+          pointHoverRadius: IS_MOBILE ? 7 : 9,
+        });
+      }
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: { datasets },
+        options: chartOptions({
+          plugins: {
+            tooltip: {
+              ...basePlugins.tooltip,
+              callbacks: {
+                label: context => {
+                  const point = context.raw;
+                  return `${point.title || 'Untitled'} — ${point.artist || 'Unknown'} (${point.rating ?? '—'}/10)`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { grid: { color: GR.grid }, ticks: { display: false } },
+            y: { grid: { color: GR.grid }, ticks: { display: false } },
+          }
+        })
+      }));
+
+      const container = document.getElementById('cluster-summary');
+      container.innerHTML = '';
+
+      profiles.forEach((profile, index) => {
+        const tag = document.createElement('div');
+        tag.className = 'cluster-tag';
+        tag.style.borderLeftColor = colorFor(index);
+        tag.innerHTML = `
+          <div class="name">${html(profile.top_moods?.slice(0, 3).join(', ') || `Cluster ${index + 1}`)}</div>
+          <div class="info">${html(profile.size ?? '—')} tracks &middot; avg ${html(profile.mean_rating ?? '—')}/10 &middot; energy ${html(profile.mean_energy ?? '—')}</div>
+          <div class="info">${html(profile.representative_tracks?.slice(0, 2).join(', ') || '')}</div>
+        `;
+        container.appendChild(tag);
+      });
+    }
+
+    function renderFeatureImportance(data) {
+      const ctx = document.getElementById('importanceChart');
+      const features = (data?.feature_importance || []).slice(0, IS_MOBILE ? 9 : 12).reverse();
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: features.map(item => item.feature),
+          datasets: [{
+            label: 'Importance',
+            data: features.map(item => item.importance),
+            backgroundColor: features.map(item => item.direction === 'positive' ? 'rgba(80, 200, 120, 0.62)' : 'rgba(255, 107, 107, 0.62)'),
+            borderColor: features.map(item => item.direction === 'positive' ? 'rgba(80, 200, 120, 0.95)' : 'rgba(255, 107, 107, 0.95)'),
+            borderWidth: 1,
+            borderRadius: 7,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: basePlugins.tooltip,
+          },
+          scales: {
+            x: {
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, font: { size: IS_MOBILE ? 10 : 11 } }
+            },
+            y: {
+              grid: { display: false },
+              ticks: {
+                color: GR.text,
+                font: { size: IS_MOBILE ? 10 : 11, weight: 650 },
+                callback(value) {
+                  const label = this.getLabelForValue(value);
+                  return IS_MOBILE && label.length > 16 ? `${label.slice(0, 16)}…` : label;
+                }
+              }
+            }
+          }
+        })
+      }));
+    }
+
+    function renderPredVsActual(data) {
+      const ctx = document.getElementById('predActualChart');
+      const predictions = data?.predictions || [];
+      const liked = predictions.filter(point => point.liked);
+      const notLiked = predictions.filter(point => !point.liked);
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Liked',
+              data: liked.map(point => ({ x: point.actual, y: point.predicted, title: point.title })),
+              backgroundColor: 'rgba(80, 200, 120, 0.66)',
+              borderColor: 'rgba(80, 200, 120, 0.95)',
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            },
+            {
+              label: 'Not Liked',
+              data: notLiked.map(point => ({ x: point.actual, y: point.predicted, title: point.title })),
+              backgroundColor: 'rgba(255, 107, 107, 0.66)',
+              borderColor: 'rgba(255, 107, 107, 0.95)',
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            },
+            {
+              label: 'Perfect',
+              data: [{ x: 1, y: 1 }, { x: 10, y: 10 }],
+              type: 'line',
+              borderColor: 'rgba(74, 158, 255, 0.34)',
+              borderDash: [6, 6],
+              borderWidth: 2,
+              pointRadius: 0,
+              fill: false,
+            }
+          ]
+        },
+        options: chartOptions({
+          plugins: {
+            tooltip: {
+              ...basePlugins.tooltip,
+              callbacks: {
+                label: context => {
+                  const point = context.raw;
+                  return point.title ? `${point.title}: actual ${point.x}, predicted ${point.y}` : 'Perfect prediction line';
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Actual', color: GR.label, font: { weight: 800 } },
+              min: 1,
+              max: 10,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: {
+              title: { display: true, text: 'Predicted', color: GR.label, font: { weight: 800 } },
+              min: 1,
+              max: 10,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            },
+          }
+        })
+      }));
+    }
+
+    function renderDistribution(data) {
+      const ctx = document.getElementById('distChart');
+      const bins = data?.distributions?.ratings?.bins || [];
+      const profiles = profilesFrom(data);
+      const byCluster = data?.distributions?.ratings_by_cluster || [];
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: bins.map(bin => String(bin)),
+          datasets: byCluster.map((cluster, index) => ({
+            label: profiles[index]?.top_moods?.[0] || `Cluster ${cluster.cluster + 1}`,
+            data: bins.map(bin => (cluster.ratings || []).filter(rating => rating === bin).length),
+            backgroundColor: colorFor(index),
+            borderRadius: 7,
+            borderSkipped: false,
+          }))
+        },
+        options: chartOptions({
+          scales: {
+            x: {
+              stacked: true,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick }
+            },
+            y: {
+              stacked: true,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, precision: 0, stepSize: 1 }
+            }
+          }
+        })
+      }));
+    }
+
+    function renderRadar(data) {
+      const ctx = document.getElementById('radarChart');
+      const profiles = profilesFrom(data).filter(profile => profile?.radar?.labels?.length);
+      if (!profiles.length) return;
+
+      trackChart(new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: profiles[0].radar.labels,
+          datasets: profiles.map((profile, index) => ({
+            label: profile.top_moods?.slice(0, 2).join(', ') || `Cluster ${index + 1}`,
+            data: profile.radar.values,
+            borderColor: colorFor(index),
+            backgroundColor: bgFor(index),
+            pointBackgroundColor: colorFor(index),
+            pointBorderColor: '#0f1f38',
+            pointRadius: IS_MOBILE ? 2 : 3,
+            borderWidth: 1.8,
+          }))
+        },
+        options: chartOptions({
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 1,
+              grid: { color: GR.grid },
+              angleLines: { color: GR.grid },
+              pointLabels: { color: GR.text, font: { size: IS_MOBILE ? 9 : 10, weight: 650 } },
+              ticks: { display: false }
+            }
+          }
+        })
+      }));
+    }
+
+    function renderHeatmap(data) {
+      const container = document.getElementById('heatmap-container');
+      const heatmap = data?.correlations?.heatmap;
+      if (!heatmap?.labels?.length || !heatmap?.matrix?.length) {
+        container.innerHTML = '<div class="empty-state">No correlation data available.</div>';
+        return;
+      }
+
+      const { labels, matrix } = heatmap;
+      let markup = '<div class="table-scroll" aria-label="Correlation heatmap" tabindex="0"><table class="heatmap-table"><tr><th></th>';
+      labels.forEach(label => markup += `<th>${html(label)}</th>`);
+      markup += '</tr>';
+
+      matrix.forEach((row, rowIndex) => {
+        markup += `<tr><th>${html(labels[rowIndex])}</th>`;
+        row.forEach(value => {
+          const numeric = Number(value) || 0;
+          const alpha = Math.min(Math.abs(numeric) * 0.56, 0.58);
+          const bg = numeric < 0 ? `rgba(255,107,107,${alpha})` : `rgba(74,158,255,${alpha})`;
+          markup += `<td style="background:${bg};color:#d7e6f7">${html(value)}</td>`;
+        });
+        markup += '</tr>';
+      });
+
+      markup += '</table></div>';
+      container.innerHTML = markup;
+    }
+
+    function renderHistory(data) {
+      if (!data?.history || data.history.length < 2) return;
+
+      document.getElementById('history-panel').hidden = false;
+      const ctx = document.getElementById('historyChart');
+
+      trackChart(new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: data.history.map(item => `${item.dataset_size} tracks`),
+          datasets: [
+            {
+              label: 'R²',
+              data: data.history.map(item => item.r_squared),
+              borderColor: 'rgba(80, 200, 120, 0.92)',
+              backgroundColor: 'rgba(80, 200, 120, 0.12)',
+              yAxisID: 'y',
+              tension: 0.32,
+              pointRadius: IS_MOBILE ? 3 : 4,
+              pointBackgroundColor: 'rgba(80, 200, 120, 1)',
+            },
+            {
+              label: 'RMSE',
+              data: data.history.map(item => item.rmse),
+              borderColor: 'rgba(255, 107, 107, 0.92)',
+              backgroundColor: 'rgba(255, 107, 107, 0.12)',
+              yAxisID: 'y1',
+              tension: 0.32,
+              pointRadius: IS_MOBILE ? 3 : 4,
+              pointBackgroundColor: 'rgba(255, 107, 107, 1)',
+            }
+          ]
+        },
+        options: chartOptions({
+          scales: {
+            x: { grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: {
+              position: 'left',
+              title: { display: true, text: 'R²', color: 'rgba(80,200,120,0.9)', font: { weight: 800 } },
+              grid: { color: GR.grid },
+              ticks: { color: 'rgba(80,200,120,0.8)' }
+            },
+            y1: {
+              position: 'right',
+              title: { display: true, text: 'RMSE', color: 'rgba(255,107,107,0.9)', font: { weight: 800 } },
+              grid: { drawOnChartArea: false },
+              ticks: { color: 'rgba(255,107,107,0.8)' }
+            }
+          }
+        })
+      }));
+    }
+    function renderConstellation(data) {
+      const canvas = document.getElementById('constellationCanvas');
+      const tip = document.getElementById('constellation-tip');
+      const wrap = canvas.parentElement;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = wrap.clientWidth * dpr;
+      canvas.height = wrap.clientHeight * dpr;
+      canvas.style.width = wrap.clientWidth + 'px';
+      canvas.style.height = wrap.clientHeight + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      const w = wrap.clientWidth, h = wrap.clientHeight;
+      const predictions = data?.predictions || [];
+
+      ctx.fillStyle = '#040b14';
+      ctx.fillRect(0, 0, w, h);
+      for (let i = 0; i < 150; i++) {
+        ctx.beginPath();
+        ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 1.1, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(180,210,255,${Math.random() * 0.25 + 0.05})`;
+        ctx.fill();
+      }
+
+      const xs = predictions.map(p => p.pca_x), ys = predictions.map(p => p.pca_y);
+      const xMin = Math.min(...xs), xMax = Math.max(...xs), yMin = Math.min(...ys), yMax = Math.max(...ys);
+      const pad = 55;
+      const positions = predictions.map(p => ({
+        x: pad + ((p.pca_x - xMin) / (xMax - xMin || 1)) * (w - 2 * pad),
+        y: pad + ((p.pca_y - yMin) / (yMax - yMin || 1)) * (h - 2 * pad),
+        r: 2 + (p.actual / 10) * 7,
+        rating: p.actual, title: p.title, artist: p.artist, cluster: p.cluster,
+      }));
+
+      const groups = {};
+      positions.forEach(p => { groups[p.artist] = groups[p.artist] || []; groups[p.artist].push(p); });
+      Object.values(groups).forEach(g => {
+        if (g.length < 2) return;
+        ctx.strokeStyle = 'rgba(74,158,255,0.1)';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        g.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.stroke();
+      });
+
+      const starC = [[74,158,255],[255,130,110],[100,220,150],[255,200,70]];
+      positions.forEach(p => {
+        const [r,g,b] = starC[p.cluster % starC.length];
+        const br = 0.3 + (p.rating / 10) * 0.7;
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+        grad.addColorStop(0, `rgba(${r},${g},${b},${br * 0.45})`);
+        grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2); ctx.fillStyle = grad; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${br})`; ctx.fill();
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 0.35, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${br * 0.7})`; ctx.fill();
+      });
+
+      ctx.font = '10px Inter,sans-serif'; ctx.textAlign = 'center';
+      Object.entries(groups).forEach(([name, g]) => {
+        if (g.length < 3) return;
+        const avgX = g.reduce((s, p) => s + p.x, 0) / g.length;
+        const topY = Math.min(...g.map(p => p.y));
+        ctx.fillStyle = 'rgba(180,210,255,0.45)';
+        ctx.fillText(name, avgX, topY - 16);
+      });
+
+      canvas.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        let found = positions.find(p => (mx-p.x)**2 + (my-p.y)**2 < (p.r+8)**2);
+        if (found) {
+          tip.style.display = 'block';
+          tip.style.left = Math.min(found.x + 16, w - 180) + 'px';
+          tip.style.top = (found.y - 10) + 'px';
+          tip.innerHTML = `<strong>${html(found.title)}</strong><br>${html(found.artist)} — ${found.rating}/10`;
+        } else tip.style.display = 'none';
+      });
+      canvas.addEventListener('mouseleave', () => tip.style.display = 'none');
+    }
+
+    function renderCircleOfFifths(data) {
+      const canvas = document.getElementById('cofCanvas');
+      const tip = document.getElementById('cof-tip');
+      const wrap = canvas.parentElement;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = wrap.clientWidth * dpr;
+      canvas.height = wrap.clientHeight * dpr;
+      canvas.style.width = wrap.clientWidth + 'px';
+      canvas.style.height = wrap.clientHeight + 'px';
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      const w = wrap.clientWidth, h = wrap.clientHeight;
+      const cx = w / 2, cy = h / 2, maxR = Math.min(cx, cy) - 36;
+
+      ctx.fillStyle = '#040b14';
+      ctx.fillRect(0, 0, w, h);
+
+      const keys = ['C','G','D','A','E','B','Gb','Db','Ab','Eb','Bb','F'];
+      const sharp = {'C#':'Db','D#':'Eb','F#':'Gb','G#':'Ab','A#':'Bb'};
+
+      [2,4,6,8,10].forEach(rat => {
+        const r = maxR * (1 - (rat - 1) / 10);
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(74,158,255,0.08)'; ctx.lineWidth = 1; ctx.stroke();
+        if (rat === 10) {
+          ctx.fillStyle = 'rgba(74,158,255,0.2)'; ctx.font = '9px Inter,sans-serif';
+          ctx.textAlign = 'right'; ctx.fillText('10', cx - r - 5, cy + 3);
+        }
+      });
+
+      ctx.font = 'bold 12px Inter,sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      keys.forEach((k, i) => {
+        const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
+        ctx.fillStyle = 'rgba(180,210,255,0.55)';
+        ctx.fillText(k, cx + (maxR + 20) * Math.cos(a), cy + (maxR + 20) * Math.sin(a));
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + maxR * Math.cos(a), cy + maxR * Math.sin(a));
+        ctx.strokeStyle = 'rgba(74,158,255,0.05)'; ctx.stroke();
+      });
+
+      const modeC = { dorian:[255,200,60], blues:[180,100,255], minor:[255,120,120], major:[80,200,160], pentatonic:[255,160,60] };
+      const predictions = data?.predictions || [];
+      const jitter = {};
+      const positions = [];
+
+      predictions.forEach(p => {
+        if (!p.key) return;
+        const root = p.key.replace(/m$/,'');
+        const norm = sharp[root] || root;
+        const ki = keys.indexOf(norm);
+        if (ki < 0) return;
+        jitter[ki] = (jitter[ki] || 0) + 1;
+        const ang = (ki / 12) * Math.PI * 2 - Math.PI / 2 + (jitter[ki] - 1) * 0.09 - 0.15;
+        const rat = p.actual || 5;
+        const r = maxR * (1 - (rat - 1) / 10);
+        const px = cx + r * Math.cos(ang), py = cy + r * Math.sin(ang);
+        const dr = 3 + (rat / 10) * 5;
+        const [cr,cg,cb] = modeC[p.mode] || modeC.major;
+        const br = 0.4 + (rat / 10) * 0.6;
+
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, dr * 2.5);
+        grad.addColorStop(0, `rgba(${cr},${cg},${cb},${br * 0.35})`);
+        grad.addColorStop(1, `rgba(${cr},${cg},${cb},0)`);
+        ctx.beginPath(); ctx.arc(px, py, dr * 2.5, 0, Math.PI * 2); ctx.fillStyle = grad; ctx.fill();
+        ctx.beginPath(); ctx.arc(px, py, dr, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${cr},${cg},${cb},${br})`; ctx.fill();
+        positions.push({ x: px, y: py, r: dr, title: p.title, artist: p.artist, rating: rat, key: p.key, mode: p.mode });
+      });
+
+      ctx.font = '9px Inter,sans-serif'; ctx.textAlign = 'left';
+      let ly = 14;
+      Object.entries(modeC).forEach(([m, [r,g,b]]) => {
+        ctx.beginPath(); ctx.arc(12, ly, 4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},0.8)`; ctx.fill();
+        ctx.fillStyle = 'rgba(180,210,255,0.5)'; ctx.fillText(m, 22, ly + 3);
+        ly += 15;
+      });
+
+      canvas.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+        let found = positions.find(p => (mx-p.x)**2 + (my-p.y)**2 < (p.r+7)**2);
+        if (found) {
+          tip.style.display = 'block';
+          tip.style.left = Math.min(found.x + 14, w - 200) + 'px';
+          tip.style.top = (found.y - 10) + 'px';
+          tip.innerHTML = `<strong>${html(found.title)}</strong><br>${html(found.artist)} — ${found.rating}/10<br>${html(found.key)} ${html(found.mode)}`;
+        } else tip.style.display = 'none';
+      });
+      canvas.addEventListener('mouseleave', () => tip.style.display = 'none');
+    }
+
+    function renderTasteVsWorld(data) {
+      const ctx = document.getElementById('tasteVsWorldChart');
+      const predictions = (data?.predictions || []).filter(p => p.popularity != null);
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Tracks',
+            data: predictions.map(p => ({ x: p.popularity, y: p.actual, title: p.title, artist: p.artist })),
+            backgroundColor: predictions.map(p => {
+              const diff = Math.abs(p.popularity / 100 - p.actual / 10);
+              return diff > 0.35 ? 'rgba(255,193,68,0.72)' : 'rgba(74,158,255,0.65)';
+            }),
+            pointRadius: IS_MOBILE ? 4 : 5.5,
+            pointHoverRadius: IS_MOBILE ? 7 : 9,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => { const p = c.raw; return `${p.title} — ${p.artist} | Pop: ${p.x}, You: ${p.y}/10`; }
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Spotify Popularity', color: GR.label, font: { weight: 800 } }, min: 0, max: 80, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      }));
+    }
+
+    function renderArtistJourneys(data) {
+      const container = document.getElementById('artist-journeys');
+      const predictions = data?.predictions || [];
+      const artists = {};
+      predictions.forEach(p => { artists[p.artist] = artists[p.artist] || []; artists[p.artist].push(p); });
+
+      const sorted = Object.entries(artists)
+        .filter(([_, t]) => t.length >= 3)
+        .map(([name, tracks]) => ({ name, tracks, mean: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length }))
+        .sort((a, b) => b.mean - a.mean);
+
+      const maxDur = Math.max(...predictions.map(p => p.duration_s || 300));
+
+      function rc(r) {
+        if (r >= 9) return 'rgba(80,200,120,0.82)';
+        if (r >= 7) return 'rgba(74,158,255,0.72)';
+        if (r >= 5) return 'rgba(255,193,68,0.68)';
+        return 'rgba(255,107,107,0.68)';
+      }
+
+      let m = '<div class="artist-journeys-scroll">';
+      sorted.forEach(({ name, tracks, mean }) => {
+        m += `<div class="artist-row"><div class="artist-name">${html(name)}</div><div class="artist-blocks">`;
+        tracks.forEach(t => {
+          const w = Math.max(18, ((t.duration_s || 300) / maxDur) * 180);
+          m += `<div class="artist-block" style="width:${w}px;background:${rc(t.actual)}" data-label="${html(t.title)} (${t.actual})"></div>`;
+        });
+        m += `</div><div class="artist-avg">${mean.toFixed(1)}</div></div>`;
+      });
+      m += '</div>';
+      container.innerHTML = m;
+    }
+
+    function renderReplayability(data) {
+      const ctx = document.getElementById('replayChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const pts = predictions.filter(p => p.replayability != null && typeof p.replayability === 'number');
+
+      if (!pts.length) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No replayability data yet.</div>';
+        return;
+      }
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Tracks',
+              data: pts.map(p => ({ x: p.replayability, y: p.actual, title: p.title, artist: p.artist })),
+              backgroundColor: pts.map(p => colorFor(p.cluster)),
+              borderColor: pts.map(p => colorFor(p.cluster)),
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            },
+            {
+              label: 'Diagonal',
+              data: [{ x: 1, y: 1 }, { x: 10, y: 10 }],
+              type: 'line',
+              borderColor: 'rgba(255,255,255,0.12)',
+              borderDash: [6, 4],
+              borderWidth: 1,
+              pointRadius: 0,
+              pointHoverRadius: 0,
+            }
+          ]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, filter: c => c.datasetIndex === 0, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · Rating: ${c.raw.y}/10 · Replay: ${c.raw.x}/10`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Replayability', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      }));
+    }
+
+    function renderPlaythrough(data) {
+      const ctx = document.getElementById('playthroughChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const pts = predictions.filter(p => p.playthrough != null);
+
+      if (!pts.length) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No playthrough data yet.</div>';
+        return;
+      }
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Tracks',
+              data: pts.map(p => ({ x: Math.round(p.playthrough * 100), y: p.actual, title: p.title, artist: p.artist })),
+              backgroundColor: pts.map(p => colorFor(p.cluster)),
+              borderColor: pts.map(p => colorFor(p.cluster)),
+              pointRadius: IS_MOBILE ? 4 : 5,
+              pointHoverRadius: IS_MOBILE ? 7 : 8,
+            }
+          ]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · Rating: ${c.raw.y}/10 · Listened: ${c.raw.x}%`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Playthrough %', color: GR.label, font: { weight: 800 } }, min: 0, max: 105, grid: { color: GR.grid }, ticks: { color: GR.tick, callback: v => v + '%' } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 0, max: 11, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      }));
+    }
+
+    function renderPlaythroughByEra(data) {
+      const ctx = document.getElementById('playthroughEraChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.era || p.playthrough == null) return;
+        if (!groups[p.era]) groups[p.era] = [];
+        groups[p.era].push(p.playthrough);
+      });
+
+      const sorted = Object.entries(groups)
+        .filter(([, vals]) => vals.length >= 2)
+        .map(([era, vals]) => ({ era, avg: vals.reduce((s, v) => s + v, 0) / vals.length, count: vals.length }))
+        .sort((a, b) => b.avg - a.avg);
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.era),
+          datasets: [{
+            label: 'Avg Playthrough',
+            data: sorted.map(s => Math.round(s.avg * 100)),
+            backgroundColor: sorted.map((s) => {
+              const pct = s.avg;
+              if (pct >= 0.9) return 'rgba(80,200,120,0.65)';
+              if (pct >= 0.75) return 'rgba(74,158,255,0.65)';
+              if (pct >= 0.6) return 'rgba(255,193,68,0.65)';
+              return 'rgba(255,107,107,0.65)';
+            }),
+            borderColor: sorted.map((s) => {
+              const pct = s.avg;
+              if (pct >= 0.9) return 'rgba(80,200,120,1)';
+              if (pct >= 0.75) return 'rgba(74,158,255,1)';
+              if (pct >= 0.6) return 'rgba(255,193,68,1)';
+              return 'rgba(255,107,107,1)';
+            }),
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}% · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 100, grid: { color: GR.grid }, ticks: { color: GR.tick, callback: v => v + '%' } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      }));
+    }
+
+    function renderBiggestMisses(data) {
+      const container = document.getElementById('misses-container');
+      if (!container) return;
+      const predictions = data?.predictions || [];
+
+      const sorted = [...predictions]
+        .sort((a, b) => Math.abs(b.residual) - Math.abs(a.residual))
+        .slice(0, 8);
+
+      if (!sorted.length) {
+        container.innerHTML = '<div class="empty-state">No prediction data.</div>';
+        return;
+      }
+
+      let m = '<table class="misses-table"><thead><tr><th>Track</th><th>Artist</th><th>Actual</th><th>Predicted</th><th>Diff</th></tr></thead><tbody>';
+      sorted.forEach(p => {
+        const diff = p.residual;
+        const sign = diff > 0 ? '+' : '';
+        const cls = diff > 0 ? 'under' : 'over';
+        const arrow = diff > 0 ? '▼' : '▲';
+        m += `<tr>
+          <td>${html(p.title)}</td>
+          <td style="color:var(--muted)">${html(p.artist)}</td>
+          <td style="font-weight:800">${p.actual}</td>
+          <td style="color:var(--muted)">${p.predicted}</td>
+          <td><span class="miss-diff ${cls}">${arrow} ${sign}${Math.abs(diff).toFixed(1)}</span></td>
+        </tr>`;
+      });
+      m += '</tbody></table>';
+      container.innerHTML = m;
+    }
+
+    function renderTopArtists(data) {
+      const ctx = document.getElementById('topArtistsChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const groups = {};
+      predictions.forEach(p => {
+        groups[p.artist] = groups[p.artist] || [];
+        groups[p.artist].push(p.actual);
+      });
+      const sorted = Object.entries(groups)
+        .filter(([, r]) => r.length >= 2)
+        .map(([artist, ratings]) => ({
+          artist,
+          avg: ratings.reduce((s, r) => s + r, 0) / ratings.length,
+          count: ratings.length,
+        }))
+        .sort((a, b) => b.avg - a.avg);
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.artist),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 6,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      }));
+    }
+
+    function renderEraRatings(data) {
+      const ctx = document.getElementById('eraChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.era || p.era === 'Unknown') return;
+        groups[p.era] = groups[p.era] || [];
+        groups[p.era].push(p.actual);
+      });
+      const sorted = Object.entries(groups)
+        .map(([era, ratings]) => ({
+          era,
+          avg: ratings.reduce((s, r) => s + r, 0) / ratings.length,
+          count: ratings.length,
+        }))
+        .sort((a, b) => b.avg - a.avg);
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.era),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 6,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      }));
+    }
+
+    function renderHarmonicComplexity(data) {
+      const ctx = document.getElementById('harmonicChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const levels = ['low', 'medium', 'high'];
+      const groups = {};
+      levels.forEach(l => { groups[l] = []; });
+      predictions.forEach(p => {
+        const k = (p.harmonic_complexity || '').toLowerCase();
+        if (groups[k]) groups[k].push(p.actual);
+      });
+      const counts = levels.map(l => groups[l].length);
+      const avgs = levels.map(l => groups[l].length
+        ? Math.round(groups[l].reduce((s, r) => s + r, 0) / groups[l].length * 100) / 100
+        : null);
+
+      if (counts.every(c => c === 0)) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No harmonic complexity data yet.</div>';
+        return;
+      }
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Low', 'Medium', 'High'],
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: ['rgba(74,158,255,0.55)', 'rgba(178,117,255,0.55)', 'rgba(80,200,120,0.55)'],
+            borderColor: ['rgba(74,158,255,1)', 'rgba(178,117,255,1)', 'rgba(80,200,120,1)'],
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      }));
+    }
+
+    function renderDiscoverySource(data) {
+      const ctx = document.getElementById('discoveryChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      const sources = ['self', 'claude-recommendation', 'autoplay'];
+      const labels = ['Self-found', 'Claude Pick', 'Autoplay'];
+      const groups = {};
+      sources.forEach(s => { groups[s] = []; });
+      predictions.forEach(p => {
+        const src = p.discovered_from || 'self';
+        if (groups[src]) groups[src].push(p.actual);
+      });
+      const counts = sources.map(s => groups[s].length);
+      const avgs = sources.map(s => groups[s].length
+        ? Math.round(groups[s].reduce((a, r) => a + r, 0) / groups[s].length * 100) / 100
+        : null);
+
+      if (counts.every(c => c === 0)) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No discovery source data yet.</div>';
+        return;
+      }
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: ['rgba(74,158,255,0.65)', 'rgba(80,200,120,0.65)', 'rgba(255,193,68,0.65)'],
+            borderColor: ['rgba(74,158,255,1)', 'rgba(80,200,120,1)', 'rgba(255,193,68,1)'],
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      }));
+    }
+
+    function renderSoundProfile(data) {
+      const ctx = document.getElementById('soundProfileChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+      if (!predictions.length) return;
+
+      const pairs = [
+        { label: 'Has Piano', filter: p => !p.is_pianoless },
+        { label: 'No Piano', filter: p => !!p.is_pianoless },
+        { label: 'Has Vocals', filter: p => !!p.has_vocals },
+        { label: 'Instrumental', filter: p => !p.has_vocals },
+        { label: 'Has Guitar', filter: p => !!p.has_guitar },
+        { label: 'No Guitar', filter: p => !p.has_guitar },
+      ];
+
+      const colors = [
+        'rgba(74,158,255,0.65)', 'rgba(74,158,255,0.3)',
+        'rgba(80,200,120,0.65)', 'rgba(80,200,120,0.3)',
+        'rgba(255,193,68,0.65)', 'rgba(255,193,68,0.3)',
+      ];
+
+      const avgs = pairs.map(({ filter }) => {
+        const group = predictions.filter(filter);
+        return group.length
+          ? Math.round(group.reduce((s, p) => s + p.actual, 0) / group.length * 100) / 100
+          : null;
+      });
+      const counts = pairs.map(({ filter }) => predictions.filter(filter).length);
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: pairs.map(p => p.label),
+          datasets: [{
+            label: 'Avg Rating',
+            data: avgs,
+            backgroundColor: colors,
+            borderColor: colors.map(c => c.replace(/[\d.]+\)$/, '1)')),
+            borderWidth: 1.5,
+            borderRadius: 8,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const i = c.dataIndex;
+                return `Avg: ${c.raw}/10 · ${counts[i]} track${counts[i] !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 700 } } },
+            y: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 2 } }
+          }
+        })
+      }));
+    }
+
+    function renderEnsembleSize(data) {
+      const ctx = document.getElementById('ensembleChart');
+      if (!ctx) return;
+      const predictions = (data?.predictions || []).filter(p => p.ensemble_size > 0);
+
+      if (!predictions.length) {
+        ctx.parentElement.innerHTML = '<div class="empty-state">No instrumentation data yet.</div>';
+        return;
+      }
+
+      const k = data?.clusters?.best_k || 1;
+      const datasets = [];
+      for (let c = 0; c < k; c++) {
+        const pts = predictions.filter(p => p.cluster === c);
+        const profiles = (data?.clusters?.cluster_profiles || []);
+        const label = profiles[c]?.top_moods?.slice(0, 2).join(', ') || `Cluster ${c + 1}`;
+        datasets.push({
+          label,
+          data: pts.map(p => ({ x: p.ensemble_size, y: p.actual, title: p.title, artist: p.artist })),
+          backgroundColor: colorFor(c),
+          borderColor: colorFor(c),
+          pointRadius: IS_MOBILE ? 4 : 5,
+          pointHoverRadius: IS_MOBILE ? 7 : 8,
+        });
+      }
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: { datasets },
+        options: chartOptions({
+          plugins: {
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · ${c.raw.x} instruments · ${c.raw.y}/10`
+            }}
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Ensemble Size (instruments)', color: GR.label, font: { weight: 800 } },
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: {
+              title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } },
+              min: 1, max: 10,
+              grid: { color: GR.grid },
+              ticks: { color: GR.tick, stepSize: 1 }
+            }
+          }
+        })
+      }));
+    }
+
+    function renderMoodPolarity(data) {
+      const ps = data.predictions;
+      if (!ps.length || ps[0].mood_polarity === undefined) {
+        document.getElementById('polarity-panel').hidden = true;
+        return;
+      }
+      const ctx = document.getElementById('polarityChart').getContext('2d');
+      const colors = ['#4a9eff','#50c878','#ffc144','#ff6b6b'];
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            data: ps.map(p => ({x: p.mood_polarity, y: p.actual, title: p.title, artist: p.artist})),
+            backgroundColor: ps.map(p => p.liked ? '#50c878' : '#ff6b6b'),
+            pointRadius: 5,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.raw.title} — ${ctx.raw.artist} (${ctx.raw.y}/10, polarity: ${ctx.raw.x})`
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Mood Polarity', color: GR.label, font: { weight: 800 } },
+              grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: {
+              title: { display: true, text: 'Rating', color: GR.label, font: { weight: 800 } },
+              min: 1, max: 10,
+              grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 }
+            }
+          }
+        }
+      }));
+    }
+
+    function renderV2Features(data) {
+      const ps = data.predictions;
+      if (!ps.length || ps[0].artist_is_leader === undefined) {
+        document.getElementById('v2features-panel').hidden = true;
+        return;
+      }
+      const grid = document.getElementById('v2features-grid');
+      const leader = ps.filter(p => p.artist_is_leader);
+      const sideman = ps.filter(p => !p.artist_is_leader);
+      const leaderAvg = leader.length ? (leader.reduce((s,p) => s+p.actual, 0) / leader.length).toFixed(1) : '—';
+      const sidemanAvg = sideman.length ? (sideman.reduce((s,p) => s+p.actual, 0) / sideman.length).toFixed(1) : '—';
+
+      const intro = ps.filter(p => p.intro_grabbed);
+      const noIntro = ps.filter(p => !p.intro_grabbed);
+      const introAvg = intro.length ? (intro.reduce((s,p) => s+p.actual, 0) / intro.length).toFixed(1) : '—';
+      const noIntroAvg = noIntro.length ? (noIntro.reduce((s,p) => s+p.actual, 0) / noIntro.length).toFixed(1) : '—';
+
+      const bail = ps.filter(p => p.early_bail);
+      const noBail = ps.filter(p => !p.early_bail);
+      const bailAvg = bail.length ? (bail.reduce((s,p) => s+p.actual, 0) / bail.length).toFixed(1) : '—';
+      const noBailAvg = noBail.length ? (noBail.reduce((s,p) => s+p.actual, 0) / noBail.length).toFixed(1) : '—';
+
+      const polarities = ps.map(p => p.mood_polarity).filter(v => v !== undefined);
+      const highPol = ps.filter(p => p.mood_polarity >= 3);
+      const lowPol = ps.filter(p => p.mood_polarity <= 0);
+      const highPolAvg = highPol.length ? (highPol.reduce((s,p) => s+p.actual, 0) / highPol.length).toFixed(1) : '—';
+      const lowPolAvg = lowPol.length ? (lowPol.reduce((s,p) => s+p.actual, 0) / lowPol.length).toFixed(1) : '—';
+
+      function card(title, rows) {
+        return `<div style="background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;">
+          <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:8px;">${title}</div>
+          ${rows.map(r => `<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:0.82rem;">
+            <span style="color:var(--text)">${r[0]}</span>
+            <span style="font-weight:700;color:${r[2] || 'var(--accent)'}">${r[1]}</span>
+          </div>`).join('')}
+        </div>`;
+      }
+
+      grid.innerHTML = card('Artist Role', [
+        [`As leader (${leader.length})`, `avg ${leaderAvg}`, ''],
+        [`As sideman (${sideman.length})`, `avg ${sidemanAvg}`, ''],
+      ]) + card('Intro Grab', [
+        [`Grabbed (${intro.length})`, `avg ${introAvg}`, 'var(--good)'],
+        [`No grab (${noIntro.length})`, `avg ${noIntroAvg}`, ''],
+      ]) + card('Early Bail (<30%)', [
+        [`Bailed (${bail.length})`, `avg ${bailAvg}`, 'var(--bad)'],
+        [`Stayed (${noBail.length})`, `avg ${noBailAvg}`, ''],
+      ]) + card('Mood Polarity', [
+        [`High (≥3) (${highPol.length})`, `avg ${highPolAvg}`, 'var(--good)'],
+        [`Low (≤0) (${lowPol.length})`, `avg ${lowPolAvg}`, 'var(--bad)'],
+      ]);
+    }
+
+    function renderMoodRating(data) {
+      const container = document.getElementById('mood-rating-grid');
+      const predictions = data?.predictions || [];
+      const buckets = [
+        { label: '2–3', min: 2, max: 3.5 },
+        { label: '4–5', min: 3.5, max: 5.5 },
+        { label: '6–7', min: 5.5, max: 7.5 },
+        { label: '8–9', min: 7.5, max: 9.5 },
+        { label: '10', min: 9.5, max: 10.5 },
+      ];
+
+      const mc = {};
+      predictions.forEach(p => {
+        (p.moods || []).forEach(mood => {
+          mc[mood] = mc[mood] || {};
+          buckets.forEach(b => { mc[mood][b.label] = mc[mood][b.label] || 0; if (p.actual >= b.min && p.actual < b.max) mc[mood][b.label]++; });
+        });
+      });
+
+      const moods = Object.keys(mc).sort((a, b) => {
+        const ta = Object.values(mc[a]).reduce((s, v) => s + v, 0);
+        const tb = Object.values(mc[b]).reduce((s, v) => s + v, 0);
+        return tb - ta;
+      });
+      const mx = Math.max(...moods.flatMap(m => Object.values(mc[m])));
+
+      let markup = '<div class="table-scroll" tabindex="0"><table class="heatmap-table"><tr><th></th>';
+      buckets.forEach(b => markup += `<th>${b.label}</th>`);
+      markup += '</tr>';
+      moods.forEach(mood => {
+        markup += `<tr><th>${html(mood)}</th>`;
+        buckets.forEach(b => {
+          const c = mc[mood][b.label] || 0;
+          const a = c > 0 ? Math.min(c / mx * 0.65 + 0.15, 0.72) : 0;
+          const bg = c === 0 ? 'transparent' : b.min >= 7.5 ? `rgba(80,200,120,${a})` : b.max <= 5.5 ? `rgba(255,107,107,${a})` : `rgba(74,158,255,${a})`;
+          markup += `<td style="background:${bg}">${c || ''}</td>`;
+        });
+        markup += '</tr>';
+      });
+      markup += '</table></div>';
+      container.innerHTML = markup;
+    }
+
+    function renderHallOfFame(data) {
+      const container = document.getElementById('hall-of-fame');
+      if (!container) return;
+      const top = (data?.predictions || [])
+        .filter(p => p.actual >= 9)
+        .sort((a, b) => b.actual - a.actual || a.title.localeCompare(b.title))
+        .slice(0, 20);
+
+      if (!top.length) {
+        container.innerHTML = '<div class="empty-state">No tracks rated 9+ yet.</div>';
+        return;
+      }
+
+      container.innerHTML = '<div class="hof-grid">' + top.map(t => `
+        <div class="hof-card${t.actual === 10 ? ' perfect' : ''}">
+          <div class="hof-rating">${t.actual}/10</div>
+          <div class="hof-title">${html(t.title)}</div>
+          <div class="hof-artist">${html(t.artist)}</div>
+          <div class="hof-meta">${html(t.era || '')}${t.year ? ' · ' + t.year : ''}</div>
+          <div class="hof-tags">${(t.moods || []).slice(0, 4).map(m => `<span class="hof-tag">${html(m)}</span>`).join('')}</div>
+        </div>
+      `).join('') + '</div>';
+    }
+
+    function renderAlbums(data) {
+      const container = document.getElementById('albums-list');
+      if (!container) return;
+      const albums = data?.albums || [];
+
+      if (!albums.length) {
+        container.innerHTML = '<div class="empty-state">No albums rated yet.</div>';
+        return;
+      }
+
+      const sorted = [...albums].sort((a, b) => b.rating - a.rating);
+      container.innerHTML = '<div class="album-grid">' + sorted.map(a => `
+        <div class="album-card">
+          <div class="album-card-header">
+            <div>
+              <div class="album-card-title">${html(a.title)}</div>
+              <div class="album-card-artist">${html(a.artist)}</div>
+            </div>
+            <span class="album-card-rating" style="color:${ratingColor(a.rating)}">${a.rating}/10</span>
+          </div>
+          <div class="album-card-meta">
+            ${a.era ? `<span>${html(a.era)}</span>` : ''}
+            ${a.year ? `<span>${a.year}</span>` : ''}
+            ${a.label ? `<span>${html(a.label)}</span>` : ''}
+            <span>${a.liked ? '👍 Liked' : '👎 Not liked'}</span>
+            <span>Replay: ${a.replayability}/10</span>
+          </div>
+          ${a.notes ? `<div class="album-card-notes">"${html(a.notes)}"</div>` : ''}
+          ${(a.notable_qualities || []).length ? `
+            <div class="album-card-qualities">
+              ${a.notable_qualities.map(q => `<span>${html(q)}</span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `).join('') + '</div>';
+    }
+
+    function renderYearRating(data) {
+      const ctx = document.getElementById('yearRatingChart');
+      if (!ctx) return;
+      const predictions = (data?.predictions || []).filter(p => p.year);
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Tracks',
+            data: predictions.map(p => ({ x: p.year, y: p.actual, title: p.title, artist: p.artist, era: p.era })),
+            backgroundColor: predictions.map(p => colorFor(p.cluster)),
+            borderColor: predictions.map(p => colorFor(p.cluster)),
+            pointRadius: IS_MOBILE ? 4 : 5,
+            pointHoverRadius: IS_MOBILE ? 7 : 8,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} (${c.raw.x}) · ${c.raw.y}/10`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Year', color: GR.label, font: { weight: 800 } }, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      }));
+    }
+
+    function renderDurationRating(data) {
+      const ctx = document.getElementById('durationRatingChart');
+      if (!ctx) return;
+      const predictions = (data?.predictions || []).filter(p => p.duration_s);
+
+      trackChart(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Tracks',
+            data: predictions.map(p => ({ x: Math.round(p.duration_s / 60 * 10) / 10, y: p.actual, title: p.title, artist: p.artist })),
+            backgroundColor: predictions.map(p => colorFor(p.cluster)),
+            borderColor: predictions.map(p => colorFor(p.cluster)),
+            pointRadius: IS_MOBILE ? 4 : 5,
+            pointHoverRadius: IS_MOBILE ? 7 : 8,
+          }]
+        },
+        options: chartOptions({
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => `${c.raw.title} — ${c.raw.artist} · ${c.raw.x} min · ${c.raw.y}/10`
+            }}
+          },
+          scales: {
+            x: { title: { display: true, text: 'Duration (minutes)', color: GR.label, font: { weight: 800 } }, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } }, min: 1, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 } }
+          }
+        })
+      }));
+    }
+
+    function ratingColor(r) {
+      if (r >= 9) return 'var(--good)';
+      if (r >= 7) return 'var(--accent)';
+      if (r >= 5) return 'var(--warning)';
+      return 'var(--bad)';
+    }
+
+    function renderBreakdownTracks(tracks, containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      if (!tracks.length) { container.innerHTML = ''; return; }
+      const sorted = [...tracks].sort((a, b) => b.actual - a.actual);
+      container.innerHTML = sorted.map(t => `
+        <div class="breakdown-track">
+          <div><span class="breakdown-track-title">${html(t.title)}</span><span class="breakdown-track-artist">— ${html(t.artist)}</span></div>
+          <span class="breakdown-track-rating" style="color:${ratingColor(t.actual)}">${t.actual}/10</span>
+        </div>
+      `).join('');
+    }
+
+    function renderInstrumentRatings(data) {
+      const ctx = document.getElementById('instrumentChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.primary_instrument) return;
+        if (!groups[p.primary_instrument]) groups[p.primary_instrument] = [];
+        groups[p.primary_instrument].push(p);
+      });
+
+      const sorted = Object.entries(groups)
+        .filter(([, tracks]) => tracks.length >= 2)
+        .map(([inst, tracks]) => ({ inst, avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length, count: tracks.length, tracks }))
+        .sort((a, b) => b.avg - a.avg);
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.inst),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 7,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      }));
+
+      const select = document.getElementById('instrument-select');
+      if (select) {
+        sorted.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s.inst;
+          opt.textContent = `${s.inst} (${s.count} tracks, avg ${Math.round(s.avg * 10) / 10})`;
+          select.appendChild(opt);
+        });
+        select.addEventListener('change', () => {
+          const item = sorted.find(s => s.inst === select.value);
+          renderBreakdownTracks(item ? item.tracks : [], 'instrument-tracks');
+        });
+      }
+    }
+
+    function renderLabelRatings(data) {
+      const ctx = document.getElementById('labelChart');
+      if (!ctx) return;
+      const predictions = data?.predictions || [];
+
+      const groups = {};
+      predictions.forEach(p => {
+        if (!p.label) return;
+        if (!groups[p.label]) groups[p.label] = [];
+        groups[p.label].push(p);
+      });
+
+      const sorted = Object.entries(groups)
+        .filter(([, tracks]) => tracks.length >= 2)
+        .map(([label, tracks]) => ({ label, avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length, count: tracks.length, tracks }))
+        .sort((a, b) => b.avg - a.avg);
+
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: sorted.map(s => s.label),
+          datasets: [{
+            label: 'Avg Rating',
+            data: sorted.map(s => Math.round(s.avg * 100) / 100),
+            backgroundColor: sorted.map((_, i) => colorFor(i)),
+            borderColor: sorted.map((_, i) => colorFor(i)),
+            borderWidth: 1,
+            borderRadius: 7,
+            borderSkipped: false,
+          }]
+        },
+        options: chartOptions({
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: { ...basePlugins.tooltip, callbacks: {
+              label: c => {
+                const item = sorted[c.dataIndex];
+                return `Avg: ${c.raw}/10 · ${item.count} track${item.count !== 1 ? 's' : ''}`;
+              }
+            }}
+          },
+          scales: {
+            x: { min: 0, max: 10, grid: { color: GR.grid }, ticks: { color: GR.tick } },
+            y: { grid: { display: false }, ticks: { color: GR.text, font: { size: IS_MOBILE ? 10 : 11, weight: 650 } } }
+          }
+        })
+      }));
+
+      const select = document.getElementById('label-select');
+      if (select) {
+        sorted.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s.label;
+          opt.textContent = `${s.label} (${s.count} tracks, avg ${Math.round(s.avg * 10) / 10})`;
+          select.appendChild(opt);
+        });
+        select.addEventListener('change', () => {
+          const item = sorted.find(s => s.label === select.value);
+          renderBreakdownTracks(item ? item.tracks : [], 'label-tracks');
+        });
+      }
+    }
+
+    function initAccordion(toggleId, bodyId) {
+      const toggle = document.getElementById(toggleId);
+      const body = document.getElementById(bodyId);
+      if (!toggle || !body) return;
+
+      function open() {
+        body.classList.remove('collapsed');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function close() {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          body.classList.add('collapsed');
+        });
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      toggle.addEventListener('click', () => {
+        toggle.getAttribute('aria-expanded') === 'true' ? close() : open();
+      });
+
+      const observer = new MutationObserver(() => {
+        if (toggle.getAttribute('aria-expanded') === 'true') {
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      });
+      observer.observe(body, { childList: true, subtree: true });
+    }
+
+    initAccordion('mood-toggle', 'mood-body');
+    initAccordion('hof-toggle', 'hof-body');
+
+    // Section nav search
+    (function () {
+      const input = document.getElementById('nav-search');
+      if (!input) return;
+      const links = document.querySelectorAll('.nav-link');
+      input.addEventListener('input', () => {
+        const q = input.value.toLowerCase().trim();
+        links.forEach(link => {
+          link.classList.toggle('nav-hidden', !!q && !link.textContent.toLowerCase().includes(q));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
