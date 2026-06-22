@@ -16,6 +16,7 @@ export default function ModelHistory({ data }) {
     if (!manifest || !data?.history) return [];
     const majors = manifest.versions.filter(v => v.is_major);
     return majors.map(v => {
+      if (v.version === '1.00') return { index: 0, name: v.name || 'v1.00', version: v.version };
       const idx = data.history.findIndex(h =>
         h.dataset_size === v.dataset_size && Math.abs(h.r_squared - v.r_squared) < 0.01
       );
