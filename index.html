@@ -846,6 +846,17 @@
 
     .nav-link.nav-hidden { display: none; }
 
+    .nav-section-label {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted-2);
+      white-space: nowrap;
+      padding: 3px 4px 3px 8px;
+      border-left: 2px solid var(--border-strong);
+    }
+
     /* ── Hamburger menu ── */
     .hamburger-btn {
       flex-shrink: 0;
@@ -1036,37 +1047,46 @@
     </div>
     <input class="nav-search" id="nav-search" type="search" placeholder="Search…" aria-label="Filter sections">
     <div class="nav-links" role="list">
-      <a class="nav-link" href="#metrics-panel">Model Performance</a>
-      <a class="nav-link" href="#clusters-panel">Taste Clusters</a>
-      <a class="nav-link" href="#importance-panel">Feature Importance</a>
-      <a class="nav-link" href="#pred-actual-panel">Predicted vs Actual</a>
-      <a class="nav-link" href="#distribution-panel">Rating Distribution</a>
-      <a class="nav-link" href="#radar-panel">Cluster Profiles</a>
-      <a class="nav-link" href="#correlations-panel">Correlations</a>
+      <span class="nav-section-label">Overview</span>
+      <a class="nav-link" href="#taste-summary-panel">Taste Summary</a>
+      <a class="nav-link" href="#metrics-panel">Model</a>
+      <a class="nav-link" href="#hof-panel">Hall of Fame</a>
+      <span class="nav-section-label">Patterns</span>
+      <a class="nav-link" href="#clusters-panel">Clusters</a>
+      <a class="nav-link" href="#radar-panel">Profiles</a>
       <a class="nav-link" href="#constellation-panel">Constellation</a>
+      <a class="nav-link" href="#importance-panel">Features</a>
+      <a class="nav-link" href="#correlations-panel">Correlations</a>
+      <span class="nav-section-label">Ratings</span>
+      <a class="nav-link" href="#pred-actual-panel">Predicted vs Actual</a>
+      <a class="nav-link" href="#distribution-panel">Distribution</a>
+      <a class="nav-link" href="#misses-panel">Biggest Misses</a>
+      <a class="nav-link" href="#year-rating-panel">By Year</a>
+      <a class="nav-link" href="#duration-rating-panel">By Duration</a>
+      <span class="nav-section-label">Music</span>
+      <a class="nav-link" href="#era-panel">Eras</a>
+      <a class="nav-link" href="#instrument-panel">Instruments</a>
+      <a class="nav-link" href="#instrument-combos-panel">Combos</a>
+      <a class="nav-link" href="#harmonic-panel">Harmony</a>
       <a class="nav-link" href="#cof-panel">Circle of Fifths</a>
-      <a class="nav-link" href="#taste-world-panel">Taste vs World</a>
-      <a class="nav-link" href="#artist-journeys-panel">Artist Journeys</a>
-      <a class="nav-link" href="#mood-rating-panel">Mood × Rating</a>
+      <a class="nav-link" href="#sound-panel">Sound Profile</a>
+      <a class="nav-link" href="#ensemble-panel">Ensemble</a>
+      <span class="nav-section-label">Artists</span>
+      <a class="nav-link" href="#top-artists-panel">Top Artists</a>
+      <a class="nav-link" href="#artist-journeys-panel">Journeys</a>
+      <a class="nav-link" href="#label-panel">Labels</a>
+      <a class="nav-link" href="#discovery-panel">Discovery</a>
+      <span class="nav-section-label">Engagement</span>
       <a class="nav-link" href="#replayability-panel">Replayability</a>
       <a class="nav-link" href="#playthrough-panel">Playthrough</a>
-      <a class="nav-link" href="#playthrough-era-panel">Playthrough by Era</a>
-      <a class="nav-link" href="#hof-panel">Hall of Fame</a>
-      <a class="nav-link" href="#albums-panel">Albums</a>
-      <a class="nav-link" href="#year-rating-panel">Year vs Rating</a>
-      <a class="nav-link" href="#duration-rating-panel">Duration vs Rating</a>
-      <a class="nav-link" href="#instrument-panel">By Instrument</a>
-      <a class="nav-link" href="#label-panel">Label Breakdown</a>
-      <a class="nav-link" href="#misses-panel">Biggest Misses</a>
-      <a class="nav-link" href="#top-artists-panel">Top Artists</a>
-      <a class="nav-link" href="#era-panel">Era Breakdown</a>
-      <a class="nav-link" href="#harmonic-panel">Harmonic Complexity</a>
-      <a class="nav-link" href="#discovery-panel">Discovery Source</a>
-      <a class="nav-link" href="#sound-panel">Sound Profile</a>
-      <a class="nav-link" href="#ensemble-panel">Ensemble Size</a>
+      <a class="nav-link" href="#playthrough-era-panel">By Era</a>
+      <a class="nav-link" href="#mood-rating-panel">Mood × Rating</a>
       <a class="nav-link" href="#polarity-panel">Mood Polarity</a>
       <a class="nav-link" href="#v2features-panel">v2 Features</a>
-      <a class="nav-link" href="#history-panel">Model Over Time</a>
+      <span class="nav-section-label">Meta</span>
+      <a class="nav-link" href="#taste-world-panel">Taste vs World</a>
+      <a class="nav-link" href="#albums-panel">Albums</a>
+      <a class="nav-link" href="#history-panel">History</a>
     </div>
   </nav>
   <main class="wrapper">
@@ -1097,6 +1117,18 @@
     </header>
 
     <section class="grid" aria-label="Jazz taste analysis charts">
+      <article class="panel span-12" id="taste-summary-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Your Taste at a Glance</h2>
+              <p class="panel-note">Auto-generated from your ratings</p>
+            </div>
+          </div>
+          <div id="taste-summary" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;"></div>
+        </div>
+      </article>
+
       <article class="panel span-12" id="metrics-panel">
         <div class="panel-inner">
           <div class="panel-header">
@@ -1387,6 +1419,19 @@
         </div>
       </article>
 
+      <article class="panel span-12" id="instrument-combos-panel">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div>
+              <h2>Instrument Combinations</h2>
+              <p class="panel-note">Which instrument pairings rate highest</p>
+            </div>
+          </div>
+          <p class="panel-desc">Each bar shows an instrument combination that appears on 2+ tracks. <strong>Height</strong> = average rating. <strong>Color</strong> = green (liked), red (not liked), based on majority. <strong>Label</strong> = number of tracks with that combo. Reveals which ensemble textures resonate most.</p>
+          <div class="chart-shell"><canvas id="instrumentCombosChart"></canvas></div>
+        </div>
+      </article>
+
       <!-- Label Breakdown -->
       <article class="panel span-6" id="label-panel">
         <div class="panel-inner">
@@ -1670,6 +1715,7 @@
           new Date(data.meta.generated_at).toLocaleDateString();
       }
       document.getElementById('feature-count-meta').textContent = data?.meta?.feature_count ?? '—';
+      renderTasteSummary(data);
       renderMetrics(data);
       renderClusterScatter(data);
       renderFeatureImportance(data);
@@ -1690,6 +1736,7 @@
       renderYearRating(data);
       renderDurationRating(data);
       renderInstrumentRatings(data);
+      renderInstrumentCombos(data);
       renderLabelRatings(data);
       renderBiggestMisses(data);
       renderTopArtists(data);
@@ -1749,6 +1796,133 @@
         }
       })
       .catch(() => loadDashboardData('dashboard-data.json'));
+
+    function renderTasteSummary(data) {
+      const ps = data.predictions;
+      if (!ps.length) return;
+      const el = document.getElementById('taste-summary');
+
+      const avgRating = (ps.reduce((s,p) => s+p.actual, 0) / ps.length).toFixed(1);
+      const liked = ps.filter(p => p.liked).length;
+      const likedPct = Math.round(liked / ps.length * 100);
+
+      // Top moods
+      const moodCounts = {};
+      ps.filter(p => p.actual >= 8).forEach(p => (p.moods||[]).forEach(m => { moodCounts[m] = (moodCounts[m]||0) + 1; }));
+      const topMoods = Object.entries(moodCounts).sort((a,b) => b[1]-a[1]).slice(0,5).map(e => e[0]);
+
+      // Worst moods (from low-rated tracks)
+      const badMoodCounts = {};
+      ps.filter(p => p.actual <= 4).forEach(p => (p.moods||[]).forEach(m => { badMoodCounts[m] = (badMoodCounts[m]||0) + 1; }));
+      const worstMoods = Object.entries(badMoodCounts).sort((a,b) => b[1]-a[1]).slice(0,4).map(e => e[0]);
+
+      // Top era
+      const eraCounts = {};
+      ps.forEach(p => { const e = p.era||'Unknown'; eraCounts[e] = eraCounts[e]||{sum:0,n:0}; eraCounts[e].sum += p.actual; eraCounts[e].n++; });
+      const topEra = Object.entries(eraCounts).filter(e => e[1].n >= 3).sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n))[0];
+
+      // Top artists
+      const artistCounts = {};
+      ps.forEach(p => { const a = p.artist; artistCounts[a] = artistCounts[a]||{sum:0,n:0,tracks:[]}; artistCounts[a].sum += p.actual; artistCounts[a].n++; artistCounts[a].tracks.push(p.actual); });
+      const topArtists = Object.entries(artistCounts).filter(e => e[1].n >= 2).sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n)).slice(0,3);
+
+      // Top instrument
+      const instCounts = {};
+      ps.forEach(p => { const inst = p.primary_instrument||'unknown'; instCounts[inst] = instCounts[inst]||{sum:0,n:0}; instCounts[inst].sum += p.actual; instCounts[inst].n++; });
+      const topInst = Object.entries(instCounts).filter(e => e[1].n >= 3).sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n))[0];
+
+      // Biggest surprise (largest positive residual)
+      const surprise = [...ps].sort((a,b) => b.residual - a.residual)[0];
+      // Biggest disappointment (largest negative residual)
+      const disappoint = [...ps].sort((a,b) => a.residual - b.residual)[0];
+
+      // Polarity insight
+      const highPol = ps.filter(p => (p.mood_polarity||0) >= 4);
+      const lowPol = ps.filter(p => (p.mood_polarity||0) <= 0);
+      const highPolAvg = highPol.length ? (highPol.reduce((s,p) => s+p.actual,0)/highPol.length).toFixed(1) : null;
+      const lowPolAvg = lowPol.length ? (lowPol.reduce((s,p) => s+p.actual,0)/lowPol.length).toFixed(1) : null;
+
+      function card(title, content, accent) {
+        return `<div style="background:var(--panel-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;">
+          <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted-2);margin-bottom:6px;">${title}</div>
+          <div style="font-size:0.88rem;color:${accent||'var(--text)'};line-height:1.5;">${content}</div>
+        </div>`;
+      }
+
+      el.innerHTML = [
+        card('Dataset', `<span style="font-size:1.4rem;font-weight:800;color:var(--accent)">${ps.length}</span> tracks rated<br>
+          <span style="color:var(--good)">${likedPct}%</span> liked · avg <span style="font-weight:700">${avgRating}</span>/10`),
+        card('Sweet Spot', `${topMoods.map(m => `<span style="display:inline-block;padding:2px 8px;border-radius:99px;background:rgba(80,200,120,0.15);color:var(--good);font-size:0.75rem;font-weight:700;margin:2px;">${m}</span>`).join('')}
+          <div style="margin-top:6px;font-size:0.75rem;color:var(--muted)">Moods on your 8+ tracks</div>`),
+        card('Avoid', `${worstMoods.map(m => `<span style="display:inline-block;padding:2px 8px;border-radius:99px;background:rgba(255,107,107,0.15);color:var(--bad);font-size:0.75rem;font-weight:700;margin:2px;">${m}</span>`).join('')}
+          <div style="margin-top:6px;font-size:0.75rem;color:var(--muted)">Moods on your ≤4 tracks</div>`),
+        card('Best Era', topEra ? `<span style="font-weight:700;color:var(--accent)">${topEra[0]}</span> <span style="color:var(--muted)">(avg ${(topEra[1].sum/topEra[1].n).toFixed(1)}, ${topEra[1].n} tracks)</span>` : '—'),
+        card('Top Artists', topArtists.map(a => `<div><span style="font-weight:600">${a[0]}</span> <span style="color:var(--muted);font-size:0.75rem;">avg ${(a[1].sum/a[1].n).toFixed(1)} (${a[1].n} tracks)</span></div>`).join('')),
+        card('Best Lead', topInst ? `<span style="font-weight:700;color:var(--accent)">${topInst[0]}</span> <span style="color:var(--muted)">(avg ${(topInst[1].sum/topInst[1].n).toFixed(1)}, ${topInst[1].n} tracks)</span>` : '—'),
+        card('Biggest Surprise', surprise ? `<span style="font-weight:600">${surprise.title}</span><br><span style="color:var(--muted);font-size:0.78rem">${surprise.artist}</span><br><span style="color:var(--good)">Predicted ${surprise.predicted}, got ${surprise.actual}</span>` : '—'),
+        card('Mood Polarity', highPolAvg && lowPolAvg ? `Positive tracks: avg <span style="color:var(--good);font-weight:700">${highPolAvg}</span><br>Negative tracks: avg <span style="color:var(--bad);font-weight:700">${lowPolAvg}</span>` : 'Not enough data'),
+      ].join('');
+    }
+
+    function renderInstrumentCombos(data) {
+      const ps = data.predictions;
+      if (!ps.length) return;
+
+      // Build combo keys from instrumentation-like fields
+      const combos = {};
+      ps.forEach(p => {
+        const parts = [];
+        if (p.primary_instrument) parts.push(p.primary_instrument);
+        if (p.has_vocals) parts.push('vocals');
+        if (p.has_guitar) parts.push('guitar');
+        if (p.is_pianoless === 0 && p.primary_instrument !== 'piano') parts.push('piano');
+        parts.sort();
+        const key = parts.join(' + ');
+        if (!combos[key]) combos[key] = {sum: 0, n: 0, liked: 0};
+        combos[key].sum += p.actual;
+        combos[key].n++;
+        if (p.liked) combos[key].liked++;
+      });
+
+      const filtered = Object.entries(combos)
+        .filter(([k,v]) => v.n >= 2)
+        .sort((a,b) => (b[1].sum/b[1].n) - (a[1].sum/a[1].n));
+
+      if (!filtered.length) { document.getElementById('instrument-combos-panel').hidden = true; return; }
+
+      const labels = filtered.map(e => `${e[0]} (${e[1].n})`);
+      const avgs = filtered.map(e => +(e[1].sum/e[1].n).toFixed(2));
+      const colors = filtered.map(e => e[1].liked/e[1].n > 0.5 ? '#50c878' : '#ff6b6b');
+
+      const ctx = document.getElementById('instrumentCombosChart').getContext('2d');
+      trackChart(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            data: avgs,
+            backgroundColor: colors,
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => `avg ${ctx.raw}/10` } }
+          },
+          scales: {
+            x: {
+              min: 0, max: 10,
+              title: { display: true, text: 'Average Rating', color: GR.label, font: { weight: 800 } },
+              grid: { color: GR.grid }, ticks: { color: GR.tick, stepSize: 1 }
+            },
+            y: { grid: { display: false }, ticks: { color: GR.tick, font: { size: 10 } } }
+          }
+        }
+      }));
+    }
 
     function renderMetrics(data) {
       document.getElementById('track-count').textContent = data?.meta?.total_tracks ?? '—';
