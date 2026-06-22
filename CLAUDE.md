@@ -83,6 +83,7 @@ When adding visualizations:
 ## Rules
 
 - **Don't edit training-data.md from this repo.** That's managed by the Obsidian-side agents.
+- **Update taste-profile.md and model-notes.md after every log session.** Whenever new tracks are logged to training-data.md, the taste profile (`~/Documents/remote/Music/Jazz Dataset/taste-profile.md`) and model notes (`~/Documents/remote/Music/Jazz Dataset/model-notes.md`) must also be updated with any new patterns, artist insights, or preference shifts. These files are what recommendation agents read — stale profiles lead to bad recommendations.
 - **Always commit `model.joblib` and `dashboard-data.json` together** after retraining — they're a matched pair.
 - **Push to `main` branch** on `justinfisherr/claude-metrics`.
 - **Test the dashboard locally** (`python3 -m http.server`) before pushing HTML changes.
