@@ -5,7 +5,7 @@ tags: [music, jazz, dataset, training-data]
 
 # Jazz Preferences — Training Data
 
-**Entities logged: 84** (81 tracks, 3 albums)
+**Entities logged: 85** (82 tracks, 3 albums)
 
 *Phase 1 — Data Collection active. Target: 50 tracks.*
 
@@ -4556,7 +4556,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": "Corny.",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
@@ -4617,7 +4617,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": "Really didn't like this one.",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4688,7 +4688,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": "Just beautiful.",
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4751,7 +4751,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": "Coltrane is the only thing interesting",
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4814,7 +4814,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4879,7 +4879,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": "When the whole band kicked in.. was amazing",
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -4956,7 +4956,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": true,
     "recommendation_version": "v5-gaps",
     "discovered_from": "claude-recommendation",
@@ -5018,7 +5018,7 @@ tags: [music, jazz, dataset, training-data]
     "notes": null,
     "favorite_moments": null,
     "listen_count": null,
-    "date_added": null,
+    "date_added": "2026-06-21",
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
@@ -5034,6 +5034,68 @@ tags: [music, jazz, dataset, training-data]
     },
     "replayability": 1,
     "playthrough": 0.65
+  },
+  {
+    "title": "Warm Valley",
+    "artist": "Duke Ellington",
+    "album": "Money Jungle",
+    "year": 1963,
+    "label": "United Artists",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "lovely",
+      "meditative",
+      "flat",
+      "sleepy",
+      "background",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano",
+      "Charles Mingus - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "same trio as Fleurette Africaine",
+      "didn't connect despite same format",
+      "didn't finish"
+    ],
+    "rating": 4.5,
+    "liked": false,
+    "notes": null,
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": null,
+    "recommended_by_model": true,
+    "recommendation_version": "v2.00",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 213,
+      "popularity": 20,
+      "tempo_bpm": 58,
+      "time_signature": 4,
+      "key": "Eb",
+      "mode": "major",
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 0.25
   }
 ]
 ```
