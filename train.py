@@ -2,7 +2,7 @@ import json
 import re
 import os
 import joblib
-from datetime import datetime
+from datetime import datetime, date
 from pathlib import Path
 
 import numpy as np
@@ -47,6 +47,15 @@ def load_data():
     text = TRAINING_DATA_PATH.read_text()
     match = re.search(r"```json\s*\n(.+?)\n```", text, re.DOTALL)
     all_entries = json.loads(match.group(1))
+    today = date.today().isoformat()
+    dirty = False
+    for entry in all_entries:
+        if not entry.get("date_added"):
+            entry["date_added"] = today
+            dirty = True
+    if dirty:
+        updated = text[:match.start(1)] + json.dumps(all_entries, indent=2, ensure_ascii=False) + text[match.end(1):]
+        TRAINING_DATA_PATH.write_text(updated)
     tracks = [t for t in all_entries if t.get("entity_type") != "album"]
     albums = [t for t in all_entries if t.get("entity_type") == "album"]
     return tracks, albums
