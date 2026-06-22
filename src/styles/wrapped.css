@@ -189,7 +189,6 @@
   --cover-size: 280px;
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 
 .coverflow {
@@ -197,7 +196,7 @@
   gap: 0;
   list-style: none;
   margin: 0;
-  padding: 60px calc(50vw - var(--cover-size) / 2) 120px;
+  padding: 80px calc(50vw - var(--cover-size) / 2) 120px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -373,7 +372,7 @@
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .coverflow-container { --cover-size: 200px; }
-  .coverflow { padding-top: 35px; padding-bottom: 90px; }
+  .coverflow { padding-top: 60px; padding-bottom: 90px; }
 
   .wrapped-header { padding: 1.5rem var(--page-pad) 0.5rem; }
   .wrapped-title { font-size: clamp(1.4rem, 5vw, 2rem); }
@@ -399,7 +398,7 @@
 
 @media (max-width: 480px) {
   .coverflow-container { --cover-size: 150px; }
-  .coverflow { padding-top: 20px; padding-bottom: 70px; }
+  .coverflow { padding-top: 50px; padding-bottom: 70px; }
 
   .wrapped-header { padding: 1rem var(--page-pad) 0.3rem; }
   .wrapped-title { font-size: 1.3rem; }
