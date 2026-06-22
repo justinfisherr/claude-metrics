@@ -97,36 +97,59 @@ def engineer_features(tracks):
 
     has_audio = sum(1 for t in tracks if t.get("audio_features")) >= 3
 
+    # Pre-compute artist stats and collaborator ratings for LOO encoding
+    artist_ratings = {}
+    for i, t in enumerate(tracks):
+        artist_ratings.setdefault(t.get("artist", "Unknown"), []).append((i, t["rating"]))
+
+    player_ratings = {}
+    for t in tracks:
+        for kp in t.get("key_players", []):
+            name = kp.split(" - ")[0].strip().lower()
+            player_ratings.setdefault(name, []).append(t["rating"])
+
     for idx, t in enumerate(tracks):
         row = {}
         row["energy"] = t.get("energy", 5)
         row["year"] = t.get("year") or 1960
         row["tempo"] = TEMPO_MAP.get(t.get("tempo", "medium"), 2.5)
         row["harmonic_complexity"] = COMPLEXITY_MAP.get(t.get("harmonic_complexity", "medium"), 2)
-        row["replayability"] = t.get("replayability", 5)
-        row["playthrough"] = t.get("playthrough", 0.75)
 
+        # Era one-hot
         track_era = t.get("era", "Unknown")
         for era in eras:
             row[f"era_{era}"] = 1 if track_era == era else 0
 
+        # Decade bucket one-hot
+        yr = t.get("year") or 1960
+        decade = f"{(yr // 10) * 10}s"
+        for d in ["1940s", "1950s", "1960s", "1970s"]:
+            row[f"decade_{d}"] = 1 if decade == d else 0
+
+        # Instrument
         instrument = t.get("primary_instrument", "other")
         group = INSTRUMENT_GROUPS.get(instrument, "other")
         for g in INST_GROUP_VALUES:
             row[f"inst_{g}"] = 1 if group == g else 0
 
+        # Moods
         track_moods = t.get("moods", [])
         for m in common_moods:
             row[f"mood_{m}"] = 1 if m in track_moods else 0
 
+        # Subgenres
         track_subgenres = t.get("subgenres", [])
         for s in common_subgenres:
             row[f"subgenre_{s}"] = 1 if s in track_subgenres else 0
 
         row["mood_count"] = len(track_moods)
         row["mood_polarity"] = sum(1 for m in track_moods if m in POSITIVE_MOODS) - sum(1 for m in track_moods if m in NEGATIVE_MOODS)
+        pos_count = sum(1 for m in track_moods if m in POSITIVE_MOODS)
+        row["mood_density_ratio"] = pos_count / max(len(track_moods), 1)
+        row["has_negative_mood"] = int(any(m in NEGATIVE_MOODS for m in track_moods))
         row["subgenre_count"] = len(track_subgenres)
 
+        # Ensemble / instrumentation
         instr_lower = [i.lower() for i in t.get("instrumentation", [])]
         instr_joined = " ".join(instr_lower)
         row["ensemble_size"] = len(instr_lower)
@@ -136,34 +159,48 @@ def engineer_features(tracks):
         row["is_pianoless"] = int("piano" not in instr_joined)
         row["has_trombone"] = int("trombone" in instr_joined)
 
+        # Label
         track_label = t.get("label")
         for l in common_labels:
             row[f"label_{l}"] = 1 if track_label == l else 0
 
+        # Key players
         row["key_player_count"] = len(t.get("key_players", []))
         artist_name = t.get("artist", "").lower().split("&")[0].strip()
         row["artist_is_leader"] = int(any(artist_name in kp.lower() for kp in t.get("key_players", [])))
 
+        # Collaborator quality — avg rating of tracks featuring each key player (LOO)
+        collab_ratings = []
+        for kp in t.get("key_players", []):
+            name = kp.split(" - ")[0].strip().lower()
+            pr = player_ratings.get(name, [])
+            if len(pr) > 1:
+                collab_ratings.extend([r for r in pr if r != t["rating"] or len(pr) > pr.count(t["rating"])])
+        row["collaborator_quality"] = np.mean(collab_ratings) if collab_ratings else global_mean
+
+        # Discovery source
         source = t.get("discovered_from", "self")
         for s in DISCOVERY_SOURCES:
             row[f"source_{s}"] = 1 if source == s else 0
 
-        row["has_favorite_moments"] = 1 if t.get("favorite_moments") else 0
-        fav = (t.get("favorite_moments") or "").lower()
-        notes = (t.get("notes") or "").lower()
-        notable = " ".join(t.get("notable_qualities", [])).lower()
-        row["intro_grabbed"] = int("intro" in fav or "intro" in notes or "intro" in notable or "right away" in notes or "right away" in notable)
-        row["early_bail"] = int(row["playthrough"] < 0.3)
         row["energy_tempo"] = row["energy"] * row["tempo"]
 
+        # Artist stats (LOO)
         artist = t.get("artist", "Unknown")
-        artist_indices = artist_track_indices[artist]
-        if len(artist_indices) > 1:
-            other_ratings = [tracks[j]["rating"] for j in artist_indices if j != idx]
+        artist_entries = artist_ratings[artist]
+        if len(artist_entries) > 1:
+            other_ratings = [r for i, r in artist_entries if i != idx]
             row["artist_mean_rating"] = np.mean(other_ratings)
+            row["artist_consistency"] = float(np.std(other_ratings)) if len(other_ratings) > 1 else 0.0
         else:
             row["artist_mean_rating"] = global_mean
-        row["artist_track_count"] = len(artist_indices)
+            row["artist_consistency"] = 0.0
+        row["artist_track_count"] = len(artist_entries)
+
+        # Duration bucket
+        duration = (t.get("audio_features") or {}).get("duration_s", 300)
+        row["duration_short"] = int(duration < 240)
+        row["duration_long"] = int(duration > 420)
 
         if has_audio:
             audio = t.get("audio_features") or {}
@@ -471,7 +508,10 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "has_vocals": int("vocal" in " ".join(t.get("instrumentation") or []).lower()),
             "has_guitar": int("guitar" in " ".join(t.get("instrumentation") or []).lower()),
             "mood_polarity": sum(1 for m in t.get("moods", []) if m in POSITIVE_MOODS) - sum(1 for m in t.get("moods", []) if m in NEGATIVE_MOODS),
+            "mood_density_ratio": round(sum(1 for m in t.get("moods", []) if m in POSITIVE_MOODS) / max(len(t.get("moods", [])), 1), 2),
+            "has_negative_mood": int(any(m in NEGATIVE_MOODS for m in t.get("moods", []))),
             "artist_is_leader": int(any(t.get("artist", "").lower().split("&")[0].strip() in kp.lower() for kp in t.get("key_players", []))),
+            "liked": t.get("liked"),
             "intro_grabbed": int(any(kw in (t.get("favorite_moments") or "").lower() + " " + (t.get("notes") or "").lower() + " " + " ".join(t.get("notable_qualities", [])).lower() for kw in ["intro", "right away"])),
             "early_bail": int((t.get("playthrough") or 0.75) < 0.3),
         })
@@ -520,7 +560,7 @@ def next_version(manifest, is_major=False):
     return f"{major}.{minor + 1:02d}"
 
 
-def save_version_artifacts(version_str, manifest, metrics_summary, is_major, name="", notes=""):
+def save_version_artifacts(version_str, manifest, metrics_summary, is_major, name="", notes="", changelog=None):
     artifacts = {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib",
@@ -553,6 +593,7 @@ def save_version_artifacts(version_str, manifest, metrics_summary, is_major, nam
         "feature_count": metrics_summary["feature_count"],
         "best_k": metrics_summary["best_k"],
         "notes": notes,
+        "changelog": changelog or [],
         "is_major": is_major,
         "training_data_snapshot": is_major,
         "artifacts": artifacts,
@@ -784,6 +825,8 @@ def main():
                         help="Codename for this version (e.g. Charmander)")
     parser.add_argument("--notes", type=str, default="",
                         help="Version notes (why this release)")
+    parser.add_argument("--changelog", type=str, nargs="*", default=None,
+                        help="List of changes for this version")
     args = parser.parse_args()
 
     print("Loading data...")
@@ -910,7 +953,8 @@ def main():
         "best_k": cluster_results["best_k"],
     }
     save_version_artifacts(new_version, manifest, metrics_summary,
-                           is_major=args.major, name=args.name, notes=args.notes)
+                           is_major=args.major, name=args.name, notes=args.notes,
+                           changelog=args.changelog)
     label = f"{new_version} ({args.name})" if args.name else new_version
     print(f"\nVersion {label} saved")
     if args.major:

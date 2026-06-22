@@ -66,12 +66,17 @@ def track_to_features(track, model_data):
     row["year"] = track.get("year") or 1960
     row["tempo"] = TEMPO_MAP.get(track.get("tempo", "medium"), 2.5)
     row["harmonic_complexity"] = COMPLEXITY_MAP.get(track.get("harmonic_complexity", "medium"), 2)
-    row["replayability"] = track.get("replayability", 5)
-    row["playthrough"] = track.get("playthrough", 0.75)
 
+    # Era one-hot
     track_era = track.get("era", "Unknown")
     for era in eras:
         row[f"era_{era}"] = 1 if track_era == era else 0
+
+    # Decade bucket
+    yr = track.get("year") or 1960
+    decade = f"{(yr // 10) * 10}s"
+    for d in ["1940s", "1950s", "1960s", "1970s"]:
+        row[f"decade_{d}"] = 1 if decade == d else 0
 
     instrument = track.get("primary_instrument", "other")
     group = INSTRUMENT_GROUPS.get(instrument, "other")
@@ -88,6 +93,9 @@ def track_to_features(track, model_data):
 
     row["mood_count"] = len(track_moods)
     row["mood_polarity"] = sum(1 for m in track_moods if m in POSITIVE_MOODS) - sum(1 for m in track_moods if m in NEGATIVE_MOODS)
+    pos_count = sum(1 for m in track_moods if m in POSITIVE_MOODS)
+    row["mood_density_ratio"] = pos_count / max(len(track_moods), 1)
+    row["has_negative_mood"] = int(any(m in NEGATIVE_MOODS for m in track_moods))
     row["subgenre_count"] = len(track_subgenres)
 
     instr_lower = [i.lower() for i in track.get("instrumentation", [])]
@@ -107,21 +115,23 @@ def track_to_features(track, model_data):
     artist_name = track.get("artist", "").lower().split("&")[0].strip()
     row["artist_is_leader"] = int(any(artist_name in kp.lower() for kp in track.get("key_players", [])))
 
+    # Collaborator quality
+    row["collaborator_quality"] = track.get("collaborator_quality", 6.6)
+
     source = track.get("discovered_from", "claude-recommendation")
     for s in DISCOVERY_SOURCES:
         row[f"source_{s}"] = 1 if source == s else 0
 
-    row["has_favorite_moments"] = 1 if track.get("favorite_moments") else 0
-    fav = (track.get("favorite_moments") or "").lower()
-    notes = (track.get("notes") or "").lower()
-    notable = " ".join(track.get("notable_qualities", [])).lower()
-    row["intro_grabbed"] = int("intro" in fav or "intro" in notes or "intro" in notable or "right away" in notes or "right away" in notable)
-    playthrough = track.get("playthrough", 0.75)
-    row["early_bail"] = int(playthrough < 0.3)
     row["energy_tempo"] = row["energy"] * row["tempo"]
 
     row["artist_mean_rating"] = track.get("artist_mean_rating", 6.6)
+    row["artist_consistency"] = track.get("artist_consistency", 0.0)
     row["artist_track_count"] = track.get("artist_track_count", 1)
+
+    # Duration bucket
+    duration = (track.get("audio_features") or {}).get("duration_s", 300)
+    row["duration_short"] = int(duration < 240)
+    row["duration_long"] = int(duration > 420)
 
     audio = track.get("audio_features") or {}
     has_audio = "duration_s" in audio

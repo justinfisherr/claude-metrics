@@ -1,5 +1,5 @@
 {
-  "current_version": "2.05",
+  "current_version": "3.00",
   "versions": [
     {
       "version": "1.00",
@@ -168,6 +168,33 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "3.00",
+      "name": "Squirtle",
+      "major": 3,
+      "minor": 0,
+      "run_date": "2026-06-22T11:58:29.040121",
+      "dataset_size": 89,
+      "best_model": "random_forest",
+      "r_squared": 0.4814,
+      "rmse": 1.7078,
+      "mae": 1.3667,
+      "feature_count": 117,
+      "best_k": 2,
+      "notes": "Removed post-listen features, added pre-listen features",
+      "changelog": [
+        "Removed replayability, playthrough, early_bail, liked, has_favorite_moments, intro_grabbed from model",
+        "Added mood_density_ratio, has_negative_mood, artist_consistency, collaborator_quality, decade_bucket, duration_bucket",
+        "Model now only uses features the suggestor can know before you listen"
+      ],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v3.00/dashboard-data.json",
+        "model": "versions/v3.00/model.joblib",
+        "training_data": "versions/v3.00/training-data.md"
       }
     }
   ]
