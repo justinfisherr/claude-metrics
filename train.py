@@ -740,6 +740,9 @@ PLAYLISTS = [
         "God Bless the Child|Sonny Rollins",
         "Chelsea Bridge|Ben Webster",
     ]},
+    {"name": "Jazz Fusion", "id": "5Th4awT3otDMQTwKwJDTRf", "tracks": [
+        "Chameleon|Herbie Hancock",
+    ]},
 ]
 
 

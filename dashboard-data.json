@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-22T12:22:37.804630",
-    "version": "3.01",
+    "generated_at": "2026-06-22T12:27:41.393324",
+    "version": "3.02",
     "is_major": false,
     "total_tracks": 89,
     "total_albums": 3,
@@ -5102,6 +5102,16 @@
       "mae": 1.3478,
       "best_k": 2,
       "silhouette_score": 0.0652
+    },
+    {
+      "run_date": "2026-06-22",
+      "dataset_size": 89,
+      "best_model": "random_forest",
+      "r_squared": 0.4919,
+      "rmse": 1.6905,
+      "mae": 1.3478,
+      "best_k": 2,
+      "silhouette_score": 0.0652
     }
   ],
   "playlists": [
@@ -6877,6 +6887,25 @@
           "era": "Swing",
           "energy": 2,
           "replayability": 3
+        }
+      ]
+    },
+    {
+      "name": "Jazz Fusion",
+      "id": "5Th4awT3otDMQTwKwJDTRf",
+      "track_count": 1,
+      "matched_count": 0,
+      "avg_actual": null,
+      "avg_predicted": null,
+      "avg_energy": null,
+      "avg_replayability": null,
+      "top_moods": [],
+      "top_eras": [],
+      "tracks": [
+        {
+          "title": "Chameleon",
+          "artist": "Herbie Hancock",
+          "matched": false
         }
       ]
     }
