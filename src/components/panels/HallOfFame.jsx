@@ -13,6 +13,23 @@ export default function HallOfFame({ data }) {
   return (
     <Panel id="hof-panel" span={12}>
       <PanelHeader title="Hall of Fame" note="Your 9s and 10s — the tracks that define your taste" />
+      {(() => {
+        if (!top.length) return null;
+        const moodCounts = {};
+        top.forEach(t => (t.moods || []).forEach(m => { moodCounts[m] = (moodCounts[m] || 0) + 1; }));
+        const commonMoods = Object.entries(moodCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 3)
+          .map(e => e[0]);
+        const eraCounts = {};
+        top.forEach(t => { if (t.era) eraCounts[t.era] = (eraCounts[t.era] || 0) + 1; });
+        const topEra = Object.entries(eraCounts).sort((a, b) => b[1] - a[1])[0];
+        return (
+          <p className="panel-insight">
+            Your {top.length} favorites share: {commonMoods.length ? commonMoods.join(', ') : 'varied moods'}.{topEra ? ` Most come from the ${topEra[0]} era.` : ''}
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Your top 20 tracks rated <strong>9 or 10 out of 10</strong>, displayed as cards sorted by score. These are your taste anchors — the tracks the recommendation model uses as its north star. Moods shown are the tags logged at rating time. Era and year give a sense of where in jazz history your absolute favorites live.
       </p>

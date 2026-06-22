@@ -79,6 +79,21 @@ export default function RatingDistribution({ data }) {
   return (
     <Panel id="distribution-panel" span={6}>
       <PanelHeader title="Rating Distribution" note="Ratings split by cluster" />
+      {(() => {
+        const allRatings = byCluster.flatMap(c => c.ratings || []);
+        if (!allRatings.length) return null;
+        const freq = {};
+        allRatings.forEach(r => { freq[r] = (freq[r] || 0) + 1; });
+        const mode = Object.entries(freq).sort((a, b) => b[1] - a[1])[0][0];
+        const above7 = allRatings.filter(r => r >= 7).length;
+        const pct = Math.round(above7 / allRatings.length * 100);
+        const interp = pct >= 60 ? 'you\'re a generous rater' : pct >= 40 ? 'you\'re balanced' : 'you\'re selective';
+        return (
+          <p className="panel-insight">
+            Your most common rating is {mode}. You rate {pct}% of tracks 7 or above — {interp}.
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         A stacked bar chart showing how many tracks you rated at each score level (2&ndash;10). <strong>Color</strong> = cluster. Reading the full bar height tells you how many tracks earned each score total; reading each color segment tells you which cluster those tracks belong to. Reveals whether you rate generously or strictly overall, and whether certain clusters consistently land at higher or lower scores than others.
       </p>

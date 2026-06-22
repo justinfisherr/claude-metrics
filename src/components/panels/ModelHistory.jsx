@@ -75,6 +75,19 @@ export default function ModelHistory({ data }) {
   return (
     <Panel id="history-panel" span={12}>
       <PanelHeader title="Model Over Time" note="Performance as the dataset grows" />
+      {(() => {
+        const h = data.history;
+        const peak = h.reduce((best, cur) => cur.r_squared > best.r_squared ? cur : best, h[0]);
+        const latest = h[h.length - 1];
+        const trend = latest.r_squared >= peak.r_squared ? 'still climbing'
+          : latest.r_squared >= peak.r_squared - 0.05 ? 'holding steady'
+          : 'dipped since its peak';
+        return (
+          <p className="panel-insight">
+            The model has been retrained {h.length} times. R² peaked at {peak.r_squared} with {peak.dataset_size} tracks — {trend}.
+          </p>
+        );
+      })()}
       <div className="chart-shell compact">
         <Line data={chartData} options={chartOptions} />
       </div>

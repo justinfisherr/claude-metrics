@@ -77,9 +77,29 @@ export default function HarmonicComplexity({ data }) {
     },
   };
 
+  const hcInsight = (() => {
+    // Find the level with the highest average
+    const validLevels = LEVELS.map((l, i) => ({ level: LABELS[i], avg: avgs[i], count: counts[i] }))
+      .filter(l => l.avg !== null && l.count >= 2);
+    if (!validLevels.length) return null;
+    validLevels.sort((a, b) => b.avg - a.avg);
+    const best = validLevels[0];
+    return best;
+  })();
+
   return (
     <Panel id="harmonic-panel" span={6}>
       <PanelHeader title="Harmonic Complexity" note="Average rating by low / medium / high complexity" />
+      {hcInsight && (
+        <p className="panel-insight">
+          {hcInsight.level} harmonic complexity averages {hcInsight.avg}/10.{' '}
+          {hcInsight.level === 'High'
+            ? 'You reward dense chord changes and sophisticated voicings — the more harmonic information, the better.'
+            : hcInsight.level === 'Low'
+            ? 'Simpler harmony wins your ear — you prefer space and clarity over dense chord movement.'
+            : 'You land in the middle ground — enough harmonic motion to stay interesting without overcomplicating the listen.'}
+        </p>
+      )}
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>

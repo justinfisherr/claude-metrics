@@ -93,6 +93,14 @@ export default function PredVsActual({ data }) {
   return (
     <Panel id="pred-actual-panel" span={6}>
       <PanelHeader title="Predicted vs Actual Rating" note="How close the model got" />
+      {(() => {
+        const bigMisses = predictions.filter(p => Math.abs(p.actual - p.predicted) > 2).length;
+        return (
+          <p className="panel-insight">
+            Points on the diagonal are tracks the model nailed. {bigMisses} track{bigMisses !== 1 ? 's are' : ' is'} more than 2 points off — {bigMisses > 0 ? 'those are where your taste surprises the model' : 'the model has a solid read on your taste'}.
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = your actual rating (1&ndash;10). <strong>Y axis</strong> = the model's LOOCV prediction. Dots on the <strong>dashed diagonal</strong> are perfect predictions. Dots <em>above</em> the line = model over-predicted; <em>below</em> = under-predicted. <strong>Green</strong> = tracks you marked "liked", <strong>red</strong> = not liked. Large horizontal gaps are your model's biggest misses — useful data points to investigate. Hover any dot for the track name.
       </p>

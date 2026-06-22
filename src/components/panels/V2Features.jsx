@@ -85,6 +85,24 @@ export default function V2Features({ data }) {
   return (
     <Panel id="v2features-panel" span={6}>
       <PanelHeader title="v2 Feature Breakdown" note="Artist role, intro grab, early bail" />
+      {(() => {
+        const ps2 = data?.predictions || [];
+        const intro = ps2.filter(p => p.intro_grabbed);
+        const noIntro = ps2.filter(p => !p.intro_grabbed);
+        const bail = ps2.filter(p => p.early_bail);
+        const introAvg = intro.length ? (intro.reduce((s, p) => s + p.actual, 0) / intro.length).toFixed(1) : null;
+        const noIntroAvg = noIntro.length ? (noIntro.reduce((s, p) => s + p.actual, 0) / noIntro.length).toFixed(1) : null;
+        const bailAvg = bail.length ? (bail.reduce((s, p) => s + p.actual, 0) / bail.length).toFixed(1) : null;
+        if (!introAvg || !noIntroAvg) return null;
+        const introObs = parseFloat(introAvg) - parseFloat(noIntroAvg) > 1
+          ? 'First impressions matter for you.'
+          : 'Slow burners hold their own in your ratings.';
+        return (
+          <p className="panel-insight">
+            Tracks that grabbed you from the intro average {introAvg} vs {noIntroAvg} for slow burners. {introObs}{bailAvg ? ` Early bails average ${bailAvg} — when you leave before 30%, you mean it.` : ''}
+          </p>
+        );
+      })()}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
         <StatCard title="Artist Role" rows={stats.artistRole} />
         <StatCard title="Intro Grab" rows={stats.introGrab} />

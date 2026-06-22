@@ -87,6 +87,17 @@ export default function TopArtists({ data }) {
   return (
     <Panel id="top-artists-panel" span={6}>
       <PanelHeader title="Top Artists" note="Average rating per artist (2+ tracks)" />
+      {sorted.length > 0 && (() => {
+        const top = sorted[0];
+        const obs = top.count >= 5
+          ? `Across ${top.count} tracks, that consistency is remarkable.`
+          : `With ${top.count} tracks logged, there's room to explore more of their catalog.`;
+        return (
+          <p className="panel-insight">
+            Your top-rated artist is {top.artist} (avg {top.avg.toFixed(1)} across {top.count} tracks). {obs}
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Artists with at least <strong>2 rated tracks</strong>, sorted by average score. Bar width = average rating; number on the right = track count. Shows who you consistently love vs. who you return to hoping it clicks. An artist with a high average and many tracks is a proven anchor; an artist with a high average but only 2–3 tracks is worth exploring more.
       </p>

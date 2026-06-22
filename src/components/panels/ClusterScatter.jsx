@@ -98,6 +98,14 @@ export default function ClusterScatter({ data }) {
   return (
     <Panel id="clusters-panel" span={6}>
       <PanelHeader title="Taste Clusters" note="Tracks grouped by similarity" />
+      {(() => {
+        const descs = profiles.map(p => p.top_moods?.slice(0, 2).join('/') || 'mixed').join(', ');
+        return (
+          <p className="panel-insight">
+            Your taste splits into {clusterCount} distinct zones: {descs}. Tracks near the center of the map share qualities of multiple clusters.
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Your tracks are grouped using <strong>K-Means clustering</strong> on PCA-reduced features. <strong>PCA</strong> (Principal Component Analysis) compresses all musical features into two dimensions — tracks close together share similar audio and mood profiles. <strong>Dot size</strong> scales with your rating: bigger = higher score. <strong>Color</strong> = cluster membership. The cluster labels shown in the legend and summary cards are the most common moods in that group. Hover any dot for the track title, artist, and rating.
       </p>

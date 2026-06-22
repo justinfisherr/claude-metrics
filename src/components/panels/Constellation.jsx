@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useMemo } from 'react';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 
@@ -160,11 +160,43 @@ export default function Constellation({ data }) {
     };
   }, []);
 
+  const constellationInsight = useMemo(() => {
+    const predictions = data?.predictions || [];
+    if (!predictions.length) return null;
+    const groups = {};
+    predictions.forEach(p => {
+      groups[p.artist] = groups[p.artist] || [];
+      groups[p.artist].push(p);
+    });
+    const multiArtists = Object.entries(groups)
+      .filter(([, tracks]) => tracks.length >= 2)
+      .map(([name, tracks]) => {
+        const ratings = tracks.map(t => t.actual);
+        const range = Math.max(...ratings) - Math.min(...ratings);
+        const xs = tracks.map(t => t.pca_x);
+        const ys = tracks.map(t => t.pca_y);
+        const spread = Math.max(...xs) - Math.min(...xs) + Math.max(...ys) - Math.min(...ys);
+        return { name, range, spread, count: tracks.length };
+      });
+    if (!multiArtists.length) return null;
+    const tightCount = multiArtists.filter(a => a.range <= 2).length;
+    const spreadCount = multiArtists.filter(a => a.range > 4).length;
+    if (tightCount > spreadCount) {
+      return 'Connected dots show tracks by the same artist. Tight clusters dominate — when you like an artist, you tend to like them consistently.';
+    } else if (spreadCount > tightCount) {
+      return 'Connected dots show tracks by the same artist. Wide spread across the map — even within a single artist, your reactions vary track to track.';
+    }
+    return 'Connected dots show tracks by the same artist. A mix of tight clusters and wide scatter — some artists are reliable, others are a gamble.';
+  }, [data]);
+
   if (!data) return null;
 
   return (
     <Panel id="constellation-panel" span={12}>
       <PanelHeader title="Taste Constellation" note="Your jazz universe — brighter stars = higher ratings, lines connect same artist" />
+      {constellationInsight && (
+        <p className="panel-insight">{constellationInsight}</p>
+      )}
       <p className="panel-desc">
         A PCA scatter rendered as a starfield. <strong>Position</strong> = the same PCA X/Y coordinates used in Taste Clusters — tracks close together sound alike to the model. <strong>Star size and brightness</strong> scale with your rating: your 10/10s are the biggest, brightest stars. <strong>Color</strong> = cluster membership. <strong>Lines</strong> connect tracks by the same artist, so you can see where an artist's catalog scatters across sonic space. Artist name labels appear for artists with 3+ tracks. <strong>Hover</strong> any star to see the track title, artist, and rating.
       </p>

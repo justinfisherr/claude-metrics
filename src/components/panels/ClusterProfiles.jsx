@@ -91,6 +91,19 @@ export default function ClusterProfiles({ data }) {
   return (
     <Panel id="radar-panel" span={6}>
       <PanelHeader title="Cluster Profiles" note="Feature fingerprints for each cluster" />
+      {(() => {
+        const sorted = [...profiles].sort((a, b) => (b.mean_rating || 0) - (a.mean_rating || 0));
+        const best = sorted[0];
+        const worst = sorted[sorted.length - 1];
+        if (!best || !worst || sorted.length < 2) return null;
+        const bestMoods = best.top_moods?.slice(0, 2).join(' and ') || 'mixed';
+        const worstMoods = worst.top_moods?.slice(0, 2).join(' and ') || 'mixed';
+        return (
+          <p className="panel-insight">
+            Your strongest zone averages {best.mean_rating}/10, defined by {bestMoods} tracks. Your weakest zone averages {worst.mean_rating}/10 — those tend to be {worstMoods}.
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         A radar chart overlaying each cluster's average feature values. <strong>Axes</strong>: <code>Energy</code> (0&ndash;1, normalized from the 1&ndash;10 scale), <code>Complexity</code> (low/med/high &rarr; 0&ndash;1), <code>Tempo</code> (slow&ndash;fast &rarr; 0&ndash;1), then seven <strong>mood frequencies</strong> — the fraction of tracks in that cluster carrying each mood tag (romantic, tender, joyful, bluesy, cool, melancholic, sensual). Clusters that peak on different axes have meaningfully distinct sonic characters. A cluster with a wide romantic + tender footprint but low energy maps directly to your known ballad preference.
       </p>

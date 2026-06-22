@@ -130,6 +130,13 @@ export default function TasteSummary({ data }) {
   return (
     <Panel id="taste-summary-panel" span={12}>
       <PanelHeader title="Your Taste at a Glance" note="Auto-generated from your ratings" />
+      <p className="panel-insight">
+        Across {ps.length} tracks, you gravitate toward {topMoods.length >= 2
+          ? `${topMoods[0]} and ${topMoods[1]}`
+          : topMoods[0] || 'varied'} sounds{topEra
+          ? `, with ${topEra[0]} as your sweet spot era`
+          : ''}.
+      </p>
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',

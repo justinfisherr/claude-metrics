@@ -172,9 +172,47 @@ export default function CircleOfFifths({ data }) {
 
   if (!data) return null;
 
+  const cofInsight = (() => {
+    const predictions = data?.predictions || [];
+    const keyed = predictions.filter(p => p.key);
+    if (keyed.length < 5) return null;
+    // Group by key root and compute averages
+    const keyGroups = {};
+    keyed.forEach(p => {
+      const root = p.key.replace(/m$/, '');
+      const norm = SHARP_MAP[root] || root;
+      if (!keyGroups[norm]) keyGroups[norm] = [];
+      keyGroups[norm].push(p.actual);
+    });
+    const keyAvgs = Object.entries(keyGroups)
+      .filter(([, vals]) => vals.length >= 2)
+      .map(([key, vals]) => ({
+        key,
+        avg: vals.reduce((s, v) => s + v, 0) / vals.length,
+        count: vals.length,
+      }))
+      .sort((a, b) => b.avg - a.avg);
+    if (!keyAvgs.length) return null;
+    const topKeys = keyAvgs.slice(0, 3).map(k => k.key).join(', ');
+    // Count minor-keyed tracks
+    const minorCount = keyed.filter(p => p.key.endsWith('m') || p.mode === 'minor' || p.mode === 'dorian').length;
+    const minorPct = Math.round((minorCount / keyed.length) * 100);
+    return { topKeys, minorPct };
+  })();
+
   return (
     <Panel id="cof-panel" span={6}>
       <PanelHeader title="Circle of Fifths" note="Track keys mapped to the circle — closer to center = higher rating" />
+      {cofInsight && (
+        <p className="panel-insight">
+          Your highest-rated keys are {cofInsight.topKeys}.{' '}
+          {cofInsight.minorPct >= 60
+            ? 'You lean heavily toward minor and modal tonalities — the darker, more introspective side of the harmony spectrum.'
+            : cofInsight.minorPct >= 40
+            ? 'You balance major and minor keys well, drawn to both bright swing and brooding modal exploration.'
+            : 'Major keys dominate your favorites — you gravitate toward brighter, more resolved harmonic territory.'}
+        </p>
+      )}
       <p className="panel-desc">
         Each track is plotted on the <strong>circle of fifths</strong> by its <code>key</code> field. <strong>Angular position</strong> = root key (C, G, D, A, E, B, Gb, Db, Ab, Eb, Bb, F going clockwise). <strong>Distance from center</strong> = your rating, inverted: tracks closer to the center scored higher. <strong>Color</strong> = musical mode: yellow = Dorian, purple = blues, red = minor, green = major, orange = pentatonic.
       </p>

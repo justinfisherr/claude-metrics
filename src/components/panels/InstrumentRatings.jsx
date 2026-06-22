@@ -79,6 +79,19 @@ export default function InstrumentRatings({ data }) {
   return (
     <Panel id="instrument-panel" span={6}>
       <PanelHeader title="Rating by Instrument" note="Average score per primary instrument" />
+      {sorted.length >= 2 && (() => {
+        const top = sorted[0];
+        const bottom = sorted[sorted.length - 1];
+        const gap = top.avg - bottom.avg;
+        const interp = gap > 2
+          ? `${bottom.inst}-led tracks haven't clicked the same way`
+          : 'your taste is fairly even across lead instruments';
+        return (
+          <p className="panel-insight">
+            Tracks led by {top.inst} average {top.avg.toFixed(1)} — your favorite voice in jazz. {bottom.inst} averages {bottom.avg.toFixed(1)}, suggesting {interp}.
+          </p>
+        );
+      })()}
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>

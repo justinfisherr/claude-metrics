@@ -85,9 +85,36 @@ export default function Replayability({ data }) {
     },
   };
 
+  const highReplay = pts.filter(p => p.replayability >= 8);
+  const highReplayAvg = highReplay.length
+    ? (highReplay.reduce((s, p) => s + p.actual, 0) / highReplay.length).toFixed(1)
+    : null;
+  const correlation = pts.length >= 5
+    ? (() => {
+        const n = pts.length;
+        const sx = pts.reduce((s, p) => s + p.replayability, 0);
+        const sy = pts.reduce((s, p) => s + p.actual, 0);
+        const sxy = pts.reduce((s, p) => s + p.replayability * p.actual, 0);
+        const sx2 = pts.reduce((s, p) => s + p.replayability ** 2, 0);
+        const sy2 = pts.reduce((s, p) => s + p.actual ** 2, 0);
+        const denom = Math.sqrt((n * sx2 - sx ** 2) * (n * sy2 - sy ** 2));
+        return denom ? (n * sxy - sx * sy) / denom : 0;
+      })()
+    : null;
+
   return (
     <Panel id="replayability-panel" span={6}>
       <PanelHeader title="Replayability vs Rating" note="Average rating grouped by how often you'd replay a track" />
+      {highReplayAvg && (
+        <p className="panel-insight">
+          Tracks with replayability 8+ average {highReplayAvg} in your ratings.{' '}
+          {correlation !== null && correlation > 0.7
+            ? 'Replayability is the strongest predictor of your ratings — when you want to hear it again, you almost always rated it highly.'
+            : correlation !== null && correlation > 0.4
+            ? 'There\'s a solid link between replay value and your ratings, though some one-listen masterpieces break the pattern.'
+            : 'Interestingly, replay value and ratings don\'t always line up — you appreciate tracks you wouldn\'t necessarily revisit.'}
+        </p>
+      )}
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = replayability (1–10). <strong>Y axis</strong> = your rating. Tracks on the diagonal line are perfectly aligned — you rate them as much as you'd replay them. <strong>Above the line</strong> = one-listen masterpieces (rated high, wouldn't replay). <strong>Below the line</strong> = guilty pleasures (replay more than the rating suggests). Hover any dot for the title.
       </p>

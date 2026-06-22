@@ -62,9 +62,44 @@ export default function YearRating({ data }) {
     },
   };
 
+  const yearInsight = (() => {
+    if (predictions.length < 5) return null;
+    // Group by decade
+    const decades = {};
+    predictions.forEach(p => {
+      const dec = Math.floor(p.year / 10) * 10;
+      if (!decades[dec]) decades[dec] = [];
+      decades[dec].push(p.actual);
+    });
+    const decAvgs = Object.entries(decades)
+      .filter(([, vals]) => vals.length >= 2)
+      .map(([dec, vals]) => ({
+        decade: dec + 's',
+        avg: (vals.reduce((s, v) => s + v, 0) / vals.length).toFixed(1),
+        count: vals.length,
+      }))
+      .sort((a, b) => parseFloat(b.avg) - parseFloat(a.avg));
+    if (!decAvgs.length) return null;
+    const peak = decAvgs[0];
+    // Find sweet spot range (decades averaging 7+)
+    const sweetSpot = decAvgs.filter(d => parseFloat(d.avg) >= 7).map(d => d.decade);
+    const range = sweetSpot.length > 1
+      ? `${sweetSpot[sweetSpot.length - 1]}–${sweetSpot[0]}`
+      : sweetSpot.length === 1 ? sweetSpot[0] : peak.decade;
+    return { range, peak };
+  })();
+
   return (
     <Panel id="year-rating-panel" span={6}>
       <PanelHeader title="Year vs Rating" note="Where in jazz history your taste lives" />
+      {yearInsight && (
+        <p className="panel-insight">
+          Your sweet spot is the {yearInsight.range}. Tracks from the {yearInsight.peak.decade} average {yearInsight.peak.avg}.{' '}
+          {parseFloat(yearInsight.peak.avg) >= 8
+            ? 'That decade clearly speaks your language — the arranging, the feel, the production all click.'
+            : 'You connect with that era more than others, though your taste stretches wider than any single decade.'}
+        </p>
+      )}
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = year of recording. <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Shows exactly which era of jazz history your highest ratings cluster in — and where you've barely explored. Hover any dot for the title, artist, and year.
       </p>

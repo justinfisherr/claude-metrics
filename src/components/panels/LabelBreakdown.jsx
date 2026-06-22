@@ -79,6 +79,27 @@ export default function LabelBreakdown({ data }) {
   return (
     <Panel id="label-panel" span={6}>
       <PanelHeader title="Label Breakdown" note="Average rating and track count by record label" />
+      {sorted.length > 0 && (() => {
+        const labelContext = {
+          'Blue Note': 'the home of hard bop and modern jazz royalty',
+          'Prestige': 'marathon blowing sessions and raw post-bop energy',
+          'Riverside': 'thoughtfully produced sessions with deep catalogs',
+          'Impulse!': 'boundary-pushing jazz from Coltrane to Ayler',
+          'Columbia': 'crossover ambition and landmark studio productions',
+          'Verve': 'lush, vocal-friendly jazz and West Coast cool',
+          'ECM': 'spacious, European-tinged modern jazz',
+          'Contemporary': 'the West Coast cool jazz institution',
+          'Atlantic': 'soul-jazz and adventurous hard bop',
+          'Savoy': 'early bebop history and rare sessions',
+        };
+        const top = sorted[0];
+        const context = labelContext[top.label] || `a label known for quality jazz`;
+        return (
+          <p className="panel-insight">
+            Your highest-rated label is {top.label} (avg {top.avg.toFixed(1)}) — {context}.
+          </p>
+        );
+      })()}
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>

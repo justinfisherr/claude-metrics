@@ -39,6 +39,23 @@ export default function ArtistJourneys({ data }) {
   return (
     <Panel id="artist-journeys-panel" span={12}>
       <PanelHeader title="Artist Journeys" note="Each block is a track — width = duration, color = rating" />
+      {sorted.length > 0 && (() => {
+        const withRange = sorted.map(a => ({
+          ...a,
+          min: Math.min(...a.tracks.map(t => t.actual)),
+          max: Math.max(...a.tracks.map(t => t.actual)),
+          range: Math.max(...a.tracks.map(t => t.actual)) - Math.min(...a.tracks.map(t => t.actual)),
+        }));
+        const widest = withRange.reduce((a, b) => b.range > a.range ? b : a);
+        const interp = widest.range >= 5
+          ? `Same artist, wildly different outcomes — the track matters more than the name.`
+          : `Even the widest spread is moderate, suggesting your taste aligns with the artist overall.`;
+        return (
+          <p className="panel-insight">
+            Artist with the widest rating range: {widest.name} ({widest.min}–{widest.max}). {interp}
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Only artists with <strong>3 or more rated tracks</strong> appear here, sorted by average rating (highest first). Each <strong>block</strong> is a track: <strong>width</strong> scales with <code>audio_features.duration_s</code> relative to the longest track in the dataset (wider = longer song). <strong>Color tier</strong>: green = 9–10, blue = 7–8, yellow = 5–6, red = &lt;5. The number on the right is the artist's mean rating across all their logged tracks. Hover a block to see the title and score. Useful for spotting within-artist variance — an artist with mixed colors has a wide range; a solid-green row is a consistent favorite.
       </p>

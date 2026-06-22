@@ -67,9 +67,35 @@ export default function DurationRating({ data }) {
     },
   };
 
+  const durationInsight = (() => {
+    if (predictions.length < 5) return null;
+    const highRated = predictions.filter(p => p.actual >= 7);
+    if (!highRated.length) return null;
+    const avgDur = (highRated.reduce((s, p) => s + p.duration_s, 0) / highRated.length / 60).toFixed(1);
+    const threshold = 8; // minutes
+    const longTracks = predictions.filter(p => p.duration_s / 60 >= threshold);
+    const longAvg = longTracks.length
+      ? (longTracks.reduce((s, p) => s + p.actual, 0) / longTracks.length).toFixed(1)
+      : null;
+    const overallAvg = (predictions.reduce((s, p) => s + p.actual, 0) / predictions.length).toFixed(1);
+    return { avgDur, longAvg, threshold, overallAvg, longCount: longTracks.length };
+  })();
+
   return (
     <Panel id="duration-rating-panel" span={6}>
       <PanelHeader title="Duration vs Rating" note="Does track length affect your score?" />
+      {durationInsight && (
+        <p className="panel-insight">
+          Your highest-rated tracks average {durationInsight.avgDur} minutes.{' '}
+          {durationInsight.longAvg && durationInsight.longCount >= 2
+            ? `Tracks over ${durationInsight.threshold} minutes average ${durationInsight.longAvg} — ${
+                parseFloat(durationInsight.longAvg) >= parseFloat(durationInsight.overallAvg)
+                  ? 'you have patience for long-form jazz when the playing warrants it.'
+                  : 'extended jams tend to lose you, suggesting you prefer tighter arrangements.'
+              }`
+            : 'Not enough long tracks yet to read your pacing sensitivity.'}
+        </p>
+      )}
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = track length in minutes (from <code>audio_features.duration_s</code>). <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Reveals your pacing sensitivity — whether longer tracks tend to get docked, and what your sweet spot for runtime is. Only tracks with a logged duration are shown.
       </p>

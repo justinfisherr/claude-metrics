@@ -12,13 +12,16 @@ const BUCKETS = [
 export default function MoodRating({ data }) {
   const [open, setOpen] = useState(false);
 
-  const { moods, mc, mx } = useMemo(() => {
+  const { moods, mc, mx, moodInsight } = useMemo(() => {
     const predictions = data?.predictions || [];
     const moodCounts = {};
+    const moodRatings = {};
 
     predictions.forEach(p => {
       (p.moods || []).forEach(mood => {
         moodCounts[mood] = moodCounts[mood] || {};
+        moodRatings[mood] = moodRatings[mood] || [];
+        moodRatings[mood].push(p.actual);
         BUCKETS.forEach(b => {
           moodCounts[mood][b.label] = moodCounts[mood][b.label] || 0;
           if (p.actual >= b.min && p.actual < b.max) moodCounts[mood][b.label]++;
@@ -34,7 +37,19 @@ export default function MoodRating({ data }) {
 
     const maxVal = Math.max(...sortedMoods.flatMap(m => Object.values(moodCounts[m])));
 
-    return { moods: sortedMoods, mc: moodCounts, mx: maxVal };
+    // Compute best and worst moods by average rating
+    let insight = null;
+    const moodAvgs = Object.entries(moodRatings)
+      .filter(([, r]) => r.length >= 2)
+      .map(([mood, r]) => ({ mood, avg: r.reduce((s, v) => s + v, 0) / r.length }));
+    if (moodAvgs.length >= 2) {
+      moodAvgs.sort((a, b) => b.avg - a.avg);
+      const best = moodAvgs[0];
+      const worst = moodAvgs[moodAvgs.length - 1];
+      insight = { bestMood: best.mood, bestAvg: best.avg.toFixed(1), worstMood: worst.mood, worstAvg: worst.avg.toFixed(1) };
+    }
+
+    return { moods: sortedMoods, mc: moodCounts, mx: maxVal, moodInsight: insight };
   }, [data]);
 
   if (!data) return null;
@@ -62,6 +77,12 @@ export default function MoodRating({ data }) {
           <span className="accordion-arrow" aria-hidden="true">▼</span>
         </button>
       </div>
+
+      {moodInsight && (
+        <p className="panel-insight">
+          The mood most associated with your highest ratings is '{moodInsight.bestMood}'. When '{moodInsight.worstMood}' appears, ratings drop to an average of {moodInsight.worstAvg}.
+        </p>
+      )}
 
       <div
         className={`accordion-body${open ? '' : ' collapsed'}`}

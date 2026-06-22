@@ -1,0 +1,170 @@
+/* Compare page styles */
+
+.compare-selectors {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.version-pick {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.version-pick label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.version-pick select {
+  background: rgba(10, 22, 40, 0.65);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 650;
+  padding: 6px 12px;
+  cursor: pointer;
+  outline: none;
+  min-width: 200px;
+}
+
+.version-pick select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.vs-label {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--muted-2);
+  padding-top: 16px;
+}
+
+/* Metrics comparison */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.metric-card {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+}
+
+.metric-card .metric-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.metric-card .metric-values {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.metric-card .metric-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.metric-card .metric-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--muted-2);
+  display: block;
+}
+
+.metric-val.better { color: var(--good); }
+.metric-val.worse { color: var(--bad); }
+
+/* Feature bars */
+.feat-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .feat-compare { grid-template-columns: 1fr; }
+}
+
+.feat-col {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.feat-col h3 {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+/* Prediction table */
+.pred-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.pred-table th {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.pred-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(93, 155, 224, 0.08);
+  color: var(--text);
+}
+
+.delta-high {
+  color: var(--warning);
+  font-weight: 700;
+}
+
+/* Timeline chart */
+.timeline-wrap {
+  position: relative;
+  height: 280px;
+}
+
+/* Empty state */
+.compare-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pred-subtitle {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}

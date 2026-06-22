@@ -73,9 +73,36 @@ export default function SoundProfile({ data }) {
     },
   };
 
+  const spInsight = (() => {
+    if (!avgs.length || avgs.every(a => a === null)) return null;
+    // PAIRS: 0=Has Piano, 1=No Piano, 2=Has Vocals, 3=Instrumental, 4=Has Guitar, 5=No Guitar
+    const pianoAvg = avgs[0];
+    const noPianoAvg = avgs[1];
+    // Find the biggest spread across the three pairs
+    const pairs = [
+      { name: 'piano', with: avgs[0], without: avgs[1], withLabel: 'piano', withoutLabel: 'pianoless' },
+      { name: 'vocals', with: avgs[2], without: avgs[3], withLabel: 'vocal', withoutLabel: 'instrumental' },
+      { name: 'guitar', with: avgs[4], without: avgs[5], withLabel: 'guitar', withoutLabel: 'guitar-free' },
+    ].filter(p => p.with !== null && p.without !== null);
+    const biggestGap = pairs.length
+      ? pairs.reduce((best, p) => Math.abs(p.with - p.without) > Math.abs(best.with - best.without) ? p : best)
+      : null;
+    return { pianoAvg, noPianoAvg, biggestGap };
+  })();
+
   return (
     <Panel id="sound-panel" span={6}>
       <PanelHeader title="Sound Profile" note="Average rating by instrumentation features" />
+      {spInsight && spInsight.pianoAvg !== null && spInsight.noPianoAvg !== null && (
+        <p className="panel-insight">
+          Tracks with piano average {spInsight.pianoAvg} vs {spInsight.noPianoAvg} without.{' '}
+          {spInsight.biggestGap
+            ? spInsight.biggestGap.with > spInsight.biggestGap.without
+              ? `Your strongest preference is for ${spInsight.biggestGap.withLabel} tracks — that instrument colors your experience.`
+              : `You actually lean toward ${spInsight.biggestGap.withoutLabel} arrangements — that absence shapes your sound.`
+            : 'Your ratings are fairly even across instrumentation — tone matters more than lineup.'}
+        </p>
+      )}
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>

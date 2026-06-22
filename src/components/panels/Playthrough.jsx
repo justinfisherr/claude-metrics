@@ -72,9 +72,28 @@ export default function Playthrough({ data }) {
     },
   };
 
+  const fullListens = pts.filter(p => p.playthrough >= 0.95);
+  const pctFull = Math.round((fullListens.length / pts.length) * 100);
+  const bailed = pts.filter(p => p.playthrough < 0.5);
+  const bailAvg = bailed.length
+    ? (bailed.reduce((s, p) => s + p.actual, 0) / bailed.length).toFixed(1)
+    : null;
+
   return (
     <Panel id="playthrough-panel" span={6}>
       <PanelHeader title="Playthrough vs Rating" note="How far you get before skipping" />
+      {pts.length >= 3 && (
+        <p className="panel-insight">
+          You finished {pctFull}% of tracks completely.{' '}
+          {bailAvg
+            ? `Tracks you bailed on early average ${bailAvg} — ${
+                parseFloat(bailAvg) < 4
+                  ? 'your ears make up their mind fast, and they\'re usually right.'
+                  : 'even the ones you skipped weren\'t always bad — sometimes you just weren\'t in the mood.'
+              }`
+            : 'You rarely bail early, which says a lot about your patience as a listener.'}
+        </p>
+      )}
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = how much of the track you listened to (0–100%). <strong>Y axis</strong> = your rating. Tracks in the <strong>top-right</strong> = loved and listened fully. <strong>Bottom-left</strong> = bailed early and rated low. <strong>Top-left</strong> = rated well but didn't finish (rare). <strong>Bottom-right</strong> = sat through it but didn't like it. Hover for title.
       </p>

@@ -80,6 +80,21 @@ export default function DiscoverySource({ data }) {
   return (
     <Panel id="discovery-panel" span={6}>
       <PanelHeader title="Discovery Source" note="Do Claude recommendations land better than self-finds?" />
+      {avgs[0] != null && avgs[1] != null && (() => {
+        const selfAvg = avgs[0];
+        const claudeAvg = avgs[1];
+        const diff = claudeAvg - selfAvg;
+        const interp = diff > 0.5
+          ? 'Claude picks are landing — the model knows your taste.'
+          : diff < -0.5
+            ? 'Your own discoveries outperform — trust your instincts.'
+            : 'Self-finds and Claude picks are neck and neck.';
+        return (
+          <p className="panel-insight">
+            Tracks you found yourself average {selfAvg.toFixed(1)}, vs Claude recommendations at {claudeAvg.toFixed(1)}. {interp}
+          </p>
+        );
+      })()}
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>

@@ -64,6 +64,19 @@ export default function FeatureImportance({ data }) {
   return (
     <Panel id="importance-panel" span={6}>
       <PanelHeader title="Feature Importance" note="Most influential model features" />
+      {(() => {
+        const sorted = [...(data?.feature_importance || [])].sort((a, b) => b.importance - a.importance);
+        if (!sorted.length) return null;
+        const top3 = sorted.slice(0, 3);
+        const fmt = f => f.feature.replace(/_/g, ' ').replace(/^(era|mood|inst|subgenre) /, '$1: ');
+        const dirWord = f => f.direction === 'positive' ? 'boosts' : 'lowers';
+        return (
+          <p className="panel-insight">
+            The strongest predictor of whether you'll love a track is <strong>{fmt(top3[0])}</strong>.{' '}
+            {top3.slice(1).map(f => `${fmt(f)} ${dirWord(f)} your expected score`).join(', and ')}.
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Shows which input variables drive the model's predictions most. <strong>Green bars</strong> = feature pushes predicted rating up. <strong>Red bars</strong> = pushes it down. Importance is normalized 0&ndash;1 relative to the top feature. Key feature families: <code>era_*</code> (musical era like Modal or Hard Bop), <code>mood_*</code> (tagged mood like romantic or bluesy), <code>inst_*</code> (primary instrument group), <code>subgenre_*</code> (tagged subgenre), <code>artist_mean_rating</code> (your average rating for other tracks by the same artist), <code>energy</code> (1&ndash;10 scale), <code>tempo</code> (slow&rarr;fast mapped 1&ndash;4), <code>harmonic_complexity</code> (low/med/high &rarr; 1&ndash;3), and <code>replayability</code> (1&ndash;10 scale).
       </p>

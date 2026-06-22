@@ -95,9 +95,24 @@ export default function PlaythroughByEra({ data }) {
     },
   };
 
+  const topEra = sorted[0];
+  const bottomEra = sorted[sorted.length - 1];
+
   return (
     <Panel id="playthrough-era-panel" span={6}>
       <PanelHeader title="Playthrough by Era" note="Which eras hold your attention" />
+      {topEra && (
+        <p className="panel-insight">
+          You listen longest to {topEra.era} tracks ({Math.round(topEra.avg * 100)}% avg playthrough).{' '}
+          {sorted.length > 1
+            ? `${bottomEra.era} holds you least (${Math.round(bottomEra.avg * 100)}%) — ${
+                topEra.avg - bottomEra.avg > 0.2
+                  ? 'the era gap is real, those tracks lose you well before the outro.'
+                  : 'though the difference is slim — you give most eras a fair shake.'
+              }`
+            : 'Not enough eras to compare yet.'}
+        </p>
+      )}
       <p className="panel-desc">
         Average playthrough percentage per era. Shows which musical eras keep you listening vs which ones you bail on. A low bar means you're skipping early — the era isn't holding you regardless of individual track quality.
       </p>

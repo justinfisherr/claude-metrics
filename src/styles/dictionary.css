@@ -1,0 +1,127 @@
+/* Dictionary page styles */
+
+.dictionary-wrapper {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 54px) var(--page-pad) clamp(34px, 6vw, 70px);
+}
+
+.dictionary-header {
+  margin-bottom: clamp(20px, 4vw, 34px);
+}
+
+.dictionary-header .eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(0.72rem, 2vw, 0.84rem);
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dictionary-header h1 {
+  margin: 8px 0 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.dictionary-header .subtitle {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: clamp(0.92rem, 2.4vw, 1.05rem);
+}
+
+.dict-section {
+  margin-bottom: 40px;
+}
+
+.dict-section h2 {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.attr-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.attr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.attr-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.attr-signal {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.signal-positive {
+  background: rgba(80, 200, 120, 0.15);
+  color: var(--good);
+  border: 1px solid rgba(80, 200, 120, 0.3);
+}
+
+.signal-negative {
+  background: rgba(255, 107, 107, 0.15);
+  color: var(--bad);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.signal-context {
+  background: rgba(255, 193, 68, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(255, 193, 68, 0.3);
+}
+
+.attr-def {
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.attr-examples {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.attr-examples strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.attr-quote {
+  font-style: italic;
+  color: var(--muted-2);
+  font-size: 0.78rem;
+  margin-top: 6px;
+  padding-left: 10px;
+  border-left: 2px solid var(--border);
+}

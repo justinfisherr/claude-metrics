@@ -15,6 +15,17 @@ export default function EraBreakdown({ data }) {
   if (!data) return null;
   const predictions = data.predictions || [];
 
+  const eraContext = {
+    'Bebop': 'the breakneck invention of the mid-40s',
+    'Hard Bop': 'the soulful, blues-drenched grooves of the late 50s',
+    'Cool Jazz': 'the restrained West Coast sound',
+    'Modal': 'the modal jazz revolution of the late 50s-60s',
+    'Post-Bop': 'the boundary-pushing explorations after hard bop',
+    'Swing': 'the big-band swing era',
+    'Free Jazz': 'the avant-garde freedom of the 60s',
+    'Fusion': 'the electric jazz-rock crossover',
+  };
+
   const sorted = useMemo(() => {
     const groups = {};
     predictions.forEach(p => {
@@ -87,6 +98,15 @@ export default function EraBreakdown({ data }) {
   return (
     <Panel id="era-panel" span={6}>
       <PanelHeader title="Era Breakdown" note="Average rating by jazz era" />
+      {sorted.length > 0 && (() => {
+        const top = sorted[0];
+        const context = eraContext[top.era] || `the ${top.era} period`;
+        return (
+          <p className="panel-insight">
+            Your highest-rated era is {top.era} (avg {top.avg.toFixed(1)}). You connect most with {context}.
+          </p>
+        );
+      })()}
       <p className="panel-desc">
         Average rating grouped by musical <strong>era</strong> — Bebop, Hard Bop, Cool Jazz, Modal, Post-Bop, Swing. Bar intensity reflects average score; track count is shown per bar. Shows where in jazz history your taste lives and which eras you've barely explored. Modal and Hard Bop dominate your dataset; this shows whether that preference actually maps to higher scores.
       </p>

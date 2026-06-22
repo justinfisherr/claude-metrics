@@ -25,6 +25,22 @@ export default function MoodPolarity({ data }) {
     };
   }, [ps, hidden]);
 
+  const polarityInsight = useMemo(() => {
+    if (hidden) return null;
+    const highPol = ps.filter(p => p.mood_polarity >= 2);
+    const lowPol = ps.filter(p => p.mood_polarity <= -1);
+    if (!highPol.length || !lowPol.length) return null;
+    const highAvg = (highPol.reduce((s, p) => s + p.actual, 0) / highPol.length).toFixed(1);
+    const lowAvg = (lowPol.reduce((s, p) => s + p.actual, 0) / lowPol.length).toFixed(1);
+    const diff = parseFloat(highAvg) - parseFloat(lowAvg);
+    const interp = diff > 1
+      ? 'You gravitate toward emotionally bright tracks, but the darker side still has a place in your listening.'
+      : diff < -1
+        ? 'Darker emotional territory resonates more — tension and complexity pull you in.'
+        : 'Your taste spans the full emotional spectrum without strong preference.';
+    return { highAvg, lowAvg, interp };
+  }, [ps, hidden]);
+
   if (!data || hidden) return null;
 
   const chartOptions = {
@@ -57,6 +73,11 @@ export default function MoodPolarity({ data }) {
   return (
     <Panel id="polarity-panel" span={6}>
       <PanelHeader title="Mood Polarity vs Rating" note="Net positive minus negative mood count" />
+      {polarityInsight && (
+        <p className="panel-insight">
+          Tracks with strongly positive mood polarity average {polarityInsight.highAvg}, while negative-polarity tracks average {polarityInsight.lowAvg}. {polarityInsight.interp}
+        </p>
+      )}
       <div className="chart-shell">
         <Scatter data={chartData} options={chartOptions} />
       </div>

@@ -83,6 +83,22 @@ export default function InstrumentCombos({ data }) {
   return (
     <Panel id="instrument-combos-panel" span={12}>
       <PanelHeader title="Instrument Combinations" note="Which instrument pairings rate highest" />
+      {filtered.length > 0 && (() => {
+        const top = filtered[0];
+        const comboName = top[0];
+        const avg = (top[1].sum / top[1].n).toFixed(1);
+        const parts = comboName.split(' + ');
+        const interp = parts.length >= 3
+          ? 'You gravitate toward fuller ensemble textures with layered voices.'
+          : parts.length === 1
+            ? 'You tend to prefer a stripped-down, solo-focused sound.'
+            : `The ${parts.join('/')} pairing is your sweet spot for ensemble texture.`;
+        return (
+          <p className="panel-insight">
+            Your highest-rated combo is {comboName} (avg {avg}). {interp}
+          </p>
+        );
+      })()}
       <div className="chart-shell">
         <Bar data={chartData} options={chartOptions} />
       </div>
