@@ -1,5 +1,5 @@
 {
-  "current_version": "3.00",
+  "current_version": "3.01",
   "versions": [
     {
       "version": "1.00",
@@ -21,7 +21,12 @@
         "dashboard_data": "versions/v1.00/dashboard-data.json",
         "model": "versions/v1.00/model.joblib",
         "training_data": "versions/v1.00/training-data.md"
-      }
+      },
+      "changelog": [
+        "Initial versioned model",
+        "80 features: era, instrument, mood, subgenre, ensemble, label, discovery, artist stats, audio features",
+        "Replayability and playthrough as top predictors"
+      ]
     },
     {
       "version": "1.01",
@@ -41,7 +46,8 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
-      }
+      },
+      "changelog": []
     },
     {
       "version": "2.00",
@@ -63,7 +69,13 @@
         "dashboard_data": "versions/v2.00/dashboard-data.json",
         "model": "versions/v2.00/model.joblib",
         "training_data": "versions/v2.00/training-data.md"
-      }
+      },
+      "changelog": [
+        "Added mood_polarity (net positive - negative moods)",
+        "Added artist_is_leader (credited artist in key_players)",
+        "Added intro_grabbed (derived from notes mentioning intro)",
+        "Added early_bail (playthrough < 30%)"
+      ]
     },
     {
       "version": "2.01",
@@ -84,7 +96,8 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
-      }
+      },
+      "changelog": []
     },
     {
       "version": "2.02",
@@ -105,7 +118,8 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
-      }
+      },
+      "changelog": []
     },
     {
       "version": "2.03",
@@ -126,7 +140,8 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
-      }
+      },
+      "changelog": []
     },
     {
       "version": "2.04",
@@ -147,7 +162,8 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
-      }
+      },
+      "changelog": []
     },
     {
       "version": "2.05",
@@ -168,7 +184,8 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
-      }
+      },
+      "changelog": []
     },
     {
       "version": "3.00",
@@ -195,6 +212,28 @@
         "dashboard_data": "versions/v3.00/dashboard-data.json",
         "model": "versions/v3.00/model.joblib",
         "training_data": "versions/v3.00/training-data.md"
+      }
+    },
+    {
+      "version": "3.01",
+      "name": "",
+      "major": 3,
+      "minor": 1,
+      "run_date": "2026-06-22T12:22:37.810158",
+      "dataset_size": 89,
+      "best_model": "random_forest",
+      "r_squared": 0.4919,
+      "rmse": 1.6905,
+      "mae": 1.3478,
+      "feature_count": 128,
+      "best_k": 2,
+      "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
       }
     }
   ]

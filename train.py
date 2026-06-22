@@ -201,6 +201,27 @@ def engineer_features(tracks):
         duration = (t.get("audio_features") or {}).get("duration_s", 300)
         row["duration_short"] = int(duration < 240)
         row["duration_long"] = int(duration > 420)
+        row["duration_extra_long"] = int(duration > 600)
+
+        # Electric / acoustic / format detection
+        row["is_electric"] = int(any(k in instr_joined for k in ["electric", "synth", "clavinet", "organ", "fender", "rhodes"]))
+        row["is_solo_piano"] = int(instrument == "piano" and len(instr_lower) <= 2)
+        row["has_horn_section"] = int(sum(1 for i in instr_lower if any(h in i for h in ["trumpet", "trombone", "sax", "cornet", "flute", "clarinet"])) >= 3)
+        row["is_collaboration"] = int("&" in t.get("artist", "") or "," in t.get("artist", ""))
+        row["instrumentation_diversity"] = len(set(INSTRUMENT_GROUPS.get(i, i) for i in instr_lower))
+
+        # Artist novelty — first time hearing this artist
+        row["artist_is_new"] = int(len(artist_entries) == 1)
+
+        # Mood interactions
+        row["energy_x_complexity"] = row["energy"] * row["harmonic_complexity"]
+        row["mood_polarity_x_energy"] = row["mood_polarity"] * row["energy"]
+
+        # Key/mode features
+        audio_pre = t.get("audio_features") or {}
+        mode = (audio_pre.get("mode") or "").lower()
+        row["is_minor_key"] = int(mode in ["minor", "dorian", "blues", "phrygian"])
+        row["is_dorian"] = int(mode == "dorian")
 
         if has_audio:
             audio = t.get("audio_features") or {}

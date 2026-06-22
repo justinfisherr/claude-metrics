@@ -2,6 +2,7 @@ import Navigation from '../components/shared/Navigation';
 import { useDashboardData } from '../hooks/useDashboardData';
 
 import TasteSummary from '../components/panels/TasteSummary';
+import Changelog from '../components/panels/Changelog';
 import Metrics from '../components/panels/Metrics';
 import ClusterScatter from '../components/panels/ClusterScatter';
 import FeatureImportance from '../components/panels/FeatureImportance';
@@ -96,6 +97,7 @@ export default function Dashboard() {
           <section className="grid">
             {/* Overview */}
             <TasteSummary data={data} />
+            <Changelog />
             <Metrics data={data} />
             <HallOfFame data={data} />
 
