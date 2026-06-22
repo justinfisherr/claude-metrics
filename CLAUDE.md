@@ -119,7 +119,7 @@ When adding visualizations:
 - **Always commit `model.joblib` and `dashboard-data.json` together** after retraining — they're a matched pair.
 - **Push to `main` branch** on `justinfisherr/claude-metrics`.
 - **Test the dashboard locally** (`python3 -m http.server`) before pushing HTML changes.
-- **Update playlist data on every train.** Playlists are hardcoded in the PLAYLISTS constant in train.py. When Justin adds tracks to a Spotify playlist, update the PLAYLISTS array. The playlist aggregation runs automatically on every train (major and minor) -- no separate training needed.
+- **Sync playlists before every train.** Before running `train.py`, use the Spotify MCP to fetch tracks from Justin's 5 jazz playlists (My Top Jazz Songs, Jazz Date, Jazz Stank, Jazz Vocals, Jazz Pool) via `getPlaylistTracks`. Compare against the `PLAYLISTS` constant in train.py. If any tracks were added or removed, update the array before training. The playlist IDs are: `4ZnOuGzizWM1UIPZlhCAae`, `6n2kibGIYXV5L3flumoiDw`, `2Dj3wiGXPwGL3RjQDa6zG5`, `5MffriQAGUbFt2DcfkgYuU`, `3cnlae8AntzgbgmzdxRZOj`. Format: `"Title|Artist"` entries. The playlist aggregation runs automatically on every train (major and minor) — no separate training needed.
 - **Back up training-data.md to git after every log.** Whenever new tracks are logged to `~/Documents/remote/Music/Jazz Dataset/training-data.md`, copy it into this repo and commit+push. This ensures we always have a versioned backup. The file was previously untracked and got corrupted with no way to recover except from Claude's file-history snapshots — never again.
   ```bash
   cp ~/Documents/remote/Music/Jazz\ Dataset/training-data.md ~/jazz-ml/training-data.md
