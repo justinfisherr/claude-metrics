@@ -114,14 +114,13 @@ When adding visualizations:
 
 ## Rules
 
-- **Don't edit training-data.md from this repo.** That's managed by the Obsidian-side agents.
+- **training-data.json in this repo is the source of truth.** All agents read from and write to `~/jazz-ml/training-data.json` (proper JSON, not markdown). The old Obsidian copy at `~/Documents/remote/Music/Jazz Dataset/training-data.md` is deprecated — do NOT read from or write to it.
 - **Update taste-profile.md and model-notes.md after every log session.** Whenever new tracks are logged to training-data.md, the taste profile (`~/Documents/remote/Music/Jazz Dataset/taste-profile.md`) and model notes (`~/Documents/remote/Music/Jazz Dataset/model-notes.md`) must also be updated with any new patterns, artist insights, or preference shifts. These files are what recommendation agents read — stale profiles lead to bad recommendations.
 - **Always commit `model.joblib` and `dashboard-data.json` together** after retraining — they're a matched pair.
 - **Push to `main` branch** on `justinfisherr/claude-metrics`.
 - **Test the dashboard locally** (`python3 -m http.server`) before pushing HTML changes.
 - **Sync playlists before every train.** Before running `train.py`, use the Spotify MCP to fetch tracks from Justin's 5 jazz playlists (My Top Jazz Songs, Jazz Date, Jazz Stank, Jazz Vocals, Jazz Pool) via `getPlaylistTracks`. Compare against the `PLAYLISTS` constant in train.py. If any tracks were added or removed, update the array before training. The playlist IDs are: `4ZnOuGzizWM1UIPZlhCAae`, `6n2kibGIYXV5L3flumoiDw`, `2Dj3wiGXPwGL3RjQDa6zG5`, `5MffriQAGUbFt2DcfkgYuU`, `3cnlae8AntzgbgmzdxRZOj`. Format: `"Title|Artist"` entries. The playlist aggregation runs automatically on every train (major and minor) — no separate training needed.
-- **Back up training-data.md to git after every log.** Whenever new tracks are logged to `~/Documents/remote/Music/Jazz Dataset/training-data.md`, copy it into this repo and commit+push. This ensures we always have a versioned backup. The file was previously untracked and got corrupted with no way to recover except from Claude's file-history snapshots — never again.
+- **Commit training-data.json after every log.** The dataset lives in this repo as proper JSON. After logging tracks, commit and push:
   ```bash
-  cp ~/Documents/remote/Music/Jazz\ Dataset/training-data.md ~/jazz-ml/training-data.md
-  cd ~/jazz-ml && git add training-data.md && git commit -m "Backup training data (N tracks)" && git push
+  cd ~/jazz-ml && git add training-data.json && git commit -m "Log N new tracks (X total)" && git push
   ```

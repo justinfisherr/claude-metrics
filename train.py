@@ -19,11 +19,7 @@ from sklearn.model_selection import LeaveOneOut, cross_val_predict
 from scipy.stats import pearsonr
 
 SCRIPT_DIR = Path(__file__).parent
-_TRAINING_DATA_CANDIDATES = [
-    Path.home() / "Documents" / "remote" / "Music" / "Jazz Dataset" / "training-data.md",
-    Path.home() / "Music" / "Jazz Dataset" / "training-data.md",
-]
-TRAINING_DATA_PATH = next((p for p in _TRAINING_DATA_CANDIDATES if p.exists()), _TRAINING_DATA_CANDIDATES[0])
+TRAINING_DATA_PATH = SCRIPT_DIR / "training-data.json"
 OUTPUT_PATH = SCRIPT_DIR / "dashboard-data.json"
 MODEL_PATH = SCRIPT_DIR / "model.joblib"
 VERSIONS_PATH = SCRIPT_DIR / "versions.json"
@@ -59,9 +55,7 @@ LABEL_THRESHOLD = 3
 
 
 def load_data():
-    text = TRAINING_DATA_PATH.read_text()
-    match = re.search(r"```json\s*\n(.+?)\n```", text, re.DOTALL)
-    all_entries = json.loads(match.group(1))
+    all_entries = json.loads(TRAINING_DATA_PATH.read_text())
     today = date.today().isoformat()
     dirty = False
     for entry in all_entries:
@@ -69,8 +63,7 @@ def load_data():
             entry["date_added"] = today
             dirty = True
     if dirty:
-        updated = text[:match.start(1)] + json.dumps(all_entries, indent=2, ensure_ascii=False) + text[match.end(1):]
-        TRAINING_DATA_PATH.write_text(updated)
+        TRAINING_DATA_PATH.write_text(json.dumps(all_entries, indent=2, ensure_ascii=False))
     tracks = [t for t in all_entries if t.get("entity_type") != "album"]
     albums = [t for t in all_entries if t.get("entity_type") == "album"]
     return tracks, albums
