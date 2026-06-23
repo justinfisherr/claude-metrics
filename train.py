@@ -38,17 +38,8 @@ INSTRUMENT_GROUPS = {
 }
 INST_GROUP_VALUES = ["tenor_sax", "piano", "vocals", "bass", "trumpet", "guitar", "other"]
 DISCOVERY_SOURCES = ["self", "claude-recommendation", "autoplay"]
-POSITIVE_MOODS = {
-    "romantic", "tender", "sexy", "sensual", "captivating", "joyful", "cool",
-    "bluesy", "groovy", "warm", "intimate", "lovely", "pretty", "hopeful",
-    "spiritual", "meditative", "swinging", "cute", "lush", "gentle",
-    "bittersweet", "melancholic", "mournful", "nostalgic", "moody", "dark",
-    "haunting", "sparse", "spacious",
-}
-NEGATIVE_MOODS = {
-    "flat", "uninteresting", "sleepy", "background", "repetitive", "corny",
-    "showtimey", "dramatic", "restless", "experimental",
-}
+MOOD_AXES_PATH = SCRIPT_DIR / "mood-axes.json"
+MOOD_AXES = json.loads(MOOD_AXES_PATH.read_text()) if MOOD_AXES_PATH.exists() else {}
 MOOD_THRESHOLD = 3
 SUBGENRE_THRESHOLD = 3
 LABEL_THRESHOLD = 3
@@ -143,10 +134,15 @@ def engineer_features(tracks):
             row[f"subgenre_{s}"] = 1 if s in track_subgenres else 0
 
         row["mood_count"] = len(track_moods)
-        row["mood_polarity"] = sum(1 for m in track_moods if m in POSITIVE_MOODS) - sum(1 for m in track_moods if m in NEGATIVE_MOODS)
-        pos_count = sum(1 for m in track_moods if m in POSITIVE_MOODS)
-        row["mood_density_ratio"] = pos_count / max(len(track_moods), 1)
-        row["has_negative_mood"] = int(any(m in NEGATIVE_MOODS for m in track_moods))
+        axes_vals = [MOOD_AXES[m] for m in track_moods if m in MOOD_AXES]
+        if axes_vals:
+            row["avg_valence"] = np.mean([a["valence"] for a in axes_vals])
+            row["avg_arousal"] = np.mean([a["arousal"] for a in axes_vals])
+            row["avg_dominance"] = np.mean([a["dominance"] for a in axes_vals])
+        else:
+            row["avg_valence"] = 0.0
+            row["avg_arousal"] = 0.0
+            row["avg_dominance"] = 0.0
         row["subgenre_count"] = len(track_subgenres)
 
         # Ensemble / instrumentation
@@ -215,7 +211,9 @@ def engineer_features(tracks):
 
         # Mood interactions
         row["energy_x_complexity"] = row["energy"] * row["harmonic_complexity"]
-        row["mood_polarity_x_energy"] = row["mood_polarity"] * row["energy"]
+        row["valence_x_energy"] = row["avg_valence"] * row["energy"]
+        row["valence_x_arousal"] = row["avg_valence"] * row["avg_arousal"]
+        row["arousal_x_energy"] = row["avg_arousal"] * row["energy"]
 
         # Key/mode features
         audio_pre = t.get("audio_features") or {}
@@ -258,6 +256,12 @@ def readable_name(feat):
         "is_pianoless": "Pianoless",
         "has_trombone": "Has Trombone",
         "key_player_count": "Key Player Count",
+        "avg_valence": "Mood Valence",
+        "avg_arousal": "Mood Arousal",
+        "avg_dominance": "Mood Dominance",
+        "valence_x_energy": "Valence × Energy",
+        "valence_x_arousal": "Valence × Arousal",
+        "arousal_x_energy": "Arousal × Energy",
         "replayability": "Replayability",
         "has_favorite_moments": "Has Fav Moments",
         "duration_s": "Duration",
@@ -528,9 +532,9 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "is_pianoless": int("piano" not in " ".join(t.get("instrumentation") or []).lower()),
             "has_vocals": int("vocal" in " ".join(t.get("instrumentation") or []).lower()),
             "has_guitar": int("guitar" in " ".join(t.get("instrumentation") or []).lower()),
-            "mood_polarity": sum(1 for m in t.get("moods", []) if m in POSITIVE_MOODS) - sum(1 for m in t.get("moods", []) if m in NEGATIVE_MOODS),
-            "mood_density_ratio": round(sum(1 for m in t.get("moods", []) if m in POSITIVE_MOODS) / max(len(t.get("moods", [])), 1), 2),
-            "has_negative_mood": int(any(m in NEGATIVE_MOODS for m in t.get("moods", []))),
+            "avg_valence": round(np.mean([MOOD_AXES[m]["valence"] for m in t.get("moods", []) if m in MOOD_AXES]) if any(m in MOOD_AXES for m in t.get("moods", [])) else 0.0, 3),
+            "avg_arousal": round(np.mean([MOOD_AXES[m]["arousal"] for m in t.get("moods", []) if m in MOOD_AXES]) if any(m in MOOD_AXES for m in t.get("moods", [])) else 0.0, 3),
+            "avg_dominance": round(np.mean([MOOD_AXES[m]["dominance"] for m in t.get("moods", []) if m in MOOD_AXES]) if any(m in MOOD_AXES for m in t.get("moods", [])) else 0.0, 3),
             "artist_is_leader": int(any(t.get("artist", "").lower().split("&")[0].strip() in kp.lower() for kp in t.get("key_players", []))),
             "liked": t.get("liked"),
             "intro_grabbed": int(any(kw in (t.get("favorite_moments") or "").lower() + " " + (t.get("notes") or "").lower() + " " + " ".join(t.get("notable_qualities", [])).lower() for kw in ["intro", "right away"])),
@@ -633,21 +637,23 @@ PLAYLISTS = [
         "So What|Miles Davis",
         "Peace Piece|Bill Evans",
         "Goodbye Pork Pie Hat|Charles Mingus",
-        "God Bless the Child|Sonny Rollins",
-        "It Never Entered My Mind|Miles Davis",
-        "Tezeta|Mulatu Astatke",
-        "Mercy, Mercy, Mercy|Cannonball Adderley",
-        "Blue Train|John Coltrane",
-        "Blue in Green|Miles Davis",
         "Fleurette Africaine|Duke Ellington",
+        "Mercy, Mercy, Mercy|Cannonball Adderley",
+        "Chameleon|Herbie Hancock",
+        "Blue Train|John Coltrane",
+        "Wild Is The Wind|Nina Simone",
+        "God Bless the Child|Sonny Rollins",
+        "Tezeta|Mulatu Astatke",
+        "Better Git It in Your Soul|Charles Mingus",
+        "It Never Entered My Mind|Miles Davis",
+        "Blue in Green|Miles Davis",
         "Moanin'|Mingus Big Band",
         "St. Thomas|Sonny Rollins",
         "Strode Rode|Sonny Rollins",
         "Equinox|John Coltrane",
-        "Better Git It in Your Soul|Charles Mingus",
-        "Open Letter to Duke|Charles Mingus",
-        "A Single Petal of a Rose|Duke Ellington",
         "Naima|John Coltrane",
+        "A Single Petal of a Rose|Duke Ellington",
+        "Open Letter to Duke|Charles Mingus",
     ]},
     {"name": "Jazz Date", "id": "6n2kibGIYXV5L3flumoiDw", "tracks": [
         "God Bless the Child|Sonny Rollins",
@@ -667,6 +673,7 @@ PLAYLISTS = [
         "'Round Midnight|McCoy Tyner",
         "Embraceable You|Barry Harris",
         "Lover Man|Charlie Parker",
+        "Theme for Lester Young|Charles Mingus",
         "My One and Only Love|John Coltrane",
         "Fleurette Africaine|Duke Ellington",
         "Chelsea Bridge|Ben Webster",
@@ -686,6 +693,8 @@ PLAYLISTS = [
         "Solitude|Billie Holiday",
         "Crazy He Calls Me|Billie Holiday",
         "Lover Man|Billie Holiday",
+        "Don't Let Me Be Misunderstood|Nina Simone",
+        "Tryin' Times|Roberta Flack",
     ]},
     {"name": "Jazz Pool", "id": "3cnlae8AntzgbgmzdxRZOj", "tracks": [
         "All the Things You Are|Dizzy Gillespie",
@@ -737,11 +746,11 @@ PLAYLISTS = [
         "Fleurette Africaine|Duke Ellington",
         "Waltz for Debby|Bill Evans",
         "You Don't Know What Love Is|Miles Davis",
+        "Django|The Modern Jazz Quartet",
         "God Bless the Child|Sonny Rollins",
         "Chelsea Bridge|Ben Webster",
-    ]},
-    {"name": "Jazz Fusion", "id": "5Th4awT3otDMQTwKwJDTRf", "tracks": [
         "Chameleon|Herbie Hancock",
+        "Autumn Leaves|Stan Getz",
     ]},
 ]
 
@@ -929,6 +938,7 @@ def main():
         "clusters": cluster_results,
         "distributions": distributions,
         "history": history,
+        "mood_axes": MOOD_AXES,
         "playlists": build_playlists(predictions),
         "albums": [{
             "title": a.get("title"),

@@ -1,5 +1,5 @@
 {
-  "current_version": "3.03",
+  "current_version": "4.00",
   "versions": [
     {
       "version": "1.00",
@@ -278,6 +278,37 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "4.00",
+      "name": "Pikachu",
+      "major": 4,
+      "minor": 0,
+      "run_date": "2026-06-22T22:08:22.405102",
+      "dataset_size": 92,
+      "best_model": "ridge",
+      "r_squared": 0.4039,
+      "rmse": 1.8146,
+      "mae": 1.4394,
+      "feature_count": 138,
+      "best_k": 2,
+      "notes": "Replaced binary mood polarity with VAD mood axes (valence, arousal, dominance)",
+      "changelog": [
+        "Replaced POSITIVE_MOODS/NEGATIVE_MOODS binary sets with mood-axes.json VAD lookup",
+        "Added avg_valence, avg_arousal, avg_dominance as continuous features",
+        "Added valence_x_energy, valence_x_arousal, arousal_x_energy interaction features",
+        "Removed mood_polarity, mood_density_ratio, has_negative_mood, mood_polarity_x_energy",
+        "Synced playlists: +2 My Top Jazz Songs, +1 Jazz Date, +2 Jazz Vocals, +3 Jazz Pool, removed Jazz Fusion",
+        "Added Mood Emotion Space dashboard panel with quadrant analysis",
+        "Mood axes derived from music-context Claude scoring (87 moods on 3 dimensions)"
+      ],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v4.00/dashboard-data.json",
+        "model": "versions/v4.00/model.joblib",
+        "training_data": "versions/v4.00/training-data.md"
       }
     }
   ]

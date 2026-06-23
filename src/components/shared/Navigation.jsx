@@ -49,6 +49,7 @@ const SECTIONS = [
     { id: 'playthrough-panel', label: 'Playthrough' },
     { id: 'playthrough-era-panel', label: 'By Era' },
     { id: 'mood-rating-panel', label: 'Mood x Rating' },
+    { id: 'mood-axes-panel', label: 'Mood Axes' },
     { id: 'polarity-panel', label: 'Mood Polarity' },
     { id: 'v2features-panel', label: 'v2 Features' },
   ]},

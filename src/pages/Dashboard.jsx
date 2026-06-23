@@ -32,6 +32,7 @@ import DiscoverySource from '../components/panels/DiscoverySource';
 import SoundProfile from '../components/panels/SoundProfile';
 import EnsembleSize from '../components/panels/EnsembleSize';
 import MoodPolarity from '../components/panels/MoodPolarity';
+import MoodAxes from '../components/panels/MoodAxes';
 import V2Features from '../components/panels/V2Features';
 import ModelHistory from '../components/panels/ModelHistory';
 
@@ -132,6 +133,7 @@ export default function Dashboard() {
             <Playthrough data={data} />
             <PlaythroughByEra data={data} />
             <MoodRating data={data} />
+            <MoodAxes data={data} />
             <MoodPolarity data={data} />
             <V2Features data={data} />
 

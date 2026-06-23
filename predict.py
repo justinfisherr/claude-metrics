@@ -30,17 +30,8 @@ INSTRUMENT_GROUPS = {
 }
 INST_GROUP_VALUES = ["tenor_sax", "piano", "vocals", "bass", "trumpet", "guitar", "other"]
 DISCOVERY_SOURCES = ["self", "claude-recommendation", "autoplay"]
-POSITIVE_MOODS = {
-    "romantic", "tender", "sexy", "sensual", "captivating", "joyful", "cool",
-    "bluesy", "groovy", "warm", "intimate", "lovely", "pretty", "hopeful",
-    "spiritual", "meditative", "swinging", "cute", "lush", "gentle",
-    "bittersweet", "melancholic", "mournful", "nostalgic", "moody", "dark",
-    "haunting", "sparse", "spacious",
-}
-NEGATIVE_MOODS = {
-    "flat", "uninteresting", "sleepy", "background", "repetitive", "corny",
-    "showtimey", "dramatic", "restless", "experimental",
-}
+MOOD_AXES_PATH = SCRIPT_DIR / "mood-axes.json"
+MOOD_AXES = json.loads(MOOD_AXES_PATH.read_text()) if MOOD_AXES_PATH.exists() else {}
 
 
 def load_model(version=None):
@@ -92,10 +83,15 @@ def track_to_features(track, model_data):
         row[f"subgenre_{s}"] = 1 if s in track_subgenres else 0
 
     row["mood_count"] = len(track_moods)
-    row["mood_polarity"] = sum(1 for m in track_moods if m in POSITIVE_MOODS) - sum(1 for m in track_moods if m in NEGATIVE_MOODS)
-    pos_count = sum(1 for m in track_moods if m in POSITIVE_MOODS)
-    row["mood_density_ratio"] = pos_count / max(len(track_moods), 1)
-    row["has_negative_mood"] = int(any(m in NEGATIVE_MOODS for m in track_moods))
+    axes_vals = [MOOD_AXES[m] for m in track_moods if m in MOOD_AXES]
+    if axes_vals:
+        row["avg_valence"] = np.mean([a["valence"] for a in axes_vals])
+        row["avg_arousal"] = np.mean([a["arousal"] for a in axes_vals])
+        row["avg_dominance"] = np.mean([a["dominance"] for a in axes_vals])
+    else:
+        row["avg_valence"] = 0.0
+        row["avg_arousal"] = 0.0
+        row["avg_dominance"] = 0.0
     row["subgenre_count"] = len(track_subgenres)
 
     instr_lower = [i.lower() for i in track.get("instrumentation", [])]
@@ -146,7 +142,9 @@ def track_to_features(track, model_data):
 
     # Mood interactions
     row["energy_x_complexity"] = row["energy"] * row["harmonic_complexity"]
-    row["mood_polarity_x_energy"] = row["mood_polarity"] * row["energy"]
+    row["valence_x_energy"] = row["avg_valence"] * row["energy"]
+    row["valence_x_arousal"] = row["avg_valence"] * row["avg_arousal"]
+    row["arousal_x_energy"] = row["avg_arousal"] * row["energy"]
 
     # Key/mode features
     mode = ((track.get("audio_features") or {}).get("mode") or "").lower()
