@@ -62,14 +62,26 @@ const SECTIONS = [
 
 export default function Navigation({ showSections = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [search, setSearch] = useState('');
   const location = useLocation();
 
   useEffect(() => {
-    const close = () => setMenuOpen(false);
-    document.addEventListener('click', close);
-    return () => document.removeEventListener('click', close);
-  }, []);
+    const handleClickOutside = (e) => {
+      if (menuOpen && !e.target.closest('.page-menu') && !e.target.closest('.hamburger-btn')) {
+        setMenuOpen(false);
+      }
+      if (dropdownOpen && !e.target.closest('.nav-search-container')) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [menuOpen, dropdownOpen]);
+
+  const handleNavClick = () => {
+    setDropdownOpen(false);
+  };
 
   return (
     <nav className="section-nav">
@@ -87,29 +99,41 @@ export default function Navigation({ showSections = true }) {
         ))}
       </div>
       {showSections && (
-        <>
+        <div className="nav-search-container">
           <input
             className="nav-search"
             type="search"
-            placeholder="Search..."
+            placeholder="Search panels..."
             value={search}
             onChange={e => setSearch(e.target.value)}
+            onFocus={() => setDropdownOpen(true)}
           />
-          <div className="nav-links">
-            {SECTIONS.map(section => {
-              const filtered = section.items.filter(i =>
-                !search || i.label.toLowerCase().includes(search.toLowerCase())
-              );
-              if (!filtered.length) return null;
-              return [
-                <span key={`label-${section.label}`} className="nav-section-label">{section.label}</span>,
-                ...filtered.map(item => (
-                  <a key={item.id} className="nav-link" href={`#${item.id}`}>{item.label}</a>
-                ))
-              ];
-            }).flat().filter(Boolean)}
-          </div>
-        </>
+          {dropdownOpen && (
+            <div className="nav-dropdown">
+              {SECTIONS.map(section => {
+                const filtered = section.items.filter(i =>
+                  !search || i.label.toLowerCase().includes(search.toLowerCase())
+                );
+                if (!filtered.length) return null;
+                return (
+                  <div key={`section-${section.label}`} className="dropdown-section">
+                    <div className="dropdown-section-label">{section.label}</div>
+                    {filtered.map(item => (
+                      <a
+                        key={item.id}
+                        className="dropdown-item"
+                        href={`#${item.id}`}
+                        onClick={handleNavClick}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                );
+              }).filter(Boolean)}
+            </div>
+          )}
+        </div>
       )}
     </nav>
   );
