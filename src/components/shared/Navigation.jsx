@@ -79,8 +79,13 @@ export default function Navigation({ showSections = true }) {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [menuOpen, dropdownOpen]);
 
-  const handleNavClick = () => {
+  const handleNavClick = (e, itemId) => {
+    if (e) e.preventDefault();
     setDropdownOpen(false);
+    const element = document.getElementById(itemId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -119,14 +124,13 @@ export default function Navigation({ showSections = true }) {
                   <div key={`section-${section.label}`} className="dropdown-section">
                     <div className="dropdown-section-label">{section.label}</div>
                     {filtered.map(item => (
-                      <a
+                      <button
                         key={item.id}
                         className="dropdown-item"
-                        href={`#${item.id}`}
-                        onClick={handleNavClick}
+                        onClick={() => handleNavClick(null, item.id)}
                       >
                         {item.label}
-                      </a>
+                      </button>
                     ))}
                   </div>
                 );

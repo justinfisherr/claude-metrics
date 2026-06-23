@@ -64,12 +64,17 @@
 
 .dropdown-item {
   display: block;
+  width: 100%;
   padding: 6px 12px;
   color: var(--text);
   text-decoration: none;
   font-size: 0.78rem;
   cursor: pointer;
   transition: background 0.12s, color 0.12s;
+  border: none;
+  background: none;
+  text-align: left;
+  font-family: inherit;
 }
 .dropdown-item:hover {
   background: var(--accent-soft);
