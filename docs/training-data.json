@@ -5767,5 +5767,134 @@
     },
     "replayability": 2,
     "playthrough": 0.25
+  },
+  {
+    "title": "Nardis",
+    "artist": "Bill Evans",
+    "album": "Paris Concert",
+    "year": 1980,
+    "label": null,
+    "era": "Neo-Bop",
+    "subgenres": [
+      "piano ballad",
+      "modal jazz"
+    ],
+    "moods": [
+      "pretty",
+      "beautiful",
+      "sensual",
+      "moody",
+      "nostalgic",
+      "gentle",
+      "mysterious",
+      "flat",
+      "uninteresting"
+    ],
+    "instrumentation": [
+      "piano"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "notable_qualities": [
+      "experimental ballad structure",
+      "beautiful but emotionally static",
+      "modal but doesn't pull listener in"
+    ],
+    "rating": 6.5,
+    "liked": false,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-23",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 420,
+      "popularity": null,
+      "tempo_bpm": null,
+      "time_signature": null,
+      "key": null,
+      "mode": null,
+      "is_live": true,
+      "source": "spotify"
+    },
+    "replayability": 1,
+    "playthrough": 1.0
+  },
+  {
+    "title": "Autumn Leaves",
+    "artist": "Stan Getz",
+    "album": "West Coast Jazz",
+    "year": 1955,
+    "label": "Norgran",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "ballad",
+      "cool jazz"
+    ],
+    "moods": [
+      "tender",
+      "romantic",
+      "pretty",
+      "lovely",
+      "cool",
+      "bluesy",
+      "sensual",
+      "bittersweet",
+      "melancholic",
+      "solemn",
+      "contemplative",
+      "reflective",
+      "lush",
+      "gentle",
+      "beautiful",
+      "sleepy"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Stan Getz - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "lyrical Getz",
+      "cool sophistication",
+      "romantic without being overwrought",
+      "listened all the way through"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-06-23",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 280,
+      "popularity": null,
+      "tempo_bpm": null,
+      "time_signature": null,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": 3,
+    "playthrough": 1.0
   }
 ]
