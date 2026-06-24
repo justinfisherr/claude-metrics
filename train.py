@@ -223,11 +223,11 @@ def engineer_features(tracks):
 
         if has_audio:
             audio = t.get("audio_features") or {}
-            row["duration_s"] = audio.get("duration_s", 300)
-            row["popularity"] = audio.get("popularity", 50)
-            row["tempo_bpm"] = audio.get("tempo_bpm", 120)
-            row["time_signature"] = audio.get("time_signature", 4)
-            row["is_live"] = int(audio.get("is_live", False))
+            row["duration_s"] = audio.get("duration_s") or 300
+            row["popularity"] = audio.get("popularity") or 50
+            row["tempo_bpm"] = audio.get("tempo_bpm") or 120
+            row["time_signature"] = audio.get("time_signature") or 4
+            row["is_live"] = int(audio.get("is_live") or False)
 
         rows.append(row)
 

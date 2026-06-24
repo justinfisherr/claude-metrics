@@ -1,5 +1,5 @@
 {
-  "current_version": "4.00",
+  "current_version": "4.02",
   "versions": [
     {
       "version": "1.00",
@@ -309,6 +309,50 @@
         "dashboard_data": "versions/v4.00/dashboard-data.json",
         "model": "versions/v4.00/model.joblib",
         "training_data": "versions/v4.00/training-data.md"
+      }
+    },
+    {
+      "version": "4.01",
+      "name": "",
+      "major": 4,
+      "minor": 1,
+      "run_date": "2026-06-24T09:09:23.121635",
+      "dataset_size": 94,
+      "best_model": "ridge",
+      "r_squared": 0.3957,
+      "rmse": 1.8087,
+      "mae": 1.4475,
+      "feature_count": 138,
+      "best_k": 2,
+      "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "4.02",
+      "name": "",
+      "major": 4,
+      "minor": 2,
+      "run_date": "2026-06-24T09:10:25.336690",
+      "dataset_size": 94,
+      "best_model": "random_forest",
+      "r_squared": 0.4001,
+      "rmse": 1.8072,
+      "mae": 1.366,
+      "feature_count": 138,
+      "best_k": 2,
+      "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
       }
     }
   ]
