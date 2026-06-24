@@ -6284,5 +6284,138 @@
     "liked": true,
     "date_added": "2026-06-24",
     "discovered_from": "reddit"
+  },
+  {
+    "title": "Body and Soul",
+    "artist": "Chris Potter",
+    "album": "Traveling Riverside",
+    "year": 1998,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "tenor sax ballad"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "lovely",
+      "beautiful",
+      "elegant",
+      "serene",
+      "tender",
+      "sophisticated",
+      "gentle",
+      "sleepy"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 7,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Body and Soul",
+    "artist": "Joshua Redman",
+    "album": "Joshua Redman",
+    "year": 1992,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "tenor sax ballad"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "warm",
+      "pretty",
+      "lovely",
+      "beautiful",
+      "peaceful",
+      "melancholic",
+      "solemn",
+      "mournful",
+      "contemplative",
+      "lush",
+      "atmospheric",
+      "smooth",
+      "non-captivating"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 6,
+    "replayability": 2,
+    "playthrough": 0.7,
+    "liked": false,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Everybody Loves the Sunshine",
+    "artist": "Takuya Kuroda",
+    "album": "Eternal Golden Braid",
+    "year": 2017,
+    "era": "Contemporary",
+    "subgenres": [
+      "modern jazz",
+      "trumpet"
+    ],
+    "moods": [
+      "joyful",
+      "elegant",
+      "bluesy",
+      "cool",
+      "nostalgic",
+      "expressive",
+      "surprising",
+      "experimental",
+      "flowing",
+      "sassy"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 6,
+    "rating": 7.5,
+    "replayability": 7,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Reflections",
+    "artist": "Kurt Rosenwinkel",
+    "album": "Heartcore",
+    "year": 2006,
+    "era": "Contemporary",
+    "subgenres": [
+      "modern jazz",
+      "guitar"
+    ],
+    "moods": [
+      "romantic",
+      "cute",
+      "lovely",
+      "beautiful",
+      "peaceful",
+      "nostalgic",
+      "gentle",
+      "sparse",
+      "meditative",
+      "sleepy"
+    ],
+    "primary_instrument": "guitar",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 6.5,
+    "replayability": 2,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
   }
 ]
