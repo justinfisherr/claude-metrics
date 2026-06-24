@@ -5896,13 +5896,13 @@
     "discovered_from": "claude-recommendation",
     "audio_features": {
       "duration_s": 280,
-      "popularity": null,
-      "tempo_bpm": null,
-      "time_signature": null,
-      "key": null,
-      "mode": null,
+      "popularity": 48,
+      "tempo_bpm": 90,
+      "time_signature": 4,
+      "key": "Em",
+      "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "estimated"
     },
     "replayability": 3,
     "playthrough": 1.0
