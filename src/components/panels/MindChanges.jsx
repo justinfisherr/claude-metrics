@@ -46,43 +46,45 @@ export default function MindChanges({ data }) {
         </p>
       )}
 
-      <table className="misses-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Journey</th>
-            <th>Current</th>
-            <th>Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          {changes.map((c, i) => {
-            const sign = c.change > 0 ? '+' : '';
-            const cls = c.change > 0 ? 'improved' : 'downgraded';
-            const arrow = c.change > 0 ? '▲' : '▼';
-            const history = c.history || [{ rating: c.old_rating }, { rating: c.new_rating }];
-            const journey = history.map(h => h.rating).join(' → ');
+      <div className="table-scroll">
+        <table className="misses-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Artist</th>
+              <th>Journey</th>
+              <th>Current</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            {changes.map((c, i) => {
+              const sign = c.change > 0 ? '+' : '';
+              const cls = c.change > 0 ? 'improved' : 'downgraded';
+              const arrow = c.change > 0 ? '▲' : '▼';
+              const history = c.history || [{ rating: c.old_rating }, { rating: c.new_rating }];
+              const journey = history.map(h => h.rating).join(' → ');
 
-            return (
-              <tr key={i}>
-                <td>
-                  {c.title}
-                  {c.is_album && <span className="mc-album-tag">album</span>}
-                </td>
-                <td style={{ color: 'var(--muted)' }}>{c.artist}</td>
-                <td className="mc-journey">{journey}</td>
-                <td style={{ fontWeight: 800 }}>{c.new_rating}</td>
-                <td>
-                  <span className={`miss-diff ${cls}`}>
-                    {arrow} {sign}{c.change.toFixed(1)}
-                  </span>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+              return (
+                <tr key={i}>
+                  <td>
+                    {c.title}
+                    {c.is_album && <span className="mc-album-tag">album</span>}
+                  </td>
+                  <td style={{ color: 'var(--muted)' }}>{c.artist}</td>
+                  <td className="mc-journey">{journey}</td>
+                  <td style={{ fontWeight: 800 }}>{c.new_rating}</td>
+                  <td>
+                    <span className={`miss-diff ${cls}`}>
+                      {arrow} {sign}{c.change.toFixed(1)}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </Panel>
   );
 }
