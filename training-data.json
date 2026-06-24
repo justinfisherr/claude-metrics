@@ -1603,16 +1603,20 @@
       "too uneven — peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
       "didn't hold up as well as Saxophone Colossus"
     ],
-    "rating": 6,
-    "liked": false,
-    "notes": "Ultimately a 6/10 not like. Thought he'd love it because of God Bless the Child but the album is uneven. Jim Hall's guitar is consistently the best part.",
+    "rating": 8,
+    "liked": true,
+    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole — the peaks justify the valleys.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
     "recommended_by_model": true,
     "recommendation_version": "v1-sonny-rollins",
     "discovered_from": "claude-recommendation",
-    "replayability": 3,
+    "rating_history": [
+      {"rating": 6, "date": "2026-06-20"},
+      {"rating": 8, "date": "2026-06-23"}
+    ],
+    "replayability": 7,
     "playthrough": 1.0
   },
   {

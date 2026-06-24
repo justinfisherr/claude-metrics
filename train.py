@@ -630,6 +630,54 @@ def save_version_artifacts(version_str, manifest, metrics_summary, is_major, nam
     return version_str
 
 
+def extract_rating_changes(tracks, albums):
+    """Extract tracks/albums where rating has been changed"""
+    all_items = tracks + albums
+    changes = []
+
+    for item in all_items:
+        history = item.get("rating_history")
+        if history and len(history) > 1:
+            old_rating = history[-2]["rating"]
+            new_rating = history[-1]["rating"]
+            change = new_rating - old_rating
+            direction = "improved" if change > 0 else "downgraded"
+
+            changes.append({
+                "title": item.get("title"),
+                "artist": item.get("artist"),
+                "old_rating": old_rating,
+                "new_rating": new_rating,
+                "change": change,
+                "direction": direction,
+                "change_date": history[-1]["date"],
+                "is_album": item.get("entity_type") == "album",
+            })
+
+    # Sort by date descending
+    changes.sort(key=lambda x: x["change_date"], reverse=True)
+
+    # Compute trend
+    by_date = {}
+    for c in changes:
+        date = c["change_date"]
+        if date not in by_date:
+            by_date[date] = {"improved": 0, "downgraded": 0}
+        by_date[date][c["direction"]] += 1
+
+    trend = [
+        {"date": date, "improved": counts["improved"], "downgraded": counts["downgraded"]}
+        for date, counts in sorted(by_date.items())
+    ]
+
+    return {
+        "changes": changes,
+        "trend": trend,
+        "total_improvements": sum(1 for c in changes if c["direction"] == "improved"),
+        "total_downgrades": sum(1 for c in changes if c["direction"] == "downgraded"),
+    }
+
+
 PLAYLISTS = [
     {"name": "My Top Jazz Songs", "id": "4ZnOuGzizWM1UIPZlhCAae", "tracks": [
         "My Favorite Things|John Coltrane",
@@ -898,6 +946,7 @@ def main():
     print("\nBuilding output...")
     predictions = build_predictions(tracks, model_results, best_labels, coords)
     distributions = build_distributions(tracks, best_labels)
+    rating_changes = extract_rating_changes(tracks, albums)
 
     history = load_history()
     best = model_results["best_model"]
@@ -937,6 +986,7 @@ def main():
         "correlations": correlations,
         "clusters": cluster_results,
         "distributions": distributions,
+        "rating_changes": rating_changes,
         "history": history,
         "mood_axes": MOOD_AXES,
         "playlists": build_playlists(predictions),
