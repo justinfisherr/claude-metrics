@@ -713,7 +713,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Very good, fun and groovy. Creatively had 3 different sections — loved the structural variety. Coltrane's part was good but so was Kenny Drew with his piano part. Likes this kind of sassy blues jazz fusion.",
+    "notes": "Very good, fun and groovy. Creatively had 3 different sections \u2014 loved the structural variety. Coltrane's part was good but so was Kenny Drew with his piano part. Likes this kind of sassy blues jazz fusion.",
     "favorite_moments": "Kenny Drew piano section",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1074,12 +1074,12 @@
       "peaceful and happy quality",
       "guitar passages especially appealing",
       "revealed love of guitar in jazz",
-      "too slow on revisit — revised down from 8 to 5",
-      "came back around again — the guitar and peaceful vibe won out"
+      "too slow on revisit \u2014 revised down from 8 to 5",
+      "came back around again \u2014 the guitar and peaceful vibe won out"
     ],
     "rating": 8.5,
     "liked": true,
-    "notes": "Full circle — initially 8, revised down to 5 for being too slow, now back up to 8.5. The peaceful happy quality and Jim Hall's guitar are just too good.",
+    "notes": "Full circle \u2014 initially 8, revised down to 5 for being too slow, now back up to 8.5. The peaceful happy quality and Jim Hall's guitar are just too good.",
     "favorite_moments": "Guitar passages",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1087,9 +1087,18 @@
     "recommendation_version": "v1-sonny-rollins",
     "discovered_from": "claude-recommendation",
     "rating_history": [
-      {"rating": 8, "date": "2026-06-20"},
-      {"rating": 5, "date": "2026-06-20"},
-      {"rating": 8.5, "date": "2026-06-24"}
+      {
+        "rating": 8,
+        "date": "2026-06-20"
+      },
+      {
+        "rating": 5,
+        "date": "2026-06-20"
+      },
+      {
+        "rating": 8.5,
+        "date": "2026-06-24"
+      }
     ],
     "audio_features": {
       "duration_s": 311,
@@ -1138,13 +1147,13 @@
     ],
     "notable_qualities": [
       "calypso groove",
-      "cool expressive attitude — same vibe as So What",
+      "cool expressive attitude \u2014 same vibe as So What",
       "joyful and fun",
       "drum solo slightly disrupts momentum"
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Fantastic. Cool in a similar way to So What — expression, fuck-you attitude. Drum solo is a bit much and kind of ruins the momentum.",
+    "notes": "Fantastic. Cool in a similar way to So What \u2014 expression, fuck-you attitude. Drum solo is a bit much and kind of ruins the momentum.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1196,14 +1205,14 @@
       "Max Roach - drums"
     ],
     "notable_qualities": [
-      "grows on you — initially didn't click",
+      "grows on you \u2014 initially didn't click",
       "drum breaks with Rollins filling in are the highlight",
       "Max Roach steals the show",
       "dynamic interplay between drums and sax"
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Really cool. At first didn't like it but when the drum breaks came in with Rollins filling in — that was sick. Max Roach almost steals the show.",
+    "notes": "Really cool. At first didn't like it but when the drum breaks came in with Rollins filling in \u2014 that was sick. Max Roach almost steals the show.",
     "favorite_moments": "Drum breaks with Rollins filling in",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1492,7 +1501,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole — the peaks justify the valleys.",
+    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole \u2014 the peaks justify the valleys.",
     "favorite_moments": "Jim Hall guitar",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1606,12 +1615,12 @@
     "notable_qualities": [
       "pianoless quartet format",
       "Jim Hall guitar is consistently the highlight",
-      "too uneven — peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
+      "too uneven \u2014 peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
       "didn't hold up as well as Saxophone Colossus"
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole — the peaks justify the valleys.",
+    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole \u2014 the peaks justify the valleys.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1619,8 +1628,14 @@
     "recommendation_version": "v1-sonny-rollins",
     "discovered_from": "claude-recommendation",
     "rating_history": [
-      {"rating": 6, "date": "2026-06-20"},
-      {"rating": 8, "date": "2026-06-23"}
+      {
+        "rating": 6,
+        "date": "2026-06-20"
+      },
+      {
+        "rating": 8,
+        "date": "2026-06-23"
+      }
     ],
     "replayability": 7,
     "playthrough": 1.0
@@ -1782,7 +1797,7 @@
     ],
     "rating": 6,
     "liked": true,
-    "notes": "Good but a little too tragic — no sense of optimism. Not the worst thing but feels like he has to be in a certain state to appreciate it.",
+    "notes": "Good but a little too tragic \u2014 no sense of optimism. Not the worst thing but feels like he has to be in a certain state to appreciate it.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1898,7 +1913,7 @@
       "Bird at his most emotional",
       "slow blues",
       "still reads as solo show to Justin",
-      "bebop exploration — negative result"
+      "bebop exploration \u2014 negative result"
     ],
     "rating": 3,
     "liked": false,
@@ -1956,7 +1971,7 @@
       "pre-modal Miles",
       "forgettable",
       "lacks the spacing and restraint of later Miles",
-      "auto-played — not a recommendation"
+      "auto-played \u2014 not a recommendation"
     ],
     "rating": 3,
     "liked": false,
@@ -2021,7 +2036,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Favorite version of the ballad. Chet Baker has a beautiful voice. First vocalist track to score well — vocal aversion has limits.",
+    "notes": "Favorite version of the ballad. Chet Baker has a beautiful voice. First vocalist track to score well \u2014 vocal aversion has limits.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -2073,7 +2088,7 @@
     "notable_qualities": [
       "felt corny",
       "new lowest rating in dataset",
-      "same artist as 8/10 My Funny Valentine — shows song choice matters more than vocalist",
+      "same artist as 8/10 My Funny Valentine \u2014 shows song choice matters more than vocalist",
       "introduces 'corny' as a negative signal"
     ],
     "rating": 2,
@@ -2188,7 +2203,7 @@
     ],
     "notable_qualities": [
       "definite no",
-      "can't explain why — just not interesting",
+      "can't explain why \u2014 just not interesting",
       "guitar + blues groove combo didn't land",
       "Wes Montgomery octave technique not enough"
     ],
@@ -2377,7 +2392,7 @@
     ],
     "rating": 5,
     "liked": true,
-    "notes": "Interesting — at first eh, but then solos were playful and fun. A little predictable to come back to. Horace is now on his map though.",
+    "notes": "Interesting \u2014 at first eh, but then solos were playful and fun. A little predictable to come back to. Horace is now on his map though.",
     "favorite_moments": "The solos",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -2696,7 +2711,7 @@
     ],
     "rating": 6.5,
     "liked": true,
-    "notes": "Very interesting — Mingus is known for making atmospheres and wow did those instruments sound like birds. Marks where the album starts to fade energy-wise.",
+    "notes": "Very interesting \u2014 Mingus is known for making atmospheres and wow did those instruments sound like birds. Marks where the album starts to fade energy-wise.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -2952,7 +2967,7 @@
     "rating": 8,
     "liked": true,
     "notes": "One of the better albums heard. Such a strong first half with so much energy, passion, and expression. Slowly fades after Bird Calls but overall incredible. Wants it on vinyl.",
-    "favorite_moments": "First half — Better Git It in Your Soul through Open Letter to Duke",
+    "favorite_moments": "First half \u2014 Better Git It in Your Soul through Open Letter to Duke",
     "listen_count": null,
     "date_added": "2026-06-20",
     "recommended_by_model": true,
@@ -3263,7 +3278,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Actually his favorite Charlie Parker. Breaks the Bird ceiling — first Parker track at 8+.",
+    "notes": "Actually his favorite Charlie Parker. Breaks the Bird ceiling \u2014 first Parker track at 8+.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -3536,7 +3551,7 @@
     ],
     "rating": 3,
     "liked": false,
-    "notes": "Good but doesn't really revisit it. Breaks the Bill Evans perfect streak — first Evans track below 7.",
+    "notes": "Good but doesn't really revisit it. Breaks the Bill Evans perfect streak \u2014 first Evans track below 7.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -3928,12 +3943,12 @@
       "really sexy and cool",
       "fuck-you attitude",
       "gospel piano call-and-response",
-      "whole thing is fun — no single highlight, all of it works",
+      "whole thing is fun \u2014 no single highlight, all of it works",
       "original version of the Mingus Big Band track he loved"
     ],
     "rating": 5,
     "liked": true,
-    "notes": "Really sexy and cool. Has that fuck-you attitude. Whole thing is fun, no favorite parts — all of it works.",
+    "notes": "Really sexy and cool. Has that fuck-you attitude. Whole thing is fun, no favorite parts \u2014 all of it works.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-21",
@@ -3990,7 +4005,7 @@
       "not entertaining",
       "flat",
       "skipped at 1:32 of 5:02",
-      "first free jazz entry in dataset — confirmed miss"
+      "first free jazz entry in dataset \u2014 confirmed miss"
     ],
     "rating": 1,
     "liked": false,
@@ -4235,7 +4250,7 @@
       "sexy, smooth, and captivating",
       "intro is captivating and sexy",
       "going into coolin playlist",
-      "Herbie Hancock as leader — first entry"
+      "Herbie Hancock as leader \u2014 first entry"
     ],
     "rating": 9,
     "liked": true,
@@ -5906,5 +5921,368 @@
     },
     "replayability": 3,
     "playthrough": 1.0
+  },
+  {
+    "title": "Corcovado (Quiet Nights of Quiet Stars)",
+    "artist": "Stan Getz",
+    "album": "Getz/Gilberto",
+    "year": 1964,
+    "era": "Bossa Nova",
+    "subgenres": [
+      "bossa nova",
+      "modal jazz"
+    ],
+    "moods": [
+      "romantic",
+      "warm",
+      "pretty",
+      "elegant",
+      "melancholic",
+      "solemn",
+      "lush",
+      "gentle",
+      "smooth",
+      "corny",
+      "non-captivating",
+      "background"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "rating": 6,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Footprints",
+    "artist": "Miles Davis",
+    "album": "Miles Smiles",
+    "year": 1967,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz"
+    ],
+    "moods": [
+      "swinging",
+      "playful",
+      "exuberant",
+      "energetic",
+      "restless",
+      "sophisticated",
+      "experimental",
+      "non-captivating",
+      "uninteresting"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 6,
+    "rating": 3,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Compared to What",
+    "artist": "Les McCann",
+    "album": "Swiss Movement",
+    "year": 1969,
+    "era": "Funk/Soul Jazz",
+    "subgenres": [
+      "jazz funk",
+      "soul jazz"
+    ],
+    "moods": [
+      "cool",
+      "captivating",
+      "dynamic",
+      "passionate",
+      "bluesy",
+      "spiritual",
+      "smooth",
+      "flowing",
+      "lyrical",
+      "communal",
+      "iconic",
+      "uninteresting",
+      "corny",
+      "flat"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "rating": 6.5,
+    "replayability": 2,
+    "playthrough": 0.55,
+    "liked": false,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "K\u00f6ln Concert, Part I",
+    "artist": "Keith Jarrett",
+    "album": "The K\u00f6ln Concert",
+    "year": 1975,
+    "era": "ECM/Improvisation",
+    "subgenres": [
+      "solo piano",
+      "improvisation"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "beautiful",
+      "elegant",
+      "serene",
+      "peaceful",
+      "hopeful",
+      "joyful",
+      "warm",
+      "cute",
+      "lush",
+      "nostalgic",
+      "reflective",
+      "atmospheric",
+      "gentle",
+      "vibrant",
+      "repetitive",
+      "uninteresting",
+      "meandering",
+      "unengaging",
+      "flat"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow-medium",
+    "energy": 4,
+    "rating": 2,
+    "replayability": 1,
+    "playthrough": 0.3,
+    "liked": false,
+    "date_added": "2026-06-24",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "(untitled)",
+    "artist": "(unknown artist)",
+    "album": "",
+    "year": null,
+    "era": "Unknown",
+    "subgenres": [],
+    "moods": [
+      "romantic",
+      "warm",
+      "pretty",
+      "cool",
+      "bluesy",
+      "groovy",
+      "playful",
+      "energetic",
+      "dynamic",
+      "captivating",
+      "fun",
+      "passionate",
+      "intense",
+      "atmospheric",
+      "smooth",
+      "restless",
+      "expressive",
+      "experimental",
+      "non-captivating",
+      "background",
+      "flat",
+      "uninteresting"
+    ],
+    "primary_instrument": "unknown",
+    "tempo": "unknown",
+    "energy": 5,
+    "rating": 3,
+    "replayability": 1,
+    "playthrough": 0.7,
+    "liked": null,
+    "date_added": "2026-06-24",
+    "discovered_from": "unknown"
+  },
+  {
+    "title": "My Sin",
+    "artist": "Hank Mobley",
+    "album": "The Turnaround",
+    "year": 1960,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "tenor sax ballad"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "pretty",
+      "beautiful",
+      "elegant",
+      "peaceful",
+      "sexy",
+      "passionate",
+      "sensual",
+      "melancholic",
+      "bittersweet",
+      "haunting",
+      "solemn",
+      "introspective",
+      "reflective",
+      "lush",
+      "sparse",
+      "atmospheric",
+      "mysterious",
+      "sleepy"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "rating": 4.5,
+    "replayability": 2,
+    "playthrough": 1.0,
+    "liked": null,
+    "date_added": "2026-06-24",
+    "discovered_from": "reddit"
+  },
+  {
+    "title": "Yes or No",
+    "artist": "Wayne Shorter",
+    "album": "JuJu",
+    "year": 1965,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz"
+    ],
+    "moods": [
+      "joyful",
+      "swinging",
+      "fun",
+      "exciting",
+      "playful",
+      "energetic",
+      "lively",
+      "restless",
+      "sophisticated",
+      "animated",
+      "expressive",
+      "background"
+    ],
+    "primary_instrument": "soprano saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "rating": 7,
+    "replayability": 4,
+    "playthrough": 0.5,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "reddit"
+  },
+  {
+    "title": "The Fox",
+    "artist": "Harold Land",
+    "album": "The Fox",
+    "year": 1959,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "tenor sax"
+    ],
+    "moods": [
+      "joyful",
+      "swinging",
+      "fun",
+      "lively",
+      "exciting",
+      "playful",
+      "flowing",
+      "restless",
+      "ecstatic"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "rating": 5,
+    "replayability": 2,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "reddit"
+  },
+  {
+    "title": "Beatrice",
+    "artist": "Joe Henderson",
+    "album": "The State of the Tenor",
+    "year": 1985,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "tenor sax ballad"
+    ],
+    "moods": [
+      "cool",
+      "bluesy",
+      "sexy",
+      "moody",
+      "dark",
+      "sparse",
+      "experimental",
+      "sophisticated",
+      "mysterious"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "rating": 7.5,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "reddit"
+  },
+  {
+    "title": "The Nearness of You",
+    "artist": "Warne Marsh",
+    "album": "A Ballad Album",
+    "year": 1983,
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "tenor sax ballad"
+    ],
+    "moods": [
+      "lovely",
+      "beautiful",
+      "pretty",
+      "intimate",
+      "romantic",
+      "tender",
+      "passionate",
+      "melancholic",
+      "bittersweet",
+      "nostalgic",
+      "introspective",
+      "solemn",
+      "lush",
+      "smooth",
+      "meditative",
+      "gentle",
+      "sleepy",
+      "background"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 6,
+    "replayability": 3,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-24",
+    "discovered_from": "reddit"
   }
 ]
