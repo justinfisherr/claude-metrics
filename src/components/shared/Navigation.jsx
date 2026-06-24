@@ -26,6 +26,7 @@ const SECTIONS = [
     { id: 'pred-actual-panel', label: 'Predicted vs Actual' },
     { id: 'distribution-panel', label: 'Distribution' },
     { id: 'misses-panel', label: 'Biggest Misses' },
+    { id: 'mind-changes-panel', label: 'Mind Changes' },
     { id: 'year-rating-panel', label: 'By Year' },
     { id: 'duration-rating-panel', label: 'By Duration' },
   ]},

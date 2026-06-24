@@ -1074,17 +1074,23 @@
       "peaceful and happy quality",
       "guitar passages especially appealing",
       "revealed love of guitar in jazz",
-      "too slow on revisit — revised down from 8 to 5"
+      "too slow on revisit — revised down from 8 to 5",
+      "came back around again — the guitar and peaceful vibe won out"
     ],
-    "rating": 5,
-    "liked": false,
-    "notes": "Initially rated 8/10 — peaceful, happy, loved the guitar. On reflection, a bit too slow. Revised to 5/10 don't like.",
+    "rating": 8.5,
+    "liked": true,
+    "notes": "Full circle — initially 8, revised down to 5 for being too slow, now back up to 8.5. The peaceful happy quality and Jim Hall's guitar are just too good.",
     "favorite_moments": "Guitar passages",
     "listen_count": null,
     "date_added": "2026-06-20",
     "recommended_by_model": true,
     "recommendation_version": "v1-sonny-rollins",
     "discovered_from": "claude-recommendation",
+    "rating_history": [
+      {"rating": 8, "date": "2026-06-20"},
+      {"rating": 5, "date": "2026-06-20"},
+      {"rating": 8.5, "date": "2026-06-24"}
+    ],
     "audio_features": {
       "duration_s": 311,
       "popularity": 52,
@@ -1095,7 +1101,7 @@
       "is_live": false,
       "source": "spotify"
     },
-    "replayability": 2,
+    "replayability": 7,
     "playthrough": 0.7
   },
   {

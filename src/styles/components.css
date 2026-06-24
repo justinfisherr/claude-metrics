@@ -530,6 +530,58 @@
 
     .miss-diff.over { color: var(--bad); }
     .miss-diff.under { color: var(--warning); }
+    .miss-diff.improved { color: var(--good); }
+    .miss-diff.downgraded { color: var(--bad); }
+
+    /* ── Mind Changes ── */
+    .mind-changes-stats {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .mc-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .mc-stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .mc-stat-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .mc-journey {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .mc-album-tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 5px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 3px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      vertical-align: middle;
+    }
 
     /* ── Breakdown dropdowns ── */
     .breakdown-dropdown {

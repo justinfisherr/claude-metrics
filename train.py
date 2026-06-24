@@ -652,6 +652,8 @@ def extract_rating_changes(tracks, albums):
                 "direction": direction,
                 "change_date": history[-1]["date"],
                 "is_album": item.get("entity_type") == "album",
+                "history": history,
+                "times_changed": len(history) - 1,
             })
 
     # Sort by date descending

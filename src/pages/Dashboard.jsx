@@ -25,6 +25,7 @@ import InstrumentRatings from '../components/panels/InstrumentRatings';
 import InstrumentCombos from '../components/panels/InstrumentCombos';
 import LabelBreakdown from '../components/panels/LabelBreakdown';
 import BiggestMisses from '../components/panels/BiggestMisses';
+import MindChanges from '../components/panels/MindChanges';
 import TopArtists from '../components/panels/TopArtists';
 import EraBreakdown from '../components/panels/EraBreakdown';
 import HarmonicComplexity from '../components/panels/HarmonicComplexity';
@@ -110,6 +111,7 @@ export default function Dashboard() {
             <PredVsActual data={data} />
             <RatingDistribution data={data} />
             <BiggestMisses data={data} />
+            <MindChanges data={data} />
             <YearRating data={data} />
             <DurationRating data={data} />
 
