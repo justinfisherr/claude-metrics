@@ -6417,5 +6417,353 @@
     "liked": true,
     "date_added": "2026-06-24",
     "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "My Funny Valentine",
+    "artist": "Miles Davis",
+    "album": "My Funny Valentine",
+    "year": 1964,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "spacious",
+      "lush",
+      "sexy",
+      "romantic",
+      "pretty",
+      "melancholic"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 7,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation",
+    "notes": "Dragging a long a bit. Outro is beautiful by Herbie"
+  },
+  {
+    "title": "All of You",
+    "artist": "Miles Davis",
+    "album": "My Funny Valentine",
+    "year": 1964,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "expressive",
+      "passionate",
+      "experimental",
+      "uninspiring"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 4,
+    "rating": 3,
+    "replayability": 2,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "I Thought About You",
+    "artist": "Miles Davis",
+    "album": "My Funny Valentine",
+    "year": 1964,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "tragic",
+      "longing",
+      "beautiful",
+      "bittersweet",
+      "experiential",
+      "atmospheric",
+      "sexy",
+      "bluesy",
+      "surprising"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 3,
+    "rating": 8,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Scrapple from the Apple",
+    "artist": "Dexter Gordon",
+    "album": "Our Man in Paris",
+    "year": 1963,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "tenor sax"
+    ],
+    "moods": [
+      "interesting",
+      "fun",
+      "joyful",
+      "restless"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "rating": 7,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Willow Weep for Me",
+    "artist": "Dexter Gordon",
+    "album": "Our Man in Paris",
+    "year": 1963,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "tenor sax ballad"
+    ],
+    "moods": [
+      "pretty",
+      "cute",
+      "bluesy",
+      "sexy"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 6,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Bloomdido",
+    "artist": "Charlie Parker",
+    "album": "Bird and Diz",
+    "year": 1950,
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "alto sax"
+    ],
+    "moods": [
+      "fun",
+      "cool",
+      "joyful",
+      "cute"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "fast",
+    "energy": 7,
+    "rating": 7,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "My Melancholy Baby",
+    "artist": "Charlie Parker",
+    "album": "Bird and Diz",
+    "year": 1950,
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "ballad"
+    ],
+    "moods": [
+      "melancholy",
+      "longing",
+      "pretty",
+      "sexy",
+      "bluesy"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 3,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Relaxing with Lee",
+    "artist": "Charlie Parker",
+    "album": "Bird and Diz",
+    "year": 1950,
+    "era": "Bebop",
+    "subgenres": [
+      "bebop"
+    ],
+    "moods": [
+      "pretty",
+      "sexy",
+      "sophisticated",
+      "complex"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "rating": 2,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "The Freedom Suite",
+    "artist": "Sonny Rollins",
+    "album": "Freedom Suite",
+    "year": 1958,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "tenor sax"
+    ],
+    "moods": [
+      "bluesy",
+      "pretty",
+      "sexy",
+      "restless"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "rating": 2,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Someday I'll Find You",
+    "artist": "Sonny Rollins",
+    "album": "Freedom Suite",
+    "year": 1958,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "tenor sax"
+    ],
+    "moods": [
+      "non-captivating",
+      "restless",
+      "complex",
+      "joyful"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "rating": 3,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "But Not for Me",
+    "artist": "Ahmad Jamal",
+    "album": "But Not for Me",
+    "year": 1959,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano"
+    ],
+    "moods": [
+      "sexy",
+      "experimental",
+      "pretty",
+      "complex"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "rating": 4,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Surrey with the Fringe on Top",
+    "artist": "Ahmad Jamal",
+    "album": "But Not for Me",
+    "year": 1959,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano"
+    ],
+    "moods": [
+      "experimental",
+      "restless",
+      "fun"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "rating": 3,
+    "replayability": 3,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
+  },
+  {
+    "title": "Moonlight in Vermont",
+    "artist": "Ahmad Jamal",
+    "album": "But Not for Me",
+    "year": 1959,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano ballad"
+    ],
+    "moods": [
+      "sexy",
+      "pretty",
+      "bluesy",
+      "melancholic",
+      "hopeful",
+      "bittersweet",
+      "elegant",
+      "sparse"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "rating": 5,
+    "replayability": 2,
+    "playthrough": 0.5,
+    "liked": null,
+    "date_added": "2026-06-26",
+    "discovered_from": "claude-recommendation"
   }
 ]
