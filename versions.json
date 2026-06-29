@@ -1,5 +1,5 @@
 {
-  "current_version": "5.04",
+  "current_version": "5.05",
   "versions": [
     {
       "version": "1.00",
@@ -546,6 +546,28 @@
       "feature_count": 184,
       "best_k": 2,
       "notes": "Log 44 new reviews (165 total tracks)",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "5.05",
+      "name": "pikachu",
+      "major": 5,
+      "minor": 5,
+      "run_date": "2026-06-28T23:18:14.036405",
+      "dataset_size": 162,
+      "best_model": "random_forest",
+      "r_squared": 0.3355,
+      "rmse": 1.8533,
+      "mae": 1.4972,
+      "feature_count": 184,
+      "best_k": 2,
+      "notes": "Backfill spotify_id + ReccoBeats features for 41 new tracks",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,

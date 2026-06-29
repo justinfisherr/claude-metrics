@@ -7858,7 +7858,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "3RK3IYBbGAACm67s3W2IM7",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.926,
+      "danceability": 0.467,
+      "spotify_energy": 0.143,
+      "instrumentalness": 0.0132,
+      "liveness": 0.295,
+      "loudness": -14.141,
+      "speechiness": 0.0404,
+      "spotify_valence": 0.208
+    }
   },
   {
     "title": "Tenderly",
@@ -7897,7 +7908,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4GexggWZGdd0ER5wBAtuwF",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.883,
+      "danceability": 0.461,
+      "spotify_energy": 0.0682,
+      "instrumentalness": 0.0806,
+      "liveness": 0.127,
+      "loudness": -16.664,
+      "speechiness": 0.0626,
+      "spotify_valence": 0.234
+    }
   },
   {
     "title": "Poinciana",
@@ -7936,7 +7958,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4lyupu0V7V9CoKhH52sfS8",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.984,
+      "danceability": 0.553,
+      "spotify_energy": 0.0902,
+      "instrumentalness": 0.91,
+      "liveness": 0.1,
+      "loudness": -21.491,
+      "speechiness": 0.043,
+      "spotify_valence": 0.289
+    }
   },
   {
     "title": "You've Changed",
@@ -7976,7 +8009,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "1bzWQAERd8mtwpxH8R4vjB",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.951,
+      "danceability": 0.347,
+      "spotify_energy": 0.17,
+      "instrumentalness": 0.547,
+      "liveness": 0.301,
+      "loudness": -13.603,
+      "speechiness": 0.0376,
+      "spotify_valence": 0.205
+    }
   },
   {
     "title": "I Guess I'll Hang My Tears Out to Dry",
@@ -8014,7 +8058,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "58ylMBq2yqYdHyevarkNWa",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.907,
+      "danceability": 0.524,
+      "spotify_energy": 0.222,
+      "instrumentalness": 0.00124,
+      "liveness": 0.0544,
+      "loudness": -8.967,
+      "speechiness": 0.0346,
+      "spotify_valence": 0.325
+    }
   },
   {
     "title": "Générique",
@@ -8054,7 +8109,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "1hh6s2tQuxdnaHET2hlNSH",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.956,
+      "danceability": 0.375,
+      "spotify_energy": 0.0674,
+      "instrumentalness": 0.923,
+      "liveness": 0.182,
+      "loudness": -15.968,
+      "speechiness": 0.0355,
+      "spotify_valence": 0.155
+    }
   },
   {
     "title": "Old Folks",
@@ -8091,7 +8157,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4mh17mzDplLjImZg1I3ivP",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.965,
+      "danceability": 0.519,
+      "spotify_energy": 0.111,
+      "instrumentalness": 0.000672,
+      "liveness": 0.0773,
+      "loudness": -14.687,
+      "speechiness": 0.0444,
+      "spotify_valence": 0.26
+    }
   },
   {
     "title": "Wise One",
@@ -8138,7 +8215,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "1Umans0xKp3GqAdcaWNmlP",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.769,
+      "danceability": 0.44,
+      "spotify_energy": 0.34,
+      "instrumentalness": 0.000646,
+      "liveness": 0.0758,
+      "loudness": -12.767,
+      "speechiness": 0.0296,
+      "spotify_valence": 0.125
+    }
   },
   {
     "title": "Speak No Evil",
@@ -8180,7 +8268,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0qxiaagtTvTeNvzxHHc441",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.612,
+      "danceability": 0.459,
+      "spotify_energy": 0.632,
+      "instrumentalness": 0.0,
+      "liveness": 0.274,
+      "loudness": -7.153,
+      "speechiness": 0.0406,
+      "spotify_valence": 0.517
+    }
   },
   {
     "title": "Maiden Voyage",
@@ -8220,7 +8319,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0T1EaGm6b9eM7xBf4F1hlc",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.719,
+      "danceability": 0.467,
+      "spotify_energy": 0.459,
+      "instrumentalness": 0.00312,
+      "liveness": 0.0944,
+      "loudness": -9.706,
+      "speechiness": 0.0305,
+      "spotify_valence": 0.178
+    }
   },
   {
     "title": "Blue Bossa",
@@ -8261,7 +8371,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "6qqK0oeBRapZn8f9hJJENw",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.911,
+      "danceability": 0.531,
+      "spotify_energy": 0.366,
+      "instrumentalness": 0.88,
+      "liveness": 0.0916,
+      "loudness": -11.697,
+      "speechiness": 0.0496,
+      "spotify_valence": 0.785
+    }
   },
   {
     "title": "Along Came Betty",
@@ -8302,7 +8423,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "3Ysj0cl3Jlb6Ysp6um8QI7",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.801,
+      "danceability": 0.665,
+      "spotify_energy": 0.359,
+      "instrumentalness": 0.106,
+      "liveness": 0.145,
+      "loudness": -8.887,
+      "speechiness": 0.0326,
+      "spotify_valence": 0.4
+    }
   },
   {
     "title": "Europa",
@@ -8345,7 +8477,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "3gqaiow4z1FvOTZIHfe1ZE",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.555,
+      "danceability": 0.259,
+      "spotify_energy": 0.273,
+      "instrumentalness": 0.874,
+      "liveness": 0.0724,
+      "loudness": -13.745,
+      "speechiness": 0.0317,
+      "spotify_valence": 0.273
+    }
   },
   {
     "title": "Yègellé Tezeta",
@@ -8386,7 +8529,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0fxjsll9jmmRgMFbwdp4Xg",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.745,
+      "danceability": 0.839,
+      "spotify_energy": 0.233,
+      "instrumentalness": 0.747,
+      "liveness": 0.105,
+      "loudness": -13.539,
+      "speechiness": 0.0413,
+      "spotify_valence": 0.777
+    }
   },
   {
     "title": "I Put a Spell on You",
@@ -8426,7 +8580,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0sjxRg1VlYfx4YG7uxurrq",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.755,
+      "danceability": 0.428,
+      "spotify_energy": 0.398,
+      "instrumentalness": 0.000537,
+      "liveness": 0.172,
+      "loudness": -9.13,
+      "speechiness": 0.0295,
+      "spotify_valence": 0.365
+    }
   },
   {
     "title": "The First Time Ever I Saw Your Face",
@@ -8466,7 +8631,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0SxFyA4FqmEQqZVuAlg8lf",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.731,
+      "danceability": 0.311,
+      "spotify_energy": 0.0264,
+      "instrumentalness": 0.00205,
+      "liveness": 0.156,
+      "loudness": -21.644,
+      "speechiness": 0.037,
+      "spotify_valence": 0.139
+    }
   },
   {
     "title": "Blues for the Orient",
@@ -8506,7 +8682,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "52kjuCxWZaPS9cCurlr6gd",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.459,
+      "danceability": 0.529,
+      "spotify_energy": 0.343,
+      "instrumentalness": 3.69e-05,
+      "liveness": 0.0963,
+      "loudness": -14.809,
+      "speechiness": 0.0328,
+      "spotify_valence": 0.245
+    }
   },
   {
     "title": "It Could Happen to You",
@@ -8546,7 +8733,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "2fktrJuECcaRCgJuqwChL8",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.814,
+      "danceability": 0.627,
+      "spotify_energy": 0.507,
+      "instrumentalness": 0.123,
+      "liveness": 0.117,
+      "loudness": -9.839,
+      "speechiness": 0.0318,
+      "spotify_valence": 0.535
+    }
   },
   {
     "title": "Wig Wise",
@@ -8587,7 +8785,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "3ZmfFhLzsguvvWJXgVjspa",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.672,
+      "danceability": 0.442,
+      "spotify_energy": 0.533,
+      "instrumentalness": 0.0669,
+      "liveness": 0.285,
+      "loudness": -8.991,
+      "speechiness": 0.0313,
+      "spotify_valence": 0.704
+    }
   },
   {
     "title": "Re: Person I Knew",
@@ -8664,7 +8873,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "1f0Wfl3eLCLKv72SdkpviC",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.973,
+      "danceability": 0.205,
+      "spotify_energy": 0.204,
+      "instrumentalness": 0.00246,
+      "liveness": 0.368,
+      "loudness": -14.444,
+      "speechiness": 0.0352,
+      "spotify_valence": 0.136
+    }
   },
   {
     "title": "Little Sunflower",
@@ -8706,7 +8926,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "1caaPKXsfmGTT1t5Zcu243",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.787,
+      "danceability": 0.541,
+      "spotify_energy": 0.186,
+      "instrumentalness": 0.914,
+      "liveness": 0.0905,
+      "loudness": -21.91,
+      "speechiness": 0.0324,
+      "spotify_valence": 0.762
+    }
   },
   {
     "title": "Danny Boy",
@@ -8746,7 +8977,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0CS1pTW0N61b4yqHYWmsBQ",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.899,
+      "danceability": 0.345,
+      "spotify_energy": 0.0915,
+      "instrumentalness": 0.139,
+      "liveness": 0.1,
+      "loudness": -17.169,
+      "speechiness": 0.0558,
+      "spotify_valence": 0.207
+    }
   },
   {
     "title": "Nefertiti",
@@ -8786,7 +9028,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "6AanQLrt4GtYXutqNiiQJG",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.326,
+      "danceability": 0.396,
+      "spotify_energy": 0.464,
+      "instrumentalness": 0.309,
+      "liveness": 0.312,
+      "loudness": -10.553,
+      "speechiness": 0.0315,
+      "spotify_valence": 0.129
+    }
   },
   {
     "title": "Feeling Good",
@@ -8825,7 +9078,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "6Rqn2GFlmvmV4w9Ala0I1e",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.863,
+      "danceability": 0.451,
+      "spotify_energy": 0.326,
+      "instrumentalness": 0.0,
+      "liveness": 0.192,
+      "loudness": -9.239,
+      "speechiness": 0.0372,
+      "spotify_valence": 0.55
+    }
   },
   {
     "title": "Haitian Fight Song",
@@ -8865,7 +9129,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4HIrWTZ6dCzi6jl8MPmE5Y",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.536,
+      "danceability": 0.386,
+      "spotify_energy": 0.392,
+      "instrumentalness": 0.794,
+      "liveness": 0.167,
+      "loudness": -14.123,
+      "speechiness": 0.0408,
+      "spotify_valence": 0.399
+    }
   },
   {
     "title": "Say It Over and Over Again",
@@ -8945,7 +9220,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "1CTex49P0iWwzUGsMNjgaV",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.989,
+      "danceability": 0.313,
+      "spotify_energy": 0.0437,
+      "instrumentalness": 0.148,
+      "liveness": 0.209,
+      "loudness": -22.627,
+      "speechiness": 0.0315,
+      "spotify_valence": 0.0625
+    }
   },
   {
     "title": "Almost Blue",
@@ -8987,7 +9273,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "2Mb0UmjVuMQ1Pgcyko9dW3",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.933,
+      "danceability": 0.367,
+      "spotify_energy": 0.0488,
+      "instrumentalness": 0.463,
+      "liveness": 0.684,
+      "loudness": -23.242,
+      "speechiness": 0.0345,
+      "spotify_valence": 0.0778
+    }
   },
   {
     "title": "Autumn Leaves",
@@ -9026,7 +9323,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "5URbZBwi9r400J633zdd3h",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.659,
+      "danceability": 0.397,
+      "spotify_energy": 0.354,
+      "instrumentalness": 0.00339,
+      "liveness": 0.151,
+      "loudness": -13.193,
+      "speechiness": 0.0286,
+      "spotify_valence": 0.296
+    }
   },
   {
     "title": "Whisper Not",
@@ -9106,7 +9414,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4zxd4tiXPlWMqoJltbVTbE",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.912,
+      "danceability": 0.47,
+      "spotify_energy": 0.144,
+      "instrumentalness": 0.000118,
+      "liveness": 0.0965,
+      "loudness": -12.824,
+      "speechiness": 0.0365,
+      "spotify_valence": 0.243
+    }
   },
   {
     "title": "Crescent",
@@ -9149,7 +9468,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4m2KaJ4OXKkPcCKe1wb2Pc",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.538,
+      "danceability": 0.324,
+      "spotify_energy": 0.423,
+      "instrumentalness": 4.96e-05,
+      "liveness": 0.0892,
+      "loudness": -10.739,
+      "speechiness": 0.0365,
+      "spotify_valence": 0.384
+    }
   },
   {
     "title": "Witch Hunt",
@@ -9189,7 +9519,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "6fw1b1bCVNY5EVurncxIss",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.581,
+      "danceability": 0.417,
+      "spotify_energy": 0.688,
+      "instrumentalness": 1.75e-05,
+      "liveness": 0.0284,
+      "loudness": -7.234,
+      "speechiness": 0.0412,
+      "spotify_valence": 0.407
+    }
   },
   {
     "title": "Ahmad's Blues",
@@ -9226,7 +9567,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4CZfPaDW5madfScpZl0nDU",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.99,
+      "danceability": 0.508,
+      "spotify_energy": 0.15,
+      "instrumentalness": 0.899,
+      "liveness": 0.144,
+      "loudness": -20.844,
+      "speechiness": 0.0418,
+      "spotify_valence": 0.252
+    }
   },
   {
     "title": "Cry Me a River",
@@ -9265,7 +9617,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "7f6AAixCrVar1ZY7RPHDfM",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.964,
+      "danceability": 0.496,
+      "spotify_energy": 0.0688,
+      "instrumentalness": 0.00229,
+      "liveness": 0.112,
+      "loudness": -14.927,
+      "speechiness": 0.0545,
+      "spotify_valence": 0.161
+    }
   },
   {
     "title": "Yèkèrmo Sèw",
@@ -9305,7 +9668,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "4CwAgkBoKAGT6UMas89F0v",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.268,
+      "danceability": 0.614,
+      "spotify_energy": 0.528,
+      "instrumentalness": 0.722,
+      "liveness": 0.0851,
+      "loudness": -9.654,
+      "speechiness": 0.0313,
+      "spotify_valence": 0.386
+    }
   },
   {
     "title": "How Long Has This Been Going On",
@@ -9347,7 +9721,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "10El9hxviSBm7pChWxG1ib",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.99,
+      "danceability": 0.529,
+      "spotify_energy": 0.0367,
+      "instrumentalness": 0.31,
+      "liveness": 0.127,
+      "loudness": -21.63,
+      "speechiness": 0.0515,
+      "spotify_valence": 0.214
+    }
   },
   {
     "title": "Someday My Prince Will Come",
@@ -9390,7 +9775,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "0PHqHvmg4TIaANfbsvDMTR",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.813,
+      "danceability": 0.516,
+      "spotify_energy": 0.309,
+      "instrumentalness": 0.00301,
+      "liveness": 0.156,
+      "loudness": -12.602,
+      "speechiness": 0.0331,
+      "spotify_valence": 0.277
+    }
   },
   {
     "title": "All Blues",
@@ -9433,7 +9829,18 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "5o3DSHw1ORhM3lWxqGRvEf",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.771,
+      "danceability": 0.499,
+      "spotify_energy": 0.149,
+      "instrumentalness": 0.00469,
+      "liveness": 0.115,
+      "loudness": -18.305,
+      "speechiness": 0.0314,
+      "spotify_valence": 0.363
+    }
   },
   {
     "title": "Nostalgia in Times Square",
@@ -9471,6 +9878,17 @@
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
-    "spotify_id": null
+    "spotify_id": "7etXaS3LcZTQjcTJcalfle",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.436,
+      "danceability": 0.432,
+      "spotify_energy": 0.531,
+      "instrumentalness": 0.0216,
+      "liveness": 0.158,
+      "loudness": -12.791,
+      "speechiness": 0.0683,
+      "spotify_valence": 0.559
+    }
   }
 ]
