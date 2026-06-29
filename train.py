@@ -380,6 +380,22 @@ def get_feature_importance(model_results, feature_names, top_n=15):
     ]
 
 
+def get_top_drivers(model_results, feature_names, top_n=15):
+    """Get Ridge coefficients as actual rating drivers."""
+    if model_results["best_model"] != "ridge":
+        return []
+    coefs = model_results["ridge_directions"] * model_results["ridge_importance"]
+    indices = np.argsort(np.abs(coefs))[::-1][:top_n]
+    return [
+        {
+            "feature": readable_name(feature_names[i]),
+            "coefficient": round(float(coefs[i]), 4),
+            "direction": "positive" if coefs[i] >= 0 else "negative",
+        }
+        for i in indices
+    ]
+
+
 def compute_correlations(X, y, feature_names, top_n=10):
     feature_rating = []
     for i, name in enumerate(feature_names):
@@ -1053,6 +1069,11 @@ def main():
     for f in importance[:5]:
         print(f"  {f['feature']}: {f['importance']} ({f['direction']})")
 
+    print("\nComputing top drivers...")
+    top_drivers = get_top_drivers(model_results, feature_names)
+    for f in top_drivers[:5]:
+        print(f"  {f['feature']}: {f['coefficient']} ({f['direction']})")
+
     print("\nComputing correlations...")
     correlations = compute_correlations(X, y, feature_names)
 
@@ -1103,6 +1124,7 @@ def main():
         },
         "predictions": predictions,
         "feature_importance": importance,
+        "top_drivers": top_drivers,
         "correlations": correlations,
         "clusters": cluster_results,
         "distributions": distributions,
