@@ -1,15 +1,15 @@
 import { useMemo } from 'react';
-import Card from '../shared/Card';
+import Panel from '../shared/Panel';
+import PanelHeader from '../shared/PanelHeader';
 
 export default function FeatureConfidenceMetrics({ data }) {
-  if (!data?.predictions) return null;
-
   const stats = useMemo(() => {
+    if (!data?.predictions) return null;
+
     const artists = {};
     data.predictions.forEach(p => {
-      const artist = p.artist;
-      if (!artists[artist]) artists[artist] = [];
-      artists[artist].push(p.actual);
+      if (!artists[p.artist]) artists[p.artist] = [];
+      artists[p.artist].push(p.actual);
     });
 
     const artistCounts = Object.entries(artists)
@@ -17,25 +17,25 @@ export default function FeatureConfidenceMetrics({ data }) {
         artist,
         count: ratings.length,
         mean: (ratings.reduce((a, b) => a + b) / ratings.length).toFixed(2),
-        confidence: (ratings.length / (ratings.length + 15)).toFixed(3), // k=15
+        confidence: (ratings.length / (ratings.length + 15)).toFixed(3),
       }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 12);
 
-    const reliableArtists = artistCounts.filter(a => a.count >= 15).length;
-    const novelArtists = data.predictions.filter(p => p.artist_is_new === 1).length;
-
     return {
       artistCounts,
-      reliableArtists,
-      novelArtists,
+      reliableArtists: artistCounts.filter(a => a.count >= 15).length,
+      novelArtists: data.predictions.filter(p => p.artist_is_new === 1).length,
       avgTracksPerArtist: (data.predictions.length / Object.keys(artists).length).toFixed(1),
       totalArtists: Object.keys(artists).length,
     };
   }, [data]);
 
+  if (!stats) return null;
+
   return (
-    <Card title="Feature Confidence Metrics" span="span-6">
+    <Panel id="feature-confidence-panel" span={6}>
+      <PanelHeader title="Feature Confidence Metrics" />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
         <div>
           <div style={{ fontSize: '0.75rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>
@@ -81,6 +81,6 @@ export default function FeatureConfidenceMetrics({ data }) {
           ))}
         </div>
       </div>
-    </Card>
+    </Panel>
   );
 }

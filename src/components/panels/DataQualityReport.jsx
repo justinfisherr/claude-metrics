@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
-import Card from '../shared/Card';
+import Panel from '../shared/Panel';
+import PanelHeader from '../shared/PanelHeader';
 
 export default function DataQualityReport({ data }) {
-  if (!data?.predictions) return null;
-
   const stats = useMemo(() => {
+    if (!data?.predictions) return null;
+
     const total = data.predictions.length;
     const withAudio = data.predictions.filter(p => p.acousticness !== undefined && p.acousticness !== null).length;
     const withMoodZone = data.predictions.filter(p => p.mood_zone).length;
@@ -22,6 +23,8 @@ export default function DataQualityReport({ data }) {
     };
   }, [data]);
 
+  if (!stats) return null;
+
   const qualityIndicator = (pct) => {
     const p = parseInt(pct);
     if (p >= 95) return '🟢';
@@ -30,7 +33,8 @@ export default function DataQualityReport({ data }) {
   };
 
   return (
-    <Card title="Data Quality & Coverage" span="span-6">
+    <Panel id="data-quality-panel" span={6}>
+      <PanelHeader title="Data Quality & Coverage" />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
         {[
           { label: 'Audio Features', ...stats.audioFeatures },
@@ -61,6 +65,6 @@ export default function DataQualityReport({ data }) {
       <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border-faint)', fontSize: '0.75rem', color: 'var(--muted)' }}>
         <strong>New Features:</strong> v6.00 added 45 features including ballad splits, artist×era ratings, label×decade interactions, confidence metrics, and missingness indicators. These features were trained with Leave-One-Out cross-validation to prevent data leakage.
       </div>
-    </Card>
+    </Panel>
   );
 }
