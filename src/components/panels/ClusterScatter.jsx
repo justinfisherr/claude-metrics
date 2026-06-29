@@ -6,6 +6,8 @@ import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, RadialLinearScale, Filler, Tooltip, Legend);
 
+const CLUSTER_NAMES = ['Romantic', 'Contemplative', 'Groovy'];
+
 const CLUSTER_BG = [
   'rgba(74, 158, 255, 0.13)',
   'rgba(255, 107, 107, 0.13)',
@@ -44,7 +46,7 @@ export default function ClusterScatter({ data }) {
   for (let cluster = 0; cluster < clusterCount; cluster++) {
     const points = predictions.filter(p => p.cluster === cluster);
     const profile = profiles[cluster] || {};
-    const label = `Cluster ${cluster + 1}`;
+    const label = `${CLUSTER_NAMES[cluster] || `Cluster ${cluster}`}`;
 
     datasets.push({
       label,
@@ -99,7 +101,7 @@ export default function ClusterScatter({ data }) {
     <Panel id="clusters-panel" span={6}>
       <PanelHeader title="Taste Clusters" note="Tracks grouped by similarity" />
       {(() => {
-        const descs = profiles.map((p, i) => `C${i}`).join(', ');
+        const descs = profiles.map((p, i) => CLUSTER_NAMES[i] || `Cluster ${i}`).join(', ');
         return (
           <p className="panel-insight">
             Your taste splits into {clusterCount} distinct zones: {descs}. Tracks near the center of the map share qualities of multiple clusters.
@@ -120,7 +122,7 @@ export default function ClusterScatter({ data }) {
             style={{ borderLeftColor: colorFor(index) }}
           >
             <div className="name">
-              {profiles.map((p, i) => i === index ? `Cluster ${i}` : '').filter(Boolean)[0]}
+              {CLUSTER_NAMES[index] || `Cluster ${index}`}
             </div>
             <div className="info">
               {profile.size ?? '—'} tracks &middot; avg {profile.mean_rating ?? '—'}/10 &middot; energy {profile.mean_energy ?? '—'}

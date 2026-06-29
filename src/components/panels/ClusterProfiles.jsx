@@ -7,6 +7,8 @@ import { GR, ratingColor } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
+const CLUSTER_NAMES = ['Romantic', 'Contemplative', 'Groovy'];
+
 const CLUSTER_COLORS_FULL = [
   'rgba(74, 158, 255, 0.86)',
   'rgba(255, 107, 107, 0.86)',
@@ -42,7 +44,7 @@ export default function ClusterProfiles({ data }) {
 
   const zones = ['euphoric', 'tense', 'introspective', 'serene'];
   const chartData = {
-    labels: profiles.map((p, i) => `Cluster ${i}`),
+    labels: profiles.map((p, i) => CLUSTER_NAMES[i] || `Cluster ${i}`),
     datasets: zones.map(zone => ({
       label: zone.charAt(0).toUpperCase() + zone.slice(1),
       data: profiles.map(p => p.mood_zone_distribution?.[zone] || 0),
@@ -120,7 +122,7 @@ export default function ClusterProfiles({ data }) {
                 fontWeight: 650,
               }}
             >
-              {`C${index}`}
+              {CLUSTER_NAMES[index] || `C${index}`}
             </button>
           ))}
         </div>
@@ -133,7 +135,7 @@ export default function ClusterProfiles({ data }) {
           return (
             <>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'8px'}}>
-                <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>Cluster {selected} ({tracks.length} tracks)</strong>
+                <strong style={{color:'var(--accent)',fontSize:'0.82rem'}}>{CLUSTER_NAMES[selected] || `Cluster ${selected}`} ({tracks.length} tracks)</strong>
                 <button onClick={() => setSelected(null)} style={{background:'none',border:'none',color:'var(--muted)',cursor:'pointer',fontSize:'0.8rem'}}>&#10005; Close</button>
               </div>
               <div className="breakdown-tracks">
