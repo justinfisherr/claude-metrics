@@ -14,7 +14,6 @@ import Constellation from '../components/panels/Constellation';
 import CircleOfFifths from '../components/panels/CircleOfFifths';
 import TasteVsWorld from '../components/panels/TasteVsWorld';
 import ArtistJourneys from '../components/panels/ArtistJourneys';
-import MoodRating from '../components/panels/MoodRating';
 import Replayability from '../components/panels/Replayability';
 import Playthrough from '../components/panels/Playthrough';
 import PlaythroughByEra from '../components/panels/PlaythroughByEra';
@@ -32,15 +31,14 @@ import HarmonicComplexity from '../components/panels/HarmonicComplexity';
 import DiscoverySource from '../components/panels/DiscoverySource';
 import SoundProfile from '../components/panels/SoundProfile';
 import EnsembleSize from '../components/panels/EnsembleSize';
-import MoodAxes from '../components/panels/MoodAxes';
-import V2Features from '../components/panels/V2Features';
 import ModelHistory from '../components/panels/ModelHistory';
 import AudioScatter from '../components/panels/AudioScatter';
 import SoundDNA from '../components/panels/SoundDNA';
 import AudioFeatureRatings from '../components/panels/AudioFeatureRatings';
-import TasteMap from '../components/panels/TasteMap';
-import MoodBubbles from '../components/panels/MoodBubbles';
-import AudioByEra from '../components/panels/AudioByEra';
+import MoodZoneMap from '../components/panels/MoodZoneMap';
+import MoodZoneRatings from '../components/panels/MoodZoneRatings';
+import MoodZoneProfiles from '../components/panels/MoodZoneProfiles';
+import MoodZoneTracks from '../components/panels/MoodZoneTracks';
 
 export default function Dashboard() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
@@ -122,9 +120,12 @@ export default function Dashboard() {
 
             {/* Audio Features */}
             <AudioScatter data={data} />
-            <AudioByEra data={data} />
             <SoundDNA data={data} />
             <AudioFeatureRatings data={data} />
+            <MoodZoneMap data={data} />
+            <MoodZoneRatings data={data} />
+            <MoodZoneProfiles data={data} />
+            <MoodZoneTracks data={data} />
 
             {/* Music */}
             <EraBreakdown data={data} />
@@ -141,17 +142,10 @@ export default function Dashboard() {
             <LabelBreakdown data={data} />
             <DiscoverySource data={data} />
 
-            {/* Mood & VAD */}
-            <TasteMap data={data} />
-            <MoodBubbles data={data} />
-            <MoodRating data={data} />
-            <MoodAxes data={data} />
-
             {/* Engagement */}
             <Replayability data={data} />
             <Playthrough data={data} />
             <PlaythroughByEra data={data} />
-            <V2Features data={data} />
 
             {/* Meta */}
             <TasteVsWorld data={data} />

@@ -44,7 +44,7 @@ export default function ClusterScatter({ data }) {
   for (let cluster = 0; cluster < clusterCount; cluster++) {
     const points = predictions.filter(p => p.cluster === cluster);
     const profile = profiles[cluster] || {};
-    const label = profile.top_moods?.slice(0, 2).join(', ') || `Cluster ${cluster + 1}`;
+    const label = `Cluster ${cluster + 1}`;
 
     datasets.push({
       label,
@@ -99,7 +99,7 @@ export default function ClusterScatter({ data }) {
     <Panel id="clusters-panel" span={6}>
       <PanelHeader title="Taste Clusters" note="Tracks grouped by similarity" />
       {(() => {
-        const descs = profiles.map(p => p.top_moods?.slice(0, 2).join('/') || 'mixed').join(', ');
+        const descs = profiles.map((p, i) => `C${i}`).join(', ');
         return (
           <p className="panel-insight">
             Your taste splits into {clusterCount} distinct zones: {descs}. Tracks near the center of the map share qualities of multiple clusters.
@@ -120,7 +120,7 @@ export default function ClusterScatter({ data }) {
             style={{ borderLeftColor: colorFor(index) }}
           >
             <div className="name">
-              {profile.top_moods?.slice(0, 3).join(', ') || `Cluster ${index + 1}`}
+              {profiles.map((p, i) => i === index ? `Cluster ${i}` : '').filter(Boolean)[0]}
             </div>
             <div className="info">
               {profile.size ?? '—'} tracks &middot; avg {profile.mean_rating ?? '—'}/10 &middot; energy {profile.mean_energy ?? '—'}

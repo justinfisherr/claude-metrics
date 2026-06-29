@@ -26,27 +26,6 @@ function SummaryCard({ title, children, accent }) {
   );
 }
 
-function MoodChip({ mood, variant }) {
-  const bg = variant === 'bad'
-    ? 'rgba(255,107,107,0.15)'
-    : 'rgba(80,200,120,0.15)';
-  const color = variant === 'bad' ? 'var(--bad)' : 'var(--good)';
-  return (
-    <span style={{
-      display: 'inline-block',
-      padding: '2px 8px',
-      borderRadius: '99px',
-      background: bg,
-      color,
-      fontSize: '0.75rem',
-      fontWeight: 700,
-      margin: '2px',
-    }}>
-      {mood}
-    </span>
-  );
-}
-
 export default function TasteSummary({ data }) {
   if (!data) return null;
   const ps = data.predictions;
@@ -55,26 +34,6 @@ export default function TasteSummary({ data }) {
   const avgRating = (ps.reduce((s, p) => s + p.actual, 0) / ps.length).toFixed(1);
   const liked = ps.filter(p => p.liked).length;
   const likedPct = Math.round(liked / ps.length * 100);
-
-  // Top moods (from 8+ tracks)
-  const moodCounts = {};
-  ps.filter(p => p.actual >= 8).forEach(p =>
-    (p.moods || []).forEach(m => { moodCounts[m] = (moodCounts[m] || 0) + 1; })
-  );
-  const topMoods = Object.entries(moodCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5)
-    .map(e => e[0]);
-
-  // Worst moods (from <=4 tracks)
-  const badMoodCounts = {};
-  ps.filter(p => p.actual <= 4).forEach(p =>
-    (p.moods || []).forEach(m => { badMoodCounts[m] = (badMoodCounts[m] || 0) + 1; })
-  );
-  const worstMoods = Object.entries(badMoodCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 4)
-    .map(e => e[0]);
 
   // Top era
   const eraCounts = {};
@@ -131,11 +90,7 @@ export default function TasteSummary({ data }) {
     <Panel id="taste-summary-panel" span={12}>
       <PanelHeader title="Your Taste at a Glance" note="Auto-generated from your ratings" />
       <p className="panel-insight">
-        Across {ps.length} tracks, you gravitate toward {topMoods.length >= 2
-          ? `${topMoods[0]} and ${topMoods[1]}`
-          : topMoods[0] || 'varied'} sounds{topEra
-          ? `, with ${topEra[0]} as your sweet spot era`
-          : ''}.
+        You've rated {ps.length} tracks with an average score of {avgRating}/10. {likedPct}% of your collection makes the "liked" list.
       </p>
       <div style={{
         display: 'grid',
@@ -145,20 +100,6 @@ export default function TasteSummary({ data }) {
         <SummaryCard title="Dataset">
           <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent)' }}>{ps.length}</span> tracks rated<br />
           <span style={{ color: 'var(--good)' }}>{likedPct}%</span> liked &middot; avg <span style={{ fontWeight: 700 }}>{avgRating}</span>/10
-        </SummaryCard>
-
-        <SummaryCard title="Sweet Spot">
-          {topMoods.map(m => <MoodChip key={m} mood={m} variant="good" />)}
-          <div style={{ marginTop: '6px', fontSize: '0.75rem', color: 'var(--muted)' }}>
-            Moods on your 8+ tracks
-          </div>
-        </SummaryCard>
-
-        <SummaryCard title="Avoid">
-          {worstMoods.map(m => <MoodChip key={m} mood={m} variant="bad" />)}
-          <div style={{ marginTop: '6px', fontSize: '0.75rem', color: 'var(--muted)' }}>
-            Moods on your &le;4 tracks
-          </div>
         </SummaryCard>
 
         <SummaryCard title="Best Era">
@@ -204,15 +145,6 @@ export default function TasteSummary({ data }) {
               </span>
             </>
           ) : '—'}
-        </SummaryCard>
-
-        <SummaryCard title="Mood Polarity">
-          {highPolAvg && lowPolAvg ? (
-            <>
-              Positive tracks: avg <span style={{ color: 'var(--good)', fontWeight: 700 }}>{highPolAvg}</span><br />
-              Negative tracks: avg <span style={{ color: 'var(--bad)', fontWeight: 700 }}>{lowPolAvg}</span>
-            </>
-          ) : 'Not enough data'}
         </SummaryCard>
       </div>
     </Panel>

@@ -40,9 +40,7 @@ INSTRUMENT_GROUPS = {
 }
 INST_GROUP_VALUES = ["tenor_sax", "piano", "vocals", "bass", "trumpet", "guitar", "other"]
 DISCOVERY_SOURCES = ["self", "claude-recommendation", "autoplay"]
-MOOD_AXES_PATH = SCRIPT_DIR / "mood-axes.json"
-MOOD_AXES = json.loads(MOOD_AXES_PATH.read_text()) if MOOD_AXES_PATH.exists() else {}
-MOOD_THRESHOLD = 3
+MOOD_ZONES = ["euphoric", "tense", "introspective", "serene"]
 SUBGENRE_THRESHOLD = 3
 LABEL_THRESHOLD = 3
 
@@ -62,22 +60,34 @@ def load_data():
     return tracks, albums
 
 
+def compute_mood_zone(track):
+    audio = track.get("audio_features") or {}
+    valence = audio.get("spotify_valence")
+    energy = audio.get("spotify_energy")
+    if valence is None or energy is None:
+        return None
+    if valence >= 0.5 and energy >= 0.5:
+        return "euphoric"
+    elif valence < 0.5 and energy >= 0.5:
+        return "tense"
+    elif valence < 0.5 and energy < 0.5:
+        return "introspective"
+    else:
+        return "serene"
+
+
 def engineer_features(tracks):
     rows = []
-    all_moods = {}
     all_subgenres = {}
     all_labels = {}
 
     for t in tracks:
-        for m in t.get("moods", []):
-            all_moods[m] = all_moods.get(m, 0) + 1
         for s in t.get("subgenres", []):
             all_subgenres[s] = all_subgenres.get(s, 0) + 1
         label = t.get("label")
         if label:
             all_labels[label] = all_labels.get(label, 0) + 1
 
-    common_moods = sorted([m for m, c in all_moods.items() if c >= MOOD_THRESHOLD])
     common_subgenres = sorted([s for s, c in all_subgenres.items() if c >= SUBGENRE_THRESHOLD])
     common_labels = sorted([l for l, c in all_labels.items() if c >= LABEL_THRESHOLD])
 
@@ -125,26 +135,16 @@ def engineer_features(tracks):
         for g in INST_GROUP_VALUES:
             row[f"inst_{g}"] = 1 if group == g else 0
 
-        # Moods
-        track_moods = t.get("moods", [])
-        for m in common_moods:
-            row[f"mood_{m}"] = 1 if m in track_moods else 0
+        # Mood zones (computed from audio features)
+        mood_zone = compute_mood_zone(t)
+        for zone in MOOD_ZONES:
+            row[f"mood_zone_{zone}"] = 1 if mood_zone == zone else 0
 
         # Subgenres
         track_subgenres = t.get("subgenres", [])
         for s in common_subgenres:
             row[f"subgenre_{s}"] = 1 if s in track_subgenres else 0
 
-        row["mood_count"] = len(track_moods)
-        axes_vals = [MOOD_AXES[m] for m in track_moods if m in MOOD_AXES]
-        if axes_vals:
-            row["avg_valence"] = np.mean([a["valence"] for a in axes_vals])
-            row["avg_arousal"] = np.mean([a["arousal"] for a in axes_vals])
-            row["avg_dominance"] = np.mean([a["dominance"] for a in axes_vals])
-        else:
-            row["avg_valence"] = 0.0
-            row["avg_arousal"] = 0.0
-            row["avg_dominance"] = 0.0
         row["subgenre_count"] = len(track_subgenres)
 
         # Ensemble / instrumentation
@@ -211,11 +211,8 @@ def engineer_features(tracks):
         # Artist novelty — first time hearing this artist
         row["artist_is_new"] = int(len(artist_entries) == 1)
 
-        # Mood interactions
+        # Interaction features
         row["energy_x_complexity"] = row["energy"] * row["harmonic_complexity"]
-        row["valence_x_energy"] = row["avg_valence"] * row["energy"]
-        row["valence_x_arousal"] = row["avg_valence"] * row["avg_arousal"]
-        row["arousal_x_energy"] = row["avg_arousal"] * row["energy"]
 
         # Key/mode features
         audio_pre = t.get("audio_features") or {}
@@ -245,6 +242,7 @@ def engineer_features(tracks):
             row["loudness"]           = audio["loudness"]         if has_recco else -10.0
             row["speechiness"]        = audio["speechiness"]      if has_recco else 0.05
             row["spotify_valence"]    = audio["spotify_valence"]  if has_recco else 0.5
+            row["spotify_valence_x_energy"] = row["spotify_valence"] * row["spotify_energy"]
 
         rows.append(row)
 
@@ -252,7 +250,7 @@ def engineer_features(tracks):
     ratings = pd.Series([t["rating"] for t in tracks])
     feature_names = list(df.columns)
 
-    return df, ratings, feature_names, common_moods, common_subgenres, common_labels
+    return df, ratings, feature_names, common_subgenres, common_labels
 
 
 def readable_name(feat):
@@ -261,7 +259,6 @@ def readable_name(feat):
         "year": "Year",
         "tempo": "Tempo",
         "harmonic_complexity": "Harmonic Complexity",
-        "mood_count": "Mood Count",
         "subgenre_count": "Subgenre Count",
         "energy_tempo": "Energy × Tempo",
         "artist_mean_rating": "Artist Avg Rating",
@@ -273,12 +270,7 @@ def readable_name(feat):
         "is_pianoless": "Pianoless",
         "has_trombone": "Has Trombone",
         "key_player_count": "Key Player Count",
-        "avg_valence": "Mood Valence",
-        "avg_arousal": "Mood Arousal",
-        "avg_dominance": "Mood Dominance",
-        "valence_x_energy": "Valence × Energy",
-        "valence_x_arousal": "Valence × Arousal",
-        "arousal_x_energy": "Arousal × Energy",
+        "spotify_valence_x_energy": "Valence × Energy",
         "replayability": "Replayability",
         "has_favorite_moments": "Has Fav Moments",
         "duration_s": "Duration",
@@ -298,8 +290,9 @@ def readable_name(feat):
     }
     if feat in NAMES:
         return NAMES[feat]
-    if feat.startswith("mood_"):
-        return f'"{feat[5:].title()}" mood'
+    if feat.startswith("mood_zone_"):
+        zone = feat[10:].title()
+        return f"{zone} zone"
     if feat.startswith("subgenre_"):
         return f'"{feat[9:].replace("_", " ").title()}" subgenre'
     if feat.startswith("era_"):
@@ -465,25 +458,23 @@ def cluster_analysis(X_scaled, tracks, feature_names):
 
     results["best_k"] = best_k
 
-    radar_moods = ["romantic", "tender", "joyful", "bluesy", "cool", "melancholic", "sensual"]
-    radar_labels = ["Energy", "Complexity", "Tempo"] + [m.title() for m in radar_moods]
-
     profiles = []
     for c in range(best_k):
         mask = best_labels == c
         cluster_tracks = [tracks[i] for i in range(len(tracks)) if mask[i]]
         cluster_ratings = [t["rating"] for t in cluster_tracks]
 
-        mood_counts = {}
+        mood_zone_counts = {}
         era_counts = {}
         tempo_counts = {}
         for t in cluster_tracks:
-            for m in t.get("moods", []):
-                mood_counts[m] = mood_counts.get(m, 0) + 1
+            zone = compute_mood_zone(t)
+            if zone:
+                mood_zone_counts[zone] = mood_zone_counts.get(zone, 0) + 1
             era_counts[t.get("era", "Unknown")] = era_counts.get(t.get("era", "Unknown"), 0) + 1
             tempo_counts[t.get("tempo", "medium")] = tempo_counts.get(t.get("tempo", "medium"), 0) + 1
 
-        top_moods = sorted(mood_counts, key=mood_counts.get, reverse=True)[:5]
+        top_zones = sorted(mood_zone_counts, key=mood_zone_counts.get, reverse=True)[:2]
         top_eras = sorted(era_counts, key=era_counts.get, reverse=True)[:3]
         dominant_tempo = max(tempo_counts, key=tempo_counts.get)
 
@@ -491,14 +482,13 @@ def cluster_analysis(X_scaled, tracks, feature_names):
         mean_complexity = np.mean([COMPLEXITY_MAP.get(t.get("harmonic_complexity", "medium"), 2) for t in cluster_tracks])
         mean_tempo = np.mean([TEMPO_MAP.get(t.get("tempo", "medium"), 2.5) for t in cluster_tracks])
 
-        radar_values = [mean_energy / 10, mean_complexity / 3, mean_tempo / 4]
-        for mood in radar_moods:
-            mood_freq = sum(1 for t in cluster_tracks if mood in t.get("moods", [])) / len(cluster_tracks)
-            radar_values.append(round(mood_freq, 3))
-
         dists = np.linalg.norm(coords[mask] - coords[mask].mean(axis=0), axis=1)
         rep_indices = np.argsort(dists)[:3]
         representative = [cluster_tracks[i]["title"] for i in rep_indices]
+
+        zone_distribution = {}
+        for zone in MOOD_ZONES:
+            zone_distribution[zone] = sum(1 for t in cluster_tracks if compute_mood_zone(t) == zone) / len(cluster_tracks)
 
         profiles.append({
             "id": int(c),
@@ -506,15 +496,12 @@ def cluster_analysis(X_scaled, tracks, feature_names):
             "size": int(mask.sum()),
             "mean_rating": round(float(np.mean(cluster_ratings)), 2),
             "mean_energy": round(float(mean_energy), 2),
-            "top_moods": top_moods,
+            "top_mood_zones": top_zones,
             "top_eras": top_eras,
             "dominant_tempo": dominant_tempo,
             "mean_complexity": round(float(mean_complexity), 2),
             "representative_tracks": representative,
-            "radar": {
-                "labels": radar_labels,
-                "values": [round(float(v), 3) for v in radar_values],
-            },
+            "mood_zone_distribution": {zone: round(dist, 3) for zone, dist in zone_distribution.items()},
         })
 
     results["cluster_profiles"] = profiles
@@ -543,7 +530,7 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "energy": t.get("energy", 5),
             "tempo": t.get("tempo", "medium"),
             "era": t.get("era", "Unknown"),
-            "moods": t.get("moods", []),
+            "mood_zone": compute_mood_zone(t),
             "key": audio.get("key"),
             "mode": audio.get("mode"),
             "duration_s": audio.get("duration_s"),
@@ -566,11 +553,7 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "is_pianoless": int("piano" not in " ".join(t.get("instrumentation") or []).lower()),
             "has_vocals": int("vocal" in " ".join(t.get("instrumentation") or []).lower()),
             "has_guitar": int("guitar" in " ".join(t.get("instrumentation") or []).lower()),
-            "avg_valence": round(np.mean([MOOD_AXES[m]["valence"] for m in t.get("moods", []) if m in MOOD_AXES]) if any(m in MOOD_AXES for m in t.get("moods", [])) else 0.0, 3),
-            "avg_arousal": round(np.mean([MOOD_AXES[m]["arousal"] for m in t.get("moods", []) if m in MOOD_AXES]) if any(m in MOOD_AXES for m in t.get("moods", [])) else 0.0, 3),
-            "avg_dominance": round(np.mean([MOOD_AXES[m]["dominance"] for m in t.get("moods", []) if m in MOOD_AXES]) if any(m in MOOD_AXES for m in t.get("moods", [])) else 0.0, 3),
             "artist_is_leader": int(any(t.get("artist", "").lower().split("&")[0].strip() in kp.lower() for kp in t.get("key_players", []))),
-            "liked": t.get("liked"),
             "intro_grabbed": int(any(kw in (t.get("favorite_moments") or "").lower() + " " + (t.get("notes") or "").lower() + " " + " ".join(t.get("notable_qualities", [])).lower() for kw in ["intro", "right away"])),
             "early_bail": int((t.get("playthrough") or 0.75) < 0.3),
         })
@@ -923,7 +906,7 @@ def build_playlists(predictions):
             if pred:
                 track_entry["actual"] = pred["actual"]
                 track_entry["predicted"] = pred["predicted"]
-                track_entry["moods"] = pred.get("moods", [])
+                track_entry["mood_zone"] = pred.get("mood_zone")
                 track_entry["era"] = pred.get("era", "Unknown")
                 track_entry["energy"] = pred.get("energy", 5)
                 track_entry["replayability"] = pred.get("replayability")
@@ -939,13 +922,14 @@ def build_playlists(predictions):
             replay_vals = [t["replayability"] for t in matched_tracks if t.get("replayability") is not None]
             avg_replayability = round(sum(replay_vals) / len(replay_vals), 2) if replay_vals else None
 
-            # Top moods across all matched tracks
-            mood_counts = {}
+            # Top mood zones across all matched tracks
+            zone_counts = {}
             for t in matched_tracks:
-                for m in t.get("moods", []):
-                    mood_counts[m] = mood_counts.get(m, 0) + 1
-            top_moods = sorted(mood_counts.items(), key=lambda x: -x[1])[:5]
-            top_moods = [m[0] for m in top_moods]
+                zone = t.get("mood_zone")
+                if zone:
+                    zone_counts[zone] = zone_counts.get(zone, 0) + 1
+            top_zones = sorted(zone_counts.items(), key=lambda x: -x[1])[:3]
+            top_zones = [z[0] for z in top_zones]
 
             # Top eras
             era_counts = {}
@@ -959,7 +943,7 @@ def build_playlists(predictions):
             avg_predicted = None
             avg_energy = None
             avg_replayability = None
-            top_moods = []
+            top_zones = []
             top_eras = []
 
         results.append({
@@ -971,7 +955,7 @@ def build_playlists(predictions):
             "avg_predicted": avg_predicted,
             "avg_energy": avg_energy,
             "avg_replayability": avg_replayability,
-            "top_moods": top_moods,
+            "top_mood_zones": top_zones,
             "top_eras": top_eras,
             "tracks": all_tracks,
         })
@@ -1053,9 +1037,8 @@ def main():
     print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
 
     print("Engineering features...")
-    X, y, feature_names, common_moods, common_subgenres, common_labels = engineer_features(tracks)
+    X, y, feature_names, common_subgenres, common_labels = engineer_features(tracks)
     print(f"Feature matrix: {X.shape[0]} samples x {X.shape[1]} features")
-    print(f"Common moods ({len(common_moods)}): {common_moods}")
     print(f"Common subgenres ({len(common_subgenres)}): {common_subgenres}")
     print(f"Common labels ({len(common_labels)}): {common_labels}")
 
@@ -1079,7 +1062,7 @@ def main():
     )
     print(f"Best k: {cluster_results['best_k']}")
     for p in cluster_results["cluster_profiles"]:
-        print(f"  Cluster {p['id']}: {p['size']} tracks, mean rating {p['mean_rating']}, top moods: {p['top_moods'][:3]}")
+        print(f"  Cluster {p['id']}: {p['size']} tracks, mean rating {p['mean_rating']}, mood zones: {p['top_mood_zones']}")
 
     print("\nBuilding output...")
     predictions = build_predictions(tracks, model_results, best_labels, coords)
@@ -1110,7 +1093,6 @@ def main():
             "is_major": args.major,
             "total_tracks": len(tracks),
             "total_albums": len(albums),
-            "mood_threshold": MOOD_THRESHOLD,
             "subgenre_threshold": SUBGENRE_THRESHOLD,
             "best_model": best,
             "feature_count": X.shape[1],
@@ -1126,7 +1108,6 @@ def main():
         "distributions": distributions,
         "rating_changes": rating_changes,
         "history": history,
-        "mood_axes": MOOD_AXES,
         "playlists": build_playlists(predictions),
         "albums": [{
             "title": a.get("title"),
@@ -1137,7 +1118,6 @@ def main():
             "rating": a.get("rating"),
             "liked": a.get("liked"),
             "replayability": a.get("replayability"),
-            "moods": a.get("moods", []),
             "subgenres": a.get("subgenres", []),
             "notes": a.get("notes"),
             "notable_qualities": a.get("notable_qualities", []),
@@ -1158,7 +1138,6 @@ def main():
         "model": ridge,
         "scaler": scaler,
         "feature_names": feature_names,
-        "common_moods": common_moods,
         "common_subgenres": common_subgenres,
         "common_labels": common_labels,
         "eras": eras,
