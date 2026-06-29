@@ -1,5 +1,5 @@
 {
-  "current_version": "5.11",
+  "current_version": "6.00",
   "versions": [
     {
       "version": "1.00",
@@ -706,6 +706,29 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "6.00",
+      "name": "Musically-Informed Features",
+      "major": 6,
+      "minor": 0,
+      "run_date": "2026-06-29T19:16:24.935152",
+      "dataset_size": 162,
+      "best_model": "ridge",
+      "r_squared": 0.2478,
+      "rmse": 1.9717,
+      "mae": 1.605,
+      "feature_count": 154,
+      "best_k": 4,
+      "notes": "Added 10 feature engineering improvements: artist\u00d7era/decade, ballad splits, improved collaborators, label\u00d7decade, confidence metrics, recency weights, musical interactions, missingness indicators",
+      "changelog": [],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v6.00/dashboard-data.json",
+        "model": "versions/v6.00/model.joblib",
+        "training_data": "versions/v6.00/training-data.md"
       }
     }
   ]

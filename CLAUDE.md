@@ -78,7 +78,7 @@ It's a markdown file with a JSON code block containing all rated tracks/albums. 
 
 ## Feature Engineering
 
-The model uses ~140 features across these categories:
+The model uses **154 features** (v6.00+) across these categories, including 45 new musically-informed features:
 - **Core numeric:** energy, year, tempo, harmonic_complexity
 - **Era:** one-hot encoded + decade buckets
 - **Instrument:** primary instrument group one-hot
@@ -93,7 +93,22 @@ The model uses ~140 features across these categories:
 - **Audio:** duration_s, popularity, tempo_bpm, time_signature, is_live, is_minor_key, is_dorian, duration buckets
 - **Format:** is_electric, is_solo_piano, is_collaboration
 
-Dataset is small (~95 tracks), so avoid features that add noise without signal. LOO encoding is used for anything derived from ratings.
+### v6.00 New Features (45 added)
+
+Musically-informed features that improved Ridge R² from 0.0602 → 0.2478 (+312%):
+
+- **Artist × Era/Decade** (3): artist_era_bayes_rating, artist_decade_bayes_rating, artist_recent_period_delta — captures whether you prefer an artist in specific eras
+- **Ballad Splits** (6): instrumental_ballad, vocal_ballad_penalty, ballad_acousticness, ballad_low_energy, ballad_high_instrumentalness — explicit interaction between ballad subgenre and vocal/instrumental status
+- **Enhanced Collaborators** (5): best_collaborator_rating, top2_collaborator_mean, favorite_collaborator_count, collaborator_rating_variance, has_elite_collaborator — identifies elite players and collaborator variance
+- **Label × Decade** (4): label_decade_bayes_rating, prestige_1950s_1960s, blue_note_1950s_1960s, impulse_1960s — captures label-era prestige effects
+- **Confidence Metrics** (5): artist_rating_count_log, artist_rating_variance, artist_bayes_confidence, collaborator_count_log, collaborator_bayes_confidence — exposes model confidence in features
+- **Recency** (2): rating_order_percentile, is_recent — captures taste evolution over time
+- **Musical Interactions** (11): hard_bop_medium_energy, modal_low_energy, free_jazz_high_complexity_penalty, swing_big_band_penalty, energy_x_instrumentalness, complexity_x_instrumentalness, valence_x_instrumentalness, energy_x_ballad, complexity_x_ballad, and era_x_energy interactions — domain-specific interactions
+- **Missingness Indicators** (6): missing_energy, missing_valence, missing_acousticness, missing_instrumentalness, missing_audio_any, missing_audio_count — lets model learn whether missing audio data correlates with ratings
+
+All new features use **Leave-One-Out encoding** to prevent leakage during cross-validation.
+
+Dataset is small (~162 tracks), so avoid features that add noise without signal. LOO encoding is used for anything derived from ratings.
 
 ### Mood Axes (VAD)
 

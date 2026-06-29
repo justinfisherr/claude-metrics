@@ -111,6 +111,45 @@ def engineer_features(tracks):
             name = kp.split(" - ")[0].strip().lower()
             player_ratings.setdefault(name, []).append(t["rating"])
 
+    # Pre-compute artist×decade, artist×era, label×decade ratings for LOO (Feature 1, 4)
+    artist_decade_ratings = {}
+    artist_era_ratings = {}
+    label_decade_ratings = {}
+    for i, t in enumerate(tracks):
+        artist = t.get("artist", "Unknown")
+        yr = t.get("year") or 1960
+        decade = f"{(yr // 10) * 10}s"
+        era = t.get("era", "Unknown")
+        label = t.get("label", "Unknown")
+
+        key_ad = (artist, decade)
+        key_ae = (artist, era)
+        key_ld = (label, decade)
+
+        artist_decade_ratings.setdefault(key_ad, []).append((i, t["rating"]))
+        artist_era_ratings.setdefault(key_ae, []).append((i, t["rating"]))
+        label_decade_ratings.setdefault(key_ld, []).append((i, t["rating"]))
+
+    # Pre-compute player stats for collaborator enhancements (Feature 3)
+    player_track_count = {}
+    player_rating_pairs = {}
+    for t in tracks:
+        for kp in t.get("key_players", []):
+            name = kp.split(" - ")[0].strip().lower()
+            player_track_count[name] = player_track_count.get(name, 0) + 1
+            player_rating_pairs.setdefault(name, []).append(t["rating"])
+
+    # Identify elite collaborators (top 25% by mean rating)
+    if player_rating_pairs:
+        player_means = {p: np.mean(rs) for p, rs in player_rating_pairs.items()}
+        elite_threshold = np.percentile(list(player_means.values()), 75)
+        elite_players = {p for p, m in player_means.items() if m >= elite_threshold}
+    else:
+        elite_players = set()
+
+    # Compute recent period: last N tracks (approximate by index)
+    recent_threshold = max(0, len(tracks) - 40)  # last ~40 tracks
+
     for idx, t in enumerate(tracks):
         row = {}
         row["energy"] = t.get("energy", 5)
@@ -158,7 +197,7 @@ def engineer_features(tracks):
         row["has_trombone"] = int("trombone" in instr_joined)
 
         # Label
-        track_label = t.get("label")
+        track_label = t.get("label", "Unknown")
         for l in common_labels:
             row[f"label_{l}"] = 1 if track_label == l else 0
 
@@ -169,12 +208,37 @@ def engineer_features(tracks):
 
         # Collaborator quality — avg rating of tracks featuring each key player (LOO)
         collab_ratings = []
+        best_collab_rating = global_mean
+        top2_collab_ratings = []
+        favorite_collab_count = 0
+        collab_rating_variance = 0.0
+        has_elite_collab = 0
+
         for kp in t.get("key_players", []):
             name = kp.split(" - ")[0].strip().lower()
             pr = player_ratings.get(name, [])
             if len(pr) > 1:
                 collab_ratings.extend([r for r in pr if r != t["rating"] or len(pr) > pr.count(t["rating"])])
-        row["collaborator_quality"] = np.mean(collab_ratings) if collab_ratings else global_mean
+
+            # Enhanced collaborator features (Feature 3)
+            if name in player_rating_pairs:
+                player_ratings_list = player_rating_pairs[name]
+                player_mean = np.mean(player_ratings_list)
+                best_collab_rating = max(best_collab_rating, player_mean)
+                top2_collab_ratings.append(player_mean)
+                if player_mean >= 8.0:
+                    favorite_collab_count += 1
+                if name in elite_players:
+                    has_elite_collab = 1
+
+        row["collaborator_quality"] = float(np.mean(collab_ratings)) if collab_ratings else global_mean
+        row["best_collaborator_rating"] = float(best_collab_rating)  # Feature 3
+        top2_mean = np.mean(sorted(top2_collab_ratings, reverse=True)[:2]) if top2_collab_ratings else global_mean
+        row["top2_collaborator_mean"] = float(top2_mean)  # Feature 3
+        row["favorite_collaborator_count"] = float(favorite_collab_count)  # Feature 3
+        collab_var = float(np.std(collab_ratings)) if len(collab_ratings) > 1 else 0.0
+        row["collaborator_rating_variance"] = collab_var  # Feature 3
+        row["has_elite_collaborator"] = float(has_elite_collab)  # Feature 3
 
         # Discovery source
         source = t.get("discovered_from", "self")
@@ -198,8 +262,46 @@ def engineer_features(tracks):
             row["artist_consistency"] = 0.0
 
         # Bayesian smoothing: blend artist mean with global mean based on sample size
-        row["artist_mean_rating"] = (n / (n + k)) * artist_mean + (k / (n + k)) * global_mean
-        row["artist_track_count"] = n
+        row["artist_mean_rating"] = float((n / (n + k)) * artist_mean + (k / (n + k)) * global_mean)
+        row["artist_track_count"] = float(n)
+
+        # Feature 5: Confidence/uncertainty features
+        row["artist_rating_count_log"] = float(np.log1p(n))
+        row["artist_rating_variance"] = float(row["artist_consistency"])  # already computed above
+        row["artist_bayes_confidence"] = float(n / (n + k))  # raw confidence measure
+
+        # Feature 1: Artist × Decade ratings (LOO Bayesian smoothed)
+        key_ad = (artist, decade)
+        ad_entries = artist_decade_ratings.get(key_ad, [])
+        n_ad = len(ad_entries)
+        if n_ad > 1:
+            ad_other = [r for i, r in ad_entries if i != idx]
+            ad_mean = np.mean(ad_other) if ad_other else artist_mean
+        else:
+            ad_mean = artist_mean  # fallback to artist mean
+        row["artist_decade_bayes_rating"] = float((n_ad / (n_ad + k)) * ad_mean + (k / (n_ad + k)) * artist_mean)
+
+        # Feature 1: Artist × Era ratings (LOO Bayesian smoothed)
+        key_ae = (artist, track_era)
+        ae_entries = artist_era_ratings.get(key_ae, [])
+        n_ae = len(ae_entries)
+        if n_ae > 1:
+            ae_other = [r for i, r in ae_entries if i != idx]
+            ae_mean = np.mean(ae_other) if ae_other else artist_mean
+        else:
+            ae_mean = artist_mean  # fallback to artist mean
+        row["artist_era_bayes_rating"] = float((n_ae / (n_ae + k)) * ae_mean + (k / (n_ae + k)) * artist_mean)
+
+        # Feature 1: Artist recent period delta
+        artist_recent_entries = [(i, r) for i, r in artist_entries if i >= recent_threshold]
+        if len(artist_recent_entries) > 1 and len(artist_entries) > 1:
+            recent_other = [r for i, r in artist_recent_entries if i != idx]
+            overall_other = [r for i, r in artist_entries if i != idx]
+            recent_mean = np.mean(recent_other) if recent_other else global_mean
+            overall_mean = np.mean(overall_other) if overall_other else global_mean
+            row["artist_recent_period_delta"] = float(recent_mean - overall_mean)
+        else:
+            row["artist_recent_period_delta"] = 0.0
 
         # Duration bucket
         duration = (t.get("audio_features") or {}).get("duration_s", 300)
@@ -217,6 +319,28 @@ def engineer_features(tracks):
         # Artist novelty — first time hearing this artist
         row["artist_is_new"] = int(len(artist_entries) == 1)
 
+        # Feature 6: Recency-weighted features
+        row["rating_order_percentile"] = float(idx / max(len(tracks) - 1, 1))  # 0-1 scale
+        if idx >= recent_threshold:
+            row["is_recent"] = 1.0
+        else:
+            row["is_recent"] = 0.0
+
+        # Feature 2: Ballad × Instrumental/Vocal split
+        is_ballad = any(sg in ["ballad", "piano ballad", "tenor ballad", "vocal ballad"] for sg in track_subgenres)
+        row["is_ballad"] = int(is_ballad)
+        row["instrumental_ballad"] = int(is_ballad and row["has_vocals"] == 0)  # ballad without vocals
+        row["vocal_ballad_penalty"] = int(is_ballad and row["has_vocals"] == 1)  # ballad with vocals
+        if is_ballad:
+            audio = t.get("audio_features") or {}
+            row["ballad_acousticness"] = float(audio.get("acousticness", 0.5))
+            row["ballad_low_energy"] = int(row["energy"] <= 3)
+            row["ballad_high_instrumentalness"] = float(audio.get("instrumentalness", 0.5))
+        else:
+            row["ballad_acousticness"] = 0.0
+            row["ballad_low_energy"] = 0
+            row["ballad_high_instrumentalness"] = 0.0
+
         # Interaction features
         row["energy_x_complexity"] = row["energy"] * row["harmonic_complexity"]
 
@@ -225,6 +349,31 @@ def engineer_features(tracks):
         mode = (audio_pre.get("mode") or "").lower()
         row["is_minor_key"] = int(mode in ["minor", "dorian", "blues", "phrygian"])
         row["is_dorian"] = int(mode == "dorian")
+
+        # Feature 7: Musically meaningful interactions
+        is_hard_bop = "hard bop" in track_subgenres
+        is_modal = "modal jazz" in track_subgenres
+        is_free_jazz = "free jazz" in track_subgenres
+        is_swing = "swing" in track_subgenres
+        is_big_band = "big band" in track_subgenres or "Mingus Big Band" in t.get("artist", "")
+
+        row["hard_bop_medium_energy"] = int(is_hard_bop and 3 <= row["energy"] <= 6)
+        row["hard_bop_instrumental"] = int(is_hard_bop and row["has_vocals"] == 0)
+        row["modal_low_energy"] = int(is_modal and row["energy"] <= 3)
+        row["free_jazz_high_complexity_penalty"] = int(is_free_jazz and row["harmonic_complexity"] >= 2)
+        row["swing_big_band_penalty"] = int(is_swing and is_big_band)
+        row["energy_x_instrumentalness"] = float(row["energy"] * audio_pre.get("instrumentalness", 0.5))
+        row["complexity_x_instrumentalness"] = float(row["harmonic_complexity"] * audio_pre.get("instrumentalness", 0.5))
+        valence = audio_pre.get("spotify_valence", 0.5)
+        instr = audio_pre.get("instrumentalness", 0.5)
+        row["valence_x_instrumentalness"] = float(valence * instr)
+        row["energy_x_ballad"] = float(row["energy"] * row["is_ballad"])
+        row["complexity_x_ballad"] = float(row["harmonic_complexity"] * row["is_ballad"])
+
+        # Era × energy interactions for major eras
+        for era_name in ["Modal", "Free Jazz", "Cool Jazz", "Bebop"]:
+            is_this_era = int(track_era == era_name)
+            row[f"era_{era_name}_x_energy"] = float(is_this_era * row["energy"])
 
         if has_audio:
             audio = t.get("audio_features") or {}
@@ -238,8 +387,15 @@ def engineer_features(tracks):
             row["is_live"]        = int(audio.get("is_live") or False)
 
             # ReccoBeats fields — real values when available, neutral defaults otherwise.
-            # has_recco_features lets the model discount those 12 tracks' audio values.
+            # Feature 8: Missingness indicators
             row["has_recco_features"] = int(has_recco)
+            row["missing_energy"] = int(not has_recco)
+            row["missing_valence"] = int(not has_recco)
+            row["missing_acousticness"] = int(not has_recco)
+            row["missing_instrumentalness"] = int(not has_recco)
+            row["missing_audio_any"] = int(not has_recco)
+            row["missing_audio_count"] = int(not has_recco) * 4  # count of missing audio fields
+
             row["acousticness"]       = audio["acousticness"]     if has_recco else 0.5
             row["danceability"]       = audio["danceability"]     if has_recco else 0.5
             row["spotify_energy"]     = audio["spotify_energy"]   if has_recco else 0.5
@@ -249,6 +405,41 @@ def engineer_features(tracks):
             row["speechiness"]        = audio["speechiness"]      if has_recco else 0.05
             row["spotify_valence"]    = audio["spotify_valence"]  if has_recco else 0.5
             row["spotify_valence_x_energy"] = row["spotify_valence"] * row["spotify_energy"]
+        else:
+            # No audio data at all; mark all missing
+            row["missing_energy"] = 1
+            row["missing_valence"] = 1
+            row["missing_acousticness"] = 1
+            row["missing_instrumentalness"] = 1
+            row["missing_audio_any"] = 1
+            row["missing_audio_count"] = 4
+
+        # Feature 4: Label × Decade ratings (LOO Bayesian smoothed)
+        key_ld = (track_label, decade)
+        ld_entries = label_decade_ratings.get(key_ld, [])
+        n_ld = len(ld_entries)
+        if n_ld > 1:
+            ld_other = [r for i, r in ld_entries if i != idx]
+            ld_mean = np.mean(ld_other) if ld_other else global_mean
+            # Approximate label mean: mean of all tracks with same label
+            label_tracks = [tracks[i].get("rating") for i, t in enumerate(tracks) if t.get("label") == track_label]
+            label_mean = np.mean(label_tracks) if label_tracks else global_mean
+        else:
+            ld_mean = global_mean
+            label_mean = global_mean
+        row["label_decade_bayes_rating"] = float((n_ld / (n_ld + k)) * ld_mean + (k / (n_ld + k)) * label_mean)
+
+        # Feature 4: Prestige & Blue Note era features
+        is_prestige = track_label == "Prestige"
+        is_blue_note = track_label == "Blue Note"
+        is_impulse = track_label == "Impulse!"
+        row["prestige_1950s_1960s"] = int(is_prestige and decade in ["1950s", "1960s"])
+        row["blue_note_1950s_1960s"] = int(is_blue_note and decade in ["1950s", "1960s"])
+        row["impulse_1960s"] = int(is_impulse and decade == "1960s")
+
+        # Feature 5: Collaborator count log (additional confidence metric)
+        row["collaborator_count_log"] = float(np.log1p(row["key_player_count"]))
+        row["collaborator_bayes_confidence"] = float(min(row["key_player_count"] / (row["key_player_count"] + 5), 1.0))  # k=5 for collaborators
 
         rows.append(row)
 
@@ -293,6 +484,55 @@ def readable_name(feat):
         "loudness": "Loudness (dB)",
         "speechiness": "Speechiness",
         "spotify_valence": "Audio Valence (Spotify)",
+        # Feature 1: Artist × Era/Decade
+        "artist_decade_bayes_rating": "Artist Avg Rating (Decade)",
+        "artist_era_bayes_rating": "Artist Avg Rating (Era)",
+        "artist_recent_period_delta": "Artist Recent vs Overall Delta",
+        # Feature 2: Ballad splits
+        "is_ballad": "Is Ballad",
+        "instrumental_ballad": "Instrumental Ballad",
+        "vocal_ballad_penalty": "Vocal Ballad",
+        "ballad_acousticness": "Ballad Acousticness",
+        "ballad_low_energy": "Ballad Low Energy",
+        "ballad_high_instrumentalness": "Ballad High Instrumentalness",
+        # Feature 3: Improved collaborator features
+        "best_collaborator_rating": "Best Collaborator Avg Rating",
+        "top2_collaborator_mean": "Top 2 Collaborators Mean",
+        "favorite_collaborator_count": "Favorite Collaborator Count",
+        "collaborator_rating_variance": "Collaborator Rating Variance",
+        "has_elite_collaborator": "Has Elite Collaborator",
+        # Feature 4: Label × Decade
+        "label_decade_bayes_rating": "Label Avg Rating (Decade)",
+        "prestige_1950s_1960s": "Prestige 1950s-60s",
+        "blue_note_1950s_1960s": "Blue Note 1950s-60s",
+        "impulse_1960s": "Impulse! 1960s",
+        # Feature 5: Confidence/uncertainty
+        "artist_rating_count_log": "Artist Rating Count (log)",
+        "artist_rating_variance": "Artist Rating Variance",
+        "artist_bayes_confidence": "Artist Bayes Confidence",
+        "collaborator_count_log": "Collaborator Count (log)",
+        "collaborator_bayes_confidence": "Collaborator Bayes Confidence",
+        # Feature 6: Recency
+        "rating_order_percentile": "Rating Order Percentile",
+        "is_recent": "Is Recent",
+        # Feature 7: Musical interactions
+        "hard_bop_medium_energy": "Hard Bop Medium Energy",
+        "hard_bop_instrumental": "Hard Bop Instrumental",
+        "modal_low_energy": "Modal Low Energy",
+        "free_jazz_high_complexity_penalty": "Free Jazz High Complexity",
+        "swing_big_band_penalty": "Swing Big Band",
+        "energy_x_instrumentalness": "Energy × Instrumentalness",
+        "complexity_x_instrumentalness": "Complexity × Instrumentalness",
+        "valence_x_instrumentalness": "Valence × Instrumentalness",
+        "energy_x_ballad": "Energy × Ballad",
+        "complexity_x_ballad": "Complexity × Ballad",
+        # Feature 8: Missingness indicators
+        "missing_energy": "Missing Energy",
+        "missing_valence": "Missing Valence",
+        "missing_acousticness": "Missing Acousticness",
+        "missing_instrumentalness": "Missing Instrumentalness",
+        "missing_audio_any": "Missing Any Audio",
+        "missing_audio_count": "Missing Audio Count",
     }
     if feat in NAMES:
         return NAMES[feat]
@@ -301,6 +541,9 @@ def readable_name(feat):
         return f"{zone} zone"
     if feat.startswith("subgenre_"):
         return f'"{feat[9:].replace("_", " ").title()}" subgenre'
+    if feat.startswith("era_") and "_x_energy" in feat:
+        era_name = feat[4:feat.index("_x_energy")]
+        return f"{era_name} Era × Energy"
     if feat.startswith("era_"):
         return f"{feat[4:]} era"
     if feat.startswith("inst_"):

@@ -40,6 +40,10 @@ import MoodZoneMap from '../components/panels/MoodZoneMap';
 import MoodZoneRatings from '../components/panels/MoodZoneRatings';
 import MoodZoneProfiles from '../components/panels/MoodZoneProfiles';
 import MoodZoneTracks from '../components/panels/MoodZoneTracks';
+import ArtistEraPerformance from '../components/panels/ArtistEraPerformance';
+import BalladAnalysis from '../components/panels/BalladAnalysis';
+import FeatureConfidenceMetrics from '../components/panels/FeatureConfidenceMetrics';
+import DataQualityReport from '../components/panels/DataQualityReport';
 
 export default function Dashboard() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
@@ -138,9 +142,11 @@ export default function Dashboard() {
             <SoundProfile data={data} />
             <EnsembleSize data={data} />
 
-            {/* Artists */}
+            {/* Artists & New Features */}
             <TopArtists data={data} />
             <ArtistJourneys data={data} />
+            <ArtistEraPerformance data={data} />
+            <BalladAnalysis data={data} />
             <LabelBreakdown data={data} />
             <DiscoverySource data={data} />
 
@@ -153,6 +159,8 @@ export default function Dashboard() {
             <TasteVsWorld data={data} />
             <Albums data={data} />
             <ModelHistory data={data} />
+            <FeatureConfidenceMetrics data={data} />
+            <DataQualityReport data={data} />
           </section>
         )}
       </main>
