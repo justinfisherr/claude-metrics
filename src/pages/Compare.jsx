@@ -98,7 +98,7 @@ export default function Compare() {
 
             {hasComparison ? (
               <>
-                <MetricsPanel entryA={entryA} entryB={entryB} />
+                <MetricsPanel entryA={entryA} entryB={entryB} dataA={dataA} dataB={dataB} />
                 <FeaturesPanel dataA={dataA} dataB={dataB} entryA={entryA} entryB={entryB} />
                 <PredictionsPanel dataA={dataA} dataB={dataB} entryA={entryA} entryB={entryB} />
                 {manifest && <TimelinePanel manifest={manifest} />}
@@ -144,49 +144,79 @@ function Selectors({ loadable, versionA, versionB, onChangeA, onChangeB }) {
 }
 
 /* ---------- Performance Metrics ---------- */
-function MetricsPanel({ entryA, entryB }) {
-  const metrics = [
-    { key: 'r_squared', label: 'R²', higher: true, fmt: v => v.toFixed(4) },
-    { key: 'rmse', label: 'RMSE', higher: false, fmt: v => v.toFixed(4) },
-    { key: 'mae', label: 'MAE', higher: false, fmt: v => v.toFixed(4) },
-    { key: 'dataset_size', label: 'Tracks', higher: true, fmt: v => v },
-    { key: 'feature_count', label: 'Features', higher: null, fmt: v => v },
-    { key: 'best_k', label: 'Clusters', higher: null, fmt: v => v },
-  ];
-
+function MetricsPanel({ entryA, entryB, dataA, dataB }) {
   return (
     <div className="panel" style={{ padding: '1.2rem', marginBottom: '1.5rem' }}>
       <h2 style={{
         fontSize: '0.78rem', fontWeight: 800, textTransform: 'uppercase',
         letterSpacing: '0.08em', color: 'var(--muted)', margin: '0 0 1rem',
-      }}>Performance Metrics</h2>
-      <div className="metrics-grid">
-        {metrics.map(m => {
-          const va = entryA[m.key];
-          const vb = entryB[m.key];
-          let clsA = '', clsB = '';
-          if (m.higher !== null && va !== vb) {
-            const aBetter = m.higher ? va > vb : va < vb;
-            clsA = aBetter ? 'better' : 'worse';
-            clsB = aBetter ? 'worse' : 'better';
-          }
-          return (
-            <div className="metric-card" key={m.key}>
-              <div className="metric-label">{m.label}</div>
-              <div className="metric-values">
-                <div>
-                  <span className={`metric-val ${clsA}`}>{m.fmt(va)}</span>
-                  <span className="metric-tag">v{entryA.version}</span>
-                </div>
-                <div>
-                  <span className={`metric-val ${clsB}`}>{m.fmt(vb)}</span>
-                  <span className="metric-tag">v{entryB.version}</span>
-                </div>
+      }}>Model Performance by Type</h2>
+
+      {dataA && dataB ? (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          {/* Ridge Comparison */}
+          <div className="metric-card">
+            <div className="metric-label">Ridge R²</div>
+            <div className="metric-values">
+              <div>
+                <span className="metric-val">{dataA.models.ridge.r_squared.toFixed(4)}</span>
+                <span className="metric-tag">v{entryA.version}</span>
+              </div>
+              <div>
+                <span className="metric-val">{dataB.models.ridge.r_squared.toFixed(4)}</span>
+                <span className="metric-tag">v{entryB.version}</span>
               </div>
             </div>
-          );
-        })}
-      </div>
+          </div>
+
+          {/* Random Forest Comparison */}
+          <div className="metric-card">
+            <div className="metric-label">Random Forest R²</div>
+            <div className="metric-values">
+              <div>
+                <span className="metric-val">{dataA.models.random_forest.r_squared.toFixed(4)}</span>
+                <span className="metric-tag">v{entryA.version}</span>
+              </div>
+              <div>
+                <span className="metric-val">{dataB.models.random_forest.r_squared.toFixed(4)}</span>
+                <span className="metric-tag">v{entryB.version}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Dataset Info */}
+          <div className="metric-card">
+            <div className="metric-label">Tracks</div>
+            <div className="metric-values">
+              <div>
+                <span className="metric-val">{dataA.meta.total_tracks}</span>
+                <span className="metric-tag">v{entryA.version}</span>
+              </div>
+              <div>
+                <span className="metric-val">{dataB.meta.total_tracks}</span>
+                <span className="metric-tag">v{entryB.version}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="metric-card">
+            <div className="metric-label">Features</div>
+            <div className="metric-values">
+              <div>
+                <span className="metric-val">{dataA.meta.feature_count}</span>
+                <span className="metric-tag">v{entryA.version}</span>
+              </div>
+              <div>
+                <span className="metric-val">{dataB.meta.feature_count}</span>
+                <span className="metric-tag">v{entryB.version}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <p style={{ color: 'var(--muted)' }}>Load versions to see metrics...</p>
+      )}
     </div>
   );
 }
