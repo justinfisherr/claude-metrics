@@ -680,6 +680,64 @@ def compute_correlations(X, y, feature_names, top_n=10):
     }
 
 
+def generate_cluster_name(mean_rating, top_zones, dominant_tempo, mean_energy, mean_complexity):
+    """Generate descriptive cluster name based on characteristics."""
+    # Named clusters: rate high, upbeat/energetic, complex/intellectual
+    # Low rate, introspective/serene, mellow - Contemplative
+    # Mid rate, energetic/fast, high energy - Groovy
+    # If > 2 clusters, extend with characteristics
+
+    PRESET_NAMES = ["Romantic", "Contemplative", "Groovy", "Epic", "Introspective", "Funky"]
+
+    # Score the cluster
+    rating_score = mean_rating / 10.0  # 0-1
+    energy_score = mean_energy / 10.0  # 0-1
+    complexity_score = mean_complexity / 3.0  # 0-1
+
+    # Zone preference
+    zone_pref = ""
+    if top_zones:
+        primary_zone = top_zones[0]
+        if primary_zone == "euphoric":
+            zone_pref = "Euphoric"
+        elif primary_zone == "introspective":
+            zone_pref = "Introspective"
+        elif primary_zone == "serene":
+            zone_pref = "Serene"
+        elif primary_zone == "tense":
+            zone_pref = "Intense"
+
+    # Tempo preference
+    tempo_pref = ""
+    if dominant_tempo in ["fast", "medium-fast"]:
+        tempo_pref = "Upbeat"
+    elif dominant_tempo == "slow":
+        tempo_pref = "Mellow"
+
+    # Pick base name from preset
+    if rating_score > 0.7 and energy_score > 0.6 and complexity_score > 0.5:
+        base = "Epic"  # High-rated, energetic, complex
+    elif rating_score > 0.7 and energy_score < 0.4:
+        base = "Romantic"  # High-rated, mellow
+    elif energy_score > 0.7 and complexity_score > 0.5:
+        base = "Groovy"  # Energetic, complex
+    elif rating_score < 0.6 and energy_score < 0.4:
+        base = "Contemplative"  # Low-rated, mellow, introspective
+    elif complexity_score > 0.65:
+        base = "Introspective"  # Complex, thoughtful
+    else:
+        base = "Funky"  # Default for others
+
+    # Find which preset name to use
+    idx = 0
+    for i, name in enumerate(PRESET_NAMES):
+        if name == base:
+            idx = i
+            break
+
+    return PRESET_NAMES[idx]
+
+
 def cluster_analysis(X_scaled, tracks, feature_names):
     pca_full = PCA(n_components=min(X_scaled.shape[1], X_scaled.shape[0] - 1))
     pca_full.fit(X_scaled)
@@ -755,11 +813,15 @@ def cluster_analysis(X_scaled, tracks, feature_names):
         for zone in MOOD_ZONES:
             zone_distribution[zone] = sum(1 for t in cluster_tracks if compute_mood_zone(t) == zone) / len(cluster_tracks)
 
+        # Generate cluster name based on characteristics
+        mean_rating_val = np.mean(cluster_ratings)
+        cluster_name = generate_cluster_name(mean_rating_val, top_zones, dominant_tempo, mean_energy, mean_complexity)
+
         profiles.append({
             "id": int(c),
-            "label": f"Cluster {c}",
+            "label": cluster_name,
             "size": int(mask.sum()),
-            "mean_rating": round(float(np.mean(cluster_ratings)), 2),
+            "mean_rating": round(float(mean_rating_val), 2),
             "mean_energy": round(float(mean_energy), 2),
             "top_mood_zones": top_zones,
             "top_eras": top_eras,
