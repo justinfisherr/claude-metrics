@@ -152,106 +152,66 @@ export default function ArtistJourneys({ data }) {
       {insight}
 
       <p className="panel-desc">
-        {activeZone === 'all' ? (
-          <>
-            <strong>Card view</strong>: Each card shows an artist's mean rating and track count. Click to see detailed track breakdown. Top 12 artists by mean rating.
-          </>
-        ) : (
-          <>
-            Each <strong>block</strong> is a track: <strong>width</strong> = duration, <strong>color</strong> = rating (green 9–10, blue 7–8, yellow 5–6, red &lt;5). The colored top border shows the track's mood zone. Hover for details.
-          </>
-        )}
+        <strong>Card view</strong>: Each card shows an artist's mean rating and track count with a mini rating distribution. Scales responsively on all screen sizes.
       </p>
 
-      {activeZone === 'all' ? (
-        /* Grid card view for "All" tab */
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-          gap: '12px',
-          marginTop: '1rem',
-        }}>
-          {activeData.map(({ name, tracks, mean }) => {
-            const dist = getRatingDistribution(tracks);
-            const topRating = Math.max(...Object.keys(dist).filter(k => dist[k] > 0));
-            return (
-              <div
-                key={name}
-                style={{
-                  background: 'var(--panel-2)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius-sm)',
-                  padding: '12px',
-                  cursor: 'pointer',
-                  transition: 'all 0.15s',
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
-                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
-              >
-                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginBottom: '6px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  {name}
-                </div>
-                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent)', marginBottom: '8px' }}>
-                  {mean.toFixed(1)}/10
-                </div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '8px' }}>
-                  {tracks.length} track{tracks.length !== 1 ? 's' : ''}
-                </div>
-                <div style={{ display: 'flex', gap: '2px', height: '20px' }}>
-                  {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(rating => {
-                    const count = dist[rating] || 0;
-                    const maxCount = Math.max(...Object.values(dist));
-                    const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
-                    return (
-                      <div
-                        key={rating}
-                        style={{
-                          flex: 1,
-                          height: '100%',
-                          background: count > 0 ? ratingBlockColor(rating) : 'rgba(255,255,255,0.05)',
-                          borderRadius: '2px',
-                          opacity: count > 0 ? 1 : 0.3,
-                          minHeight: `${height}%`,
-                          alignSelf: 'flex-end',
-                        }}
-                        title={`${rating}/10: ${count} track${count !== 1 ? 's' : ''}`}
-                      />
-                    );
-                  })}
-                </div>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
+        gap: '12px',
+        marginTop: '1rem',
+      }}>
+        {activeData.map(({ name, tracks, mean }) => {
+          const dist = getRatingDistribution(tracks);
+          return (
+            <div
+              key={name}
+              style={{
+                background: 'var(--panel-2)',
+                border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '12px',
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
+              onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
+            >
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginBottom: '6px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {name}
               </div>
-            );
-          })}
-        </div>
-      ) : (
-        /* Horizontal block view for zone tabs */
-        <div className="artist-journeys-scroll">
-          {activeData.map(({ name, tracks, mean }) => (
-            <div className="artist-row" key={name}>
-              <div className="artist-name">{name}</div>
-              <div className="artist-blocks">
-                {tracks.map((t, i) => {
-                  const w = Math.max(18, ((t.duration_s || 300) / maxDur) * 180);
-                  const zoneColor = ZONE_COLORS[t.mood_zone] || ZONE_COLORS.null;
+              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent)', marginBottom: '8px' }}>
+                {mean.toFixed(1)}/10
+              </div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '8px' }}>
+                {tracks.length} track{tracks.length !== 1 ? 's' : ''}
+              </div>
+              <div style={{ display: 'flex', gap: '2px', height: '20px' }}>
+                {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(rating => {
+                  const count = dist[rating] || 0;
+                  const maxCount = Math.max(...Object.values(dist));
+                  const height = maxCount > 0 ? (count / maxCount) * 100 : 0;
                   return (
                     <div
-                      key={i}
-                      className="artist-block"
+                      key={rating}
                       style={{
-                        width: `${w}px`,
-                        background: ratingBlockColor(t.actual),
-                        borderTop: `2px solid ${zoneColor}`,
+                        flex: 1,
+                        height: '100%',
+                        background: count > 0 ? ratingBlockColor(rating) : 'rgba(255,255,255,0.05)',
+                        borderRadius: '2px',
+                        opacity: count > 0 ? 1 : 0.3,
+                        minHeight: `${height}%`,
+                        alignSelf: 'flex-end',
                       }}
-                      data-label={`${t.title} (${t.actual}) — ${t.mood_zone || 'unknown'}`}
+                      title={`${rating}/10: ${count} track${count !== 1 ? 's' : ''}`}
                     />
                   );
                 })}
               </div>
-              <div className="artist-avg">{mean.toFixed(1)}</div>
             </div>
-          ))}
-        </div>
-      )}
+          );
+        })}
+      </div>
     </Panel>
   );
 }
