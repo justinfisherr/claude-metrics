@@ -1,5 +1,5 @@
 {
-  "current_version": "5.00",
+  "current_version": "5.02",
   "versions": [
     {
       "version": "1.00",
@@ -464,6 +464,50 @@
         "dashboard_data": "versions/v5.00/dashboard-data.json",
         "model": "versions/v5.00/model.joblib",
         "training_data": "versions/v5.00/training-data.md"
+      }
+    },
+    {
+      "version": "5.01",
+      "name": "",
+      "major": 5,
+      "minor": 1,
+      "run_date": "2026-06-28T22:56:05.404321",
+      "dataset_size": 121,
+      "best_model": "ridge",
+      "r_squared": 0.3513,
+      "rmse": 1.8818,
+      "mae": 1.5469,
+      "feature_count": 178,
+      "best_k": 2,
+      "notes": "Keep user audio fields + ReccoBeats features; neutral defaults for 12 tracks without ReccoBeats",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "5.02",
+      "name": "pikachu",
+      "major": 5,
+      "minor": 2,
+      "run_date": "2026-06-28T22:57:57.793665",
+      "dataset_size": 121,
+      "best_model": "ridge",
+      "r_squared": 0.3489,
+      "rmse": 1.8851,
+      "mae": 1.5501,
+      "feature_count": 179,
+      "best_k": 2,
+      "notes": "User audio fields + ReccoBeats features; has_recco_features flag for 12 missing tracks; mood tags removed from review",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
       }
     }
   ]

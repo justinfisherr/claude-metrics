@@ -4,36 +4,17 @@ import Navigation from '../components/shared/Navigation';
 import '../styles/review.css';
 
 const STORAGE_KEY = 'jazz-reviews';
+const RECCOBEATS_URL = 'https://api.reccobeats.com/v1/audio-features';
 
-const MOOD_SECTIONS = [
-  {
-    label: 'Warm & romantic',
-    moods: ['romantic', 'tender', 'warm', 'joyful', 'hopeful', 'pretty', 'lovely', 'cute', 'intimate', 'beautiful', 'elegant', 'serene', 'peaceful'],
-  },
-  {
-    label: 'Jazz energy',
-    moods: ['cool', 'bluesy', 'groovy', 'swinging', 'sensual', 'captivating', 'sexy', 'fun', 'energetic', 'dynamic', 'lively', 'exciting', 'passionate', 'sassy', 'playful', 'exuberant'],
-  },
-  {
-    label: 'Emotional depth',
-    moods: ['melancholic', 'bittersweet', 'mournful', 'nostalgic', 'longing', 'dramatic', 'intense', 'moody', 'dark', 'haunting', 'tragic', 'solemn', 'introspective', 'contemplative', 'reflective', 'spiritual', 'raw'],
-  },
-  {
-    label: 'Texture & feel',
-    moods: ['lush', 'sparse', 'gentle', 'restless', 'meditative', 'spacious', 'smooth', 'atmospheric', 'flowing', 'mysterious', 'experimental', 'lyrical', 'sophisticated'],
-  },
-  {
-    label: 'Vibe & character',
-    moods: ['celebratory', 'communal', 'ecstatic', 'iconic', 'classic', 'expressive', 'surprising', 'vibrant', 'animated'],
-  },
-  {
-    label: 'Sound & innovation',
-    moods: ['experimental'],
-  },
-  {
-    label: 'Not landing',
-    moods: ['flat', 'languid', 'sleepy', 'repetitive', 'background', 'uninteresting', 'corny', 'saccharine', 'meandering', 'non-captivating', 'unengaging', 'pleasant'],
-  },
+const RECCOBEATS_FIELDS = [
+  { key: 'acousticness',     label: 'Acousticness' },
+  { key: 'danceability',     label: 'Danceability' },
+  { key: 'spotify_energy',   label: 'Energy' },
+  { key: 'instrumentalness', label: 'Instrumentalness' },
+  { key: 'liveness',         label: 'Liveness' },
+  { key: 'loudness',         label: 'Loudness (dB)' },
+  { key: 'speechiness',      label: 'Speechiness' },
+  { key: 'spotify_valence',  label: 'Valence' },
 ];
 
 function ratingColor(r) {
@@ -55,7 +36,6 @@ export default function Review() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
-  // Form state
   const [title, setTitle] = useState(params.get('title') || '');
   const [artist, setArtist] = useState(params.get('artist') || '');
   const [rating, setRating] = useState(parseFloat(params.get('rating')) || 6);
@@ -69,29 +49,52 @@ export default function Review() {
   });
   const [skipAt, setSkipAt] = useState('');
   const [skipTotal, setSkipTotal] = useState('');
-  const [selectedMoods, setSelectedMoods] = useState(new Set());
   const [notes, setNotes] = useState('');
   const [favMoments, setFavMoments] = useState('');
 
-  // Pending reviews
+  // Audio features — fetched from ReccoBeats or null
+  const [audioFeatures, setAudioFeatures] = useState(null);
+  const [audioFetchState, setAudioFetchState] = useState('idle'); // idle | loading | done | error | missing
+
   const [reviews, setReviews] = useState(loadReviews);
 
-  // Toast
   const [toastMsg, setToastMsg] = useState('');
   const [toastColor, setToastColor] = useState(null);
   const [toastVisible, setToastVisible] = useState(false);
   const toastTimer = useRef(null);
 
-  // Banner info from query params
   const album = params.get('album') || '';
   const year = params.get('year') || '';
   const spotifyId = params.get('spotify_id') || '';
   const showBanner = !!(params.get('title') || params.get('artist'));
 
   const bannerTitle = [params.get('title'), params.get('artist')].filter(Boolean).join(' — ');
-  const bannerMeta = [album, year, spotifyId ? `spotify:${spotifyId}` : ''].filter(Boolean).join(' · ');
+  const bannerMeta = [album, year].filter(Boolean).join(' · ');
 
-  // Persist reviews to localStorage
+  // Auto-fetch ReccoBeats features when spotify_id is present
+  useEffect(() => {
+    if (!spotifyId) return;
+    setAudioFetchState('loading');
+    fetch(`${RECCOBEATS_URL}?ids=${spotifyId}`)
+      .then(r => r.json())
+      .then(data => {
+        const item = data?.content?.[0];
+        if (!item) { setAudioFetchState('missing'); return; }
+        setAudioFeatures({
+          acousticness:     item.acousticness,
+          danceability:     item.danceability,
+          spotify_energy:   item.energy,
+          instrumentalness: item.instrumentalness,
+          liveness:         item.liveness,
+          loudness:         item.loudness,
+          speechiness:      item.speechiness,
+          spotify_valence:  item.valence,
+        });
+        setAudioFetchState('done');
+      })
+      .catch(() => setAudioFetchState('error'));
+  }, [spotifyId]);
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
   }, [reviews]);
@@ -104,18 +107,6 @@ export default function Review() {
     toastTimer.current = setTimeout(() => setToastVisible(false), 2200);
   }, []);
 
-  const toggleMood = useCallback((mood) => {
-    setSelectedMoods(prev => {
-      const next = new Set(prev);
-      if (next.has(mood)) {
-        next.delete(mood);
-      } else {
-        next.add(mood);
-      }
-      return next;
-    });
-  }, []);
-
   const resetForm = useCallback(() => {
     setTitle('');
     setArtist('');
@@ -125,14 +116,14 @@ export default function Review() {
     setLiked(null);
     setSkipAt('');
     setSkipTotal('');
-    setSelectedMoods(new Set());
     setNotes('');
     setFavMoments('');
+    setAudioFeatures(null);
+    setAudioFetchState('idle');
   }, []);
 
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
-
     const review = {
       title: title.trim() || '(untitled)',
       artist: artist.trim() || '(unknown artist)',
@@ -142,16 +133,16 @@ export default function Review() {
       playthrough,
       skipAt: skipAt.trim() || null,
       skipTotal: skipTotal.trim() || null,
-      moods: [...selectedMoods],
       notes: notes.trim(),
       favMoments: favMoments.trim() || null,
+      audioFeatures: audioFeatures || null,
+      spotifyId: spotifyId || null,
       timestamp: new Date().toISOString(),
     };
-
     setReviews(prev => [...prev, review]);
     showToast('Review queued!');
     resetForm();
-  }, [title, artist, rating, replayability, liked, playthrough, skipAt, skipTotal, selectedMoods, notes, favMoments, showToast, resetForm]);
+  }, [title, artist, rating, replayability, liked, playthrough, skipAt, skipTotal, notes, favMoments, audioFeatures, spotifyId, showToast, resetForm]);
 
   const deleteReview = useCallback((index) => {
     setReviews(prev => prev.filter((_, i) => i !== index));
@@ -174,16 +165,19 @@ export default function Review() {
         `playthrough: ${r.playthrough}%`,
       ];
       if (r.skipAt) parts.push(`skipped at ${r.skipAt} of ${r.skipTotal}`);
-      if (r.moods && r.moods.length) parts.push(`moods: ${r.moods.join(', ')}`);
+      if (r.spotifyId) parts.push(`spotify_id: ${r.spotifyId}`);
 
       let out = `Jazz review — ${parts.join(' | ')}`;
       if (r.notes) out += `\nNotes: ${r.notes}`;
       if (r.favMoments) out += `\nFavorite moments: ${r.favMoments}`;
+      if (r.audioFeatures) {
+        const af = r.audioFeatures;
+        out += `\nAudio features (ReccoBeats): acousticness=${af.acousticness}, danceability=${af.danceability}, energy=${af.spotify_energy}, instrumentalness=${af.instrumentalness}, liveness=${af.liveness}, loudness=${af.loudness}, speechiness=${af.speechiness}, valence=${af.spotify_valence}`;
+      }
       return out;
     }).join('\n\n---\n\n');
 
     const prompt = `Please log the following jazz review(s) to my dataset:\n\n${lines}`;
-
     navigator.clipboard.writeText(prompt).then(() => {
       showToast('Copied! Paste to Claude.');
     }).catch(() => {
@@ -199,7 +193,6 @@ export default function Review() {
         <h1>Track Review</h1>
         <p className="subtitle">Rate a track &mdash; then copy the summary to paste into Claude.</p>
 
-        {/* Pre-filled track banner */}
         <div className={`track-banner${showBanner ? ' visible' : ''}`}>
           <div className="track-banner-title">{bannerTitle}</div>
           <div className="track-banner-meta">{bannerMeta}</div>
@@ -231,10 +224,7 @@ export default function Review() {
             <label>Rating</label>
             <div className="slider-group">
               <input
-                type="range"
-                min="1"
-                max="10"
-                step="0.5"
+                type="range" min="1" max="10" step="0.5"
                 value={rating}
                 onChange={e => setRating(parseFloat(e.target.value))}
               />
@@ -246,10 +236,7 @@ export default function Review() {
             <label>Replayability</label>
             <div className="slider-group">
               <input
-                type="range"
-                min="1"
-                max="10"
-                step="1"
+                type="range" min="1" max="10" step="1"
                 value={replayability}
                 onChange={e => setReplayability(parseInt(e.target.value, 10))}
               />
@@ -260,20 +247,8 @@ export default function Review() {
           <div className="form-group">
             <label>Liked? (would you add to a playlist?)</label>
             <div className="toggle-group">
-              <button
-                type="button"
-                className={`toggle-btn${liked === true ? ' selected' : ''}`}
-                onClick={() => setLiked(true)}
-              >
-                Yes
-              </button>
-              <button
-                type="button"
-                className={`toggle-btn${liked === false ? ' selected' : ''}`}
-                onClick={() => setLiked(false)}
-              >
-                No
-              </button>
+              <button type="button" className={`toggle-btn${liked === true ? ' selected' : ''}`} onClick={() => setLiked(true)}>Yes</button>
+              <button type="button" className={`toggle-btn${liked === false ? ' selected' : ''}`} onClick={() => setLiked(false)}>No</button>
             </div>
           </div>
 
@@ -281,10 +256,7 @@ export default function Review() {
             <label>Playthrough</label>
             <div className="slider-group">
               <input
-                type="range"
-                min="0"
-                max="100"
-                step="5"
+                type="range" min="0" max="100" step="5"
                 value={playthrough}
                 onChange={e => setPlaythrough(parseInt(e.target.value, 10))}
               />
@@ -295,34 +267,9 @@ export default function Review() {
           <div className="form-group">
             <label>Skipped at (optional)</label>
             <div className="skip-row">
-              <input
-                type="text"
-                value={skipAt}
-                onChange={e => setSkipAt(e.target.value)}
-                placeholder="e.g. 1:32"
-              />
+              <input type="text" value={skipAt} onChange={e => setSkipAt(e.target.value)} placeholder="e.g. 1:32" />
               <span>of</span>
-              <input
-                type="text"
-                value={skipTotal}
-                onChange={e => setSkipTotal(e.target.value)}
-                placeholder="e.g. 5:02"
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label>Vibes / Mood Tags</label>
-            <div className="mood-grid">
-              {MOOD_SECTIONS.map((section) => (
-                <MoodSection
-                  key={section.label}
-                  label={section.label}
-                  moods={section.moods}
-                  selectedMoods={selectedMoods}
-                  onToggle={toggleMood}
-                />
-              ))}
+              <input type="text" value={skipTotal} onChange={e => setSkipTotal(e.target.value)} placeholder="e.g. 5:02" />
             </div>
           </div>
 
@@ -345,23 +292,23 @@ export default function Review() {
             />
           </div>
 
+          {/* Audio features panel */}
+          <AudioFeaturesPanel
+            spotifyId={spotifyId}
+            fetchState={audioFetchState}
+            features={audioFeatures}
+          />
+
           <button type="submit" className="submit-btn">Add to Queue</button>
         </form>
 
         <div className="pending-reviews">
           <h2>Pending Reviews</h2>
-          <PendingReviewsList
-            reviews={reviews}
-            onDelete={deleteReview}
-          />
+          <PendingReviewsList reviews={reviews} onDelete={deleteReview} />
           {reviews.length > 0 && (
             <>
-              <button className="export-btn" onClick={exportReviews}>
-                Copy All to Clipboard
-              </button>
-              <button className="clear-btn" onClick={clearAll}>
-                Clear All
-              </button>
+              <button className="export-btn" onClick={exportReviews}>Copy All to Clipboard</button>
+              <button className="clear-btn" onClick={clearAll}>Clear All</button>
             </>
           )}
         </div>
@@ -377,21 +324,36 @@ export default function Review() {
   );
 }
 
-function MoodSection({ label, moods, selectedMoods, onToggle }) {
+function AudioFeaturesPanel({ spotifyId, fetchState, features }) {
+  if (!spotifyId) return null;
+
   return (
-    <>
-      <span className="mood-section-label">{label}</span>
-      {moods.map(mood => (
-        <button
-          key={mood}
-          type="button"
-          className={`mood-chip${selectedMoods.has(mood) ? ' selected' : ''}`}
-          onClick={() => onToggle(mood)}
-        >
-          {mood}
-        </button>
-      ))}
-    </>
+    <div className="form-group audio-features-panel">
+      <label>Audio Features</label>
+      {fetchState === 'loading' && (
+        <p className="audio-fetch-status">Fetching from ReccoBeats...</p>
+      )}
+      {fetchState === 'error' && (
+        <p className="audio-fetch-status error">Could not reach ReccoBeats.</p>
+      )}
+      {fetchState === 'missing' && (
+        <p className="audio-fetch-status missing">Track not found in ReccoBeats database.</p>
+      )}
+      {fetchState === 'done' && features && (
+        <div className="audio-features-grid">
+          {RECCOBEATS_FIELDS.map(({ key, label }) => {
+            const val = features[key];
+            const display = val != null ? (key === 'loudness' ? `${val.toFixed(1)} dB` : val.toFixed(3)) : '—';
+            return (
+              <div key={key} className="audio-feature-item">
+                <span className="audio-feature-label">{label}</span>
+                <span className="audio-feature-value">{display}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -410,28 +372,18 @@ function PendingReviewsList({ reviews, onDelete }) {
             {' · '}Replay: {r.replayability}/10
             {' · '}Played: {r.playthrough}%
             {r.skipAt ? ` · Skipped ${r.skipAt}/${r.skipTotal}` : ''}
+            {r.audioFeatures ? ' · ✓ Audio features' : ''}
           </span>
         </div>
         <div className="review-card-right">
           <span className="review-card-rating" style={{ color: ratingColor(r.rating) }}>
             {r.rating}/10
           </span>
-          <button
-            className="review-card-delete"
-            onClick={() => onDelete(i)}
-            title="Remove"
-          >
+          <button className="review-card-delete" onClick={() => onDelete(i)} title="Remove">
             &#x2715;
           </button>
         </div>
       </div>
-      {r.moods && r.moods.length > 0 && (
-        <div className="review-card-moods">
-          {r.moods.map(m => (
-            <span key={m} className="review-mood-tag">{m}</span>
-          ))}
-        </div>
-      )}
     </div>
   ));
 }

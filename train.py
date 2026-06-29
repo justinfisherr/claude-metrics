@@ -223,19 +223,26 @@ def engineer_features(tracks):
 
         if has_audio:
             audio = t.get("audio_features") or {}
-            row["duration_s"] = audio.get("duration_s") or 300
-            row["popularity"] = audio.get("popularity") or 50
-            row["tempo_bpm"] = audio.get("tempo_bpm") or 120
+            has_recco = audio.get("acousticness") is not None
+
+            # User-entered fields — always included when present
+            row["duration_s"]     = audio.get("duration_s") or 300
+            row["popularity"]     = audio.get("popularity") or 50
+            row["tempo_bpm"]      = audio.get("tempo_bpm") or 120
             row["time_signature"] = audio.get("time_signature") or 4
-            row["is_live"] = int(audio.get("is_live") or False)
-            row["acousticness"] = audio.get("acousticness") if audio.get("acousticness") is not None else 0.5
-            row["danceability"] = audio.get("danceability") if audio.get("danceability") is not None else 0.5
-            row["spotify_energy"] = audio.get("spotify_energy") if audio.get("spotify_energy") is not None else 0.5
-            row["instrumentalness"] = audio.get("instrumentalness") if audio.get("instrumentalness") is not None else 0.0
-            row["liveness"] = audio.get("liveness") if audio.get("liveness") is not None else 0.15
-            row["loudness"] = audio.get("loudness") if audio.get("loudness") is not None else -10.0
-            row["speechiness"] = audio.get("speechiness") if audio.get("speechiness") is not None else 0.05
-            row["spotify_valence"] = audio.get("spotify_valence") if audio.get("spotify_valence") is not None else 0.5
+            row["is_live"]        = int(audio.get("is_live") or False)
+
+            # ReccoBeats fields — real values when available, neutral defaults otherwise.
+            # has_recco_features lets the model discount those 12 tracks' audio values.
+            row["has_recco_features"] = int(has_recco)
+            row["acousticness"]       = audio["acousticness"]     if has_recco else 0.5
+            row["danceability"]       = audio["danceability"]     if has_recco else 0.5
+            row["spotify_energy"]     = audio["spotify_energy"]   if has_recco else 0.5
+            row["instrumentalness"]   = audio["instrumentalness"] if has_recco else 0.5
+            row["liveness"]           = audio["liveness"]         if has_recco else 0.15
+            row["loudness"]           = audio["loudness"]         if has_recco else -10.0
+            row["speechiness"]        = audio["speechiness"]      if has_recco else 0.05
+            row["spotify_valence"]    = audio["spotify_valence"]  if has_recco else 0.5
 
         rows.append(row)
 
@@ -277,6 +284,7 @@ def readable_name(feat):
         "tempo_bpm": "Tempo (BPM)",
         "time_signature": "Time Signature",
         "is_live": "Live Recording",
+        "has_recco_features": "Has ReccoBeats Features",
         "acousticness": "Acousticness",
         "danceability": "Danceability",
         "spotify_energy": "Audio Energy (Spotify)",
