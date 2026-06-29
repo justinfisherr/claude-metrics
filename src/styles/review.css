@@ -160,6 +160,34 @@
   color: var(--text);
 }
 
+/* Audio vibe chips */
+.audio-vibe-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.audio-vibe-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  flex-shrink: 0;
+}
+
+.audio-vibe-chip {
+  padding: 3px 11px;
+  border: 1px solid rgba(74, 158, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(74, 158, 255, 0.08);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 /* Audio features panel */
 .audio-features-panel {
   background: var(--panel-2);

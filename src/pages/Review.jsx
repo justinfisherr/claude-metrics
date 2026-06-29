@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from '../components/shared/Navigation';
+import moodAxes from '../../mood-axes.json';
 import '../styles/review.css';
 
 const STORAGE_KEY = 'jazz-reviews';
@@ -321,7 +322,26 @@ export default function Review() {
   );
 }
 
+function closestMoods(features, n = 4) {
+  // Map ReccoBeats 0–1 features to VAD space (-1 to 1)
+  const v = features.spotify_valence * 2 - 1;
+  const a = features.spotify_energy * 2 - 1;
+  const loudNorm = Math.max(0, Math.min(1, (features.loudness + 30) / 30));
+  const d = ((loudNorm + features.spotify_energy) / 2) * 2 - 1;
+
+  return Object.entries(moodAxes)
+    .map(([mood, axes]) => ({
+      mood,
+      dist: Math.sqrt((axes.valence - v) ** 2 + (axes.arousal - a) ** 2 + (axes.dominance - d) ** 2),
+    }))
+    .sort((a, b) => a.dist - b.dist)
+    .slice(0, n)
+    .map(m => m.mood);
+}
+
 function AudioFeaturesPanel({ spotifyId, fetchState, features }) {
+  const moods = useMemo(() => features ? closestMoods(features) : [], [features]);
+
   if (!spotifyId) return null;
 
   return (
@@ -337,18 +357,26 @@ function AudioFeaturesPanel({ spotifyId, fetchState, features }) {
         <p className="audio-fetch-status missing">Track not found in ReccoBeats database.</p>
       )}
       {fetchState === 'done' && features && (
-        <div className="audio-features-grid">
-          {RECCOBEATS_FIELDS.map(({ key, label }) => {
-            const val = features[key];
-            const display = val != null ? (key === 'loudness' ? `${val.toFixed(1)} dB` : val.toFixed(3)) : '—';
-            return (
-              <div key={key} className="audio-feature-item">
-                <span className="audio-feature-label">{label}</span>
-                <span className="audio-feature-value">{display}</span>
-              </div>
-            );
-          })}
-        </div>
+        <>
+          <div className="audio-vibe-row">
+            <span className="audio-vibe-label">Sounds like</span>
+            {moods.map(m => (
+              <span key={m} className="audio-vibe-chip">{m}</span>
+            ))}
+          </div>
+          <div className="audio-features-grid">
+            {RECCOBEATS_FIELDS.map(({ key, label }) => {
+              const val = features[key];
+              const display = val != null ? (key === 'loudness' ? `${val.toFixed(1)} dB` : val.toFixed(3)) : '—';
+              return (
+                <div key={key} className="audio-feature-item">
+                  <span className="audio-feature-label">{label}</span>
+                  <span className="audio-feature-value">{display}</span>
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );
