@@ -1,5 +1,5 @@
 {
-  "current_version": "5.02",
+  "current_version": "5.03",
   "versions": [
     {
       "version": "1.00",
@@ -502,6 +502,28 @@
       "feature_count": 179,
       "best_k": 2,
       "notes": "User audio fields + ReccoBeats features; has_recco_features flag for 12 missing tracks; mood tags removed from review",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "5.03",
+      "name": "pikachu",
+      "major": 5,
+      "minor": 3,
+      "run_date": "2026-06-28T23:01:11.761641",
+      "dataset_size": 121,
+      "best_model": "ridge",
+      "r_squared": 0.3489,
+      "rmse": 1.8851,
+      "mae": 1.5501,
+      "feature_count": 179,
+      "best_k": 2,
+      "notes": "train.py owns ReccoBeats sync via spotify_id; review page is preview only",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,

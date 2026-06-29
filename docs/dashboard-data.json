@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-28T22:57:57.787348",
-    "version": "5.02",
+    "generated_at": "2026-06-28T23:01:11.755491",
+    "version": "5.03",
     "is_major": false,
     "total_tracks": 121,
     "total_albums": 3,
@@ -7086,6 +7086,16 @@
       "mae": 1.5469,
       "best_k": 2,
       "silhouette_score": 0.0668
+    },
+    {
+      "run_date": "2026-06-28",
+      "dataset_size": 121,
+      "best_model": "ridge",
+      "r_squared": 0.3489,
+      "rmse": 1.8851,
+      "mae": 1.5501,
+      "best_k": 2,
+      "silhouette_score": 0.0665
     },
     {
       "run_date": "2026-06-28",

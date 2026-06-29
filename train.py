@@ -4,6 +4,8 @@ import os
 import argparse
 import shutil
 import joblib
+import time
+import urllib.request
 from datetime import datetime, date
 from pathlib import Path
 
@@ -924,6 +926,58 @@ def build_playlists(predictions):
     return results
 
 
+def sync_recco_features(entries):
+    """Fetch ReccoBeats audio features for any track with spotify_id but missing them.
+    Updates training-data.json in place. Returns number of tracks updated."""
+    needs_fetch = [
+        (i, e) for i, e in enumerate(entries)
+        if e.get("spotify_id")
+        and e.get("entity_type") != "album"
+        and (e.get("audio_features") or {}).get("acousticness") is None
+    ]
+    if not needs_fetch:
+        return 0
+
+    idx_map = {e["spotify_id"]: i for i, e in needs_fetch}
+    spotify_ids = list(idx_map.keys())
+
+    updated = 0
+    for batch_start in range(0, len(spotify_ids), 40):
+        batch = spotify_ids[batch_start:batch_start + 40]
+        url = f"https://api.reccobeats.com/v1/audio-features?ids={','.join(batch)}"
+        try:
+            with urllib.request.urlopen(url, timeout=10) as resp:
+                data = json.loads(resp.read())
+        except Exception as e:
+            print(f"  ReccoBeats fetch error: {e}")
+            continue
+
+        for item in data.get("content", []):
+            href = item.get("href", "")
+            sid = href.rstrip("/").split("/")[-1] if href else None
+            if sid not in idx_map:
+                continue
+            entry = entries[idx_map[sid]]
+            if not entry.get("audio_features"):
+                entry["audio_features"] = {}
+            entry["audio_features"].update({
+                "acousticness":     item.get("acousticness"),
+                "danceability":     item.get("danceability"),
+                "spotify_energy":   item.get("energy"),
+                "instrumentalness": item.get("instrumentalness"),
+                "liveness":         item.get("liveness"),
+                "loudness":         item.get("loudness"),
+                "speechiness":      item.get("speechiness"),
+                "spotify_valence":  item.get("valence"),
+            })
+            updated += 1
+        time.sleep(0.3)
+
+    if updated:
+        TRAINING_DATA_PATH.write_text(json.dumps(entries, indent=2, ensure_ascii=False))
+    return updated
+
+
 def main():
     parser = argparse.ArgumentParser(description="Train jazz taste model")
     parser.add_argument("--major", action="store_true",
@@ -937,6 +991,11 @@ def main():
     args = parser.parse_args()
 
     print("Loading data...")
+    all_entries = json.loads(TRAINING_DATA_PATH.read_text())
+    print("Syncing ReccoBeats features...")
+    synced = sync_recco_features(all_entries)
+    if synced:
+        print(f"  Fetched ReccoBeats features for {synced} new track(s)")
     tracks, albums = load_data()
     print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
 

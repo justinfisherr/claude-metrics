@@ -170,10 +170,7 @@ export default function Review() {
       let out = `Jazz review — ${parts.join(' | ')}`;
       if (r.notes) out += `\nNotes: ${r.notes}`;
       if (r.favMoments) out += `\nFavorite moments: ${r.favMoments}`;
-      if (r.audioFeatures) {
-        const af = r.audioFeatures;
-        out += `\nAudio features (ReccoBeats): acousticness=${af.acousticness}, danceability=${af.danceability}, energy=${af.spotify_energy}, instrumentalness=${af.instrumentalness}, liveness=${af.liveness}, loudness=${af.loudness}, speechiness=${af.speechiness}, valence=${af.spotify_valence}`;
-      }
+      // Audio features are fetched by train.py using spotify_id — no need to export them
       return out;
     }).join('\n\n---\n\n');
 
