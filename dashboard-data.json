@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-29T16:41:27.202494",
-    "version": "5.09",
+    "generated_at": "2026-06-29T18:08:23.518480",
+    "version": "5.10",
     "is_major": false,
     "total_tracks": 162,
     "total_albums": 3,
@@ -6745,83 +6745,7 @@
       "direction": "positive"
     }
   ],
-  "top_drivers": [
-    {
-      "feature": "Collaborator Quality",
-      "coefficient": 0.5107,
-      "direction": "positive"
-    },
-    {
-      "feature": "Artist Mean Rating",
-      "coefficient": -0.3605,
-      "direction": "negative"
-    },
-    {
-      "feature": "Year",
-      "coefficient": 0.2216,
-      "direction": "positive"
-    },
-    {
-      "feature": "Popularity",
-      "coefficient": 0.1977,
-      "direction": "positive"
-    },
-    {
-      "feature": "Is Collaboration",
-      "coefficient": -0.1954,
-      "direction": "negative"
-    },
-    {
-      "feature": "Acousticness",
-      "coefficient": 0.1698,
-      "direction": "positive"
-    },
-    {
-      "feature": "Era Free Jazz",
-      "coefficient": -0.1647,
-      "direction": "negative"
-    },
-    {
-      "feature": "Subgenre Vocal Ballad",
-      "coefficient": -0.164,
-      "direction": "negative"
-    },
-    {
-      "feature": "Subgenre Ballad",
-      "coefficient": 0.1512,
-      "direction": "positive"
-    },
-    {
-      "feature": "Subgenre Swing",
-      "coefficient": -0.1512,
-      "direction": "negative"
-    },
-    {
-      "feature": "Label Pacific Jazz",
-      "coefficient": -0.1389,
-      "direction": "negative"
-    },
-    {
-      "feature": "Label Prestige",
-      "coefficient": 0.1385,
-      "direction": "positive"
-    },
-    {
-      "feature": "Mood Zone Tense",
-      "coefficient": -0.1374,
-      "direction": "negative"
-    },
-    {
-      "feature": "Source Autoplay",
-      "coefficient": -0.1371,
-      "direction": "negative"
-    },
-    {
-      "feature": "Energy Tempo",
-      "coefficient": 0.1361,
-      "direction": "positive"
-    }
-  ],
+  "top_drivers": [],
   "correlations": {
     "feature_rating": [
       {
@@ -8357,6 +8281,16 @@
       "mae": 1.4972,
       "best_k": 2,
       "silhouette_score": 0.0613
+    },
+    {
+      "run_date": "2026-06-29",
+      "dataset_size": 162,
+      "best_model": "random_forest",
+      "r_squared": 0.1828,
+      "rmse": 2.0552,
+      "mae": 1.6971,
+      "best_k": 3,
+      "silhouette_score": 0.0744
     },
     {
       "run_date": "2026-06-29",
