@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 
@@ -9,69 +9,161 @@ function ratingBlockColor(r) {
   return 'rgba(255,107,107,0.68)';
 }
 
+const ZONE_COLORS = {
+  euphoric: '#ffc832',
+  tense: '#c83232',
+  introspective: '#6464aa',
+  serene: '#64c896',
+  null: '#555',
+};
+
 export default function ArtistJourneys({ data }) {
+  const [activeZone, setActiveZone] = useState('all');
+
   if (!data) return null;
   const predictions = data.predictions || [];
 
-  const { sorted, maxDur } = useMemo(() => {
-    const artists = {};
+  const { all, byZone, maxDur } = useMemo(() => {
+    // Build "all" artists (3+ tracks total)
+    const allArtists = {};
     predictions.forEach(p => {
-      artists[p.artist] = artists[p.artist] || [];
-      artists[p.artist].push(p);
+      allArtists[p.artist] = allArtists[p.artist] || [];
+      allArtists[p.artist].push(p);
     });
 
-    const s = Object.entries(artists)
+    const allArtistsArray = Object.entries(allArtists)
       .filter(([, t]) => t.length >= 3)
       .map(([name, tracks]) => ({
         name,
         tracks,
         mean: tracks.reduce((sum, t) => sum + t.actual, 0) / tracks.length,
       }))
-      .sort((a, b) => b.mean - a.mean);
+      .sort((a, b) => b.mean - a.mean || a.name.localeCompare(b.name))
+      .slice(0, 12); // Cap at 12
+
+    // Build by-zone artists (2+ tracks in that zone)
+    const byZoneObj = {
+      euphoric: [],
+      tense: [],
+      introspective: [],
+      serene: [],
+    };
+
+    Object.keys(byZoneObj).forEach(zone => {
+      const zoneArtists = {};
+      predictions
+        .filter(p => p.mood_zone === zone)
+        .forEach(p => {
+          zoneArtists[p.artist] = zoneArtists[p.artist] || [];
+          zoneArtists[p.artist].push(p);
+        });
+
+      byZoneObj[zone] = Object.entries(zoneArtists)
+        .filter(([, t]) => t.length >= 2)
+        .map(([name, tracks]) => ({
+          name,
+          tracks,
+          mean: tracks.reduce((sum, t) => sum + t.actual, 0) / tracks.length,
+        }))
+        .sort((a, b) => b.mean - a.mean || a.name.localeCompare(b.name))
+        .slice(0, 10); // Cap at 10 per zone
+    });
+
+    // Zone track counts
+    const zoneCounts = {
+      euphoric: predictions.filter(p => p.mood_zone === 'euphoric').length,
+      tense: predictions.filter(p => p.mood_zone === 'tense').length,
+      introspective: predictions.filter(p => p.mood_zone === 'introspective').length,
+      serene: predictions.filter(p => p.mood_zone === 'serene').length,
+    };
 
     const md = Math.max(...predictions.map(p => p.duration_s || 300));
 
-    return { sorted: s, maxDur: md };
+    return { all: allArtistsArray, byZone: { ...byZoneObj, zoneCounts }, maxDur: md };
   }, [predictions]);
 
-  if (!sorted.length) return null;
+  if (!all.length) return null;
+
+  const activeData = activeZone === 'all' ? all : byZone[activeZone];
+  const displayTracks = activeZone === 'all'
+    ? all.flatMap(a => a.tracks)
+    : byZone[activeZone].flatMap(a => a.tracks);
+
+  const insight = (() => {
+    const withRange = activeData.map(a => ({
+      ...a,
+      min: Math.min(...a.tracks.map(t => t.actual)),
+      max: Math.max(...a.tracks.map(t => t.actual)),
+      range: Math.max(...a.tracks.map(t => t.actual)) - Math.min(...a.tracks.map(t => t.actual)),
+    }));
+    if (!withRange.length) return null;
+    const widest = withRange.reduce((a, b) => b.range > a.range ? b : a);
+    const interp = widest.range >= 5
+      ? `Same artist, wildly different outcomes — the track matters more than the name.`
+      : `Even the widest spread is moderate, suggesting your taste aligns with the artist overall.`;
+    return (
+      <p className="panel-insight">
+        Artist with the widest rating range: {widest.name} ({widest.min}–{widest.max}). {interp}
+      </p>
+    );
+  })();
 
   return (
     <Panel id="artist-journeys-panel" span={12}>
-      <PanelHeader title="Artist Journeys" note="Each block is a track — width = duration, color = rating" />
-      {sorted.length > 0 && (() => {
-        const withRange = sorted.map(a => ({
-          ...a,
-          min: Math.min(...a.tracks.map(t => t.actual)),
-          max: Math.max(...a.tracks.map(t => t.actual)),
-          range: Math.max(...a.tracks.map(t => t.actual)) - Math.min(...a.tracks.map(t => t.actual)),
-        }));
-        const widest = withRange.reduce((a, b) => b.range > a.range ? b : a);
-        const interp = widest.range >= 5
-          ? `Same artist, wildly different outcomes — the track matters more than the name.`
-          : `Even the widest spread is moderate, suggesting your taste aligns with the artist overall.`;
-        return (
-          <p className="panel-insight">
-            Artist with the widest rating range: {widest.name} ({widest.min}–{widest.max}). {interp}
-          </p>
-        );
-      })()}
+      <PanelHeader title="Artist Journeys" note="Faceted by mood zone — each block is a track" />
+
+      {/* Tab bar */}
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid #333' }}>
+        {[
+          { zone: 'all', label: `All (${all.length})` },
+          { zone: 'euphoric', label: `Euphoric (${byZone.zoneCounts.euphoric})` },
+          { zone: 'tense', label: `Tense (${byZone.zoneCounts.tense})` },
+          { zone: 'introspective', label: `Introspective (${byZone.zoneCounts.introspective})` },
+          { zone: 'serene', label: `Serene (${byZone.zoneCounts.serene})` },
+        ].map(({ zone, label }) => (
+          <button
+            key={zone}
+            onClick={() => setActiveZone(zone)}
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: activeZone === zone ? ZONE_COLORS[zone] : 'transparent',
+              color: activeZone === zone ? '#000' : '#ccc',
+              border: `1px solid ${ZONE_COLORS[zone] || '#666'}`,
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              fontWeight: activeZone === zone ? 'bold' : 'normal',
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {insight}
+
       <p className="panel-desc">
-        Only artists with <strong>3 or more rated tracks</strong> appear here, sorted by average rating (highest first). Each <strong>block</strong> is a track: <strong>width</strong> scales with <code>audio_features.duration_s</code> relative to the longest track in the dataset (wider = longer song). <strong>Color tier</strong>: green = 9–10, blue = 7–8, yellow = 5–6, red = &lt;5. The number on the right is the artist's mean rating across all their logged tracks. Hover a block to see the title and score. Useful for spotting within-artist variance — an artist with mixed colors has a wide range; a solid-green row is a consistent favorite.
+        Each <strong>block</strong> is a track: <strong>width</strong> = duration, <strong>color</strong> = rating (green 9–10, blue 7–8, yellow 5–6, red &lt;5). The colored top border shows the track's mood zone. Tab through zones to see how your taste varies across audio mood profiles. Artists shown: top 12 in "All" tab, top 10 per zone.
       </p>
+
       <div className="artist-journeys-scroll">
-        {sorted.map(({ name, tracks, mean }) => (
+        {activeData.map(({ name, tracks, mean }) => (
           <div className="artist-row" key={name}>
             <div className="artist-name">{name}</div>
             <div className="artist-blocks">
               {tracks.map((t, i) => {
                 const w = Math.max(18, ((t.duration_s || 300) / maxDur) * 180);
+                const zoneColor = ZONE_COLORS[t.mood_zone] || ZONE_COLORS.null;
                 return (
                   <div
                     key={i}
                     className="artist-block"
-                    style={{ width: `${w}px`, background: ratingBlockColor(t.actual) }}
-                    data-label={`${t.title} (${t.actual})`}
+                    style={{
+                      width: `${w}px`,
+                      background: ratingBlockColor(t.actual),
+                      borderTop: `2px solid ${zoneColor}`,
+                    }}
+                    data-label={`${t.title} (${t.actual}) — ${t.mood_zone || 'unknown'}`}
                   />
                 );
               })}
