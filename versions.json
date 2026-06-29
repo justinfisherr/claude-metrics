@@ -1,5 +1,5 @@
 {
-  "current_version": "5.05",
+  "current_version": "5.06",
   "versions": [
     {
       "version": "1.00",
@@ -568,6 +568,28 @@
       "feature_count": 184,
       "best_k": 2,
       "notes": "Backfill spotify_id + ReccoBeats features for 41 new tracks",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "5.06",
+      "name": "",
+      "major": 5,
+      "minor": 6,
+      "run_date": "2026-06-28T23:29:12.210266",
+      "dataset_size": 162,
+      "best_model": "random_forest",
+      "r_squared": 0.3355,
+      "rmse": 1.8533,
+      "mae": 1.4972,
+      "feature_count": 184,
+      "best_k": 2,
+      "notes": "",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,

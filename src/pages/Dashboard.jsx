@@ -36,6 +36,9 @@ import MoodPolarity from '../components/panels/MoodPolarity';
 import MoodAxes from '../components/panels/MoodAxes';
 import V2Features from '../components/panels/V2Features';
 import ModelHistory from '../components/panels/ModelHistory';
+import AudioScatter from '../components/panels/AudioScatter';
+import SoundDNA from '../components/panels/SoundDNA';
+import AudioFeatureRatings from '../components/panels/AudioFeatureRatings';
 
 export default function Dashboard() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
@@ -114,6 +117,11 @@ export default function Dashboard() {
             <MindChanges data={data} />
             <YearRating data={data} />
             <DurationRating data={data} />
+
+            {/* Audio Features */}
+            <AudioScatter data={data} />
+            <SoundDNA data={data} />
+            <AudioFeatureRatings data={data} />
 
             {/* Music */}
             <EraBreakdown data={data} />
