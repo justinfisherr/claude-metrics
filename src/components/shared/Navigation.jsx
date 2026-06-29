@@ -38,10 +38,13 @@ const SECTIONS = [
     { id: 'cof-panel', label: 'Circle of Fifths' },
     { id: 'sound-panel', label: 'Sound Profile' },
     { id: 'ensemble-panel', label: 'Ensemble' },
+    { id: 'ballad-panel', label: 'Ballad Analysis' },
   ]},
   { label: 'Artists', items: [
     { id: 'top-artists-panel', label: 'Top Artists' },
     { id: 'artist-journeys-panel', label: 'Journeys' },
+    { id: 'artist-era-panel', label: 'Artist × Era' },
+    { id: 'collaborator-network-panel', label: 'Collaborator Network' },
     { id: 'label-panel', label: 'Labels' },
     { id: 'discovery-panel', label: 'Discovery' },
   ]},
@@ -58,6 +61,8 @@ const SECTIONS = [
     { id: 'taste-world-panel', label: 'Taste vs World' },
     { id: 'albums-panel', label: 'Albums' },
     { id: 'history-panel', label: 'History' },
+    { id: 'feature-confidence-panel', label: 'Feature Confidence' },
+    { id: 'data-quality-panel', label: 'Data Quality' },
   ]},
 ];
 

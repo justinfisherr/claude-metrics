@@ -162,7 +162,7 @@ export default function Dashboard() {
             <ModelHistory data={data} />
             <FeatureConfidenceMetrics data={data} />
             <DataQualityReport data={data} />
-            <CollaboratorNetwork />
+            <CollaboratorNetwork data={data} />
           </section>
         )}
       </main>
