@@ -1,5 +1,9 @@
 import { useMemo } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
 import Card from '../shared/Card';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 export default function BalladAnalysis({ data }) {
   if (!data?.predictions) return null;
@@ -37,10 +41,46 @@ export default function BalladAnalysis({ data }) {
 
   const balladsPercent = ((stats.ballads.count / stats.totalTracks) * 100).toFixed(0);
 
+  const chartData = useMemo(() => {
+    return {
+      labels: ['All Ballads', 'Instrumental', 'Vocal', 'Non-Ballads'],
+      datasets: [{
+        label: 'Mean Rating',
+        data: [stats.ballads.mean, stats.instrumental.mean, stats.vocal.mean, stats.nonBallads.mean],
+        backgroundColor: ['#87a2c3', '#ffc832', '#ff6b6b', '#50c878'],
+        borderColor: ['#87a2c3', '#ffc832', '#ff6b6b', '#50c878'],
+        borderWidth: 1,
+        borderRadius: 4,
+      }],
+    };
+  }, [stats]);
+
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: {
+        grid: { color: 'rgba(93,155,224,0.1)' },
+        ticks: { color: '#87a2c3', font: { size: 10 } },
+        max: 10,
+      },
+      x: {
+        grid: { display: false },
+        ticks: { color: '#d7e6f7', font: { size: 9 } },
+      },
+    },
+  };
+
   return (
     <Card title="Ballad × Vocal Split Analysis" span="span-6">
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-        {/* Left: Stats */}
+        {/* Left: Chart */}
+        <div style={{ height: '250px' }}>
+          <Bar data={chartData} options={chartOptions} />
+        </div>
+
+        {/* Right: Stats */}
         <div>
           <div style={{ marginBottom: '1rem' }}>
             <div style={{ fontSize: '0.75rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>
