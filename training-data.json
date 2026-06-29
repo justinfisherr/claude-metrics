@@ -54,10 +54,19 @@
       "key": "Em",
       "mode": "dorian",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.694,
+      "danceability": 0.277,
+      "spotify_energy": 0.242,
+      "instrumentalness": 0.464,
+      "liveness": 0.113,
+      "loudness": -18.442,
+      "speechiness": 0.0342,
+      "spotify_valence": 0.285
     },
     "replayability": 10,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "2JOEPbuwVf0nafGnMSVEhH"
   },
   {
     "title": "Love Theme from Spartacus",
@@ -112,10 +121,19 @@
       "key": "Bbm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.595,
+      "danceability": 0.583,
+      "spotify_energy": 0.301,
+      "instrumentalness": 0.923,
+      "liveness": 0.0701,
+      "loudness": -16.064,
+      "speechiness": 0.0295,
+      "spotify_valence": 0.519
     },
     "replayability": 10,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "2QHFSR7VUZZfRRwZycKqSa"
   },
   {
     "title": "So What",
@@ -177,10 +195,19 @@
       "key": "Dm",
       "mode": "dorian",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.706,
+      "danceability": 0.532,
+      "spotify_energy": 0.151,
+      "instrumentalness": 0.00136,
+      "liveness": 0.116,
+      "loudness": -17.266,
+      "speechiness": 0.0376,
+      "spotify_valence": 0.211
     },
     "replayability": 9,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4vLYewWIvqHfKtJDk8c8tq"
   },
   {
     "title": "Blue in Green",
@@ -238,10 +265,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.808,
+      "danceability": 0.421,
+      "spotify_energy": 0.0162,
+      "instrumentalness": 0.0024,
+      "liveness": 0.0978,
+      "loudness": -25.358,
+      "speechiness": 0.0388,
+      "spotify_valence": 0.154
     },
     "replayability": 5,
-    "playthrough": 0.85
+    "playthrough": 0.85,
+    "spotify_id": "0aWMVrwxPNYkKmFthzmpRi"
   },
   {
     "title": "Peace Piece",
@@ -294,10 +330,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.987,
+      "danceability": 0.464,
+      "spotify_energy": 0.0266,
+      "instrumentalness": 0.879,
+      "liveness": 0.0836,
+      "loudness": -20.338,
+      "speechiness": 0.0532,
+      "spotify_valence": 0.0659
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "58yFroDNbzHpYzvicaC0de"
   },
   {
     "title": "A Single Petal of a Rose",
@@ -349,10 +394,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.991,
+      "danceability": 0.331,
+      "spotify_energy": 0.0294,
+      "instrumentalness": 0.883,
+      "liveness": 0.107,
+      "loudness": -22.342,
+      "speechiness": 0.0445,
+      "spotify_valence": 0.0475
     },
     "replayability": 5,
-    "playthrough": 0.9
+    "playthrough": 0.9,
+    "spotify_id": "1PoaSCeoBUCPg25k7XTvNN"
   },
   {
     "title": "Tezeta",
@@ -411,10 +465,19 @@
       "key": "Am",
       "mode": "pentatonic",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.962,
+      "danceability": 0.549,
+      "spotify_energy": 0.254,
+      "instrumentalness": 0.931,
+      "liveness": 0.0994,
+      "loudness": -14.48,
+      "speechiness": 0.0416,
+      "spotify_valence": 0.541
     },
     "replayability": 10,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "7JPNvoMjoIXkTDAMx9Aajj"
   },
   {
     "title": "Moanin'",
@@ -473,10 +536,19 @@
       "key": "Bb",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.0639,
+      "danceability": 0.392,
+      "spotify_energy": 0.683,
+      "instrumentalness": 0.000599,
+      "liveness": 0.392,
+      "loudness": -9.654,
+      "speechiness": 0.125,
+      "spotify_valence": 0.593
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "3Vqbj9yPHBTIRhTDJHPQMq"
   },
   {
     "title": "All the Things You Are",
@@ -532,10 +604,19 @@
       "key": "Ab",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.962,
+      "danceability": 0.564,
+      "spotify_energy": 0.0822,
+      "instrumentalness": 0.583,
+      "liveness": 0.11,
+      "loudness": -17.658,
+      "speechiness": 0.0453,
+      "spotify_valence": 0.483
     },
     "replayability": 6,
-    "playthrough": 0.85
+    "playthrough": 0.85,
+    "spotify_id": "6LPqphk2rbt2i63bR2o247"
   },
   {
     "title": "It Never Entered My Mind",
@@ -594,10 +675,19 @@
       "key": "F",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.892,
+      "danceability": 0.476,
+      "spotify_energy": 0.217,
+      "instrumentalness": 6.09e-05,
+      "liveness": 0.0966,
+      "loudness": -10.75,
+      "speechiness": 0.0308,
+      "spotify_valence": 0.121
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "6QlkHjQmo2YncQN5MQXgPZ"
   },
   {
     "title": "Goodbye Pork Pie Hat",
@@ -660,10 +750,19 @@
       "key": "Db",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.957,
+      "danceability": 0.356,
+      "spotify_energy": 0.0937,
+      "instrumentalness": 0.096,
+      "liveness": 0.209,
+      "loudness": -16.64,
+      "speechiness": 0.0353,
+      "spotify_valence": 0.278
     },
     "replayability": 9,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "3PJMsxg6rz9FOo6xNiASXz"
   },
   {
     "title": "Blue Train",
@@ -713,7 +812,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Very good, fun and groovy. Creatively had 3 different sections \u2014 loved the structural variety. Coltrane's part was good but so was Kenny Drew with his piano part. Likes this kind of sassy blues jazz fusion.",
+    "notes": "Very good, fun and groovy. Creatively had 3 different sections — loved the structural variety. Coltrane's part was good but so was Kenny Drew with his piano part. Likes this kind of sassy blues jazz fusion.",
     "favorite_moments": "Kenny Drew piano section",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -728,10 +827,19 @@
       "key": "Eb",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.643,
+      "danceability": 0.503,
+      "spotify_energy": 0.286,
+      "instrumentalness": 0.00112,
+      "liveness": 0.156,
+      "loudness": -15.425,
+      "speechiness": 0.045,
+      "spotify_valence": 0.569
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "3zIuHdD8dkh1vPxQu334T7"
   },
   {
     "title": "Laura",
@@ -788,10 +896,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.85,
+      "danceability": 0.272,
+      "spotify_energy": 0.322,
+      "instrumentalness": 0.87,
+      "liveness": 0.354,
+      "loudness": -12.189,
+      "speechiness": 0.0307,
+      "spotify_valence": 0.238
     },
     "replayability": 2,
-    "playthrough": 0.65
+    "playthrough": 0.65,
+    "spotify_id": "5YIhyj0uiGSJPLARP7nzte"
   },
   {
     "title": "Moment's Notice",
@@ -854,10 +971,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.613,
+      "danceability": 0.532,
+      "spotify_energy": 0.372,
+      "instrumentalness": 0.0019,
+      "liveness": 0.32,
+      "loudness": -13.911,
+      "speechiness": 0.0408,
+      "spotify_valence": 0.783
     },
     "replayability": 3,
-    "playthrough": 0.8
+    "playthrough": 0.8,
+    "spotify_id": "3GXYGbyvprPqiH9do6ewY3"
   },
   {
     "title": "God Bless the Child",
@@ -1033,10 +1159,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "estimated"
+      "source": "estimated",
+      "acousticness": 0.934,
+      "danceability": 0.51,
+      "spotify_energy": 0.149,
+      "instrumentalness": 0.474,
+      "liveness": 0.141,
+      "loudness": -15.724,
+      "speechiness": 0.0417,
+      "spotify_valence": 0.467
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "3glQOWRCAQIrCnQhWBEFSL"
   },
   {
     "title": "Where Are You?",
@@ -1074,12 +1209,12 @@
       "peaceful and happy quality",
       "guitar passages especially appealing",
       "revealed love of guitar in jazz",
-      "too slow on revisit \u2014 revised down from 8 to 5",
-      "came back around again \u2014 the guitar and peaceful vibe won out"
+      "too slow on revisit — revised down from 8 to 5",
+      "came back around again — the guitar and peaceful vibe won out"
     ],
     "rating": 8.5,
     "liked": true,
-    "notes": "Full circle \u2014 initially 8, revised down to 5 for being too slow, now back up to 8.5. The peaceful happy quality and Jim Hall's guitar are just too good.",
+    "notes": "Full circle — initially 8, revised down to 5 for being too slow, now back up to 8.5. The peaceful happy quality and Jim Hall's guitar are just too good.",
     "favorite_moments": "Guitar passages",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1108,10 +1243,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.888,
+      "danceability": 0.545,
+      "spotify_energy": 0.0145,
+      "instrumentalness": 0.0903,
+      "liveness": 0.156,
+      "loudness": -23.17,
+      "speechiness": 0.0441,
+      "spotify_valence": 0.133
     },
     "replayability": 7,
-    "playthrough": 0.7
+    "playthrough": 0.7,
+    "spotify_id": "3EvT0m0eRWFtdXA89M2sk8"
   },
   {
     "title": "St. Thomas",
@@ -1147,13 +1291,13 @@
     ],
     "notable_qualities": [
       "calypso groove",
-      "cool expressive attitude \u2014 same vibe as So What",
+      "cool expressive attitude — same vibe as So What",
       "joyful and fun",
       "drum solo slightly disrupts momentum"
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Fantastic. Cool in a similar way to So What \u2014 expression, fuck-you attitude. Drum solo is a bit much and kind of ruins the momentum.",
+    "notes": "Fantastic. Cool in a similar way to So What — expression, fuck-you attitude. Drum solo is a bit much and kind of ruins the momentum.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1205,14 +1349,14 @@
       "Max Roach - drums"
     ],
     "notable_qualities": [
-      "grows on you \u2014 initially didn't click",
+      "grows on you — initially didn't click",
       "drum breaks with Rollins filling in are the highlight",
       "Max Roach steals the show",
       "dynamic interplay between drums and sax"
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Really cool. At first didn't like it but when the drum breaks came in with Rollins filling in \u2014 that was sick. Max Roach almost steals the show.",
+    "notes": "Really cool. At first didn't like it but when the drum breaks came in with Rollins filling in — that was sick. Max Roach almost steals the show.",
     "favorite_moments": "Drum breaks with Rollins filling in",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1399,10 +1543,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.753,
+      "danceability": 0.61,
+      "spotify_energy": 0.28,
+      "instrumentalness": 0.00707,
+      "liveness": 0.145,
+      "loudness": -15.634,
+      "speechiness": 0.0477,
+      "spotify_valence": 0.339
     },
     "replayability": 4,
-    "playthrough": 0.8
+    "playthrough": 0.8,
+    "spotify_id": "6NeCoPvzhTHcBu3RFzbY3X"
   },
   {
     "title": "John S.",
@@ -1456,10 +1609,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.0967,
+      "danceability": 0.454,
+      "spotify_energy": 0.514,
+      "instrumentalness": 0.000123,
+      "liveness": 0.104,
+      "loudness": -14.116,
+      "speechiness": 0.0628,
+      "spotify_valence": 0.35
     },
     "replayability": 1,
-    "playthrough": 0.5
+    "playthrough": 0.5,
+    "spotify_id": "461pkT8SLkwYk5r5FexNiy"
   },
   {
     "title": "The Bridge",
@@ -1501,7 +1663,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole \u2014 the peaks justify the valleys.",
+    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole — the peaks justify the valleys.",
     "favorite_moments": "Jim Hall guitar",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1516,10 +1678,19 @@
       "key": "F",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.913,
+      "danceability": 0.493,
+      "spotify_energy": 0.0421,
+      "instrumentalness": 0.173,
+      "liveness": 0.0777,
+      "loudness": -18.071,
+      "speechiness": 0.0347,
+      "spotify_valence": 0.172
     },
     "replayability": 4,
-    "playthrough": 0.85
+    "playthrough": 0.85,
+    "spotify_id": "7DUGRxCf9NFJffb5Eei8Ar"
   },
   {
     "title": "You Do Something to Me",
@@ -1574,10 +1745,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.445,
+      "danceability": 0.579,
+      "spotify_energy": 0.161,
+      "instrumentalness": 0.00439,
+      "liveness": 0.123,
+      "loudness": -18.215,
+      "speechiness": 0.0579,
+      "spotify_valence": 0.231
     },
     "replayability": 3,
-    "playthrough": 0.8
+    "playthrough": 0.8,
+    "spotify_id": "0HQWwFTh58MJ7DHKaD4DZO"
   },
   {
     "entity_type": "album",
@@ -1615,12 +1795,12 @@
     "notable_qualities": [
       "pianoless quartet format",
       "Jim Hall guitar is consistently the highlight",
-      "too uneven \u2014 peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
+      "too uneven — peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
       "didn't hold up as well as Saxophone Colossus"
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole \u2014 the peaks justify the valleys.",
+    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole — the peaks justify the valleys.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1751,10 +1931,19 @@
       "key": "Ab",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.905,
+      "danceability": 0.292,
+      "spotify_energy": 0.012,
+      "instrumentalness": 0.164,
+      "liveness": 0.0813,
+      "loudness": -21.638,
+      "speechiness": 0.0393,
+      "spotify_valence": 0.133
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "5cAwEKmadsW4nCYe9QUvgU"
   },
   {
     "title": "Alabama",
@@ -1797,7 +1986,7 @@
     ],
     "rating": 6,
     "liked": true,
-    "notes": "Good but a little too tragic \u2014 no sense of optimism. Not the worst thing but feels like he has to be in a certain state to appreciate it.",
+    "notes": "Good but a little too tragic — no sense of optimism. Not the worst thing but feels like he has to be in a certain state to appreciate it.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1812,10 +2001,19 @@
       "key": "Cm",
       "mode": "minor",
       "is_live": true,
-      "source": "estimated"
+      "source": "estimated",
+      "acousticness": 0.774,
+      "danceability": 0.428,
+      "spotify_energy": 0.0768,
+      "instrumentalness": 0.0487,
+      "liveness": 0.123,
+      "loudness": -17.412,
+      "speechiness": 0.0413,
+      "spotify_valence": 0.112
     },
     "replayability": 4,
-    "playthrough": 0.9
+    "playthrough": 0.9,
+    "spotify_id": "013grywiX7Qu6WVfnJ1opa"
   },
   {
     "title": "Equinox",
@@ -1873,10 +2071,19 @@
       "key": "C#m",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.798,
+      "danceability": 0.62,
+      "spotify_energy": 0.203,
+      "instrumentalness": 0.501,
+      "liveness": 0.0649,
+      "loudness": -15.599,
+      "speechiness": 0.0341,
+      "spotify_valence": 0.27
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "1OtISG0K02k06m1BENey4H"
   },
   {
     "title": "Parker's Mood",
@@ -1913,7 +2120,7 @@
       "Bird at his most emotional",
       "slow blues",
       "still reads as solo show to Justin",
-      "bebop exploration \u2014 negative result"
+      "bebop exploration — negative result"
     ],
     "rating": 3,
     "liked": false,
@@ -1932,10 +2139,19 @@
       "key": "Bb",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.863,
+      "danceability": 0.488,
+      "spotify_energy": 0.296,
+      "instrumentalness": 0.897,
+      "liveness": 0.221,
+      "loudness": -12.308,
+      "speechiness": 0.0401,
+      "spotify_valence": 0.357
     },
     "replayability": 1,
-    "playthrough": 0.45
+    "playthrough": 0.45,
+    "spotify_id": "4XZSUds3wcqjbP6Lq7jFrm"
   },
   {
     "title": "Circle",
@@ -1971,7 +2187,7 @@
       "pre-modal Miles",
       "forgettable",
       "lacks the spacing and restraint of later Miles",
-      "auto-played \u2014 not a recommendation"
+      "auto-played — not a recommendation"
     ],
     "rating": 3,
     "liked": false,
@@ -1990,10 +2206,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": false,
-      "source": "estimated"
+      "source": "estimated",
+      "acousticness": 0.83,
+      "danceability": 0.411,
+      "spotify_energy": 0.162,
+      "instrumentalness": 0.0084,
+      "liveness": 0.155,
+      "loudness": -18.43,
+      "speechiness": 0.0323,
+      "spotify_valence": 0.196
     },
     "replayability": 1,
-    "playthrough": 0.5
+    "playthrough": 0.5,
+    "spotify_id": "67HzeILnvRD6gjciRW3B17"
   },
   {
     "title": "My Funny Valentine",
@@ -2036,7 +2261,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Favorite version of the ballad. Chet Baker has a beautiful voice. First vocalist track to score well \u2014 vocal aversion has limits.",
+    "notes": "Favorite version of the ballad. Chet Baker has a beautiful voice. First vocalist track to score well — vocal aversion has limits.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -2051,10 +2276,19 @@
       "key": "Cm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.941,
+      "danceability": 0.438,
+      "spotify_energy": 0.00756,
+      "instrumentalness": 0.00643,
+      "liveness": 0.109,
+      "loudness": -26.44,
+      "speechiness": 0.0382,
+      "spotify_valence": 0.277
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4l9hml2UCnxoNI3yCdL1BW"
   },
   {
     "title": "That Old Feeling",
@@ -2088,7 +2322,7 @@
     "notable_qualities": [
       "felt corny",
       "new lowest rating in dataset",
-      "same artist as 8/10 My Funny Valentine \u2014 shows song choice matters more than vocalist",
+      "same artist as 8/10 My Funny Valentine — shows song choice matters more than vocalist",
       "introduces 'corny' as a negative signal"
     ],
     "rating": 2,
@@ -2108,10 +2342,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.633,
+      "danceability": 0.643,
+      "spotify_energy": 0.175,
+      "instrumentalness": 4.24e-05,
+      "liveness": 0.143,
+      "loudness": -16.813,
+      "speechiness": 0.0391,
+      "spotify_valence": 0.642
     },
     "replayability": 1,
-    "playthrough": 0.4
+    "playthrough": 0.4,
+    "spotify_id": "2d64G7VaZdHQuAquz5HQNu"
   },
   {
     "title": "What Are You Doing the Rest of Your Life",
@@ -2164,10 +2407,19 @@
       "key": "Am",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.993,
+      "danceability": 0.331,
+      "spotify_energy": 0.144,
+      "instrumentalness": 0.914,
+      "liveness": 0.104,
+      "loudness": -16.773,
+      "speechiness": 0.0324,
+      "spotify_valence": 0.0394
     },
     "replayability": 6,
-    "playthrough": 0.9
+    "playthrough": 0.9,
+    "spotify_id": "6fGqxkBPqoIq4SQ3mtbHMI"
   },
   {
     "title": "West Coast Blues",
@@ -2203,7 +2455,7 @@
     ],
     "notable_qualities": [
       "definite no",
-      "can't explain why \u2014 just not interesting",
+      "can't explain why — just not interesting",
       "guitar + blues groove combo didn't land",
       "Wes Montgomery octave technique not enough"
     ],
@@ -2224,10 +2476,19 @@
       "key": "Bb",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.952,
+      "danceability": 0.576,
+      "spotify_energy": 0.304,
+      "instrumentalness": 0.138,
+      "liveness": 0.107,
+      "loudness": -13.893,
+      "speechiness": 0.0402,
+      "spotify_valence": 0.679
     },
     "replayability": 1,
-    "playthrough": 0.5
+    "playthrough": 0.5,
+    "spotify_id": "1tPrYzkpceDZXSMkbQx9Uu"
   },
   {
     "title": "In Your Own Sweet Way",
@@ -2280,10 +2541,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.993,
+      "danceability": 0.559,
+      "spotify_energy": 0.0612,
+      "instrumentalness": 0.931,
+      "liveness": 0.106,
+      "loudness": -22.332,
+      "speechiness": 0.0434,
+      "spotify_valence": 0.0882
     },
     "replayability": 4,
-    "playthrough": 0.75
+    "playthrough": 0.75,
+    "spotify_id": "01zdWVXJkI4O0srGHVX8hH"
   },
   {
     "title": "Infant Eyes",
@@ -2343,10 +2613,19 @@
       "key": "Ebm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.985,
+      "danceability": 0.266,
+      "spotify_energy": 0.0834,
+      "instrumentalness": 0.763,
+      "liveness": 0.0945,
+      "loudness": -12.072,
+      "speechiness": 0.0407,
+      "spotify_valence": 0.122
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "0IffIW3eyCx9aZ36IqOu5o"
   },
   {
     "title": "Song for My Father",
@@ -2392,7 +2671,7 @@
     ],
     "rating": 5,
     "liked": true,
-    "notes": "Interesting \u2014 at first eh, but then solos were playful and fun. A little predictable to come back to. Horace is now on his map though.",
+    "notes": "Interesting — at first eh, but then solos were playful and fun. A little predictable to come back to. Horace is now on his map though.",
     "favorite_moments": "The solos",
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -2407,10 +2686,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.794,
+      "danceability": 0.742,
+      "spotify_energy": 0.671,
+      "instrumentalness": 0.00441,
+      "liveness": 0.122,
+      "loudness": -8.142,
+      "speechiness": 0.0407,
+      "spotify_valence": 0.591
     },
     "replayability": 3,
-    "playthrough": 0.85
+    "playthrough": 0.85,
+    "spotify_id": "1CDBaGlisZlOJzvx88lL8A"
   },
   {
     "title": "Better Git It in Your Soul",
@@ -2474,10 +2762,19 @@
       "key": "F",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.111,
+      "danceability": 0.457,
+      "spotify_energy": 0.548,
+      "instrumentalness": 0.00016,
+      "liveness": 0.103,
+      "loudness": -12.486,
+      "speechiness": 0.0551,
+      "spotify_valence": 0.76
     },
     "replayability": 10,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "16nJl8NnriCJxraco5Zssm"
   },
   {
     "title": "Boogie Stop Shuffle",
@@ -2537,10 +2834,19 @@
       "key": "C",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.387,
+      "danceability": 0.574,
+      "spotify_energy": 0.541,
+      "instrumentalness": 0.00183,
+      "liveness": 0.301,
+      "loudness": -12.369,
+      "speechiness": 0.0566,
+      "spotify_valence": 0.679
     },
     "replayability": 6,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "11cHTwgw5L3qrNcv5Ugv0O"
   },
   {
     "title": "Self-Portrait in Three Colors",
@@ -2598,10 +2904,19 @@
       "key": "Ab",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.963,
+      "danceability": 0.258,
+      "spotify_energy": 0.0919,
+      "instrumentalness": 0.356,
+      "liveness": 0.0916,
+      "loudness": -16.015,
+      "speechiness": 0.0322,
+      "spotify_valence": 0.182
     },
     "replayability": 4,
-    "playthrough": 0.9
+    "playthrough": 0.9,
+    "spotify_id": "38C8v33eis3fa4hLf0dl8Z"
   },
   {
     "title": "Open Letter to Duke",
@@ -2662,10 +2977,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.58,
+      "danceability": 0.484,
+      "spotify_energy": 0.47,
+      "instrumentalness": 0.0751,
+      "liveness": 0.343,
+      "loudness": -13.111,
+      "speechiness": 0.0679,
+      "spotify_valence": 0.188
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "2wHIDNvfYyZWPpMqX3fDE4"
   },
   {
     "title": "Bird Calls",
@@ -2711,7 +3035,7 @@
     ],
     "rating": 6.5,
     "liked": true,
-    "notes": "Very interesting \u2014 Mingus is known for making atmospheres and wow did those instruments sound like birds. Marks where the album starts to fade energy-wise.",
+    "notes": "Very interesting — Mingus is known for making atmospheres and wow did those instruments sound like birds. Marks where the album starts to fade energy-wise.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -2726,10 +3050,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.281,
+      "danceability": 0.485,
+      "spotify_energy": 0.481,
+      "instrumentalness": 5.97e-05,
+      "liveness": 0.406,
+      "loudness": -13.403,
+      "speechiness": 0.0934,
+      "spotify_valence": 0.662
     },
     "replayability": 4,
-    "playthrough": 0.85
+    "playthrough": 0.85,
+    "spotify_id": "1D4XiMlAFbuC66Qizj2xGo"
   },
   {
     "title": "Fables of Faubus",
@@ -2789,10 +3122,19 @@
       "key": "Dm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.457,
+      "danceability": 0.518,
+      "spotify_energy": 0.159,
+      "instrumentalness": 0.0724,
+      "liveness": 0.175,
+      "loudness": -16.645,
+      "speechiness": 0.06,
+      "spotify_valence": 0.351
     },
     "replayability": 6,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "5RWzKLxXVzkJQ702yWfp1w"
   },
   {
     "title": "Pussy Cat Dues",
@@ -2849,10 +3191,19 @@
       "key": "Bb",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.81,
+      "danceability": 0.523,
+      "spotify_energy": 0.105,
+      "instrumentalness": 0.202,
+      "liveness": 0.108,
+      "loudness": -19.272,
+      "speechiness": 0.0686,
+      "spotify_valence": 0.285
     },
     "replayability": 3,
-    "playthrough": 0.7
+    "playthrough": 0.7,
+    "spotify_id": "7F1gWw4gM7IdQJKBNCGJwH"
   },
   {
     "title": "Jelly Roll",
@@ -2911,10 +3262,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.471,
+      "danceability": 0.658,
+      "spotify_energy": 0.176,
+      "instrumentalness": 0.000523,
+      "liveness": 0.0784,
+      "loudness": -17.306,
+      "speechiness": 0.0544,
+      "spotify_valence": 0.521
     },
     "replayability": 3,
-    "playthrough": 0.7
+    "playthrough": 0.7,
+    "spotify_id": "6l2rEIbe62N5aGTwASmzTT"
   },
   {
     "entity_type": "album",
@@ -2967,7 +3327,7 @@
     "rating": 8,
     "liked": true,
     "notes": "One of the better albums heard. Such a strong first half with so much energy, passion, and expression. Slowly fades after Bird Calls but overall incredible. Wants it on vinyl.",
-    "favorite_moments": "First half \u2014 Better Git It in Your Soul through Open Letter to Duke",
+    "favorite_moments": "First half — Better Git It in Your Soul through Open Letter to Duke",
     "listen_count": null,
     "date_added": "2026-06-20",
     "recommended_by_model": true,
@@ -3027,10 +3387,19 @@
       "key": "Cm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.946,
+      "danceability": 0.296,
+      "spotify_energy": 0.153,
+      "instrumentalness": 0.0051,
+      "liveness": 0.0518,
+      "loudness": -16.363,
+      "speechiness": 0.0377,
+      "spotify_valence": 0.158
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "3muwYfpLZGYsvrrssEzrxF"
   },
   {
     "title": "Don't Let Me Be Misunderstood",
@@ -3081,10 +3450,19 @@
       "key": "Bbm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.78,
+      "danceability": 0.388,
+      "spotify_energy": 0.501,
+      "instrumentalness": 0.0,
+      "liveness": 0.305,
+      "loudness": -11.296,
+      "speechiness": 0.0736,
+      "spotify_valence": 0.534
     },
     "replayability": 5,
-    "playthrough": 0.9
+    "playthrough": 0.9,
+    "spotify_id": "7M9pPyt8Gr41THLhbz4NSB"
   },
   {
     "title": "Solitude",
@@ -3134,10 +3512,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.984,
+      "danceability": 0.461,
+      "spotify_energy": 0.15,
+      "instrumentalness": 0.000902,
+      "liveness": 0.105,
+      "loudness": -13.531,
+      "speechiness": 0.051,
+      "spotify_valence": 0.188
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "30QD4VRP9yEneOh0eGTrtJ"
   },
   {
     "title": "Crazy He Calls Me",
@@ -3187,10 +3574,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.849,
+      "danceability": 0.49,
+      "spotify_energy": 0.145,
+      "instrumentalness": 3.5e-06,
+      "liveness": 0.214,
+      "loudness": -14.423,
+      "speechiness": 0.0386,
+      "spotify_valence": 0.286
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4mQz22nF9cyWqwuErTqc6V"
   },
   {
     "title": "Lover Man",
@@ -3238,10 +3634,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "estimated"
+      "source": "estimated",
+      "acousticness": 0.923,
+      "danceability": 0.366,
+      "spotify_energy": 0.136,
+      "instrumentalness": 0.0,
+      "liveness": 0.103,
+      "loudness": -12.42,
+      "speechiness": 0.0432,
+      "spotify_valence": 0.254
     },
     "replayability": 2,
-    "playthrough": 0.6
+    "playthrough": 0.6,
+    "spotify_id": "0DuWyzeLH09PQcnOMJiRgE"
   },
   {
     "title": "All of Me",
@@ -3278,7 +3683,7 @@
     ],
     "rating": 8,
     "liked": true,
-    "notes": "Actually his favorite Charlie Parker. Breaks the Bird ceiling \u2014 first Parker track at 8+.",
+    "notes": "Actually his favorite Charlie Parker. Breaks the Bird ceiling — first Parker track at 8+.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -3293,10 +3698,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.825,
+      "danceability": 0.46,
+      "spotify_energy": 0.48,
+      "instrumentalness": 0.000404,
+      "liveness": 0.0657,
+      "loudness": -11.713,
+      "speechiness": 0.0371,
+      "spotify_valence": 0.725
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "3C1Te94ztCf6DI5IDg4M8U"
   },
   {
     "title": "April In Paris",
@@ -3347,10 +3761,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.952,
+      "danceability": 0.417,
+      "spotify_energy": 0.375,
+      "instrumentalness": 0.28,
+      "liveness": 0.119,
+      "loudness": -7.978,
+      "speechiness": 0.029,
+      "spotify_valence": 0.484
     },
     "replayability": 4,
-    "playthrough": 0.8
+    "playthrough": 0.8,
+    "spotify_id": "5rPMbUxXRXvWu89k0n6Sxj"
   },
   {
     "title": "Tryin' Times",
@@ -3403,10 +3826,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.71,
+      "danceability": 0.653,
+      "spotify_energy": 0.123,
+      "instrumentalness": 0.00266,
+      "liveness": 0.0635,
+      "loudness": -14.281,
+      "speechiness": 0.0339,
+      "spotify_valence": 0.374
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "5wNo8LEPPEs9HSYh0A63CB"
   },
   {
     "title": "Embraceable You",
@@ -3455,10 +3887,19 @@
       "key": "F",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.951,
+      "danceability": 0.381,
+      "spotify_energy": 0.243,
+      "instrumentalness": 0.865,
+      "liveness": 0.112,
+      "loudness": -13.277,
+      "speechiness": 0.0359,
+      "spotify_valence": 0.161
     },
     "replayability": 2,
-    "playthrough": 0.6
+    "playthrough": 0.6,
+    "spotify_id": "5oEyPyit0Qov2p1E6GLtnJ"
   },
   {
     "title": "Early Summer",
@@ -3551,7 +3992,7 @@
     ],
     "rating": 3,
     "liked": false,
-    "notes": "Good but doesn't really revisit it. Breaks the Bill Evans perfect streak \u2014 first Evans track below 7.",
+    "notes": "Good but doesn't really revisit it. Breaks the Bill Evans perfect streak — first Evans track below 7.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -3566,10 +4007,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": true,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.937,
+      "danceability": 0.395,
+      "spotify_energy": 0.121,
+      "instrumentalness": 0.405,
+      "liveness": 0.697,
+      "loudness": -23.427,
+      "speechiness": 0.0325,
+      "spotify_valence": 0.138
     },
     "replayability": 2,
-    "playthrough": 0.55
+    "playthrough": 0.55,
+    "spotify_id": "6yKkA8HzwWTZ5taIMaG4Nm"
   },
   {
     "title": "Love Theme From The Robe",
@@ -3620,10 +4070,19 @@
       "key": "Eb",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.966,
+      "danceability": 0.517,
+      "spotify_energy": 0.166,
+      "instrumentalness": 0.958,
+      "liveness": 0.0787,
+      "loudness": -20.992,
+      "speechiness": 0.0779,
+      "spotify_valence": 0.393
     },
     "replayability": 5,
-    "playthrough": 0.9
+    "playthrough": 0.9,
+    "spotify_id": "2JMOEBXhwGxrJGowaXMp7L"
   },
   {
     "title": "To Her Ladyship",
@@ -3675,10 +4134,19 @@
       "key": "Eb",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.829,
+      "danceability": 0.41,
+      "spotify_energy": 0.104,
+      "instrumentalness": 0.219,
+      "liveness": 0.0815,
+      "loudness": -19.203,
+      "speechiness": 0.0356,
+      "spotify_valence": 0.186
     },
     "replayability": 3,
-    "playthrough": 0.7
+    "playthrough": 0.7,
+    "spotify_id": "5eXfzyyCmKDlPo1YhWkr6q"
   },
   {
     "title": "'Round Midnight",
@@ -3728,10 +4196,19 @@
       "key": "Ebm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.947,
+      "danceability": 0.553,
+      "spotify_energy": 0.177,
+      "instrumentalness": 0.903,
+      "liveness": 0.0794,
+      "loudness": -19.927,
+      "speechiness": 0.0494,
+      "spotify_valence": 0.239
     },
     "replayability": 1,
-    "playthrough": 0.4
+    "playthrough": 0.4,
+    "spotify_id": "5r69JaKNfc9GlS23ye9W2D"
   },
   {
     "title": "In a Sentimental Mood",
@@ -3831,10 +4308,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.62,
+      "danceability": 0.533,
+      "spotify_energy": 0.63,
+      "instrumentalness": 0.358,
+      "liveness": 0.237,
+      "loudness": -9.546,
+      "speechiness": 0.0557,
+      "spotify_valence": 0.72
     },
     "replayability": 2,
-    "playthrough": 0.65
+    "playthrough": 0.65,
+    "spotify_id": "5d3bh2kWmxcTv0UDeQH4PU"
   },
   {
     "title": "Flamenco Sketches",
@@ -3897,10 +4383,19 @@
       "key": "C",
       "mode": "dorian",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.899,
+      "danceability": 0.348,
+      "spotify_energy": 0.0219,
+      "instrumentalness": 0.112,
+      "liveness": 0.0906,
+      "loudness": -21.065,
+      "speechiness": 0.0427,
+      "spotify_valence": 0.225
     },
     "replayability": 4,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "6dRx7OUXfvosnXG3g9lWGi"
   },
   {
     "title": "Moanin'",
@@ -3943,12 +4438,12 @@
       "really sexy and cool",
       "fuck-you attitude",
       "gospel piano call-and-response",
-      "whole thing is fun \u2014 no single highlight, all of it works",
+      "whole thing is fun — no single highlight, all of it works",
       "original version of the Mingus Big Band track he loved"
     ],
     "rating": 5,
     "liked": true,
-    "notes": "Really sexy and cool. Has that fuck-you attitude. Whole thing is fun, no favorite parts \u2014 all of it works.",
+    "notes": "Really sexy and cool. Has that fuck-you attitude. Whole thing is fun, no favorite parts — all of it works.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-21",
@@ -3963,10 +4458,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.804,
+      "danceability": 0.612,
+      "spotify_energy": 0.493,
+      "instrumentalness": 0.266,
+      "liveness": 0.202,
+      "loudness": -8.589,
+      "speechiness": 0.0467,
+      "spotify_valence": 0.484
     },
     "replayability": 4,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4Vkk3iD1VrENHJEACNddvt"
   },
   {
     "title": "Lonely Woman",
@@ -4005,7 +4509,7 @@
       "not entertaining",
       "flat",
       "skipped at 1:32 of 5:02",
-      "first free jazz entry in dataset \u2014 confirmed miss"
+      "first free jazz entry in dataset — confirmed miss"
     ],
     "rating": 1,
     "liked": false,
@@ -4024,10 +4528,19 @@
       "key": "Dm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.315,
+      "danceability": 0.474,
+      "spotify_energy": 0.376,
+      "instrumentalness": 0.000748,
+      "liveness": 0.147,
+      "loudness": -10.482,
+      "speechiness": 0.0283,
+      "spotify_valence": 0.253
     },
     "replayability": 1,
-    "playthrough": 0.31
+    "playthrough": 0.31,
+    "spotify_id": "23aDP04QX8MAHA99FLaPtN"
   },
   {
     "title": "Blue Moon",
@@ -4086,10 +4599,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.956,
+      "danceability": 0.554,
+      "spotify_energy": 0.0434,
+      "instrumentalness": 0.000447,
+      "liveness": 0.106,
+      "loudness": -18.581,
+      "speechiness": 0.0432,
+      "spotify_valence": 0.238
     },
     "replayability": 9,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "5qfEAELRtcWyKjaheHHWQb"
   },
   {
     "title": "The Sidewinder",
@@ -4149,10 +4671,19 @@
       "key": "Eb",
       "mode": "blues",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.446,
+      "danceability": 0.473,
+      "spotify_energy": 0.67,
+      "instrumentalness": 3.15e-06,
+      "liveness": 0.0957,
+      "loudness": -7.756,
+      "speechiness": 0.0353,
+      "spotify_valence": 0.808
     },
     "replayability": 1,
-    "playthrough": 0.28
+    "playthrough": 0.28,
+    "spotify_id": "1dZHIbmuBDAwXfQOM4dyM3"
   },
   {
     "title": "Body and Soul",
@@ -4206,10 +4737,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.976,
+      "danceability": 0.659,
+      "spotify_energy": 0.113,
+      "instrumentalness": 0.88,
+      "liveness": 0.179,
+      "loudness": -16.756,
+      "speechiness": 0.0569,
+      "spotify_valence": 0.738
     },
     "replayability": 1,
-    "playthrough": 0.61
+    "playthrough": 0.61,
+    "spotify_id": "2xm9ihELo6xwrRKrBbPql9"
   },
   {
     "title": "Cantaloupe Island",
@@ -4250,7 +4790,7 @@
       "sexy, smooth, and captivating",
       "intro is captivating and sexy",
       "going into coolin playlist",
-      "Herbie Hancock as leader \u2014 first entry"
+      "Herbie Hancock as leader — first entry"
     ],
     "rating": 9,
     "liked": true,
@@ -4269,10 +4809,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.749,
+      "danceability": 0.515,
+      "spotify_energy": 0.583,
+      "instrumentalness": 0.000294,
+      "liveness": 0.123,
+      "loudness": -8.182,
+      "speechiness": 0.0284,
+      "spotify_valence": 0.414
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "0sCeNwt8xRCMR4NhKpMyBe"
   },
   {
     "title": "Dolphin Dance",
@@ -4333,10 +4882,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.828,
+      "danceability": 0.46,
+      "spotify_energy": 0.372,
+      "instrumentalness": 0.000197,
+      "liveness": 0.131,
+      "loudness": -11.008,
+      "speechiness": 0.0329,
+      "spotify_valence": 0.29
     },
     "replayability": 1,
-    "playthrough": 0.5
+    "playthrough": 0.5,
+    "spotify_id": "1Ku5vu9Crncz8ixeT4Ijxc"
   },
   {
     "title": "Watermelon Man",
@@ -4394,10 +4952,19 @@
       "key": "F",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.262,
+      "danceability": 0.724,
+      "spotify_energy": 0.414,
+      "instrumentalness": 0.111,
+      "liveness": 0.0785,
+      "loudness": -11.19,
+      "speechiness": 0.0588,
+      "spotify_valence": 0.719
     },
     "replayability": 3,
-    "playthrough": 0.55
+    "playthrough": 0.55,
+    "spotify_id": "2zQl59dZMzwhrmeSBEgiXY"
   },
   {
     "title": "Mercy, Mercy, Mercy",
@@ -4456,10 +5023,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": true,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.719,
+      "danceability": 0.544,
+      "spotify_energy": 0.425,
+      "instrumentalness": 0.0186,
+      "liveness": 0.964,
+      "loudness": -10.231,
+      "speechiness": 0.0346,
+      "spotify_valence": 0.348
     },
     "replayability": 8,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "6NF8MZ2trxckVBr82pyyPt"
   },
   {
     "title": "Work Song",
@@ -4521,10 +5097,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.909,
+      "danceability": 0.674,
+      "spotify_energy": 0.232,
+      "instrumentalness": 0.349,
+      "liveness": 0.117,
+      "loudness": -18.447,
+      "speechiness": 0.0385,
+      "spotify_valence": 0.521
     },
     "replayability": 2,
-    "playthrough": 0.25
+    "playthrough": 0.25,
+    "spotify_id": "0GSXh7IeBpk5uJDv7KsuKZ"
   },
   {
     "title": "Lush Life",
@@ -4582,10 +5167,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.95,
+      "danceability": 0.373,
+      "spotify_energy": 0.119,
+      "instrumentalness": 4.66e-05,
+      "liveness": 0.156,
+      "loudness": -15.81,
+      "speechiness": 0.0521,
+      "spotify_valence": 0.122
     },
     "replayability": 1,
-    "playthrough": 0.1
+    "playthrough": 0.1,
+    "spotify_id": "0Srs2sPdZTfFvvfLP4DGa0"
   },
   {
     "title": "Afro Blue",
@@ -4643,10 +5237,19 @@
       "key": "Fm",
       "mode": "dorian",
       "is_live": true,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.149,
+      "danceability": 0.323,
+      "spotify_energy": 0.703,
+      "instrumentalness": 0.012,
+      "liveness": 0.595,
+      "loudness": -8.512,
+      "speechiness": 0.0394,
+      "spotify_valence": 0.597
     },
     "replayability": 1,
-    "playthrough": 0.2
+    "playthrough": 0.2,
+    "spotify_id": "5QblyNjAyOs0AJBQHJQkrn"
   },
   {
     "title": "Fleurette Africaine",
@@ -4714,10 +5317,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.937,
+      "danceability": 0.431,
+      "spotify_energy": 0.21,
+      "instrumentalness": 0.921,
+      "liveness": 0.108,
+      "loudness": -19.24,
+      "speechiness": 0.0299,
+      "spotify_valence": 0.493
     },
     "replayability": 10,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4Keh41jYFaVPP5C82DxmTG"
   },
   {
     "title": "In a Sentimental Mood",
@@ -4777,10 +5389,19 @@
       "key": "F",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.936,
+      "danceability": 0.464,
+      "spotify_energy": 0.305,
+      "instrumentalness": 0.0848,
+      "liveness": 0.208,
+      "loudness": -12.435,
+      "speechiness": 0.0316,
+      "spotify_valence": 0.281
     },
     "replayability": 4,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "0E8q2Fx2XuzXCO2NSAppkR"
   },
   {
     "title": "Fall",
@@ -4905,10 +5526,19 @@
       "key": "F",
       "mode": "major",
       "is_live": true,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.89,
+      "danceability": 0.579,
+      "spotify_energy": 0.223,
+      "instrumentalness": 0.848,
+      "liveness": 0.105,
+      "loudness": -22.061,
+      "speechiness": 0.0412,
+      "spotify_valence": 0.531
     },
     "replayability": 3,
-    "playthrough": 0.3
+    "playthrough": 0.3,
+    "spotify_id": "6EC51OfUhguCbNp5H5SdGm"
   },
   {
     "title": "You Don't Know What Love Is",
@@ -5044,10 +5674,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.976,
+      "danceability": 0.519,
+      "spotify_energy": 0.0244,
+      "instrumentalness": 0.00107,
+      "liveness": 0.11,
+      "loudness": -21.47,
+      "speechiness": 0.045,
+      "spotify_valence": 0.183
     },
     "replayability": 1,
-    "playthrough": 0.65
+    "playthrough": 0.65,
+    "spotify_id": "1JejaexuCzHxQlExpaJJsE"
   },
   {
     "title": "Django",
@@ -5107,10 +5746,19 @@
       "key": "Fm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.684,
+      "danceability": 0.402,
+      "spotify_energy": 0.206,
+      "instrumentalness": 0.00135,
+      "liveness": 0.107,
+      "loudness": -19.784,
+      "speechiness": 0.0465,
+      "spotify_valence": 0.427
     },
     "replayability": 2,
-    "playthrough": 0.55
+    "playthrough": 0.55,
+    "spotify_id": "1wHKgpL6wb7V922tOJCIl3"
   },
   {
     "title": "Chelsea Bridge",
@@ -5170,10 +5818,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.955,
+      "danceability": 0.522,
+      "spotify_energy": 0.0222,
+      "instrumentalness": 0.156,
+      "liveness": 0.125,
+      "loudness": -21.079,
+      "speechiness": 0.0424,
+      "spotify_valence": 0.131
     },
     "replayability": 3,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4fv67O3pIbCWcRkbwBc9KI"
   },
   {
     "title": "Central Park West",
@@ -5234,10 +5891,19 @@
       "key": "E",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.955,
+      "danceability": 0.311,
+      "spotify_energy": 0.0312,
+      "instrumentalness": 0.855,
+      "liveness": 0.0965,
+      "loudness": -21.88,
+      "speechiness": 0.036,
+      "spotify_valence": 0.15
     },
     "replayability": 4,
-    "playthrough": 0.5
+    "playthrough": 0.5,
+    "spotify_id": "0Ve1sQdEcXQe0ZpS8AWDPC"
   },
   {
     "title": "Ruby, My Dear",
@@ -5302,10 +5968,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.959,
+      "danceability": 0.461,
+      "spotify_energy": 0.131,
+      "instrumentalness": 0.885,
+      "liveness": 0.187,
+      "loudness": -14.808,
+      "speechiness": 0.0295,
+      "spotify_valence": 0.109
     },
     "replayability": 3,
-    "playthrough": 0.35
+    "playthrough": 0.35,
+    "spotify_id": "1BMirA3vwj2NLamWkJsVYq"
   },
   {
     "title": "Like Someone in Love",
@@ -5371,10 +6046,19 @@
       "key": "C",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.984,
+      "danceability": 0.554,
+      "spotify_energy": 0.141,
+      "instrumentalness": 0.645,
+      "liveness": 0.135,
+      "loudness": -10.409,
+      "speechiness": 0.0447,
+      "spotify_valence": 0.581
     },
     "replayability": 3,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "7yo0ye0zCginW62iq21wXx"
   },
   {
     "title": "Estate",
@@ -5431,10 +6115,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.465,
+      "danceability": 0.703,
+      "spotify_energy": 0.671,
+      "instrumentalness": 0.004,
+      "liveness": 0.191,
+      "loudness": -9.897,
+      "speechiness": 0.0787,
+      "spotify_valence": 0.544
     },
     "replayability": 2,
-    "playthrough": 0.5
+    "playthrough": 0.5,
+    "spotify_id": "57hV1OMoIQUwn4VWqh5EXn"
   },
   {
     "title": "Lover Man",
@@ -5494,10 +6187,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.902,
+      "danceability": 0.577,
+      "spotify_energy": 0.25,
+      "instrumentalness": 0.101,
+      "liveness": 0.103,
+      "loudness": -10.978,
+      "speechiness": 0.0373,
+      "spotify_valence": 0.425
     },
     "replayability": 2,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "5qKJNlg0223YDvsO1H6Zra"
   },
   {
     "title": "My One and Only Love",
@@ -5558,10 +6260,19 @@
       "key": "Eb",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.963,
+      "danceability": 0.472,
+      "spotify_energy": 0.0676,
+      "instrumentalness": 0.00286,
+      "liveness": 0.14,
+      "loudness": -16.101,
+      "speechiness": 0.0352,
+      "spotify_valence": 0.252
     },
     "replayability": 7,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "0uPkCpuoERqrkBL06Art50"
   },
   {
     "title": "Chameleon",
@@ -5635,10 +6346,19 @@
       "key": "Bbm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.104,
+      "danceability": 0.581,
+      "spotify_energy": 0.672,
+      "instrumentalness": 0.856,
+      "liveness": 0.0458,
+      "loudness": -8.279,
+      "speechiness": 0.0602,
+      "spotify_valence": 0.808
     },
     "replayability": 9,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4Ce66JznW8QbeyTdSzdGwR"
   },
   {
     "title": "Stolen Moments",
@@ -5714,10 +6434,19 @@
       "key": "Cm",
       "mode": "minor",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.927,
+      "danceability": 0.575,
+      "spotify_energy": 0.187,
+      "instrumentalness": 0.877,
+      "liveness": 0.166,
+      "loudness": -13.081,
+      "speechiness": 0.0512,
+      "spotify_valence": 0.342
     },
     "replayability": 2,
-    "playthrough": 0.45
+    "playthrough": 0.45,
+    "spotify_id": "1sce5VJvCOYYDAR9rp9KdG"
   },
   {
     "title": "Monk's Mood",
@@ -5788,10 +6517,19 @@
       "key": "Db",
       "mode": "major",
       "is_live": false,
-      "source": "spotify"
+      "source": "spotify",
+      "acousticness": 0.923,
+      "danceability": 0.408,
+      "spotify_energy": 0.239,
+      "instrumentalness": 0.809,
+      "liveness": 0.129,
+      "loudness": -12.782,
+      "speechiness": 0.0313,
+      "spotify_valence": 0.169
     },
     "replayability": 2,
-    "playthrough": 0.25
+    "playthrough": 0.25,
+    "spotify_id": "00hoJAeDBiFd9SPBfw6rqI"
   },
   {
     "title": "Nardis",
@@ -5847,10 +6585,19 @@
       "key": "Bb",
       "mode": "major",
       "is_live": true,
-      "source": "estimated"
+      "source": "estimated",
+      "acousticness": 0.852,
+      "danceability": 0.517,
+      "spotify_energy": 0.108,
+      "instrumentalness": 0.881,
+      "liveness": 0.124,
+      "loudness": -24.465,
+      "speechiness": 0.0479,
+      "spotify_valence": 0.206
     },
     "replayability": 1,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "37vEa9sfgAqEZuqX8AX0Zk"
   },
   {
     "title": "Autumn Leaves",
@@ -5917,10 +6664,19 @@
       "key": "Em",
       "mode": "minor",
       "is_live": false,
-      "source": "estimated"
+      "source": "estimated",
+      "acousticness": 0.994,
+      "danceability": 0.408,
+      "spotify_energy": 0.11,
+      "instrumentalness": 0.468,
+      "liveness": 0.159,
+      "loudness": -18.865,
+      "speechiness": 0.0471,
+      "spotify_valence": 0.329
     },
     "replayability": 3,
-    "playthrough": 1.0
+    "playthrough": 1.0,
+    "spotify_id": "4BAJX7Myp1qKfAgxfLPG8v"
   },
   {
     "title": "Corcovado (Quiet Nights of Quiet Stars)",
@@ -5954,7 +6710,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.916,
+      "danceability": 0.519,
+      "spotify_energy": 0.132,
+      "instrumentalness": 0.00106,
+      "liveness": 0.246,
+      "loudness": -17.856,
+      "speechiness": 0.0478,
+      "spotify_valence": 0.376
+    },
+    "spotify_id": "0Wh99eifNTNqDFRtzWhCE2"
   },
   {
     "title": "Footprints",
@@ -5985,7 +6753,19 @@
     "playthrough": 0.5,
     "liked": false,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.128,
+      "danceability": 0.402,
+      "spotify_energy": 0.409,
+      "instrumentalness": 0.000568,
+      "liveness": 0.0947,
+      "loudness": -13.95,
+      "speechiness": 0.0363,
+      "spotify_valence": 0.489
+    },
+    "spotify_id": "2wjHWYJVAs5TYSRP83JLmc"
   },
   {
     "title": "Compared to What",
@@ -6021,12 +6801,24 @@
     "playthrough": 0.55,
     "liked": false,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.755,
+      "danceability": 0.502,
+      "spotify_energy": 0.693,
+      "instrumentalness": 8.67e-05,
+      "liveness": 0.715,
+      "loudness": -10.57,
+      "speechiness": 0.033,
+      "spotify_valence": 0.677
+    },
+    "spotify_id": "32hdwm17L8lc2OfBxfarsJ"
   },
   {
-    "title": "K\u00f6ln Concert, Part I",
+    "title": "Köln Concert, Part I",
     "artist": "Keith Jarrett",
-    "album": "The K\u00f6ln Concert",
+    "album": "The Köln Concert",
     "year": 1975,
     "era": "ECM/Improvisation",
     "subgenres": [
@@ -6064,7 +6856,19 @@
     "playthrough": 0.3,
     "liked": false,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.973,
+      "danceability": 0.27,
+      "spotify_energy": 0.688,
+      "instrumentalness": 0.884,
+      "liveness": 0.669,
+      "loudness": -16.305,
+      "speechiness": 0.0547,
+      "spotify_valence": 0.219
+    },
+    "spotify_id": "4FMI4Ln1LhyxGldkNXan5e"
   },
   {
     "title": "(untitled)",
@@ -6105,7 +6909,19 @@
     "playthrough": 0.7,
     "liked": null,
     "date_added": "2026-06-24",
-    "discovered_from": "unknown"
+    "discovered_from": "unknown",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.387,
+      "danceability": 0.499,
+      "spotify_energy": 0.404,
+      "instrumentalness": 0.856,
+      "liveness": 0.11,
+      "loudness": -21.632,
+      "speechiness": 0.0365,
+      "spotify_valence": 0.576
+    },
+    "spotify_id": "2nY2a1f0FkplEdfskZoI1Z"
   },
   {
     "title": "My Sin",
@@ -6147,7 +6963,19 @@
     "playthrough": 1.0,
     "liked": null,
     "date_added": "2026-06-24",
-    "discovered_from": "reddit"
+    "discovered_from": "reddit",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.989,
+      "danceability": 0.522,
+      "spotify_energy": 0.0812,
+      "instrumentalness": 0.794,
+      "liveness": 0.0723,
+      "loudness": -17.371,
+      "speechiness": 0.0436,
+      "spotify_valence": 0.215
+    },
+    "spotify_id": "1ebZEQLe2lfwyMnuhnIDjx"
   },
   {
     "title": "Yes or No",
@@ -6181,7 +7009,19 @@
     "playthrough": 0.5,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "reddit"
+    "discovered_from": "reddit",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.716,
+      "danceability": 0.469,
+      "spotify_energy": 0.684,
+      "instrumentalness": 2.05e-05,
+      "liveness": 0.0797,
+      "loudness": -7.875,
+      "speechiness": 0.0375,
+      "spotify_valence": 0.479
+    },
+    "spotify_id": "2PGjqrXgOBqP8G4R6EKmpR"
   },
   {
     "title": "The Fox",
@@ -6212,7 +7052,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "reddit"
+    "discovered_from": "reddit",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.0571,
+      "danceability": 0.527,
+      "spotify_energy": 0.358,
+      "instrumentalness": 0.0351,
+      "liveness": 0.12,
+      "loudness": -17.34,
+      "speechiness": 0.0715,
+      "spotify_valence": 0.748
+    },
+    "spotify_id": "5xPXGJHfreDmPlCuwghWOK"
   },
   {
     "title": "Beatrice",
@@ -6243,7 +7095,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "reddit"
+    "discovered_from": "reddit",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.919,
+      "danceability": 0.454,
+      "spotify_energy": 0.0255,
+      "instrumentalness": 0.792,
+      "liveness": 0.912,
+      "loudness": -29.986,
+      "speechiness": 0.0699,
+      "spotify_valence": 0.149
+    },
+    "spotify_id": "1HwLLssMiYQrsgPI0lmcSW"
   },
   {
     "title": "The Nearness of You",
@@ -6315,7 +7179,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.945,
+      "danceability": 0.5,
+      "spotify_energy": 0.0362,
+      "instrumentalness": 0.498,
+      "liveness": 0.106,
+      "loudness": -19.094,
+      "speechiness": 0.0404,
+      "spotify_valence": 0.303
+    },
+    "spotify_id": "1IOEBeehQnODeIAbGrX2AN"
   },
   {
     "title": "Body and Soul",
@@ -6352,7 +7228,19 @@
     "playthrough": 0.7,
     "liked": false,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.847,
+      "danceability": 0.5,
+      "spotify_energy": 0.0982,
+      "instrumentalness": 0.44,
+      "liveness": 0.109,
+      "loudness": -18.634,
+      "speechiness": 0.0422,
+      "spotify_valence": 0.318
+    },
+    "spotify_id": "12Ykc8GW0kQJURPlxZgyXM"
   },
   {
     "title": "Everybody Loves the Sunshine",
@@ -6384,7 +7272,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.037,
+      "danceability": 0.822,
+      "spotify_energy": 0.319,
+      "instrumentalness": 0.269,
+      "liveness": 0.093,
+      "loudness": -11.237,
+      "speechiness": 0.0567,
+      "spotify_valence": 0.435
+    },
+    "spotify_id": "4F17fOFNxTHhNk6fXq46w6"
   },
   {
     "title": "Reflections",
@@ -6416,7 +7316,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-24",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.984,
+      "danceability": 0.48,
+      "spotify_energy": 0.136,
+      "instrumentalness": 0.849,
+      "liveness": 0.225,
+      "loudness": -20.508,
+      "speechiness": 0.0381,
+      "spotify_valence": 0.178
+    },
+    "spotify_id": "7c7aRF6EJ96zCmep9BmewW"
   },
   {
     "title": "My Funny Valentine",
@@ -6445,7 +7357,19 @@
     "liked": true,
     "date_added": "2026-06-26",
     "discovered_from": "claude-recommendation",
-    "notes": "Dragging a long a bit. Outro is beautiful by Herbie"
+    "notes": "Dragging a long a bit. Outro is beautiful by Herbie",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.924,
+      "danceability": 0.551,
+      "spotify_energy": 0.119,
+      "instrumentalness": 0.00264,
+      "liveness": 0.119,
+      "loudness": -15.468,
+      "speechiness": 0.0435,
+      "spotify_valence": 0.243
+    },
+    "spotify_id": "5FYgwqjjq9kPCMj8yArfTr"
   },
   {
     "title": "All of You",
@@ -6470,7 +7394,19 @@
     "playthrough": 0.5,
     "liked": false,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.424,
+      "danceability": 0.631,
+      "spotify_energy": 0.261,
+      "instrumentalness": 6.64e-05,
+      "liveness": 0.184,
+      "loudness": -10.988,
+      "speechiness": 0.0424,
+      "spotify_valence": 0.581
+    },
+    "spotify_id": "21HG0QIgIcVQ2EZeXubaqL"
   },
   {
     "title": "I Thought About You",
@@ -6501,7 +7437,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.916,
+      "danceability": 0.533,
+      "spotify_energy": 0.127,
+      "instrumentalness": 1.54e-05,
+      "liveness": 0.103,
+      "loudness": -14.17,
+      "speechiness": 0.0367,
+      "spotify_valence": 0.18
+    },
+    "spotify_id": "63JCF21fkQzPsC2fBr9TMD"
   },
   {
     "title": "Scrapple from the Apple",
@@ -6527,7 +7475,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.514,
+      "danceability": 0.482,
+      "spotify_energy": 0.597,
+      "instrumentalness": 0.0,
+      "liveness": 0.0609,
+      "loudness": -9.069,
+      "speechiness": 0.0596,
+      "spotify_valence": 0.749
+    },
+    "spotify_id": "5f4V1rtxYYbGnTbITkkIV7"
   },
   {
     "title": "Willow Weep for Me",
@@ -6553,7 +7513,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.761,
+      "danceability": 0.623,
+      "spotify_energy": 0.367,
+      "instrumentalness": 5.36e-06,
+      "liveness": 0.1,
+      "loudness": -10.81,
+      "speechiness": 0.0456,
+      "spotify_valence": 0.571
+    },
+    "spotify_id": "3TerEwVP6zs2QrsCoG0yFK"
   },
   {
     "title": "Bloomdido",
@@ -6579,7 +7551,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.365,
+      "danceability": 0.544,
+      "spotify_energy": 0.602,
+      "instrumentalness": 5.71e-06,
+      "liveness": 0.0723,
+      "loudness": -9.525,
+      "speechiness": 0.0495,
+      "spotify_valence": 0.802
+    },
+    "spotify_id": "2qkDwUvGAQcxqHWsguEbXV"
   },
   {
     "title": "My Melancholy Baby",
@@ -6606,7 +7590,19 @@
     "playthrough": 0.5,
     "liked": false,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.942,
+      "danceability": 0.59,
+      "spotify_energy": 0.324,
+      "instrumentalness": 0.633,
+      "liveness": 0.205,
+      "loudness": -12.295,
+      "speechiness": 0.0357,
+      "spotify_valence": 0.641
+    },
+    "spotify_id": "2HMeHemEulJ2MZ5ayADd52"
   },
   {
     "title": "Relaxing with Lee",
@@ -6631,7 +7627,19 @@
     "playthrough": 0.5,
     "liked": false,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.27,
+      "danceability": 0.58,
+      "spotify_energy": 0.389,
+      "instrumentalness": 0.000949,
+      "liveness": 0.179,
+      "loudness": -11.995,
+      "speechiness": 0.0405,
+      "spotify_valence": 0.726
+    },
+    "spotify_id": "14DEfXQJTnx4VHxU5CI47e"
   },
   {
     "title": "The Freedom Suite",
@@ -6657,7 +7665,19 @@
     "playthrough": 0.5,
     "liked": false,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.679,
+      "danceability": 0.526,
+      "spotify_energy": 0.45,
+      "instrumentalness": 0.359,
+      "liveness": 0.23,
+      "loudness": -11.118,
+      "speechiness": 0.0724,
+      "spotify_valence": 0.41
+    },
+    "spotify_id": "4L056SN3ZVI28xHCWuuxCj"
   },
   {
     "title": "Someday I'll Find You",
@@ -6709,7 +7729,19 @@
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.392,
+      "danceability": 0.591,
+      "spotify_energy": 0.554,
+      "instrumentalness": 0.666,
+      "liveness": 0.97,
+      "loudness": -14.071,
+      "speechiness": 0.0944,
+      "spotify_valence": 0.561
+    },
+    "spotify_id": "5iWKFIAbqS8btb6jquMusM"
   },
   {
     "title": "Surrey with the Fringe on Top",
@@ -6734,7 +7766,19 @@
     "playthrough": 0.5,
     "liked": false,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.428,
+      "danceability": 0.465,
+      "spotify_energy": 0.519,
+      "instrumentalness": 0.58,
+      "liveness": 0.698,
+      "loudness": -15.647,
+      "speechiness": 0.0626,
+      "spotify_valence": 0.717
+    },
+    "spotify_id": "2G91ddDq9RzO8lujn2X2oH"
   },
   {
     "title": "Moonlight in Vermont",
@@ -6764,6 +7808,18 @@
     "playthrough": 0.5,
     "liked": null,
     "date_added": "2026-06-26",
-    "discovered_from": "claude-recommendation"
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "source": "reccobeats",
+      "acousticness": 0.658,
+      "danceability": 0.427,
+      "spotify_energy": 0.379,
+      "instrumentalness": 0.0667,
+      "liveness": 0.966,
+      "loudness": -18.124,
+      "speechiness": 0.105,
+      "spotify_valence": 0.329
+    },
+    "spotify_id": "68oYY9hUduyqbKZpOUi4Iq"
   }
 ]

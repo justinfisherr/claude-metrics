@@ -228,6 +228,14 @@ def engineer_features(tracks):
             row["tempo_bpm"] = audio.get("tempo_bpm") or 120
             row["time_signature"] = audio.get("time_signature") or 4
             row["is_live"] = int(audio.get("is_live") or False)
+            row["acousticness"] = audio.get("acousticness") if audio.get("acousticness") is not None else 0.5
+            row["danceability"] = audio.get("danceability") if audio.get("danceability") is not None else 0.5
+            row["spotify_energy"] = audio.get("spotify_energy") if audio.get("spotify_energy") is not None else 0.5
+            row["instrumentalness"] = audio.get("instrumentalness") if audio.get("instrumentalness") is not None else 0.0
+            row["liveness"] = audio.get("liveness") if audio.get("liveness") is not None else 0.15
+            row["loudness"] = audio.get("loudness") if audio.get("loudness") is not None else -10.0
+            row["speechiness"] = audio.get("speechiness") if audio.get("speechiness") is not None else 0.05
+            row["spotify_valence"] = audio.get("spotify_valence") if audio.get("spotify_valence") is not None else 0.5
 
         rows.append(row)
 
@@ -269,6 +277,14 @@ def readable_name(feat):
         "tempo_bpm": "Tempo (BPM)",
         "time_signature": "Time Signature",
         "is_live": "Live Recording",
+        "acousticness": "Acousticness",
+        "danceability": "Danceability",
+        "spotify_energy": "Audio Energy (Spotify)",
+        "instrumentalness": "Instrumentalness",
+        "liveness": "Liveness Score",
+        "loudness": "Loudness (dB)",
+        "speechiness": "Speechiness",
+        "spotify_valence": "Audio Valence (Spotify)",
     }
     if feat in NAMES:
         return NAMES[feat]
