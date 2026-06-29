@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-29T07:50:04.800431",
-    "version": "5.08",
+    "generated_at": "2026-06-29T16:41:27.202494",
+    "version": "5.09",
     "is_major": false,
     "total_tracks": 162,
     "total_albums": 3,
@@ -6745,6 +6745,83 @@
       "direction": "positive"
     }
   ],
+  "top_drivers": [
+    {
+      "feature": "Collaborator Quality",
+      "coefficient": 0.5107,
+      "direction": "positive"
+    },
+    {
+      "feature": "Artist Mean Rating",
+      "coefficient": -0.3605,
+      "direction": "negative"
+    },
+    {
+      "feature": "Year",
+      "coefficient": 0.2216,
+      "direction": "positive"
+    },
+    {
+      "feature": "Popularity",
+      "coefficient": 0.1977,
+      "direction": "positive"
+    },
+    {
+      "feature": "Is Collaboration",
+      "coefficient": -0.1954,
+      "direction": "negative"
+    },
+    {
+      "feature": "Acousticness",
+      "coefficient": 0.1698,
+      "direction": "positive"
+    },
+    {
+      "feature": "Era Free Jazz",
+      "coefficient": -0.1647,
+      "direction": "negative"
+    },
+    {
+      "feature": "Subgenre Vocal Ballad",
+      "coefficient": -0.164,
+      "direction": "negative"
+    },
+    {
+      "feature": "Subgenre Ballad",
+      "coefficient": 0.1512,
+      "direction": "positive"
+    },
+    {
+      "feature": "Subgenre Swing",
+      "coefficient": -0.1512,
+      "direction": "negative"
+    },
+    {
+      "feature": "Label Pacific Jazz",
+      "coefficient": -0.1389,
+      "direction": "negative"
+    },
+    {
+      "feature": "Label Prestige",
+      "coefficient": 0.1385,
+      "direction": "positive"
+    },
+    {
+      "feature": "Mood Zone Tense",
+      "coefficient": -0.1374,
+      "direction": "negative"
+    },
+    {
+      "feature": "Source Autoplay",
+      "coefficient": -0.1371,
+      "direction": "negative"
+    },
+    {
+      "feature": "Energy Tempo",
+      "coefficient": 0.1361,
+      "direction": "positive"
+    }
+  ],
   "correlations": {
     "feature_rating": [
       {
@@ -8300,18 +8377,28 @@
       "mae": 1.6971,
       "best_k": 3,
       "silhouette_score": 0.0744
+    },
+    {
+      "run_date": "2026-06-29",
+      "dataset_size": 162,
+      "best_model": "random_forest",
+      "r_squared": 0.1828,
+      "rmse": 2.0552,
+      "mae": 1.6971,
+      "best_k": 3,
+      "silhouette_score": 0.0744
     }
   ],
   "playlists": [
     {
       "name": "My Top Jazz Songs",
       "id": "4ZnOuGzizWM1UIPZlhCAae",
-      "track_count": 22,
-      "matched_count": 22,
-      "avg_actual": 8.89,
-      "avg_predicted": 7.05,
+      "track_count": 26,
+      "matched_count": 26,
+      "avg_actual": 8.83,
+      "avg_predicted": 6.85,
       "avg_energy": 4.7,
-      "avg_replayability": 8.05,
+      "avg_replayability": 8.08,
       "top_mood_zones": [
         "introspective",
         "serene",
@@ -8357,6 +8444,17 @@
           "replayability": 9
         },
         {
+          "title": "Wild Is The Wind",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 10,
+          "predicted": 7.24,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 3,
+          "replayability": 7
+        },
+        {
           "title": "Peace Piece",
           "artist": "Bill Evans",
           "matched": true,
@@ -8366,6 +8464,17 @@
           "era": "Cool Jazz",
           "energy": 1,
           "replayability": 7
+        },
+        {
+          "title": "God Bless the Child",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 10,
+          "predicted": 7.32,
+          "mood_zone": null,
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 9
         },
         {
           "title": "Goodbye Pork Pie Hat",
@@ -8423,28 +8532,6 @@
           "replayability": 7
         },
         {
-          "title": "Wild Is The Wind",
-          "artist": "Nina Simone",
-          "matched": true,
-          "actual": 10,
-          "predicted": 7.24,
-          "mood_zone": "introspective",
-          "era": "Post-Bop",
-          "energy": 3,
-          "replayability": 7
-        },
-        {
-          "title": "God Bless the Child",
-          "artist": "Sonny Rollins",
-          "matched": true,
-          "actual": 10,
-          "predicted": 7.32,
-          "mood_zone": null,
-          "era": "Hard Bop",
-          "energy": 2,
-          "replayability": 9
-        },
-        {
           "title": "Tezeta",
           "artist": "Mulatu Astatke",
           "matched": true,
@@ -8465,6 +8552,17 @@
           "era": "Hard Bop",
           "energy": 10,
           "replayability": 10
+        },
+        {
+          "title": "Moanin'",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 9,
+          "predicted": 5.23,
+          "mood_zone": "euphoric",
+          "era": "Hard Bop",
+          "energy": 9,
+          "replayability": 8
         },
         {
           "title": "It Never Entered My Mind",
@@ -8489,17 +8587,6 @@
           "replayability": 5
         },
         {
-          "title": "Moanin'",
-          "artist": "Mingus Big Band",
-          "matched": true,
-          "actual": 9,
-          "predicted": 5.23,
-          "mood_zone": "euphoric",
-          "era": "Hard Bop",
-          "energy": 9,
-          "replayability": 8
-        },
-        {
           "title": "St. Thomas",
           "artist": "Sonny Rollins",
           "matched": true,
@@ -8508,6 +8595,17 @@
           "mood_zone": null,
           "era": "Hard Bop",
           "energy": 7,
+          "replayability": 7
+        },
+        {
+          "title": "Open Letter to Duke",
+          "artist": "Charles Mingus",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.61,
+          "mood_zone": "introspective",
+          "era": "Hard Bop",
+          "energy": 6,
           "replayability": 7
         },
         {
@@ -8555,27 +8653,60 @@
           "replayability": 5
         },
         {
-          "title": "Open Letter to Duke",
-          "artist": "Charles Mingus",
+          "title": "G\u00e9n\u00e9rique",
+          "artist": "Miles Davis",
           "matched": true,
           "actual": 8,
-          "predicted": 6.61,
+          "predicted": 5.55,
           "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 4,
+          "replayability": 6.5
+        },
+        {
+          "title": "Wise One",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8.5,
+          "predicted": 5.31,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 4,
+          "replayability": 8
+        },
+        {
+          "title": "I Put A Spell On You",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 9,
+          "predicted": 6.62,
+          "mood_zone": "introspective",
+          "era": "Funk/Soul Jazz",
+          "energy": 7,
+          "replayability": 10
+        },
+        {
+          "title": "Little Sunflower",
+          "artist": "Freddie Hubbard",
+          "matched": true,
+          "actual": 8.5,
+          "predicted": 5.57,
+          "mood_zone": "serene",
           "era": "Hard Bop",
-          "energy": 6,
-          "replayability": 7
+          "energy": 4,
+          "replayability": 8.5
         }
       ]
     },
     {
       "name": "Jazz Date",
       "id": "6n2kibGIYXV5L3flumoiDw",
-      "track_count": 21,
-      "matched_count": 20,
-      "avg_actual": 7.4,
-      "avg_predicted": 6.63,
-      "avg_energy": 1.9,
-      "avg_replayability": 5.75,
+      "track_count": 29,
+      "matched_count": 28,
+      "avg_actual": 7.23,
+      "avg_predicted": 6.36,
+      "avg_energy": 2.1,
+      "avg_replayability": 5.89,
       "top_mood_zones": [
         "introspective",
         "serene"
@@ -8598,17 +8729,6 @@
           "replayability": 9
         },
         {
-          "title": "Love Theme from Spartacus",
-          "artist": "Yusef Lateef",
-          "matched": true,
-          "actual": 10,
-          "predicted": 6.66,
-          "mood_zone": "serene",
-          "era": "Post-Bop",
-          "energy": 2,
-          "replayability": 10
-        },
-        {
           "title": "Goodbye Pork Pie Hat",
           "artist": "Charles Mingus",
           "matched": true,
@@ -8620,15 +8740,26 @@
           "replayability": 9
         },
         {
-          "title": "Peace Piece",
-          "artist": "Bill Evans",
+          "title": "Love Theme from Spartacus",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 10,
+          "predicted": 6.66,
+          "mood_zone": "serene",
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
+        },
+        {
+          "title": "Fleurette Africaine",
+          "artist": "Duke Ellington",
           "matched": true,
           "actual": 9,
-          "predicted": 8.18,
+          "predicted": 7.45,
           "mood_zone": "introspective",
-          "era": "Cool Jazz",
-          "energy": 1,
-          "replayability": 7
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 10
         },
         {
           "title": "It Never Entered My Mind",
@@ -8642,6 +8773,17 @@
           "replayability": 8
         },
         {
+          "title": "Peace Piece",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 9,
+          "predicted": 8.18,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 7
+        },
+        {
           "title": "Blue in Green",
           "artist": "Miles Davis",
           "matched": true,
@@ -8651,6 +8793,28 @@
           "era": "Modal",
           "energy": 2,
           "replayability": 5
+        },
+        {
+          "title": "In a Sentimental Mood",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.74,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "My One and Only Love",
+          "artist": "John Coltrane",
+          "matched": true,
+          "actual": 8,
+          "predicted": 5.47,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 7
         },
         {
           "title": "Naima",
@@ -8664,55 +8828,22 @@
           "replayability": 7
         },
         {
+          "title": "Chelsea Bridge",
+          "artist": "Ben Webster",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 5.09,
+          "mood_zone": "introspective",
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 3
+        },
+        {
           "title": "Infant Eyes",
           "artist": "Wayne Shorter",
           "matched": true,
           "actual": 7.5,
           "predicted": 5.35,
-          "mood_zone": "introspective",
-          "era": "Post-Bop",
-          "energy": 2,
-          "replayability": 7
-        },
-        {
-          "title": "What Are You Doing the Rest of Your Life",
-          "artist": "Bill Evans",
-          "matched": true,
-          "actual": 7,
-          "predicted": 7.59,
-          "mood_zone": "introspective",
-          "era": "Post-Bop",
-          "energy": 2,
-          "replayability": 6
-        },
-        {
-          "title": "My Foolish Heart",
-          "artist": "Bill Evans",
-          "matched": true,
-          "actual": 3,
-          "predicted": 6.03,
-          "mood_zone": "introspective",
-          "era": "Cool Jazz",
-          "energy": 1,
-          "replayability": 2
-        },
-        {
-          "title": "A Single Petal of a Rose",
-          "artist": "Duke Ellington",
-          "matched": true,
-          "actual": 7,
-          "predicted": 6.5,
-          "mood_zone": "introspective",
-          "era": "Swing",
-          "energy": 1,
-          "replayability": 5
-        },
-        {
-          "title": "In a Sentimental Mood",
-          "artist": "Sonny Rollins",
-          "matched": true,
-          "actual": 8,
-          "predicted": 6.74,
           "mood_zone": "introspective",
           "era": "Post-Bop",
           "energy": 2,
@@ -8728,6 +8859,50 @@
           "era": "Post-Bop",
           "energy": 2,
           "replayability": 5
+        },
+        {
+          "title": "Lover Man",
+          "artist": "Charlie Parker",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.29,
+          "mood_zone": "introspective",
+          "era": "Bebop",
+          "energy": 3,
+          "replayability": 2
+        },
+        {
+          "title": "A Single Petal of a Rose",
+          "artist": "Duke Ellington",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.5,
+          "mood_zone": "introspective",
+          "era": "Swing",
+          "energy": 1,
+          "replayability": 5
+        },
+        {
+          "title": "What Are You Doing the Rest of Your Life",
+          "artist": "Bill Evans",
+          "matched": true,
+          "actual": 7,
+          "predicted": 7.59,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 6
+        },
+        {
+          "title": "Embraceable You",
+          "artist": "Barry Harris",
+          "matched": true,
+          "actual": 5,
+          "predicted": 5.04,
+          "mood_zone": "introspective",
+          "era": "Hard Bop",
+          "energy": 2,
+          "replayability": 2
         },
         {
           "title": "To Her Ladyship",
@@ -8752,83 +8927,129 @@
           "replayability": 1
         },
         {
-          "title": "Embraceable You",
-          "artist": "Barry Harris",
+          "title": "My Foolish Heart",
+          "artist": "Bill Evans",
           "matched": true,
-          "actual": 5,
-          "predicted": 5.04,
+          "actual": 3,
+          "predicted": 6.03,
           "mood_zone": "introspective",
-          "era": "Hard Bop",
-          "energy": 2,
+          "era": "Cool Jazz",
+          "energy": 1,
           "replayability": 2
         },
         {
-          "title": "Lover Man",
-          "artist": "Charlie Parker",
+          "title": "Where Are You",
+          "artist": "Sonny Rollins",
           "matched": true,
-          "actual": 7,
-          "predicted": 5.29,
-          "mood_zone": "introspective",
-          "era": "Bebop",
-          "energy": 3,
-          "replayability": 2
-        },
-        {
-          "title": "Theme for Lester Young",
-          "artist": "Charles Mingus",
-          "matched": false
-        },
-        {
-          "title": "My One and Only Love",
-          "artist": "John Coltrane",
-          "matched": true,
-          "actual": 8,
-          "predicted": 5.47,
+          "actual": 8.5,
+          "predicted": 7.4,
           "mood_zone": "introspective",
           "era": "Post-Bop",
           "energy": 2,
           "replayability": 7
         },
         {
-          "title": "Fleurette Africaine",
-          "artist": "Duke Ellington",
-          "matched": true,
-          "actual": 9,
-          "predicted": 7.45,
-          "mood_zone": "introspective",
-          "era": "Post-Bop",
-          "energy": 2,
-          "replayability": 10
-        },
-        {
-          "title": "Chelsea Bridge",
-          "artist": "Ben Webster",
+          "title": "You've Changed",
+          "artist": "Dexter Gordon",
           "matched": true,
           "actual": 7.5,
-          "predicted": 5.09,
+          "predicted": 4.92,
+          "mood_zone": "introspective",
+          "era": "Hard Bop",
+          "energy": 3,
+          "replayability": 6
+        },
+        {
+          "title": "Europa",
+          "artist": "Gato Barbieri",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.16,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 4,
+          "replayability": 8
+        },
+        {
+          "title": "Misty",
+          "artist": "Sarah Vaughan",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.18,
           "mood_zone": "introspective",
           "era": "Swing",
           "energy": 2,
-          "replayability": 3
+          "replayability": 6
+        },
+        {
+          "title": "Danny Boy",
+          "artist": "Ben Webster",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.89,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "Say It Over And Over Again",
+          "artist": "John Coltrane",
+          "matched": false
+        },
+        {
+          "title": "Almost Blue",
+          "artist": "Chet Baker",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 4.93,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Stella By Starlight",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.96,
+          "mood_zone": "introspective",
+          "era": "Modal",
+          "energy": 5,
+          "replayability": 6
+        },
+        {
+          "title": "How Long Has This Been Going On",
+          "artist": "Ben Webster",
+          "matched": true,
+          "actual": 5,
+          "predicted": 5.9,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 5
         }
       ]
     },
     {
       "name": "Jazz Stank",
       "id": "2Dj3wiGXPwGL3RjQDa6zG5",
-      "track_count": 7,
-      "matched_count": 7,
-      "avg_actual": 7.64,
-      "avg_predicted": 6.02,
-      "avg_energy": 7.6,
-      "avg_replayability": 6.71,
+      "track_count": 11,
+      "matched_count": 11,
+      "avg_actual": 7.5,
+      "avg_predicted": 5.97,
+      "avg_energy": 7.3,
+      "avg_replayability": 6.91,
       "top_mood_zones": [
         "euphoric",
-        "introspective"
+        "introspective",
+        "serene"
       ],
       "top_eras": [
         "Hard Bop",
-        "Post-Bop"
+        "Post-Bop",
+        "Bebop"
       ],
       "tracks": [
         {
@@ -8854,15 +9075,15 @@
           "replayability": 8
         },
         {
-          "title": "Boogie Stop Shuffle",
+          "title": "Open Letter to Duke",
           "artist": "Charles Mingus",
           "matched": true,
-          "actual": 7,
-          "predicted": 6.78,
-          "mood_zone": "euphoric",
+          "actual": 8,
+          "predicted": 6.61,
+          "mood_zone": "introspective",
           "era": "Hard Bop",
-          "energy": 8,
-          "replayability": 6
+          "energy": 6,
+          "replayability": 7
         },
         {
           "title": "Fables of Faubus",
@@ -8876,15 +9097,15 @@
           "replayability": 6
         },
         {
-          "title": "Open Letter to Duke",
+          "title": "Boogie Stop Shuffle",
           "artist": "Charles Mingus",
           "matched": true,
-          "actual": 8,
-          "predicted": 6.61,
-          "mood_zone": "introspective",
+          "actual": 7,
+          "predicted": 6.78,
+          "mood_zone": "euphoric",
           "era": "Hard Bop",
-          "energy": 6,
-          "replayability": 7
+          "energy": 8,
+          "replayability": 6
         },
         {
           "title": "Early Summer",
@@ -8907,25 +9128,69 @@
           "era": "Hard Bop",
           "energy": 8,
           "replayability": 4
+        },
+        {
+          "title": "Bloomdido",
+          "artist": "Charlie Parker",
+          "matched": true,
+          "actual": 7,
+          "predicted": 4.97,
+          "mood_zone": "euphoric",
+          "era": "Bebop",
+          "energy": 7,
+          "replayability": 6
+        },
+        {
+          "title": "Y\u00e8gell\u00e9 Tezeta",
+          "artist": "Mulatu Astatke",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.71,
+          "mood_zone": "serene",
+          "era": "Contemporary",
+          "energy": 6,
+          "replayability": 8
+        },
+        {
+          "title": "Haitian Fight Song",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.4,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 8,
+          "replayability": 9
+        },
+        {
+          "title": "Nostalgia in Times Square",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 7,
+          "predicted": 6.41,
+          "mood_zone": "euphoric",
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 6
         }
       ]
     },
     {
       "name": "Jazz Vocals",
       "id": "5MffriQAGUbFt2DcfkgYuU",
-      "track_count": 7,
-      "matched_count": 7,
-      "avg_actual": 7.57,
-      "avg_predicted": 6.72,
-      "avg_energy": 2.6,
-      "avg_replayability": 6.29,
+      "track_count": 11,
+      "matched_count": 11,
+      "avg_actual": 7.45,
+      "avg_predicted": 6.52,
+      "avg_energy": 2.7,
+      "avg_replayability": 6.82,
       "top_mood_zones": [
         "introspective",
         "euphoric"
       ],
       "top_eras": [
-        "Post-Bop",
         "Swing",
+        "Post-Bop",
         "Cool Jazz"
       ],
       "tracks": [
@@ -9005,27 +9270,71 @@
           "era": "Post-Bop",
           "energy": 3,
           "replayability": 8
+        },
+        {
+          "title": "Blue Moon",
+          "artist": "Julie London",
+          "matched": true,
+          "actual": 8,
+          "predicted": 7.14,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 1,
+          "replayability": 9
+        },
+        {
+          "title": "I Put A Spell On You",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 9,
+          "predicted": 6.62,
+          "mood_zone": "introspective",
+          "era": "Funk/Soul Jazz",
+          "energy": 7,
+          "replayability": 10
+        },
+        {
+          "title": "Misty",
+          "artist": "Sarah Vaughan",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.18,
+          "mood_zone": "introspective",
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 6
+        },
+        {
+          "title": "Strange Fruit",
+          "artist": "Billie Holiday",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.72,
+          "mood_zone": "introspective",
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 6
         }
       ]
     },
     {
       "name": "Jazz Pool",
       "id": "3cnlae8AntzgbgmzdxRZOj",
-      "track_count": 54,
-      "matched_count": 54,
-      "avg_actual": 7.66,
-      "avg_predicted": 6.41,
-      "avg_energy": 4.0,
-      "avg_replayability": 6.2,
+      "track_count": 79,
+      "matched_count": 78,
+      "avg_actual": 7.37,
+      "avg_predicted": 6.11,
+      "avg_energy": 4.1,
+      "avg_replayability": 5.96,
       "top_mood_zones": [
         "introspective",
         "serene",
         "euphoric"
       ],
       "top_eras": [
-        "Hard Bop",
         "Post-Bop",
-        "Swing"
+        "Hard Bop",
+        "Cool Jazz"
       ],
       "tracks": [
         {
@@ -9579,17 +9888,6 @@
           "replayability": 2
         },
         {
-          "title": "God Bless the Child",
-          "artist": "Sonny Rollins",
-          "matched": true,
-          "actual": 10,
-          "predicted": 7.32,
-          "mood_zone": null,
-          "era": "Hard Bop",
-          "energy": 2,
-          "replayability": 9
-        },
-        {
           "title": "Chelsea Bridge",
           "artist": "Ben Webster",
           "matched": true,
@@ -9621,6 +9919,286 @@
           "era": "Cool Jazz",
           "energy": 2,
           "replayability": 3
+        },
+        {
+          "title": "John S.",
+          "artist": "Sonny Rollins",
+          "matched": true,
+          "actual": 3,
+          "predicted": 5.46,
+          "mood_zone": "tense",
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 1
+        },
+        {
+          "title": "Corcovado",
+          "artist": "Stan Getz",
+          "matched": false
+        },
+        {
+          "title": "Yes Or No",
+          "artist": "Wayne Shorter",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.59,
+          "mood_zone": "tense",
+          "era": "Post-Bop",
+          "energy": 6,
+          "replayability": 4
+        },
+        {
+          "title": "Everybody Loves The Sunshine",
+          "artist": "Takuya Kuroda",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 4.97,
+          "mood_zone": "introspective",
+          "era": "Contemporary",
+          "energy": 6,
+          "replayability": 7
+        },
+        {
+          "title": "Reflections",
+          "artist": "Kurt Rosenwinkel",
+          "matched": true,
+          "actual": 6.5,
+          "predicted": 5.42,
+          "mood_zone": "introspective",
+          "era": "Contemporary",
+          "energy": 2,
+          "replayability": 2
+        },
+        {
+          "title": "Willow Weep For Me",
+          "artist": "Dexter Gordon",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.35,
+          "mood_zone": "serene",
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 4
+        },
+        {
+          "title": "My Funny Valentine",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.75,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 2,
+          "replayability": 4
+        },
+        {
+          "title": "Bloomdido",
+          "artist": "Charlie Parker",
+          "matched": true,
+          "actual": 7,
+          "predicted": 4.97,
+          "mood_zone": "euphoric",
+          "era": "Bebop",
+          "energy": 7,
+          "replayability": 6
+        },
+        {
+          "title": "But Not For Me",
+          "artist": "Ahmad Jamal Trio",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 4.45,
+          "mood_zone": "euphoric",
+          "era": "Hard Bop",
+          "energy": 5,
+          "replayability": 5
+        },
+        {
+          "title": "I Thought About You",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 8,
+          "predicted": 5.7,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 3,
+          "replayability": 6
+        },
+        {
+          "title": "Tenderly",
+          "artist": "Ben Webster",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.81,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 2
+        },
+        {
+          "title": "You've Changed",
+          "artist": "Dexter Gordon",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 4.92,
+          "mood_zone": "introspective",
+          "era": "Hard Bop",
+          "energy": 3,
+          "replayability": 6
+        },
+        {
+          "title": "G\u00e9n\u00e9rique",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 8,
+          "predicted": 5.55,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 4,
+          "replayability": 6.5
+        },
+        {
+          "title": "Maiden Voyage",
+          "artist": "Herbie Hancock",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.26,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 4,
+          "replayability": 3
+        },
+        {
+          "title": "Europa",
+          "artist": "Gato Barbieri",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.16,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 4,
+          "replayability": 8
+        },
+        {
+          "title": "Y\u00e8gell\u00e9 Tezeta",
+          "artist": "Mulatu Astatke",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.71,
+          "mood_zone": "serene",
+          "era": "Contemporary",
+          "energy": 6,
+          "replayability": 8
+        },
+        {
+          "title": "I Put A Spell On You",
+          "artist": "Nina Simone",
+          "matched": true,
+          "actual": 9,
+          "predicted": 6.62,
+          "mood_zone": "introspective",
+          "era": "Funk/Soul Jazz",
+          "energy": 7,
+          "replayability": 10
+        },
+        {
+          "title": "Blues For The Orient",
+          "artist": "Yusef Lateef",
+          "matched": true,
+          "actual": 6,
+          "predicted": 6.82,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 5,
+          "replayability": 6
+        },
+        {
+          "title": "Misty",
+          "artist": "Sarah Vaughan",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.18,
+          "mood_zone": "introspective",
+          "era": "Swing",
+          "energy": 2,
+          "replayability": 6
+        },
+        {
+          "title": "Little Sunflower",
+          "artist": "Freddie Hubbard",
+          "matched": true,
+          "actual": 8.5,
+          "predicted": 5.57,
+          "mood_zone": "serene",
+          "era": "Hard Bop",
+          "energy": 4,
+          "replayability": 8.5
+        },
+        {
+          "title": "Danny Boy",
+          "artist": "Ben Webster",
+          "matched": true,
+          "actual": 6,
+          "predicted": 5.89,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 5
+        },
+        {
+          "title": "Haitian Fight Song",
+          "artist": "Mingus Big Band",
+          "matched": true,
+          "actual": 8,
+          "predicted": 6.4,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 8,
+          "replayability": 9
+        },
+        {
+          "title": "Almost Blue",
+          "artist": "Chet Baker",
+          "matched": true,
+          "actual": 7.5,
+          "predicted": 4.93,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 7
+        },
+        {
+          "title": "Autumn Leaves",
+          "artist": "Ryo Fukui",
+          "matched": true,
+          "actual": 6,
+          "predicted": 4.85,
+          "mood_zone": "introspective",
+          "era": "Post-Bop",
+          "energy": 5,
+          "replayability": 4
+        },
+        {
+          "title": "Stella By Starlight",
+          "artist": "Miles Davis",
+          "matched": true,
+          "actual": 7,
+          "predicted": 5.96,
+          "mood_zone": "introspective",
+          "era": "Modal",
+          "energy": 5,
+          "replayability": 6
+        },
+        {
+          "title": "How Long Has This Been Going On",
+          "artist": "Ben Webster",
+          "matched": true,
+          "actual": 5,
+          "predicted": 5.9,
+          "mood_zone": "introspective",
+          "era": "Cool Jazz",
+          "energy": 2,
+          "replayability": 5
         }
       ]
     }

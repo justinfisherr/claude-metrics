@@ -6,6 +6,7 @@ import Changelog from '../components/panels/Changelog';
 import Metrics from '../components/panels/Metrics';
 import ClusterScatter from '../components/panels/ClusterScatter';
 import FeatureImportance from '../components/panels/FeatureImportance';
+import TopDrivers from '../components/panels/TopDrivers';
 import PredVsActual from '../components/panels/PredVsActual';
 import RatingDistribution from '../components/panels/RatingDistribution';
 import ClusterProfiles from '../components/panels/ClusterProfiles';
@@ -108,6 +109,7 @@ export default function Dashboard() {
             <ClusterProfiles data={data} />
             <Constellation data={data} />
             <FeatureImportance data={data} />
+            <TopDrivers data={data} />
             <Correlations data={data} />
 
             {/* Ratings */}
