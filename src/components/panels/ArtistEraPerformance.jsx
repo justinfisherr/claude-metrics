@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
-import Card from '../shared/Card';
+import Panel from '../shared/Panel';
+import PanelHeader from '../shared/PanelHeader';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -60,13 +61,11 @@ export default function ArtistEraPerformance({ data }) {
   };
 
   return (
-    <Card title="Artist × Era Performance" span="span-6">
-      <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.8rem' }}>
-        Top 15 artist-era combinations by mean rating (2+ tracks)
-      </p>
+    <Panel id="artist-era-panel" span={6}>
+      <PanelHeader title="Artist × Era Performance" note="Top 15 artist-era combinations by mean rating (2+ tracks)" />
       <div style={{ height: '350px' }}>
         <Bar data={chartData} options={chartOptions} />
       </div>
-    </Card>
+    </Panel>
   );
 }

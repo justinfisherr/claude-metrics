@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
-import Card from '../shared/Card';
+import Panel from '../shared/Panel';
+import PanelHeader from '../shared/PanelHeader';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -10,6 +11,7 @@ const BALLAD_SUBGENRES = ['ballad', 'piano ballad', 'tenor ballad', 'vocal balla
 export default function BalladAnalysis({ data }) {
   const stats = useMemo(() => {
     if (!data?.predictions) return null;
+
     const ballads = data.predictions.filter(p =>
       Array.isArray(p.subgenres) && p.subgenres.some(sg => BALLAD_SUBGENRES.includes(sg))
     );
@@ -47,6 +49,16 @@ export default function BalladAnalysis({ data }) {
     }],
   }), [stats]);
 
+  if (!stats) return null;
+
+  const instrMean = stats.instrumental.mean ?? 0;
+  const vocalMean = stats.vocal.mean ?? 0;
+  const insightText = stats.instrumental.count && stats.vocal.count
+    ? instrMean > vocalMean
+      ? `Instrumental ballads rate ${(instrMean - vocalMean).toFixed(1)} pts higher than vocal`
+      : `Vocal ballads rate ${(vocalMean - instrMean).toFixed(1)} pts higher than instrumental`
+    : 'Not enough data to compare vocal vs instrumental ballads';
+
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -65,25 +77,13 @@ export default function BalladAnalysis({ data }) {
     },
   };
 
-  if (!stats) return null;
-
-  const instrMean = stats.instrumental.mean ?? 0;
-  const vocalMean = stats.vocal.mean ?? 0;
-  const insightText = stats.instrumental.count && stats.vocal.count
-    ? instrMean > vocalMean
-      ? `Instrumental ballads rate ${(instrMean - vocalMean).toFixed(1)} pts higher than vocal`
-      : `Vocal ballads rate ${(vocalMean - instrMean).toFixed(1)} pts higher than instrumental`
-    : 'Not enough data to compare vocal vs instrumental ballads';
-
   return (
-    <Card title="Ballad × Vocal Split Analysis" span="span-6">
+    <Panel id="ballad-panel" span={6}>
+      <PanelHeader title="Ballad × Vocal Split Analysis" />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}>
-        {/* Left: chart */}
         <div style={{ height: '260px' }}>
           <Bar data={chartData} options={chartOptions} />
         </div>
-
-        {/* Right: stats */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
           <Stat label="All Ballads" value={stats.ballads.mean} color="#87a2c3"
             sub={`${stats.ballads.count} tracks (${((stats.ballads.count / stats.totalTracks) * 100).toFixed(0)}% of dataset)`} size="lg" />
@@ -102,7 +102,7 @@ export default function BalladAnalysis({ data }) {
           </div>
         </div>
       </div>
-    </Card>
+    </Panel>
   );
 }
 
