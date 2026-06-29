@@ -681,61 +681,51 @@ def compute_correlations(X, y, feature_names, top_n=10):
 
 
 def generate_cluster_name(mean_rating, top_zones, dominant_tempo, mean_energy, mean_complexity):
-    """Generate descriptive cluster name based on characteristics."""
-    # Named clusters: rate high, upbeat/energetic, complex/intellectual
-    # Low rate, introspective/serene, mellow - Contemplative
-    # Mid rate, energetic/fast, high energy - Groovy
-    # If > 2 clusters, extend with characteristics
+    """Generate descriptive cluster name based on characteristics.
 
-    PRESET_NAMES = ["Romantic", "Contemplative", "Groovy", "Epic", "Introspective", "Funky"]
+    Uses zone-first logic so names reflect the actual audio/mood character
+    of each cluster rather than absolute rating thresholds.
+    """
+    primary_zone = top_zones[0] if top_zones else None
+    secondary_zone = top_zones[1] if len(top_zones) > 1 else None
+    is_slow = dominant_tempo == "slow"
+    is_upbeat = dominant_tempo in ["fast", "medium-fast"]
+    is_high_energy = mean_energy >= 5.5
+    is_low_energy = mean_energy < 3.0
 
-    # Score the cluster
-    rating_score = mean_rating / 10.0  # 0-1
-    energy_score = mean_energy / 10.0  # 0-1
-    complexity_score = mean_complexity / 3.0  # 0-1
+    # Euphoric + upbeat/energetic → Groovy
+    if primary_zone == "euphoric" or (is_upbeat and is_high_energy):
+        return "Groovy"
 
-    # Zone preference
-    zone_pref = ""
-    if top_zones:
-        primary_zone = top_zones[0]
-        if primary_zone == "euphoric":
-            zone_pref = "Euphoric"
-        elif primary_zone == "introspective":
-            zone_pref = "Introspective"
-        elif primary_zone == "serene":
-            zone_pref = "Serene"
-        elif primary_zone == "tense":
-            zone_pref = "Intense"
+    # Tense + high energy → Intense
+    if primary_zone == "tense" and is_high_energy:
+        return "Intense"
 
-    # Tempo preference
-    tempo_pref = ""
-    if dominant_tempo in ["fast", "medium-fast"]:
-        tempo_pref = "Upbeat"
-    elif dominant_tempo == "slow":
-        tempo_pref = "Mellow"
+    # Very low energy + slow → Romantic (ballads, tender, lyrical)
+    if is_low_energy and is_slow:
+        return "Romantic"
 
-    # Pick base name from preset
-    if rating_score > 0.7 and energy_score > 0.6 and complexity_score > 0.5:
-        base = "Epic"  # High-rated, energetic, complex
-    elif rating_score > 0.7 and energy_score < 0.4:
-        base = "Romantic"  # High-rated, mellow
-    elif energy_score > 0.7 and complexity_score > 0.5:
-        base = "Groovy"  # Energetic, complex
-    elif rating_score < 0.6 and energy_score < 0.4:
-        base = "Contemplative"  # Low-rated, mellow, introspective
-    elif complexity_score > 0.65:
-        base = "Introspective"  # Complex, thoughtful
-    else:
-        base = "Funky"  # Default for others
+    # Introspective/serene + slow → Contemplative
+    if primary_zone in ("introspective", "serene") and is_slow:
+        return "Contemplative"
 
-    # Find which preset name to use
-    idx = 0
-    for i, name in enumerate(PRESET_NAMES):
-        if name == base:
-            idx = i
-            break
+    # High energy without euphoric zone → Hard Bop / driving
+    if is_high_energy:
+        return "Driving"
 
-    return PRESET_NAMES[idx]
+    # Serene without being slow → Cool
+    if primary_zone == "serene" or secondary_zone == "serene":
+        return "Cool"
+
+    # Introspective with moderate energy
+    if primary_zone == "introspective":
+        return "Introspective"
+
+    # No audio zones (tracks missing audio features), moderate energy
+    if not top_zones:
+        return "Classic"
+
+    return "Funky"
 
 
 def cluster_analysis(X_scaled, tracks, feature_names):
@@ -880,6 +870,7 @@ def build_predictions(tracks, model_results, best_labels, coords):
             "is_pianoless": int("piano" not in " ".join(t.get("instrumentation") or []).lower()),
             "has_vocals": int("vocal" in " ".join(t.get("instrumentation") or []).lower()),
             "has_guitar": int("guitar" in " ".join(t.get("instrumentation") or []).lower()),
+            "subgenres": t.get("subgenres", []),
             "artist_is_leader": int(any(t.get("artist", "").lower().split("&")[0].strip() in kp.lower() for kp in t.get("key_players", []))),
             "intro_grabbed": int(any(kw in (t.get("favorite_moments") or "").lower() + " " + (t.get("notes") or "").lower() + " " + " ".join(t.get("notable_qualities", [])).lower() for kw in ["intro", "right away"])),
             "early_bail": int((t.get("playthrough") or 0.75) < 0.3),

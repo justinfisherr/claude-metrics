@@ -38,7 +38,7 @@ export default function ArtistEraPerformance({ data }) {
 
   const chartData = useMemo(() => {
     return {
-      labels: artistEraMetrics.map(m => `${m.artist}\n(${m.era})`),
+      labels: artistEraMetrics.map(m => [m.artist, `(${m.era})`]),
       datasets: [{
         label: 'Mean Rating',
         data: artistEraMetrics.map(m => parseFloat(m.mean)),
