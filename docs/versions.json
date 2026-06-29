@@ -1,5 +1,5 @@
 {
-  "current_version": "5.03",
+  "current_version": "5.04",
   "versions": [
     {
       "version": "1.00",
@@ -524,6 +524,28 @@
       "feature_count": 179,
       "best_k": 2,
       "notes": "train.py owns ReccoBeats sync via spotify_id; review page is preview only",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "5.04",
+      "name": "pikachu",
+      "major": 5,
+      "minor": 4,
+      "run_date": "2026-06-28T23:12:02.028972",
+      "dataset_size": 162,
+      "best_model": "random_forest",
+      "r_squared": 0.3428,
+      "rmse": 1.8431,
+      "mae": 1.4788,
+      "feature_count": 184,
+      "best_k": 2,
+      "notes": "Log 44 new reviews (165 total tracks)",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,

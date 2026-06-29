@@ -7716,16 +7716,17 @@
       "piano"
     ],
     "moods": [
+      "cool",
       "sexy",
-      "experimental",
-      "pretty",
-      "complex"
+      "restless",
+      "fun",
+      "repetitive"
     ],
     "primary_instrument": "piano",
     "tempo": "medium",
     "energy": 5,
-    "rating": 4,
-    "replayability": 4,
+    "rating": 7.5,
+    "replayability": 5,
     "playthrough": 1.0,
     "liked": true,
     "date_added": "2026-06-26",
@@ -7821,5 +7822,1655 @@
       "spotify_valence": 0.329
     },
     "spotify_id": "68oYY9hUduyqbKZpOUi4Iq"
+  },
+  {
+    "title": "Prelude to a Kiss",
+    "artist": "Ben Webster",
+    "album": "Soulmates",
+    "year": 1963,
+    "label": "Riverside",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "tenor ballad"
+    ],
+    "moods": [
+      "romantic",
+      "corny"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ben Webster - tenor saxophone"
+    ],
+    "rating": 1,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Tenderly",
+    "artist": "Ben Webster",
+    "album": "Music for Loving",
+    "year": 1955,
+    "label": "Norgran",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "tenor ballad"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "melancholic",
+      "bittersweet",
+      "lovely"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ben Webster - tenor saxophone"
+    ],
+    "rating": 7,
+    "replayability": 2,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Poinciana",
+    "artist": "Ahmad Jamal",
+    "album": "Ahmad Jamal at the Pershing: But Not for Me",
+    "year": 1958,
+    "label": "Argo",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "piano trio"
+    ],
+    "moods": [
+      "pretty",
+      "cool",
+      "experimental",
+      "restless",
+      "fun"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ahmad Jamal - piano"
+    ],
+    "rating": 5,
+    "replayability": 2,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "You've Changed",
+    "artist": "Dexter Gordon",
+    "album": "A Swingin' Affair",
+    "year": 1962,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "tenor ballad"
+    ],
+    "moods": [
+      "romantic",
+      "bittersweet",
+      "expressive",
+      "corny",
+      "pretty"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Dexter Gordon - tenor saxophone"
+    ],
+    "rating": 7.5,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "I Guess I'll Hang My Tears Out to Dry",
+    "artist": "Dexter Gordon",
+    "album": "Doin' Alright",
+    "year": 1961,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "tenor ballad"
+    ],
+    "moods": [
+      "pretty",
+      "romantic",
+      "corny"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Dexter Gordon - tenor saxophone"
+    ],
+    "rating": 5,
+    "replayability": 2,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Générique",
+    "artist": "Miles Davis",
+    "album": "Ascenseur pour l'échafaud",
+    "year": 1958,
+    "label": "Fontana",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "film score",
+      "modal jazz"
+    ],
+    "moods": [
+      "sexy",
+      "bluesy",
+      "spacious",
+      "atmospheric"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet"
+    ],
+    "rating": 8,
+    "replayability": 6.5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Old Folks",
+    "artist": "Miles Davis",
+    "album": "Someday My Prince Will Come",
+    "year": 1961,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "cool jazz"
+    ],
+    "moods": [
+      "sexy"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet"
+    ],
+    "rating": 5,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": null,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Wise One",
+    "artist": "John Coltrane",
+    "album": "Crescent",
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "spiritual jazz",
+      "modal jazz"
+    ],
+    "moods": [
+      "beautiful",
+      "sexy",
+      "melancholic",
+      "pretty",
+      "bittersweet",
+      "spacious",
+      "atmospheric",
+      "experimental"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "rating": 8.5,
+    "replayability": 8,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Speak No Evil",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "post-bop"
+    ],
+    "moods": [
+      "cool",
+      "bluesy",
+      "sexy",
+      "sophisticated",
+      "repetitive"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano"
+    ],
+    "rating": 7,
+    "replayability": 7,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Maiden Voyage",
+    "artist": "Herbie Hancock",
+    "album": "Maiden Voyage",
+    "year": 1965,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz"
+    ],
+    "moods": [
+      "cool",
+      "pretty",
+      "sophisticated"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet"
+    ],
+    "rating": 6,
+    "replayability": 3,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Blue Bossa",
+    "artist": "Joe Henderson",
+    "album": "Page One",
+    "year": 1963,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "bossa nova"
+    ],
+    "moods": [
+      "cool",
+      "fun",
+      "joyful",
+      "cute"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Joe Henderson - tenor saxophone",
+      "Kenny Dorham - trumpet"
+    ],
+    "rating": 6.5,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Along Came Betty",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "album": "Moanin'",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "bittersweet",
+      "melancholic",
+      "sexy",
+      "corny"
+    ],
+    "instrumentation": [
+      "drums",
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass"
+    ],
+    "primary_instrument": "drums",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Art Blakey - drums",
+      "Lee Morgan - trumpet",
+      "Benny Golson - tenor saxophone"
+    ],
+    "rating": 4,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Europa",
+    "artist": "Gato Barbieri",
+    "album": "Chapter Three: Viva Emiliano Zapata",
+    "year": 1974,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "latin jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "sexy",
+      "passionate",
+      "atmospheric",
+      "bluesy",
+      "melancholic",
+      "bittersweet"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums",
+      "strings"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Gato Barbieri - tenor saxophone"
+    ],
+    "rating": 7,
+    "replayability": 8,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Yègellé Tezeta",
+    "artist": "Mulatu Astatke",
+    "album": "Ethiopiques, Vol. 4: Ethio Jazz & Musique Instrumentale 1969-1974",
+    "year": 1972,
+    "label": "Amha",
+    "era": "Contemporary",
+    "subgenres": [
+      "ethio-jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "experimental",
+      "fun",
+      "joyful",
+      "restless",
+      "funky"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums",
+      "conga"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Mulatu Astatke - vibraphone"
+    ],
+    "rating": 7,
+    "replayability": 8,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "I Put a Spell on You",
+    "artist": "Nina Simone",
+    "album": "I Put a Spell on You",
+    "year": 1965,
+    "label": "Philips",
+    "era": "Funk/Soul Jazz",
+    "subgenres": [
+      "soul jazz",
+      "blues",
+      "vocal jazz"
+    ],
+    "moods": [
+      "bluesy",
+      "sexy",
+      "passionate"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums",
+      "strings"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - vocals, piano"
+    ],
+    "rating": 9,
+    "replayability": 10,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "The First Time Ever I Saw Your Face",
+    "artist": "Roberta Flack",
+    "album": "First Take",
+    "year": 1969,
+    "label": "Atlantic",
+    "era": "Contemporary",
+    "subgenres": [
+      "soul jazz",
+      "vocal jazz",
+      "r&b"
+    ],
+    "moods": [
+      "pretty",
+      "beautiful",
+      "lovely",
+      "gentle"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Roberta Flack - vocals"
+    ],
+    "rating": 5,
+    "replayability": 5,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Blues for the Orient",
+    "artist": "Yusef Lateef",
+    "album": "Eastern Sounds",
+    "year": 1961,
+    "label": "Moodsville",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "world jazz",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "sexy",
+      "restless",
+      "joyful"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Yusef Lateef - tenor saxophone"
+    ],
+    "rating": 6,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "It Could Happen to You",
+    "artist": "Ryo Fukui",
+    "album": "Scenery",
+    "year": 1976,
+    "label": "Three Blind Mice",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio"
+    ],
+    "moods": [
+      "pretty",
+      "restless",
+      "joyful",
+      "fun",
+      "cute",
+      "corny"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ryo Fukui - piano"
+    ],
+    "rating": 4,
+    "replayability": 2,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Wig Wise",
+    "artist": "Duke Ellington",
+    "album": "... And His Mother Called Him Bill",
+    "year": 1967,
+    "label": "RCA Victor",
+    "era": "Swing",
+    "subgenres": [
+      "big band",
+      "swing"
+    ],
+    "moods": [
+      "restless",
+      "joyful",
+      "fun"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "trombone",
+      "saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano",
+      "Johnny Hodges - alto saxophone"
+    ],
+    "rating": 5,
+    "replayability": 3,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Re: Person I Knew",
+    "artist": "Bill Evans Trio",
+    "album": "Alone",
+    "year": 1968,
+    "label": "Verve",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "cool jazz",
+      "piano trio"
+    ],
+    "moods": [
+      "pretty",
+      "beautiful",
+      "cool"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "rating": 7,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Misty",
+    "artist": "Sarah Vaughan",
+    "album": "After Hours with Sarah Vaughan",
+    "year": 1961,
+    "label": "Roulette",
+    "era": "Swing",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "pretty",
+      "beautiful",
+      "corny"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums",
+      "strings"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sarah Vaughan - vocals"
+    ],
+    "rating": 6,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Little Sunflower",
+    "artist": "Freddie Hubbard",
+    "album": "Backlash",
+    "year": 1966,
+    "label": "Atlantic",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "post-bop"
+    ],
+    "moods": [
+      "sexy",
+      "pretty",
+      "lovely",
+      "joyful",
+      "peaceful",
+      "atmospheric"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet"
+    ],
+    "rating": 8.5,
+    "replayability": 8.5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Danny Boy",
+    "artist": "Ben Webster",
+    "album": "My Man",
+    "year": 1971,
+    "label": "SteepleChase",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "tenor ballad"
+    ],
+    "moods": [
+      "sexy",
+      "romantic",
+      "pretty",
+      "lovely",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ben Webster - tenor saxophone"
+    ],
+    "rating": 6,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Nefertiti",
+    "artist": "Miles Davis",
+    "album": "Nefertiti",
+    "year": 1968,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz"
+    ],
+    "moods": [
+      "cool",
+      "experimental"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano"
+    ],
+    "rating": 3,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Feeling Good",
+    "artist": "Nina Simone",
+    "album": "I Put a Spell on You",
+    "year": 1965,
+    "label": "Philips",
+    "era": "Funk/Soul Jazz",
+    "subgenres": [
+      "soul jazz",
+      "vocal jazz"
+    ],
+    "moods": [
+      "passionate",
+      "sexy"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums",
+      "brass",
+      "strings"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - vocals"
+    ],
+    "rating": 3,
+    "replayability": 3,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Haitian Fight Song",
+    "artist": "Mingus Big Band",
+    "album": "Gunslinging Bird",
+    "year": 1995,
+    "label": "Dreyfus Jazz",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "big band",
+      "blues"
+    ],
+    "moods": [
+      "fun",
+      "restless",
+      "passionate",
+      "intense",
+      "energetic"
+    ],
+    "instrumentation": [
+      "big band",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "big band",
+    "tempo": "medium-fast",
+    "energy": 8,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charles Mingus (composer)"
+    ],
+    "rating": 8,
+    "replayability": 9,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Say It Over and Over Again",
+    "artist": "Frank Sinatra",
+    "album": "The Voice of Frank Sinatra",
+    "year": 1946,
+    "label": "Columbia",
+    "era": "Swing",
+    "subgenres": [
+      "vocal jazz",
+      "swing",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "pretty",
+      "lush",
+      "joyful"
+    ],
+    "instrumentation": [
+      "vocals",
+      "strings",
+      "brass",
+      "piano",
+      "bass"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Frank Sinatra - vocals"
+    ],
+    "rating": 5,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Strange Fruit",
+    "artist": "Billie Holiday",
+    "album": "Strange Fruit",
+    "year": 1939,
+    "label": "Commodore",
+    "era": "Swing",
+    "subgenres": [
+      "vocal jazz",
+      "blues",
+      "swing"
+    ],
+    "moods": [
+      "dark",
+      "spacious",
+      "atmospheric"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "clarinet"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Billie Holiday - vocals"
+    ],
+    "rating": 6,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Almost Blue",
+    "artist": "Chet Baker",
+    "album": "Almost Blue",
+    "year": 1988,
+    "label": "Enja",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "ballad",
+      "vocal jazz"
+    ],
+    "moods": [
+      "pretty",
+      "spacious",
+      "lush",
+      "bittersweet",
+      "melancholic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Chet Baker - trumpet, vocals"
+    ],
+    "rating": 7.5,
+    "replayability": 7,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Autumn Leaves",
+    "artist": "Ryo Fukui",
+    "album": "Scenery",
+    "year": 1976,
+    "label": "Three Blind Mice",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio",
+      "standard"
+    ],
+    "moods": [
+      "fun",
+      "lovely",
+      "cool",
+      "bluesy"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ryo Fukui - piano"
+    ],
+    "rating": 6,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Whisper Not",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "album": "Whisper Not",
+    "year": 1962,
+    "label": "Limelight",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "bluesy",
+      "experimental"
+    ],
+    "instrumentation": [
+      "drums",
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass"
+    ],
+    "primary_instrument": "drums",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Art Blakey - drums",
+      "Lee Morgan - trumpet"
+    ],
+    "rating": 2,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Stella by Starlight",
+    "artist": "Miles Davis",
+    "album": "My Funny Valentine: Miles Davis in Concert",
+    "year": 1965,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "post-bop",
+      "standard"
+    ],
+    "moods": [
+      "bittersweet",
+      "romantic",
+      "melancholic",
+      "dynamic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - tenor saxophone"
+    ],
+    "rating": 7,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Crescent",
+    "artist": "John Coltrane",
+    "album": "Crescent",
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "dark",
+      "melancholic",
+      "passionate",
+      "dynamic",
+      "spacious"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "rating": 5,
+    "replayability": 3,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Witch Hunt",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "post-bop"
+    ],
+    "moods": [
+      "energetic",
+      "joyful"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet"
+    ],
+    "rating": 1,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Ahmad's Blues",
+    "artist": "Ahmad Jamal",
+    "album": "Ahmad Jamal at the Pershing: But Not for Me",
+    "year": 1958,
+    "label": "Argo",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "blues",
+      "piano trio"
+    ],
+    "moods": [
+      "bluesy",
+      "sexy"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ahmad Jamal - piano"
+    ],
+    "rating": 1,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Cry Me a River",
+    "artist": "Julie London",
+    "album": "Julie Is Her Name",
+    "year": 1955,
+    "label": "Liberty",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "cool jazz",
+      "ballad"
+    ],
+    "moods": [
+      "sexy",
+      "melancholic",
+      "pretty",
+      "lovely"
+    ],
+    "instrumentation": [
+      "vocals",
+      "guitar",
+      "bass"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Julie London - vocals"
+    ],
+    "rating": 7,
+    "replayability": 8,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Yèkèrmo Sèw",
+    "artist": "Mulatu Astatke",
+    "album": "Ethiopiques, Vol. 4: Ethio Jazz & Musique Instrumentale 1969-1974",
+    "year": 1969,
+    "label": "Amha",
+    "era": "Contemporary",
+    "subgenres": [
+      "ethio-jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "cool",
+      "dynamic",
+      "repetitive",
+      "sexy"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums",
+      "conga"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Mulatu Astatke - vibraphone"
+    ],
+    "rating": 3,
+    "replayability": 3,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "How Long Has This Been Going On",
+    "artist": "Ben Webster",
+    "album": "Ben Webster and Oscar Peterson",
+    "year": 1972,
+    "label": "Pablo",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "tenor ballad",
+      "piano trio"
+    ],
+    "moods": [
+      "pretty",
+      "romantic",
+      "lovely",
+      "spacious",
+      "lush"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ben Webster - tenor saxophone",
+      "Oscar Peterson - piano"
+    ],
+    "rating": 5,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Someday My Prince Will Come",
+    "artist": "Miles Davis",
+    "album": "Someday My Prince Will Come",
+    "year": 1961,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "post-bop",
+      "standard"
+    ],
+    "moods": [
+      "dynamic",
+      "romantic",
+      "swinging",
+      "joyful",
+      "cute"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "John Coltrane - tenor saxophone"
+    ],
+    "rating": 5,
+    "replayability": 5,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "All Blues",
+    "artist": "Miles Davis",
+    "album": "Kind of Blue",
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "blues"
+    ],
+    "moods": [
+      "cool",
+      "spacious",
+      "atmospheric"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "alto saxophone",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Cannonball Adderley - alto saxophone",
+      "John Coltrane - tenor saxophone",
+      "Bill Evans - piano"
+    ],
+    "rating": 7,
+    "replayability": 7,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
+  },
+  {
+    "title": "Nostalgia in Times Square",
+    "artist": "Mingus Big Band",
+    "album": "Nostalgia in Times Square",
+    "year": 1994,
+    "label": "Dreyfus Jazz",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "big band",
+      "blues"
+    ],
+    "moods": [
+      "fun",
+      "bluesy",
+      "joyful"
+    ],
+    "instrumentation": [
+      "big band",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "big band",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Charles Mingus (composer)"
+    ],
+    "rating": 7,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-28",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": null
   }
 ]
