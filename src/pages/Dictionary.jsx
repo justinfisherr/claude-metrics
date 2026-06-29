@@ -347,6 +347,42 @@ const MODEL_CONCEPTS = [
     insight: 'When RMSE is significantly higher than MAE in your model, it means there are a few "catastrophic misses" — tracks the model confidently got backwards. The Biggest Misses panel shows exactly these.',
   },
   {
+    name: 'Ablation Study — "What if we removed this?"',
+    tag: 'model internals',
+    hook: 'You can\'t know if a feature actually helps unless you train the model without it and compare. That\'s an ablation study. Systematically break things. Measure what collapses.',
+    body: (
+      <>
+        <p>The word "ablate" means <em>to remove</em>. An ablation study removes one piece of the model at a time — one feature group, one data source, one architectural choice — and asks: <strong style={{color:'#fff'}}>did the model just get worse?</strong></p>
+
+        <p>It's how scientists figure out what's actually doing the work versus what's just along for the ride.</p>
+
+        <div className="concept-callout">
+          <div className="callout-row">
+            <span className="callout-label" style={{color:'#87a2c3'}}>Step 1</span>
+            <span className="callout-text">Train the full model. Record R², RMSE, MAE. This is your baseline.</span>
+          </div>
+          <div className="callout-row">
+            <span className="callout-label" style={{color:'#87a2c3'}}>Step 2</span>
+            <span className="callout-text">Remove one feature group entirely — say, all collaborator features. Retrain. Measure again.</span>
+          </div>
+          <div className="callout-row">
+            <span className="callout-label" style={{color:'#87a2c3'}}>Step 3</span>
+            <span className="callout-text">Compute ΔR² = baseline R² − ablated R². Big negative number = that feature was load-bearing. Near zero = decoration.</span>
+          </div>
+          <div className="callout-row">
+            <span className="callout-label" style={{color:'#87a2c3'}}>Step 4</span>
+            <span className="callout-text">Put the feature back. Repeat for every group. Now you have a ranked list of what actually matters.</span>
+          </div>
+        </div>
+
+        <p>The key insight: <strong style={{color:'#fff'}}>correlation in the data doesn't tell you if a feature helps.</strong> A feature can correlate with your ratings perfectly but still add zero value — because the model already learned the same thing from a different feature. Ablation cuts through the noise.</p>
+
+        <p>Compare it to this: you're cooking and you want to know if the garlic matters. You can't just ask "does garlic taste good?" — you have to make the dish without it and taste the difference.</p>
+      </>
+    ),
+    insight: 'Your ablation study (ablation.py) drops each of 8 feature groups one at a time. Collaborators dropped R² by 0.109 — the biggest single collapse. Label×Decade dropped it by 0.003 — barely a rounding error. That tells you where to invest data collection effort and where to stop worrying.',
+  },
+  {
     name: 'Feature Strength — What actually moves the needle?',
     tag: 'model internals',
     hook: 'Not all features are created equal. Some predict your ratings almost perfectly. Others are pure noise. Feature importance tells you which is which.',
