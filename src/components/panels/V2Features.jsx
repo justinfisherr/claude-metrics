@@ -55,11 +55,6 @@ export default function V2Features({ data }) {
     const bailAvg = bail.length ? (bail.reduce((s, p) => s + p.actual, 0) / bail.length).toFixed(1) : '—';
     const noBailAvg = noBail.length ? (noBail.reduce((s, p) => s + p.actual, 0) / noBail.length).toFixed(1) : '—';
 
-    const highPol = ps.filter(p => p.mood_polarity >= 3);
-    const lowPol = ps.filter(p => p.mood_polarity <= 0);
-    const highPolAvg = highPol.length ? (highPol.reduce((s, p) => s + p.actual, 0) / highPol.length).toFixed(1) : '—';
-    const lowPolAvg = lowPol.length ? (lowPol.reduce((s, p) => s + p.actual, 0) / lowPol.length).toFixed(1) : '—';
-
     return {
       artistRole: [
         { label: `As leader (${leader.length})`, value: `avg ${leaderAvg}`, color: '' },
@@ -72,10 +67,6 @@ export default function V2Features({ data }) {
       earlyBail: [
         { label: `Bailed (${bail.length})`, value: `avg ${bailAvg}`, color: 'var(--bad)' },
         { label: `Stayed (${noBail.length})`, value: `avg ${noBailAvg}`, color: '' },
-      ],
-      moodPolarity: [
-        { label: `High (≥3) (${highPol.length})`, value: `avg ${highPolAvg}`, color: 'var(--good)' },
-        { label: `Low (≤0) (${lowPol.length})`, value: `avg ${lowPolAvg}`, color: 'var(--bad)' },
       ],
     };
   }, [data]);
@@ -103,11 +94,10 @@ export default function V2Features({ data }) {
           </p>
         );
       })()}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
         <StatCard title="Artist Role" rows={stats.artistRole} />
         <StatCard title="Intro Grab" rows={stats.introGrab} />
         <StatCard title="Early Bail (<30%)" rows={stats.earlyBail} />
-        <StatCard title="Mood Polarity" rows={stats.moodPolarity} />
       </div>
     </Panel>
   );
