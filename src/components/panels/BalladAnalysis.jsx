@@ -8,9 +8,8 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 const BALLAD_SUBGENRES = ['ballad', 'piano ballad', 'tenor ballad', 'vocal ballad'];
 
 export default function BalladAnalysis({ data }) {
-  if (!data?.predictions) return null;
-
   const stats = useMemo(() => {
+    if (!data?.predictions) return null;
     const ballads = data.predictions.filter(p =>
       Array.isArray(p.subgenres) && p.subgenres.some(sg => BALLAD_SUBGENRES.includes(sg))
     );
@@ -40,7 +39,7 @@ export default function BalladAnalysis({ data }) {
     labels: ['All Ballads', 'Instrumental', 'Vocal', 'Non-Ballads'],
     datasets: [{
       label: 'Mean Rating',
-      data: [stats.ballads.mean, stats.instrumental.mean, stats.vocal.mean, stats.nonBallads.mean],
+      data: stats ? [stats.ballads.mean, stats.instrumental.mean, stats.vocal.mean, stats.nonBallads.mean] : [],
       backgroundColor: ['#87a2c3', '#ffc832', '#ff6b6b', '#50c878'],
       borderColor: ['#87a2c3', '#ffc832', '#ff6b6b', '#50c878'],
       borderWidth: 1,
@@ -65,6 +64,8 @@ export default function BalladAnalysis({ data }) {
       },
     },
   };
+
+  if (!stats) return null;
 
   const instrMean = stats.instrumental.mean ?? 0;
   const vocalMean = stats.vocal.mean ?? 0;
