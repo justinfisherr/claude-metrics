@@ -183,17 +183,23 @@ def engineer_features(tracks):
 
         row["energy_tempo"] = row["energy"] * row["tempo"]
 
-        # Artist stats (LOO)
+        # Artist stats (LOO) with Bayesian smoothing
         artist = t.get("artist", "Unknown")
         artist_entries = artist_ratings[artist]
-        if len(artist_entries) > 1:
+        n = len(artist_entries)
+        k = 15  # confidence constant (IMDb-style)
+
+        if n > 1:
             other_ratings = [r for i, r in artist_entries if i != idx]
-            row["artist_mean_rating"] = np.mean(other_ratings)
+            artist_mean = np.mean(other_ratings)
             row["artist_consistency"] = float(np.std(other_ratings)) if len(other_ratings) > 1 else 0.0
         else:
-            row["artist_mean_rating"] = global_mean
+            artist_mean = global_mean
             row["artist_consistency"] = 0.0
-        row["artist_track_count"] = len(artist_entries)
+
+        # Bayesian smoothing: blend artist mean with global mean based on sample size
+        row["artist_mean_rating"] = (n / (n + k)) * artist_mean + (k / (n + k)) * global_mean
+        row["artist_track_count"] = n
 
         # Duration bucket
         duration = (t.get("audio_features") or {}).get("duration_s", 300)
