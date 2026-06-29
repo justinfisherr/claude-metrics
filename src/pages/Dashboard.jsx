@@ -44,6 +44,7 @@ import ArtistEraPerformance from '../components/panels/ArtistEraPerformance';
 import BalladAnalysis from '../components/panels/BalladAnalysis';
 import FeatureConfidenceMetrics from '../components/panels/FeatureConfidenceMetrics';
 import DataQualityReport from '../components/panels/DataQualityReport';
+import CollaboratorNetwork from '../components/panels/CollaboratorNetwork';
 
 export default function Dashboard() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
@@ -161,6 +162,7 @@ export default function Dashboard() {
             <ModelHistory data={data} />
             <FeatureConfidenceMetrics data={data} />
             <DataQualityReport data={data} />
+            <CollaboratorNetwork />
           </section>
         )}
       </main>
