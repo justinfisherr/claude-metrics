@@ -1157,6 +1157,7 @@ PLAYLISTS = [
         "Yègellé Tezeta|Mulatu Astatke",
         "Haitian Fight Song|Mingus Big Band",
         "Nostalgia in Times Square|Mingus Big Band",
+        "Nica's Dream|Horace Silver",
         "Red Clay|Freddie Hubbard",
     ]},
     {"name": "Jazz Vocals", "id": "5MffriQAGUbFt2DcfkgYuU", "tracks": [
