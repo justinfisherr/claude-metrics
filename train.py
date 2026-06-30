@@ -1029,7 +1029,7 @@ PLAYLISTS = [
         "Chameleon|Herbie Hancock",
         "Blue Train|John Coltrane",
         "Tezeta|Mulatu Astatke",
-        "Better Git It in Your Soul|Charles Mingus",
+        "Better Get Hit In Your Soul|Charles Mingus",
         "Moanin'|Mingus Big Band",
         "It Never Entered My Mind|Miles Davis",
         "Blue in Green|Miles Davis",
@@ -1043,6 +1043,9 @@ PLAYLISTS = [
         "Wise One|John Coltrane",
         "I Put A Spell On You|Nina Simone",
         "Little Sunflower|Freddie Hubbard",
+        "Contemplation|McCoy Tyner",
+        "Red Clay|Freddie Hubbard",
+        "Fly With The Wind|McCoy Tyner",
     ]},
     {"name": "Jazz Date", "id": "6n2kibGIYXV5L3flumoiDw", "tracks": [
         "God Bless the Child|Sonny Rollins",
@@ -1074,6 +1077,8 @@ PLAYLISTS = [
         "Almost Blue|Chet Baker",
         "Stella By Starlight|Miles Davis",
         "How Long Has This Been Going On|Ben Webster",
+        "Autumn Leaves|Cannonball Adderley",
+        "Dear Old Stockholm|Stan Getz",
     ]},
     {"name": "Jazz Stank", "id": "2Dj3wiGXPwGL3RjQDa6zG5", "tracks": [
         "Better Git It in Your Soul|Charles Mingus",
@@ -1087,6 +1092,7 @@ PLAYLISTS = [
         "Yègellé Tezeta|Mulatu Astatke",
         "Haitian Fight Song|Mingus Big Band",
         "Nostalgia in Times Square|Mingus Big Band",
+        "Red Clay|Freddie Hubbard",
     ]},
     {"name": "Jazz Vocals", "id": "5MffriQAGUbFt2DcfkgYuU", "tracks": [
         "My Funny Valentine|Chet Baker",
@@ -1181,6 +1187,13 @@ PLAYLISTS = [
         "Autumn Leaves|Ryo Fukui",
         "Stella By Starlight|Miles Davis",
         "How Long Has This Been Going On|Ben Webster",
+        "Contemplation|McCoy Tyner",
+        "Red Clay|Freddie Hubbard",
+        "Ceora|Lee Morgan",
+        "Autumn Leaves|Cannonball Adderley",
+        "Rising Son|Takuya Kuroda",
+        "Dear Old Stockholm|Stan Getz",
+        "Nica's Dream|Horace Silver",
     ]},
 ]
 
