@@ -640,8 +640,8 @@ def train_models(X, y):
         "best_alpha": float(ridge.alpha_),
     }
 
-    rf = RandomForestRegressor(n_estimators=50, max_depth=3, min_samples_leaf=5, random_state=42)
-    rf_preds = cross_val_predict(rf, X_scaled, y, cv=LeaveOneOut())
+    rf = RandomForestRegressor(n_estimators=50, max_depth=3, min_samples_leaf=5, random_state=42, n_jobs=-1)
+    rf_preds = cross_val_predict(rf, X_scaled, y, cv=LeaveOneOut(), n_jobs=-1)
     rf.fit(X_scaled, y)
 
     rf_metrics = {
