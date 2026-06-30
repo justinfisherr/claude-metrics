@@ -1,0 +1,50 @@
+Ablation Study Results — v6.00 Baseline
+========================================================================
+
+Baseline (v6.00):
+  Ridge: R²=0.2478, RMSE=1.9717, MAE=1.6050
+  RF:    R²=0.2374, RMSE=1.9854, MAE=1.6048
+
+Without Artist×Era/Decade (v6.01):
+  Ridge: R²=0.1847, RMSE=2.0529, MAE=1.6763  | ΔR²=-0.0631  ΔRMSE=+0.0812
+  RF:    R²=0.2299, RMSE=1.9951, MAE=1.6040  | ΔR²=-0.0075  ΔRMSE=+0.0097
+
+Without Ballad Splits (v6.02):
+  Ridge: R²=0.2448, RMSE=1.9757, MAE=1.6069  | ΔR²=-0.0030  ΔRMSE=+0.0040
+  RF:    R²=0.2360, RMSE=1.9872, MAE=1.6054  | ΔR²=-0.0014  ΔRMSE=+0.0018
+
+Without Enhanced Collaborators (v6.03):
+  Ridge: R²=0.1385, RMSE=2.1102, MAE=1.7378  | ΔR²=-0.1093  ΔRMSE=+0.1385
+  RF:    R²=0.1973, RMSE=2.0369, MAE=1.6809  | ΔR²=-0.0401  ΔRMSE=+0.0515
+
+Without Label×Decade (v6.04):
+  Ridge: R²=0.2507, RMSE=1.9680, MAE=1.5967  | ΔR²=+0.0029  ΔRMSE=-0.0037
+  RF:    R²=0.2468, RMSE=1.9731, MAE=1.6015  | ΔR²=+0.0094  ΔRMSE=-0.0123
+
+Without Confidence Metrics (v6.05):
+  Ridge: R²=0.2502, RMSE=1.9686, MAE=1.6023  | ΔR²=+0.0024  ΔRMSE=-0.0031
+  RF:    R²=0.2354, RMSE=1.9880, MAE=1.6066  | ΔR²=-0.0020  ΔRMSE=+0.0026
+
+Without Recency (v6.06):
+  Ridge: R²=0.2340, RMSE=1.9898, MAE=1.6229  | ΔR²=-0.0138  ΔRMSE=+0.0181
+  RF:    R²=0.2259, RMSE=2.0003, MAE=1.6221  | ΔR²=-0.0115  ΔRMSE=+0.0149
+
+Without Musical Interactions (v6.07):
+  Ridge: R²=0.2453, RMSE=1.9751, MAE=1.6042  | ΔR²=-0.0025  ΔRMSE=+0.0034
+  RF:    R²=0.2409, RMSE=1.9809, MAE=1.6023  | ΔR²=+0.0035  ΔRMSE=-0.0045
+
+Without Missingness Indicators (v6.08):
+  Ridge: R²=0.2502, RMSE=1.9687, MAE=1.6019  | ΔR²=+0.0024  ΔRMSE=-0.0030
+  RF:    R²=0.2374, RMSE=1.9853, MAE=1.6041  | ΔR²=+0.0000  ΔRMSE=-0.0001
+
+========================================================================
+SUMMARY — Feature groups ranked by Ridge R² impact (drop = removal hurts more):
+
+  1. Enhanced Collaborators (5 features): ΔR²=-0.1093
+  2. Artist×Era/Decade (3 features): ΔR²=-0.0631
+  3. Recency (2 features): ΔR²=-0.0138
+  4. Ballad Splits (6 features): ΔR²=-0.0030
+  5. Musical Interactions (14 features): ΔR²=-0.0025
+  6. Confidence Metrics (5 features): ΔR²=+0.0024
+  7. Missingness Indicators (6 features): ΔR²=+0.0024
+  8. Label×Decade (4 features): ΔR²=+0.0029

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-06-30T09:18:13.772435",
-    "version": "6.03",
-    "is_major": false,
+    "generated_at": "2026-06-30T09:20:52.609496",
+    "version": "7.00",
+    "is_major": true,
     "total_tracks": 176,
     "total_albums": 3,
     "subgenre_threshold": 3,
@@ -9945,6 +9945,16 @@
       "mae": 1.605,
       "best_k": 4,
       "silhouette_score": 0.0918
+    },
+    {
+      "run_date": "2026-06-30",
+      "dataset_size": 176,
+      "best_model": "random_forest",
+      "r_squared": 0.4653,
+      "rmse": 1.7034,
+      "mae": 1.3317,
+      "best_k": 3,
+      "silhouette_score": 0.0907
     },
     {
       "run_date": "2026-06-30",

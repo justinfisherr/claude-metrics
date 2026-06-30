@@ -1,5 +1,5 @@
 {
-  "current_version": "6.03",
+  "current_version": "7.00",
   "versions": [
     {
       "version": "1.00",
@@ -795,6 +795,29 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "7.00",
+      "name": "Mewtwo",
+      "major": 7,
+      "minor": 0,
+      "run_date": "2026-06-30T09:20:52.618490",
+      "dataset_size": 176,
+      "best_model": "random_forest",
+      "r_squared": 0.4653,
+      "rmse": 1.7034,
+      "mae": 1.3317,
+      "feature_count": 161,
+      "best_k": 3,
+      "notes": "",
+      "changelog": [],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v7.00/dashboard-data.json",
+        "model": "versions/v7.00/model.joblib",
+        "training_data": "versions/v7.00/training-data.md"
       }
     }
   ]
