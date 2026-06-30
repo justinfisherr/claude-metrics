@@ -149,11 +149,38 @@
 }
 
 .memory-comment {
-  margin: 0;
+  margin: 0 0 1rem 0;
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   line-height: 1.6;
   font-style: italic;
+}
+
+.memory-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(93, 155, 224, 0.1);
+}
+
+.feature-badge {
+  display: inline-block;
+  background: rgba(93, 155, 224, 0.12);
+  border: 1px solid rgba(93, 155, 224, 0.2);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.35rem 0.65rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.feature-badge:hover {
+  background: rgba(93, 155, 224, 0.2);
+  border-color: rgba(93, 155, 224, 0.4);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 768px) {

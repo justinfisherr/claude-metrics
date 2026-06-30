@@ -64,6 +64,35 @@ export default function Memories() {
                 </div>
                 <div className="memory-content">
                   <p className="memory-comment">{track.notes}</p>
+                  {track.audio_features && (
+                    <div className="memory-features">
+                      {track.audio_features.danceability !== undefined && (
+                        <span className="feature-badge" title="Danceability">
+                          💃 {(track.audio_features.danceability * 100).toFixed(0)}
+                        </span>
+                      )}
+                      {track.audio_features.spotify_energy !== undefined && (
+                        <span className="feature-badge" title="Energy">
+                          ⚡ {(track.audio_features.spotify_energy * 100).toFixed(0)}
+                        </span>
+                      )}
+                      {track.audio_features.acousticness !== undefined && (
+                        <span className="feature-badge" title="Acousticness">
+                          🎸 {(track.audio_features.acousticness * 100).toFixed(0)}
+                        </span>
+                      )}
+                      {track.audio_features.tempo_bpm && (
+                        <span className="feature-badge" title="Tempo">
+                          🎵 {track.audio_features.tempo_bpm} BPM
+                        </span>
+                      )}
+                      {track.audio_features.instrumentalness !== undefined && (
+                        <span className="feature-badge" title="Instrumentalness">
+                          🎹 {(track.audio_features.instrumentalness * 100).toFixed(0)}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))
