@@ -1314,7 +1314,9 @@ def sync_recco_features(entries):
         batch = spotify_ids[batch_start:batch_start + 40]
         url = f"https://api.reccobeats.com/v1/audio-features?ids={','.join(batch)}"
         try:
-            with urllib.request.urlopen(url, timeout=10) as resp:
+            req = urllib.request.Request(url)
+            req.add_header('User-Agent', 'Mozilla/5.0')
+            with urllib.request.urlopen(req, timeout=10) as resp:
                 data = json.loads(resp.read())
         except Exception as e:
             print(f"  ReccoBeats fetch error: {e}")
