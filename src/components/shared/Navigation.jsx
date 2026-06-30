@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const PAGES = [
   { path: '/', label: 'Dashboard' },
   { path: '/wrapped', label: 'Wrapped' },
+  { path: '/memories', label: 'Memories' },
   { path: '/compare', label: 'Compare Models' },
   { path: '/review', label: 'Review' },
   { path: '/dictionary', label: 'Dictionary' },
