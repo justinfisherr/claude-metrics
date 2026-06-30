@@ -1,5 +1,5 @@
 {
-  "current_version": "6.04",
+  "current_version": "6.05",
   "versions": [
     {
       "version": "1.00",
@@ -809,6 +809,28 @@
       "rmse": 1.9751,
       "mae": 1.5776,
       "feature_count": 157,
+      "best_k": 4,
+      "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "6.05",
+      "name": "",
+      "major": 6,
+      "minor": 5,
+      "run_date": "2026-06-30T08:51:17.431980",
+      "dataset_size": 176,
+      "best_model": "random_forest",
+      "r_squared": 0.4305,
+      "rmse": 1.7579,
+      "mae": 1.3863,
+      "feature_count": 161,
       "best_k": 4,
       "notes": "",
       "changelog": [],

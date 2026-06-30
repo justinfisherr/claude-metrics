@@ -130,6 +130,22 @@ def engineer_features(tracks):
         artist_era_ratings.setdefault(key_ae, []).append((i, t["rating"]))
         label_decade_ratings.setdefault(key_ld, []).append((i, t["rating"]))
 
+    # Pre-compute era, instrument, instrument combo, and label ratings for LOO
+    era_ratings = {}
+    instrument_ratings = {}
+    instrument_combo_ratings = {}
+    label_ratings = {}
+    for i, t in enumerate(tracks):
+        era = t.get("era", "Unknown")
+        primary_instrument = t.get("primary_instrument", "Unknown")
+        instr_tuple = tuple(sorted(set(t.get("instrumentation", []))))
+        label = t.get("label", "Unknown")
+
+        era_ratings.setdefault(era, []).append((i, t["rating"]))
+        instrument_ratings.setdefault(primary_instrument, []).append((i, t["rating"]))
+        instrument_combo_ratings.setdefault(instr_tuple, []).append((i, t["rating"]))
+        label_ratings.setdefault(label, []).append((i, t["rating"]))
+
     # Pre-compute player stats for collaborator enhancements (Feature 3)
     player_track_count = {}
     player_rating_pairs = {}
@@ -302,6 +318,50 @@ def engineer_features(tracks):
             row["artist_recent_period_delta"] = float(recent_mean - overall_mean)
         else:
             row["artist_recent_period_delta"] = 0.0
+
+        # Era rating (LOO Bayesian smoothed)
+        era = t.get("era", "Unknown")
+        era_entries = era_ratings.get(era, [])
+        n_era = len(era_entries)
+        if n_era > 1:
+            era_other = [r for i, r in era_entries if i != idx]
+            era_mean = np.mean(era_other) if era_other else global_mean
+        else:
+            era_mean = global_mean
+        row["era_bayes_rating"] = float((n_era / (n_era + k)) * era_mean + (k / (n_era + k)) * global_mean)
+
+        # Instrument rating (LOO Bayesian smoothed)
+        primary_instrument = t.get("primary_instrument", "Unknown")
+        instr_entries = instrument_ratings.get(primary_instrument, [])
+        n_instr = len(instr_entries)
+        if n_instr > 1:
+            instr_other = [r for i, r in instr_entries if i != idx]
+            instr_mean = np.mean(instr_other) if instr_other else global_mean
+        else:
+            instr_mean = global_mean
+        row["instrument_bayes_rating"] = float((n_instr / (n_instr + k)) * instr_mean + (k / (n_instr + k)) * global_mean)
+
+        # Instrument combination rating (LOO Bayesian smoothed)
+        instr_tuple = tuple(sorted(set(t.get("instrumentation", []))))
+        combo_entries = instrument_combo_ratings.get(instr_tuple, [])
+        n_combo = len(combo_entries)
+        if n_combo > 1:
+            combo_other = [r for i, r in combo_entries if i != idx]
+            combo_mean = np.mean(combo_other) if combo_other else global_mean
+        else:
+            combo_mean = global_mean
+        row["instrument_combo_bayes_rating"] = float((n_combo / (n_combo + k)) * combo_mean + (k / (n_combo + k)) * global_mean)
+
+        # Label rating (LOO Bayesian smoothed)
+        label = t.get("label", "Unknown")
+        label_entries = label_ratings.get(label, [])
+        n_label = len(label_entries)
+        if n_label > 1:
+            label_other = [r for i, r in label_entries if i != idx]
+            label_mean = np.mean(label_other) if label_other else global_mean
+        else:
+            label_mean = global_mean
+        row["label_bayes_rating"] = float((n_label / (n_label + k)) * label_mean + (k / (n_label + k)) * global_mean)
 
         # Duration bucket
         duration = (t.get("audio_features") or {}).get("duration_s", 300)
@@ -488,6 +548,11 @@ def readable_name(feat):
         "artist_decade_bayes_rating": "Artist Avg Rating (Decade)",
         "artist_era_bayes_rating": "Artist Avg Rating (Era)",
         "artist_recent_period_delta": "Artist Recent vs Overall Delta",
+        # Category Bayesian ratings
+        "era_bayes_rating": "Era Avg Rating",
+        "instrument_bayes_rating": "Instrument Avg Rating",
+        "instrument_combo_bayes_rating": "Instrument Combo Avg Rating",
+        "label_bayes_rating": "Label Avg Rating",
         # Feature 2: Ballad splits
         "is_ballad": "Is Ballad",
         "instrumental_ballad": "Instrumental Ballad",
