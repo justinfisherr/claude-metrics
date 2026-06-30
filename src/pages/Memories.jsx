@@ -11,7 +11,7 @@ export default function Memories() {
     fetch('training-data.json')
       .then(r => r.json())
       .then(data => {
-        const withNotes = data.filter(t => t.notes || t.comments).sort((a, b) => {
+        const withNotes = data.filter(t => t.notes).sort((a, b) => {
           if (sortBy === 'date') {
             return new Date(b.date_added || 0) - new Date(a.date_added || 0);
           } else if (sortBy === 'rating') {
@@ -63,7 +63,7 @@ export default function Memories() {
                   </div>
                 </div>
                 <div className="memory-content">
-                  <p className="memory-comment">{track.notes || track.comments}</p>
+                  <p className="memory-comment">{track.notes}</p>
                 </div>
               </div>
             ))
