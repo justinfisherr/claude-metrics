@@ -24,8 +24,10 @@
     "energy": 9,
     "harmonic_complexity": "medium",
     "key_players": [
+      "McCoy Tyner - piano",
       "John Coltrane - soprano saxophone",
-      "McCoy Tyner - piano"
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
     ],
     "notable_qualities": [
       "soprano sax debut",
@@ -95,7 +97,10 @@
     "energy": 2,
     "harmonic_complexity": "high",
     "key_players": [
-      "Yusef Lateef - tenor saxophone"
+      "Yusef Lateef - tenor saxophone",
+      "Barry Harris - piano",
+      "Ernie Farrow - bass",
+      "Lex Humphries - drums"
     ],
     "notable_qualities": [
       "lush harmonic voicings",
@@ -720,9 +725,11 @@
     "energy": 2,
     "harmonic_complexity": "high",
     "key_players": [
+      "John Handy - alto saxophone",
       "Charles Mingus - bass and composer",
       "Booker Ervin - tenor saxophone",
-      "John Handy - alto saxophone"
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
     ],
     "notable_qualities": [
       "elegy for Lester Young",
@@ -2250,7 +2257,10 @@
     "energy": 1,
     "harmonic_complexity": "medium",
     "key_players": [
-      "Chet Baker - vocals and trumpet"
+      "Chet Baker - vocals and trumpet",
+      "Russ Freeman - piano",
+      "Carson Smith - bass",
+      "Bob Neel - drums"
     ],
     "notable_qualities": [
       "first vocalist track to score 8+",
@@ -2382,7 +2392,9 @@
     "energy": 2,
     "harmonic_complexity": "high",
     "key_players": [
-      "Bill Evans - piano"
+      "Bill Evans - piano",
+      "Eddie Gomez - bass",
+      "Marty Morell - drums"
     ],
     "notable_qualities": [
       "Michel Legrand standard",
@@ -3926,7 +3938,9 @@
     "energy": 6,
     "harmonic_complexity": "medium",
     "key_players": [
-      "Ryo Fukui - piano"
+      "Ryo Fukui - piano",
+      "Satoshi Denpo - bass",
+      "Yoshinori Fukui - drums"
     ],
     "notable_qualities": [
       "very cool",
@@ -4047,7 +4061,10 @@
     "energy": 2,
     "harmonic_complexity": "medium",
     "key_players": [
-      "Yusef Lateef - oboe"
+      "Yusef Lateef - oboe",
+      "Barry Harris - piano",
+      "Ernie Farrow - bass",
+      "Lex Humphries - drums"
     ],
     "notable_qualities": [
       "same album as Love Theme from Spartacus",
@@ -6639,7 +6656,11 @@
     "energy": 2,
     "harmonic_complexity": "medium",
     "key_players": [
-      "Stan Getz - tenor saxophone"
+      "Stan Getz - tenor saxophone",
+      "Conte Candoli - trumpet",
+      "Lou Levy - piano",
+      "Leroy Vinnegar - bass",
+      "Shelly Manne - drums"
     ],
     "notable_qualities": [
       "lyrical Getz",
@@ -8097,7 +8118,10 @@
     "energy": 3,
     "harmonic_complexity": "medium",
     "key_players": [
-      "Dexter Gordon - tenor saxophone"
+      "Dexter Gordon - tenor saxophone",
+      "Sonny Clark - piano",
+      "Butch Warren - bass",
+      "Billy Higgins - drums"
     ],
     "rating": 7.5,
     "replayability": 6,
@@ -8362,7 +8386,10 @@
     "harmonic_complexity": "high",
     "key_players": [
       "Wayne Shorter - tenor saxophone",
-      "Herbie Hancock - piano"
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
     ],
     "rating": 7,
     "replayability": 7,
@@ -9022,7 +9049,11 @@
     "energy": 4,
     "harmonic_complexity": "medium",
     "key_players": [
-      "Freddie Hubbard - trumpet"
+      "Freddie Hubbard - trumpet",
+      "James Spaulding - alto saxophone",
+      "Harold Mabern - piano",
+      "Bob Cunningham - bass",
+      "Pete La Roca - drums"
     ],
     "rating": 8.5,
     "replayability": 8.5,
