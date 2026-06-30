@@ -1017,6 +1017,10 @@ def save_version_artifacts(version_str, manifest, metrics_summary, is_major, nam
         "mae": metrics_summary["mae"],
         "feature_count": metrics_summary["feature_count"],
         "best_k": metrics_summary["best_k"],
+        "ridge_r_squared": metrics_summary["ridge_r_squared"],
+        "ridge_rmse": metrics_summary["ridge_rmse"],
+        "rf_r_squared": metrics_summary["rf_r_squared"],
+        "rf_rmse": metrics_summary["rf_rmse"],
         "notes": notes,
         "changelog": changelog or [],
         "is_major": is_major,
@@ -1485,6 +1489,10 @@ def main():
         "mae": best_metrics["mae"],
         "best_k": cluster_results["best_k"],
         "silhouette_score": max(cluster_results["silhouette_scores"]) if cluster_results["silhouette_scores"] else 0,
+        "ridge_r_squared": model_results["ridge"]["r_squared"],
+        "ridge_rmse": model_results["ridge"]["rmse"],
+        "rf_r_squared": model_results["random_forest"]["r_squared"],
+        "rf_rmse": model_results["random_forest"]["rmse"],
     })
 
     manifest = load_versions()
@@ -1557,6 +1565,10 @@ def main():
         "mae": best_metrics["mae"],
         "feature_count": X.shape[1],
         "best_k": cluster_results["best_k"],
+        "ridge_r_squared": model_results["ridge"]["r_squared"],
+        "ridge_rmse": model_results["ridge"]["rmse"],
+        "rf_r_squared": model_results["random_forest"]["r_squared"],
+        "rf_rmse": model_results["random_forest"]["rmse"],
     }
     save_version_artifacts(new_version, manifest, metrics_summary,
                            is_major=args.major, name=args.name, notes=args.notes,

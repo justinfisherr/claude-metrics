@@ -338,12 +338,13 @@ function TimelinePanel({ manifest }) {
   if (versions.length < 2) return null;
 
   const labels = versions.map(v => `v${v.version}`);
+  const hasPerModel = versions.some(v => v.ridge_r_squared != null);
 
-  const data = {
+  const bestData = {
     labels,
     datasets: [
       {
-        label: 'R²',
+        label: 'R² (best)',
         data: versions.map(v => v.r_squared),
         borderColor: '#50c878',
         backgroundColor: 'rgba(80,200,120,0.1)',
@@ -361,11 +362,29 @@ function TimelinePanel({ manifest }) {
     ],
   };
 
-  const options = {
+  const bestOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
     plugins: {
       legend: { labels: { color: '#87a2c3' } },
+      tooltip: {
+        backgroundColor: '#0f1f38',
+        borderColor: 'rgba(93,155,224,0.26)',
+        borderWidth: 1,
+        padding: 10,
+        titleColor: '#fff',
+        bodyColor: '#d7e6f7',
+        callbacks: {
+          afterTitle: (items) => {
+            const idx = items[0]?.dataIndex;
+            if (idx == null) return '';
+            const v = versions[idx];
+            if (!v.best_model) return '';
+            return `algo: ${v.best_model === 'random_forest' ? 'Random Forest' : 'Ridge'}`;
+          },
+        },
+      },
     },
     scales: {
       x: {
@@ -387,15 +406,82 @@ function TimelinePanel({ manifest }) {
     },
   };
 
+  const perModelData = {
+    labels,
+    datasets: [
+      {
+        label: 'Ridge R²',
+        data: versions.map(v => v.ridge_r_squared ?? null),
+        borderColor: 'rgba(74,158,255,0.92)',
+        backgroundColor: 'rgba(74,158,255,0.1)',
+        tension: 0.3,
+        spanGaps: false,
+        pointRadius: 4,
+      },
+      {
+        label: 'Random Forest R²',
+        data: versions.map(v => v.rf_r_squared ?? null),
+        borderColor: 'rgba(255,180,50,0.92)',
+        backgroundColor: 'rgba(255,180,50,0.1)',
+        tension: 0.3,
+        spanGaps: false,
+        pointRadius: 4,
+      },
+    ],
+  };
+
+  const perModelOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { labels: { color: '#87a2c3' } },
+      tooltip: {
+        backgroundColor: '#0f1f38',
+        borderColor: 'rgba(93,155,224,0.26)',
+        borderWidth: 1,
+        padding: 10,
+        titleColor: '#fff',
+        bodyColor: '#d7e6f7',
+      },
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(93,155,224,0.1)' },
+        ticks: { color: '#87a2c3' },
+      },
+      y: {
+        title: { display: true, text: 'R²', color: '#87a2c3' },
+        grid: { color: 'rgba(93,155,224,0.1)' },
+        ticks: { color: '#87a2c3' },
+      },
+    },
+  };
+
   return (
     <div className="panel" style={{ padding: '1.2rem', marginBottom: '1.5rem' }}>
       <h2 style={{
         fontSize: '0.78rem', fontWeight: 800, textTransform: 'uppercase',
         letterSpacing: '0.08em', color: 'var(--muted)', margin: '0 0 1rem',
       }}>Version Timeline</h2>
-      <div className="timeline-wrap">
-        <Line data={data} options={options} />
+
+      <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
+        Best Model (hover shows algo)
+      </p>
+      <div className="timeline-wrap" style={{ marginBottom: '1.5rem' }}>
+        <Line data={bestData} options={bestOptions} />
       </div>
+
+      {hasPerModel && (
+        <>
+          <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
+            Ridge vs Random Forest R²
+          </p>
+          <div className="timeline-wrap">
+            <Line data={perModelData} options={perModelOptions} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
