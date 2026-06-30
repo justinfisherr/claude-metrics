@@ -6,12 +6,27 @@ export default function Memories() {
   const [tracks, setTracks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState('date');
+  const [clusterMap, setClusterMap] = useState({});
 
   useEffect(() => {
-    fetch('training-data.json')
-      .then(r => r.json())
-      .then(data => {
-        const withNotes = data.filter(t => t.notes).sort((a, b) => {
+    Promise.all([
+      fetch('training-data.json').then(r => r.json()),
+      fetch('dashboard-data.json').then(r => r.json())
+    ])
+      .then(([trainingData, dashboardData]) => {
+        const clusters = {};
+        const clusterProfiles = dashboardData.clusters.cluster_profiles;
+
+        dashboardData.predictions.forEach(pred => {
+          const key = `${pred.title}|${pred.artist}`;
+          clusters[key] = {
+            id: pred.cluster,
+            label: clusterProfiles[pred.cluster]?.label || 'Unknown'
+          };
+        });
+        setClusterMap(clusters);
+
+        const withNotes = trainingData.filter(t => t.notes).sort((a, b) => {
           if (sortBy === 'date') {
             return new Date(b.date_added || 0) - new Date(a.date_added || 0);
           } else if (sortBy === 'rating') {
@@ -58,6 +73,9 @@ export default function Memories() {
                   {track.album && <p className="memory-album">{track.album}</p>}
                   <div className="memory-meta">
                     <span className="memory-rating">★ {track.rating}</span>
+                    {clusterMap[`${track.title}|${track.artist}`] && (
+                      <span className="memory-cluster">{clusterMap[`${track.title}|${track.artist}`].label}</span>
+                    )}
                     {track.year && <span className="memory-year">{track.year}</span>}
                     {track.date_added && <span className="memory-date">{new Date(track.date_added).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>}
                   </div>

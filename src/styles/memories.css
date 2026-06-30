@@ -136,6 +136,15 @@
   font-weight: 500;
 }
 
+.memory-cluster {
+  background: rgba(93, 155, 224, 0.15);
+  color: rgba(93, 155, 224, 0.9);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 .memory-year,
 .memory-date {
   color: var(--muted);
