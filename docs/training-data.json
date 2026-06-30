@@ -10003,5 +10003,699 @@
       "speechiness": 0.0683,
       "spotify_valence": 0.559
     }
+  },
+  {
+    "title": "Miles Runs the Voodoo Down",
+    "artist": "Miles Davis",
+    "album": "Bitches Brew",
+    "year": 1970,
+    "label": "Columbia",
+    "era": "Electric",
+    "subgenres": [
+      "electric jazz",
+      "jazz fusion",
+      "psychedelic jazz"
+    ],
+    "moods": [
+      "hypnotic",
+      "dark",
+      "raw",
+      "trippy"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "electric guitar",
+      "electric piano",
+      "bass",
+      "drums",
+      "percussion"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 5,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - soprano saxophone",
+      "Bennie Maupin - bass clarinet",
+      "John McLaughlin - electric guitar",
+      "Chick Corea - electric piano",
+      "Joe Zawinul - electric piano",
+      "Dave Holland - bass",
+      "Harvey Brooks - electric bass",
+      "Jack DeJohnette - drums",
+      "Lenny White - drums"
+    ],
+    "rating": 5,
+    "replayability": 4,
+    "playthrough": 1.0,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "0n8sBhOtUb6pDFKjpxfakj",
+    "audio_features": {
+      "duration_s": 841,
+      "popularity": 37,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "The Blessing",
+    "artist": "Ornette Coleman",
+    "album": "The Shape of Jazz to Come",
+    "year": 1959,
+    "label": "Atlantic",
+    "era": "Free Jazz",
+    "subgenres": [
+      "free jazz",
+      "avant-garde jazz"
+    ],
+    "moods": [
+      "raw",
+      "tense",
+      "searching",
+      "experimental"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Ornette Coleman - alto saxophone",
+      "Don Cherry - trumpet",
+      "Charlie Haden - bass",
+      "Billy Higgins - drums"
+    ],
+    "rating": 3,
+    "replayability": 2,
+    "playthrough": 1.0,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "09AXI44IaJq2aeIFpfueAF",
+    "audio_features": {
+      "duration_s": 286,
+      "popularity": 25,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Contemplation",
+    "artist": "McCoy Tyner",
+    "album": "The Real McCoy",
+    "year": 1967,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz",
+      "hard bop"
+    ],
+    "moods": [
+      "spiritual",
+      "introspective",
+      "intense",
+      "searching"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Joe Henderson - tenor saxophone",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "rating": 9,
+    "replayability": 9,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "55GY76amiMF9wjAeto5vco",
+    "audio_features": {
+      "duration_s": 552,
+      "popularity": 40,
+      "source": "spotify"
+    },
+    "comments": "Something about his piano playing does it for me. It's spacious and a bit dark. It's the same feeling I got with My Favorite Things."
+  },
+  {
+    "title": "Belonging",
+    "artist": "Keith Jarrett",
+    "album": "Belonging",
+    "year": 1974,
+    "label": "ECM",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "chamber jazz",
+      "ECM"
+    ],
+    "moods": [
+      "melancholic",
+      "introspective",
+      "delicate"
+    ],
+    "instrumentation": [
+      "piano",
+      "saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Keith Jarrett - piano",
+      "Jan Garbarek - soprano and tenor saxophone",
+      "Palle Danielsson - bass",
+      "Jon Christensen - drums"
+    ],
+    "rating": 2,
+    "replayability": 1,
+    "playthrough": 1.0,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "0LmYJTGwD2Qc3XvG9pUGoT",
+    "audio_features": {
+      "duration_s": 132,
+      "popularity": 27,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Red Clay",
+    "artist": "Freddie Hubbard",
+    "album": "Red Clay",
+    "year": 1970,
+    "label": "CTI",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop",
+      "jazz funk"
+    ],
+    "moods": [
+      "funky",
+      "intense",
+      "driving",
+      "joyful"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "electric piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium-fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "Joe Henderson - tenor saxophone",
+      "Herbie Hancock - electric piano",
+      "Ron Carter - bass",
+      "Lenny White - drums"
+    ],
+    "rating": 9,
+    "replayability": 9,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "6mC7oExk7PiIcO9h6NoJZB",
+    "audio_features": {
+      "duration_s": 730,
+      "popularity": 15,
+      "source": "spotify"
+    },
+    "comments": "Restless but engaging. Something about the energy kept me drawn in the whole time."
+  },
+  {
+    "title": "Ceora",
+    "artist": "Lee Morgan",
+    "album": "Cornbread",
+    "year": 1965,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "warm",
+      "lyrical"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "alto saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Lee Morgan - trumpet",
+      "Jackie McLean - alto saxophone",
+      "Hank Mobley - tenor saxophone",
+      "Herbie Hancock - piano",
+      "Larry Ridley - bass",
+      "Billy Higgins - drums"
+    ],
+    "rating": 5,
+    "replayability": 5,
+    "playthrough": 1.0,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "5rQTh8OF3mfjgu0NJkSTOk",
+    "audio_features": {
+      "duration_s": 383,
+      "popularity": 51,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Isfahan",
+    "artist": "Joe Henderson",
+    "album": "Multiple",
+    "year": 1967,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz"
+    ],
+    "moods": [
+      "exotic",
+      "introspective",
+      "searching",
+      "melancholic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Joe Henderson - tenor saxophone",
+      "Cedar Walton - piano",
+      "Ron Carter - bass",
+      "Louis Hayes - drums"
+    ],
+    "rating": 4,
+    "replayability": 3,
+    "playthrough": 1.0,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "2rPVql3Pwpz2hOtDvnj0rn",
+    "audio_features": {
+      "duration_s": 358,
+      "popularity": 30,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Juju",
+    "artist": "Wayne Shorter",
+    "album": "Juju",
+    "year": 1964,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz",
+      "hard bop"
+    ],
+    "moods": [
+      "dark",
+      "tense",
+      "mysterious",
+      "searching"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Reggie Workman - bass",
+      "Elvin Jones - drums"
+    ],
+    "rating": 1,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "7Ke18a4dLDyjdBRNd5iLLM",
+    "audio_features": {
+      "duration_s": 516,
+      "popularity": 29,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Autumn Leaves",
+    "artist": "Cannonball Adderley",
+    "album": "Somethin'  Else",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "bebop",
+      "jazz standard"
+    ],
+    "moods": [
+      "melancholic",
+      "lyrical",
+      "joyful",
+      "autumnal"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Cannonball Adderley - alto saxophone",
+      "Miles Davis - trumpet",
+      "Hank Jones - piano",
+      "Sam Jones - bass",
+      "Art Blakey - drums"
+    ],
+    "rating": 7,
+    "replayability": 7,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "0X5DcGkbxCXSadgj01ZXd7",
+    "audio_features": {
+      "duration_s": 660,
+      "popularity": 60,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Whistle Stop",
+    "artist": "Kenny Dorham",
+    "album": "Whistle Stop",
+    "year": 1961,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "post-bop"
+    ],
+    "moods": [
+      "driving",
+      "tense",
+      "cool"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Kenny Dorham - trumpet",
+      "Hank Mobley - tenor saxophone",
+      "Kenny Drew - piano",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "rating": 1,
+    "replayability": 1,
+    "playthrough": 0.5,
+    "liked": false,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "7CdPxuzHTYf9MJMlvuT5Xe",
+    "audio_features": {
+      "duration_s": 355,
+      "popularity": 17,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Rising Son",
+    "artist": "Takuya Kuroda",
+    "album": "Rising Son",
+    "year": 2014,
+    "label": "Blue Note",
+    "era": "Contemporary",
+    "subgenres": [
+      "neo-soul jazz",
+      "contemporary jazz",
+      "jazz funk"
+    ],
+    "moods": [
+      "funky",
+      "cool",
+      "joyful",
+      "groove"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Takuya Kuroda - trumpet",
+      "Corey King - trombone",
+      "Jon Hatamiya - alto saxophone",
+      "Marcus Strickland - tenor saxophone",
+      "Fabian Almazan - piano",
+      "Burniss Earl Travis II - electric bass",
+      "Nate Smith - drums"
+    ],
+    "rating": 7.5,
+    "replayability": 7,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "3qGcqL1TIpj6QujrDRWx2F",
+    "audio_features": {
+      "duration_s": 284,
+      "popularity": 47,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Fly With The Wind",
+    "artist": "McCoy Tyner",
+    "album": "Fly With The Wind",
+    "year": 1976,
+    "label": "Milestone",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "orchestral jazz",
+      "modal jazz"
+    ],
+    "moods": [
+      "epic",
+      "spiritual",
+      "intense",
+      "majestic"
+    ],
+    "instrumentation": [
+      "piano",
+      "flute",
+      "strings",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Hubert Laws - flute",
+      "Ron Carter - bass",
+      "Billy Cobham - drums"
+    ],
+    "rating": 10,
+    "replayability": 10,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "0mkc6bvfRwZJPDp6du23zW",
+    "audio_features": {
+      "duration_s": 510,
+      "popularity": 29,
+      "source": "spotify"
+    },
+    "comments": "Caught me off guard. I didn't know jazz could be played in that sort of grand, orchestral way. The fact that McCoy Tyner did that just adds so much respect. I want to check him out more."
+  },
+  {
+    "title": "Dear Old Stockholm",
+    "artist": "Stan Getz",
+    "album": "Stan Getz with Chet Baker",
+    "year": 1983,
+    "label": "Sonet",
+    "era": "Cool",
+    "subgenres": [
+      "cool jazz",
+      "jazz standard",
+      "ballad"
+    ],
+    "moods": [
+      "romantic",
+      "tender",
+      "lyrical",
+      "nostalgic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Stan Getz - tenor saxophone",
+      "Chet Baker - trumpet",
+      "Jim McNeely - piano",
+      "George Mraz - bass",
+      "Victor Lewis - drums"
+    ],
+    "rating": 6.5,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "6krTtmhq7n2kNt3C05Q7C2",
+    "audio_features": {
+      "duration_s": 329,
+      "popularity": 18,
+      "source": "spotify"
+    }
+  },
+  {
+    "title": "Nica's Dream",
+    "artist": "Horace Silver",
+    "album": "The Cape Verdean Blues",
+    "year": 1955,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "bebop",
+      "soul jazz"
+    ],
+    "moods": [
+      "joyful",
+      "funky",
+      "playful",
+      "swinging"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Horace Silver - piano",
+      "Art Farmer - trumpet",
+      "Hank Mobley - tenor saxophone",
+      "Teddy Kotick - bass",
+      "Louis Hayes - drums"
+    ],
+    "rating": 6,
+    "replayability": 6,
+    "playthrough": 1.0,
+    "liked": true,
+    "date_added": "2026-06-30",
+    "discovered_from": "self",
+    "recommended_by_model": false,
+    "spotify_id": "41SnKoDajVqocQRVHmVju5",
+    "audio_features": {
+      "duration_s": 408,
+      "popularity": 38,
+      "source": "spotify"
+    }
   }
 ]
