@@ -1599,9 +1599,9 @@
       "felt flat",
       "didn't engage"
     ],
-    "rating": 3,
-    "liked": false,
-    "notes": "Not great. A little flat.",
+    "rating": 5,
+    "liked": true,
+    "notes": "Revised up from 3 to 5 — the style has grown on him.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1628,7 +1628,13 @@
     },
     "replayability": 1,
     "playthrough": 0.5,
-    "spotify_id": "461pkT8SLkwYk5r5FexNiy"
+    "spotify_id": "461pkT8SLkwYk5r5FexNiy",
+    "rating_history": [
+      {
+        "rating": 5,
+        "date": "2026-07-01"
+      }
+    ]
   },
   {
     "title": "The Bridge",
@@ -1735,9 +1741,9 @@
       "Cole Porter standard",
       "pleasant but not deeply engaging"
     ],
-    "rating": 5,
+    "rating": 6,
     "liked": true,
-    "notes": "Finished decent. A like but 5/10. Thought he'd love it because of God Bless the Child but didn't hit the same.",
+    "notes": "Grew on him — a solid 6, not a 5. The album's style has settled in more.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1764,7 +1770,13 @@
     },
     "replayability": 3,
     "playthrough": 0.8,
-    "spotify_id": "0HQWwFTh58MJ7DHKaD4DZO"
+    "spotify_id": "0HQWwFTh58MJ7DHKaD4DZO",
+    "rating_history": [
+      {
+        "rating": 6,
+        "date": "2026-07-01"
+      }
+    ]
   },
   {
     "entity_type": "album",
@@ -1805,9 +1817,9 @@
       "too uneven — peaks with In a Sentimental Mood and God Bless the Child but valleys with John S.",
       "didn't hold up as well as Saxophone Colossus"
     ],
-    "rating": 8,
+    "rating": 8.5,
     "liked": true,
-    "notes": "Changed mind on revisit. Initially seemed uneven (6/10) but the Jim Hall guitar, the pianoless interplay, and the overall vibe grew on me. Now appreciate it as a cohesive whole — the peaks justify the valleys.",
+    "notes": "Now an 8.5. So close to a legendary listen — the whole album makes sense — but has moments where the awe or understanding slips. The style keeps growing on him.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-20",
@@ -1822,6 +1834,10 @@
       {
         "rating": 8,
         "date": "2026-06-23"
+      },
+      {
+        "rating": 8.5,
+        "date": "2026-07-01"
       }
     ],
     "replayability": 7,
