@@ -39,6 +39,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   animation: factFadeIn 0.5s ease-in;
+  touch-action: pan-y;
 }
 
 .fact-card:hover {
@@ -96,6 +97,18 @@
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #333;
+}
+
+.swipe-hint {
+  text-align: center;
+  font-size: 0.78em;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin: -12px 0 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .swipe-hint { display: none; }
 }
 
 .facts-stats {

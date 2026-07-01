@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Navigation from '../components/shared/Navigation';
 import '../styles/facts.css';
 
@@ -52,6 +52,21 @@ export default function Facts() {
 
   const nextFact = () => showFact(facts);
 
+  // Swipe left (or right) to advance to the next fact on touch devices.
+  const touchStart = useRef(null);
+  const onTouchStart = (e) => {
+    const t = e.changedTouches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e) => {
+    if (!touchStart.current) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touchStart.current.x;
+    const dy = t.clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) nextFact();
+  };
+
   const resetCache = () => {
     if (!window.confirm("Clear all read facts? You'll see stats reset to 0.")) return;
     setRead(new Set());
@@ -73,7 +88,7 @@ export default function Facts() {
         {error ? (
           <div className="fact-card"><p className="fact-text">{error}</p></div>
         ) : (
-          <div className="fact-card" key={animKey}>
+          <div className="fact-card" key={animKey} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             <div>
               {current && current.image && (
                 <img className="fact-image" src={current.image} alt={current.song || current.title} loading="lazy" />
@@ -96,6 +111,8 @@ export default function Facts() {
             )}
           </div>
         )}
+
+        <p className="swipe-hint">Swipe left for the next fact</p>
 
         <div className="facts-stats">
           <p>
