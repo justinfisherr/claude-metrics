@@ -162,8 +162,17 @@ export default function CollaboratorNetwork({ data }) {
     const musicianMap = {};
     const edgeMap = {};
     const allRatings = [];
+    const instrumentMap = {};
 
     rawData.forEach(track => {
+      (track.key_players || []).forEach(kp => {
+        const parts = kp.split(' - ');
+        if (parts.length >= 2) {
+          const name = parts[0].trim();
+          if (!instrumentMap[name]) instrumentMap[name] = parts.slice(1).join(' - ').trim();
+        }
+      });
+
       const rating = track.rating;
       if (rating == null) return;
       allRatings.push(rating);
@@ -199,6 +208,7 @@ export default function CollaboratorNetwork({ data }) {
       const bayes = (n / (n + K)) * avg + (K / (n + K)) * gMean;
       return {
         id: name,
+        instrument: instrumentMap[name] || null,
         count: n,
         avgRating: avg,
         bayesRating: bayes,
@@ -550,7 +560,9 @@ export default function CollaboratorNetwork({ data }) {
             pointerEvents: 'none', zIndex: 10, color: '#d7e6f7',
             boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
           }}>
-            <strong style={{ color: pairColor(tooltip.node.bayesRating) }}>{tooltip.node.id}</strong><br />
+            <strong style={{ color: pairColor(tooltip.node.bayesRating) }}>{tooltip.node.id}</strong>
+            {tooltip.node.instrument && <span style={{ color: 'var(--muted)', fontWeight: 400, marginLeft: '0.4rem', fontSize: '0.72rem' }}>{tooltip.node.instrument}</span>}
+            <br />
             {tooltip.node.count} tracks · avg {tooltip.node.avgRating.toFixed(1)} · Bayes {tooltip.node.bayesRating.toFixed(2)}<br />
             <span style={{ color: confLabel(tooltip.node.confidence).color, fontSize: '0.7rem' }}>
               {confLabel(tooltip.node.confidence).text} confidence ({(tooltip.node.confidence * 100).toFixed(0)}%)
@@ -577,7 +589,20 @@ export default function CollaboratorNetwork({ data }) {
           <div style={{ marginTop: '1rem', borderTop: '1px solid var(--border-faint)', paddingTop: '1rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
               <div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: pairColor(m.bayesRating) }}>{m.id}</div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '1.1rem', fontWeight: 'bold', color: pairColor(m.bayesRating) }}>{m.id}</span>
+                  {m.instrument && <span style={{ fontSize: '0.78rem', color: 'var(--muted)', textTransform: 'capitalize' }}>{m.instrument}</span>}
+                  <a
+                    href={`https://www.google.com/search?q=${encodeURIComponent(m.id + ' jazz ' + (m.instrument || ''))}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ fontSize: '0.68rem', color: '#87a2c3', textDecoration: 'none', opacity: 0.7 }}
+                    onMouseEnter={e => e.target.style.opacity = 1}
+                    onMouseLeave={e => e.target.style.opacity = 0.7}
+                  >
+                    search ↗
+                  </a>
+                </div>
                 <div style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '0.2rem' }}>Click another musician to compare them as a pair</div>
               </div>
               <button onClick={() => setSelectedIds([])} style={{ background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.72rem' }}>
