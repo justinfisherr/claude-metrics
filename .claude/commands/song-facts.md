@@ -29,13 +29,25 @@ For each selected track, write a single accurate fact drawn from its own data �
 paragraph, specific, no filler. **Do not fabricate** history you can't source
 from the track entry or well-known fact.
 
-### 4. Get the image (Spotify MCP)
-For each track, fetch cover/artist art via the Spotify MCP:
-- Prefer the album: `getAlbums` with the track's `spotify_id`'s album, or
-  `searchSpotify` for `"{title} {artist}"` and read the track → album → `images`.
-- Use the largest `images[].url` (or a ~300px one). Fall back to the artist image
-  via `getTopArtists`/search if no album art. If nothing resolves, set `image: null`
-  and note it.
+### 4. Get the image (Spotify → album art URL)
+The dataset's `spotify_id` is a **track** id, and album art comes from the
+**album**, so this is a two-hop lookup. Also note: the Spotify MCP tools
+(`searchSpotify`, `getAlbums`) return names/ids but **do not expose image URLs**
+in their output — so use them only to resolve the album id, then get the actual
+art URL from Spotify's public oEmbed endpoint.
+
+1. Resolve the album id: `searchSpotify` type `album` for `"{album} {artist}"`
+   (album name is in the track entry) and take the best match. Sanity-check the
+   artist so you don't grab a same-titled album by someone else (e.g. "Red Clay"
+   by The Red Clay Strays).
+2. Get the art URL via oEmbed (public, no auth) — read `thumbnail_url`:
+   ```bash
+   curl -s "https://open.spotify.com/oembed?url=https://open.spotify.com/album/{ALBUM_ID}" \
+     | python3 -c "import sys,json; print(json.load(sys.stdin).get('thumbnail_url',''))"
+   ```
+   You can loop this over several album ids in one Bash call.
+- If no album resolves, fall back to the artist image (search type `artist` +
+  oEmbed on the artist url). If nothing resolves, set `image: null` and note it.
 
 ### 5. Append to `jazz-facts.json`
 Give each new fact the next sequential `id` (max existing id + 1) and these fields:
