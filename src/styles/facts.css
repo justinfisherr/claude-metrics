@@ -46,6 +46,25 @@
   box-shadow: 0 12px 40px rgba(255, 215, 0, 0.1);
 }
 
+.fact-image {
+  display: block;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.fact-song {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a0a0a0;
+  margin-bottom: 10px;
+}
+
 .fact-title {
   font-size: 1.6em;
   font-weight: 400;

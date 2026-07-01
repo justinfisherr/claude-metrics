@@ -75,6 +75,12 @@ export default function Facts() {
         ) : (
           <div className="fact-card" key={animKey}>
             <div>
+              {current && current.image && (
+                <img className="fact-image" src={current.image} alt={current.song || current.title} loading="lazy" />
+              )}
+              {current && current.song && (
+                <div className="fact-song">{current.song}{current.artist ? ` · ${current.artist}` : ''}</div>
+              )}
               <div className="fact-title">{current ? current.title : 'Loading…'}</div>
               <div className="fact-text">{current ? current.fact : 'Discovering a random jazz fact…'}</div>
               {current && (
