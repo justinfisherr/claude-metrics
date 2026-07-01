@@ -9,6 +9,7 @@ const PAGES = [
   { path: '/review', label: 'Review' },
   { path: '/dictionary', label: 'Dictionary' },
   { path: '/playlists', label: 'Playlists' },
+  { path: '/facts', label: 'Facts' },
 ];
 
 const SECTIONS = [
