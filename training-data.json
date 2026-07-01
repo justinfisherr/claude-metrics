@@ -8510,7 +8510,7 @@
       "Joe Henderson - tenor saxophone",
       "Kenny Dorham - trumpet"
     ],
-    "rating": 6.5,
+    "rating": 7,
     "replayability": 5,
     "playthrough": 1.0,
     "liked": true,
@@ -8528,7 +8528,18 @@
       "loudness": -11.697,
       "speechiness": 0.0496,
       "spotify_valence": 0.785
-    }
+    },
+    "rating_history": [
+      {
+        "rating": 6.5,
+        "date": "2026-06-28"
+      },
+      {
+        "rating": 7,
+        "date": "2026-07-01"
+      }
+    ],
+    "notes": "Cute. (Revisited — nudged up from 6.5.)"
   },
   {
     "title": "Along Came Betty",
@@ -10546,7 +10557,7 @@
       "Sam Jones - bass",
       "Art Blakey - drums"
     ],
-    "rating": 7,
+    "rating": 10,
     "replayability": 7,
     "playthrough": 1.0,
     "liked": true,
@@ -10566,7 +10577,18 @@
       "loudness": -9.499,
       "speechiness": 0.033,
       "spotify_valence": 0.281
-    }
+    },
+    "rating_history": [
+      {
+        "rating": 7,
+        "date": "2026-06-30"
+      },
+      {
+        "rating": 10,
+        "date": "2026-07-01"
+      }
+    ],
+    "notes": "Relisten — such a perfect version of the song. Everything he loves in a song. Revised up from 7."
   },
   {
     "title": "Whistle Stop",
@@ -10855,6 +10877,440 @@
       "loudness": -8.885,
       "speechiness": 0.0401,
       "spotify_valence": 0.741
+    }
+  },
+  {
+    "title": "Passion Dance",
+    "artist": "McCoy Tyner",
+    "album": "The Real McCoy",
+    "year": 1967,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal"
+    ],
+    "moods": [
+      "uninteresting"
+    ],
+    "primary_instrument": "piano",
+    "rating": 4,
+    "liked": false,
+    "notes": "Wasn't very interesting to him.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0lELi5BqmUO4hXTFfAUf60",
+    "audio_features": {
+      "acousticness": 0.437,
+      "danceability": 0.473,
+      "spotify_energy": 0.771,
+      "instrumentalness": 0.0,
+      "liveness": 0.113,
+      "loudness": -8.653,
+      "speechiness": 0.0457,
+      "spotify_valence": 0.474
+    }
+  },
+  {
+    "title": "Reaching Fourth",
+    "artist": "McCoy Tyner Trio",
+    "album": "Reaching Fourth",
+    "year": 1962,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal"
+    ],
+    "moods": [
+      "flat"
+    ],
+    "primary_instrument": "piano",
+    "rating": 2,
+    "liked": false,
+    "notes": "Not very captivating to him.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6H5nQHF4uQ9igr2NIPsPlp",
+    "audio_features": {
+      "acousticness": 0.533,
+      "danceability": 0.404,
+      "spotify_energy": 0.519,
+      "instrumentalness": 0.0349,
+      "liveness": 0.322,
+      "loudness": -13.22,
+      "speechiness": 0.0636,
+      "spotify_valence": 0.726
+    }
+  },
+  {
+    "title": "Search For Peace",
+    "artist": "McCoy Tyner",
+    "album": "The Real McCoy",
+    "year": 1967,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal",
+      "ballad"
+    ],
+    "moods": [
+      "peaceful",
+      "reflective"
+    ],
+    "primary_instrument": "piano",
+    "rating": 5.5,
+    "liked": true,
+    "notes": "Good but not his best.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4qRJ7ZJyfzchEd2fjle7Bz",
+    "audio_features": {
+      "acousticness": 0.938,
+      "danceability": 0.456,
+      "spotify_energy": 0.222,
+      "instrumentalness": 0.806,
+      "liveness": 0.24,
+      "loudness": -16.879,
+      "speechiness": 0.0354,
+      "spotify_valence": 0.15
+    }
+  },
+  {
+    "title": "The Shoes of the Fisherman's Wife Are Some Jive Ass Slippers",
+    "artist": "Charles Mingus",
+    "album": "Let My Children Hear Music",
+    "year": 1972,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "big band",
+      "avant-garde"
+    ],
+    "moods": [
+      "grand",
+      "fun"
+    ],
+    "primary_instrument": "bass",
+    "rating": 7,
+    "liked": true,
+    "notes": "Very grand and fun. Unsure how replayable — good beginning but wears on him. (Attributed to Charles Mingus original — confirm if you meant a different version.)",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": 4,
+    "playthrough": null,
+    "spotify_id": "3fcKZiegoVsBmVuGkyvcWv",
+    "audio_features": {
+      "acousticness": 0.855,
+      "danceability": 0.294,
+      "spotify_energy": 0.587,
+      "instrumentalness": 0.645,
+      "liveness": 0.127,
+      "loudness": -10.097,
+      "speechiness": 0.0458,
+      "spotify_valence": 0.277
+    }
+  },
+  {
+    "title": "Up in Cynthia's Room",
+    "artist": "Horace Parlan Quintet",
+    "album": "Speakin' My Piece",
+    "year": 1960,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "boring"
+    ],
+    "primary_instrument": "piano",
+    "rating": 3,
+    "liked": false,
+    "notes": "Boring but nothing wrong with it.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2687Dgajyh03l62gkUox0l",
+    "audio_features": {
+      "acousticness": 0.792,
+      "danceability": 0.623,
+      "spotify_energy": 0.4,
+      "instrumentalness": 0.00129,
+      "liveness": 0.197,
+      "loudness": -11.231,
+      "speechiness": 0.0334,
+      "spotify_valence": 0.338
+    }
+  },
+  {
+    "title": "Us Three",
+    "artist": "Horace Parlan",
+    "album": "Us Three",
+    "year": 1960,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "flat"
+    ],
+    "primary_instrument": "piano",
+    "rating": 5,
+    "liked": false,
+    "notes": "Sick bass intro. Lacks a real punch or identity via a melody — the playing seems flat to him.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "02VhWaFZ8tiFBZSCkuYv7i",
+    "audio_features": {
+      "acousticness": 0.896,
+      "danceability": 0.651,
+      "spotify_energy": 0.562,
+      "instrumentalness": 0.946,
+      "liveness": 0.106,
+      "loudness": -12.672,
+      "speechiness": 0.0451,
+      "spotify_valence": 0.676
+    }
+  },
+  {
+    "title": "The Book Cooks",
+    "artist": "Booker Ervin",
+    "album": "The Book Cooks",
+    "year": 1960,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "old-school"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "rating": 1,
+    "liked": false,
+    "notes": "A little old school for him — rare that he goes for this sound.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7byoFsiyXCOXoYVxCLsE8z"
+  },
+  {
+    "title": "Mojo",
+    "artist": "Booker Ervin",
+    "album": "That's It!",
+    "year": 1961,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "cool",
+      "sexy"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "rating": 6,
+    "liked": true,
+    "notes": "Pretty cool and sexy. Loves when the bass rides like that. A bit whiny with the trumpet though.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6A8CTLvEZntMuzOmIrJIka"
+  },
+  {
+    "title": "Autumn Leaves",
+    "artist": "McCoy Tyner",
+    "album": null,
+    "year": null,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal"
+    ],
+    "moods": [
+      "disliked"
+    ],
+    "primary_instrument": "piano",
+    "rating": 3,
+    "liked": false,
+    "notes": "Modal just isn't how he likes this song.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "52GKwMjXBDxSAH4y4DMzHe"
+  },
+  {
+    "title": "Autumn Leaves",
+    "artist": "McCoy Tyner",
+    "album": null,
+    "year": null,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal"
+    ],
+    "moods": [
+      "disliked"
+    ],
+    "primary_instrument": "piano",
+    "rating": 2,
+    "liked": false,
+    "notes": "Re-listen: ugh, he hates that he doesn't like this. Modal treatment still doesn't land.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "52GKwMjXBDxSAH4y4DMzHe",
+    "audio_features": {
+      "acousticness": 0.622,
+      "danceability": 0.602,
+      "spotify_energy": 0.254,
+      "instrumentalness": 0.431,
+      "liveness": 0.0644,
+      "loudness": -17.767,
+      "speechiness": 0.0447,
+      "spotify_valence": 0.668
+    }
+  },
+  {
+    "title": "Open Sesame",
+    "artist": "Freddie Hubbard",
+    "album": "Open Sesame",
+    "year": 1960,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "swinging"
+    ],
+    "primary_instrument": "trumpet",
+    "rating": 6,
+    "liked": true,
+    "notes": "Swinging.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3zkUZvGHBtphTSHQIychm1",
+    "audio_features": {
+      "acousticness": 0.649,
+      "danceability": 0.485,
+      "spotify_energy": 0.667,
+      "instrumentalness": 0.00686,
+      "liveness": 0.119,
+      "loudness": -7.155,
+      "speechiness": 0.0394,
+      "spotify_valence": 0.75
+    }
+  },
+  {
+    "title": "Weaver of Dreams",
+    "artist": "Freddie Hubbard",
+    "album": "Open Sesame",
+    "year": 1960,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "pretty"
+    ],
+    "primary_instrument": "trumpet",
+    "rating": 6,
+    "liked": true,
+    "notes": "Very pretty.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4N6JkrGD78eLooaTDmwo9s",
+    "audio_features": {
+      "acousticness": 0.912,
+      "danceability": 0.418,
+      "spotify_energy": 0.227,
+      "instrumentalness": 0.822,
+      "liveness": 0.0956,
+      "loudness": -15.537,
+      "speechiness": 0.0379,
+      "spotify_valence": 0.21
+    }
+  },
+  {
+    "title": "Recorda Me",
+    "artist": "Joe Henderson",
+    "album": "Page One",
+    "year": 1963,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "bossa nova"
+    ],
+    "moods": [
+      "cute"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "rating": 6,
+    "liked": true,
+    "notes": "Cute.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3KUSSxjujFcEGhnsm0qeDo",
+    "audio_features": {
+      "acousticness": 0.954,
+      "danceability": 0.654,
+      "spotify_energy": 0.444,
+      "instrumentalness": 0.864,
+      "liveness": 0.126,
+      "loudness": -10.178,
+      "speechiness": 0.0631,
+      "spotify_valence": 0.624
+    }
+  },
+  {
+    "title": "Elvin Jones Blues",
+    "artist": "Elvin Jones Jazz Machine",
+    "album": null,
+    "year": null,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "blues"
+    ],
+    "moods": [
+      "cool"
+    ],
+    "primary_instrument": "drums",
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Live. Cool hook, cool bass solo.",
+    "date_added": "2026-07-01",
+    "discovered_from": "manual-review",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4cCjKVI4NTEqatL2VPb5cj",
+    "audio_features": {
+      "acousticness": 0.272,
+      "danceability": 0.344,
+      "spotify_energy": 0.858,
+      "instrumentalness": 0.00024,
+      "liveness": 0.722,
+      "loudness": -9.324,
+      "speechiness": 0.0946,
+      "spotify_valence": 0.6
     }
   }
 ]
