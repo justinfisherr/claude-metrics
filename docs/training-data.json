@@ -11312,5 +11312,203 @@
       "speechiness": 0.0946,
       "spotify_valence": 0.6
     }
+  },
+  {
+    "title": "Softly, as in a Morning Sunrise",
+    "artist": "Larry Young",
+    "album": "Unity",
+    "year": 1965,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal",
+      "soul jazz"
+    ],
+    "moods": [
+      "flat"
+    ],
+    "primary_instrument": "organ",
+    "rating": 3,
+    "liked": false,
+    "notes": "Organ doesn't do enough to make it interesting.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3O1aoJKgECakMKZJKMvnaN"
+  },
+  {
+    "title": "Little B's Poem",
+    "artist": "Bobby Hutcherson",
+    "album": "Components",
+    "year": 1966,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "moods": [
+      "gentle",
+      "soft"
+    ],
+    "primary_instrument": "vibraphone",
+    "rating": 3,
+    "liked": false,
+    "notes": "Cute, sweet — but too soft for him.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1H6HqwUyRWW55IzH3k1ewz"
+  },
+  {
+    "title": "Back at the Chicken Shack",
+    "artist": "Jimmy Smith",
+    "album": "Back at the Chicken Shack",
+    "year": 1963,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "groovy"
+    ],
+    "primary_instrument": "organ",
+    "rating": 4,
+    "liked": false,
+    "notes": "Meh.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0bv5vUJCvXM9G0cbjeikyY"
+  },
+  {
+    "title": "Inner Urge",
+    "artist": "Joe Henderson",
+    "album": "Inner Urge",
+    "year": 1965,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal"
+    ],
+    "moods": [
+      "boring"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "rating": 1,
+    "liked": false,
+    "notes": "Boring.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "05aZ2boQ1yuAD4p4HyORbK"
+  },
+  {
+    "title": "Idle Moments",
+    "artist": "Grant Green",
+    "album": "Idle Moments",
+    "year": 1965,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "mellow"
+    ],
+    "primary_instrument": "guitar",
+    "rating": 2,
+    "liked": false,
+    "notes": "Guitar is redeeming, I guess. Otherwise didn't land.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2WGeiogtffGHwAxnzYJOWk"
+  },
+  {
+    "title": "Sugar",
+    "artist": "Stanley Turrentine",
+    "album": "Sugar",
+    "year": 1970,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "soul jazz",
+      "jazz funk"
+    ],
+    "moods": [
+      "funky"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "rating": 5,
+    "liked": false,
+    "notes": "Middling — funky enough but not gripping.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "73UXONNvcyKDlw27FC0E2B"
+  },
+  {
+    "title": "Alligator Bogaloo",
+    "artist": "Lou Donaldson",
+    "album": "Alligator Bogaloo",
+    "year": 1967,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "boogaloo"
+    ],
+    "moods": [
+      "groovy"
+    ],
+    "primary_instrument": "alto saxophone",
+    "rating": 3,
+    "liked": false,
+    "notes": "Doesn't hate it, doesn't love it.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2Wq889rsIlEG0l2ea9pE9J"
+  },
+  {
+    "title": "Cristo Redentor",
+    "artist": "Donald Byrd",
+    "album": "A New Perspective",
+    "year": 1963,
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "gospel jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "atmospheric",
+      "cinematic"
+    ],
+    "primary_instrument": "trumpet",
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Pretty interesting. Atmospheric/gospel mood worked.",
+    "date_added": "2026-07-01",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-model-gaps",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0Xfq6BeOHdzf16gk9y8a1P"
   }
 ]

@@ -316,6 +316,51 @@
       "artist": "Freddie Hubbard",
       "spotify_id": "6mC7oExk7PiIcO9h6NoJZB",
       "image": "https://i.scdn.co/image/ab67616d00001e022f3b2637c924313342bf6559"
+    },
+    {
+      "title": "Tyner's Quartal Engine",
+      "song": "Passion Dance",
+      "artist": "McCoy Tyner",
+      "spotify_id": "0lELi5BqmUO4hXTFfAUf60",
+      "fact": "'Passion Dance' is the churning opener of McCoy Tyner's 1967 Blue Note landmark The Real McCoy, driven by his signature fourth-stacked (quartal) voicings over a single suspended vamp. With Joe Henderson, Ron Carter, and Elvin Jones pushing hard, it's relentlessly modal \u2014 all momentum, little harmonic release.",
+      "id": 46,
+      "image": "https://i.scdn.co/image/ab67616d00001e0275d3c6d8ab982f6ffc94a10d"
+    },
+    {
+      "title": "Voicings in Fourths",
+      "song": "Reaching Fourth",
+      "artist": "McCoy Tyner Trio",
+      "spotify_id": "6H5nQHF4uQ9igr2NIPsPlp",
+      "fact": "The title of Tyner's 1962 Impulse! trio date 'Reaching Fourth' winks at the quartal (fourth-based) harmony that became his calling card. Recorded with bassist Henry Grimes and drummer Roy Haynes while Tyner was still anchoring Coltrane's quartet, it's an early snapshot of that voice in a stripped-down trio setting.",
+      "id": 47,
+      "image": "https://i.scdn.co/image/ab67616d00001e028c1a27ba9e4ed3eec713c282"
+    },
+    {
+      "title": "The Real McCoy at Rest",
+      "song": "Search For Peace",
+      "artist": "McCoy Tyner",
+      "spotify_id": "4qRJ7ZJyfzchEd2fjle7Bz",
+      "fact": "'Search for Peace' is the ballad centerpiece of The Real McCoy (1967) \u2014 the album's quiet counterweight to the fiery 'Passion Dance.' Tyner lets the modal harmony breathe here, with Joe Henderson's tenor floating tenderly over a slow, hymn-like frame.",
+      "id": 48,
+      "image": "https://i.scdn.co/image/ab67616d00001e0275d3c6d8ab982f6ffc94a10d"
+    },
+    {
+      "title": "Mingus Goes Orchestral",
+      "song": "The Shoes of the Fisherman's Wife Are Some Jive Ass Slippers",
+      "artist": "Charles Mingus",
+      "spotify_id": "3fcKZiegoVsBmVuGkyvcWv",
+      "fact": "This sprawling piece comes from Let My Children Hear Music (1972), the lavishly orchestrated album Mingus himself called the best he ever made. The absurd, defiant title is pure Mingus, and the music matches it \u2014 grand, restless, and cinematic, reworking his earlier writing into full-orchestra sweep.",
+      "id": 49,
+      "image": "https://i.scdn.co/image/ab67616d00001e02bc2554b3f92bd3ada9896d11"
+    },
+    {
+      "title": "Parlan's Powerful Left Hand",
+      "song": "Up in Cynthia's Room",
+      "artist": "Horace Parlan Quintet",
+      "spotify_id": "2687Dgajyh03l62gkUox0l",
+      "fact": "Pianist Horace Parlan had his right hand partially paralyzed by childhood polio, so he built a style around a thick, percussive, blues-drenched left hand and spare right-hand jabs. 'Up in Cynthia's Room,' from his 1960 Blue Note date Speakin' My Piece, is that hard-bop voice in full \u2014 grounded, bluesy, and unmistakably his own.",
+      "id": 50,
+      "image": "https://i.scdn.co/image/ab67616d00001e0284e60a9a5e9f179b32c18f9d"
     }
   ]
 }
