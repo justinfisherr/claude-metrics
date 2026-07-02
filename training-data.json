@@ -11510,5 +11510,280 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "0Xfq6BeOHdzf16gk9y8a1P"
+  },
+  {
+    "title": "Journey in Satchidananda",
+    "artist": "Alice Coltrane",
+    "album": "Journey in Satchidananda",
+    "year": 1971,
+    "era": "Spiritual Jazz",
+    "subgenres": [
+      "spiritual jazz",
+      "modal"
+    ],
+    "moods": [
+      "spiritual",
+      "hypnotic"
+    ],
+    "primary_instrument": "harp",
+    "rating": 5,
+    "liked": false,
+    "notes": "Interesting.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2gG3ivmsfylVXLyIJvLXyN"
+  },
+  {
+    "title": "Valley of Life",
+    "artist": "McCoy Tyner",
+    "album": "Sahara",
+    "year": 1972,
+    "era": "Post-Bop",
+    "subgenres": [
+      "spiritual jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "gentle"
+    ],
+    "primary_instrument": "koto",
+    "rating": 1,
+    "liked": false,
+    "notes": "No.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0JXsznzOVq563jXIGDkEIz"
+  },
+  {
+    "title": "Forest Flower: Sunrise",
+    "artist": "Charles Lloyd",
+    "album": "Forest Flower",
+    "year": 1966,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal"
+    ],
+    "moods": [
+      "searching"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Some good moments.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "07pMgVhH3m4TE9QLnki25T"
+  },
+  {
+    "title": "Straight Life",
+    "artist": "Freddie Hubbard",
+    "album": "Straight Life",
+    "year": 1970,
+    "era": "Jazz Funk",
+    "subgenres": [
+      "jazz funk",
+      "post-bop"
+    ],
+    "moods": [
+      "driving"
+    ],
+    "primary_instrument": "trumpet",
+    "rating": 4,
+    "liked": false,
+    "notes": "Didn't love the intro but sort of like the improvisation.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0AvuvLpjF912cKj88MX7AS"
+  },
+  {
+    "title": "Actual Proof",
+    "artist": "Herbie Hancock",
+    "album": "Thrust",
+    "year": 1974,
+    "era": "Fusion",
+    "subgenres": [
+      "jazz funk",
+      "fusion"
+    ],
+    "moods": [
+      "funky",
+      "dynamic",
+      "intricate"
+    ],
+    "primary_instrument": "keyboards",
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Loves this Herbie.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1Aix42Q7mxGLMDglHhIOg3"
+  },
+  {
+    "title": "The In Crowd",
+    "artist": "Ramsey Lewis Trio",
+    "album": "The In Crowd",
+    "year": 1965,
+    "era": "Soul Jazz",
+    "subgenres": [
+      "soul jazz"
+    ],
+    "moods": [
+      "groovy",
+      "funky"
+    ],
+    "primary_instrument": "piano",
+    "rating": 8,
+    "liked": true,
+    "notes": "Groovy as hell.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "274ivMDGoAmZGsxhcn6tNt"
+  },
+  {
+    "title": "Everybody Loves the Sunshine",
+    "artist": "Roy Ayers Ubiquity",
+    "album": "Everybody Loves the Sunshine",
+    "year": 1976,
+    "era": "Jazz Funk",
+    "subgenres": [
+      "jazz funk",
+      "soul"
+    ],
+    "moods": [
+      "warm",
+      "groovy",
+      "mellow",
+      "sunny"
+    ],
+    "primary_instrument": "vibraphone",
+    "rating": 8,
+    "liked": true,
+    "notes": "Obviously loves this song.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5le4sn0iMcnKU56bdmNzso"
+  },
+  {
+    "title": "(Fallin' Like) Dominoes",
+    "artist": "Donald Byrd",
+    "album": "Places and Spaces",
+    "year": 1975,
+    "era": "Jazz Funk",
+    "subgenres": [
+      "jazz funk",
+      "soul"
+    ],
+    "moods": [
+      "funky",
+      "groovy",
+      "smooth"
+    ],
+    "primary_instrument": "trumpet",
+    "rating": 8,
+    "liked": true,
+    "notes": "Loved it.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5aO6UMn4xPMyRBdM1VwvjK"
+  },
+  {
+    "title": "Sinnerman",
+    "artist": "Nina Simone",
+    "album": "Pastel Blues",
+    "year": 1965,
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "gospel"
+    ],
+    "moods": [
+      "intense",
+      "building"
+    ],
+    "primary_instrument": "vocals",
+    "rating": 4,
+    "liked": false,
+    "notes": "Didn't land.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5xRP5iyVdGglqlY4Vcjhkx"
+  },
+  {
+    "title": "This Bitter Earth",
+    "artist": "Dinah Washington",
+    "album": "This Bitter Earth",
+    "year": 1960,
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "mournful",
+      "romantic"
+    ],
+    "primary_instrument": "vocals",
+    "rating": 7,
+    "liked": true,
+    "notes": "Cute.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3MCimW1NfKKOkdqDzNsOXA"
+  },
+  {
+    "title": "Here's to Life",
+    "artist": "Shirley Horn",
+    "album": "Here's to Life",
+    "year": 1992,
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "lush"
+    ],
+    "primary_instrument": "vocals",
+    "rating": 5,
+    "liked": false,
+    "notes": "Pretty.",
+    "date_added": "2026-07-02",
+    "discovered_from": "claude-recommendation",
+    "recommendation_version": "v7.03-intensity-groove-ballads",
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7CqH6kXso4XuLHOJSFomOA"
   }
 ]
