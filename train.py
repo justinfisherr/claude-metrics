@@ -1441,7 +1441,25 @@ def main():
 
     print("Engineering features...")
     X, y, feature_names, common_subgenres, common_labels = engineer_features(tracks)
-    print(f"Feature matrix: {X.shape[0]} samples x {X.shape[1]} features")
+
+    # Audio features are redundant with era/subgenre/personnel and carry near-zero
+    # standalone signal for this taste (audio-only RF R²~0.05; dropping them lifts
+    # RF R²). Prune them from the MODEL, but keep a full copy so the Correlations
+    # viz panel can still show them (Sound Profile reads audio straight from tracks).
+    # Re-run the audio-only / drop-audio bracket at n~300 to see if they wake up.
+    AUDIO_FEATURE_KEYS = (
+        "acousticness", "danceability", "spotify_energy", "spotify_valence",
+        "instrumentalness", "loudness", "speechiness", "liveness", "tempo_bpm",
+        "duration", "popularity", "is_live", "is_minor", "is_dorian",
+        "missing_energy", "missing_valence", "missing_acous", "missing_instrument",
+        "missing_audio", "valence_x_energy",
+    )
+    audio_cols = [c for c in X.columns if any(k in c for k in AUDIO_FEATURE_KEYS)]
+    X_full, feature_names_full = X, feature_names          # kept for viz (correlations)
+    X = X.drop(columns=audio_cols)                         # model trains without audio
+    feature_names = [f for f in feature_names if f not in audio_cols]
+    print(f"Feature matrix: {X.shape[0]} samples x {X.shape[1]} features "
+          f"(pruned {len(audio_cols)} audio-derived; kept for viz)")
     print(f"Common subgenres ({len(common_subgenres)}): {common_subgenres}")
     print(f"Common labels ({len(common_labels)}): {common_labels}")
 
@@ -1462,7 +1480,8 @@ def main():
         print(f"  {f['feature']}: {f['coefficient']} ({f['direction']})")
 
     print("\nComputing correlations...")
-    correlations = compute_correlations(X, y, feature_names)
+    # Use the full (unpruned) feature set here so audio features stay in the viz.
+    correlations = compute_correlations(X_full, y, feature_names_full)
 
     print("\nClustering...")
     cluster_results, best_labels, coords = cluster_analysis(
