@@ -2,9 +2,15 @@
 """
 Score a candidate jazz track against the trained taste model.
 
+Scoring reuses the model's OWN feature pipeline (train.engineer_features), so the
+Bayesian collaborator/era/label averages the model actually depends on are computed
+exactly as they were at train time. A candidate that already exists in the dataset
+is scored in place (leave-one-out); a genuinely new candidate is appended with a
+neutral placeholder rating and scored via the same LOO encoding.
+
 Usage:
   Interactive:  python3 predict.py
-  JSON input:   python3 predict.py --json '{"title":"Naima","energy":2,...}'
+  JSON input:   python3 predict.py --json '{"title":"Naima","artist":"John Coltrane",...}'
   From file:    python3 predict.py --file candidates.json
 """
 
@@ -16,22 +22,12 @@ from pathlib import Path
 import numpy as np
 import joblib
 
+import train  # reuse the exact feature engineering the model was trained on
+
 SCRIPT_DIR = Path(__file__).parent
 MODEL_PATH = SCRIPT_DIR / "model.joblib"
 VERSIONS_DIR = SCRIPT_DIR / "versions"
-
-TEMPO_MAP = {"slow": 1, "medium": 2, "medium-fast": 3, "fast": 4, "varied": 2.5}
-COMPLEXITY_MAP = {"low": 1, "medium": 2, "high": 3}
-INSTRUMENT_GROUPS = {
-    "tenor saxophone": "tenor_sax", "saxophone": "tenor_sax",
-    "soprano saxophone": "tenor_sax", "alto saxophone": "tenor_sax",
-    "piano": "piano", "vocals": "vocals", "bass": "bass",
-    "trumpet": "trumpet", "guitar": "guitar",
-}
-INST_GROUP_VALUES = ["tenor_sax", "piano", "vocals", "bass", "trumpet", "guitar", "other"]
-DISCOVERY_SOURCES = ["self", "claude-recommendation", "autoplay"]
-MOOD_AXES_PATH = SCRIPT_DIR / "mood-axes.json"
-MOOD_AXES = json.loads(MOOD_AXES_PATH.read_text()) if MOOD_AXES_PATH.exists() else {}
+TRAINING_PATH = SCRIPT_DIR / "training-data.json"
 
 
 def load_model(version=None):
@@ -45,135 +41,61 @@ def load_model(version=None):
     return joblib.load(model_path)
 
 
-def track_to_features(track, model_data):
-    feature_names = model_data["feature_names"]
-    common_moods = model_data["common_moods"]
-    common_subgenres = model_data["common_subgenres"]
-    common_labels = model_data.get("common_labels", [])
-    eras = model_data["eras"]
-
-    row = {}
-    row["energy"] = track.get("energy", 5)
-    row["year"] = track.get("year") or 1960
-    row["tempo"] = TEMPO_MAP.get(track.get("tempo", "medium"), 2.5)
-    row["harmonic_complexity"] = COMPLEXITY_MAP.get(track.get("harmonic_complexity", "medium"), 2)
-
-    # Era one-hot
-    track_era = track.get("era", "Unknown")
-    for era in eras:
-        row[f"era_{era}"] = 1 if track_era == era else 0
-
-    # Decade bucket
-    yr = track.get("year") or 1960
-    decade = f"{(yr // 10) * 10}s"
-    for d in ["1940s", "1950s", "1960s", "1970s"]:
-        row[f"decade_{d}"] = 1 if decade == d else 0
-
-    instrument = track.get("primary_instrument", "other")
-    group = INSTRUMENT_GROUPS.get(instrument, "other")
-    for g in INST_GROUP_VALUES:
-        row[f"inst_{g}"] = 1 if group == g else 0
-
-    track_moods = track.get("moods", [])
-    for m in common_moods:
-        row[f"mood_{m}"] = 1 if m in track_moods else 0
-
-    track_subgenres = track.get("subgenres", [])
-    for s in common_subgenres:
-        row[f"subgenre_{s}"] = 1 if s in track_subgenres else 0
-
-    row["mood_count"] = len(track_moods)
-    axes_vals = [MOOD_AXES[m] for m in track_moods if m in MOOD_AXES]
-    if axes_vals:
-        row["avg_valence"] = np.mean([a["valence"] for a in axes_vals])
-        row["avg_arousal"] = np.mean([a["arousal"] for a in axes_vals])
-        row["avg_dominance"] = np.mean([a["dominance"] for a in axes_vals])
-    else:
-        row["avg_valence"] = 0.0
-        row["avg_arousal"] = 0.0
-        row["avg_dominance"] = 0.0
-    row["subgenre_count"] = len(track_subgenres)
-
-    instr_lower = [i.lower() for i in track.get("instrumentation", [])]
-    instr_joined = " ".join(instr_lower)
-    row["ensemble_size"] = len(instr_lower)
-    row["has_guitar"] = int("guitar" in instr_joined)
-    row["has_strings"] = int("strings" in instr_joined or "orchestra" in instr_joined)
-    row["has_vocals"] = int("vocal" in instr_joined)
-    row["is_pianoless"] = int("piano" not in instr_joined)
-    row["has_trombone"] = int("trombone" in instr_joined)
-
-    track_label = track.get("label")
-    for l in common_labels:
-        row[f"label_{l}"] = 1 if track_label == l else 0
-
-    row["key_player_count"] = len(track.get("key_players", []))
-    artist_name = track.get("artist", "").lower().split("&")[0].strip()
-    row["artist_is_leader"] = int(any(artist_name in kp.lower() for kp in track.get("key_players", [])))
-
-    # Collaborator quality
-    row["collaborator_quality"] = track.get("collaborator_quality", 6.6)
-
-    source = track.get("discovered_from", "claude-recommendation")
-    for s in DISCOVERY_SOURCES:
-        row[f"source_{s}"] = 1 if source == s else 0
-
-    row["energy_tempo"] = row["energy"] * row["tempo"]
-
-    row["artist_mean_rating"] = track.get("artist_mean_rating", 6.6)
-    row["artist_consistency"] = track.get("artist_consistency", 0.0)
-    row["artist_track_count"] = track.get("artist_track_count", 1)
-
-    # Duration bucket
-    duration = (track.get("audio_features") or {}).get("duration_s", 300)
-    row["duration_short"] = int(duration < 240)
-    row["duration_long"] = int(duration > 420)
-    row["duration_extra_long"] = int(duration > 600)
-
-    # Electric / acoustic / format detection
-    row["is_electric"] = int(any(k in instr_joined for k in ["electric", "synth", "clavinet", "organ", "fender", "rhodes"]))
-    row["is_solo_piano"] = int(track.get("primary_instrument") == "piano" and len(instr_lower) <= 2)
-    row["has_horn_section"] = int(sum(1 for i in instr_lower if any(h in i for h in ["trumpet", "trombone", "sax", "cornet", "flute", "clarinet"])) >= 3)
-    row["is_collaboration"] = int("&" in track.get("artist", "") or "," in track.get("artist", ""))
-    row["instrumentation_diversity"] = len(set(INSTRUMENT_GROUPS.get(i, i) for i in instr_lower))
-
-    # Artist novelty
-    row["artist_is_new"] = int(track.get("artist_track_count", 1) == 1)
-
-    # Mood interactions
-    row["energy_x_complexity"] = row["energy"] * row["harmonic_complexity"]
-    row["valence_x_energy"] = row["avg_valence"] * row["energy"]
-    row["valence_x_arousal"] = row["avg_valence"] * row["avg_arousal"]
-    row["arousal_x_energy"] = row["avg_arousal"] * row["energy"]
-
-    # Key/mode features
-    mode = ((track.get("audio_features") or {}).get("mode") or "").lower()
-    row["is_minor_key"] = int(mode in ["minor", "dorian", "blues", "phrygian"])
-    row["is_dorian"] = int(mode == "dorian")
-
-    audio = track.get("audio_features") or {}
-    has_audio = "duration_s" in audio
-    if has_audio:
-        row["duration_s"] = audio.get("duration_s", 300)
-        row["popularity"] = audio.get("popularity", 50)
-        row["tempo_bpm"] = audio.get("tempo_bpm", 120)
-        row["time_signature"] = audio.get("time_signature", 4)
-        row["is_live"] = int(audio.get("is_live", False))
-
-    vector = [row.get(f, 0) for f in feature_names]
-    return np.array(vector).reshape(1, -1)
+def _load_training_tracks():
+    data = json.loads(TRAINING_PATH.read_text())
+    return data if isinstance(data, list) else data.get("tracks", data.get("data", []))
 
 
-def predict_track(track, model_data):
+def _norm(s):
+    return (s or "").strip().lower()
+
+
+def _match_index(candidate, tracks):
+    """Return the index of an existing dataset track matching this candidate
+    (title + artist), or None if it's a new track."""
+    ct, ca = _norm(candidate.get("title")), _norm(candidate.get("artist"))
+    if not ct:
+        return None
+    for i, t in enumerate(tracks):
+        if _norm(t.get("title")) == ct and _norm(t.get("artist")) == ca:
+            return i
+    return None
+
+
+def predict_tracks(candidates, version=None):
+    """Score a list of candidate track dicts. Returns a list of floats (1-10),
+    aligned with the input order."""
+    model_data = load_model(version)
     model = model_data["model"]
     scaler = model_data["scaler"]
+    feature_names = model_data["feature_names"]
 
-    X = track_to_features(track, model_data)
-    X_scaled = scaler.transform(X)
-    predicted = model.predict(X_scaled)[0]
-    predicted = max(1, min(10, predicted))
+    train_tracks = _load_training_tracks()
+    rated = [t["rating"] for t in train_tracks if t.get("rating") is not None]
+    global_mean = int(round(float(np.mean(rated)))) if rated else 6
 
-    return round(float(predicted), 2)
+    combined = list(train_tracks)
+    positions = []
+    for c in candidates:
+        idx = _match_index(c, train_tracks)
+        if idx is not None:
+            positions.append(idx)                     # score in place (LOO excludes self)
+        else:
+            cc = dict(c)
+            cc.setdefault("rating", global_mean)       # neutral placeholder; LOO ignores it for its own row
+            positions.append(len(combined))
+            combined.append(cc)
+
+    X, *_ = train.engineer_features(combined)
+    X = X.reindex(columns=feature_names, fill_value=0)  # align to the model's feature set/order
+    preds = np.clip(model.predict(scaler.transform(X)), 1, 10)
+    return [round(float(preds[p]), 2) for p in positions]
+
+
+def predict_track(track, model_data=None, version=None):
+    """Backward-compatible single-track API. `model_data` is accepted and ignored
+    (the model is loaded internally to keep the feature pipeline consistent)."""
+    return predict_tracks([track], version=version)[0]
 
 
 def interactive_input():
@@ -181,9 +103,9 @@ def interactive_input():
     track = {}
     track["title"] = input("Title: ").strip()
     track["artist"] = input("Artist: ").strip()
-    track["energy"] = int(input("Energy (1-10): ").strip())
-    track["tempo"] = input("Tempo (slow/medium/medium-fast/fast): ").strip()
-    track["harmonic_complexity"] = input("Harmonic complexity (low/medium/high): ").strip()
+    track["energy"] = int(input("Energy (1-10): ").strip() or "5")
+    track["tempo"] = input("Tempo (slow/medium/medium-fast/fast): ").strip() or "medium"
+    track["harmonic_complexity"] = input("Harmonic complexity (low/medium/high): ").strip() or "medium"
     track["era"] = input("Era (Modal/Post-Bop/Cool Jazz/Hard Bop/Bebop/Swing): ").strip()
     track["primary_instrument"] = input("Primary instrument: ").strip()
     track["year"] = int(input("Year: ").strip() or "1960")
@@ -230,11 +152,9 @@ def main():
     parser.add_argument("--version", help="Load model from a specific major version (e.g., '1.00')")
     args = parser.parse_args()
 
-    model_data = load_model(version=args.version)
-
     if args.json:
         track = json.loads(args.json)
-        score = predict_track(track, model_data)
+        score = predict_track(track, version=args.version)
         display_result(track, score)
 
     elif args.file:
@@ -242,11 +162,10 @@ def main():
         if isinstance(tracks, dict):
             tracks = [tracks]
         print(f"\nScoring {len(tracks)} tracks...\n")
-        results = []
-        for t in tracks:
-            score = predict_track(t, model_data)
-            results.append((t, score))
-            display_result(t, score)
+        scores = predict_tracks(tracks, version=args.version)
+        results = list(zip(tracks, scores))
+        for t, s in results:
+            display_result(t, s)
 
         results.sort(key=lambda x: x[1], reverse=True)
         print("--- Ranked ---")
@@ -255,7 +174,7 @@ def main():
 
     else:
         track = interactive_input()
-        score = predict_track(track, model_data)
+        score = predict_track(track, version=args.version)
         display_result(track, score)
 
 
