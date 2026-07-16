@@ -11985,5 +11985,66 @@
       "speechiness": 0.033,
       "spotify_valence": 0.0923
     }
+  },
+  {
+    "title": "Prologue",
+    "artist": "Kamasi Washington",
+    "album": "The Epic",
+    "year": 2015,
+    "label": "Brainfeeder",
+    "era": "Contemporary",
+    "subgenres": [
+      "spiritual jazz",
+      "modern jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "cinematic",
+      "triumphant",
+      "expansive",
+      "uplifting"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "keyboards",
+      "bass",
+      "drums",
+      "strings",
+      "choir",
+      "trombone"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Kamasi Washington - tenor saxophone",
+      "Cameron Graves - piano",
+      "Brandon Coleman - keyboards",
+      "Miles Mosley - bass",
+      "Ronald Bruner Jr. - drums",
+      "Tony Austin - drums",
+      "Ryan Porter - trombone",
+      "Patrice Quinn - vocals"
+    ],
+    "notable_qualities": [
+      "opening track of The Epic",
+      "orchestral strings and choir",
+      "spiritual jazz landmark",
+      "building/cinematic arrangement"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "All-time love. 10/10. Discovered via the Kamasi 2026 setlist playlist.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-16",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3fkUXEFOWK2X4HXSv59BFN"
   }
 ]
