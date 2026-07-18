@@ -1,5 +1,5 @@
 {
-  "current_version": "8.00",
+  "current_version": "8.01",
   "versions": [
     {
       "version": "1.00",
@@ -975,6 +975,34 @@
         "dashboard_data": "versions/v8.00/dashboard-data.json",
         "model": "versions/v8.00/model.joblib",
         "training_data": "versions/v8.00/training-data.md"
+      }
+    },
+    {
+      "version": "8.01",
+      "name": "",
+      "major": 8,
+      "minor": 1,
+      "run_date": "2026-07-18T21:12:37.204463",
+      "dataset_size": 218,
+      "best_model": "random_forest",
+      "r_squared": 0.5543,
+      "rmse": 1.5683,
+      "mae": 1.2085,
+      "feature_count": 139,
+      "best_k": 4,
+      "ridge_r_squared": 0.3219,
+      "ridge_rmse": 1.9345,
+      "rf_r_squared": 0.5543,
+      "rf_rmse": 1.5683,
+      "notes": "Add 9 calm-modal probe tracks (Prologue 10 ... Impressions 4); test whether audio energy/tempo features rise now that a collaborator-identical family has rating spread 4-10",
+      "changelog": [
+        "Logged Prologue, All Blues 7->9, Impressions, Acknowledgement, After the Rain, Dear Lord, Turiya, Peace, Harvest Time, In a Silent Way"
+      ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
       }
     }
   ]
