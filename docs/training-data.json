@@ -9993,7 +9993,7 @@
       "Paul Chambers - bass",
       "Jimmy Cobb - drums"
     ],
-    "rating": 7,
+    "rating": 9,
     "replayability": 7,
     "playthrough": 1.0,
     "liked": true,
@@ -10011,7 +10011,8 @@
       "loudness": -18.305,
       "speechiness": 0.0314,
       "spotify_valence": 0.363
-    }
+    },
+    "notes": "Love it. Bumped 7 -> 9 on 2026-07-18."
   },
   {
     "title": "Nostalgia in Times Square",
@@ -11985,5 +11986,543 @@
       "speechiness": 0.033,
       "spotify_valence": 0.0923
     }
+  },
+  {
+    "title": "Prologue",
+    "artist": "Kamasi Washington",
+    "album": "The Epic",
+    "year": 2015,
+    "label": "Brainfeeder",
+    "era": "Contemporary",
+    "subgenres": [
+      "spiritual jazz",
+      "modern jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "cinematic",
+      "triumphant",
+      "expansive",
+      "uplifting"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "keyboards",
+      "bass",
+      "drums",
+      "strings",
+      "choir",
+      "trombone"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Kamasi Washington - tenor saxophone",
+      "Cameron Graves - piano",
+      "Brandon Coleman - keyboards",
+      "Miles Mosley - bass",
+      "Ronald Bruner Jr. - drums",
+      "Tony Austin - drums",
+      "Ryan Porter - trombone",
+      "Patrice Quinn - vocals"
+    ],
+    "notable_qualities": [
+      "opening track of The Epic",
+      "orchestral strings and choir",
+      "spiritual jazz landmark",
+      "building/cinematic arrangement"
+    ],
+    "rating": 10,
+    "liked": true,
+    "notes": "All-time love. 10/10. Discovered via the Kamasi 2026 setlist playlist.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-16",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "acousticness": 0.0126,
+      "danceability": 0.447,
+      "spotify_energy": 0.802,
+      "instrumentalness": 0.919,
+      "liveness": 0.185,
+      "loudness": -6.388,
+      "speechiness": 0.0646,
+      "spotify_valence": 0.289
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3fkUXEFOWK2X4HXSv59BFN"
+  },
+  {
+    "title": "Impressions",
+    "artist": "John Coltrane",
+    "album": "Impressions",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz"
+    ],
+    "moods": [
+      "intense",
+      "driving",
+      "hectic",
+      "urgent"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "Dorian modal structure (So What twin)",
+      "up-tempo intense blowing",
+      "Village Vanguard"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Too hectic. 4/10. Probe for the modal-vamp hypothesis — refuted it: structurally So What's twin but the fast/dense energy is the turn-off, not the harmony.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.324,
+      "danceability": 0.367,
+      "spotify_energy": 0.726,
+      "instrumentalness": 0.0,
+      "liveness": 0.18,
+      "loudness": -8.78,
+      "speechiness": 0.0803,
+      "spotify_valence": 0.523
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "56WxisT3G03A6RzIHzT3rX"
+  },
+  {
+    "title": "Acknowledgement (A Love Supreme, Pt. I)",
+    "artist": "John Coltrane",
+    "album": "A Love Supreme",
+    "year": 1965,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "hypnotic",
+      "reverent",
+      "spacious",
+      "building"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "four-note bass cell vamp",
+      "'a love supreme' vocal chant",
+      "modal in all twelve keys",
+      "spiritual jazz landmark",
+      "calm-to-fervent build"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Loves the song; 7.5/10. Spacious-vamp probe — lands high but the back-third build keeps it under the So What/All Blues ceiling.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.485,
+      "danceability": 0.37,
+      "spotify_energy": 0.586,
+      "instrumentalness": 1.96e-06,
+      "liveness": 0.348,
+      "loudness": -13.468,
+      "speechiness": 0.0581,
+      "spotify_valence": 0.519
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0CLbmkYmQIWiEwnsbOkLpd"
+  },
+  {
+    "title": "After The Rain",
+    "artist": "John Coltrane",
+    "album": "Impressions",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spacious",
+      "prayerful",
+      "serene",
+      "sustained"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "calm sustained ballad",
+      "prayerful"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "7.5/10. Calm-modal peak probe — solid but not top ceiling.",
+    "spotify_id": "7wCrY3jUJGrP6lwoF7PBd1",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Dear Lord",
+    "artist": "John Coltrane",
+    "album": "Transition",
+    "year": 1970,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "prayerful",
+      "spacious",
+      "reverent",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "devotional ballad",
+      "sustained calm"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "7.5/10. Same devotional register as After the Rain — lands the same.",
+    "spotify_id": "4GibdmpjKroUfLrbBVdWNp",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.8,
+      "danceability": 0.355,
+      "spotify_energy": 0.219,
+      "instrumentalness": 0.0487,
+      "liveness": 0.125,
+      "loudness": -17.35,
+      "speechiness": 0.0367,
+      "spotify_valence": 0.462
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Turiya and Ramakrishna",
+    "artist": "Alice Coltrane",
+    "album": "Ptah, the El Daoud",
+    "year": 1970,
+    "label": "Impulse!",
+    "era": "Spiritual Jazz",
+    "subgenres": [
+      "spiritual jazz",
+      "modal jazz"
+    ],
+    "moods": [
+      "meditative",
+      "bluesy",
+      "spacious",
+      "warm"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Alice Coltrane - piano",
+      "Ron Carter - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "bluesy meditative piano",
+      "spacious"
+    ],
+    "rating": 8.5,
+    "liked": true,
+    "notes": "8.5/10. Blues-center + calm — the All Blues sweet spot. Highest of the batch.",
+    "spotify_id": "4DVu7YgHVJaeN0C7HNpy2q",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.913,
+      "danceability": 0.418,
+      "spotify_energy": 0.295,
+      "instrumentalness": 0.896,
+      "liveness": 0.248,
+      "loudness": -14.667,
+      "speechiness": 0.0303,
+      "spotify_valence": 0.132
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Peace",
+    "artist": "Horace Silver",
+    "album": "Blowin' the Blues Away",
+    "year": 1959,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "serene",
+      "gentle"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Horace Silver - piano",
+      "Gene Taylor - bass",
+      "Louis Hayes - drums"
+    ],
+    "notable_qualities": [
+      "hard-bop ballad"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "6/10. Ballad but didn't grab him — mood alone didn't carry it.",
+    "spotify_id": "5XjjmKaKGBgPuwOgm1Ux1j",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.979,
+      "danceability": 0.538,
+      "spotify_energy": 0.155,
+      "instrumentalness": 0.864,
+      "liveness": 0.081,
+      "loudness": -14.47,
+      "speechiness": 0.037,
+      "spotify_valence": 0.206
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Harvest Time",
+    "artist": "Pharoah Sanders",
+    "album": "Pharoah",
+    "year": 1977,
+    "label": "India Navigation",
+    "era": "Spiritual Jazz",
+    "subgenres": [
+      "spiritual jazz",
+      "ambient jazz"
+    ],
+    "moods": [
+      "hypnotic",
+      "spacious",
+      "sustained",
+      "meditative"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "organ",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Pharoah Sanders - tenor saxophone",
+      "Tisziji Munoz - guitar",
+      "Bedria Sanders - harmonium"
+    ],
+    "notable_qualities": [
+      "20-minute sustained drone-vamp",
+      "never escalates"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "7/10, 'a bit long'. Sustained-calm boundary test — space has a length limit for him.",
+    "spotify_id": "1JowmcbnAkhBM2M2CKyd4C",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.943,
+      "danceability": 0.314,
+      "spotify_energy": 0.179,
+      "instrumentalness": 0.838,
+      "liveness": 0.0802,
+      "loudness": -18.123,
+      "speechiness": 0.0367,
+      "spotify_valence": 0.506
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "In a Silent Way",
+    "artist": "Miles Davis",
+    "album": "In a Silent Way",
+    "year": 1969,
+    "label": "Columbia",
+    "era": "Electric",
+    "subgenres": [
+      "jazz fusion",
+      "ambient jazz"
+    ],
+    "moods": [
+      "spacious",
+      "ambient",
+      "hypnotic",
+      "atmospheric"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "electric piano",
+      "organ",
+      "electric guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - soprano saxophone",
+      "Herbie Hancock - electric piano",
+      "Chick Corea - electric piano",
+      "Joe Zawinul - organ",
+      "John McLaughlin - guitar",
+      "Dave Holland - bass",
+      "Tony Williams - drums"
+    ],
+    "notable_qualities": [
+      "electric/ambient",
+      "20-minute suite"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "6/10, 'a bit too long'. Electric-texture boundary test.",
+    "spotify_id": "54a3lHJAwce1dOKrsDPEHv",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.945,
+      "danceability": 0.426,
+      "spotify_energy": 0.276,
+      "instrumentalness": 0.871,
+      "liveness": 0.108,
+      "loudness": -15.045,
+      "speechiness": 0.0357,
+      "spotify_valence": 0.0493
+    },
+    "replayability": null,
+    "playthrough": null
   }
 ]
