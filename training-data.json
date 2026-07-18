@@ -12152,5 +12152,305 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "0CLbmkYmQIWiEwnsbOkLpd"
+  },
+  {
+    "title": "After The Rain",
+    "artist": "John Coltrane",
+    "album": "Impressions",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spacious",
+      "prayerful",
+      "serene",
+      "sustained"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "calm sustained ballad",
+      "prayerful"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "7.5/10. Calm-modal peak probe — solid but not top ceiling.",
+    "spotify_id": "7wCrY3jUJGrP6lwoF7PBd1",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Dear Lord",
+    "artist": "John Coltrane",
+    "album": "Transition",
+    "year": 1970,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "prayerful",
+      "spacious",
+      "reverent",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "devotional ballad",
+      "sustained calm"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "7.5/10. Same devotional register as After the Rain — lands the same.",
+    "spotify_id": "4GibdmpjKroUfLrbBVdWNp",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Turiya and Ramakrishna",
+    "artist": "Alice Coltrane",
+    "album": "Ptah, the El Daoud",
+    "year": 1970,
+    "label": "Impulse!",
+    "era": "Spiritual Jazz",
+    "subgenres": [
+      "spiritual jazz",
+      "modal jazz"
+    ],
+    "moods": [
+      "meditative",
+      "bluesy",
+      "spacious",
+      "warm"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Alice Coltrane - piano",
+      "Ron Carter - bass",
+      "Ben Riley - drums"
+    ],
+    "notable_qualities": [
+      "bluesy meditative piano",
+      "spacious"
+    ],
+    "rating": 8.5,
+    "liked": true,
+    "notes": "8.5/10. Blues-center + calm — the All Blues sweet spot. Highest of the batch.",
+    "spotify_id": "4DVu7YgHVJaeN0C7HNpy2q",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Peace",
+    "artist": "Horace Silver",
+    "album": "Blowin' the Blues Away",
+    "year": 1959,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "serene",
+      "gentle"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Horace Silver - piano",
+      "Gene Taylor - bass",
+      "Louis Hayes - drums"
+    ],
+    "notable_qualities": [
+      "hard-bop ballad"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "6/10. Ballad but didn't grab him — mood alone didn't carry it.",
+    "spotify_id": "5XjjmKaKGBgPuwOgm1Ux1j",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Harvest Time",
+    "artist": "Pharoah Sanders",
+    "album": "Pharoah",
+    "year": 1977,
+    "label": "India Navigation",
+    "era": "Spiritual Jazz",
+    "subgenres": [
+      "spiritual jazz",
+      "ambient jazz"
+    ],
+    "moods": [
+      "hypnotic",
+      "spacious",
+      "sustained",
+      "meditative"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "organ",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Pharoah Sanders - tenor saxophone",
+      "Tisziji Munoz - guitar",
+      "Bedria Sanders - harmonium"
+    ],
+    "notable_qualities": [
+      "20-minute sustained drone-vamp",
+      "never escalates"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "7/10, 'a bit long'. Sustained-calm boundary test — space has a length limit for him.",
+    "spotify_id": "1JowmcbnAkhBM2M2CKyd4C",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "In a Silent Way",
+    "artist": "Miles Davis",
+    "album": "In a Silent Way",
+    "year": 1969,
+    "label": "Columbia",
+    "era": "Electric",
+    "subgenres": [
+      "jazz fusion",
+      "ambient jazz"
+    ],
+    "moods": [
+      "spacious",
+      "ambient",
+      "hypnotic",
+      "atmospheric"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "electric piano",
+      "organ",
+      "electric guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - soprano saxophone",
+      "Herbie Hancock - electric piano",
+      "Chick Corea - electric piano",
+      "Joe Zawinul - organ",
+      "John McLaughlin - guitar",
+      "Dave Holland - bass",
+      "Tony Williams - drums"
+    ],
+    "notable_qualities": [
+      "electric/ambient",
+      "20-minute suite"
+    ],
+    "rating": 6,
+    "liked": false,
+    "notes": "6/10, 'a bit too long'. Electric-texture boundary test.",
+    "spotify_id": "54a3lHJAwce1dOKrsDPEHv",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
   }
 ]
