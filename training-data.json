@@ -12047,5 +12047,55 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "3fkUXEFOWK2X4HXSv59BFN"
+  },
+  {
+    "title": "Impressions",
+    "artist": "John Coltrane",
+    "album": "Impressions",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz"
+    ],
+    "moods": [
+      "intense",
+      "driving",
+      "hectic",
+      "urgent"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "Dorian modal structure (So What twin)",
+      "up-tempo intense blowing",
+      "Village Vanguard"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Too hectic. 4/10. Probe for the modal-vamp hypothesis — refuted it: structurally So What's twin but the fast/dense energy is the turn-off, not the harmony.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "56WxisT3G03A6RzIHzT3rX"
   }
 ]
