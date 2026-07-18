@@ -12097,5 +12097,60 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "56WxisT3G03A6RzIHzT3rX"
+  },
+  {
+    "title": "Acknowledgement (A Love Supreme, Pt. I)",
+    "artist": "John Coltrane",
+    "album": "A Love Supreme",
+    "year": 1965,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "hypnotic",
+      "reverent",
+      "spacious",
+      "building"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums",
+      "vocals"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "four-note bass cell vamp",
+      "'a love supreme' vocal chant",
+      "modal in all twelve keys",
+      "spiritual jazz landmark",
+      "calm-to-fervent build"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Loves the song; 7.5/10. Spacious-vamp probe — lands high but the back-third build keeps it under the So What/All Blues ceiling.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-18",
+    "recommended_by_model": true,
+    "recommendation_version": "taste-probe",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0CLbmkYmQIWiEwnsbOkLpd"
   }
 ]
