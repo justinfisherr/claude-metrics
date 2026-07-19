@@ -12628,5 +12628,61 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "07l1kkIQkfNlCmVwMC4GD0"
+  },
+  {
+    "title": "West End Blues",
+    "artist": "Louis Armstrong",
+    "album": "The Hot Fives and Hot Sevens",
+    "year": 1928,
+    "label": "OKeh",
+    "era": "Swing",
+    "subgenres": [
+      "hot jazz",
+      "early jazz",
+      "dixieland",
+      "blues"
+    ],
+    "moods": [
+      "joyful",
+      "bluesy",
+      "historic",
+      "warm"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "clarinet",
+      "piano",
+      "trombone",
+      "banjo",
+      "drums",
+      "vocals"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Louis Armstrong - trumpet/vocals",
+      "Earl Hines - piano",
+      "Jimmy Strong - clarinet",
+      "Fred Robinson - trombone"
+    ],
+    "notable_qualities": [
+      "invented the jazz solo (opening cadenza)",
+      "early scat",
+      "1920s fountainhead"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "3/10. Earliest-gen probe. Taste bottoms out in the 1920s: Armstrong 3, Hawkins 2, Ellington swing 3 - pre-1940 is a dead zone; only cool Lester (6) survives. Possible fidelity/era penalty too.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7dOz8RrPWP9UgJ8X8p1vU7"
   }
 ]
