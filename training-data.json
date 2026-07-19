@@ -12935,5 +12935,165 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "7CnOzCWGrTINcDExG6u99y"
+  },
+  {
+    "title": "First Light",
+    "artist": "Freddie Hubbard",
+    "album": "First Light",
+    "year": 1971,
+    "label": "CTI",
+    "era": "Post-Bop",
+    "subgenres": [
+      "jazz-funk",
+      "orchestral jazz",
+      "cti"
+    ],
+    "moods": [
+      "lush",
+      "warm",
+      "romantic",
+      "spacious",
+      "cinematic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "electric piano",
+      "guitar",
+      "bass",
+      "drums",
+      "strings"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "Bob James - keyboards",
+      "George Benson - guitar",
+      "Ron Carter - bass",
+      "Jack DeJohnette - drums",
+      "Don Sebesky - arranger"
+    ],
+    "notable_qualities": [
+      "1972 Grammy",
+      "CTI orchestral crossover",
+      "golden melodic tone"
+    ],
+    "rating": 8.5,
+    "liked": true,
+    "notes": "8.5/10. Confirms the lush ORCHESTRAL-groove lane wins (Red Clay 9, Little Sunflower 8.5, First Light 8.5). Strings + golden melodic tone = his zone; NOT bebop Hubbard (Straight Life 4). Lush romantic-melodic + groove.",
+    "spotify_id": "3JkgrvbHI6TlskLY4pwEUM",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Speak Like a Child",
+    "artist": "Herbie Hancock",
+    "album": "Speak Like a Child",
+    "year": 1968,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "modal jazz",
+      "post-bop"
+    ],
+    "moods": [
+      "hazy",
+      "dreamy",
+      "pastel",
+      "gentle",
+      "slow"
+    ],
+    "instrumentation": [
+      "piano",
+      "flugelhorn",
+      "bass trombone",
+      "alto flute",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Herbie Hancock - piano",
+      "Ron Carter - bass",
+      "Mickey Roker - drums"
+    ],
+    "notable_qualities": [
+      "unusual pastel front line",
+      "pre-electric impressionist Herbie"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "6/10. Slow-but-restless beat static Wedding (3), but Herbie's pretty-modal side caps ~6 (cf Maiden Voyage 6). His peaks are the funk (Cantaloupe/Chameleon 9). Slow isn't the killer; pretty-haze isn't enough.",
+    "spotify_id": "12uCaHGIUaGufUZatdOndJ",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "The Plum Blossom",
+    "artist": "Yusef Lateef",
+    "album": "Eastern Sounds",
+    "year": 1961,
+    "label": "Moodsville",
+    "era": "Post-Bop",
+    "subgenres": [
+      "world jazz",
+      "modal jazz"
+    ],
+    "moods": [
+      "exotic",
+      "hypnotic",
+      "sparse",
+      "meditative"
+    ],
+    "instrumentation": [
+      "chinese globular flute",
+      "bass",
+      "drums",
+      "piano"
+    ],
+    "primary_instrument": "flute",
+    "tempo": "medium",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Yusef Lateef - globular flute",
+      "Barry Harris - piano",
+      "Ernie Farrow - bass",
+      "Lex Humphries - drums"
+    ],
+    "notable_qualities": [
+      "Chinese clay globular flute",
+      "early world-jazz",
+      "hypnotic vamp"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "5.5/10. SURPRISE - predicted 9-10 (same album as Spartacus 10) but only 5.5. So Lateef's 10 is the LUSH ROMANTIC MELODY of Love Theme from Spartacus, NOT world-instrument exotica or hypnotic vamp. Refines whole model: emotional romantic-melodic PULL drives his peaks, not world/modal texture.",
+    "spotify_id": "28KPkyrSqMDrriF7JjZ6Wi",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
   }
 ]
