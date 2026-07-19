@@ -1,5 +1,5 @@
 {
-  "current_version": "8.01",
+  "current_version": "8.02",
   "versions": [
     {
       "version": "1.00",
@@ -997,6 +997,34 @@
       "notes": "Add 9 calm-modal probe tracks (Prologue 10 ... Impressions 4); test whether audio energy/tempo features rise now that a collaborator-identical family has rating spread 4-10",
       "changelog": [
         "Logged Prologue, All Blues 7->9, Impressions, Acknowledgement, After the Rain, Dear Lord, Turiya, Peace, Harvest Time, In a Silent Way"
+      ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "8.02",
+      "name": "",
+      "major": 8,
+      "minor": 2,
+      "run_date": "2026-07-19T22:35:24.578647",
+      "dataset_size": 229,
+      "best_model": "random_forest",
+      "r_squared": 0.523,
+      "rmse": 1.6079,
+      "mae": 1.2527,
+      "feature_count": 141,
+      "best_k": 3,
+      "ridge_r_squared": 0.214,
+      "ridge_rmse": 2.0641,
+      "rf_r_squared": 0.523,
+      "rf_rmse": 1.6079,
+      "notes": "Jazz-trip session: +11 tracks mapping taste boundaries (earlier-gen dead zone, bossa delivery-vs-composition, groove-not-stillness, lush-romantic peaks)",
+      "changelog": [
+        "Prologue 10, Ravi 4, Lester 6, Armstrong 3, Joao 7.5, Jobim 3, Evans MyMansGoneNow 6.5, Abdullah 3, Sonny Clark 5, Hubbard First Light 8.5, Herbie SpeakLikeAChild 6, Lateef PlumBlossom 5.5"
       ],
       "is_major": false,
       "training_data_snapshot": false,
