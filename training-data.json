@@ -12574,5 +12574,59 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "0tlY8JrtD91wh8Vp67pASP"
+  },
+  {
+    "title": "These Foolish Things",
+    "artist": "Lester Young",
+    "album": "The President Plays with the Oscar Peterson Trio",
+    "year": 1952,
+    "label": "Clef",
+    "era": "Swing",
+    "subgenres": [
+      "swing",
+      "ballad",
+      "cool"
+    ],
+    "moods": [
+      "lyrical",
+      "cool",
+      "tender",
+      "relaxed",
+      "wistful"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums",
+      "guitar"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Lester Young - tenor saxophone",
+      "Oscar Peterson - piano",
+      "Ray Brown - bass",
+      "Barney Kessel - guitar"
+    ],
+    "notable_qualities": [
+      "cool tenor origin (anti-Hawkins)",
+      "late-career Lester",
+      "lyrical ballad"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "6/10, 'not bad but nothing revolutionary'. Cool-origin test: beat Hawkins (2), under Webster ballads (7-7.5). Cool tenor origin lands mildly, not a peak.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "07l1kkIQkfNlCmVwMC4GD0"
   }
 ]
