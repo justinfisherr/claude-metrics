@@ -12835,5 +12835,52 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1wCe7Rl3SRopd2hZxny2Zg"
+  },
+  {
+    "title": "The Wedding",
+    "artist": "Abdullah Ibrahim",
+    "album": "Good News from Africa",
+    "year": 1973,
+    "label": "Enja",
+    "era": "Contemporary",
+    "subgenres": [
+      "south african jazz",
+      "spiritual jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "hymnal",
+      "mournful",
+      "hopeful",
+      "still",
+      "gentle"
+    ],
+    "instrumentation": [
+      "piano"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Abdullah Ibrahim - piano"
+    ],
+    "notable_qualities": [
+      "gospel-and-Africa hymn",
+      "hypnotic repeating theme",
+      "anti-apartheid resonance"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "3/10 'a bit slow for me'. IMPORTANT correction: predicted peak-texture (still hypnotic hymn vamp) but it FLOPPED for being too slow/static. So it is NOT stillness he loves - his 9-10s (Prologue, All Blues, My Favorite Things) all have a GROOVE / forward pulse under the space. Sweet spot = grounded groove WITH space + motion, not slow stillness. Both too-hectic AND too-static get punished.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7LFxvUn4zq8ofLVvL5EFiH"
   }
 ]
