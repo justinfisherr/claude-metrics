@@ -12882,5 +12882,58 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "7LFxvUn4zq8ofLVvL5EFiH"
+  },
+  {
+    "title": "Cool Struttin'",
+    "artist": "Sonny Clark",
+    "album": "Cool Struttin'",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues",
+      "piano"
+    ],
+    "moods": [
+      "cool",
+      "bluesy",
+      "strutting",
+      "relaxed"
+    ],
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "alto saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sonny Clark - piano",
+      "Art Farmer - trumpet",
+      "Jackie McLean - alto saxophone",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "bluesy mid-tempo strut",
+      "cult classic in Japan"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "5/10. A/B vs The Wedding (3, too slow): groove+motion helped, but a cool blues strut alone isn't a peak. Needs modal/spiritual color or deeper emotional pull, not just cool+groove.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7CnOzCWGrTINcDExG6u99y"
   }
 ]
