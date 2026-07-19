@@ -12783,5 +12783,57 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1zaFBhJypbTO2RNItbY8Tk"
+  },
+  {
+    "title": "My Man's Gone Now",
+    "artist": "Bill Evans",
+    "album": "Sunday at the Village Vanguard",
+    "year": 1961,
+    "label": "Riverside",
+    "era": "Post-Bop",
+    "subgenres": [
+      "piano trio",
+      "modal",
+      "ballad",
+      "post-bop"
+    ],
+    "moods": [
+      "mournful",
+      "tender",
+      "spacious",
+      "interactive",
+      "bittersweet"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Bill Evans - piano",
+      "Scott LaFaro - bass",
+      "Paul Motian - drums"
+    ],
+    "notable_qualities": [
+      "telepathic trio",
+      "recorded 10 days before LaFaro's death",
+      "tragedy held beautifully"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "6.5/10. 'Return to center' test - aspirational Evans + mournful + trio + real tragedy only hit 6.5, NOT the 9-10 the model would predict. Refines within-Evans: his STILL/hypnotic peaks (Peace Piece 9) beat this restless/conversational live trio. It's stillness, not just Evans+sadness.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1wCe7Rl3SRopd2hZxny2Zg"
   }
 ]
