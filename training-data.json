@@ -12684,5 +12684,55 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "7dOz8RrPWP9UgJ8X8p1vU7"
+  },
+  {
+    "title": "Chega de Saudade",
+    "artist": "João Gilberto",
+    "album": "Chega de Saudade",
+    "year": 1959,
+    "label": "Odeon",
+    "era": "Bossa Nova",
+    "subgenres": [
+      "bossa nova",
+      "samba",
+      "cool"
+    ],
+    "moods": [
+      "melancholic",
+      "intimate",
+      "tender",
+      "cool",
+      "wistful",
+      "warm"
+    ],
+    "instrumentation": [
+      "acoustic guitar",
+      "vocals"
+    ],
+    "primary_instrument": "acoustic guitar",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "João Gilberto - guitar/vocals"
+    ],
+    "notable_qualities": [
+      "invented bossa nova",
+      "hushed voice-and-guitar",
+      "offbeat batida pulse",
+      "saudade"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "7.5/10 ('cute'). Bossa/Brazilian lands - the sweet spot has a passport. Beats Getz's secondhand bossa (6). World/non-American cool confirmed a mineable green-light gap (cf Tezeta 9).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5AYmO1qGqHA7KHfjO4kzct"
   }
 ]
