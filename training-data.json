@@ -12524,5 +12524,55 @@
     },
     "replayability": null,
     "playthrough": null
+  },
+  {
+    "title": "For Turiya",
+    "artist": "Ravi Coltrane",
+    "album": "Spirit Fiction",
+    "year": 2012,
+    "label": "Blue Note",
+    "era": "Contemporary",
+    "subgenres": [
+      "modern jazz",
+      "post-bop",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "searching",
+      "cool",
+      "modern",
+      "introspective"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Ravi Coltrane - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "Coltrane family lineage",
+      "tune for his mother Alice (Turiya)",
+      "modern/oblique voice",
+      "year approx"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "4/10. Model-training pick — modern-era coverage gap + new artist node (first Ravi Coltrane). Modern isn't the issue (Kamasi Prologue=10); Ravi's cooler oblique voice and/or 9-min length didn't land.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0tlY8JrtD91wh8Vp67pASP"
   }
 ]
