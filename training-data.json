@@ -12734,5 +12734,54 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "5AYmO1qGqHA7KHfjO4kzct"
+  },
+  {
+    "title": "Insensatez (How Insensitive)",
+    "artist": "Antônio Carlos Jobim",
+    "album": "The Composer of Desafinado, Plays",
+    "year": 1963,
+    "label": "Verve",
+    "era": "Bossa Nova",
+    "subgenres": [
+      "bossa nova",
+      "instrumental"
+    ],
+    "moods": [
+      "melancholic",
+      "wistful",
+      "gentle",
+      "bittersweet"
+    ],
+    "instrumentation": [
+      "piano",
+      "guitar",
+      "bass",
+      "drums",
+      "strings"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Antônio Carlos Jobim - piano/composer"
+    ],
+    "notable_qualities": [
+      "melody built on Chopin Prelude in E minor",
+      "bossa composer source",
+      "descending saudade line"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "3/10. Same saudade harmony as Joao's Chega (7.5) but instrumental/light version flopped. Conclusion: it was Joao's INTIMATE voice-and-guitar delivery he loved, not the composition/harmony. Consistent with his 'flat/background' aversion - the lounge-instrumental reading killed it.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-19",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1zaFBhJypbTO2RNItbY8Tk"
   }
 ]
