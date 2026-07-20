@@ -13318,5 +13318,157 @@
     "audio_features": null,
     "replayability": null,
     "playthrough": null
+  },
+  {
+    "title": "Stars Fell on Alabama",
+    "artist": "Cannonball Adderley",
+    "album": "Somethin' Else",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "ballad",
+      "hard bop"
+    ],
+    "moods": [
+      "lyrical",
+      "romantic",
+      "warm",
+      "tender"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Cannonball Adderley - alto saxophone",
+      "Miles Davis - trumpet",
+      "Hank Jones - piano",
+      "Sam Jones - bass",
+      "Art Blakey - drums"
+    ],
+    "notable_qualities": [
+      "lyrical alto ballad",
+      "Miles as sideman"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "6/10. Did NOT confirm Autumn Leaves' 10. So his 10 isn't just 'lyrical melody' - something else carries it (the Miles interplay? that specific tune? more motion?). Cannonball node stays mixed (Autumn Leaves 10, Mercy 8, this 6, Work Song 4).",
+    "spotify_id": "4nslzINuZ9ZU5jhIj2xSNO",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip-html",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Bags' Groove",
+    "artist": "Milt Jackson",
+    "album": "Bags' Groove",
+    "year": 1957,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "blues",
+      "bebop",
+      "vibraphone"
+    ],
+    "moods": [
+      "bluesy",
+      "relaxed",
+      "swinging"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "medium",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Milt Jackson - vibraphone"
+    ],
+    "notable_qualities": [
+      "first vibraphone in dataset",
+      "warm slowed-oscillator vibrato"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "2/10. FIRST vibraphone in the dataset = decisive miss. Bluesy-vibes-groove doesn't land. Consistent with dislike of straight blues-groove without emotional/melodic depth (Sidewinder 3, Watermelon 4, Cool Struttin 5). Vibraphone-as-lead + plain blues idiom = no.",
+    "spotify_id": "1ewQUavRnFAEwPqqwKQ0nF",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip-html",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "I Fall in Love Too Easily",
+    "artist": "Miles Davis",
+    "album": "My Funny Valentine",
+    "year": 1965,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "modal"
+    ],
+    "moods": [
+      "mournful",
+      "intimate",
+      "spare",
+      "muted",
+      "lonely"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Herbie Hancock - piano",
+      "Ron Carter - bass",
+      "Tony Williams - drums",
+      "George Coleman - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "Harmon-mute intimacy",
+      "angry benefit concert",
+      "subtraction as expression"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "6.5/10. Muted-mournful-short beat the 16-min Concierto (4) - so LENGTH was a real factor. But still short of It Never Entered My Mind (9): muted-Miles-ballad varies by specific melodic/emotional pull. Short helps, isn't sufficient.",
+    "spotify_id": "32YZWXNhOd70F19BZSU73w",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip-html",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
   }
 ]
