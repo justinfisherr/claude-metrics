@@ -13167,5 +13167,156 @@
     },
     "replayability": null,
     "playthrough": null
+  },
+  {
+    "title": "Concierto de Aranjuez (Adagio)",
+    "artist": "Miles Davis",
+    "album": "Sketches of Spain",
+    "year": 1960,
+    "label": "Columbia",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "orchestral jazz",
+      "modal",
+      "third stream"
+    ],
+    "moods": [
+      "mournful",
+      "lush",
+      "spacious",
+      "spanish",
+      "cinematic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "orchestra",
+      "flute",
+      "strings",
+      "percussion"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Gil Evans - arranger/conductor"
+    ],
+    "notable_qualities": [
+      "Gil Evans orchestration",
+      "adapted from Rodrigo guitar concerto",
+      "16-minute adagio"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "4/10 'beautiful but very drawn out for my liking'. Lush-mournful-orchestral = peak lane, BUT 16 min killed it. Strong confirmation of the length wall: length overrides even the lush-romantic lane. Prefer <7-10 min.",
+    "spotify_id": "5snEgy8RMnkJZqfwqD6svi",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Ne Me Quitte Pas",
+    "artist": "Nina Simone",
+    "album": "I Put a Spell on You",
+    "year": 1965,
+    "label": "Philips",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "chanson",
+      "ballad"
+    ],
+    "moods": [
+      "intimate",
+      "desperate",
+      "sparse",
+      "dramatic",
+      "mournful"
+    ],
+    "instrumentation": [
+      "piano",
+      "vocals",
+      "strings"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - vocals/piano"
+    ],
+    "notable_qualities": [
+      "Jacques Brel chanson in French",
+      "stark and pleading"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "3/10. SURPRISE - predicted high (her intimate-dramatic lane: Wild is the Wind 10, I Put a Spell 9). But this sparse, slow French chanson flopped. Refines: even Nina's ballads need a strong MELODIC HOOK or some motion/build; a stark, near-recitative pleading chanson without a tune to grab = 3. Not 'intimate dramatic' alone - needs the melody.",
+    "spotify_id": "3P0PruAEkm9kqukXFr4JhT",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Willow Weep for Me",
+    "artist": "Clifford Brown",
+    "album": "Clifford Brown with Strings",
+    "year": 1955,
+    "label": "EmArcy",
+    "era": "Hard Bop",
+    "subgenres": [
+      "ballad",
+      "orchestral jazz"
+    ],
+    "moods": [
+      "lush",
+      "romantic",
+      "tender",
+      "warm",
+      "melodic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "strings",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Clifford Brown - trumpet",
+      "Neal Hefti - arranger"
+    ],
+    "notable_qualities": [
+      "lush strings ballad",
+      "warm lyrical tone",
+      "Brown died at 25 in 1956"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "6.5/10. Pure lush-strings ballad = 6.5, below Hubbard First Light (8.5). Consistent: lush-melodic is good but the GROOVIER First Light (with a pulse) beat the static ballad. Needs motion, not just lush stillness. New node (Clifford Brown).",
+    "spotify_id": "6O7C86uv50VYe18zxDkJ8N",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null
   }
 ]
