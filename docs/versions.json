@@ -1,5 +1,5 @@
 {
-  "current_version": "9.00",
+  "current_version": "9.01",
   "versions": [
     {
       "version": "1.00",
@@ -1168,6 +1168,36 @@
         "dashboard_data": "versions/v9.00/dashboard-data.json",
         "model": "versions/v9.00/model.joblib",
         "training_data": "versions/v9.00/training-data.md"
+      }
+    },
+    {
+      "version": "9.01",
+      "name": "",
+      "major": 9,
+      "minor": 1,
+      "run_date": "2026-07-21T22:56:18.033012",
+      "dataset_size": 286,
+      "best_model": "random_forest",
+      "r_squared": 0.5035,
+      "rmse": 1.6004,
+      "mae": 1.1849,
+      "feature_count": 151,
+      "best_k": 3,
+      "ridge_r_squared": 0.3535,
+      "ridge_rmse": 1.8263,
+      "rf_r_squared": 0.5035,
+      "rf_rmse": 1.6004,
+      "notes": "Album-review batch (Red Clay, Rosewood, Kind of Blue, A Love Supreme, Speak No Evil, Nights of Ballads&Blues): +19 tracks, +5 album entities, re-rated Witch Hunt 1->6 and Acknowledgement 7.5->8",
+      "changelog": [
+        "19 new album tracks",
+        "5 album entities",
+        "2 re-rates"
+      ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
       }
     }
   ]
