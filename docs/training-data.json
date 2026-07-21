@@ -2624,7 +2624,7 @@
       "tender and mysterious ballad",
       "written about Shorter's daughter"
     ],
-    "rating": 7.5,
+    "rating": 8.5,
     "liked": true,
     "notes": "Has heard before. Very good, very close to making it to top jazz tracks playlist.",
     "favorite_moments": null,
@@ -13167,5 +13167,1124 @@
     },
     "replayability": null,
     "playthrough": null
+  },
+  {
+    "title": "Concierto de Aranjuez (Adagio)",
+    "artist": "Miles Davis",
+    "album": "Sketches of Spain",
+    "year": 1960,
+    "label": "Columbia",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "orchestral jazz",
+      "modal",
+      "third stream"
+    ],
+    "moods": [
+      "mournful",
+      "lush",
+      "spacious",
+      "spanish",
+      "cinematic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "orchestra",
+      "flute",
+      "strings",
+      "percussion"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Gil Evans - arranger/conductor"
+    ],
+    "notable_qualities": [
+      "Gil Evans orchestration",
+      "adapted from Rodrigo guitar concerto",
+      "16-minute adagio"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "4/10 'beautiful but very drawn out for my liking'. Lush-mournful-orchestral = peak lane, BUT 16 min killed it. Strong confirmation of the length wall: length overrides even the lush-romantic lane. Prefer <7-10 min.",
+    "spotify_id": "5snEgy8RMnkJZqfwqD6svi",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.935,
+      "danceability": 0.257,
+      "spotify_energy": 0.0851,
+      "instrumentalness": 0.582,
+      "liveness": 0.349,
+      "loudness": -22.028,
+      "speechiness": 0.0399,
+      "spotify_valence": 0.0392
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Ne Me Quitte Pas",
+    "artist": "Nina Simone",
+    "album": "I Put a Spell on You",
+    "year": 1965,
+    "label": "Philips",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "chanson",
+      "ballad"
+    ],
+    "moods": [
+      "intimate",
+      "desperate",
+      "sparse",
+      "dramatic",
+      "mournful"
+    ],
+    "instrumentation": [
+      "piano",
+      "vocals",
+      "strings"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - vocals/piano"
+    ],
+    "notable_qualities": [
+      "Jacques Brel chanson in French",
+      "stark and pleading"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "3/10. SURPRISE - predicted high (her intimate-dramatic lane: Wild is the Wind 10, I Put a Spell 9). But this sparse, slow French chanson flopped. Refines: even Nina's ballads need a strong MELODIC HOOK or some motion/build; a stark, near-recitative pleading chanson without a tune to grab = 3. Not 'intimate dramatic' alone - needs the melody.",
+    "spotify_id": "3P0PruAEkm9kqukXFr4JhT",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.95,
+      "danceability": 0.408,
+      "spotify_energy": 0.29,
+      "instrumentalness": 8.74e-05,
+      "liveness": 0.141,
+      "loudness": -8.908,
+      "speechiness": 0.0427,
+      "spotify_valence": 0.24
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Willow Weep for Me",
+    "artist": "Clifford Brown",
+    "album": "Clifford Brown with Strings",
+    "year": 1955,
+    "label": "EmArcy",
+    "era": "Hard Bop",
+    "subgenres": [
+      "ballad",
+      "orchestral jazz"
+    ],
+    "moods": [
+      "lush",
+      "romantic",
+      "tender",
+      "warm",
+      "melodic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "strings",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Clifford Brown - trumpet",
+      "Neal Hefti - arranger"
+    ],
+    "notable_qualities": [
+      "lush strings ballad",
+      "warm lyrical tone",
+      "Brown died at 25 in 1956"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "6.5/10. Pure lush-strings ballad = 6.5, below Hubbard First Light (8.5). Consistent: lush-melodic is good but the GROOVIER First Light (with a pulse) beat the static ballad. Needs motion, not just lush stillness. New node (Clifford Brown).",
+    "spotify_id": "6O7C86uv50VYe18zxDkJ8N",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.908,
+      "danceability": 0.392,
+      "spotify_energy": 0.192,
+      "instrumentalness": 0.904,
+      "liveness": 0.197,
+      "loudness": -10.121,
+      "speechiness": 0.0328,
+      "spotify_valence": 0.369
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Stars Fell on Alabama",
+    "artist": "Cannonball Adderley",
+    "album": "Somethin' Else",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "ballad",
+      "hard bop"
+    ],
+    "moods": [
+      "lyrical",
+      "romantic",
+      "warm",
+      "tender"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Cannonball Adderley - alto saxophone",
+      "Miles Davis - trumpet",
+      "Hank Jones - piano",
+      "Sam Jones - bass",
+      "Art Blakey - drums"
+    ],
+    "notable_qualities": [
+      "lyrical alto ballad",
+      "Miles as sideman"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "6/10. Did NOT confirm Autumn Leaves' 10. So his 10 isn't just 'lyrical melody' - something else carries it (the Miles interplay? that specific tune? more motion?). Cannonball node stays mixed (Autumn Leaves 10, Mercy 8, this 6, Work Song 4).",
+    "spotify_id": "4nslzINuZ9ZU5jhIj2xSNO",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip-html",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.811,
+      "danceability": 0.533,
+      "spotify_energy": 0.166,
+      "instrumentalness": 0.0133,
+      "liveness": 0.0926,
+      "loudness": -14.91,
+      "speechiness": 0.0426,
+      "spotify_valence": 0.423
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "Bags' Groove",
+    "artist": "Milt Jackson",
+    "album": "Bags' Groove",
+    "year": 1957,
+    "label": "Prestige",
+    "era": "Hard Bop",
+    "subgenres": [
+      "blues",
+      "bebop",
+      "vibraphone"
+    ],
+    "moods": [
+      "bluesy",
+      "relaxed",
+      "swinging"
+    ],
+    "instrumentation": [
+      "vibraphone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vibraphone",
+    "tempo": "medium",
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Milt Jackson - vibraphone"
+    ],
+    "notable_qualities": [
+      "first vibraphone in dataset",
+      "warm slowed-oscillator vibrato"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "2/10. FIRST vibraphone in the dataset = decisive miss. Bluesy-vibes-groove doesn't land. Consistent with dislike of straight blues-groove without emotional/melodic depth (Sidewinder 3, Watermelon 4, Cool Struttin 5). Vibraphone-as-lead + plain blues idiom = no.",
+    "spotify_id": "1ewQUavRnFAEwPqqwKQ0nF",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip-html",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.885,
+      "danceability": 0.5,
+      "spotify_energy": 0.251,
+      "instrumentalness": 0.00165,
+      "liveness": 0.248,
+      "loudness": -12.981,
+      "speechiness": 0.0474,
+      "spotify_valence": 0.697
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "I Fall in Love Too Easily",
+    "artist": "Miles Davis",
+    "album": "My Funny Valentine",
+    "year": 1965,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "modal"
+    ],
+    "moods": [
+      "mournful",
+      "intimate",
+      "spare",
+      "muted",
+      "lonely"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Herbie Hancock - piano",
+      "Ron Carter - bass",
+      "Tony Williams - drums",
+      "George Coleman - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "Harmon-mute intimacy",
+      "angry benefit concert",
+      "subtraction as expression"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "6.5/10. Muted-mournful-short beat the 16-min Concierto (4) - so LENGTH was a real factor. But still short of It Never Entered My Mind (9): muted-Miles-ballad varies by specific melodic/emotional pull. Short helps, isn't sufficient.",
+    "spotify_id": "32YZWXNhOd70F19BZSU73w",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "jazz-trip-html",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.567,
+      "danceability": 0.494,
+      "spotify_energy": 0.162,
+      "instrumentalness": 0.000117,
+      "liveness": 0.109,
+      "loudness": -15.041,
+      "speechiness": 0.0362,
+      "spotify_valence": 0.179
+    },
+    "replayability": null,
+    "playthrough": null
+  },
+  {
+    "title": "A Little Max (Parfait)",
+    "artist": "Duke Ellington, Charles Mingus & Max Roach",
+    "album": "Money Jungle",
+    "year": 1963,
+    "label": "United Artists",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio"
+    ],
+    "moods": [
+      "intimate",
+      "spare",
+      "exploratory"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Duke Ellington - piano",
+      "Charles Mingus - bass",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "same trio as Fleurette Africaine (9/10)",
+      "did not replicate that result"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. Hoped to extend the Fleurette Africaine pattern (9/10, same trio) but this track did not land.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 179,
+      "popularity": 23,
+      "tempo_bpm": 70,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.793,
+      "danceability": 0.604,
+      "spotify_energy": 0.634,
+      "instrumentalness": 0.915,
+      "liveness": 0.0718,
+      "loudness": -9.897,
+      "speechiness": 0.0374,
+      "spotify_valence": 0.657
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "7xChNKU5KLleeDLdDooFJK"
+  },
+  {
+    "title": "Three Card Molly",
+    "artist": "Elvin Jones",
+    "album": "Puttin' It Together",
+    "year": 1968,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "intense",
+      "propulsive"
+    ],
+    "instrumentation": [
+      "drums",
+      "tenor saxophone",
+      "soprano saxophone",
+      "bass"
+    ],
+    "primary_instrument": "drums",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Elvin Jones - drums",
+      "Joe Farrell - tenor/soprano saxophone",
+      "Jimmy Garrison - bass"
+    ],
+    "notable_qualities": [
+      "Elvin Jones as leader, not sideman",
+      "shares Jimmy Garrison with the Coltrane quartet"
+    ],
+    "rating": 2.5,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. Elvin Jones's drumming is central to many of your highest-rated Coltrane tracks, but this didn't transfer as leader.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 503,
+      "popularity": 5,
+      "tempo_bpm": 140,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.186,
+      "danceability": 0.355,
+      "spotify_energy": 0.617,
+      "instrumentalness": 0.256,
+      "liveness": 0.306,
+      "loudness": -13.568,
+      "speechiness": 0.0782,
+      "spotify_valence": 0.544
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "7IaEMBFdMl6Ocjkcbrni3C"
+  },
+  {
+    "title": "Now's the Time",
+    "artist": "Charlie Parker",
+    "album": "Ko-Ko session (Savoy)",
+    "year": 1945,
+    "label": "Savoy",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop"
+    ],
+    "moods": [
+      "joyful",
+      "swinging"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charlie Parker - alto saxophone",
+      "Miles Davis - trumpet",
+      "Max Roach - drums"
+    ],
+    "notable_qualities": [
+      "Miles Davis heard as a sideman, earliest recorded era (1945)"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. Miles-as-sideman test in his earliest era.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 182,
+      "popularity": 39,
+      "tempo_bpm": 160,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.485,
+      "danceability": 0.478,
+      "spotify_energy": 0.534,
+      "instrumentalness": 0.00425,
+      "liveness": 0.188,
+      "loudness": -9.985,
+      "speechiness": 0.0386,
+      "spotify_valence": 0.673
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "0cvA7oe0YMEOl5L017P9lq"
+  },
+  {
+    "title": "Somethin' Else",
+    "artist": "Cannonball Adderley",
+    "album": "Somethin' Else",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "moody",
+      "bluesy"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Cannonball Adderley - alto saxophone",
+      "Miles Davis - trumpet",
+      "Hank Jones - piano",
+      "Sam Jones - bass",
+      "Art Blakey - drums"
+    ],
+    "notable_qualities": [
+      "same session as Autumn Leaves (10/10)",
+      "second Miles-as-sideman data point, cool-era restraint"
+    ],
+    "rating": 2.5,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. Same session as your 10/10 Autumn Leaves; this title track didn't land despite Miles's restrained cool-era playing.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 494,
+      "popularity": 42,
+      "tempo_bpm": 66,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.468,
+      "danceability": 0.512,
+      "spotify_energy": 0.469,
+      "instrumentalness": 0.0,
+      "liveness": 0.191,
+      "loudness": -6.825,
+      "speechiness": 0.032,
+      "spotify_valence": 0.593
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "1iXpq6uyves7dVGJ4MwGYr"
+  },
+  {
+    "title": "Tche Belew",
+    "artist": "Hailu Mergia & The Walias",
+    "album": "Tche Belew",
+    "year": 1977,
+    "label": "Kaifa",
+    "era": "Post-Bop",
+    "subgenres": [
+      "Ethio-jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "hypnotic",
+      "funky"
+    ],
+    "instrumentation": [
+      "keyboards",
+      "saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "keyboards",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Hailu Mergia - keyboards"
+    ],
+    "notable_qualities": [
+      "tests whether the Ethio-jazz love (Tezeta, 9/10) generalizes beyond Mulatu Astatke"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. The Tezeta pattern did not generalize to this artist.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 301,
+      "popularity": 29,
+      "tempo_bpm": 112,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.24,
+      "danceability": 0.51,
+      "spotify_energy": 0.814,
+      "instrumentalness": 0.00856,
+      "liveness": 0.131,
+      "loudness": -7.532,
+      "speechiness": 0.0425,
+      "spotify_valence": 0.946
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "2BxCRD3CZ65suyXj6KeGuU"
+  },
+  {
+    "title": "Moanin'",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "album": "Moanin'",
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "joyful",
+      "soulful",
+      "communal"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Art Blakey - drums",
+      "Lee Morgan - trumpet",
+      "Benny Golson - tenor saxophone",
+      "Bobby Timmons - piano"
+    ],
+    "notable_qualities": [
+      "first Art Blakey track logged",
+      "gospel-tinged communal hard bop pole"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Logged in bulk playlist-rating session. First Art Blakey track — landed well, consistent with the communal/celebratory pole (Mingus, Silver).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 571,
+      "popularity": 61,
+      "tempo_bpm": 130,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.804,
+      "danceability": 0.612,
+      "spotify_energy": 0.493,
+      "instrumentalness": 0.266,
+      "liveness": 0.202,
+      "loudness": -8.589,
+      "speechiness": 0.0467,
+      "spotify_valence": 0.484
+    },
+    "replayability": 7,
+    "playthrough": 1.0,
+    "spotify_id": "4Vkk3iD1VrENHJEACNddvt"
+  },
+  {
+    "title": "Mannenberg",
+    "artist": "Abdullah Ibrahim",
+    "album": "Mannenberg — Is Where It's Happening",
+    "year": 1974,
+    "label": "As-Shams (The Sun)",
+    "era": "Contemporary",
+    "subgenres": [
+      "south african jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "joyful",
+      "danceable"
+    ],
+    "instrumentation": [
+      "piano",
+      "saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Abdullah Ibrahim - piano",
+      "Basil Coetzee - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "second Abdullah Ibrahim track; his first (The Wedding) was also a miss at 3/10"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. Confirms the miss on Abdullah Ibrahim's first track (The Wedding, 3/10) — looks artist/style-level, not track-specific.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 366,
+      "popularity": 31,
+      "tempo_bpm": 118,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.446,
+      "danceability": 0.65,
+      "spotify_energy": 0.494,
+      "instrumentalness": 0.828,
+      "liveness": 0.0873,
+      "loudness": -10.511,
+      "speechiness": 0.0354,
+      "spotify_valence": 0.844
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "46xorZucjdxvBdrDnnrjZ6"
+  },
+  {
+    "title": "Light Blue",
+    "artist": "Ron Carter",
+    "album": null,
+    "year": null,
+    "label": null,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "pretty",
+      "spacious",
+      "cool"
+    ],
+    "instrumentation": [
+      "bass",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "medium",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Ron Carter - bass"
+    ],
+    "notable_qualities": [
+      "Ron Carter as leader, not sideman — landed well"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Logged in bulk playlist-rating session. Justin: \"pretty.\" Album/year/label not confirmed — verify and backfill if known.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 404,
+      "popularity": 42,
+      "tempo_bpm": 90,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.977,
+      "danceability": 0.434,
+      "spotify_energy": 0.0821,
+      "instrumentalness": 0.942,
+      "liveness": 0.0784,
+      "loudness": -24.013,
+      "speechiness": 0.0447,
+      "spotify_valence": 0.0383
+    },
+    "replayability": 7,
+    "playthrough": 1.0,
+    "spotify_id": "1aScbLgIXdvopADfbla929"
+  },
+  {
+    "title": "Bird Alone",
+    "artist": "Abbey Lincoln",
+    "album": "Abbey Sings Abbey",
+    "year": 2007,
+    "label": "Verve",
+    "era": "Contemporary",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "desolate",
+      "tender"
+    ],
+    "instrumentation": [
+      "vocals",
+      "guitar",
+      "bass"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Abbey Lincoln - vocals"
+    ],
+    "notable_qualities": [
+      "new vocalist testing the tragic/romantic ballad pole after the Nina Simone \"Ne Me Quitte Pas\" contradiction"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in bulk playlist-rating session. Didn't resolve the tragic-ballad boundary question either — still unclear whether Nina Simone's hits were artist-specific.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 294,
+      "popularity": 4,
+      "tempo_bpm": 64,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify"
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "3wv3W0dUu1rwiZrR7uLJs3"
+  },
+  {
+    "title": "Butterfly",
+    "artist": "Herbie Hancock",
+    "album": "Thrust",
+    "year": 1974,
+    "label": "Columbia",
+    "era": "Electric",
+    "subgenres": [
+      "jazz fusion",
+      "electric jazz"
+    ],
+    "moods": [
+      "sensual",
+      "hypnotic"
+    ],
+    "instrumentation": [
+      "keyboards",
+      "saxophone",
+      "bass",
+      "drums",
+      "percussion"
+    ],
+    "primary_instrument": "keyboards",
+    "tempo": "slow",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Herbie Hancock - keyboards",
+      "Bennie Maupin - saxophone"
+    ],
+    "notable_qualities": [
+      "recency test: groove-forward electric Herbie vs. early \"flat\" verdicts on acoustic Herbie"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Logged in bulk playlist-rating session. Landed well — supports the idea that groove/funk-forward Herbie plays better than his straight acoustic hard-bop side (Dolphin Dance, Watermelon Man).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "duration_s": 678,
+      "popularity": 39,
+      "tempo_bpm": 100,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.438,
+      "danceability": 0.511,
+      "spotify_energy": 0.529,
+      "instrumentalness": 0.839,
+      "liveness": 0.0483,
+      "loudness": -12.629,
+      "speechiness": 0.0439,
+      "spotify_valence": 0.796
+    },
+    "replayability": 7,
+    "playthrough": 1.0,
+    "spotify_id": "2YQBDxMbQbOsdXixdL4ZyE"
+  },
+  {
+    "title": "Bye Bye Blackbird",
+    "artist": "Miles Davis",
+    "album": "'Round About Midnight",
+    "year": 1956,
+    "label": "Columbia",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "standard"
+    ],
+    "moods": [
+      "playful",
+      "swinging"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "John Coltrane - tenor saxophone",
+      "Red Garland - piano",
+      "Paul Chambers - bass",
+      "Philly Joe Jones - drums"
+    ],
+    "notable_qualities": [
+      "self-discovered, not from a Claude recommendation"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Self-discovered, logged alongside the bulk playlist-rating session.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 475,
+      "popularity": 53,
+      "tempo_bpm": 138,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.558,
+      "danceability": 0.63,
+      "spotify_energy": 0.32,
+      "instrumentalness": 3.88e-06,
+      "liveness": 0.0903,
+      "loudness": -10.566,
+      "speechiness": 0.0464,
+      "spotify_valence": 0.348
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "3ujbZ2FGIoTQG3v07tmV2D"
+  },
+  {
+    "title": "Milestones",
+    "artist": "Bill Evans Trio",
+    "album": null,
+    "year": null,
+    "label": null,
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio",
+      "standard"
+    ],
+    "moods": [
+      "cool",
+      "swinging"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Bill Evans - piano"
+    ],
+    "notable_qualities": [
+      "self-discovered, not from a Claude recommendation"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Self-discovered, logged alongside the bulk playlist-rating session. Album/year/label not confirmed — verify and backfill if known.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "duration_s": 393,
+      "popularity": 42,
+      "tempo_bpm": 112,
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "acousticness": 0.754,
+      "danceability": 0.444,
+      "spotify_energy": 0.374,
+      "instrumentalness": 0.909,
+      "liveness": 0.615,
+      "loudness": -19.549,
+      "speechiness": 0.0383,
+      "spotify_valence": 0.472
+    },
+    "replayability": null,
+    "playthrough": 1.0,
+    "spotify_id": "1FSf2JmNY7qCq5GK8ZB67w"
   }
 ]

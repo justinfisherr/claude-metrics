@@ -1,5 +1,5 @@
 {
-  "current_version": "8.02",
+  "current_version": "8.03",
   "versions": [
     {
       "version": "1.00",
@@ -1026,6 +1026,32 @@
       "changelog": [
         "Prologue 10, Ravi 4, Lester 6, Armstrong 3, Joao 7.5, Jobim 3, Evans MyMansGoneNow 6.5, Abdullah 3, Sonny Clark 5, Hubbard First Light 8.5, Herbie SpeakLikeAChild 6, Lateef PlumBlossom 5.5"
       ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "8.03",
+      "name": "",
+      "major": 8,
+      "minor": 3,
+      "run_date": "2026-07-20T19:38:39.902419",
+      "dataset_size": 247,
+      "best_model": "random_forest",
+      "r_squared": 0.5541,
+      "rmse": 1.5588,
+      "mae": 1.1234,
+      "feature_count": 143,
+      "best_k": 3,
+      "ridge_r_squared": 0.3961,
+      "ridge_rmse": 1.814,
+      "rf_r_squared": 0.5541,
+      "rf_rmse": 1.5588,
+      "notes": "",
+      "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
       "artifacts": {
