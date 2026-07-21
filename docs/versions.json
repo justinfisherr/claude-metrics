@@ -1,5 +1,5 @@
 {
-  "current_version": "8.04",
+  "current_version": "8.06",
   "versions": [
     {
       "version": "1.00",
@@ -1076,6 +1076,58 @@
       "ridge_rmse": 1.8265,
       "rf_r_squared": 0.5111,
       "rf_rmse": 1.624,
+      "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "8.05",
+      "name": "",
+      "major": 8,
+      "minor": 5,
+      "run_date": "2026-07-20T21:25:39.402951",
+      "dataset_size": 267,
+      "best_model": "random_forest",
+      "r_squared": 0.3096,
+      "rmse": 1.9298,
+      "mae": 1.5608,
+      "feature_count": 149,
+      "best_k": 3,
+      "ridge_r_squared": 0.1804,
+      "ridge_rmse": 2.1026,
+      "rf_r_squared": 0.3096,
+      "rf_rmse": 1.9298,
+      "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "8.06",
+      "name": "",
+      "major": 8,
+      "minor": 6,
+      "run_date": "2026-07-20T21:26:57.498386",
+      "dataset_size": 267,
+      "best_model": "random_forest",
+      "r_squared": 0.3075,
+      "rmse": 1.9328,
+      "mae": 1.5614,
+      "feature_count": 149,
+      "best_k": 3,
+      "ridge_r_squared": 0.3036,
+      "ridge_rmse": 1.9382,
+      "rf_r_squared": 0.3075,
+      "rf_rmse": 1.9328,
       "notes": "",
       "changelog": [],
       "is_major": false,
