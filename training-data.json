@@ -14286,5 +14286,1047 @@
     "replayability": null,
     "playthrough": 1.0,
     "spotify_id": "1FSf2JmNY7qCq5GK8ZB67w"
+  },
+  {
+    "album": "Wynton Kelly!",
+    "label": "Vee-Jay",
+    "year": 1961,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Temperance",
+    "artist": "Wynton Kelly",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "piano trio"
+    ],
+    "moods": [
+      "warm",
+      "lyrical"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Wynton Kelly - piano"
+    ],
+    "rating": 2,
+    "notes": "Round 2 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "4fhoZudsfpACX6T0mPysfQ",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 452,
+      "popularity": 16,
+      "tempo_bpm": 100
+    }
+  },
+  {
+    "album": "Heavy Weather",
+    "label": "Columbia",
+    "year": 1977,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Birdland",
+    "artist": "Weather Report",
+    "era": "Electric",
+    "subgenres": [
+      "jazz fusion"
+    ],
+    "moods": [
+      "joyful",
+      "bright"
+    ],
+    "instrumentation": [
+      "keyboards",
+      "saxophone",
+      "bass",
+      "drums",
+      "percussion"
+    ],
+    "primary_instrument": "keyboards",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Joe Zawinul - keyboards",
+      "Wayne Shorter - saxophone",
+      "Jaco Pastorius - bass"
+    ],
+    "rating": 5,
+    "notes": "Round 2 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "19vVghIuHm3IAfN4xpRF3q",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 359,
+      "popularity": 50,
+      "tempo_bpm": 140
+    }
+  },
+  {
+    "album": null,
+    "label": null,
+    "year": null,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Blues-Ette",
+    "artist": "Curtis Fuller",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "warm",
+      "bluesy"
+    ],
+    "instrumentation": [
+      "trombone",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trombone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Curtis Fuller - trombone",
+      "Benny Golson - tenor saxophone"
+    ],
+    "rating": 2,
+    "notes": "Round 2 bulk rating session. Album/label not confirmed.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "1RuDBWjYs09pcU0RYr2CB4",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 334,
+      "popularity": 30,
+      "tempo_bpm": 120
+    }
+  },
+  {
+    "album": "Now He Sings, Now He Sobs",
+    "label": "Solid State",
+    "year": 1968,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Windows",
+    "artist": "Chick Corea",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "piano trio"
+    ],
+    "moods": [
+      "reflective",
+      "searching"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Chick Corea - piano",
+      "Miroslav Vitouš - bass",
+      "Roy Haynes - drums"
+    ],
+    "rating": 4,
+    "notes": "Round 2 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "0f6Fb3g0DRpCIbhljotYwO",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 192,
+      "popularity": 52,
+      "tempo_bpm": 126
+    }
+  },
+  {
+    "album": "Ptah, the El Daoud",
+    "label": "Impulse!",
+    "year": 1970,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Blue Nile",
+    "artist": "Alice Coltrane",
+    "era": "Post-Bop",
+    "subgenres": [
+      "spiritual jazz",
+      "modal jazz"
+    ],
+    "moods": [
+      "warm",
+      "meditative"
+    ],
+    "instrumentation": [
+      "harp",
+      "bass",
+      "drums",
+      "saxophone"
+    ],
+    "primary_instrument": "harp",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Alice Coltrane - harp",
+      "Pharoah Sanders - saxophone",
+      "Ron Carter - bass"
+    ],
+    "rating": 7,
+    "notes": "Round 2 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "0nYbjARvvJYQulZYDKlSum",
+    "liked": true,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 422,
+      "popularity": 43,
+      "tempo_bpm": 72
+    }
+  },
+  {
+    "album": null,
+    "label": "Verve",
+    "year": null,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "My Funny Valentine",
+    "artist": "Jimmy Smith",
+    "era": "Hard Bop",
+    "subgenres": [
+      "soul jazz",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "warm"
+    ],
+    "instrumentation": [
+      "organ",
+      "guitar",
+      "drums"
+    ],
+    "primary_instrument": "organ",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "low",
+    "key_players": [
+      "Jimmy Smith - organ"
+    ],
+    "rating": 4,
+    "notes": "Round 2 bulk rating session. Album/year not confirmed.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "6A3o9vJyYkDpoAbvRWNoLj",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 381,
+      "popularity": 4,
+      "tempo_bpm": 64
+    }
+  },
+  {
+    "album": "Send in the Clowns",
+    "label": "Pablo",
+    "year": 1981,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Send In The Clowns",
+    "artist": "Sarah Vaughan",
+    "era": "Contemporary",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "wistful",
+      "tender"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums",
+      "strings"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sarah Vaughan - vocals"
+    ],
+    "rating": 2.5,
+    "notes": "Round 2 bulk rating session. Recorded with the Count Basie Orchestra.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "4YwQrp68jqLzsM4u6YJNg1",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 381,
+      "popularity": 22,
+      "tempo_bpm": 68
+    }
+  },
+  {
+    "album": null,
+    "label": null,
+    "year": null,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Hi Fly",
+    "artist": "Randy Weston",
+    "era": "Hard Bop",
+    "subgenres": [
+      "post-bop",
+      "world jazz"
+    ],
+    "moods": [
+      "joyful",
+      "rolling"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Randy Weston - piano"
+    ],
+    "rating": 6,
+    "notes": "Round 2 bulk rating session. Album/year not confirmed.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "6fnKHIX8Ct5iYIyPuldFZR",
+    "liked": true,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 610,
+      "popularity": 2,
+      "tempo_bpm": 118
+    }
+  },
+  {
+    "album": "April in Paris",
+    "label": "Clef",
+    "year": 1955,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "April In Paris",
+    "artist": "Count Basie",
+    "era": "Swing",
+    "subgenres": [
+      "swing",
+      "big band"
+    ],
+    "moods": [
+      "bright",
+      "playful"
+    ],
+    "instrumentation": [
+      "big band"
+    ],
+    "primary_instrument": "big band",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Count Basie - piano, bandleader"
+    ],
+    "rating": 4,
+    "notes": "Round 2 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "5rdjEoAiqqsjZdQaYSaDta",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 228,
+      "popularity": 43,
+      "tempo_bpm": 112
+    }
+  },
+  {
+    "album": null,
+    "label": null,
+    "year": 1979,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Tight",
+    "artist": "Betty Carter",
+    "era": "Contemporary",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "playful",
+      "unpredictable",
+      "fun"
+    ],
+    "instrumentation": [
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Betty Carter - vocals"
+    ],
+    "rating": 7,
+    "notes": "Round 2 bulk rating session. Justin: \"fun!\"",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r2",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "4rVur9ApVawPWRTWRM024t",
+    "liked": true,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": true,
+      "source": "spotify",
+      "duration_s": 224,
+      "popularity": 14,
+      "tempo_bpm": 132
+    }
+  },
+  {
+    "album": "Hub-Tones",
+    "label": "Blue Note",
+    "year": 1962,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Hub-Tones",
+    "artist": "Freddie Hubbard",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "warm",
+      "lyrical"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "James Spaulding - alto saxophone/flute"
+    ],
+    "rating": 6,
+    "notes": "Round 3 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "19naWBsLEkWKc61ERtQ3xm",
+    "liked": true,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 504,
+      "popularity": 18,
+      "tempo_bpm": 108
+    }
+  },
+  {
+    "album": "Breaking Point!",
+    "label": "Blue Note",
+    "year": 1964,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Breaking Point!",
+    "artist": "Freddie Hubbard",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "restless",
+      "exploratory"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "trombone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Freddie Hubbard - trumpet"
+    ],
+    "rating": 4,
+    "notes": "Round 3 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "45wnqKMg6CEL48lWMqCvQt",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 619,
+      "popularity": 13,
+      "tempo_bpm": 116
+    }
+  },
+  {
+    "album": "Monk's Music",
+    "label": "Riverside",
+    "year": 1957,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Well, You Needn't",
+    "artist": "Thelonious Monk",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop"
+    ],
+    "moods": [
+      "playful",
+      "angular"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor saxophone",
+      "trumpet",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Thelonious Monk - piano"
+    ],
+    "rating": 3.5,
+    "notes": "Round 3 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "7kyVr98xvHWhoitiv6tEAX",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 684,
+      "popularity": 31,
+      "tempo_bpm": 144
+    }
+  },
+  {
+    "album": "Miles Ahead",
+    "label": "Columbia",
+    "year": 1957,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Miles Ahead",
+    "artist": "Miles Davis",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "orchestral jazz",
+      "cool jazz"
+    ],
+    "moods": [
+      "lush",
+      "cinematic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "orchestra"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow-medium",
+    "energy": 3,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Gil Evans - arranger/conductor"
+    ],
+    "rating": 5.5,
+    "notes": "Round 3 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "5ZJJMKnyVW1xDu8odAIwjf",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 209,
+      "popularity": 13,
+      "tempo_bpm": 88
+    }
+  },
+  {
+    "album": null,
+    "label": null,
+    "year": 1958,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Strength and Sanity",
+    "artist": "Booker Little",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "tender",
+      "melancholic"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "drums",
+      "piano",
+      "bass"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Booker Little - trumpet",
+      "Max Roach - drums"
+    ],
+    "rating": 3,
+    "notes": "Round 3 bulk rating session. Album/label not confirmed.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "5ZbZUQv0wSutvTkAx8nWvM",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 378,
+      "popularity": 12,
+      "tempo_bpm": 100
+    }
+  },
+  {
+    "album": null,
+    "label": null,
+    "year": 1955,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Little Melonae",
+    "artist": "Jackie McLean",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "bluesy",
+      "sharp"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Jackie McLean - alto saxophone",
+      "Donald Byrd - trumpet"
+    ],
+    "rating": 2,
+    "notes": "Round 3 bulk rating session. Album/label not confirmed.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "72Ljy5XJYCHUOjAD8Dw9si",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 386,
+      "popularity": 2,
+      "tempo_bpm": 126
+    }
+  },
+  {
+    "album": "Life Time",
+    "label": "Blue Note",
+    "year": 1964,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Barb's Song to the Wizard",
+    "artist": "Tony Williams",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "spacious",
+      "searching"
+    ],
+    "instrumentation": [
+      "drums",
+      "saxophone",
+      "trumpet",
+      "piano",
+      "bass"
+    ],
+    "primary_instrument": "drums",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "high",
+    "key_players": [
+      "Tony Williams - drums",
+      "Sam Rivers - saxophone"
+    ],
+    "rating": 3,
+    "notes": "Round 3 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "5lnHlRKhi6AVT2wlmAUKnv",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 358,
+      "popularity": 5,
+      "tempo_bpm": 96
+    }
+  },
+  {
+    "album": "Rosewood",
+    "label": "Columbia",
+    "year": 1978,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": 8,
+    "playthrough": 1.0,
+    "title": "Rosewood",
+    "artist": "Woody Shaw",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop"
+    ],
+    "moods": [
+      "warm",
+      "brassy",
+      "fun"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Woody Shaw - trumpet"
+    ],
+    "rating": 8,
+    "notes": "Round 3 bulk rating session. Justin: \"fun!\"",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "2pQKOO7gQYB5DFmPCukfpk",
+    "liked": true,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 432,
+      "popularity": 14,
+      "tempo_bpm": 110
+    }
+  },
+  {
+    "album": null,
+    "label": null,
+    "year": null,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Diane",
+    "artist": "Art Pepper",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "aching"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "piano"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Art Pepper - alto saxophone"
+    ],
+    "rating": 4,
+    "notes": "Round 3 bulk rating session. Album/year not confirmed.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "37pqjXlRRWhQpjix96OCA9",
+    "liked": false,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 306,
+      "popularity": 32,
+      "tempo_bpm": 60
+    }
+  },
+  {
+    "album": null,
+    "label": "RCA Victor",
+    "year": 1947,
+    "notable_qualities": [],
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-20",
+    "replayability": null,
+    "playthrough": 1.0,
+    "title": "Manteca",
+    "artist": "Dizzy Gillespie",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "afro-cuban jazz"
+    ],
+    "moods": [
+      "driving",
+      "communal"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "big band",
+      "percussion"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium-fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Dizzy Gillespie - trumpet",
+      "Chano Pozo - percussion"
+    ],
+    "rating": 7,
+    "notes": "Round 3 bulk rating session.",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore-r3",
+    "discovered_from": "claude-recommendation",
+    "spotify_id": "2nH9vhGDkvhsx1BS6d7uec",
+    "liked": true,
+    "audio_features": {
+      "time_signature": 4,
+      "key": null,
+      "mode": null,
+      "is_live": false,
+      "source": "spotify",
+      "duration_s": 186,
+      "popularity": 32,
+      "tempo_bpm": 176
+    }
   }
 ]
