@@ -9678,10 +9678,10 @@
       "Herbie Hancock - piano",
       "Freddie Hubbard - trumpet"
     ],
-    "rating": 1,
+    "rating": 6,
     "replayability": 1,
     "playthrough": 0.5,
-    "liked": false,
+    "liked": true,
     "date_added": "2026-06-28",
     "discovered_from": "self",
     "recommended_by_model": false,
@@ -9696,7 +9696,15 @@
       "loudness": -7.234,
       "speechiness": 0.0412,
       "spotify_valence": 0.407
-    }
+    },
+    "rating_history": [
+      {
+        "from": 1,
+        "to": 6,
+        "date": "2026-07-21"
+      }
+    ],
+    "notes": " | Re-rated 1->6 on 2026-07-21 (album review)."
   },
   {
     "title": "Ahmad's Blues",
@@ -12157,9 +12165,9 @@
       "spiritual jazz landmark",
       "calm-to-fervent build"
     ],
-    "rating": 7.5,
+    "rating": 8,
     "liked": true,
-    "notes": "Loves the song; 7.5/10. Spacious-vamp probe — lands high but the back-third build keeps it under the So What/All Blues ceiling.",
+    "notes": "Loves the song; 7.5/10. Spacious-vamp probe — lands high but the back-third build keeps it under the So What/All Blues ceiling. | Re-rated 7.5->8 on 2026-07-21 (album review).",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-07-18",
@@ -12178,7 +12186,14 @@
     },
     "replayability": null,
     "playthrough": null,
-    "spotify_id": "0CLbmkYmQIWiEwnsbOkLpd"
+    "spotify_id": "0CLbmkYmQIWiEwnsbOkLpd",
+    "rating_history": [
+      {
+        "from": 7.5,
+        "to": 8,
+        "date": "2026-07-21"
+      }
+    ]
   },
   {
     "title": "After The Rain",
@@ -15464,5 +15479,963 @@
       "speechiness": 0.153,
       "spotify_valence": 0.569
     }
+  },
+  {
+    "title": "Delphia",
+    "artist": "Freddie Hubbard",
+    "album": "Red Clay",
+    "year": 1970,
+    "label": "CTI",
+    "era": "Post-Bop",
+    "subgenres": [
+      "jazz-funk",
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "warm",
+      "lyrical",
+      "gentle"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - electric piano",
+      "Joe Henderson - tenor saxophone",
+      "Ron Carter - bass",
+      "Lenny White - drums"
+    ],
+    "notable_qualities": [
+      "Red Clay album review 2026-07-21"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Logged in Red Clay full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "34qsGHH3KTSn3DMTBwbH9y"
+  },
+  {
+    "title": "Suite Sioux",
+    "artist": "Freddie Hubbard",
+    "album": "Red Clay",
+    "year": 1970,
+    "label": "CTI",
+    "era": "Post-Bop",
+    "subgenres": [
+      "jazz-funk",
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "driving",
+      "modal"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - electric piano",
+      "Joe Henderson - tenor saxophone",
+      "Ron Carter - bass",
+      "Lenny White - drums"
+    ],
+    "notable_qualities": [
+      "Red Clay album review 2026-07-21"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Red Clay full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "64rHDxDhz71GtHxs5QBsQ5"
+  },
+  {
+    "title": "The Intrepid Fox",
+    "artist": "Freddie Hubbard",
+    "album": "Red Clay",
+    "year": 1970,
+    "label": "CTI",
+    "era": "Post-Bop",
+    "subgenres": [
+      "jazz-funk",
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "energetic",
+      "funky"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "fast",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - electric piano",
+      "Joe Henderson - tenor saxophone",
+      "Ron Carter - bass",
+      "Lenny White - drums"
+    ],
+    "notable_qualities": [
+      "Red Clay album review 2026-07-21"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Red Clay full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3SHWZGAvCDcAajSAw3KRU6"
+  },
+  {
+    "title": "Cold Turkey",
+    "artist": "Freddie Hubbard",
+    "album": "Red Clay",
+    "year": 1970,
+    "label": "CTI",
+    "era": "Post-Bop",
+    "subgenres": [
+      "jazz-funk",
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "bluesy",
+      "groovy"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "Herbie Hancock - electric piano",
+      "Joe Henderson - tenor saxophone",
+      "Ron Carter - bass",
+      "Lenny White - drums"
+    ],
+    "notable_qualities": [
+      "Red Clay album review 2026-07-21"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Logged in Red Clay full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1AJEfhkGLdDOS1wivzkohr"
+  },
+  {
+    "title": "Every Time I See You",
+    "artist": "Woody Shaw",
+    "album": "Rosewood",
+    "year": 1978,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modern jazz"
+    ],
+    "moods": [
+      "lyrical",
+      "warm"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Woody Shaw - trumpet"
+    ],
+    "notable_qualities": [
+      "Rosewood album review 2026-07-21"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Logged in Rosewood full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1mDoObxWgS6lq8sBxfnW99"
+  },
+  {
+    "title": "The Legend of the Cheops",
+    "artist": "Woody Shaw",
+    "album": "Rosewood",
+    "year": 1978,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modern jazz"
+    ],
+    "moods": [
+      "modal",
+      "exotic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Woody Shaw - trumpet"
+    ],
+    "notable_qualities": [
+      "Rosewood album review 2026-07-21"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Rosewood full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5b4K3xuNSEYW6iNSzsOZXq"
+  },
+  {
+    "title": "Rahsaan's Run",
+    "artist": "Woody Shaw",
+    "album": "Rosewood",
+    "year": 1978,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modern jazz"
+    ],
+    "moods": [
+      "energetic",
+      "angular"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "fast",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Woody Shaw - trumpet"
+    ],
+    "notable_qualities": [
+      "Rosewood album review 2026-07-21"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Logged in Rosewood full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6ctuYyl6hU63FlypD3QMRO"
+  },
+  {
+    "title": "Sunshowers",
+    "artist": "Woody Shaw",
+    "album": "Rosewood",
+    "year": 1978,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modern jazz"
+    ],
+    "moods": [
+      "bright",
+      "post-bop"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Woody Shaw - trumpet"
+    ],
+    "notable_qualities": [
+      "Rosewood album review 2026-07-21"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in Rosewood full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0lnFGyVks6AXY3kMf2GZyB"
+  },
+  {
+    "title": "Theme for Maxine",
+    "artist": "Woody Shaw",
+    "album": "Rosewood",
+    "year": 1978,
+    "label": "Columbia",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modern jazz"
+    ],
+    "moods": [
+      "lyrical",
+      "tender"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Woody Shaw - trumpet"
+    ],
+    "notable_qualities": [
+      "Rosewood album review 2026-07-21"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Logged in Rosewood full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "02M2OoPaKPmkCl7kidq6nK"
+  },
+  {
+    "title": "Resolution",
+    "artist": "John Coltrane",
+    "album": "A Love Supreme",
+    "year": 1965,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "driving",
+      "intense",
+      "hypnotic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "A Love Supreme album review 2026-07-21"
+    ],
+    "rating": 9,
+    "liked": true,
+    "notes": "Logged in A Love Supreme full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7unF2ARDGldwWxZWCmlwDM"
+  },
+  {
+    "title": "Pursuance",
+    "artist": "John Coltrane",
+    "album": "A Love Supreme",
+    "year": 1965,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "intense",
+      "searching",
+      "frenetic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "A Love Supreme album review 2026-07-21"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in A Love Supreme full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0jHEixPAoSopOP75j2iTX9"
+  },
+  {
+    "title": "Psalm",
+    "artist": "John Coltrane",
+    "album": "A Love Supreme",
+    "year": 1965,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "free",
+      "abstract",
+      "rubato"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "A Love Supreme album review 2026-07-21"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Logged in A Love Supreme full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5FLQmLjjeNIuC8U5mDnXC8"
+  },
+  {
+    "title": "Fee-Fi-Fo-Fum",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "playful",
+      "angular"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "Speak No Evil album review 2026-07-21"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in Speak No Evil full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6lgkhf5XLGA2wvgFeTy2cq"
+  },
+  {
+    "title": "Dance Cadaverous",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "dark",
+      "eerie",
+      "mysterious"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "Speak No Evil album review 2026-07-21"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Logged in Speak No Evil full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4hKk4FVmLvgwNapTBxc9ao"
+  },
+  {
+    "title": "Wild Flower",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "hard bop"
+    ],
+    "moods": [
+      "waltz",
+      "gentle"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano",
+      "Freddie Hubbard - trumpet",
+      "Ron Carter - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "Speak No Evil album review 2026-07-21"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Speak No Evil full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6tadSGrUKQXnYRusoqtNx0"
+  },
+  {
+    "title": "Satin Doll",
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "piano trio",
+      "ballad",
+      "standard"
+    ],
+    "moods": [
+      "swinging",
+      "relaxed",
+      "lyrical"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-21"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Logged in Nights of Ballads & Blues full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "08KRFHK8w57Js5GZZjamll"
+  },
+  {
+    "title": "We'll Be Together Again",
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "piano trio",
+      "ballad",
+      "standard"
+    ],
+    "moods": [
+      "tender",
+      "ballad"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-21"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "46jzREqksE0h6wmTKw3WFD"
+  },
+  {
+    "title": "For Heaven's Sake",
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "piano trio",
+      "ballad",
+      "standard"
+    ],
+    "moods": [
+      "tender",
+      "ballad",
+      "gentle"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-21"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4hZ1oZezePDpNnNfYjoyqw"
+  },
+  {
+    "title": "Star Eyes",
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "piano trio",
+      "ballad",
+      "standard"
+    ],
+    "moods": [
+      "swinging",
+      "standard"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-21"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues full-album review (2026-07-21).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5CIfhjAjfhgCpZgxzKoeLl"
+  },
+  {
+    "entity_type": "album",
+    "title": "Red Clay",
+    "artist": "Freddie Hubbard",
+    "album": "Red Clay",
+    "year": 1970,
+    "label": "CTI",
+    "era": null,
+    "subgenres": [],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [],
+    "notable_qualities": [],
+    "rating": 6,
+    "liked": true,
+    "notes": "Album review 2026-07-21.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "entity_type": "album",
+    "title": "Rosewood",
+    "artist": "Woody Shaw",
+    "album": "Rosewood",
+    "year": 1978,
+    "label": "Columbia",
+    "era": null,
+    "subgenres": [],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [],
+    "notable_qualities": [],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Album review 2026-07-21.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "entity_type": "album",
+    "title": "Kind of Blue",
+    "artist": "Miles Davis",
+    "album": "Kind of Blue",
+    "year": 1959,
+    "label": "Columbia",
+    "era": null,
+    "subgenres": [],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [],
+    "notable_qualities": [],
+    "rating": 9,
+    "liked": true,
+    "notes": "Album review 2026-07-21.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "entity_type": "album",
+    "title": "A Love Supreme",
+    "artist": "John Coltrane",
+    "album": "A Love Supreme",
+    "year": 1965,
+    "label": "Impulse!",
+    "era": null,
+    "subgenres": [],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [],
+    "notable_qualities": [],
+    "rating": 8,
+    "liked": true,
+    "notes": "Album review 2026-07-21.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "entity_type": "album",
+    "title": "Speak No Evil",
+    "artist": "Wayne Shorter",
+    "album": "Speak No Evil",
+    "year": 1966,
+    "label": "Blue Note",
+    "era": null,
+    "subgenres": [],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [],
+    "notable_qualities": [],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Album review 2026-07-21.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
   }
 ]
