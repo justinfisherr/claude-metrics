@@ -6,7 +6,7 @@ import shutil
 import joblib
 import time
 import urllib.request
-from datetime import datetime, date, timezone
+from datetime import datetime, date
 from pathlib import Path
 
 import numpy as np
@@ -26,13 +26,6 @@ OUTPUT_PATH = SCRIPT_DIR / "dashboard-data.json"
 MODEL_PATH = SCRIPT_DIR / "model.joblib"
 VERSIONS_PATH = SCRIPT_DIR / "versions.json"
 VERSIONS_DIR = SCRIPT_DIR / "versions"
-
-# Owned by the Spotify MCP server (separate repo); read-only here. Missing
-# file is expected on machines without that MCP set up — treated as "no
-# playback history yet," not an error.
-SPOTIFY_PLAY_HISTORY_PATH = (
-    Path.home() / "spotify-mcp-server" / "data" / "spotify_play_history.jsonl"
-)
 
 TEMPO_MAP = {"slow": 1, "medium": 2, "medium-fast": 3, "fast": 4, "varied": 2.5}
 COMPLEXITY_MAP = {"low": 1, "medium": 2, "high": 3}
@@ -67,85 +60,6 @@ def load_data():
     return tracks, albums
 
 
-def load_spotify_play_events(path=SPOTIFY_PLAY_HISTORY_PATH):
-    """Reads the Spotify MCP's playback-event JSONL. Format is source-agnostic
-    by design (see that repo's play-history.ts) — a future Extended Streaming
-    History import would append to the same file in the same shape, and this
-    loader wouldn't need to change."""
-    if not path.exists():
-        return []
-    events = []
-    for line in path.read_text().splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            events.append(json.loads(line))
-        except json.JSONDecodeError:
-            continue
-    return events
-
-
-def load_spotify_play_aggregates(now=None, path=SPOTIFY_PLAY_HISTORY_PATH):
-    """Aggregates the raw playback log into track/artist/album-level stats.
-
-    Track-level is keyed by Spotify track ID (exact join against each
-    track's `spotify_id`). Artist/album-level have no ID stored on our side
-    (training-data.json only has free-text `artist`/`album` fields), so
-    those are keyed by the same normalized-name matching used elsewhere in
-    this file for playlist syncing (see `_normalize`) — an approximation,
-    not an exact join, but the only one the current schema supports.
-
-    Returns (track_aggs, artist_aggs, album_aggs), each a dict of stat dicts.
-    Empty dicts (not an error) when no play-history file exists yet.
-    """
-    events = load_spotify_play_events(path)
-    if now is None:
-        now = datetime.now(timezone.utc)
-
-    def parse_ts(iso):
-        try:
-            ts = datetime.fromisoformat(iso.replace("Z", "+00:00"))
-            if ts.tzinfo is None:
-                ts = ts.replace(tzinfo=timezone.utc)
-            return ts
-        except (ValueError, AttributeError):
-            return None
-
-    by_track, by_artist_name, by_album_name = {}, {}, {}
-    for e in events:
-        ts = parse_ts(e.get("played_at", ""))
-        if ts is None:
-            continue
-        by_track.setdefault(e.get("track_id"), []).append(ts)
-        for name in e.get("artist_names") or []:
-            by_artist_name.setdefault(_normalize(name), []).append(ts)
-        album_name = e.get("album_name")
-        if album_name:
-            by_album_name.setdefault(_normalize(album_name), []).append(ts)
-
-    def summarize(timestamps):
-        timestamps = sorted(timestamps)
-        distinct_days = len({t.date() for t in timestamps})
-        last7 = sum(1 for t in timestamps if (now - t).days < 7)
-        last30 = sum(1 for t in timestamps if (now - t).days < 30)
-        days_since_last = (now - timestamps[-1]).total_seconds() / 86400
-        return {
-            "tracked_plays": len(timestamps),
-            "first_played_at": timestamps[0].isoformat(),
-            "last_played_at": timestamps[-1].isoformat(),
-            "distinct_listening_days": distinct_days,
-            "plays_last_7_days": last7,
-            "plays_last_30_days": last30,
-            "days_since_last_play": days_since_last,
-        }
-
-    track_aggs = {k: summarize(v) for k, v in by_track.items() if k}
-    artist_aggs = {k: summarize(v) for k, v in by_artist_name.items()}
-    album_aggs = {k: summarize(v) for k, v in by_album_name.items()}
-    return track_aggs, artist_aggs, album_aggs
-
-
 def compute_mood_zone(track):
     audio = track.get("audio_features") or {}
     valence = audio.get("spotify_valence")
@@ -166,14 +80,6 @@ def engineer_features(tracks):
     rows = []
     all_subgenres = {}
     all_labels = {}
-
-    # Spotify play-history enrichment (Feature 10). Independent of ratings —
-    # no leave-one-out needed, this is external behavioral data, not derived
-    # from the target. Empty dicts (all zeros below) when no history file
-    # exists yet; that's expected on machines without the Spotify MCP set up.
-    spotify_track_aggs, spotify_artist_aggs, spotify_album_aggs = (
-        load_spotify_play_aggregates()
-    )
 
     for t in tracks:
         for s in t.get("subgenres", []):
@@ -664,33 +570,6 @@ def engineer_features(tracks):
         row["collaborator_count_log"] = float(np.log1p(row["key_player_count"]))
         row["collaborator_bayes_confidence"] = float(min(row["key_player_count"] / (row["key_player_count"] + 5), 1.0))  # k=5 for collaborators
 
-        # Feature 10: Spotify tracked-play history. "Tracked" plays, not
-        # lifetime streams — only what's been captured since collection
-        # began. Track-level joins on spotify_id (exact); artist/album-level
-        # join on normalized name (approximate — see load_spotify_play_aggregates).
-        # Zero is a real, meaningful value here (not missing data): an unseen
-        # recommendation candidate normally has zero tracked track-level plays.
-        track_play = spotify_track_aggs.get(t.get("spotify_id"))
-        artist_play = spotify_artist_aggs.get(_normalize(t.get("artist", "")))
-        album_play = spotify_album_aggs.get(_normalize(t.get("album") or ""))
-
-        row["spotify_tracked_plays"] = float(track_play["tracked_plays"]) if track_play else 0.0
-        row["spotify_distinct_listening_days"] = float(track_play["distinct_listening_days"]) if track_play else 0.0
-        row["spotify_plays_last_7_days"] = float(track_play["plays_last_7_days"]) if track_play else 0.0
-        row["spotify_plays_last_30_days"] = float(track_play["plays_last_30_days"]) if track_play else 0.0
-        row["spotify_days_since_last_play"] = float(track_play["days_since_last_play"]) if track_play else 9999.0
-
-        row["spotify_artist_tracked_plays"] = float(artist_play["tracked_plays"]) if artist_play else 0.0
-        row["spotify_artist_distinct_listening_days"] = float(artist_play["distinct_listening_days"]) if artist_play else 0.0
-        row["spotify_album_tracked_plays"] = float(album_play["tracked_plays"]) if album_play else 0.0
-        row["spotify_album_distinct_listening_days"] = float(album_play["distinct_listening_days"]) if album_play else 0.0
-
-        # Play counts are heavily right-skewed — always use the log1p versions
-        # as the actual model inputs, per the same rationale as duration/popularity.
-        row["log_track_plays"] = float(np.log1p(row["spotify_tracked_plays"]))
-        row["log_artist_plays"] = float(np.log1p(row["spotify_artist_tracked_plays"]))
-        row["log_album_plays"] = float(np.log1p(row["spotify_album_tracked_plays"]))
-
         rows.append(row)
 
     df = pd.DataFrame(rows)
@@ -776,19 +655,6 @@ def readable_name(feat):
         "leader_sideman_track_count": "Leader Sideman Track Count",
         "recency_weight": "Recency Weight (exp decay)",
         "ewma_taste_level": "EWMA Current Taste Level",
-        # Feature 10: Spotify tracked-play history
-        "spotify_tracked_plays": "Spotify Tracked Plays",
-        "spotify_distinct_listening_days": "Spotify Distinct Listening Days",
-        "spotify_plays_last_7_days": "Spotify Plays (Last 7d)",
-        "spotify_plays_last_30_days": "Spotify Plays (Last 30d)",
-        "spotify_days_since_last_play": "Days Since Last Spotify Play",
-        "spotify_artist_tracked_plays": "Spotify Artist Tracked Plays",
-        "spotify_artist_distinct_listening_days": "Spotify Artist Listening Days",
-        "spotify_album_tracked_plays": "Spotify Album Tracked Plays",
-        "spotify_album_distinct_listening_days": "Spotify Album Listening Days",
-        "log_track_plays": "Log Track Plays",
-        "log_artist_plays": "Log Artist Plays",
-        "log_album_plays": "Log Album Plays",
         # Feature 7: Musical interactions
         "hard_bop_medium_energy": "Hard Bop Medium Energy",
         "hard_bop_instrumental": "Hard Bop Instrumental",
