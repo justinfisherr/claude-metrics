@@ -1,5 +1,5 @@
 {
-  "current_version": "8.06",
+  "current_version": "9.00",
   "versions": [
     {
       "version": "1.00",
@@ -1135,6 +1135,39 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "9.00",
+      "name": "Ghastly",
+      "major": 9,
+      "minor": 0,
+      "run_date": "2026-07-20T21:31:26.185611",
+      "dataset_size": 267,
+      "best_model": "random_forest",
+      "r_squared": 0.3075,
+      "rmse": 1.9328,
+      "mae": 1.5614,
+      "feature_count": 149,
+      "best_k": 3,
+      "ridge_r_squared": 0.3036,
+      "ridge_rmse": 1.9382,
+      "rf_r_squared": 0.3075,
+      "rf_rmse": 1.9328,
+      "notes": "Fixed target leakage in collaborator features (no LOO exclusion by track index \u2014 a track's own rating was leaking into its own collaborator-quality input). Added leader-vs-sideman split (leader_sideman_mean_rating, leader_was_elite_sideman) and leak-free taste-drift features (recency_weight, ewma_taste_level).",
+      "changelog": [
+        "Fixed collaborator feature target leakage (top2_collaborator_mean corr with rating: 0.59 leaked -> 0.10 clean)",
+        "Leader excluded from own collaborator pool, with leader-mean fallback for tracks with no named sidemen",
+        "Added leader_sideman_mean_rating / leader_was_elite_sideman / leader_sideman_track_count",
+        "Added recency_weight (exponential decay) and ewma_taste_level (causal current-taste baseline)",
+        "RF R\u00b2 0.511 -> 0.307, Ridge R\u00b2 0.382 -> 0.304 (honest, leak-free numbers)"
+      ],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v9.00/dashboard-data.json",
+        "model": "versions/v9.00/model.joblib",
+        "training_data": "versions/v9.00/training-data.md"
       }
     }
   ]
