@@ -111,6 +111,24 @@ def engineer_features(tracks):
             name = kp.split(" - ")[0].strip().lower()
             player_ratings.setdefault(name, []).append(t["rating"])
 
+    # Sideman-only ratings: appearances where this person is NOT the credited
+    # leader (artist) of the track. Kept separate from leader-track ratings so
+    # a musician's fame as a sideman doesn't leak into predicting their own
+    # leader sessions (see leader_sideman_mean_rating below).
+    sideman_rating_pairs = {}
+    for i, t in enumerate(tracks):
+        t_leader_name = t.get("artist", "").lower().split("&")[0].strip()
+        for kp in t.get("key_players", []):
+            name = kp.split(" - ")[0].strip().lower()
+            if name and t_leader_name and name not in t_leader_name and t_leader_name not in name:
+                sideman_rating_pairs.setdefault(name, []).append((i, t["rating"]))
+
+    if sideman_rating_pairs:
+        sideman_means = {p: np.mean([r for _, r in rs]) for p, rs in sideman_rating_pairs.items()}
+        elite_sideman_threshold = np.percentile(list(sideman_means.values()), 75)
+    else:
+        elite_sideman_threshold = global_mean
+
     # Pre-compute artist×decade, artist×era, label×decade ratings for LOO (Feature 1, 4)
     artist_decade_ratings = {}
     artist_era_ratings = {}
@@ -147,17 +165,19 @@ def engineer_features(tracks):
         label_ratings.setdefault(label, []).append((i, t["rating"]))
 
     # Pre-compute player stats for collaborator enhancements (Feature 3)
+    # Stores (track_index, rating) so per-track lookups below can do proper
+    # leave-one-out exclusion instead of leaking the current track's own rating.
     player_track_count = {}
     player_rating_pairs = {}
-    for t in tracks:
+    for i, t in enumerate(tracks):
         for kp in t.get("key_players", []):
             name = kp.split(" - ")[0].strip().lower()
             player_track_count[name] = player_track_count.get(name, 0) + 1
-            player_rating_pairs.setdefault(name, []).append(t["rating"])
+            player_rating_pairs.setdefault(name, []).append((i, t["rating"]))
 
     # Identify elite collaborators (top 25% by mean rating)
     if player_rating_pairs:
-        player_means = {p: np.mean(rs) for p, rs in player_rating_pairs.items()}
+        player_means = {p: np.mean([r for _, r in rs]) for p, rs in player_rating_pairs.items()}
         elite_threshold = np.percentile(list(player_means.values()), 75)
         elite_players = {p for p, m in player_means.items() if m >= elite_threshold}
     else:
@@ -165,6 +185,21 @@ def engineer_features(tracks):
 
     # Compute recent period: last N tracks (approximate by index)
     recent_threshold = max(0, len(tracks) - 40)  # last ~40 tracks
+
+    # Feature 9: Taste drift — causal EWMA of prior ratings (span=20 tracks).
+    # Computed once per track using only ratings that came BEFORE it in
+    # sequence, so it's leak-free: "how positively was I rating things going
+    # into this track," independent of category-specific priors. Lets the
+    # model see taste as a moving target rather than a stationary average.
+    EWMA_SPAN = 20.0
+    EWMA_ALPHA = 2.0 / (EWMA_SPAN + 1.0)
+    RECENCY_HALF_LIFE = 40.0  # tracks
+    RECENCY_DECAY = np.log(2) / RECENCY_HALF_LIFE
+    ewma_taste_levels = []
+    running_ewma = global_mean
+    for t in tracks:
+        ewma_taste_levels.append(running_ewma)
+        running_ewma = EWMA_ALPHA * t["rating"] + (1 - EWMA_ALPHA) * running_ewma
 
     for idx, t in enumerate(tracks):
         row = {}
@@ -222,39 +257,67 @@ def engineer_features(tracks):
         artist_name = t.get("artist", "").lower().split("&")[0].strip()
         row["artist_is_leader"] = int(any(artist_name in kp.lower() for kp in t.get("key_players", [])))
 
-        # Collaborator quality — avg rating of tracks featuring each key player (LOO)
+        # Collaborator quality — avg rating of OTHER tracks featuring each key
+        # player (proper LOO by track index). The track's own leader is
+        # excluded from this pool: otherwise a musician's fame as someone
+        # else's sideman leaks into predicting their own leader session
+        # (e.g. Elvin Jones's Coltrane-quartet ratings inflating the score
+        # predicted for his own, much weaker, "Three Card Molly" session).
+        # Fallback baseline for tracks with no named sidemen distinct from the
+        # leader (~41% of the dataset: solo credits or sparse key_players).
+        # Falls back to the leader's own LOO mean rating rather than the flat
+        # global mean, so those tracks keep real signal instead of collapsing
+        # to a constant once the leader is excluded from their own collaborator pool.
+        leader_loo_entries = [r for i2, r in artist_ratings.get(t.get("artist", "Unknown"), []) if i2 != idx]
+        leader_fallback_mean = float(np.mean(leader_loo_entries)) if leader_loo_entries else global_mean
+
         collab_ratings = []
-        best_collab_rating = global_mean
+        best_collab_rating = leader_fallback_mean
         top2_collab_ratings = []
         favorite_collab_count = 0
-        collab_rating_variance = 0.0
         has_elite_collab = 0
 
         for kp in t.get("key_players", []):
             name = kp.split(" - ")[0].strip().lower()
-            pr = player_ratings.get(name, [])
-            if len(pr) > 1:
-                collab_ratings.extend([r for r in pr if r != t["rating"] or len(pr) > pr.count(t["rating"])])
+            if not name:
+                continue
+            is_this_track_leader = name in artist_name or artist_name in name
+            entries = player_rating_pairs.get(name, [])
+            other = [r for i2, r in entries if i2 != idx]
+            if not other:
+                continue
+            collab_ratings.extend(other)
+            if is_this_track_leader:
+                continue  # leader's own record elsewhere shouldn't inflate their own leader track
+            player_mean = float(np.mean(other))
+            best_collab_rating = max(best_collab_rating, player_mean)
+            top2_collab_ratings.append(player_mean)
+            if player_mean >= 8.0:
+                favorite_collab_count += 1
+            if name in elite_players:
+                has_elite_collab = 1
 
-            # Enhanced collaborator features (Feature 3)
-            if name in player_rating_pairs:
-                player_ratings_list = player_rating_pairs[name]
-                player_mean = np.mean(player_ratings_list)
-                best_collab_rating = max(best_collab_rating, player_mean)
-                top2_collab_ratings.append(player_mean)
-                if player_mean >= 8.0:
-                    favorite_collab_count += 1
-                if name in elite_players:
-                    has_elite_collab = 1
-
-        row["collaborator_quality"] = float(np.mean(collab_ratings)) if collab_ratings else global_mean
+        row["collaborator_quality"] = float(np.mean(collab_ratings)) if collab_ratings else leader_fallback_mean
         row["best_collaborator_rating"] = float(best_collab_rating)  # Feature 3
-        top2_mean = np.mean(sorted(top2_collab_ratings, reverse=True)[:2]) if top2_collab_ratings else global_mean
+        top2_mean = np.mean(sorted(top2_collab_ratings, reverse=True)[:2]) if top2_collab_ratings else leader_fallback_mean
         row["top2_collaborator_mean"] = float(top2_mean)  # Feature 3
         row["favorite_collaborator_count"] = float(favorite_collab_count)  # Feature 3
         collab_var = float(np.std(collab_ratings)) if len(collab_ratings) > 1 else 0.0
         row["collaborator_rating_variance"] = collab_var  # Feature 3
         row["has_elite_collaborator"] = float(has_elite_collab)  # Feature 3
+
+        # Feature 9: Leader identity — was this track's leader a beloved
+        # sideman on someone else's session? Tests directly whether
+        # collaborator quality transfers to leadership.
+        leader_sideman_entries = [r for i2, r in sideman_rating_pairs.get(artist_name, []) if i2 != idx]
+        row["leader_sideman_track_count"] = float(len(leader_sideman_entries))
+        if leader_sideman_entries:
+            leader_sideman_mean = float(np.mean(leader_sideman_entries))
+            row["leader_was_elite_sideman"] = int(leader_sideman_mean >= elite_sideman_threshold)
+        else:
+            leader_sideman_mean = global_mean
+            row["leader_was_elite_sideman"] = 0
+        row["leader_sideman_mean_rating"] = leader_sideman_mean
 
         # Discovery source
         source = t.get("discovered_from", "self")
@@ -385,6 +448,12 @@ def engineer_features(tracks):
             row["is_recent"] = 1.0
         else:
             row["is_recent"] = 0.0
+
+        # Feature 9: Taste drift — continuous recency weight (replaces the
+        # hard last-40 cutoff with smooth exponential decay) and the causal
+        # EWMA current-taste-level computed above.
+        row["recency_weight"] = float(np.exp(-RECENCY_DECAY * (len(tracks) - 1 - idx)))
+        row["ewma_taste_level"] = float(ewma_taste_levels[idx])
 
         # Feature 2: Ballad × Instrumental/Vocal split
         is_ballad = any(sg in ["ballad", "piano ballad", "tenor ballad", "vocal ballad"] for sg in track_subgenres)
@@ -580,6 +649,12 @@ def readable_name(feat):
         # Feature 6: Recency
         "rating_order_percentile": "Rating Order Percentile",
         "is_recent": "Is Recent",
+        # Feature 9: Leader identity + taste drift
+        "leader_sideman_mean_rating": "Leader's Rating as Sideman Elsewhere",
+        "leader_was_elite_sideman": "Leader Was Elite Sideman",
+        "leader_sideman_track_count": "Leader Sideman Track Count",
+        "recency_weight": "Recency Weight (exp decay)",
+        "ewma_taste_level": "EWMA Current Taste Level",
         # Feature 7: Musical interactions
         "hard_bop_medium_energy": "Hard Bop Medium Energy",
         "hard_bop_instrumental": "Hard Bop Instrumental",
