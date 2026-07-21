@@ -14335,7 +14335,15 @@
       "source": "spotify",
       "duration_s": 452,
       "popularity": 16,
-      "tempo_bpm": 100
+      "tempo_bpm": 100,
+      "acousticness": 0.322,
+      "danceability": 0.61,
+      "spotify_energy": 0.257,
+      "instrumentalness": 0.00304,
+      "liveness": 0.139,
+      "loudness": -19.447,
+      "speechiness": 0.0472,
+      "spotify_valence": 0.548
     }
   },
   {
@@ -14389,7 +14397,15 @@
       "source": "spotify",
       "duration_s": 359,
       "popularity": 50,
-      "tempo_bpm": 140
+      "tempo_bpm": 140,
+      "acousticness": 0.434,
+      "danceability": 0.589,
+      "spotify_energy": 0.532,
+      "instrumentalness": 0.00157,
+      "liveness": 0.0794,
+      "loudness": -12.021,
+      "speechiness": 0.0359,
+      "spotify_valence": 0.527
     }
   },
   {
@@ -14442,7 +14458,15 @@
       "source": "spotify",
       "duration_s": 334,
       "popularity": 30,
-      "tempo_bpm": 120
+      "tempo_bpm": 120,
+      "acousticness": 0.939,
+      "danceability": 0.519,
+      "spotify_energy": 0.127,
+      "instrumentalness": 0.488,
+      "liveness": 0.101,
+      "loudness": -18.913,
+      "speechiness": 0.0515,
+      "spotify_valence": 0.61
     }
   },
   {
@@ -14495,7 +14519,15 @@
       "source": "spotify",
       "duration_s": 192,
       "popularity": 52,
-      "tempo_bpm": 126
+      "tempo_bpm": 126,
+      "acousticness": 0.705,
+      "danceability": 0.471,
+      "spotify_energy": 0.446,
+      "instrumentalness": 0.441,
+      "liveness": 0.18,
+      "loudness": -12.842,
+      "speechiness": 0.0315,
+      "spotify_valence": 0.488
     }
   },
   {
@@ -14549,7 +14581,15 @@
       "source": "spotify",
       "duration_s": 422,
       "popularity": 43,
-      "tempo_bpm": 72
+      "tempo_bpm": 72,
+      "acousticness": 0.727,
+      "danceability": 0.367,
+      "spotify_energy": 0.527,
+      "instrumentalness": 0.6,
+      "liveness": 0.099,
+      "loudness": -13.032,
+      "speechiness": 0.047,
+      "spotify_valence": 0.248
     }
   },
   {
@@ -14600,7 +14640,15 @@
       "source": "spotify",
       "duration_s": 381,
       "popularity": 4,
-      "tempo_bpm": 64
+      "tempo_bpm": 64,
+      "acousticness": 0.0206,
+      "danceability": 0.204,
+      "spotify_energy": 0.397,
+      "instrumentalness": 0.907,
+      "liveness": 0.126,
+      "loudness": -11.847,
+      "speechiness": 0.0297,
+      "spotify_valence": 0.143
     }
   },
   {
@@ -14653,7 +14701,15 @@
       "source": "spotify",
       "duration_s": 381,
       "popularity": 22,
-      "tempo_bpm": 68
+      "tempo_bpm": 68,
+      "acousticness": 0.97,
+      "danceability": 0.18,
+      "spotify_energy": 0.0774,
+      "instrumentalness": 0.00015,
+      "liveness": 0.112,
+      "loudness": -18.449,
+      "speechiness": 0.035,
+      "spotify_valence": 0.0528
     }
   },
   {
@@ -14753,7 +14809,15 @@
       "source": "spotify",
       "duration_s": 228,
       "popularity": 43,
-      "tempo_bpm": 112
+      "tempo_bpm": 112,
+      "acousticness": 0.653,
+      "danceability": 0.344,
+      "spotify_energy": 0.422,
+      "instrumentalness": 0.216,
+      "liveness": 0.0699,
+      "loudness": -11.909,
+      "speechiness": 0.0451,
+      "spotify_valence": 0.467
     }
   },
   {
@@ -14805,7 +14869,15 @@
       "source": "spotify",
       "duration_s": 224,
       "popularity": 14,
-      "tempo_bpm": 132
+      "tempo_bpm": 132,
+      "acousticness": 0.643,
+      "danceability": 0.588,
+      "spotify_energy": 0.333,
+      "instrumentalness": 0.00129,
+      "liveness": 0.712,
+      "loudness": -16.67,
+      "speechiness": 0.239,
+      "spotify_valence": 0.606
     }
   },
   {
@@ -14858,7 +14930,15 @@
       "source": "spotify",
       "duration_s": 504,
       "popularity": 18,
-      "tempo_bpm": 108
+      "tempo_bpm": 108,
+      "acousticness": 0.567,
+      "danceability": 0.507,
+      "spotify_energy": 0.773,
+      "instrumentalness": 0.000234,
+      "liveness": 0.149,
+      "loudness": -7.273,
+      "speechiness": 0.0727,
+      "spotify_valence": 0.691
     }
   },
   {
@@ -14910,7 +14990,15 @@
       "source": "spotify",
       "duration_s": 619,
       "popularity": 13,
-      "tempo_bpm": 116
+      "tempo_bpm": 116,
+      "acousticness": 0.668,
+      "danceability": 0.362,
+      "spotify_energy": 0.553,
+      "instrumentalness": 0.0148,
+      "liveness": 0.136,
+      "loudness": -10.443,
+      "speechiness": 0.0609,
+      "spotify_valence": 0.396
     }
   },
   {
@@ -14962,7 +15050,15 @@
       "source": "spotify",
       "duration_s": 684,
       "popularity": 31,
-      "tempo_bpm": 144
+      "tempo_bpm": 144,
+      "acousticness": 0.704,
+      "danceability": 0.463,
+      "spotify_energy": 0.299,
+      "instrumentalness": 0.00202,
+      "liveness": 0.115,
+      "loudness": -14.538,
+      "speechiness": 0.0351,
+      "spotify_valence": 0.491
     }
   },
   {
@@ -15013,7 +15109,15 @@
       "source": "spotify",
       "duration_s": 209,
       "popularity": 13,
-      "tempo_bpm": 88
+      "tempo_bpm": 88,
+      "acousticness": 0.866,
+      "danceability": 0.413,
+      "spotify_energy": 0.0929,
+      "instrumentalness": 0.564,
+      "liveness": 0.11,
+      "loudness": -20.171,
+      "speechiness": 0.0339,
+      "spotify_valence": 0.458
     }
   },
   {
@@ -15171,7 +15275,15 @@
       "source": "spotify",
       "duration_s": 358,
       "popularity": 5,
-      "tempo_bpm": 96
+      "tempo_bpm": 96,
+      "acousticness": 0.978,
+      "danceability": 0.469,
+      "spotify_energy": 0.115,
+      "instrumentalness": 0.944,
+      "liveness": 0.111,
+      "loudness": -20.41,
+      "speechiness": 0.0323,
+      "spotify_valence": 0.0698
     }
   },
   {
@@ -15224,7 +15336,15 @@
       "source": "spotify",
       "duration_s": 432,
       "popularity": 14,
-      "tempo_bpm": 110
+      "tempo_bpm": 110,
+      "acousticness": 0.615,
+      "danceability": 0.433,
+      "spotify_energy": 0.445,
+      "instrumentalness": 0.626,
+      "liveness": 0.326,
+      "loudness": -10.897,
+      "speechiness": 0.0419,
+      "spotify_valence": 0.587
     }
   },
   {
@@ -15274,7 +15394,15 @@
       "source": "spotify",
       "duration_s": 306,
       "popularity": 32,
-      "tempo_bpm": 60
+      "tempo_bpm": 60,
+      "acousticness": 0.888,
+      "danceability": 0.596,
+      "spotify_energy": 0.013,
+      "instrumentalness": 0.0316,
+      "liveness": 0.107,
+      "loudness": -23.76,
+      "speechiness": 0.0566,
+      "spotify_valence": 0.431
     }
   },
   {
@@ -15326,7 +15454,15 @@
       "source": "spotify",
       "duration_s": 186,
       "popularity": 32,
-      "tempo_bpm": 176
+      "tempo_bpm": 176,
+      "acousticness": 0.849,
+      "danceability": 0.447,
+      "spotify_energy": 0.794,
+      "instrumentalness": 0.933,
+      "liveness": 0.107,
+      "loudness": -4.499,
+      "speechiness": 0.153,
+      "spotify_valence": 0.569
     }
   }
 ]
