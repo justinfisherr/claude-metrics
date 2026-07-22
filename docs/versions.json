@@ -1,5 +1,5 @@
 {
-  "current_version": "9.01",
+  "current_version": "9.03",
   "versions": [
     {
       "version": "1.00",
@@ -1193,6 +1193,62 @@
         "5 album entities",
         "2 re-rates"
       ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "9.02",
+      "name": "",
+      "major": 9,
+      "minor": 2,
+      "run_date": "2026-07-22T01:10:12.641153",
+      "dataset_size": 291,
+      "best_model": "ridge",
+      "r_squared": 0.3772,
+      "rmse": 1.7959,
+      "mae": 1.2717,
+      "feature_count": 151,
+      "best_k": 4,
+      "ridge_r_squared": 0.3772,
+      "ridge_rmse": 1.7959,
+      "rf_r_squared": 0.3305,
+      "rf_rmse": 1.862,
+      "notes": "Album test: The Blues and the Abstract Truth. Model predicted 5.54, user rated album 9.8 (tracks 6.5-9). Major underprediction on a new-artist album.",
+      "changelog": [
+        "5 new Oliver Nelson tracks",
+        "Stolen Moments 6->9",
+        "album entity 9.8"
+      ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "9.03",
+      "name": "",
+      "major": 9,
+      "minor": 3,
+      "run_date": "2026-07-22T01:12:47.282675",
+      "dataset_size": 294,
+      "best_model": "random_forest",
+      "r_squared": 0.3808,
+      "rmse": 1.7875,
+      "mae": 1.4116,
+      "feature_count": 151,
+      "best_k": 3,
+      "ridge_r_squared": 0.3745,
+      "ridge_rmse": 1.7966,
+      "rf_r_squared": 0.3808,
+      "rf_rmse": 1.7875,
+      "notes": "Re-rate batch: 4 albums bumped up, +3 McCoy Tyner tracks",
+      "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
       "artifacts": {

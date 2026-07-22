@@ -6450,9 +6450,9 @@
       "gorgeous blues melody",
       "calculated risk recommendation"
     ],
-    "rating": 6,
-    "liked": false,
-    "notes": null,
+    "rating": 9,
+    "liked": true,
+    "notes": " | Re-rated 6->9 on 2026-07-22 (focused album listen).",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-06-22",
@@ -6479,7 +6479,14 @@
     },
     "replayability": 2,
     "playthrough": 0.45,
-    "spotify_id": "1sce5VJvCOYYDAR9rp9KdG"
+    "spotify_id": "1sce5VJvCOYYDAR9rp9KdG",
+    "rating_history": [
+      {
+        "from": 6,
+        "to": 9,
+        "date": "2026-07-22"
+      }
+    ]
   },
   {
     "title": "Monk's Mood",
@@ -16461,7 +16468,7 @@
     "album": "Red Clay",
     "year": 1970,
     "label": "CTI",
-    "era": null,
+    "era": "Post-Bop",
     "subgenres": [],
     "moods": [],
     "instrumentation": [],
@@ -16471,7 +16478,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 6,
+    "rating": 7,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16480,7 +16487,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 6,
+        "to": 7,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16492,7 +16505,7 @@
     "album": "Rosewood",
     "year": 1978,
     "label": "Columbia",
-    "era": null,
+    "era": "Post-Bop",
     "subgenres": [],
     "moods": [],
     "instrumentation": [],
@@ -16502,7 +16515,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 6.5,
+    "rating": 7.5,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16511,7 +16524,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 6.5,
+        "to": 7.5,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16523,7 +16542,7 @@
     "album": "Kind of Blue",
     "year": 1959,
     "label": "Columbia",
-    "era": null,
+    "era": "Modal",
     "subgenres": [],
     "moods": [],
     "instrumentation": [],
@@ -16533,7 +16552,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 9,
+    "rating": 9.5,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16542,7 +16561,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 9,
+        "to": 9.5,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16554,7 +16579,7 @@
     "album": "A Love Supreme",
     "year": 1965,
     "label": "Impulse!",
-    "era": null,
+    "era": "Modal",
     "subgenres": [],
     "moods": [],
     "instrumentation": [],
@@ -16564,7 +16589,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 8,
+    "rating": 8.8,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16573,7 +16598,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 8,
+        "to": 8.8,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16585,7 +16616,7 @@
     "album": "Speak No Evil",
     "year": 1966,
     "label": "Blue Note",
-    "era": null,
+    "era": "Post-Bop",
     "subgenres": [],
     "moods": [],
     "instrumentation": [],
@@ -16608,5 +16639,556 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
+  },
+  {
+    "entity_type": "album",
+    "title": "Nights of Ballads & Blues",
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [],
+    "notable_qualities": [],
+    "rating": 4,
+    "liked": false,
+    "notes": "Album review 2026-07-21.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-21",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "primary_instrument": "alto saxophone",
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Eric Dolphy - alto saxophone",
+      "Freddie Hubbard - trumpet",
+      "George Barrow - baritone saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "flute",
+      "baritone saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "title": "Hoe-Down",
+    "era": "Post-Bop",
+    "subgenres": [
+      "hard bop",
+      "post-bop"
+    ],
+    "moods": [
+      "energetic",
+      "bright",
+      "playful"
+    ],
+    "tempo": "fast",
+    "harmonic_complexity": "medium",
+    "notable_qualities": [
+      "The Blues and the Abstract Truth album review 2026-07-22"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Logged in The Blues and the Abstract Truth album review (2026-07-22). Model predicted ~5.5; user rated much higher.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": true,
+    "recommendation_version": "album-test",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.754,
+      "danceability": 0.579,
+      "spotify_energy": 0.566,
+      "instrumentalness": 0.538,
+      "liveness": 0.0987,
+      "loudness": -8.733,
+      "speechiness": 0.0531,
+      "spotify_valence": 0.83
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3k7MPapSDy9kSWuhvXxP3c"
+  },
+  {
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "primary_instrument": "alto saxophone",
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Eric Dolphy - alto saxophone",
+      "Freddie Hubbard - trumpet",
+      "George Barrow - baritone saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "flute",
+      "baritone saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "title": "Cascades",
+    "era": "Post-Bop",
+    "subgenres": [
+      "hard bop",
+      "bebop"
+    ],
+    "moods": [
+      "driving",
+      "dense",
+      "virtuosic"
+    ],
+    "tempo": "fast",
+    "harmonic_complexity": "high",
+    "notable_qualities": [
+      "The Blues and the Abstract Truth album review 2026-07-22"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Logged in The Blues and the Abstract Truth album review (2026-07-22). Model predicted ~5.5; user rated much higher.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": true,
+    "recommendation_version": "album-test",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.747,
+      "danceability": 0.595,
+      "spotify_energy": 0.429,
+      "instrumentalness": 0.69,
+      "liveness": 0.0647,
+      "loudness": -11.928,
+      "speechiness": 0.0594,
+      "spotify_valence": 0.823
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1CwtmQHTdSpIFZY82PFhMJ"
+  },
+  {
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "primary_instrument": "alto saxophone",
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Eric Dolphy - alto saxophone",
+      "Freddie Hubbard - trumpet",
+      "George Barrow - baritone saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "flute",
+      "baritone saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "title": "Yearnin'",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "blues",
+      "soul jazz"
+    ],
+    "moods": [
+      "bluesy",
+      "soulful",
+      "gospel",
+      "warm"
+    ],
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "notable_qualities": [
+      "The Blues and the Abstract Truth album review 2026-07-22"
+    ],
+    "rating": 8.5,
+    "liked": true,
+    "notes": "Logged in The Blues and the Abstract Truth album review (2026-07-22). Model predicted ~5.5; user rated much higher.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": true,
+    "recommendation_version": "album-test",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.923,
+      "danceability": 0.599,
+      "spotify_energy": 0.267,
+      "instrumentalness": 0.9,
+      "liveness": 0.135,
+      "loudness": -11.63,
+      "speechiness": 0.0398,
+      "spotify_valence": 0.444
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4L102q3UPh5dyJDUeuPVjY"
+  },
+  {
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "primary_instrument": "alto saxophone",
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Eric Dolphy - alto saxophone",
+      "Freddie Hubbard - trumpet",
+      "George Barrow - baritone saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "flute",
+      "baritone saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "title": "Butch and Butch",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "swinging",
+      "bright"
+    ],
+    "tempo": "medium-fast",
+    "harmonic_complexity": "medium",
+    "notable_qualities": [
+      "The Blues and the Abstract Truth album review 2026-07-22"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Logged in The Blues and the Abstract Truth album review (2026-07-22). Model predicted ~5.5; user rated much higher.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": true,
+    "recommendation_version": "album-test",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.912,
+      "danceability": 0.55,
+      "spotify_energy": 0.478,
+      "instrumentalness": 0.911,
+      "liveness": 0.215,
+      "loudness": -9.84,
+      "speechiness": 0.0736,
+      "spotify_valence": 0.875
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1zNpEhOhQhFaXS7zVFmJFe"
+  },
+  {
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "primary_instrument": "alto saxophone",
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Eric Dolphy - alto saxophone",
+      "Freddie Hubbard - trumpet",
+      "George Barrow - baritone saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "flute",
+      "baritone saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "title": "Teenie's Blues",
+    "era": "Post-Bop",
+    "subgenres": [
+      "blues",
+      "modal jazz"
+    ],
+    "moods": [
+      "bluesy",
+      "cool",
+      "relaxed"
+    ],
+    "tempo": "medium",
+    "harmonic_complexity": "medium",
+    "notable_qualities": [
+      "The Blues and the Abstract Truth album review 2026-07-22"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Logged in The Blues and the Abstract Truth album review (2026-07-22). Model predicted ~5.5; user rated much higher.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": true,
+    "recommendation_version": "album-test",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.798,
+      "danceability": 0.643,
+      "spotify_energy": 0.341,
+      "instrumentalness": 0.304,
+      "liveness": 0.0696,
+      "loudness": -10.018,
+      "speechiness": 0.0436,
+      "spotify_valence": 0.458
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "10Duc9tIQoNwR439wZ9APR"
+  },
+  {
+    "entity_type": "album",
+    "title": "The Blues and the Abstract Truth",
+    "artist": "Oliver Nelson",
+    "album": "The Blues and the Abstract Truth",
+    "year": 1961,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "post-bop",
+      "modal jazz",
+      "blues"
+    ],
+    "moods": [],
+    "instrumentation": [],
+    "primary_instrument": null,
+    "tempo": null,
+    "energy": null,
+    "harmonic_complexity": null,
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Eric Dolphy - alto saxophone",
+      "Freddie Hubbard - trumpet",
+      "George Barrow - baritone saxophone",
+      "Bill Evans - piano",
+      "Paul Chambers - bass",
+      "Roy Haynes - drums"
+    ],
+    "notable_qualities": [],
+    "rating": 9.8,
+    "liked": true,
+    "notes": "Album review 2026-07-22. Highest-rated album in dataset. Model predicted 5.54.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": true,
+    "recommendation_version": "album-test",
+    "discovered_from": "claude-recommendation",
+    "rating_history": [],
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "primary_instrument": "piano",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "harmonic_complexity": "medium",
+    "title": "Blue Monk",
+    "subgenres": [
+      "blues",
+      "piano trio"
+    ],
+    "moods": [
+      "bluesy",
+      "relaxed"
+    ],
+    "tempo": "medium",
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-22"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues album review (2026-07-22).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "acousticness": 0.903,
+      "danceability": 0.675,
+      "spotify_energy": 0.214,
+      "instrumentalness": 0.917,
+      "liveness": 0.126,
+      "loudness": -18.102,
+      "speechiness": 0.0548,
+      "spotify_valence": 0.412
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "56XCdW9tzLtnbtupTLoBVJ"
+  },
+  {
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "primary_instrument": "piano",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "harmonic_complexity": "medium",
+    "title": "Groove Waltz",
+    "subgenres": [
+      "piano trio",
+      "post-bop"
+    ],
+    "moods": [
+      "swinging",
+      "waltz"
+    ],
+    "tempo": "medium",
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-22"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues album review (2026-07-22).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "acousticness": 0.747,
+      "danceability": 0.477,
+      "spotify_energy": 0.3,
+      "instrumentalness": 0.656,
+      "liveness": 0.0752,
+      "loudness": -16.749,
+      "speechiness": 0.0491,
+      "spotify_valence": 0.468
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "36I0EDL0BoxQofJPYYQx89"
+  },
+  {
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "primary_instrument": "piano",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "harmonic_complexity": "medium",
+    "title": "Days of Wine and Roses",
+    "subgenres": [
+      "standard",
+      "piano trio"
+    ],
+    "moods": [
+      "lyrical",
+      "swinging"
+    ],
+    "tempo": "medium",
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-22"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues album review (2026-07-22).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "acousticness": 0.933,
+      "danceability": 0.62,
+      "spotify_energy": 0.127,
+      "instrumentalness": 0.845,
+      "liveness": 0.192,
+      "loudness": -20.923,
+      "speechiness": 0.0413,
+      "spotify_valence": 0.0989
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2mO0AFhyUJmNh7RlTDuxL9"
   }
 ]
