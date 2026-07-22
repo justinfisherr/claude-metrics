@@ -16478,7 +16478,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 6,
+    "rating": 7,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16487,7 +16487,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 6,
+        "to": 7,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16509,7 +16515,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 6.5,
+    "rating": 7.5,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16518,7 +16524,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 6.5,
+        "to": 7.5,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16540,7 +16552,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 9,
+    "rating": 9.5,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16549,7 +16561,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 9,
+        "to": 9.5,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16571,7 +16589,7 @@
     "harmonic_complexity": null,
     "key_players": [],
     "notable_qualities": [],
-    "rating": 8,
+    "rating": 8.8,
     "liked": true,
     "notes": "Album review 2026-07-21.",
     "favorite_moments": null,
@@ -16580,7 +16598,13 @@
     "recommended_by_model": false,
     "recommendation_version": null,
     "discovered_from": "self",
-    "rating_history": [],
+    "rating_history": [
+      {
+        "from": 8,
+        "to": 8.8,
+        "date": "2026-07-22"
+      }
+    ],
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
@@ -16696,7 +16720,16 @@
     "recommended_by_model": true,
     "recommendation_version": "album-test",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.754,
+      "danceability": 0.579,
+      "spotify_energy": 0.566,
+      "instrumentalness": 0.538,
+      "liveness": 0.0987,
+      "loudness": -8.733,
+      "speechiness": 0.0531,
+      "spotify_valence": 0.83
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "3k7MPapSDy9kSWuhvXxP3c"
@@ -16750,7 +16783,16 @@
     "recommended_by_model": true,
     "recommendation_version": "album-test",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.747,
+      "danceability": 0.595,
+      "spotify_energy": 0.429,
+      "instrumentalness": 0.69,
+      "liveness": 0.0647,
+      "loudness": -11.928,
+      "speechiness": 0.0594,
+      "spotify_valence": 0.823
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1CwtmQHTdSpIFZY82PFhMJ"
@@ -16806,7 +16848,16 @@
     "recommended_by_model": true,
     "recommendation_version": "album-test",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.923,
+      "danceability": 0.599,
+      "spotify_energy": 0.267,
+      "instrumentalness": 0.9,
+      "liveness": 0.135,
+      "loudness": -11.63,
+      "speechiness": 0.0398,
+      "spotify_valence": 0.444
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "4L102q3UPh5dyJDUeuPVjY"
@@ -16858,7 +16909,16 @@
     "recommended_by_model": true,
     "recommendation_version": "album-test",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.912,
+      "danceability": 0.55,
+      "spotify_energy": 0.478,
+      "instrumentalness": 0.911,
+      "liveness": 0.215,
+      "loudness": -9.84,
+      "speechiness": 0.0736,
+      "spotify_valence": 0.875
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1zNpEhOhQhFaXS7zVFmJFe"
@@ -16912,7 +16972,16 @@
     "recommended_by_model": true,
     "recommendation_version": "album-test",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.798,
+      "danceability": 0.643,
+      "spotify_energy": 0.341,
+      "instrumentalness": 0.304,
+      "liveness": 0.0696,
+      "loudness": -10.018,
+      "speechiness": 0.0436,
+      "spotify_valence": 0.458
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "10Duc9tIQoNwR439wZ9APR"
@@ -16959,5 +17028,140 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
+  },
+  {
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "primary_instrument": "piano",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "harmonic_complexity": "medium",
+    "title": "Blue Monk",
+    "subgenres": [
+      "blues",
+      "piano trio"
+    ],
+    "moods": [
+      "bluesy",
+      "relaxed"
+    ],
+    "tempo": "medium",
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-22"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues album review (2026-07-22).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "56XCdW9tzLtnbtupTLoBVJ"
+  },
+  {
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "primary_instrument": "piano",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "harmonic_complexity": "medium",
+    "title": "Groove Waltz",
+    "subgenres": [
+      "piano trio",
+      "post-bop"
+    ],
+    "moods": [
+      "swinging",
+      "waltz"
+    ],
+    "tempo": "medium",
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-22"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues album review (2026-07-22).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "36I0EDL0BoxQofJPYYQx89"
+  },
+  {
+    "artist": "McCoy Tyner",
+    "album": "Nights of Ballads & Blues",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "primary_instrument": "piano",
+    "key_players": [
+      "McCoy Tyner - piano",
+      "Steve Davis - bass",
+      "Lex Humphries - drums"
+    ],
+    "instrumentation": [
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "harmonic_complexity": "medium",
+    "title": "Days of Wine and Roses",
+    "subgenres": [
+      "standard",
+      "piano trio"
+    ],
+    "moods": [
+      "lyrical",
+      "swinging"
+    ],
+    "tempo": "medium",
+    "notable_qualities": [
+      "Nights of Ballads & Blues album review 2026-07-22"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Logged in Nights of Ballads & Blues album review (2026-07-22).",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-22",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2mO0AFhyUJmNh7RlTDuxL9"
   }
 ]
