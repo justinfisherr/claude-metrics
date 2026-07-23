@@ -1,5 +1,5 @@
 {
-  "current_version": "9.03",
+  "current_version": "9.04",
   "versions": [
     {
       "version": "1.00",
@@ -1248,6 +1248,32 @@
       "rf_r_squared": 0.3808,
       "rf_rmse": 1.7875,
       "notes": "Re-rate batch: 4 albums bumped up, +3 McCoy Tyner tracks",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "9.04",
+      "name": "",
+      "major": 9,
+      "minor": 4,
+      "run_date": "2026-07-23T21:51:29.625930",
+      "dataset_size": 319,
+      "best_model": "ridge",
+      "r_squared": 0.344,
+      "rmse": 1.8183,
+      "mae": 1.2773,
+      "feature_count": 157,
+      "best_k": 4,
+      "ridge_r_squared": 0.344,
+      "ridge_rmse": 1.8183,
+      "rf_r_squared": 0.3384,
+      "rf_rmse": 1.826,
+      "notes": "Deep-work calm picks (mostly flopped) + Undercurrent + Machito Kenya Afro-Cuban album test",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
