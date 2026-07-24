@@ -43,7 +43,10 @@ def load_model(version=None):
 
 def _load_training_tracks():
     data = json.loads(TRAINING_PATH.read_text())
-    return data if isinstance(data, list) else data.get("tracks", data.get("data", []))
+    data = data if isinstance(data, list) else data.get("tracks", data.get("data", []))
+    # Exclude album entities — they carry null era/energy and are not part of the model
+    # (mirrors train.load_data). Without this, feature engineering crashes on their nulls.
+    return [t for t in data if t.get("entity_type") != "album"]
 
 
 def _norm(s):

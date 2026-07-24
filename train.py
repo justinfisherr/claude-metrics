@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import RidgeCV
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
@@ -715,10 +715,13 @@ def train_models(X, y):
         "best_alpha": float(ridge.alpha_),
     }
 
-    # v10 "raichu": max_depth 3 -> 6. Depth-3 throttled the model — after era+collaborator
-    # splits there was no room for the conditional splits that separate tracks within a
-    # family. Unlocking depth recovers LOO R² ~0.34 -> ~0.51 (validated 2026-07-24).
-    rf = RandomForestRegressor(n_estimators=200, max_depth=6, min_samples_leaf=5, random_state=42, n_jobs=-1)
+    # v10 "raichu": depth-3 RF was the ceiling — after era+collaborator splits there was no
+    # room for the conditional splits that separate tracks within a family (LOO 0.34 -> 0.51).
+    # v10.01: GradientBoosting beats the depth-6 forest (LOO 0.51 -> 0.65). Boosting can push
+    # predictions PAST the mean, so it reaches the 1s/10s the forest averaged toward the middle
+    # (e.g. Afro Blue actual 1: RF pred 5.5 -> GBM 3.6). Kept under the "random_forest" key so
+    # the React dashboard's JSON schema stays compatible; it is really a GBM (see algorithm field).
+    rf = GradientBoostingRegressor(n_estimators=300, max_depth=3, learning_rate=0.03, random_state=42)
     rf_preds = cross_val_predict(rf, X_scaled, y, cv=LeaveOneOut(), n_jobs=-1)
     rf.fit(X_scaled, y)
 
@@ -726,8 +729,10 @@ def train_models(X, y):
         "r_squared": round(r2_score(y, rf_preds), 4),
         "rmse": round(np.sqrt(mean_squared_error(y, rf_preds)), 4),
         "mae": round(mean_absolute_error(y, rf_preds), 4),
-        "max_depth": 6,
-        "n_estimators": 200,
+        "algorithm": "gradient_boosting",
+        "n_estimators": 300,
+        "max_depth": 3,
+        "learning_rate": 0.03,
     }
 
     best = "ridge" if ridge_metrics["r_squared"] >= rf_metrics["r_squared"] else "random_forest"
@@ -747,6 +752,7 @@ def train_models(X, y):
         "ridge_importance": ridge_importance,
         "ridge_directions": ridge_directions,
         "rf_importance": rf_importance,
+        "fitted_model": rf,          # the fitted best tree-model (GBM) for persistence
         "scaler": scaler,
         "X_scaled": X_scaled,
     }
@@ -1660,20 +1666,25 @@ def main():
     print(f"\nExported to {OUTPUT_PATH}")
     print(f"History entries: {len(history)}")
 
-    ridge = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0])
     scaler = model_results["scaler"]
-    ridge.fit(scaler.transform(X), y)
+    # Persist the ACTUAL best model (previously this always saved Ridge regardless of
+    # best_model — so predict.py silently scored on Ridge, not the winning tree model).
+    if best == "ridge":
+        best_est = RidgeCV(alphas=[0.01, 0.1, 1.0, 10.0, 100.0])
+        best_est.fit(scaler.transform(X), y)
+    else:
+        best_est = model_results["fitted_model"]   # GBM, already fit on scaler.transform(X)
 
     eras = sorted(set(t.get("era", "Unknown") for t in tracks))
     joblib.dump({
-        "model": ridge,
+        "model": best_est,
         "scaler": scaler,
         "feature_names": feature_names,
         "common_subgenres": common_subgenres,
         "common_labels": common_labels,
         "eras": eras,
     }, MODEL_PATH)
-    print(f"Model saved to {MODEL_PATH}")
+    print(f"Model saved to {MODEL_PATH} (best={best})")
 
     metrics_summary = {
         "dataset_size": len(tracks),
