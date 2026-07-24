@@ -1,5 +1,5 @@
 {
-  "current_version": "9.04",
+  "current_version": "10.00",
   "versions": [
     {
       "version": "1.00",
@@ -1280,6 +1280,37 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.00",
+      "name": "raichu",
+      "major": 10,
+      "minor": 0,
+      "run_date": "2026-07-24T01:03:02.314626",
+      "dataset_size": 319,
+      "best_model": "random_forest",
+      "r_squared": 0.5109,
+      "rmse": 1.57,
+      "mae": 1.1541,
+      "feature_count": 157,
+      "best_k": 4,
+      "ridge_r_squared": 0.344,
+      "ridge_rmse": 1.8183,
+      "rf_r_squared": 0.5109,
+      "rf_rmse": 1.57,
+      "notes": "raichu: unthrottle the model \u2014 RF max_depth 3->6, n_estimators 50->200. Depth-3 was the real ceiling; deeper trees make the conditional within-family splits the model needs. LOO R\u00b2 ~0.34 -> ~0.5. Audio confirmed junk-tier (3 ways) and stays pruned.",
+      "changelog": [
+        "max_depth 3->6",
+        "n_estimators 50->200",
+        "recovers within-family discrimination"
+      ],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v10.00/dashboard-data.json",
+        "model": "versions/v10.00/model.joblib",
+        "training_data": "versions/v10.00/training-data.md"
       }
     }
   ]

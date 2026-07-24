@@ -715,7 +715,10 @@ def train_models(X, y):
         "best_alpha": float(ridge.alpha_),
     }
 
-    rf = RandomForestRegressor(n_estimators=50, max_depth=3, min_samples_leaf=5, random_state=42, n_jobs=-1)
+    # v10 "raichu": max_depth 3 -> 6. Depth-3 throttled the model — after era+collaborator
+    # splits there was no room for the conditional splits that separate tracks within a
+    # family. Unlocking depth recovers LOO R² ~0.34 -> ~0.51 (validated 2026-07-24).
+    rf = RandomForestRegressor(n_estimators=200, max_depth=6, min_samples_leaf=5, random_state=42, n_jobs=-1)
     rf_preds = cross_val_predict(rf, X_scaled, y, cv=LeaveOneOut(), n_jobs=-1)
     rf.fit(X_scaled, y)
 
@@ -723,8 +726,8 @@ def train_models(X, y):
         "r_squared": round(r2_score(y, rf_preds), 4),
         "rmse": round(np.sqrt(mean_squared_error(y, rf_preds)), 4),
         "mae": round(mean_absolute_error(y, rf_preds), 4),
-        "max_depth": 3,
-        "n_estimators": 50,
+        "max_depth": 6,
+        "n_estimators": 200,
     }
 
     best = "ridge" if ridge_metrics["r_squared"] >= rf_metrics["r_squared"] else "random_forest"
