@@ -8942,7 +8942,7 @@
       "Duke Ellington - piano",
       "Johnny Hodges - alto saxophone"
     ],
-    "rating": 5,
+    "rating": 4,
     "replayability": 3,
     "playthrough": 0.5,
     "liked": false,
@@ -8960,7 +8960,14 @@
       "loudness": -8.991,
       "speechiness": 0.0313,
       "spotify_valence": 0.704
-    }
+    },
+    "rating_history": [
+      {
+        "from": 5,
+        "to": 4,
+        "date": "2026-07-24"
+      }
+    ]
   },
   {
     "title": "Re: Person I Knew",
