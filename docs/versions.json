@@ -1,5 +1,5 @@
 {
-  "current_version": "10.01",
+  "current_version": "10.02",
   "versions": [
     {
       "version": "1.00",
@@ -1335,6 +1335,32 @@
         "GBM replaces RF",
         "fix: save best model not always Ridge"
       ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.02",
+      "name": "",
+      "major": 10,
+      "minor": 2,
+      "run_date": "2026-07-24T06:20:02.810748",
+      "dataset_size": 331,
+      "best_model": "random_forest",
+      "r_squared": 0.6353,
+      "rmse": 1.3386,
+      "mae": 0.9545,
+      "feature_count": 158,
+      "best_k": 3,
+      "ridge_r_squared": 0.3203,
+      "ridge_rmse": 1.8274,
+      "rf_r_squared": 0.6353,
+      "rf_rmse": 1.3386,
+      "notes": "Black Saint + Money Jungle reviews",
+      "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
       "artifacts": {
