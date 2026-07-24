@@ -1,5 +1,5 @@
 {
-  "current_version": "10.00",
+  "current_version": "10.01",
   "versions": [
     {
       "version": "1.00",
@@ -1311,6 +1311,35 @@
         "dashboard_data": "versions/v10.00/dashboard-data.json",
         "model": "versions/v10.00/model.joblib",
         "training_data": "versions/v10.00/training-data.md"
+      }
+    },
+    {
+      "version": "10.01",
+      "name": "raichu",
+      "major": 10,
+      "minor": 1,
+      "run_date": "2026-07-24T01:29:09.721835",
+      "dataset_size": 319,
+      "best_model": "random_forest",
+      "r_squared": 0.6507,
+      "rmse": 1.3268,
+      "mae": 0.9733,
+      "feature_count": 157,
+      "best_k": 4,
+      "ridge_r_squared": 0.344,
+      "ridge_rmse": 1.8183,
+      "rf_r_squared": 0.6507,
+      "rf_rmse": 1.3268,
+      "notes": "v10.01 raichu: swap depth-6 RF for GradientBoosting (n=300,d3,lr.03). LOO R\u00b2 0.51->0.65, within-family error 1.76->1.11, uncompresses extremes (Afro Blue 5.5->3.6, Psalm 4.2->2.9). ALSO fixed latent bug: model.joblib now saves the best model (was always saving Ridge, so predict.py had been scoring on Ridge R\u00b20.34).",
+      "changelog": [
+        "GBM replaces RF",
+        "fix: save best model not always Ridge"
+      ],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
       }
     }
   ]
