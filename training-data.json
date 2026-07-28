@@ -19203,7 +19203,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.0467,
+      "danceability": 0.313,
+      "spotify_energy": 0.728,
+      "instrumentalness": 0.283,
+      "liveness": 0.174,
+      "loudness": -10.358,
+      "speechiness": 0.116,
+      "spotify_valence": 0.321
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "4DqoIQex8YwurJbhyLIMyY"
@@ -19285,7 +19294,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.87,
+      "danceability": 0.538,
+      "spotify_energy": 0.538,
+      "instrumentalness": 0.0605,
+      "liveness": 0.16,
+      "loudness": -7.428,
+      "speechiness": 0.0368,
+      "spotify_valence": 0.499
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "3R5K5Alv1Db3WRRAE3lr42"
@@ -19366,7 +19384,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.23,
+      "danceability": 0.353,
+      "spotify_energy": 0.476,
+      "instrumentalness": 0.822,
+      "liveness": 0.19,
+      "loudness": -14.877,
+      "speechiness": 0.0447,
+      "spotify_valence": 0.485
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "7Lyjub2bVektzPMxpHVwdq"
@@ -19408,7 +19435,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.804,
+      "danceability": 0.651,
+      "spotify_energy": 0.252,
+      "instrumentalness": 0.0287,
+      "liveness": 0.0943,
+      "loudness": -16.168,
+      "speechiness": 0.0588,
+      "spotify_valence": 0.428
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "7dMWiyYYkxNC0mz90Ni9L3"
@@ -19449,7 +19485,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.114,
+      "danceability": 0.537,
+      "spotify_energy": 0.694,
+      "instrumentalness": 0.0879,
+      "liveness": 0.346,
+      "loudness": -12.195,
+      "speechiness": 0.0509,
+      "spotify_valence": 0.924
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1DoWUjcc5sqpRioFPioogU"
@@ -19489,7 +19534,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.246,
+      "danceability": 0.474,
+      "spotify_energy": 0.405,
+      "instrumentalness": 0.0169,
+      "liveness": 0.113,
+      "loudness": -14.925,
+      "speechiness": 0.0885,
+      "spotify_valence": 0.511
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "55X66sKArUevBeGD7buroR"
@@ -19528,7 +19582,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.529,
+      "danceability": 0.454,
+      "spotify_energy": 0.26,
+      "instrumentalness": 0.000779,
+      "liveness": 0.0646,
+      "loudness": -13.213,
+      "speechiness": 0.0405,
+      "spotify_valence": 0.57
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "5UbLKRX1qVROlwDFOooEvG"
@@ -19569,7 +19632,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.944,
+      "danceability": 0.696,
+      "spotify_energy": 0.17,
+      "instrumentalness": 0.00174,
+      "liveness": 0.106,
+      "loudness": -16.603,
+      "speechiness": 0.0385,
+      "spotify_valence": 0.52
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "4qGfJb2KByjvzrwo8HNibg"
@@ -19610,7 +19682,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.662,
+      "danceability": 0.629,
+      "spotify_energy": 0.278,
+      "instrumentalness": 0.000229,
+      "liveness": 0.106,
+      "loudness": -12.229,
+      "speechiness": 0.0329,
+      "spotify_valence": 0.503
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "3NvYPUNu6nwQgN31UnoDbn"
@@ -19650,7 +19731,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.943,
+      "danceability": 0.672,
+      "spotify_energy": 0.3,
+      "instrumentalness": 0.236,
+      "liveness": 0.0996,
+      "loudness": -12.372,
+      "speechiness": 0.0367,
+      "spotify_valence": 0.545
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "2BuIAKijtji4xpab2QCTBv"
@@ -19691,7 +19781,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.186,
+      "danceability": 0.417,
+      "spotify_energy": 0.42,
+      "instrumentalness": 0.00111,
+      "liveness": 0.185,
+      "loudness": -13.046,
+      "speechiness": 0.06,
+      "spotify_valence": 0.517
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1ZXu0ib26kWfQQngREMcU2"
@@ -19732,7 +19831,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.41,
+      "danceability": 0.465,
+      "spotify_energy": 0.35,
+      "instrumentalness": 0.279,
+      "liveness": 0.135,
+      "loudness": -12.977,
+      "speechiness": 0.0403,
+      "spotify_valence": 0.62
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "6YYu8qFzcY1ZyzzsJIQM12"
@@ -19772,7 +19880,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.0634,
+      "danceability": 0.41,
+      "spotify_energy": 0.761,
+      "instrumentalness": 0.532,
+      "liveness": 0.0994,
+      "loudness": -8.036,
+      "speechiness": 0.111,
+      "spotify_valence": 0.418
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "6DH9qxj2GJi0lU2Y5FDHky"
@@ -19813,7 +19930,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.857,
+      "danceability": 0.404,
+      "spotify_energy": 0.446,
+      "instrumentalness": 0.885,
+      "liveness": 0.0845,
+      "loudness": -16.982,
+      "speechiness": 0.0352,
+      "spotify_valence": 0.474
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "5RrJCusmR1J54b5ivqdWIu"
@@ -19853,7 +19979,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.748,
+      "danceability": 0.639,
+      "spotify_energy": 0.173,
+      "instrumentalness": 0.0,
+      "liveness": 0.12,
+      "loudness": -18.159,
+      "speechiness": 0.0489,
+      "spotify_valence": 0.358
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "4hoVU73FGFu7oL1Nhw7Ksn"
@@ -19893,7 +20028,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.232,
+      "danceability": 0.569,
+      "spotify_energy": 0.44,
+      "instrumentalness": 0.000527,
+      "liveness": 0.0992,
+      "loudness": -14.789,
+      "speechiness": 0.0498,
+      "spotify_valence": 0.784
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "0KciFkq67qqNrfmvbX1FCR"
@@ -19934,7 +20078,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.677,
+      "danceability": 0.434,
+      "spotify_energy": 0.456,
+      "instrumentalness": 0.0149,
+      "liveness": 0.1,
+      "loudness": -12.454,
+      "speechiness": 0.0666,
+      "spotify_valence": 0.507
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "39gnnt9J3mKwaKboHCEJI8"
@@ -19975,7 +20128,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.667,
+      "danceability": 0.303,
+      "spotify_energy": 0.326,
+      "instrumentalness": 0.0531,
+      "liveness": 0.0767,
+      "loudness": -17.538,
+      "speechiness": 0.0391,
+      "spotify_valence": 0.754
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "73ywxvRTfXvgj2WP33Ud3Y"
@@ -20057,7 +20219,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.619,
+      "danceability": 0.461,
+      "spotify_energy": 0.626,
+      "instrumentalness": 0.0,
+      "liveness": 0.17,
+      "loudness": -9.44,
+      "speechiness": 0.0433,
+      "spotify_valence": 0.523
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "4dL4C5uezPiXv2l6sout5U"
@@ -20098,7 +20269,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.0545,
+      "danceability": 0.644,
+      "spotify_energy": 0.76,
+      "instrumentalness": 0.882,
+      "liveness": 0.188,
+      "loudness": -7.713,
+      "speechiness": 0.0773,
+      "spotify_valence": 0.605
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "1qe9hue6nh9KPHvRlA1hob"
@@ -20139,7 +20319,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.789,
+      "danceability": 0.546,
+      "spotify_energy": 0.305,
+      "instrumentalness": 0.352,
+      "liveness": 0.125,
+      "loudness": -10.934,
+      "speechiness": 0.0494,
+      "spotify_valence": 0.664
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "0sQ9ee2jJNTQgjy55Pse5H"
@@ -20181,7 +20370,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.946,
+      "danceability": 0.383,
+      "spotify_energy": 0.171,
+      "instrumentalness": 0.563,
+      "liveness": 0.124,
+      "loudness": -19.02,
+      "speechiness": 0.0365,
+      "spotify_valence": 0.251
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "3IbZO1Ml6LyntT83JZ2VG4"
@@ -20220,7 +20418,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.535,
+      "danceability": 0.523,
+      "spotify_energy": 0.681,
+      "instrumentalness": 0.0,
+      "liveness": 0.122,
+      "loudness": -6.093,
+      "speechiness": 0.0364,
+      "spotify_valence": 0.814
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "367kqaJ8aCvK2wUCEE7oGb"
@@ -20261,7 +20468,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.983,
+      "danceability": 0.413,
+      "spotify_energy": 0.0368,
+      "instrumentalness": 0.000522,
+      "liveness": 0.111,
+      "loudness": -23.871,
+      "speechiness": 0.0369,
+      "spotify_valence": 0.158
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "0fpohcklLKNLo3FyjVjEsE"
@@ -20300,7 +20516,16 @@
     "recommended_by_model": true,
     "recommendation_version": "claudy-picks",
     "discovered_from": "claude-recommendation",
-    "audio_features": null,
+    "audio_features": {
+      "acousticness": 0.0175,
+      "danceability": 0.376,
+      "spotify_energy": 0.463,
+      "instrumentalness": 0.692,
+      "liveness": 0.724,
+      "loudness": -19.137,
+      "speechiness": 0.0513,
+      "spotify_valence": 0.608
+    },
     "replayability": null,
     "playthrough": null,
     "spotify_id": "2qVFlitXtB9SGDldlQ3mWy"
