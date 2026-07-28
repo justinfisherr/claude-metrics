@@ -19126,5 +19126,1183 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": null
+  },
+  {
+    "title": "Jive Samba",
+    "artist": "Cannonball Adderley",
+    "album": null,
+    "year": 1963,
+    "label": "Riverside",
+    "era": "Hard Bop",
+    "subgenres": [
+      "soul jazz",
+      "latin jazz"
+    ],
+    "moods": [
+      "groovy",
+      "communal"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Cannonball Adderley - alto saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "25bX9bIeM1TVJWWB4q7fVk"
+  },
+  {
+    "title": "Ecclusiastics",
+    "artist": "Charles Mingus",
+    "album": null,
+    "year": 1961,
+    "label": "Atlantic",
+    "era": "Post-Bop",
+    "subgenres": [
+      "gospel jazz",
+      "hard bop"
+    ],
+    "moods": [
+      "gospel",
+      "communal",
+      "raucous"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "bass",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 2.5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4DqoIQex8YwurJbhyLIMyY"
+  },
+  {
+    "title": "Street Fighter Mas",
+    "artist": "Kamasi Washington",
+    "album": null,
+    "year": 2018,
+    "label": "Young Turks",
+    "era": "Contemporary",
+    "subgenres": [
+      "spiritual jazz",
+      "modern jazz"
+    ],
+    "moods": [
+      "groovy",
+      "joyful",
+      "funky"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Kamasi Washington - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3ZaCCDIIXC2NmcT1CHI5MP"
+  },
+  {
+    "title": "Sister Sadie",
+    "artist": "Horace Silver",
+    "album": null,
+    "year": 1959,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "moods": [
+      "driving",
+      "bluesy",
+      "swinging"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Horace Silver - piano"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3R5K5Alv1Db3WRRAE3lr42"
+  },
+  {
+    "title": "The Other Woman",
+    "artist": "Nina Simone",
+    "album": null,
+    "year": 1959,
+    "label": "Bethlehem",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "dramatic",
+      "intimate",
+      "melancholic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - vocals"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1sQnIYPB0kuaAGK14q96Wt"
+  },
+  {
+    "title": "Brother John",
+    "artist": "Yusef Lateef",
+    "album": null,
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "soul jazz",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "soulful",
+      "groovy"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Yusef Lateef - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7Lyjub2bVektzPMxpHVwdq"
+  },
+  {
+    "title": "Blues Walk",
+    "artist": "Lou Donaldson",
+    "album": null,
+    "year": 1958,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "soul jazz",
+      "hard bop",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "swinging",
+      "groovy"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Lou Donaldson - alto saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7dMWiyYYkxNC0mz90Ni9L3"
+  },
+  {
+    "title": "Expansions",
+    "artist": "Lonnie Liston Smith",
+    "album": null,
+    "year": 1975,
+    "label": "Flying Dutchman",
+    "era": "Soul/Funk",
+    "subgenres": [
+      "jazz funk",
+      "spiritual jazz"
+    ],
+    "moods": [
+      "cosmic",
+      "groovy",
+      "spiritual"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "keyboards",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Lonnie Liston Smith - keyboards"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1DoWUjcc5sqpRioFPioogU"
+  },
+  {
+    "title": "Astral Traveling",
+    "artist": "Pharoah Sanders",
+    "album": null,
+    "year": 1971,
+    "label": "Impulse!",
+    "era": "Spiritual Jazz",
+    "subgenres": [
+      "spiritual jazz"
+    ],
+    "moods": [
+      "spiritual",
+      "serene",
+      "spacious"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Pharoah Sanders - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "55X66sKArUevBeGD7buroR"
+  },
+  {
+    "title": "Take Five",
+    "artist": "Dave Brubeck",
+    "album": null,
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Cool Jazz",
+    "subgenres": [
+      "cool jazz"
+    ],
+    "moods": [
+      "cool",
+      "catchy"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Dave Brubeck - piano"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5UbLKRX1qVROlwDFOooEvG"
+  },
+  {
+    "title": "The Girl from Ipanema",
+    "artist": "Stan Getz",
+    "album": null,
+    "year": 1964,
+    "label": "Verve",
+    "era": "Bossa Nova",
+    "subgenres": [
+      "bossa nova",
+      "cool jazz"
+    ],
+    "moods": [
+      "cool",
+      "lyrical",
+      "warm"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Stan Getz - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4qGfJb2KByjvzrwo8HNibg"
+  },
+  {
+    "title": "Freddie Freeloader",
+    "artist": "Miles Davis",
+    "album": null,
+    "year": 1959,
+    "label": "Columbia",
+    "era": "Modal",
+    "subgenres": [
+      "modal jazz",
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "relaxed",
+      "cool"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Miles Davis - trumpet"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3NvYPUNu6nwQgN31UnoDbn"
+  },
+  {
+    "title": "Take the \"A\" Train",
+    "artist": "Duke Ellington",
+    "album": null,
+    "year": 1962,
+    "label": "Columbia",
+    "era": "Swing",
+    "subgenres": [
+      "swing",
+      "big band"
+    ],
+    "moods": [
+      "swinging",
+      "bright"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Duke Ellington - piano"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2BuIAKijtji4xpab2QCTBv"
+  },
+  {
+    "title": "Giant Steps",
+    "artist": "John Coltrane",
+    "album": null,
+    "year": 1960,
+    "label": "Atlantic",
+    "era": "Bebop",
+    "subgenres": [
+      "hard bop",
+      "bebop"
+    ],
+    "moods": [
+      "fast",
+      "virtuosic",
+      "driving"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "John Coltrane - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1ZXu0ib26kWfQQngREMcU2"
+  },
+  {
+    "title": "Straight, No Chaser",
+    "artist": "Thelonious Monk",
+    "album": null,
+    "year": 1967,
+    "label": "Columbia",
+    "era": "Bebop",
+    "subgenres": [
+      "bebop",
+      "blues"
+    ],
+    "moods": [
+      "angular",
+      "bluesy",
+      "wry"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Thelonious Monk - piano"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6YYu8qFzcY1ZyzzsJIQM12"
+  },
+  {
+    "title": "A Night in Tunisia",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "album": null,
+    "year": 1960,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "dramatic",
+      "exotic",
+      "driving"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "drums",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Art Blakey & The Jazz Messengers - drums"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6DH9qxj2GJi0lU2Y5FDHky"
+  },
+  {
+    "title": "Spain",
+    "artist": "Chick Corea",
+    "album": null,
+    "year": 1972,
+    "label": "Polydor",
+    "era": "Contemporary",
+    "subgenres": [
+      "jazz fusion",
+      "latin jazz"
+    ],
+    "moods": [
+      "bright",
+      "virtuosic",
+      "joyful"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "keyboards",
+    "tempo": "fast",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Chick Corea - keyboards"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5RrJCusmR1J54b5ivqdWIu"
+  },
+  {
+    "title": "Killer Joe",
+    "artist": "Art Farmer & Benny Golson Jazztet",
+    "album": null,
+    "year": 1960,
+    "label": "Argo",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "cool",
+      "smooth",
+      "hip"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Art Farmer & Benny Golson Jazztet - trumpet"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4hoVU73FGFu7oL1Nhw7Ksn"
+  },
+  {
+    "title": "Freedom Jazz Dance",
+    "artist": "Eddie Harris",
+    "album": null,
+    "year": 1965,
+    "label": "Atlantic",
+    "era": "Post-Bop",
+    "subgenres": [
+      "soul jazz",
+      "post-bop"
+    ],
+    "moods": [
+      "angular",
+      "funky"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Eddie Harris - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0KciFkq67qqNrfmvbX1FCR"
+  },
+  {
+    "title": "Wednesday Night Prayer Meeting",
+    "artist": "Charles Mingus",
+    "album": null,
+    "year": 1959,
+    "label": "Atlantic",
+    "era": "Post-Bop",
+    "subgenres": [
+      "gospel jazz",
+      "hard bop"
+    ],
+    "moods": [
+      "gospel",
+      "communal",
+      "ecstatic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "bass",
+    "tempo": "medium",
+    "energy": 7,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Charles Mingus - bass"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "39gnnt9J3mKwaKboHCEJI8"
+  },
+  {
+    "title": "This Here",
+    "artist": "Cannonball Adderley",
+    "album": null,
+    "year": 1959,
+    "label": "Riverside",
+    "era": "Hard Bop",
+    "subgenres": [
+      "soul jazz",
+      "gospel jazz"
+    ],
+    "moods": [
+      "gospel",
+      "groovy",
+      "communal"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Cannonball Adderley - alto saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "73ywxvRTfXvgj2WP33Ud3Y"
+  },
+  {
+    "title": "Dèwèl",
+    "artist": "Mulatu Astatke",
+    "album": null,
+    "year": 1972,
+    "label": "Amha",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ethio-jazz",
+      "world jazz"
+    ],
+    "moods": [
+      "hypnotic",
+      "modal",
+      "exotic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "vibraphone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Mulatu Astatke - vibraphone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2mm6c7ZifenWJrF9wvklEI"
+  },
+  {
+    "title": "Blues on the Corner",
+    "artist": "McCoy Tyner",
+    "album": null,
+    "year": 1967,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [
+      "modal jazz",
+      "blues"
+    ],
+    "moods": [
+      "modal",
+      "groovy",
+      "bluesy"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "McCoy Tyner - piano"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3.5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "4dL4C5uezPiXv2l6sout5U"
+  },
+  {
+    "title": "My Queen Is Harriet Tubman",
+    "artist": "Sons of Kemet",
+    "album": null,
+    "year": 2018,
+    "label": "Impulse!",
+    "era": "Contemporary",
+    "subgenres": [
+      "afro-jazz",
+      "modern jazz"
+    ],
+    "moods": [
+      "communal",
+      "driving",
+      "spiritual"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Sons of Kemet - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1qe9hue6nh9KPHvRlA1hob"
+  },
+  {
+    "title": "Joy Spring",
+    "artist": "Clifford Brown",
+    "album": null,
+    "year": 1954,
+    "label": "EmArcy",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop",
+      "bebop"
+    ],
+    "moods": [
+      "bright",
+      "joyful",
+      "melodic"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "trumpet",
+    "tempo": "medium-fast",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Clifford Brown - trumpet"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0sQ9ee2jJNTQgjy55Pse5H"
+  },
+  {
+    "title": "Black Narcissus",
+    "artist": "Joe Henderson",
+    "album": null,
+    "year": 1969,
+    "label": "Milestone",
+    "era": "Post-Bop",
+    "subgenres": [
+      "modal jazz",
+      "post-bop"
+    ],
+    "moods": [
+      "lush",
+      "dark",
+      "modal",
+      "mysterious"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Joe Henderson - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3IbZO1Ml6LyntT83JZ2VG4"
+  },
+  {
+    "title": "Cheese Cake",
+    "artist": "Dexter Gordon",
+    "album": null,
+    "year": 1962,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [
+      "hard bop"
+    ],
+    "moods": [
+      "warm",
+      "swinging"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Dexter Gordon - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "367kqaJ8aCvK2wUCEE7oGb"
+  },
+  {
+    "title": "Little Girl Blue",
+    "artist": "Nina Simone",
+    "album": null,
+    "year": 1958,
+    "label": "Bethlehem",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz",
+      "ballad"
+    ],
+    "moods": [
+      "tender",
+      "melancholic",
+      "intimate"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "piano",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Nina Simone - piano"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0fpohcklLKNLo3FyjVjEsE"
+  },
+  {
+    "title": "Sister Mamie",
+    "artist": "Yusef Lateef",
+    "album": null,
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "soul jazz"
+    ],
+    "moods": [
+      "soulful",
+      "groovy"
+    ],
+    "instrumentation": [],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": "medium",
+    "key_players": [
+      "Yusef Lateef - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "playlist rec 2026-07-28"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Claudy Poo's Picks playlist review 2026-07-28.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-28",
+    "recommended_by_model": true,
+    "recommendation_version": "claudy-picks",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2qVFlitXtB9SGDldlQ3mWy"
   }
 ]
