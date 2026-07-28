@@ -1,5 +1,5 @@
 {
-  "current_version": "10.02",
+  "current_version": "10.03",
   "versions": [
     {
       "version": "1.00",
@@ -1360,6 +1360,32 @@
       "rf_r_squared": 0.6353,
       "rf_rmse": 1.3386,
       "notes": "Black Saint + Money Jungle reviews",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.03",
+      "name": "",
+      "major": 10,
+      "minor": 3,
+      "run_date": "2026-07-28T22:13:02.340891",
+      "dataset_size": 360,
+      "best_model": "random_forest",
+      "r_squared": 0.7766,
+      "rmse": 1.0289,
+      "mae": 0.6932,
+      "feature_count": 160,
+      "best_k": 4,
+      "ridge_r_squared": 0.3822,
+      "ridge_rmse": 1.7111,
+      "rf_r_squared": 0.7766,
+      "rf_rmse": 1.0289,
+      "notes": "30 Claudy Poo playlist reviews \u2014 mostly recs; big taste correction (soul-jazz groove flops, contemporary+lush-modal wins)",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
