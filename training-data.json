@@ -20529,5 +20529,943 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "2qVFlitXtB9SGDldlQ3mWy"
+  },
+  {
+    "title": "Povo",
+    "artist": "Freddie Hubbard",
+    "album": "Sky Dive",
+    "year": 1972,
+    "label": "CTI",
+    "era": "Soul/Funk",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "flute",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Freddie Hubbard - trumpet",
+      "George Benson - guitar",
+      "Ron Carter - bass",
+      "Billy Cobham - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.871,
+      "danceability": 0.455,
+      "spotify_energy": 0.474,
+      "instrumentalness": 0.793,
+      "liveness": 0.275,
+      "loudness": -13.134,
+      "speechiness": 0.0573,
+      "spotify_valence": 0.602
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1E91hlZPPCdYNzxILC1Pqm"
+  },
+  {
+    "title": "The Creator Has a Master Plan",
+    "artist": "Pharoah Sanders",
+    "album": "Karma",
+    "year": 1969,
+    "label": "Impulse!",
+    "era": "Spiritual Jazz",
+    "subgenres": [],
+    "moods": [
+      "serene",
+      "euphoric"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "vocals",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Pharoah Sanders - tenor saxophone",
+      "Leon Thomas - vocals",
+      "Lonnie Liston Smith - piano",
+      "Reggie Workman - bass"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.249,
+      "danceability": 0.28,
+      "spotify_energy": 0.78,
+      "instrumentalness": 6.06e-05,
+      "liveness": 0.254,
+      "loudness": -9.031,
+      "speechiness": 0.0732,
+      "spotify_valence": 0.655
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0VtW9kU97Le5SQ0ml4nFzO"
+  },
+  {
+    "title": "India",
+    "artist": "John Coltrane",
+    "album": "Live at the Village Vanguard",
+    "year": 1962,
+    "label": "Impulse!",
+    "era": "Modal",
+    "subgenres": [],
+    "moods": [
+      "tense",
+      "introspective"
+    ],
+    "instrumentation": [
+      "soprano saxophone",
+      "bass clarinet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "soprano saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 5,
+    "key_players": [
+      "John Coltrane - soprano saxophone",
+      "Eric Dolphy - bass clarinet",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.00998,
+      "danceability": 0.31,
+      "spotify_energy": 0.466,
+      "instrumentalness": 0.0,
+      "liveness": 0.465,
+      "loudness": -14.605,
+      "speechiness": 0.0312,
+      "spotify_valence": 0.483
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5rGQw33BOMRnS1lqW7mTeC"
+  },
+  {
+    "title": "Ptah, the El Daoud",
+    "artist": "Alice Coltrane",
+    "album": "Ptah, the El Daoud",
+    "year": 1970,
+    "label": "Impulse!",
+    "era": "Spiritual Jazz",
+    "subgenres": [],
+    "moods": [
+      "tense",
+      "introspective"
+    ],
+    "instrumentation": [
+      "piano",
+      "tenor saxophone",
+      "flute",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "piano",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Alice Coltrane - piano",
+      "Pharoah Sanders - tenor saxophone",
+      "Joe Henderson - tenor saxophone",
+      "Ron Carter - bass"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.488,
+      "danceability": 0.439,
+      "spotify_energy": 0.543,
+      "instrumentalness": 0.828,
+      "liveness": 0.105,
+      "loudness": -10.613,
+      "speechiness": 0.0421,
+      "spotify_valence": 0.43
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0d138uB1S7cAnalSAzY9nV"
+  },
+  {
+    "title": "Shhh / Peaceful",
+    "artist": "Miles Davis",
+    "album": "In a Silent Way",
+    "year": 1969,
+    "label": "Columbia",
+    "era": "Electric",
+    "subgenres": [],
+    "moods": [
+      "serene",
+      "introspective"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "soprano saxophone",
+      "keyboards",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": 5,
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - soprano saxophone",
+      "Herbie Hancock - keyboards",
+      "John McLaughlin - guitar",
+      "Tony Williams - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.711,
+      "danceability": 0.324,
+      "spotify_energy": 0.394,
+      "instrumentalness": 0.00206,
+      "liveness": 0.19,
+      "loudness": -11.385,
+      "speechiness": 0.0298,
+      "spotify_valence": 0.221
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "267lVml7gJ9xefwgO6E2Ag"
+  },
+  {
+    "title": "Corcovado",
+    "artist": "Stan Getz",
+    "album": "Getz/Gilberto",
+    "year": 1964,
+    "label": "Verve",
+    "era": "Bossa Nova",
+    "subgenres": [],
+    "moods": [
+      "serene",
+      "introspective"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "piano",
+      "vocals"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Stan Getz - tenor saxophone",
+      "Joao Gilberto - guitar",
+      "Antonio Carlos Jobim - piano",
+      "Astrud Gilberto - vocals"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.952,
+      "danceability": 0.531,
+      "spotify_energy": 0.198,
+      "instrumentalness": 0.00267,
+      "liveness": 0.119,
+      "loudness": -15.811,
+      "speechiness": 0.039,
+      "spotify_valence": 0.437
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5nU7dvOfzYs9QVVL7YVNPE"
+  },
+  {
+    "title": "Desafinado",
+    "artist": "Stan Getz",
+    "album": "Jazz Samba",
+    "year": 1962,
+    "label": "Verve",
+    "era": "Bossa Nova",
+    "subgenres": [],
+    "moods": [
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "guitar",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Stan Getz - tenor saxophone",
+      "Charlie Byrd - guitar",
+      "Keter Betts - bass",
+      "Buddy Deppenschmidt - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 3.5,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.708,
+      "danceability": 0.576,
+      "spotify_energy": 0.356,
+      "instrumentalness": 0.0952,
+      "liveness": 0.122,
+      "loudness": -17.877,
+      "speechiness": 0.0811,
+      "spotify_valence": 0.764
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0aOH62uqDzuvCvN2jdVtZs"
+  },
+  {
+    "title": "The Golden Flute",
+    "artist": "Yusef Lateef",
+    "album": "The Golden Flute",
+    "year": 1966,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "serene",
+      "introspective"
+    ],
+    "instrumentation": [
+      "flute",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "flute",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Yusef Lateef - flute",
+      "Hugh Lawson - piano",
+      "Reggie Workman - bass",
+      "Roy Brooks - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.983,
+      "danceability": 0.402,
+      "spotify_energy": 0.34,
+      "instrumentalness": 0.903,
+      "liveness": 0.143,
+      "loudness": -15.804,
+      "speechiness": 0.0656,
+      "spotify_valence": 0.264
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0WTwS7oQMOinVqjpEN5m0e"
+  },
+  {
+    "title": "Alfie's Theme",
+    "artist": "Sonny Rollins",
+    "album": "Alfie",
+    "year": 1966,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "J.J. Johnson - trombone",
+      "Roger Kellaway - piano",
+      "Kenny Burrell - guitar"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.682,
+      "danceability": 0.578,
+      "spotify_energy": 0.442,
+      "instrumentalness": 0.00869,
+      "liveness": 0.0284,
+      "loudness": -10.834,
+      "speechiness": 0.0394,
+      "spotify_valence": 0.558
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0LITSYvjbQzgcumESz6Z7l"
+  },
+  {
+    "title": "I'm an Old Cowhand",
+    "artist": "Sonny Rollins",
+    "album": "Way Out West",
+    "year": 1957,
+    "label": "Contemporary",
+    "era": "Hard Bop",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Sonny Rollins - tenor saxophone",
+      "Ray Brown - bass",
+      "Shelly Manne - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.105,
+      "danceability": 0.538,
+      "spotify_energy": 0.238,
+      "instrumentalness": 0.0482,
+      "liveness": 0.104,
+      "loudness": -16.677,
+      "speechiness": 0.136,
+      "spotify_valence": 0.721
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6VRSZGxuhPGOCgUUAnAaUw"
+  },
+  {
+    "title": "Blues O' Mighty",
+    "artist": "Oliver Nelson",
+    "album": "More Blues and the Abstract Truth",
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "serene"
+    ],
+    "instrumentation": [
+      "alto saxophone",
+      "trumpet",
+      "baritone saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "alto saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Oliver Nelson - alto saxophone",
+      "Thad Jones - trumpet",
+      "Phil Woods - alto saxophone",
+      "Pepper Adams - baritone saxophone",
+      "Richard Davis - bass",
+      "Grady Tate - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.793,
+      "danceability": 0.679,
+      "spotify_energy": 0.427,
+      "instrumentalness": 0.349,
+      "liveness": 0.0711,
+      "loudness": -12.217,
+      "speechiness": 0.0403,
+      "spotify_valence": 0.373
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0vHoXKryPyMjRoJ9pzulfm"
+  },
+  {
+    "title": "Serenity",
+    "artist": "Joe Henderson",
+    "album": "Page One",
+    "year": 1963,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [],
+    "moods": [
+      "serene",
+      "introspective"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "trumpet",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Joe Henderson - tenor saxophone",
+      "Kenny Dorham - trumpet",
+      "McCoy Tyner - piano",
+      "Butch Warren - bass",
+      "Pete La Roca - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.788,
+      "danceability": 0.541,
+      "spotify_energy": 0.39,
+      "instrumentalness": 0.000783,
+      "liveness": 0.0934,
+      "loudness": -14.122,
+      "speechiness": 0.0307,
+      "spotify_valence": 0.51
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "7vlXUTtuSi1yQuoUEP5wQQ"
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "Booker Ervin",
+    "album": "The Song Book",
+    "year": 1964,
+    "label": "Prestige",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "introspective",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 4,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Booker Ervin - tenor saxophone",
+      "Tommy Flanagan - piano",
+      "Richard Davis - bass",
+      "Alan Dawson - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 8,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.905,
+      "danceability": 0.504,
+      "spotify_energy": 0.0718,
+      "instrumentalness": 0.681,
+      "liveness": 0.152,
+      "loudness": -18.054,
+      "speechiness": 0.0391,
+      "spotify_valence": 0.184
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0UHGOvJru4DjoOD2Cq6qsT"
+  },
+  {
+    "title": "II B.S.",
+    "artist": "Charles Mingus",
+    "album": "Mingus Mingus Mingus Mingus Mingus",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "piano",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Eric Dolphy - alto saxophone",
+      "Booker Ervin - tenor saxophone",
+      "Jaki Byard - piano",
+      "Dannie Richmond - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.571,
+      "danceability": 0.426,
+      "spotify_energy": 0.528,
+      "instrumentalness": 0.247,
+      "liveness": 0.096,
+      "loudness": -10.634,
+      "speechiness": 0.0574,
+      "spotify_valence": 0.695
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1wVqyP5MC3wJmOvEk9e6Ts"
+  },
+  {
+    "title": "This I Dig of You",
+    "artist": "Hank Mobley",
+    "album": "Soul Station",
+    "year": 1960,
+    "label": "Blue Note",
+    "era": "Hard Bop",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Hank Mobley - tenor saxophone",
+      "Wynton Kelly - piano",
+      "Paul Chambers - bass",
+      "Art Blakey - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.744,
+      "danceability": 0.587,
+      "spotify_energy": 0.673,
+      "instrumentalness": 0.00618,
+      "liveness": 0.0721,
+      "loudness": -7.858,
+      "speechiness": 0.0509,
+      "spotify_valence": 0.788
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5f0n6K8hW2RIVXuZjxO0bu"
+  },
+  {
+    "title": "Ysabel's Table Dance",
+    "artist": "Charles Mingus",
+    "album": "Tijuana Moods",
+    "year": 1962,
+    "label": "RCA Victor",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "instrumentation": [
+      "bass",
+      "trumpet",
+      "trombone",
+      "saxophone",
+      "drums"
+    ],
+    "primary_instrument": "bass",
+    "tempo": "fast",
+    "energy": 8,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Dannie Richmond - drums",
+      "Jimmy Knepper - trombone",
+      "Clarence Shaw - trumpet",
+      "Shafi Hadi - tenor saxophone"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.391,
+      "danceability": 0.45,
+      "spotify_energy": 0.528,
+      "instrumentalness": 0.00194,
+      "liveness": 0.155,
+      "loudness": -12.663,
+      "speechiness": 0.0839,
+      "spotify_valence": 0.63
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5ptiE1EMrDD3z0sfniuP17"
+  },
+  {
+    "title": "Search for the New Land",
+    "artist": "Lee Morgan",
+    "album": "Search for the New Land",
+    "year": 1964,
+    "label": "Blue Note",
+    "era": "Post-Bop",
+    "subgenres": [],
+    "moods": [
+      "introspective",
+      "serene"
+    ],
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "guitar",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "trumpet",
+    "tempo": "slow",
+    "energy": 5,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Lee Morgan - trumpet",
+      "Wayne Shorter - tenor saxophone",
+      "Herbie Hancock - piano",
+      "Reggie Workman - bass",
+      "Billy Higgins - drums"
+    ],
+    "notable_qualities": [
+      "model-review playlist 2026-07-29"
+    ],
+    "rating": 3.5,
+    "liked": false,
+    "notes": "Model Review — Jul 2026 (20 Discoveries) playlist review 2026-07-29.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-29",
+    "recommended_by_model": true,
+    "recommendation_version": "model-review-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.785,
+      "danceability": 0.368,
+      "spotify_energy": 0.374,
+      "instrumentalness": 0.00997,
+      "liveness": 0.122,
+      "loudness": -12.846,
+      "speechiness": 0.0374,
+      "spotify_valence": 0.317
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3adOstnpR3h59VbfGpOkhf"
   }
 ]

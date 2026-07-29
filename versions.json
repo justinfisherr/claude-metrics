@@ -1,5 +1,5 @@
 {
-  "current_version": "10.03",
+  "current_version": "10.04",
   "versions": [
     {
       "version": "1.00",
@@ -1386,6 +1386,32 @@
       "rf_r_squared": 0.7766,
       "rf_rmse": 1.0289,
       "notes": "30 Claudy Poo playlist reviews \u2014 mostly recs; big taste correction (soul-jazz groove flops, contemporary+lush-modal wins)",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.04",
+      "name": "",
+      "major": 10,
+      "minor": 4,
+      "run_date": "2026-07-29T21:35:58.249301",
+      "dataset_size": 377,
+      "best_model": "random_forest",
+      "r_squared": 0.7539,
+      "rmse": 1.0725,
+      "mae": 0.7543,
+      "feature_count": 160,
+      "best_k": 4,
+      "ridge_r_squared": 0.4297,
+      "ridge_rmse": 1.6325,
+      "rf_r_squared": 0.7539,
+      "rf_rmse": 1.0725,
+      "notes": "",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
