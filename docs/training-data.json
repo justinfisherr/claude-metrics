@@ -21467,5 +21467,909 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "3adOstnpR3h59VbfGpOkhf"
+  },
+  {
+    "title": "Black Coffee",
+    "artist": "Julie London",
+    "album": "Julie Is Her Name",
+    "year": 1955,
+    "label": "Liberty",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "smoky",
+      "melancholy",
+      "sultry"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 2,
+    "key_players": [
+      "Julie London - vocals",
+      "Barney Kessel - guitar"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 4.5,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.497,
+      "danceability": 0.387,
+      "spotify_energy": 0.2,
+      "instrumentalness": 9.01e-05,
+      "liveness": 0.182,
+      "loudness": -15.04,
+      "speechiness": 0.0351,
+      "spotify_valence": 0.265
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "287zpLsudFQMlehnH2JnWI"
+  },
+  {
+    "title": "I'm a Fool to Want You",
+    "artist": "Billie Holiday",
+    "album": "Lady in Satin",
+    "year": 1958,
+    "label": "Columbia",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "melancholy",
+      "aching"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Billie Holiday - vocals",
+      "Ray Ellis - arranger"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 4,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.695,
+      "danceability": 0.244,
+      "spotify_energy": 0.233,
+      "instrumentalness": 0.00059,
+      "liveness": 0.282,
+      "loudness": -16.583,
+      "speechiness": 0.0413,
+      "spotify_valence": 0.262
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6Rvz1jM5eUqzNs2Pi8RMTG"
+  },
+  {
+    "title": "Plain Gold Ring",
+    "artist": "Nina Simone",
+    "album": "Little Girl Blue",
+    "year": 1958,
+    "label": "Bethlehem",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "dark",
+      "dramatic",
+      "minor"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Nina Simone - vocals and piano"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 3.5,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.869,
+      "danceability": 0.586,
+      "spotify_energy": 0.0666,
+      "instrumentalness": 1.26e-05,
+      "liveness": 0.189,
+      "loudness": -21.231,
+      "speechiness": 0.0342,
+      "spotify_valence": 0.579
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "476RII5Mde9Ih5xqYLSqtS"
+  },
+  {
+    "title": "Black Is the Color of My True Love's Hair",
+    "artist": "Nina Simone",
+    "album": "Nina Simone at Town Hall",
+    "year": 1959,
+    "label": "Colpix",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "introspective",
+      "minor"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Nina Simone - vocals and piano"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.986,
+      "danceability": 0.222,
+      "spotify_energy": 0.0536,
+      "instrumentalness": 0.00402,
+      "liveness": 0.0945,
+      "loudness": -21.689,
+      "speechiness": 0.0472,
+      "spotify_valence": 0.123
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "33WjZmABjWk4zrerZiFLJ7"
+  },
+  {
+    "title": "Mad About the Boy",
+    "artist": "Dinah Washington",
+    "album": "Dinah '62",
+    "year": 1961,
+    "label": "Roulette",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "smoky",
+      "torch"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 2,
+    "key_players": [
+      "Dinah Washington - vocals"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.922,
+      "danceability": 0.344,
+      "spotify_energy": 0.147,
+      "instrumentalness": 0.00019,
+      "liveness": 0.0482,
+      "loudness": -10.3,
+      "speechiness": 0.0369,
+      "spotify_valence": 0.263
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "1c7ELD4W6VyoKTglc4zzUH"
+  },
+  {
+    "title": "I Fall in Love Too Easily",
+    "artist": "Chet Baker",
+    "album": "Chet Baker Sings",
+    "year": 1954,
+    "label": "Pacific Jazz",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "melancholy",
+      "intimate"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 2,
+    "key_players": [
+      "Chet Baker - vocals and trumpet",
+      "Russ Freeman - piano"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.94,
+      "danceability": 0.532,
+      "spotify_energy": 0.0657,
+      "instrumentalness": 0.00488,
+      "liveness": 0.0946,
+      "loudness": -19.136,
+      "speechiness": 0.0406,
+      "spotify_valence": 0.292
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0F845nujLVqCb0XMZCh5Pc"
+  },
+  {
+    "title": "Guess Who I Saw Today",
+    "artist": "Carmen McRae",
+    "album": "By Special Request",
+    "year": 1955,
+    "label": "Decca",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "narrative",
+      "torch"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Carmen McRae - vocals"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 1,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.847,
+      "danceability": 0.519,
+      "spotify_energy": 0.148,
+      "instrumentalness": 0.0,
+      "liveness": 0.1,
+      "loudness": -13.942,
+      "speechiness": 0.0481,
+      "spotify_valence": 0.221
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6ivKZKTQsBap161lS4dqb0"
+  },
+  {
+    "title": "You'd Be So Nice to Come Home To",
+    "artist": "Helen Merrill",
+    "album": "Helen Merrill",
+    "year": 1955,
+    "label": "EmArcy",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "breathy",
+      "intimate"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Helen Merrill - vocals",
+      "Clifford Brown - trumpet"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 2.5,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.793,
+      "danceability": 0.659,
+      "spotify_energy": 0.13,
+      "instrumentalness": 0.00105,
+      "liveness": 0.123,
+      "loudness": -17.703,
+      "speechiness": 0.0353,
+      "spotify_valence": 0.471
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5J6264keZ3ksbsHwef1U7G"
+  },
+  {
+    "title": "All the Way",
+    "artist": "Jimmy Scott",
+    "album": "Falling in Love Is Wonderful",
+    "year": 1963,
+    "label": "Tangerine",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "lush",
+      "aching"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Jimmy Scott - vocals"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.921,
+      "danceability": 0.41,
+      "spotify_energy": 0.115,
+      "instrumentalness": 1.58e-05,
+      "liveness": 0.113,
+      "loudness": -13.327,
+      "speechiness": 0.0317,
+      "spotify_valence": 0.0736
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6x1ETwWMFJOAFvlgcQEdEp"
+  },
+  {
+    "title": "Fever",
+    "artist": "Peggy Lee",
+    "album": "Things Are Swingin'",
+    "year": 1958,
+    "label": "Capitol",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "sultry",
+      "cool",
+      "minor"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": 2,
+    "key_players": [
+      "Peggy Lee - vocals"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.355,
+      "danceability": 0.831,
+      "spotify_energy": 0.0574,
+      "instrumentalness": 0.0,
+      "liveness": 0.112,
+      "loudness": -22.855,
+      "speechiness": 0.145,
+      "spotify_valence": 0.313
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "3EmEajNj8bMyE8iivTPpPC"
+  },
+  {
+    "title": "God Bless the Child",
+    "artist": "Billie Holiday",
+    "album": "God Bless the Child",
+    "year": 1941,
+    "label": "OKeh",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "soulful",
+      "bittersweet"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 4,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Billie Holiday - vocals"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 6.5,
+    "liked": true,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.944,
+      "danceability": 0.426,
+      "spotify_energy": 0.145,
+      "instrumentalness": 1.74e-05,
+      "liveness": 0.238,
+      "loudness": -12.006,
+      "speechiness": 0.0334,
+      "spotify_valence": 0.24
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2xtC6kb6H26qVX4ZdncS7f"
+  },
+  {
+    "title": "Sycamore Trees",
+    "artist": "Jimmy Scott",
+    "album": "Twin Peaks",
+    "year": 1992,
+    "label": "Warner Bros.",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "eerie",
+      "haunting"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Jimmy Scott - vocals",
+      "Angelo Badalamenti - composer"
+    ],
+    "notable_qualities": [
+      "vocal-jazz review 2026-07-30"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Vocal Jazz — Torch & Smoke playlist review 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-torch-jul2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.846,
+      "danceability": 0.361,
+      "spotify_energy": 0.045,
+      "instrumentalness": 0.00142,
+      "liveness": 0.105,
+      "loudness": -19.74,
+      "speechiness": 0.0389,
+      "spotify_valence": 0.137
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "2OpEjOrVbb3BxpU2n4h6QV"
+  },
+  {
+    "title": "Is You Is or Is You Ain't My Baby",
+    "artist": "Dinah Washington",
+    "album": "The Swingin' Miss D",
+    "year": 1957,
+    "label": "EmArcy",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "swinging",
+      "playful"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 2,
+    "key_players": [
+      "Dinah Washington - vocals",
+      "Quincy Jones - arranger"
+    ],
+    "notable_qualities": [
+      "vocal A/B experiment arm A 2026-07-30"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Vocal A/B — Groove vs Hush experiment (arm A) 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-ab-aug2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.893,
+      "danceability": 0.545,
+      "spotify_energy": 0.339,
+      "instrumentalness": 0.0,
+      "liveness": 0.141,
+      "loudness": -9.066,
+      "speechiness": 0.109,
+      "spotify_valence": 0.497
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "30Ia1EStKoSUigiu6XxGpg"
+  },
+  {
+    "title": "Do I Move You",
+    "artist": "Nina Simone",
+    "album": "Nina Simone Sings the Blues",
+    "year": 1967,
+    "label": "RCA Victor",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "funky",
+      "sultry",
+      "driving"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "medium",
+    "energy": 6,
+    "harmonic_complexity": 2,
+    "key_players": [
+      "Nina Simone - vocals and piano"
+    ],
+    "notable_qualities": [
+      "vocal A/B experiment arm A 2026-07-30"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Vocal A/B — Groove vs Hush experiment (arm A) 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-ab-aug2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.802,
+      "danceability": 0.386,
+      "spotify_energy": 0.511,
+      "instrumentalness": 0.0,
+      "liveness": 0.2,
+      "loudness": -4.821,
+      "speechiness": 0.0375,
+      "spotify_valence": 0.548
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "0aIcFRGr88cGtlEJBuDub6"
+  },
+  {
+    "title": "Feed the Fire",
+    "artist": "Betty Carter",
+    "album": "Feed the Fire",
+    "year": 1994,
+    "label": "Verve",
+    "era": "Post-Bop",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "driving",
+      "avant-garde"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "fast",
+    "energy": 7,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "Betty Carter - vocals",
+      "Geri Allen - piano",
+      "Dave Holland - bass",
+      "Jack DeJohnette - drums"
+    ],
+    "notable_qualities": [
+      "vocal A/B experiment arm A 2026-07-30"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Vocal A/B — Groove vs Hush experiment (arm A) 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-ab-aug2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "73n7nBLr9uRX6GGDwZugXK"
+  },
+  {
+    "title": "Don't Explain",
+    "artist": "Dinah Washington",
+    "album": "After Hours with Miss D",
+    "year": 1954,
+    "label": "EmArcy",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "torch",
+      "melancholy"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Dinah Washington - vocals"
+    ],
+    "notable_qualities": [
+      "vocal A/B experiment arm B 2026-07-30"
+    ],
+    "rating": 3.5,
+    "liked": false,
+    "notes": "Vocal A/B — Groove vs Hush experiment (arm B) 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-ab-aug2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.729,
+      "danceability": 0.28,
+      "spotify_energy": 0.12,
+      "instrumentalness": 0.0168,
+      "liveness": 0.147,
+      "loudness": -18.404,
+      "speechiness": 0.0355,
+      "spotify_valence": 0.301
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "44Vvi1Vt0m0PwY01QhJNF5"
+  },
+  {
+    "title": "Don't Smoke in Bed",
+    "artist": "Nina Simone",
+    "album": "Little Girl Blue",
+    "year": 1958,
+    "label": "Bethlehem",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "intimate",
+      "hushed"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Nina Simone - vocals and piano"
+    ],
+    "notable_qualities": [
+      "vocal A/B experiment arm B 2026-07-30"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Vocal A/B — Groove vs Hush experiment (arm B) 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-ab-aug2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.967,
+      "danceability": 0.34,
+      "spotify_energy": 0.0235,
+      "instrumentalness": 6.13e-05,
+      "liveness": 0.0956,
+      "loudness": -19.584,
+      "speechiness": 0.0406,
+      "spotify_valence": 0.148
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "32wq8cLbp3qaOlkNcDneIT"
+  },
+  {
+    "title": "Body and Soul",
+    "artist": "Betty Carter",
+    "album": "The Audience with Betty Carter",
+    "year": 1979,
+    "label": "Bet-Car",
+    "era": "Vocal Jazz",
+    "subgenres": [
+      "vocal jazz"
+    ],
+    "moods": [
+      "rubato",
+      "intimate"
+    ],
+    "instrumentation": [
+      "vocals"
+    ],
+    "primary_instrument": "vocals",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "Betty Carter - vocals"
+    ],
+    "notable_qualities": [
+      "vocal A/B experiment arm B 2026-07-30"
+    ],
+    "rating": 2,
+    "liked": false,
+    "notes": "Vocal A/B — Groove vs Hush experiment (arm B) 2026-07-30.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-30",
+    "recommended_by_model": true,
+    "recommendation_version": "vocal-ab-aug2026",
+    "discovered_from": "claude-recommendation",
+    "audio_features": {
+      "acousticness": 0.976,
+      "danceability": 0.307,
+      "spotify_energy": 0.0753,
+      "instrumentalness": 0.00122,
+      "liveness": 0.216,
+      "loudness": -20.554,
+      "speechiness": 0.0561,
+      "spotify_valence": 0.102
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "6bQHzamROU3FZVU1gjSnIb"
   }
 ]
