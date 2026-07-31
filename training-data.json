@@ -9641,7 +9641,7 @@
       "Jimmy Garrison - bass",
       "Elvin Jones - drums"
     ],
-    "rating": 5,
+    "rating": 4,
     "replayability": 3,
     "playthrough": 0.5,
     "liked": false,
@@ -9659,7 +9659,8 @@
       "loudness": -10.739,
       "speechiness": 0.0365,
       "spotify_valence": 0.384
-    }
+    },
+    "notes": " | Re-rated 5->4 on 2026-07-31 album listen."
   },
   {
     "title": "Witch Hunt",
@@ -17419,10 +17420,10 @@
       "Jimmy Garrison - bass",
       "Elvin Jones - drums"
     ],
-    "rating": 3.5,
-    "liked": false,
+    "rating": 7,
+    "liked": true,
     "spotify_id": "4m16y4HrVSk9N60oHNZBqI",
-    "notes": "3.5/10. Brooding modal, too slow/static (11 min).",
+    "notes": "3.5/10. Brooding modal, too slow/static (11 min). | Re-rated 3.5->7 on 2026-07-31 album listen.",
     "favorite_moments": null,
     "listen_count": null,
     "date_added": "2026-07-23",
@@ -22371,5 +22372,507 @@
     "replayability": null,
     "playthrough": null,
     "spotify_id": "6bQHzamROU3FZVU1gjSnIb"
+  },
+  {
+    "title": "You Don't Know What Love Is",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "romantic",
+      "melancholy",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "5slbUFTFqzn55EWZFdxHrZ"
+  },
+  {
+    "title": "Too Young to Go Steady",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "tender",
+      "romantic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "All or Nothing at All",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad"
+    ],
+    "moods": [
+      "yearning",
+      "swinging"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 6,
+    "liked": true,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "I Wish I Knew",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "romantic",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 7.5,
+    "liked": true,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "What's New",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "melancholy",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "It's Easy to Remember",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "wistful",
+      "tender"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 2,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 5,
+    "liked": false,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "Nancy (with the Laughing Face)",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "tender",
+      "romantic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 5.5,
+    "liked": false,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "Bessie's Blues",
+    "artist": "John Coltrane",
+    "album": "Crescent",
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "blues"
+    ],
+    "moods": [
+      "bluesy",
+      "swinging"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "medium",
+    "energy": 5,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Crescent album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "title": "The Drum Thing",
+    "artist": "John Coltrane",
+    "album": "Crescent",
+    "year": 1964,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "modal"
+    ],
+    "moods": [
+      "dark",
+      "hypnotic"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 4,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 3,
+    "liked": false,
+    "notes": "Crescent album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": null,
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": null
+  },
+  {
+    "entity_type": "album",
+    "title": "Ballads",
+    "artist": "John Coltrane",
+    "rating": 7,
+    "date_added": "2026-07-31"
+  },
+  {
+    "entity_type": "album",
+    "title": "Crescent",
+    "artist": "John Coltrane",
+    "rating": 5.5,
+    "date_added": "2026-07-31"
+  },
+  {
+    "title": "Say It Over and Over Again",
+    "artist": "John Coltrane",
+    "album": "Ballads",
+    "year": 1963,
+    "label": "Impulse!",
+    "era": "Post-Bop",
+    "subgenres": [
+      "ballad",
+      "tenor ballad"
+    ],
+    "moods": [
+      "tender",
+      "romantic",
+      "serene"
+    ],
+    "instrumentation": [
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "primary_instrument": "tenor saxophone",
+    "tempo": "slow",
+    "energy": 3,
+    "harmonic_complexity": 3,
+    "key_players": [
+      "John Coltrane - tenor saxophone",
+      "McCoy Tyner - piano",
+      "Jimmy Garrison - bass",
+      "Elvin Jones - drums"
+    ],
+    "notable_qualities": [
+      "album listen 2026-07-31"
+    ],
+    "rating": 7,
+    "liked": true,
+    "notes": "Ballads album review 2026-07-31.",
+    "favorite_moments": null,
+    "listen_count": null,
+    "date_added": "2026-07-31",
+    "recommended_by_model": false,
+    "recommendation_version": null,
+    "discovered_from": "self",
+    "audio_features": {
+      "acousticness": 0.963,
+      "danceability": 0.532,
+      "spotify_energy": 0.124,
+      "instrumentalness": 0.376,
+      "liveness": 0.246,
+      "loudness": -13.034,
+      "speechiness": 0.0408,
+      "spotify_valence": 0.217
+    },
+    "replayability": null,
+    "playthrough": null,
+    "spotify_id": "016HKF7A4O7tatoJ9BgZM1"
   }
 ]
