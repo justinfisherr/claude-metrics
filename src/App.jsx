@@ -8,6 +8,7 @@ import Playlists from './pages/Playlists';
 import Wrapped from './pages/Wrapped';
 import Memories from './pages/Memories';
 import Facts from './pages/Facts';
+import Search from './pages/Search';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/wrapped" element={<Wrapped />} />
         <Route path="/memories" element={<Memories />} />
         <Route path="/facts" element={<Facts />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </DataProvider>
   );

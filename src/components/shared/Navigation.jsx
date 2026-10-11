@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const PAGES = [
   { path: '/', label: 'Dashboard' },
+  { path: '/search', label: 'Score' },
   { path: '/wrapped', label: 'Wrapped' },
   { path: '/memories', label: 'Memories' },
   { path: '/compare', label: 'Compare Models' },
