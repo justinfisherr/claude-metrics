@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import Navigation from '../components/shared/Navigation';
 import TrackReviewPanel from '../components/TrackReviewPanel';
 import '../styles/search.css';
-import { MOODS, SUBGENRES, INSTRUMENTS, ERAS, PRIMARY_INSTRUMENTS } from '../data/tagOptions';
 
 const API = 'https://jazz-score-api.vercel.app';
 
@@ -35,26 +34,6 @@ function buildParams(obj) {
   return p;
 }
 
-function ChipGroup({ label, options, selected, onToggle }) {
-  return (
-    <div className="chip-group">
-      <div className="chip-label">{label}</div>
-      <div className="chips">
-        {options.map((o) => (
-          <button
-            key={o}
-            type="button"
-            className={`chip ${selected.includes(o) ? 'chip-on' : ''}`}
-            onClick={() => onToggle(o)}
-          >
-            {o}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function Listen() {
   const [searchParams, setSearchParams] = useSearchParams();
   const tabParam = searchParams.get('tab');
@@ -72,12 +51,6 @@ export default function Listen() {
   const [rating, setRating] = useState(null);
   const [ratingMsg, setRatingMsg] = useState(null);
   const [expanded, setExpanded] = useState(null);
-  const [moods, setMoods] = useState([]);
-  const [subgenres, setSubgenres] = useState([]);
-  const [instruments, setInstruments] = useState([]);
-  const [era, setEra] = useState('');
-  const [primary, setPrimary] = useState('');
-  const [tagsMsg, setTagsMsg] = useState(null);
   const cache = useRef({});
 
   useEffect(() => { setQuery(q); }, [q]);
@@ -85,12 +58,6 @@ export default function Listen() {
   const resetReview = useCallback(() => {
     setRating(null);
     setRatingMsg(null);
-    setTagsMsg(null);
-    setMoods([]);
-    setSubgenres([]);
-    setInstruments([]);
-    setEra('');
-    setPrimary('');
     setExpanded(null);
   }, []);
 
@@ -189,10 +156,6 @@ export default function Listen() {
     }
   }, [tab, q, id, genre, loadScore, loadTracks, openCollection, loadCollections]);
 
-  function toggle(list, setList, value) {
-    setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
-  }
-
   function switchTab(t) {
     setSearchParams({ tab: t === 'tracks' ? '' : t });
   }
@@ -214,56 +177,6 @@ export default function Listen() {
 
   function onGenreChange(g) {
     setSearchParams(buildParams({ tab, q, id, genre: g }));
-  }
-
-  async function rateTrack(r) {
-    if (!result) return;
-    setRatingMsg(null);
-    try {
-      const res = await fetch(`${API}/api/rate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: result.title,
-          artist: result.artist,
-          rating: r,
-          spotify_id: result.spotify_id,
-          year: result.year,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
-      setRating(r);
-      setRatingMsg('Rating saved');
-    } catch (err) {
-      setError(err.message);
-    }
-  }
-
-  async function saveTrackTags() {
-    if (!result || rating == null) return;
-    setTagsMsg(null);
-    try {
-      const res = await fetch(`${API}/api/rate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: result.title,
-          artist: result.artist,
-          rating,
-          moods,
-          subgenres,
-          instrumentation: instruments,
-          era: era || undefined,
-          primary_instrument: primary || undefined,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
-      setTagsMsg('Tags saved to your dataset');
-    } catch (err) {
-      setError(err.message);
-    }
   }
 
   async function rateAlbum(r) {
@@ -400,44 +313,24 @@ export default function Listen() {
               </a>
             ) : null}
 
-            <div className="rate-row">
-              <span className="rate-label">Your rating:</span>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((r) => (
-                <button
-                  key={r}
-                  className={`rate-btn ${rating === r ? 'rate-selected' : ''}`}
-                  onClick={() => rateTrack(r)}
-                  aria-label={`Rate ${r}`}
-                >
-                  {r}
-                </button>
-              ))}
-              {ratingMsg ? <span className="rate-done">{ratingMsg} ({rating}/10)</span> : null}
-            </div>
-
-            {rating != null && (
-              <div className="tag-editor">
-                <ChipGroup label="Moods" options={MOODS} selected={moods} onToggle={(m) => toggle(moods, setMoods, m)} />
-                <ChipGroup label="Subgenres" options={SUBGENRES} selected={subgenres} onToggle={(s) => toggle(subgenres, setSubgenres, s)} />
-                <ChipGroup label="Instrumentation" options={INSTRUMENTS} selected={instruments} onToggle={(i) => toggle(instruments, setInstruments, i)} />
-                <div className="tag-selects">
-                  <select value={era} onChange={(e) => setEra(e.target.value)} aria-label="Era">
-                    <option value="">Era (optional)</option>
-                    {ERAS.map((e) => <option key={e} value={e}>{e}</option>)}
-                  </select>
-                  <select value={primary} onChange={(e) => setPrimary(e.target.value)} aria-label="Primary instrument">
-                    <option value="">Primary instrument (optional)</option>
-                    {PRIMARY_INSTRUMENTS.map((p) => <option key={p} value={p}>{p}</option>)}
-                  </select>
-                </div>
-                <button className="save-tags" onClick={saveTrackTags}>Save tags</button>
-                {tagsMsg ? <span className="rate-done">{tagsMsg}</span> : null}
+            {result.reviewed ? (
+              <div className="sr-note sr-bridged">
+                ✓ Reviewed — {result.rating}/10{result.notes ? ` · "${result.notes}"` : ''}
               </div>
-            )}
+            ) : null}
+
+            <TrackReviewPanel
+              title={result.title}
+              artist={result.artist}
+              spotifyId={result.spotify_id}
+              year={result.year}
+              initialRating={result.rating}
+              initialNotes={result.notes}
+            />
 
             {result.audio_only ? (
               <div className="sr-note">
-                Audio profile only until you tag it — rate it and add moods/subgenres/instruments above for an accurate prediction.
+                Audio profile only — rate it and leave a note to make the prediction personal.
               </div>
             ) : null}
           </div>
@@ -511,6 +404,8 @@ export default function Listen() {
                         artist={t.artist}
                         spotifyId={t.spotify_id}
                         year={item.year}
+                        initialRating={t.rating}
+                        initialNotes={t.notes}
                       />
                     )}
                   </li>
