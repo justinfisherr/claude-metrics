@@ -1,0 +1,525 @@
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import Navigation from '../components/shared/Navigation';
+import TrackReviewPanel from '../components/TrackReviewPanel';
+import '../styles/search.css';
+import { MOODS, SUBGENRES, INSTRUMENTS, ERAS, PRIMARY_INSTRUMENTS } from '../data/tagOptions';
+
+const API = 'https://jazz-score-api.vercel.app';
+
+const GENRES = ['neo-soul', 'soul', 'r&b', 'funk', 'hip-hop', 'electronic', 'rock', 'blues', 'classical', 'folk'];
+
+const TABS = [
+  { key: 'tracks', label: 'Tracks' },
+  { key: 'playlists', label: 'Playlists' },
+  { key: 'albums', label: 'Albums' },
+];
+
+function verdict(score) {
+  if (score >= 8.5) return { label: 'STRONG RECOMMEND', color: 'var(--good)' };
+  if (score >= 7) return { label: 'RECOMMEND', color: 'var(--accent)' };
+  if (score >= 5.5) return { label: 'MAYBE', color: 'var(--warning)' };
+  return { label: 'SKIP', color: 'var(--bad)' };
+}
+
+function verdictColor(score) {
+  if (score >= 8.5) return 'var(--good)';
+  if (score >= 7) return 'var(--accent)';
+  if (score >= 5.5) return 'var(--warning)';
+  return 'var(--bad)';
+}
+
+function buildParams(obj) {
+  const p = {};
+  Object.entries(obj).forEach(([k, v]) => { if (v) p[k] = v; });
+  return p;
+}
+
+function ChipGroup({ label, options, selected, onToggle }) {
+  return (
+    <div className="chip-group">
+      <div className="chip-label">{label}</div>
+      <div className="chips">
+        {options.map((o) => (
+          <button
+            key={o}
+            type="button"
+            className={`chip ${selected.includes(o) ? 'chip-on' : ''}`}
+            onClick={() => onToggle(o)}
+          >
+            {o}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Listen() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tabParam = searchParams.get('tab');
+  const tab = TABS.some((t) => t.key === tabParam) ? tabParam : 'tracks';
+  const q = searchParams.get('q') || '';
+  const id = searchParams.get('id') || '';
+  const genre = searchParams.get('genre') || '';
+
+  const [query, setQuery] = useState(q);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [list, setList] = useState(null);
+  const [result, setResult] = useState(null);
+  const [item, setItem] = useState(null);
+  const [rating, setRating] = useState(null);
+  const [ratingMsg, setRatingMsg] = useState(null);
+  const [expanded, setExpanded] = useState(null);
+  const [moods, setMoods] = useState([]);
+  const [subgenres, setSubgenres] = useState([]);
+  const [instruments, setInstruments] = useState([]);
+  const [era, setEra] = useState('');
+  const [primary, setPrimary] = useState('');
+  const [tagsMsg, setTagsMsg] = useState(null);
+  const cache = useRef({});
+
+  useEffect(() => { setQuery(q); }, [q]);
+
+  const resetReview = useCallback(() => {
+    setRating(null);
+    setRatingMsg(null);
+    setTagsMsg(null);
+    setMoods([]);
+    setSubgenres([]);
+    setInstruments([]);
+    setEra('');
+    setPrimary('');
+    setExpanded(null);
+  }, []);
+
+  const loadTracks = useCallback(async (term) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`${API}/api/search?q=${encodeURIComponent(term)}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setList(data.results || []);
+      setResult(null);
+      setItem(null);
+      resetReview();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [resetReview]);
+
+  const loadScore = useCallback(async (sid, g) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const genreParam = g ? `&genre=${encodeURIComponent(g)}` : '';
+      const res = await fetch(`${API}/api/score?id=${encodeURIComponent(sid)}${genreParam}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setResult(data);
+      setList(null);
+      setItem(null);
+      resetReview();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [resetReview]);
+
+  const loadCollections = useCallback(async (term) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const endpoint = tab === 'albums' ? '/api/album' : '/api/playlist';
+      const key = tab === 'albums' ? 'albums' : 'playlists';
+      const res = await fetch(`${API}${endpoint}?q=${encodeURIComponent(term)}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setList(data[key] || []);
+      setItem(null);
+      setResult(null);
+      resetReview();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [tab, resetReview]);
+
+  const openCollection = useCallback(async (cid) => {
+    const cacheKey = `${tab}:${cid}`;
+    if (cache.current[cacheKey]) {
+      setItem(cache.current[cacheKey]);
+      setList(null);
+      resetReview();
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      const endpoint = tab === 'albums' ? '/api/album' : '/api/playlist';
+      const res = await fetch(`${API}${endpoint}?id=${encodeURIComponent(cid)}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      cache.current[cacheKey] = data;
+      setItem(data);
+      setList(null);
+      resetReview();
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [tab, resetReview]);
+
+  useEffect(() => {
+    if (tab === 'tracks') {
+      if (id) loadScore(id, genre);
+      else if (q) loadTracks(q);
+      else { setList(null); setResult(null); }
+    } else {
+      if (id) openCollection(id);
+      else if (q) loadCollections(q);
+      else { setList(null); setItem(null); }
+    }
+  }, [tab, q, id, genre, loadScore, loadTracks, openCollection, loadCollections]);
+
+  function toggle(list, setList, value) {
+    setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  }
+
+  function switchTab(t) {
+    setSearchParams({ tab: t === 'tracks' ? '' : t });
+  }
+
+  function run(e) {
+    e.preventDefault();
+    const term = query.trim();
+    if (!term) return;
+    setSearchParams(buildParams({ tab, q: term, genre: tab === 'tracks' ? genre : '' }));
+  }
+
+  function pick(pickedId) {
+    setSearchParams(buildParams({ tab, id: pickedId, genre: tab === 'tracks' ? genre : '' }));
+  }
+
+  function back() {
+    setSearchParams(buildParams({ tab, q, genre: tab === 'tracks' ? genre : '' }));
+  }
+
+  function onGenreChange(g) {
+    setSearchParams(buildParams({ tab, q, id, genre: g }));
+  }
+
+  async function rateTrack(r) {
+    if (!result) return;
+    setRatingMsg(null);
+    try {
+      const res = await fetch(`${API}/api/rate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: result.title,
+          artist: result.artist,
+          rating: r,
+          spotify_id: result.spotify_id,
+          year: result.year,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setRating(r);
+      setRatingMsg('Rating saved');
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function saveTrackTags() {
+    if (!result || rating == null) return;
+    setTagsMsg(null);
+    try {
+      const res = await fetch(`${API}/api/rate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: result.title,
+          artist: result.artist,
+          rating,
+          moods,
+          subgenres,
+          instrumentation: instruments,
+          era: era || undefined,
+          primary_instrument: primary || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setTagsMsg('Tags saved to your dataset');
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function rateAlbum(r) {
+    if (!item) return;
+    setRatingMsg(null);
+    try {
+      const res = await fetch(`${API}/api/rate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: item.name,
+          artist: item.artist,
+          rating: r,
+          entity_type: 'album',
+          spotify_id: item.album_id,
+          year: item.year,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setRating(r);
+      setRatingMsg('Album rating saved');
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  function reviewHref(t) {
+    const p = new URLSearchParams({ title: t.title, artist: t.artist });
+    if (t.spotify_id) p.set('spotify_id', t.spotify_id);
+    if (tab === 'albums' && item) {
+      p.set('album', item.name);
+      if (item.year) p.set('year', String(item.year));
+    }
+    return `#/review?${p.toString()}`;
+  }
+
+  const v = result ? verdict(result.score) : null;
+  const tracks = item ? [...item.tracks].sort((a, b) => b.score - a.score) : [];
+  const placeholder = tab === 'albums' ? 'e.g. Kind of Blue' : tab === 'playlists' ? 'e.g. bebop classics' : 'e.g. Giant Steps';
+
+  return (
+    <div className="search-page">
+      <Navigation />
+      <main className="search-main playlist-main">
+        <h1 className="search-title">Listen</h1>
+        <p className="search-sub">Search Spotify, score tracks, playlists, and albums against your taste.</p>
+
+        <div className="mode-tabs">
+          {TABS.map((t) => (
+            <button
+              key={t.key}
+              className={`mode-tab ${tab === t.key ? 'mode-tab-on' : ''}`}
+              onClick={() => switchTab(t.key)}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        <form className="search-form" onSubmit={run}>
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={placeholder}
+            autoFocus
+            aria-label="Search"
+          />
+          <button type="submit" disabled={loading}>{loading ? 'Loading…' : 'Search'}</button>
+        </form>
+
+        {tab === 'tracks' && (
+          <div className="genre-row">
+            <label className="genre-label" htmlFor="genre">Genre bridge (optional)</label>
+            <select id="genre" value={genre} onChange={(e) => onGenreChange(e.target.value)}>
+              <option value="">None — score as jazz</option>
+              {GENRES.map((g) => <option key={g} value={g}>{g}</option>)}
+            </select>
+          </div>
+        )}
+
+        {loading && <p className="search-note">Working… (first request can take ~30s to warm the model)</p>}
+        {error && <p className="search-error">{error}</p>}
+
+        {list && !result && !item && (
+          <div className="pl-results">
+            {list.length === 0 && <p className="search-note">No results.</p>}
+            {list.map((r) => (
+              <button key={r.id} className="pl-card" onClick={() => pick(r.id)}>
+                {r.image ? <img className="pl-img" src={r.image} alt={r.title || r.name} /> : null}
+                <div className="pl-info">
+                  <div className="pl-name">
+                    {r.title || r.name}
+                    {r.reviewed ? <span className="reviewed-badge">✓ reviewed</span> : null}
+                  </div>
+                  <div className="pl-owner">
+                    {r.artist || r.owner}
+                    {r.year ? ` · ${r.year}` : ''}
+                    {r.track_count != null ? ` · ${r.track_count} tracks` : ''}
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {result && v && (
+          <div className="search-result">
+            <button className="pl-back" onClick={back} style={{ position: 'absolute', top: 16, right: 16 }}>← Back</button>
+            <div className="sr-head">
+              {result.image ? <img className="sr-image" src={result.image} alt={result.title} /> : null}
+              <div>
+                <div className="sr-title">
+                  {result.title} <span className="sr-artist">— {result.artist}</span>
+                </div>
+                {result.year ? (
+                  <div className="sr-meta">
+                    {result.year} · {result.tempo} tempo · popularity {result.popularity}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+            <div className="sr-score" style={{ color: v.color }}>
+              {result.score}
+              <span className="sr-out">/10</span>
+            </div>
+            <div className="sr-verdict" style={{ color: v.color }}>{v.label}</div>
+            {result.genre ? (
+              <div className="sr-note sr-bridged">Scored via the {result.genre} genre bridge — mapped onto your jazz taste.</div>
+            ) : null}
+            {result.url ? (
+              <a className="sr-link" href={result.url} target="_blank" rel="noopener noreferrer">
+                Listen on Spotify ↗
+              </a>
+            ) : null}
+
+            <div className="rate-row">
+              <span className="rate-label">Your rating:</span>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((r) => (
+                <button
+                  key={r}
+                  className={`rate-btn ${rating === r ? 'rate-selected' : ''}`}
+                  onClick={() => rateTrack(r)}
+                  aria-label={`Rate ${r}`}
+                >
+                  {r}
+                </button>
+              ))}
+              {ratingMsg ? <span className="rate-done">{ratingMsg} ({rating}/10)</span> : null}
+            </div>
+
+            {rating != null && (
+              <div className="tag-editor">
+                <ChipGroup label="Moods" options={MOODS} selected={moods} onToggle={(m) => toggle(moods, setMoods, m)} />
+                <ChipGroup label="Subgenres" options={SUBGENRES} selected={subgenres} onToggle={(s) => toggle(subgenres, setSubgenres, s)} />
+                <ChipGroup label="Instrumentation" options={INSTRUMENTS} selected={instruments} onToggle={(i) => toggle(instruments, setInstruments, i)} />
+                <div className="tag-selects">
+                  <select value={era} onChange={(e) => setEra(e.target.value)} aria-label="Era">
+                    <option value="">Era (optional)</option>
+                    {ERAS.map((e) => <option key={e} value={e}>{e}</option>)}
+                  </select>
+                  <select value={primary} onChange={(e) => setPrimary(e.target.value)} aria-label="Primary instrument">
+                    <option value="">Primary instrument (optional)</option>
+                    {PRIMARY_INSTRUMENTS.map((p) => <option key={p} value={p}>{p}</option>)}
+                  </select>
+                </div>
+                <button className="save-tags" onClick={saveTrackTags}>Save tags</button>
+                {tagsMsg ? <span className="rate-done">{tagsMsg}</span> : null}
+              </div>
+            )}
+
+            {result.audio_only ? (
+              <div className="sr-note">
+                Audio profile only until you tag it — rate it and add moods/subgenres/instruments above for an accurate prediction.
+              </div>
+            ) : null}
+          </div>
+        )}
+
+        {item && (
+          <div className="pl-view">
+            <div className="pl-head">
+              {item.image ? <img className="pl-img-lg" src={item.image} alt={item.name} /> : null}
+              <div>
+                <div className="sr-title">{item.name}</div>
+                <div className="sr-meta">
+                  {item.artist || item.owner}
+                  {item.year ? ` · ${item.year}` : ''}
+                  {` · ${item.tracks.length} tracks`}
+                </div>
+                {item.url ? (
+                  <a className="sr-link" href={item.url} target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a>
+                ) : null}
+              </div>
+              <button className="pl-back" onClick={back}>←</button>
+            </div>
+
+            {tab === 'albums' && (
+              <div className="rate-row album-rate">
+                <span className="rate-label">Rate this album:</span>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((r) => (
+                  <button
+                    key={r}
+                    className={`rate-btn ${rating === r ? 'rate-selected' : ''}`}
+                    onClick={() => rateAlbum(r)}
+                    aria-label={`Rate album ${r}`}
+                  >
+                    {r}
+                  </button>
+                ))}
+                {ratingMsg ? <span className="rate-done">{ratingMsg} ({rating}/10)</span> : null}
+              </div>
+            )}
+
+            <ul className="pl-tracks">
+              {tracks.map((t) => {
+                const key = t.title + t.artist;
+                const isOpen = expanded === key;
+                return (
+                  <li key={key} className="pl-track-item">
+                    <div
+                      className="pl-track"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setExpanded(isOpen ? null : key)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setExpanded(isOpen ? null : key); }}
+                    >
+                      {t.image ? <img className="pl-img-sm" src={t.image} alt={t.title} /> : null}
+                      <div className="pl-track-info">
+                        <div className="pl-track-title">{t.title} <span className="sr-artist">— {t.artist}</span></div>
+                        {t.reviewed ? (
+                          <a className="reviewed-badge reviewed-link" href={reviewHref(t)} onClick={(e) => e.stopPropagation()} title="Open full review">
+                            ✓ reviewed → open
+                          </a>
+                        ) : null}
+                      </div>
+                      <div className="pl-score" style={{ color: verdictColor(t.score) }}>{t.score}</div>
+                      {t.url ? (
+                        <a className="pl-listen" href={t.url} target="_blank" rel="noopener noreferrer" aria-label="Listen" onClick={(e) => e.stopPropagation()}>↗</a>
+                      ) : null}
+                    </div>
+                    {isOpen && (
+                      <TrackReviewPanel
+                        title={t.title}
+                        artist={t.artist}
+                        spotifyId={t.spotify_id}
+                        year={item.year}
+                      />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}

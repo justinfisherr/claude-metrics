@@ -4,7 +4,7 @@ import Navigation from '../components/shared/Navigation';
 import moodAxes from '../../mood-axes.json';
 import '../styles/review.css';
 
-const STORAGE_KEY = 'jazz-reviews';
+const API = 'https://jazz-score-api.vercel.app';
 const RECCOBEATS_URL = 'https://api.reccobeats.com/v1/audio-features';
 
 const RECCOBEATS_FIELDS = [
@@ -23,14 +23,6 @@ function ratingColor(r) {
   if (r >= 7) return '#4a9eff';
   if (r >= 5) return '#ffc144';
   return '#ff6b6b';
-}
-
-function loadReviews() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-  } catch {
-    return [];
-  }
 }
 
 export default function Review() {
@@ -57,7 +49,8 @@ export default function Review() {
   const [audioFeatures, setAudioFeatures] = useState(null);
   const [audioFetchState, setAudioFetchState] = useState('idle'); // idle | loading | done | error | missing
 
-  const [reviews, setReviews] = useState(loadReviews);
+  const [reviews, setReviews] = useState([]);
+  const [pendingState, setPendingState] = useState('loading'); // loading | done | error
 
   const [toastMsg, setToastMsg] = useState('');
   const [toastColor, setToastColor] = useState(null);
@@ -97,8 +90,11 @@ export default function Review() {
   }, [spotifyId]);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
-  }, [reviews]);
+    fetch(`${API}/api/pending`)
+      .then(r => r.json())
+      .then(d => { setReviews(d.pending || []); setPendingState('done'); })
+      .catch(() => { setReviews([]); setPendingState('error'); });
+  }, []);
 
   const showToast = useCallback((msg, color = null) => {
     setToastMsg(msg);
@@ -123,7 +119,7 @@ export default function Review() {
     setAudioFetchState('idle');
   }, []);
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
     const review = {
       title: title.trim() || '(untitled)',
@@ -138,21 +134,54 @@ export default function Review() {
       favMoments: favMoments.trim() || null,
       audioFeatures: audioFeatures || null,
       spotifyId: spotifyId || null,
+      spotify_id: spotifyId || null,
+      album: album || null,
+      year: year ? parseInt(year, 10) || null : null,
       timestamp: new Date().toISOString(),
     };
-    setReviews(prev => [...prev, review]);
-    showToast('Review queued!');
-    resetForm();
-  }, [title, artist, rating, replayability, liked, playthrough, skipAt, skipTotal, notes, favMoments, audioFeatures, spotifyId, showToast, resetForm]);
+    try {
+      const res = await fetch(`${API}/api/pending`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(review),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setReviews(prev => [...prev, { id: data.id, ...review }]);
+      showToast('Review saved to pending queue');
+      resetForm();
+    } catch (err) {
+      showToast(err.message || 'Save failed', 'var(--bad)');
+    }
+  }, [title, artist, rating, replayability, liked, playthrough, skipAt, skipTotal, notes, favMoments, audioFeatures, spotifyId, album, year, showToast, resetForm]);
 
-  const deleteReview = useCallback((index) => {
+  const deleteReview = useCallback(async (index) => {
+    const review = reviews[index];
+    if (!review) return;
+    try {
+      await fetch(`${API}/api/pending/clear`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: [review.id] }),
+      });
+    } catch {
+      // ignore — still remove locally so the UI reflects intent
+    }
     setReviews(prev => prev.filter((_, i) => i !== index));
-  }, []);
+  }, [reviews]);
 
-  const clearAll = useCallback(() => {
-    if (window.confirm('Clear all queued reviews?')) {
+  const clearAll = useCallback(async () => {
+    if (!window.confirm('Clear all pending reviews from the database?')) return;
+    try {
+      await fetch(`${API}/api/pending/clear`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
       setReviews([]);
       showToast('Cleared');
+    } catch (err) {
+      showToast(err.message || 'Clear failed', 'var(--bad)');
     }
   }, [showToast]);
 
@@ -189,7 +218,7 @@ export default function Review() {
 
       <div className="review-wrapper">
         <h1>Track Review</h1>
-        <p className="subtitle">Rate a track &mdash; then copy the summary to paste into Claude.</p>
+        <p className="subtitle">Rate a track &mdash; it lands in your pending queue, ready to be folded into the next model release.</p>
 
         <div className={`track-banner${showBanner ? ' visible' : ''}`}>
           <div className="track-banner-title">{bannerTitle}</div>
@@ -384,7 +413,7 @@ function AudioFeaturesPanel({ spotifyId, fetchState, features }) {
 
 function PendingReviewsList({ reviews, onDelete }) {
   if (!reviews.length) {
-    return <div className="empty-state">No reviews queued yet.</div>;
+    return <div className="empty-state">No pending reviews yet.</div>;
   }
 
   return reviews.map((r, i) => (

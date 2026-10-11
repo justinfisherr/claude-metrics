@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { DataProvider } from './hooks/useDashboardData';
 import Dashboard from './pages/Dashboard';
 import Compare from './pages/Compare';
@@ -8,8 +8,7 @@ import Playlists from './pages/Playlists';
 import Wrapped from './pages/Wrapped';
 import Memories from './pages/Memories';
 import Facts from './pages/Facts';
-import Search from './pages/Search';
-import Playlist from './pages/Playlist';
+import Listen from './pages/Listen';
 
 export default function App() {
   return (
@@ -23,8 +22,9 @@ export default function App() {
         <Route path="/wrapped" element={<Wrapped />} />
         <Route path="/memories" element={<Memories />} />
         <Route path="/facts" element={<Facts />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/score-playlist" element={<Playlist />} />
+        <Route path="/listen" element={<Listen />} />
+        <Route path="/search" element={<Navigate to="/listen" replace />} />
+        <Route path="/score-playlist" element={<Navigate to="/listen" replace />} />
       </Routes>
     </DataProvider>
   );
