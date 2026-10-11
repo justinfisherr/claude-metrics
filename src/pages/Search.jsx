@@ -5,6 +5,8 @@ import { MOODS, SUBGENRES, INSTRUMENTS, ERAS, PRIMARY_INSTRUMENTS } from '../dat
 
 const API = 'https://jazz-score-api.vercel.app';
 
+const GENRES = ['neo-soul', 'soul', 'r&b', 'funk', 'hip-hop', 'electronic', 'rock', 'blues', 'classical', 'folk'];
+
 function verdict(score) {
   if (score >= 8.5) return { label: 'STRONG RECOMMEND', color: 'var(--good)' };
   if (score >= 7) return { label: 'RECOMMEND', color: 'var(--accent)' };
@@ -34,6 +36,7 @@ function ChipGroup({ label, options, selected, onToggle }) {
 
 export default function Search() {
   const [query, setQuery] = useState('');
+  const [genre, setGenre] = useState('');
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
   const [result, setResult] = useState(null);
@@ -88,7 +91,8 @@ export default function Search() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API}/api/score?id=${encodeURIComponent(id)}`);
+      const genreParam = genre ? `&genre=${encodeURIComponent(genre)}` : '';
+      const res = await fetch(`${API}/api/score?id=${encodeURIComponent(id)}${genreParam}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setResult(data);
@@ -170,6 +174,14 @@ export default function Search() {
           <button type="submit" disabled={loading}>{loading ? 'Searching…' : 'Search'}</button>
         </form>
 
+        <div className="genre-row">
+          <label className="genre-label" htmlFor="genre">Genre bridge (optional)</label>
+          <select id="genre" value={genre} onChange={(e) => setGenre(e.target.value)}>
+            <option value="">None — score as jazz</option>
+            {GENRES.map((g) => <option key={g} value={g}>{g}</option>)}
+          </select>
+        </div>
+
         {loading && <p className="search-note">Searching Spotify…</p>}
         {error && <p className="search-error">{error}</p>}
 
@@ -180,7 +192,10 @@ export default function Search() {
               <button key={r.id} className="pl-card" onClick={() => pick(r.id)}>
                 {r.image ? <img className="pl-img" src={r.image} alt={r.title} /> : null}
                 <div className="pl-info">
-                  <div className="pl-name">{r.title}</div>
+                  <div className="pl-name">
+                    {r.title}
+                    {r.reviewed ? <span className="reviewed-badge">✓ reviewed</span> : null}
+                  </div>
                   <div className="pl-owner">{r.artist}{r.year ? ` · ${r.year}` : ''}</div>
                 </div>
               </button>
@@ -209,6 +224,9 @@ export default function Search() {
               <span className="sr-out">/10</span>
             </div>
             <div className="sr-verdict" style={{ color: v.color }}>{v.label}</div>
+            {result.genre ? (
+              <div className="sr-note sr-bridged">Scored via the {result.genre} genre bridge — mapped onto your jazz taste.</div>
+            ) : null}
             {result.url ? (
               <a className="sr-link" href={result.url} target="_blank" rel="noopener noreferrer">
                 Listen on Spotify ↗
