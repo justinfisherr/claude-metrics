@@ -463,6 +463,19 @@
   border-color: var(--accent);
 }
 
+.review-slider {
+  flex: 1;
+  min-width: 120px;
+  accent-color: var(--accent);
+}
+
+.slider-value {
+  min-width: 34px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: right;
+}
+
 .save-tags:disabled {
   opacity: 0.5;
   cursor: not-allowed;
