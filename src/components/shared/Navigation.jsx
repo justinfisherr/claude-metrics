@@ -4,12 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 const PAGES = [
   { path: '/', label: 'Dashboard' },
   { path: '/search', label: 'Score' },
+  { path: '/score-playlist', label: 'Playlists' },
   { path: '/wrapped', label: 'Wrapped' },
   { path: '/memories', label: 'Memories' },
   { path: '/compare', label: 'Compare Models' },
   { path: '/review', label: 'Review' },
   { path: '/dictionary', label: 'Dictionary' },
-  { path: '/playlists', label: 'Playlists' },
+  { path: '/playlists', label: 'Your Playlists' },
   { path: '/facts', label: 'Facts' },
 ];
 

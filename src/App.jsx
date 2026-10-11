@@ -9,6 +9,7 @@ import Wrapped from './pages/Wrapped';
 import Memories from './pages/Memories';
 import Facts from './pages/Facts';
 import Search from './pages/Search';
+import Playlist from './pages/Playlist';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/memories" element={<Memories />} />
         <Route path="/facts" element={<Facts />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/score-playlist" element={<Playlist />} />
       </Routes>
     </DataProvider>
   );

@@ -63,19 +63,29 @@ export default function Search() {
 
         {result && v && (
           <div className="search-result">
-            <div className="sr-title">
-              {result.title} <span className="sr-artist">— {result.artist}</span>
-            </div>
-            {result.year ? (
-              <div className="sr-meta">
-                {result.year} · {result.tempo} tempo · popularity {result.popularity}
+            <div className="sr-head">
+              {result.image ? <img className="sr-image" src={result.image} alt={result.title} /> : null}
+              <div>
+                <div className="sr-title">
+                  {result.title} <span className="sr-artist">— {result.artist}</span>
+                </div>
+                {result.year ? (
+                  <div className="sr-meta">
+                    {result.year} · {result.tempo} tempo · popularity {result.popularity}
+                  </div>
+                ) : null}
               </div>
-            ) : null}
+            </div>
             <div className="sr-score" style={{ color: v.color }}>
               {result.score}
               <span className="sr-out">/10</span>
             </div>
             <div className="sr-verdict" style={{ color: v.color }}>{v.label}</div>
+            {result.url ? (
+              <a className="sr-link" href={result.url} target="_blank" rel="noopener noreferrer">
+                Listen on Spotify ↗
+              </a>
+            ) : null}
             {result.audio_only ? (
               <div className="sr-note">
                 Audio profile only — no mood/subgenre/instrumentation tags, so treat it as a rough guess.
