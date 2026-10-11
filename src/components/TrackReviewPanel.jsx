@@ -8,7 +8,7 @@ function formatRating(r) {
   return v % 1 === 0 ? String(v) : v.toFixed(1);
 }
 
-export default function TrackReviewPanel({ title, artist, spotifyId, year, initialRating, initialNotes, onSaved }) {
+export default function TrackReviewPanel({ title, artist, spotifyId, year, initialRating, initialNotes, onSaved, onRemoved }) {
   const [rating, setRating] = useState(initialRating ?? 5);
   const [notes, setNotes] = useState(initialNotes ?? '');
   const [savedMsg, setSavedMsg] = useState(null);
@@ -33,6 +33,26 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setSavedMsg('Review saved');
       if (onSaved) onSaved(rating);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function removeReview() {
+    if (!window.confirm(`Remove your review of "${title}"?`)) return;
+    setSavedMsg(null);
+    try {
+      const res = await fetch(`${API}/api/rate/delete`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, artist }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setRating(5);
+      setNotes('');
+      setSavedMsg('Review removed');
+      if (onRemoved) onRemoved();
     } catch (err) {
       setError(err.message);
     }
@@ -66,7 +86,12 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
           aria-label="Review note"
         />
       </div>
-      <button className="save-tags" onClick={saveReview}>Save review</button>
+      <div className="review-actions">
+        <button className="save-tags" onClick={saveReview}>Save review</button>
+        {initialRating != null && (
+          <button className="remove-review" onClick={removeReview}>Remove review</button>
+        )}
+      </div>
     </div>
   );
 }

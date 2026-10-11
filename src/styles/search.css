@@ -481,6 +481,26 @@
   cursor: not-allowed;
 }
 
+.review-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remove-review {
+  background: transparent;
+  border: 1px solid var(--bad);
+  border-radius: var(--radius-sm);
+  color: var(--bad);
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.remove-review:hover {
+  background: color-mix(in srgb, var(--bad) 12%, transparent);
+}
+
 .sr-bridged {
   margin-top: 10px;
 }

@@ -228,8 +228,24 @@ export default function Listen() {
     if (cache.current[cacheKey]) cache.current[cacheKey] = update(cache.current[cacheKey]);
   }
 
+  function onTrackRemoved(track) {
+    const update = (it) => (it ? {
+      ...it,
+      tracks: it.tracks.map((x) => (
+        x.title === track.title && x.artist === track.artist ? { ...x, reviewed: false, rating: undefined, notes: undefined } : x
+      )),
+    } : it);
+    setItem((prev) => update(prev));
+    const cacheKey = `${tab}:${id}`;
+    if (cache.current[cacheKey]) cache.current[cacheKey] = update(cache.current[cacheKey]);
+  }
+
   function onResultSaved(r) {
     setResult((prev) => (prev ? { ...prev, reviewed: true, rating: r } : prev));
+  }
+
+  function onResultRemoved() {
+    setResult((prev) => (prev ? { ...prev, reviewed: false, rating: undefined, notes: undefined } : prev));
   }
 
   const v = result ? verdict(result.score) : null;
@@ -349,6 +365,7 @@ export default function Listen() {
               initialRating={result.rating}
               initialNotes={result.notes}
               onSaved={onResultSaved}
+              onRemoved={onResultRemoved}
             />
 
             {result.audio_only ? (
@@ -436,6 +453,7 @@ export default function Listen() {
                         initialRating={t.rating}
                         initialNotes={t.notes}
                         onSaved={(r) => onTrackSaved(t, r)}
+                        onRemoved={() => onTrackRemoved(t)}
                       />
                     )}
                   </li>
