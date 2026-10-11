@@ -35,11 +35,11 @@ function ChipGroup({ label, options, selected, onToggle }) {
 export default function Search() {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState(null);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [rating, setRating] = useState(null);
   const [ratingMsg, setRatingMsg] = useState(null);
-  const [showTags, setShowTags] = useState(false);
 
   const [moods, setMoods] = useState([]);
   const [subgenres, setSubgenres] = useState([]);
@@ -52,27 +52,47 @@ export default function Search() {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   }
 
+  function resetState() {
+    setResult(null);
+    setRating(null);
+    setRatingMsg(null);
+    setTagsMsg(null);
+    setMoods([]);
+    setSubgenres([]);
+    setInstruments([]);
+    setEra('');
+    setPrimary('');
+  }
+
   async function run(e) {
     e.preventDefault();
     const q = query.trim();
     if (!q) return;
     setLoading(true);
     setError(null);
-    setResult(null);
-    setRating(null);
-    setRatingMsg(null);
-    setTagsMsg(null);
-    setShowTags(false);
-    setMoods([]);
-    setSubgenres([]);
-    setInstruments([]);
-    setEra('');
-    setPrimary('');
+    setResults(null);
+    resetState();
     try {
-      const res = await fetch(`${API}/api/score?q=${encodeURIComponent(q)}`);
+      const res = await fetch(`${API}/api/search?q=${encodeURIComponent(q)}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setResults(data.results || []);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function pick(id) {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`${API}/api/score?id=${encodeURIComponent(id)}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setResult(data);
+      setResults(null);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -99,7 +119,6 @@ export default function Search() {
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setRating(r);
       setRatingMsg('Rating saved');
-      setShowTags(true);
     } catch (err) {
       setError(err.message);
     }
@@ -138,24 +157,40 @@ export default function Search() {
       <Navigation />
       <main className="search-main">
         <h1 className="search-title">Score a track</h1>
-        <p className="search-sub">Search Spotify and run it through your taste model.</p>
+        <p className="search-sub">Search Spotify, pick a track, and run it through your taste model.</p>
 
         <form className="search-form" onSubmit={run}>
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="e.g. Naima John Coltrane"
+            placeholder="e.g. Giant Steps"
             autoFocus
             aria-label="Track search"
           />
-          <button type="submit" disabled={loading}>{loading ? 'Scoring…' : 'Score'}</button>
+          <button type="submit" disabled={loading}>{loading ? 'Searching…' : 'Search'}</button>
         </form>
 
-        {loading && <p className="search-note">Searching Spotify, pulling audio features…</p>}
+        {loading && <p className="search-note">Searching Spotify…</p>}
         {error && <p className="search-error">{error}</p>}
+
+        {results && !result && (
+          <div className="pl-results">
+            {results.length === 0 && <p className="search-note">No results.</p>}
+            {results.map((r) => (
+              <button key={r.id} className="pl-card" onClick={() => pick(r.id)}>
+                {r.image ? <img className="pl-img" src={r.image} alt={r.title} /> : null}
+                <div className="pl-info">
+                  <div className="pl-name">{r.title}</div>
+                  <div className="pl-owner">{r.artist}{r.year ? ` · ${r.year}` : ''}</div>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
 
         {result && v && (
           <div className="search-result">
+            <button className="pl-back" onClick={resetState} style={{ position: 'absolute', top: 16, right: 16 }}>← Back</button>
             <div className="sr-head">
               {result.image ? <img className="sr-image" src={result.image} alt={result.title} /> : null}
               <div>
@@ -195,7 +230,7 @@ export default function Search() {
               {ratingMsg ? <span className="rate-done">{ratingMsg} ({rating}/10)</span> : null}
             </div>
 
-            {showTags && (
+            {rating != null && (
               <div className="tag-editor">
                 <ChipGroup label="Moods" options={MOODS} selected={moods} onToggle={(m) => toggle(moods, setMoods, m)} />
                 <ChipGroup label="Subgenres" options={SUBGENRES} selected={subgenres} onToggle={(s) => toggle(subgenres, setSubgenres, s)} />
@@ -217,7 +252,7 @@ export default function Search() {
 
             {result.audio_only ? (
               <div className="sr-note">
-                Audio profile only until you tag it — add moods/subgenres/instruments above and the model's prediction gets accurate.
+                Audio profile only until you tag it — rate it and add moods/subgenres/instruments above for an accurate prediction.
               </div>
             ) : null}
           </div>

@@ -73,6 +73,46 @@ def search_track(token, query, title=None, artist=None):
     return items[0] if items else None
 
 
+def search_tracks(token, query, limit=10):
+    resp = requests.get(
+        f"{SPOTIFY_API}/search",
+        headers={"Authorization": f"Bearer {token}"},
+        params={"q": query, "type": "track", "limit": limit},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return [t for t in resp.json().get("tracks", {}).get("items", []) if t]
+
+
+def get_track_by_id(token, sid):
+    resp = requests.get(
+        f"{SPOTIFY_API}/tracks/{sid}",
+        headers={"Authorization": f"Bearer {token}"},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return resp.json()
+
+
+def track_summary(track):
+    album = track.get("album") or {}
+    year = None
+    if album.get("release_date"):
+        try:
+            year = int(album["release_date"][:4])
+        except ValueError:
+            year = None
+    return {
+        "id": track["id"],
+        "title": clean_title(track["name"]),
+        "artist": ", ".join(a["name"] for a in track.get("artists", [])),
+        "image": track_image(track),
+        "year": year,
+        "popularity": track.get("popularity"),
+        "url": track_url(track),
+    }
+
+
 def fetch_spotify_audio(token, sid):
     resp = requests.get(
         f"{SPOTIFY_API}/audio-features/{sid}",
@@ -120,6 +160,21 @@ def tempo_label(bpm):
 def clean_title(name):
     # "So What (feat. John Coltrane, Cannonball Adderley & Bill Evans)" -> "So What"
     return re.sub(r"\s*[\(\[].*?(?:feat\.|ft\.|with ).*?[\)\]]", "", name, flags=re.IGNORECASE).strip()
+
+
+def track_image(track):
+    """Best album-art URL from a Spotify track object (prefer ~300-640px)."""
+    images = track.get("album", {}).get("images", [])
+    if not images:
+        return None
+    for img in images:
+        if img.get("width") and img["width"] <= 640:
+            return img["url"]
+    return images[0]["url"]
+
+
+def track_url(track):
+    return track.get("external_urls", {}).get("spotify")
 
 
 def build_candidate(track, sfa, recco):
