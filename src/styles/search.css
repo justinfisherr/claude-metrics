@@ -499,3 +499,10 @@
 .album-rate {
   margin: 16px 0;
 }
+
+.sort-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}

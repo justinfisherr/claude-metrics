@@ -51,6 +51,7 @@ export default function Listen() {
   const [rating, setRating] = useState(null);
   const [ratingMsg, setRatingMsg] = useState(null);
   const [expanded, setExpanded] = useState(null);
+  const [sortBy, setSortBy] = useState('original');
   const cache = useRef({});
 
   useEffect(() => { setQuery(q); }, [q]);
@@ -59,6 +60,7 @@ export default function Listen() {
     setRating(null);
     setRatingMsg(null);
     setExpanded(null);
+    setSortBy('original');
   }, []);
 
   const loadTracks = useCallback(async (term) => {
@@ -214,8 +216,28 @@ export default function Listen() {
     return `#/review?${p.toString()}`;
   }
 
+  function onTrackSaved(track, r) {
+    const update = (it) => (it ? {
+      ...it,
+      tracks: it.tracks.map((x) => (
+        x.title === track.title && x.artist === track.artist ? { ...x, reviewed: true, rating: r } : x
+      )),
+    } : it);
+    setItem((prev) => update(prev));
+    const cacheKey = `${tab}:${id}`;
+    if (cache.current[cacheKey]) cache.current[cacheKey] = update(cache.current[cacheKey]);
+  }
+
+  function onResultSaved(r) {
+    setResult((prev) => (prev ? { ...prev, reviewed: true, rating: r } : prev));
+  }
+
   const v = result ? verdict(result.score) : null;
-  const tracks = item ? [...item.tracks].sort((a, b) => b.score - a.score) : [];
+  const tracks = item
+    ? sortBy === 'rating'
+      ? [...item.tracks].sort((a, b) => b.score - a.score)
+      : item.tracks
+    : [];
   const placeholder = tab === 'albums' ? 'e.g. Kind of Blue' : tab === 'playlists' ? 'e.g. bebop classics' : 'e.g. Giant Steps';
 
   return (
@@ -270,7 +292,7 @@ export default function Listen() {
                 <div className="pl-info">
                   <div className="pl-name">
                     {r.title || r.name}
-                    {r.reviewed ? <span className="reviewed-badge">✓ reviewed</span> : null}
+                    {r.reviewed ? <span className="reviewed-badge">✓ {r.rating != null ? `${r.rating}/10` : 'reviewed'}</span> : null}
                   </div>
                   <div className="pl-owner">
                     {r.artist || r.owner}
@@ -326,6 +348,7 @@ export default function Listen() {
               year={result.year}
               initialRating={result.rating}
               initialNotes={result.notes}
+              onSaved={onResultSaved}
             />
 
             {result.audio_only ? (
@@ -371,6 +394,12 @@ export default function Listen() {
               </div>
             )}
 
+            <div className="sort-row">
+              <span className="genre-label">Order:</span>
+              <button className={`mode-tab ${sortBy === 'original' ? 'mode-tab-on' : ''}`} onClick={() => setSortBy('original')}>Original</button>
+              <button className={`mode-tab ${sortBy === 'rating' ? 'mode-tab-on' : ''}`} onClick={() => setSortBy('rating')}>By rating</button>
+            </div>
+
             <ul className="pl-tracks">
               {tracks.map((t) => {
                 const key = t.title + t.artist;
@@ -389,7 +418,7 @@ export default function Listen() {
                         <div className="pl-track-title">{t.title} <span className="sr-artist">— {t.artist}</span></div>
                         {t.reviewed ? (
                           <a className="reviewed-badge reviewed-link" href={reviewHref(t)} onClick={(e) => e.stopPropagation()} title="Open full review">
-                            ✓ reviewed → open
+                            ✓ {t.rating != null ? `${t.rating}/10` : 'reviewed'} → open
                           </a>
                         ) : null}
                       </div>
@@ -406,6 +435,7 @@ export default function Listen() {
                         year={item.year}
                         initialRating={t.rating}
                         initialNotes={t.notes}
+                        onSaved={(r) => onTrackSaved(t, r)}
                       />
                     )}
                   </li>

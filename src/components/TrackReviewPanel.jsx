@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const API = 'https://jazz-score-api.vercel.app';
 
-export default function TrackReviewPanel({ title, artist, spotifyId, year, initialRating, initialNotes }) {
+export default function TrackReviewPanel({ title, artist, spotifyId, year, initialRating, initialNotes, onSaved }) {
   const [rating, setRating] = useState(initialRating ?? null);
   const [notes, setNotes] = useState(initialNotes ?? '');
   const [savedMsg, setSavedMsg] = useState(null);
@@ -38,6 +38,7 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
     if (ok) {
       setRating(r);
       setSavedMsg(`Saved ${r}/10`);
+      if (onSaved) onSaved(r);
     }
   }
 
@@ -52,7 +53,10 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
       spotify_id: spotifyId || undefined,
       year: year || undefined,
     });
-    if (ok) setSavedMsg('Review saved');
+    if (ok) {
+      setSavedMsg('Review saved');
+      if (onSaved) onSaved(rating);
+    }
   }
 
   return (
