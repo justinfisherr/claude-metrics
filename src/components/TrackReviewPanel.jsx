@@ -46,7 +46,7 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
           type="range"
           min="1"
           max="10"
-          step="0.2"
+          step="0.5"
           value={rating}
           onChange={(e) => setRating(parseFloat(e.target.value))}
           className="review-slider"
