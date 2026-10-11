@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navigation from '../components/shared/Navigation';
+import TrackReviewPanel from '../components/TrackReviewPanel';
 import '../styles/search.css';
 
 const API = 'https://jazz-score-api.vercel.app';
@@ -20,6 +21,7 @@ export default function Playlist() {
   const [error, setError] = useState(null);
   const [rating, setRating] = useState(null);
   const [ratingMsg, setRatingMsg] = useState(null);
+  const [expanded, setExpanded] = useState(null);
 
   function switchMode(m) {
     setMode(m);
@@ -28,6 +30,7 @@ export default function Playlist() {
     setError(null);
     setRating(null);
     setRatingMsg(null);
+    setExpanded(null);
   }
 
   async function search(e) {
@@ -40,6 +43,7 @@ export default function Playlist() {
     setItem(null);
     setRating(null);
     setRatingMsg(null);
+    setExpanded(null);
     try {
       const endpoint = mode === 'album' ? '/api/album' : '/api/playlist';
       const key = mode === 'album' ? 'albums' : 'playlists';
@@ -59,6 +63,7 @@ export default function Playlist() {
     setError(null);
     setRating(null);
     setRatingMsg(null);
+    setExpanded(null);
     try {
       const endpoint = mode === 'album' ? '/api/album' : '/api/playlist';
       const res = await fetch(`${API}${endpoint}?id=${encodeURIComponent(id)}`);
@@ -98,6 +103,16 @@ export default function Playlist() {
     }
   }
 
+  function reviewHref(t) {
+    const p = new URLSearchParams({ title: t.title, artist: t.artist });
+    if (t.spotify_id) p.set('spotify_id', t.spotify_id);
+    if (mode === 'album' && item) {
+      p.set('album', item.name);
+      if (item.year) p.set('year', String(item.year));
+    }
+    return `#/review?${p.toString()}`;
+  }
+
   const tracks = item ? [...item.tracks].sort((a, b) => b.score - a.score) : [];
 
   return (
@@ -106,7 +121,7 @@ export default function Playlist() {
       <main className="search-main playlist-main">
         <h1 className="search-title">Score a {mode === 'album' ? 'album' : 'playlist'}</h1>
         <p className="search-sub">
-          Search a Spotify {mode === 'album' ? 'album' : 'playlist'} and score every track at a glance.
+          Search a Spotify {mode === 'album' ? 'album' : 'playlist'}, score every track, and review any of them inline.
         </p>
 
         <div className="mode-tabs">
@@ -195,18 +210,43 @@ export default function Playlist() {
             )}
 
             <ul className="pl-tracks">
-              {tracks.map((t) => (
-                <li key={t.title + t.artist} className="pl-track">
-                  {t.image ? <img className="pl-img-sm" src={t.image} alt={t.title} /> : null}
-                  <div className="pl-track-info">
-                    <div className="pl-track-title">{t.title} <span className="sr-artist">— {t.artist}</span></div>
-                  </div>
-                  <div className="pl-score" style={{ color: verdictColor(t.score) }}>{t.score}</div>
-                  {t.url ? (
-                    <a className="pl-listen" href={t.url} target="_blank" rel="noopener noreferrer" aria-label="Listen">↗</a>
-                  ) : null}
-                </li>
-              ))}
+              {tracks.map((t) => {
+                const key = t.title + t.artist;
+                const isOpen = expanded === key;
+                return (
+                  <li key={key} className="pl-track-item">
+                    <div
+                      className="pl-track"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setExpanded(isOpen ? null : key)}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setExpanded(isOpen ? null : key); }}
+                    >
+                      {t.image ? <img className="pl-img-sm" src={t.image} alt={t.title} /> : null}
+                      <div className="pl-track-info">
+                        <div className="pl-track-title">{t.title} <span className="sr-artist">— {t.artist}</span></div>
+                        {t.reviewed ? (
+                          <a className="reviewed-badge reviewed-link" href={reviewHref(t)} onClick={(e) => e.stopPropagation()} title="Open full review">
+                            ✓ reviewed → open
+                          </a>
+                        ) : null}
+                      </div>
+                      <div className="pl-score" style={{ color: verdictColor(t.score) }}>{t.score}</div>
+                      {t.url ? (
+                        <a className="pl-listen" href={t.url} target="_blank" rel="noopener noreferrer" aria-label="Listen" onClick={(e) => e.stopPropagation()}>↗</a>
+                      ) : null}
+                    </div>
+                    {isOpen && (
+                      <TrackReviewPanel
+                        title={t.title}
+                        artist={t.artist}
+                        spotifyId={t.spotify_id}
+                        year={item.year}
+                      />
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}

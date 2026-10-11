@@ -237,9 +237,10 @@
   gap: 12px;
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
+  cursor: pointer;
 }
 
-.pl-track:last-child {
+.pl-track-item:last-child .pl-track {
   border-bottom: 0;
 }
 
@@ -419,6 +420,25 @@
   border-radius: 999px;
   padding: 2px 8px;
   white-space: nowrap;
+}
+
+.reviewed-link {
+  display: inline-block;
+  margin: 2px 0 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.reviewed-link:hover {
+  text-decoration: underline;
+}
+
+.inline-review {
+  margin: 6px 0 12px 52px;
+  padding: 12px;
+  background: var(--bg, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 .sr-bridged {
