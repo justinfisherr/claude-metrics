@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Navigation from '../components/shared/Navigation';
 import '../styles/search.css';
 
-const API = 'https://jazz-score-api.vercel.app/api/score';
+const API = 'https://jazz-score-api.vercel.app';
 
 function verdict(score) {
   if (score >= 8.5) return { label: 'STRONG RECOMMEND', color: 'var(--good)' };
@@ -16,6 +16,8 @@ export default function Search() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [rating, setRating] = useState(null);
+  const [ratingMsg, setRatingMsg] = useState(null);
 
   async function run(e) {
     e.preventDefault();
@@ -24,8 +26,10 @@ export default function Search() {
     setLoading(true);
     setError(null);
     setResult(null);
+    setRating(null);
+    setRatingMsg(null);
     try {
-      const res = await fetch(`${API}?q=${encodeURIComponent(q)}`);
+      const res = await fetch(`${API}/api/score?q=${encodeURIComponent(q)}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setResult(data);
@@ -33,6 +37,30 @@ export default function Search() {
       setError(err.message);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function rate(r) {
+    if (!result) return;
+    setRatingMsg(null);
+    try {
+      const res = await fetch(`${API}/api/rate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: result.title,
+          artist: result.artist,
+          rating: r,
+          spotify_id: result.spotify_id,
+          year: result.year,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setRating(r);
+      setRatingMsg('Saved to your dataset');
+    } catch (err) {
+      setError(err.message);
     }
   }
 
@@ -86,6 +114,20 @@ export default function Search() {
                 Listen on Spotify ↗
               </a>
             ) : null}
+            <div className="rate-row">
+              <span className="rate-label">Your rating:</span>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((r) => (
+                <button
+                  key={r}
+                  className={`rate-btn ${rating === r ? 'rate-selected' : ''}`}
+                  onClick={() => rate(r)}
+                  aria-label={`Rate ${r}`}
+                >
+                  {r}
+                </button>
+              ))}
+              {ratingMsg ? <span className="rate-done">{ratingMsg} ({rating}/10)</span> : null}
+            </div>
             {result.audio_only ? (
               <div className="sr-note">
                 Audio profile only — no mood/subgenre/instrumentation tags, so treat it as a rough guess.
