@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from '../components/shared/Navigation';
 import '../styles/search.css';
+import { MOODS, SUBGENRES, INSTRUMENTS, ERAS, PRIMARY_INSTRUMENTS } from '../data/tagOptions';
 
 const API = 'https://jazz-score-api.vercel.app';
 
@@ -11,6 +12,26 @@ function verdict(score) {
   return { label: 'SKIP', color: 'var(--bad)' };
 }
 
+function ChipGroup({ label, options, selected, onToggle }) {
+  return (
+    <div className="chip-group">
+      <div className="chip-label">{label}</div>
+      <div className="chips">
+        {options.map((o) => (
+          <button
+            key={o}
+            type="button"
+            className={`chip ${selected.includes(o) ? 'chip-on' : ''}`}
+            onClick={() => onToggle(o)}
+          >
+            {o}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Search() {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,6 +39,18 @@ export default function Search() {
   const [error, setError] = useState(null);
   const [rating, setRating] = useState(null);
   const [ratingMsg, setRatingMsg] = useState(null);
+  const [showTags, setShowTags] = useState(false);
+
+  const [moods, setMoods] = useState([]);
+  const [subgenres, setSubgenres] = useState([]);
+  const [instruments, setInstruments] = useState([]);
+  const [era, setEra] = useState('');
+  const [primary, setPrimary] = useState('');
+  const [tagsMsg, setTagsMsg] = useState(null);
+
+  function toggle(list, setList, value) {
+    setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  }
 
   async function run(e) {
     e.preventDefault();
@@ -28,6 +61,13 @@ export default function Search() {
     setResult(null);
     setRating(null);
     setRatingMsg(null);
+    setTagsMsg(null);
+    setShowTags(false);
+    setMoods([]);
+    setSubgenres([]);
+    setInstruments([]);
+    setEra('');
+    setPrimary('');
     try {
       const res = await fetch(`${API}/api/score?q=${encodeURIComponent(q)}`);
       const data = await res.json();
@@ -58,7 +98,34 @@ export default function Search() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
       setRating(r);
-      setRatingMsg('Saved to your dataset');
+      setRatingMsg('Rating saved');
+      setShowTags(true);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function saveTags() {
+    if (!result || rating == null) return;
+    setTagsMsg(null);
+    try {
+      const res = await fetch(`${API}/api/rate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: result.title,
+          artist: result.artist,
+          rating,
+          moods,
+          subgenres,
+          instrumentation: instruments,
+          era: era || undefined,
+          primary_instrument: primary || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      setTagsMsg('Tags saved to your dataset');
     } catch (err) {
       setError(err.message);
     }
@@ -81,9 +148,7 @@ export default function Search() {
             autoFocus
             aria-label="Track search"
           />
-          <button type="submit" disabled={loading}>
-            {loading ? 'Scoring…' : 'Score'}
-          </button>
+          <button type="submit" disabled={loading}>{loading ? 'Scoring…' : 'Score'}</button>
         </form>
 
         {loading && <p className="search-note">Searching Spotify, pulling audio features…</p>}
@@ -114,6 +179,7 @@ export default function Search() {
                 Listen on Spotify ↗
               </a>
             ) : null}
+
             <div className="rate-row">
               <span className="rate-label">Your rating:</span>
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((r) => (
@@ -128,9 +194,30 @@ export default function Search() {
               ))}
               {ratingMsg ? <span className="rate-done">{ratingMsg} ({rating}/10)</span> : null}
             </div>
+
+            {showTags && (
+              <div className="tag-editor">
+                <ChipGroup label="Moods" options={MOODS} selected={moods} onToggle={(m) => toggle(moods, setMoods, m)} />
+                <ChipGroup label="Subgenres" options={SUBGENRES} selected={subgenres} onToggle={(s) => toggle(subgenres, setSubgenres, s)} />
+                <ChipGroup label="Instrumentation" options={INSTRUMENTS} selected={instruments} onToggle={(i) => toggle(instruments, setInstruments, i)} />
+                <div className="tag-selects">
+                  <select value={era} onChange={(e) => setEra(e.target.value)} aria-label="Era">
+                    <option value="">Era (optional)</option>
+                    {ERAS.map((e) => <option key={e} value={e}>{e}</option>)}
+                  </select>
+                  <select value={primary} onChange={(e) => setPrimary(e.target.value)} aria-label="Primary instrument">
+                    <option value="">Primary instrument (optional)</option>
+                    {PRIMARY_INSTRUMENTS.map((p) => <option key={p} value={p}>{p}</option>)}
+                  </select>
+                </div>
+                <button className="save-tags" onClick={saveTags}>Save tags</button>
+                {tagsMsg ? <span className="rate-done">{tagsMsg}</span> : null}
+              </div>
+            )}
+
             {result.audio_only ? (
               <div className="sr-note">
-                Audio profile only — no mood/subgenre/instrumentation tags, so treat it as a rough guess.
+                Audio profile only until you tag it — add moods/subgenres/instruments above and the model's prediction gets accurate.
               </div>
             ) : null}
           </div>

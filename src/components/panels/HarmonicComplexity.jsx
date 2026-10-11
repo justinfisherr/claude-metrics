@@ -12,6 +12,18 @@ const LABELS = ['Low', 'Medium', 'High'];
 const BG_COLORS = ['rgba(74,158,255,0.55)', 'rgba(178,117,255,0.55)', 'rgba(80,200,120,0.55)'];
 const BORDER_COLORS = ['rgba(74,158,255,1)', 'rgba(178,117,255,1)', 'rgba(80,200,120,1)'];
 
+// `harmonic_complexity` is a string ('low'/'medium'/'high') on most tracks, but a
+// legacy numeric 1–5 scale on a handful, and null on albums. Normalize to a level.
+function normalizeHc(v) {
+  if (typeof v === 'string') return v.toLowerCase();
+  if (typeof v === 'number') {
+    if (v <= 2) return 'low';
+    if (v === 3) return 'medium';
+    return 'high';
+  }
+  return '';
+}
+
 export default function HarmonicComplexity({ data }) {
   const [selected, setSelected] = useState('');
 
@@ -22,7 +34,7 @@ export default function HarmonicComplexity({ data }) {
     LEVELS.forEach(l => { groups[l] = []; tbl[l] = []; });
 
     predictions.forEach(p => {
-      const k = (p.harmonic_complexity || '').toLowerCase();
+      const k = normalizeHc(p.harmonic_complexity);
       if (groups[k]) {
         groups[k].push(p.actual);
         tbl[k].push(p);
