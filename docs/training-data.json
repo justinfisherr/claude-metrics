@@ -4362,74 +4362,6 @@
     "recommendation_version": "v5-gaps"
   },
   {
-    "era": "Hard Bop",
-    "year": 1958,
-    "album": "Moanin'",
-    "label": "Blue Note",
-    "liked": true,
-    "moods": [
-      "joyful",
-      "soulful",
-      "communal"
-    ],
-    "notes": "Logged in bulk playlist-rating session. First Art Blakey track — landed well, consistent with the communal/celebratory pole (Mingus, Silver).",
-    "tempo": "medium",
-    "title": "Moanin'",
-    "artist": "Art Blakey & The Jazz Messengers",
-    "energy": 8,
-    "rating": 7,
-    "subgenres": [
-      "hard bop",
-      "soul jazz"
-    ],
-    "date_added": "2026-07-20",
-    "spotify_id": "4Vkk3iD1VrENHJEACNddvt",
-    "key_players": [
-      "Art Blakey - drums",
-      "Lee Morgan - trumpet",
-      "Benny Golson - tenor saxophone",
-      "Bobby Timmons - piano"
-    ],
-    "playthrough": 1.0,
-    "listen_count": null,
-    "replayability": 7,
-    "audio_features": {
-      "key": null,
-      "mode": null,
-      "source": "spotify",
-      "is_live": false,
-      "liveness": 0.202,
-      "loudness": -8.589,
-      "tempo_bpm": 130,
-      "duration_s": 571,
-      "popularity": 61,
-      "speechiness": 0.0467,
-      "acousticness": 0.804,
-      "danceability": 0.612,
-      "spotify_energy": 0.493,
-      "time_signature": 4,
-      "spotify_valence": 0.484,
-      "instrumentalness": 0.266
-    },
-    "discovered_from": "claude-recommendation",
-    "instrumentation": [
-      "trumpet",
-      "tenor saxophone",
-      "piano",
-      "bass",
-      "drums"
-    ],
-    "favorite_moments": null,
-    "notable_qualities": [
-      "first Art Blakey track logged",
-      "gospel-tinged communal hard bop pole"
-    ],
-    "primary_instrument": "trumpet",
-    "harmonic_complexity": "medium",
-    "recommended_by_model": true,
-    "recommendation_version": "2026-07-20-strengthen-explore"
-  },
-  {
     "era": "Free Jazz",
     "year": 1959,
     "album": "The Shape of Jazz to Come",
@@ -10810,7 +10742,7 @@
     "notes": "Good but not his best.",
     "title": "Search For Peace",
     "artist": "McCoy Tyner",
-    "rating": 5.5,
+    "rating": 8,
     "subgenres": [
       "post-bop",
       "modal",
@@ -19397,7 +19329,7 @@
   },
   {
     "era": "Contemporary",
-    "year": 1972,
+    "year": 1973,
     "album": null,
     "label": "Polydor",
     "liked": true,
@@ -19411,7 +19343,7 @@
     "title": "Spain",
     "artist": "Chick Corea",
     "energy": 7,
-    "rating": 7,
+    "rating": 8,
     "subgenres": [
       "jazz fusion",
       "latin jazz"
@@ -22367,5 +22299,296 @@
     "harmonic_complexity": 3,
     "recommended_by_model": false,
     "recommendation_version": null
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1958,
+    "album": "Moanin'",
+    "label": "Blue Note",
+    "liked": true,
+    "moods": [
+      "joyful",
+      "soulful",
+      "communal"
+    ],
+    "notes": "Logged in bulk playlist-rating session. First Art Blakey track — landed well, consistent with the communal/celebratory pole (Mingus, Silver).",
+    "tempo": "medium",
+    "title": "Moanin'",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "energy": 8,
+    "rating": 7,
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "date_added": "2026-07-20",
+    "spotify_id": "4Vkk3iD1VrENHJEACNddvt",
+    "key_players": [
+      "Art Blakey - drums",
+      "Lee Morgan - trumpet",
+      "Benny Golson - tenor saxophone",
+      "Bobby Timmons - piano"
+    ],
+    "playthrough": 1.0,
+    "listen_count": null,
+    "replayability": 7,
+    "audio_features": {
+      "key": null,
+      "mode": null,
+      "source": "spotify",
+      "is_live": false,
+      "liveness": 0.202,
+      "loudness": -8.589,
+      "tempo_bpm": 130,
+      "duration_s": 571,
+      "popularity": 61,
+      "speechiness": 0.0467,
+      "acousticness": 0.804,
+      "danceability": 0.612,
+      "spotify_energy": 0.493,
+      "time_signature": 4,
+      "spotify_valence": 0.484,
+      "instrumentalness": 0.266
+    },
+    "discovered_from": "claude-recommendation",
+    "instrumentation": [
+      "trumpet",
+      "tenor saxophone",
+      "piano",
+      "bass",
+      "drums"
+    ],
+    "favorite_moments": null,
+    "notable_qualities": [
+      "first Art Blakey track logged",
+      "gospel-tinged communal hard bop pole"
+    ],
+    "primary_instrument": "trumpet",
+    "harmonic_complexity": "medium",
+    "recommended_by_model": true,
+    "recommendation_version": "2026-07-20-strengthen-explore"
+  },
+  {
+    "moods": [],
+    "title": "When Sunny Gets Blue",
+    "artist": "McCoy Tyner",
+    "rating": 8,
+    "subgenres": [],
+    "spotify_id": "01HQIKjcODJCBRFoETqngE",
+    "instrumentation": [],
+    "date_added": "2026-10-11"
+  },
+  {
+    "year": 1964,
+    "title": "Half And Half",
+    "artist": "Elvin Jones",
+    "rating": 5,
+    "spotify_id": "43HfhwCGlQSQX38zxXdVaR",
+    "audio_features": {
+      "acousticness": 0.78,
+      "danceability": 0.308,
+      "spotify_energy": 0.386,
+      "instrumentalness": 1.17e-05,
+      "liveness": 0.385,
+      "loudness": -14.835,
+      "speechiness": 0.0394,
+      "spotify_valence": 0.562
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "Theme For Ernie",
+    "artist": "John Coltrane",
+    "rating": 6,
+    "spotify_id": "0H2iAE7Y1ivCZ5YzEf3NMT",
+    "audio_features": {
+      "acousticness": 0.985,
+      "danceability": 0.479,
+      "spotify_energy": 0.191,
+      "instrumentalness": 0.51,
+      "liveness": 0.109,
+      "loudness": -10.319,
+      "speechiness": 0.0384,
+      "spotify_valence": 0.164
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "notes": "Just special.",
+    "title": "Boplicity",
+    "artist": "Miles Davis",
+    "rating": 8,
+    "spotify_id": "0Wz6DLq8NBoi1viEqrdH9B",
+    "audio_features": {
+      "acousticness": 0.932,
+      "danceability": 0.488,
+      "spotify_energy": 0.176,
+      "instrumentalness": 0.00345,
+      "liveness": 0.0935,
+      "loudness": -15.979,
+      "speechiness": 0.0399,
+      "spotify_valence": 0.497
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "Cry Me A River",
+    "artist": "Dexter Gordon All Stars",
+    "rating": 7,
+    "spotify_id": "0t5BOVFZXX3sTbmmHRQyYV",
+    "date_added": "2026-10-11"
+  },
+  {
+    "notes": "Feel I just don’t get this jazz yet",
+    "title": "Chronology",
+    "artist": "Ornette Coleman",
+    "rating": 4,
+    "spotify_id": "14FkDSrkQPko4YMhx6dLI2",
+    "audio_features": {
+      "acousticness": 0.185,
+      "danceability": 0.576,
+      "spotify_energy": 0.422,
+      "instrumentalness": 0.244,
+      "liveness": 0.264,
+      "loudness": -11.277,
+      "speechiness": 0.0594,
+      "spotify_valence": 0.57
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "Miss Understanding",
+    "artist": "Kamasi Washington",
+    "rating": 3,
+    "spotify_id": "6dZojGTd9QNpAulk8WUoeW",
+    "audio_features": {
+      "acousticness": 0.0829,
+      "danceability": 0.312,
+      "spotify_energy": 0.767,
+      "instrumentalness": 0.841,
+      "liveness": 0.04,
+      "loudness": -7.514,
+      "speechiness": 0.157,
+      "spotify_valence": 0.553
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "Gettin' On Way",
+    "artist": "Elvin Jones",
+    "rating": 3.5,
+    "spotify_id": "218XzbaRy0IIwRivZDkkgM",
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "My Little Brown Book",
+    "artist": "Duke Ellington",
+    "rating": 8.5,
+    "spotify_id": "4rmCI9VWrwrJTJ8XQ80BMN",
+    "audio_features": {
+      "acousticness": 0.942,
+      "danceability": 0.381,
+      "spotify_energy": 0.187,
+      "instrumentalness": 0.135,
+      "liveness": 0.161,
+      "loudness": -13.497,
+      "speechiness": 0.0322,
+      "spotify_valence": 0.215
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "Turiya & Ramakrishna",
+    "artist": "Alice Coltrane",
+    "rating": 7.5,
+    "spotify_id": "7tQ7e28gdQNhLcIbqc1PXY",
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "I Love You",
+    "artist": "John Coltrane",
+    "rating": 4,
+    "spotify_id": "08ztWQOa86b4VVXPZtJsqT",
+    "date_added": "2026-10-11"
+  },
+  {
+    "title": "Summertime",
+    "artist": "Charlie Parker",
+    "rating": 6,
+    "spotify_id": "6cU4urQRUieTBH08yKHAqj",
+    "audio_features": {
+      "acousticness": 0.962,
+      "danceability": 0.339,
+      "spotify_energy": 0.342,
+      "instrumentalness": 0.319,
+      "liveness": 0.162,
+      "loudness": -7.596,
+      "speechiness": 0.0313,
+      "spotify_valence": 0.393
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "year": 2008,
+    "title": "Earfood",
+    "artist": "Roy Hargrove",
+    "rating": 8,
+    "spotify_id": "4vuijqNCK71JTiACBmdCTo",
+    "entity_type": "album",
+    "date_added": "2026-10-11"
+  },
+  {
+    "year": 2008,
+    "title": "Strasbourg / St. Denis",
+    "artist": "Roy Hargrove",
+    "rating": 8.5,
+    "spotify_id": "62VWmsNoDmqT0Mj9oHHFVh",
+    "audio_features": {
+      "acousticness": 0.149,
+      "danceability": 0.701,
+      "spotify_energy": 0.445,
+      "instrumentalness": 0.59,
+      "liveness": 0.0963,
+      "loudness": -10.583,
+      "speechiness": 0.0834,
+      "spotify_valence": 0.405
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "year": 2008,
+    "title": "Starmaker",
+    "artist": "Roy Hargrove",
+    "rating": 6.5,
+    "spotify_id": "3n185KVwKp9hsdLYm5VCyY",
+    "audio_features": {
+      "acousticness": 0.802,
+      "danceability": 0.457,
+      "spotify_energy": 0.264,
+      "instrumentalness": 0.736,
+      "liveness": 0.092,
+      "loudness": -13.703,
+      "speechiness": 0.0301,
+      "spotify_valence": 0.14
+    },
+    "date_added": "2026-10-11"
+  },
+  {
+    "year": 2008,
+    "title": "Joy Is Sorrow Unmasked",
+    "artist": "Roy Hargrove",
+    "rating": 6,
+    "spotify_id": "1no5aBlOtuHcBeY6fWU0Oc",
+    "audio_features": {
+      "acousticness": 0.955,
+      "danceability": 0.416,
+      "spotify_energy": 0.124,
+      "instrumentalness": 0.616,
+      "liveness": 0.163,
+      "loudness": -14.572,
+      "speechiness": 0.0327,
+      "spotify_valence": 0.155
+    },
+    "date_added": "2026-10-11"
   }
 ]
