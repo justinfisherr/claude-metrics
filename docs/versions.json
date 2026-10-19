@@ -1526,7 +1526,7 @@
     },
     {
       "version": "10.09",
-      "name": "site-test",
+      "name": "First live run",
       "major": 10,
       "minor": 9,
       "run_date": "2026-10-19T07:51:58.708193",
@@ -1541,7 +1541,7 @@
       "ridge_rmse": 1.6062,
       "rf_r_squared": 0.7069,
       "rf_rmse": 1.1554,
-      "notes": "Verify in-site training",
+      "notes": "First training run triggered from the dashboard \u2014 folds the pending queue and ships both apps.",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
