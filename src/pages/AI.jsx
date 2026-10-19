@@ -167,14 +167,14 @@ function PlaylistCard({ rec }) {
 }
 
 export default function AI() {
-  const { ensureAuthed } = useAuth();
+  const { ensureAuthed, authed } = useAuth();
   const [kind, setKind] = useState('track');
   const [prompt, setPrompt] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [playError, setPlayError] = useState('');
   const [result, setResult] = useState(null);
-  const player = useSpotifyPlayer();
+  const player = useSpotifyPlayer({ enabled: authed });
 
   const ask = useCallback(async (more = false) => {
     if (!(await ensureAuthed())) return;

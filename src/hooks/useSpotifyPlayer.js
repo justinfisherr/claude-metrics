@@ -39,7 +39,7 @@ async function getToken(force = false) {
   return tokenCache.value;
 }
 
-export default function useSpotifyPlayer() {
+export default function useSpotifyPlayer({ enabled = true } = {}) {
   const [ready, setReady] = useState(false);
   const [deviceId, setDeviceId] = useState(null);
   const [state, setState] = useState(null);
@@ -48,6 +48,12 @@ export default function useSpotifyPlayer() {
   const playerRef = useRef(null);
 
   useEffect(() => {
+    if (!enabled) {
+      setReady(false);
+      setDeviceId(null);
+      setError('');
+      return;
+    }
     let alive = true;
     let player = null;
     loadSdk()
@@ -80,7 +86,7 @@ export default function useSpotifyPlayer() {
       try { player?.disconnect(); } catch {}
       playerRef.current = null;
     };
-  }, []);
+  }, [enabled]);
 
   useEffect(() => {
     if (!state || state.paused) return;
