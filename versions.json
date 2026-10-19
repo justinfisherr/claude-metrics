@@ -1,5 +1,5 @@
 {
-  "current_version": "10.09",
+  "current_version": "10.10",
   "versions": [
     {
       "version": "1.00",
@@ -1542,6 +1542,32 @@
       "rf_r_squared": 0.7069,
       "rf_rmse": 1.1554,
       "notes": "First training run triggered from the dashboard \u2014 folds the pending queue and ships both apps.",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.10",
+      "name": "Enriched",
+      "major": 10,
+      "minor": 10,
+      "run_date": "2026-10-19T08:42:03.664136",
+      "dataset_size": 439,
+      "best_model": "random_forest",
+      "r_squared": 0.8018,
+      "rmse": 0.9472,
+      "mae": 0.6816,
+      "feature_count": 166,
+      "best_k": 3,
+      "ridge_r_squared": 0.4836,
+      "ridge_rmse": 1.5288,
+      "rf_r_squared": 0.8018,
+      "rf_rmse": 0.9472,
+      "notes": "Backfilled app-logged metadata, merged duplicate Spotify IDs, and added strict data-quality gate",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
