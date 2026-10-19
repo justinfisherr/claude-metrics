@@ -258,8 +258,8 @@
   padding: 15px;
   border: none;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--accent), #3a7bd5);
-  color: #fff;
+  background: var(--accent);
+  color: #04101f;
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.02em;
@@ -269,8 +269,7 @@
 }
 
 .submit-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(74, 158, 255, 0.3);
+  filter: brightness(1.08);
 }
 
 .submit-btn:active {
