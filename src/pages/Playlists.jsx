@@ -217,10 +217,6 @@ export default function Playlists() {
         matched_count: actuals.length,
         avg_predicted: preds.length ? preds.reduce((a, b) => a + b, 0) / preds.length : null,
         avg_actual: actuals.length ? actuals.reduce((a, b) => a + b, 0) / actuals.length : null,
-        avg_energy: null,
-        avg_replayability: null,
-        top_moods: [],
-        top_eras: [],
         tracks,
       };
     }));
