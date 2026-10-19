@@ -280,7 +280,6 @@ export default function AI() {
   const restoring = useRef(false);
 
   useEffect(() => {
-    if (!authed) return;
     let alive = true;
     setPlaylistsLoading(true);
     fetch(`${API}/api/playlists`, { headers: authHeaders() })
@@ -294,7 +293,7 @@ export default function AI() {
       .catch((e) => { if (alive) setPlaylistsError(e.message); })
       .finally(() => { if (alive) setPlaylistsLoading(false); });
     return () => { alive = false; };
-  }, [authed]);
+  }, []);
 
   useEffect(() => {
     const store = loadStore();
