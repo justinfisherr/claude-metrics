@@ -5,6 +5,7 @@ import TrackReviewPanel from '../components/TrackReviewPanel';
 import { authHeaders } from '../lib/auth';
 import { useAuth } from '../lib/authContext';
 import '../styles/search.css';
+import { spotifyAppUri } from '../lib/spotifyLinks';
 
 const API = 'https://jazz-score-api.vercel.app';
 
@@ -418,8 +419,8 @@ export default function Listen() {
               <div className="sr-note sr-bridged">Scored via the {result.genre} genre bridge — mapped onto your jazz taste.</div>
             ) : null}
             {result.url ? (
-              <a className="sr-link" href={result.url} target="_blank" rel="noopener noreferrer">
-                Listen on Spotify ↗
+              <a className="sr-link" href={spotifyAppUri('track', result.spotify_id) || result.url}>
+                Open in Spotify app
               </a>
             ) : null}
 
@@ -460,7 +461,7 @@ export default function Listen() {
                   {` · ${item.tracks.length} tracks`}
                 </div>
                 {item.url ? (
-                  <a className="sr-link" href={item.url} target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a>
+                  <a className="sr-link" href={spotifyAppUri(tab === 'albums' ? 'album' : 'playlist', id) || item.url}>Open in Spotify app</a>
                 ) : null}
               </div>
               <div className="pl-head-actions">
@@ -520,7 +521,7 @@ export default function Listen() {
                       </div>
                       <div className="pl-score" style={{ color: verdictColor(t.score) }}>{t.score}</div>
                       {t.url ? (
-                        <a className="pl-listen" href={t.url} target="_blank" rel="noopener noreferrer" aria-label="Listen" onClick={(e) => e.stopPropagation()}>↗</a>
+                        <a className="pl-listen" href={spotifyAppUri('track', t.spotify_id) || t.url} aria-label="Open in Spotify app" onClick={(e) => e.stopPropagation()}>↗</a>
                       ) : null}
                     </div>
                     {isOpen && (

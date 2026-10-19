@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navigation from '../components/shared/Navigation';
 import { useDashboardData } from '../hooks/useDashboardData';
 import '../styles/playlists.css';
+import { spotifyAppUri } from '../lib/spotifyLinks';
 
 const API = 'https://jazz-score-api.vercel.app';
 
@@ -85,11 +86,9 @@ function PlaylistCard({ playlist }) {
           </div>
           <a
             className="playlist-spotify-link"
-            href={`https://open.spotify.com/playlist/${id}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={spotifyAppUri('playlist', id) || `https://open.spotify.com/playlist/${id}`}
           >
-            Open in Spotify &#8599;
+            Open in Spotify app
           </a>
         </div>
         <div className="playlist-scores">
