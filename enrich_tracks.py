@@ -30,7 +30,7 @@ def main():
     targets = [
         row for row in rows
         if row["data"].get("entity_type") != "album"
-        and (not row["data"].get("era") or not row["data"].get("primary_instrument"))
+        and any(not row["data"].get(k) for k in ("era", "primary_instrument", "key_players", "label", "subgenres", "moods"))
     ]
     print(f"{len(targets)} track(s) need enrichment")
     if not targets:
