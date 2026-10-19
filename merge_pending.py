@@ -19,9 +19,10 @@ import db  # noqa: E402
 
 
 def merge_one(review):
+    """Promote a pending review without throwing away enriched metadata."""
     af = review.get("audioFeatures") or {}
     audio_features = None
-    if af:
+    if isinstance(af, dict) and af:
         audio_features = {
             "acousticness": af.get("acousticness"),
             "danceability": af.get("danceability"),
@@ -33,7 +34,9 @@ def merge_one(review):
             "spotify_valence": af.get("spotify_valence"),
         }
 
-    track = {
+    ui_only = {"id", "timestamp", "skipAt", "skipTotal", "favMoments", "audioFeatures"}
+    track = {k: v for k, v in review.items() if k not in ui_only}
+    track.update({
         "title": (review.get("title") or "").strip(),
         "artist": (review.get("artist") or "").strip(),
         "rating": review.get("rating"),
@@ -42,13 +45,18 @@ def merge_one(review):
         "album": review.get("album"),
         "year": review.get("year"),
         "entity_type": "track",
-        "discovered_from": "review-page",
+        "discovered_from": review.get("discovered_from") or "review-page",
         "notes": review.get("notes") or None,
         "favorite_moments": review.get("favMoments") or None,
         "liked": review.get("liked"),
-    }
+    })
     if audio_features:
         track["audio_features"] = audio_features
+    ts = review.get("timestamp") or ""
+    if not track.get("date_added") and len(ts) >= 10:
+        track["date_added"] = ts[:10]
+    if not track.get("era") or not track.get("primary_instrument"):
+        track["needs_enrichment"] = True
     return track
 
 

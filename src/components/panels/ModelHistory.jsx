@@ -109,7 +109,7 @@ export default function ModelHistory({ data }) {
             const idx = items[0]?.dataIndex;
             if (idx == null) return '';
             const entry = h[idx];
-            const algo = entry.best_model === 'random_forest' ? 'Random Forest' : 'Ridge';
+            const algo = entry.best_model === 'random_forest' ? 'Gradient Boosting' : 'Ridge';
             return `algo: ${algo}`;
           },
         },
@@ -149,7 +149,7 @@ export default function ModelHistory({ data }) {
         spanGaps: false,
       },
       {
-        label: 'Random Forest R²',
+        label: 'Gradient Boosting R²',
         data: h.map(item => item.rf_r_squared ?? null),
         borderColor: RF_COLOR,
         backgroundColor: 'rgba(255, 180, 50, 0.1)',
@@ -216,7 +216,7 @@ export default function ModelHistory({ data }) {
       {perModelChartData && (
         <>
           <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
-            Ridge vs Random Forest R²
+            Ridge vs Gradient Boosting R²
           </p>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <div style={{ minWidth: `${minWidth}px`, height: '240px' }}>

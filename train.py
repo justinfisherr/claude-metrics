@@ -47,14 +47,6 @@ LABEL_THRESHOLD = 3
 
 def load_data():
     all_entries = json.loads(TRAINING_DATA_PATH.read_text())
-    today = date.today().isoformat()
-    dirty = False
-    for entry in all_entries:
-        if not entry.get("date_added"):
-            entry["date_added"] = today
-            dirty = True
-    if dirty:
-        TRAINING_DATA_PATH.write_text(json.dumps(all_entries, indent=2, ensure_ascii=False))
     tracks = [t for t in all_entries if t.get("entity_type") != "album"]
     albums = [t for t in all_entries if t.get("entity_type") == "album"]
     return tracks, albums
@@ -1594,6 +1586,8 @@ def main():
                         help="Version notes (why this release)")
     parser.add_argument("--changelog", type=str, nargs="*", default=None,
                         help="List of changes for this version")
+    parser.add_argument("--strict", action="store_true",
+                        help="Fail if any track is missing era or primary instrument")
     args = parser.parse_args()
 
     print("Loading data...")
@@ -1604,6 +1598,16 @@ def main():
         print(f"  Fetched ReccoBeats features for {synced} new track(s)")
     tracks, albums = load_data()
     print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
+
+    critical_missing = [t for t in tracks if not t.get("era") or not t.get("primary_instrument")]
+    soft_missing = [t for t in tracks if not t.get("key_players") or not t.get("label") or not t.get("subgenres") or not t.get("moods")]
+    print(f"Data quality: {len(critical_missing)} missing era/instrument, {len(soft_missing)} missing player/label/subgenre/mood")
+    if critical_missing:
+        print("  Critical gaps:")
+        for t in critical_missing[:20]:
+            print(f"    - {t.get('title')} — {t.get('artist')}")
+        if args.strict:
+            raise SystemExit(f"Refusing to train: {len(critical_missing)} track(s) missing era or primary instrument. Run enrich_tracks.py first.")
 
     print("Engineering features...")
     X, y, feature_names, common_subgenres, common_labels = engineer_features(tracks)
@@ -1693,6 +1697,12 @@ def main():
             "subgenre_threshold": SUBGENRE_THRESHOLD,
             "best_model": best,
             "feature_count": X.shape[1],
+            "data_quality": {
+                "missing_era": sum(1 for t in tracks if not t.get("era")),
+                "missing_primary_instrument": sum(1 for t in tracks if not t.get("primary_instrument")),
+                "missing_key_players": sum(1 for t in tracks if not t.get("key_players")),
+                "needs_enrichment": sum(1 for t in tracks if t.get("needs_enrichment")),
+            },
         },
         "models": {
             "ridge": model_results["ridge"],

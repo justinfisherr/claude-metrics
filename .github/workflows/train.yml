@@ -60,7 +60,7 @@ jobs:
           [ "$MAJOR" = "true" ] && args+=(--major)
           [ -n "$NAME" ] && args+=(--name "$NAME")
           [ -n "$NOTES" ] && args+=(--notes "$NOTES")
-          python3 train.py "${args[@]}"
+          python3 train.py "${args[@]}" --strict
 
       - name: Commit model artifacts
         run: |

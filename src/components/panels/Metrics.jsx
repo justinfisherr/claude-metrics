@@ -6,7 +6,7 @@ export default function Metrics({ data }) {
 
   const models = [
     { key: 'ridge', name: 'Ridge Regression' },
-    { key: 'random_forest', name: 'Random Forest' },
+    { key: 'random_forest', name: 'Gradient Boosting' },
   ];
 
   return (
