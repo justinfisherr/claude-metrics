@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '../components/shared/Navigation';
 import { useDashboardData } from '../hooks/useDashboardData';
 import '../styles/playlists.css';
@@ -168,9 +168,9 @@ function PlaylistCard({ playlist }) {
                     </div>
                     <div className="playlist-track-rating-label">Predicted</div>
                   </div>
-                ) : (
+                ) : !t.matched ? (
                   <span className="playlist-track-unrated">Unrated</span>
-                )}
+                ) : null}
               </div>
             </div>
           ))}
@@ -183,49 +183,33 @@ function PlaylistCard({ playlist }) {
 export default function Playlists() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
   const [live, setLive] = useState(null);
-  const [refreshing, setRefreshing] = useState(false);
-  const [refreshMsg, setRefreshMsg] = useState('');
-  const [refreshedAt, setRefreshedAt] = useState(null);
+  const [liveLoading, setLiveLoading] = useState(true);
+  const [liveMsg, setLiveMsg] = useState('');
+  const [liveError, setLiveError] = useState('');
+
+  const loadLive = async () => {
+    setLiveLoading(true);
+    setLiveError('');
+    try {
+      const res = await fetch(`${API}/api/playlists?analyze=1`);
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error || `HTTP ${res.status}`);
+      setLive(body.playlists || []);
+      setLiveMsg(`Live from Spotify · ${body.playlists?.length || 0} jazz playlists · checked against ${data?.meta?.total_tracks || 'your'} rated tracks`);
+    } catch (e) {
+      setLiveError(e.message);
+    } finally {
+      setLiveLoading(false);
+    }
+  };
+
+  useEffect(() => { loadLive(); }, []);
 
   if (loading) return <div style={{ padding: 40, color: 'var(--muted)' }}>Loading...</div>;
   if (error) return <div style={{ padding: 40, color: 'var(--bad)' }}>Error: {error}</div>;
 
   const playlists = data?.playlists || [];
   const shown = live || playlists;
-
-  async function refreshPlaylists() {
-    setRefreshing(true);
-    setRefreshMsg('');
-    const results = await Promise.allSettled(playlists.map(async (pl) => {
-      const res = await fetch(`${API}/api/playlist?id=${encodeURIComponent(pl.id)}`);
-      const body = await res.json();
-      if (!res.ok) throw new Error(body.error || `HTTP ${res.status}`);
-      const tracks = (body.tracks || []).map((t) => ({
-        title: t.title,
-        artist: t.artist,
-        matched: !!(t.reviewed || t.rating != null),
-        actual: t.rating,
-        predicted: t.score,
-      }));
-      const preds = tracks.map((t) => t.predicted).filter((n) => typeof n === 'number');
-      const actuals = tracks.filter((t) => t.actual != null).map((t) => t.actual);
-      return {
-        ...pl,
-        name: body.name || pl.name,
-        track_count: tracks.length,
-        matched_count: actuals.length,
-        avg_predicted: preds.length ? preds.reduce((a, b) => a + b, 0) / preds.length : null,
-        avg_actual: actuals.length ? actuals.reduce((a, b) => a + b, 0) / actuals.length : null,
-        tracks,
-      };
-    }));
-    const next = results.map((r, i) => (r.status === 'fulfilled' ? r.value : playlists[i]));
-    const failed = results.filter((r) => r.status === 'rejected').length;
-    setLive(next);
-    setRefreshedAt(new Date());
-    setRefreshMsg(failed ? `Refreshed ${next.length - failed} of ${next.length} playlists — ${failed} unavailable.` : `Refreshed ${next.length} playlists from Spotify.`);
-    setRefreshing(false);
-  }
   const loadableVersions = manifest
     ? manifest.versions.filter(v => v.is_major || v.version === manifest.current_version)
     : [];
@@ -237,8 +221,8 @@ export default function Playlists() {
         <div className="playlists-header">
           <h1>Your Jazz Playlists</h1>
           <p className="subtitle">
-            How your curated playlists perform against the taste model.
-            Each playlist is matched against your rated tracks to show predicted and actual scores.
+            Your jazz playlists, checked against the rated tracks in your database.
+            Matched scores come from your ratings; unmatched tracks are shown as unrated.
           </p>
           {loadableVersions.length > 1 && (
             <div style={{ marginTop: '12px' }}>
@@ -258,12 +242,13 @@ export default function Playlists() {
           <div className="playlists-refresh">
             <button
               className="pl-refresh"
-              onClick={refreshPlaylists}
-              disabled={refreshing || !playlists.length}
+              onClick={loadLive}
+              disabled={liveLoading}
             >
-              {refreshing ? 'Pulling from Spotify…' : 'Refresh from Spotify'}
+              {liveLoading ? 'Checking Spotify…' : 'Refresh from Spotify'}
             </button>
-            {refreshMsg && <p className="playlists-refresh-msg">{refreshMsg}{refreshedAt ? ` · ${refreshedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : ''}</p>}
+            {liveMsg && <p className="playlists-refresh-msg">{liveMsg}</p>}
+            {liveError && <p className="playlists-refresh-msg search-error">{liveError}</p>}
           </div>
         </div>
 

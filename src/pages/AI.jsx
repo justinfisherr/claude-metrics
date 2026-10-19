@@ -39,7 +39,85 @@ function scoreColor(score) {
   return 'var(--bad)';
 }
 
-function TrackCard({ rec, onReviewed }) {
+const HeartIcon = ({ filled }) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8Z" />
+  </svg>
+)
+
+function LikeMenu({ rec, playlists, loading, error, onLiked }) {
+  const { ensureAuthed } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(null);
+  const [msg, setMsg] = useState('');
+  const [addError, setAddError] = useState('');
+  const wrapRef = useRef(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const close = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false); };
+    document.addEventListener('pointerdown', close);
+    return () => document.removeEventListener('pointerdown', close);
+  }, [open]);
+
+  const add = async (playlist) => {
+    if (!(await ensureAuthed())) return;
+    setBusy(playlist.id);
+    setAddError('');
+    try {
+      const res = await fetch(`${API}/api/playlist/add`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+        body: JSON.stringify({
+          playlist_id: playlist.id,
+          spotify_id: rec.spotify_id,
+          title: rec.title,
+          artist: rec.artist,
+          album: rec.album,
+          year: rec.year,
+        }),
+      });
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error || 'Could not add track');
+      setMsg(`Added to ${playlist.name}`);
+      onLiked?.(rec, playlist.name);
+      setOpen(false);
+    } catch (e) {
+      setAddError(e.message);
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  return (
+    <div className="like-wrap" ref={wrapRef}>
+      <button className={`ai-like${rec.liked ? ' on' : ''}`} onClick={() => setOpen((v) => !v)} disabled={!rec.spotify_id}>
+        <HeartIcon filled={rec.liked} /> {rec.liked ? 'Liked' : 'Like to playlist'}
+      </button>
+      {open ? (
+        <div className="like-menu">
+          <div className="like-menu-head">Add to a playlist</div>
+          {loading ? <div className="like-empty">Loading playlists…</div> : null}
+          {error ? <div className="like-empty like-error">{error}</div> : null}
+          {!loading && !error && playlists?.length === 0 ? <div className="like-empty">No jazz playlists found.</div> : null}
+          {!loading && !error ? playlists?.map((pl) => (
+            <button key={pl.id} className="like-playlist" onClick={() => add(pl)} disabled={!!busy}>
+              {pl.image ? <img src={pl.image} alt="" /> : <span className="like-art-empty">{pl.special === 'liked' ? <HeartIcon filled /> : '♪'}</span>}
+              <span className="like-playlist-name">{pl.name}</span>
+              <span className="like-playlist-count">{pl.track_count}</span>
+              {busy === pl.id ? <span className="like-busy">…</span> : null}
+            </button>
+          )) : null}
+          {addError ? <div className="like-empty like-error">{addError}</div> : null}
+          <a className="like-manage" href="#/playlists">Manage playlists →</a>
+        </div>
+      ) : null}
+      {msg ? <span className="like-msg">{msg}</span> : null}
+    </div>
+  );
+}
+
+function TrackCard({ rec, playlists, playlistsLoading, playlistsError, onReviewed, onLiked }) {
   const verdict = rec.score >= 8.5 ? 'Strong recommend' : rec.score >= 7 ? 'Recommend' : rec.score >= 5.5 ? 'Maybe' : 'Skip';
   return (
     <article className="ai-card">
@@ -66,6 +144,7 @@ function TrackCard({ rec, onReviewed }) {
       {rec.score < 5.5 ? <p className="ai-caveat">The model is not convinced — treat this as an exploration pick, not a safe bet.</p> : null}
 
       <div className="ai-actions">
+        <LikeMenu rec={rec} playlists={playlists} loading={playlistsLoading} error={playlistsError} onLiked={onLiked} />
         {rec.spotify_id ? <a className="ai-link" href={appUri('track', rec.spotify_id)}>Open in Spotify app</a> : null}
         <a className="ai-link" href={`#/review?${new URLSearchParams({ title: rec.title, artist: rec.artist, spotify_id: rec.spotify_id || '' }).toString()}`}>Full review page →</a>
       </div>
@@ -194,8 +273,28 @@ export default function AI() {
   const [error, setError] = useState('');
   const [playError, setPlayError] = useState('');
   const [result, setResult] = useState(boot.result);
+  const [playlists, setPlaylists] = useState(null);
+  const [playlistsLoading, setPlaylistsLoading] = useState(false);
+  const [playlistsError, setPlaylistsError] = useState('');
   const player = useSpotifyPlayer({ enabled: authed });
   const restoring = useRef(false);
+
+  useEffect(() => {
+    if (!authed) return;
+    let alive = true;
+    setPlaylistsLoading(true);
+    fetch(`${API}/api/playlists`, { headers: authHeaders() })
+      .then((res) => res.json().then((body) => ({ ok: res.ok, body })))
+      .then(({ ok, body }) => {
+        if (!alive) return;
+        if (!ok) throw new Error(body.error || 'Could not load playlists');
+        setPlaylists(body.playlists || []);
+        setPlaylistsError('');
+      })
+      .catch((e) => { if (alive) setPlaylistsError(e.message); })
+      .finally(() => { if (alive) setPlaylistsLoading(false); });
+    return () => { alive = false; };
+  }, [authed]);
 
   useEffect(() => {
     const store = loadStore();
@@ -265,6 +364,15 @@ export default function AI() {
       setLoading(false);
     }
   }, [ensureAuthed, kind, prompt, result]);
+
+  const markLiked = (rec, playlistName) => {
+    setResult((prev) => prev ? {
+      ...prev,
+      recommendations: prev.recommendations.map((r) => (
+        r.title === rec.title && r.artist === rec.artist ? { ...r, liked: true, likedPlaylist: playlistName } : r
+      )),
+    } : prev);
+  };
 
   const markReviewed = (rec, rating) => {
     setResult((prev) => prev ? {
@@ -347,7 +455,7 @@ export default function AI() {
             {playError ? <p className="ai-note ai-play-error">{playError}</p> : null}
             <div className="ai-grid">
               {result.recommendations.map((rec) => (
-                kind === 'track' ? <TrackCard key={`${rec.title}-${rec.artist}`} rec={rec} onReviewed={markReviewed} /> :
+                kind === 'track' ? <TrackCard key={`${rec.title}-${rec.artist}`} rec={rec} playlists={playlists} playlistsLoading={playlistsLoading} playlistsError={playlistsError} onReviewed={markReviewed} onLiked={markLiked} /> :
                 kind === 'album' ? <AlbumCard key={rec.id || rec.name} rec={rec} /> :
                 <PlaylistCard key={rec.spotify_id || rec.title} rec={rec} />
               ))}

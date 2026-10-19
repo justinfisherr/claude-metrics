@@ -181,3 +181,44 @@
   .save-tags { flex: 1; }
   .remove-review { border: 0; background: none; padding: 9px 4px; }
 }
+
+/* Like-to-playlist */
+.like-wrap { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; }
+.ai-like {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: none; border: 1px solid var(--border-strong); border-radius: 999px;
+  color: var(--muted); padding: 6px 11px; font: inherit; font-size: 0.76rem; font-weight: 700; cursor: pointer;
+}
+.ai-like:hover { color: var(--text); border-color: var(--accent); }
+.ai-like.on { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.ai-like:disabled { opacity: 0.45; cursor: default; }
+.like-menu {
+  position: absolute; left: 0; top: calc(100% + 6px); z-index: 80;
+  width: min(300px, calc(100vw - 52px)); max-height: 300px; overflow-y: auto;
+  background: var(--panel-2); border: 1px solid var(--border-strong); border-radius: 12px;
+  box-shadow: var(--shadow); padding: 6px;
+}
+.like-menu-head { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted-2); padding: 6px 8px; }
+.like-playlist {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 7px 8px; border: none; background: none; color: var(--text);
+  border-radius: 7px; font: inherit; font-size: 0.78rem; text-align: left; cursor: pointer;
+}
+.like-playlist:hover { background: rgba(242, 236, 223, 0.06); }
+.like-playlist:disabled { opacity: 0.6; cursor: default; }
+.like-playlist img, .like-art-empty {
+  width: 28px; height: 28px; border-radius: 4px; flex: none; object-fit: cover;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--panel); color: var(--accent); border: 1px solid var(--border);
+}
+.like-playlist-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.like-playlist-count { color: var(--muted-2); font-size: 0.68rem; font-variant-numeric: tabular-nums; }
+.like-busy { color: var(--accent); }
+.like-manage {
+  display: block; margin-top: 4px; padding: 8px; border-top: 1px solid var(--border);
+  color: var(--accent); text-decoration: none; font-size: 0.72rem; font-weight: 700;
+}
+.like-manage:hover { text-decoration: underline; }
+.like-msg { margin-top: 4px; color: var(--good); font-size: 0.7rem; }
+.like-empty { padding: 8px; color: var(--muted); font-size: 0.75rem; }
+.like-error { color: var(--warning); }
