@@ -4,6 +4,7 @@ import Navigation from '../components/shared/Navigation';
 import moodAxes from '../../mood-axes.json';
 import { authHeaders } from '../lib/auth';
 import { useAuth } from '../lib/authContext';
+import RatingSlider from '../components/shared/RatingSlider';
 import '../styles/review.css';
 
 const API = 'https://jazz-score-api.vercel.app';
@@ -254,15 +255,7 @@ export default function Review() {
           </div>
 
           <div className="form-group">
-            <label>Rating</label>
-            <div className="slider-group">
-              <input
-                type="range" min="1" max="10" step="0.5"
-                value={rating}
-                onChange={e => setRating(parseFloat(e.target.value))}
-              />
-              <span className="slider-value">{rating}</span>
-            </div>
+            <RatingSlider value={rating} onChange={setRating} label="Rating" />
           </div>
 
           <div className="form-group">

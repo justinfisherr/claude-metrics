@@ -3,6 +3,7 @@ import Navigation from '../components/shared/Navigation';
 import TrackReviewPanel from '../components/TrackReviewPanel';
 import { useAuth } from '../lib/authContext';
 import { authHeaders } from '../lib/auth';
+import '../styles/search.css';
 import '../styles/ai.css';
 
 const API = 'https://jazz-score-api.vercel.app';
@@ -178,7 +179,7 @@ export default function AI() {
       const res = await fetch(`${API}/api/recommend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
-        body: JSON.stringify({ kind, prompt: prompt.trim(), count: kind === 'track' ? 3 : 2 }),
+        body: JSON.stringify({ kind, prompt: prompt.trim(), count: kind === 'track' ? 10 : 2 }),
       });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error || `HTTP ${res.status}`);

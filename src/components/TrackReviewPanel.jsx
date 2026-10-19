@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { authHeaders } from '../lib/auth';
 import { useAuth } from '../lib/authContext';
+import RatingSlider from './shared/RatingSlider';
 
 const API = 'https://jazz-score-api.vercel.app';
 
@@ -65,19 +66,12 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
 
   return (
     <div className="inline-review">
-      <div className="rate-row">
-        <span className="rate-label">{initialRating != null ? 'Your rating:' : 'Rate:'}</span>
-        <input
-          type="range"
-          min="1"
-          max="10"
-          step="0.5"
-          value={rating}
-          onChange={(e) => setRating(parseFloat(e.target.value))}
-          className="review-slider"
-          aria-label="Rating"
-        />
-        <span className="slider-value">{formatRating(rating)}</span>
+      <RatingSlider
+        value={rating}
+        onChange={setRating}
+        label={initialRating != null ? 'Your rating' : 'Rate'}
+      />
+      <div className="review-feedback">
         {savedMsg ? <span className="rate-done">{savedMsg}</span> : null}
         {error ? <span className="search-error">{error}</span> : null}
       </div>
