@@ -1,5 +1,5 @@
 {
-  "current_version": "10.10",
+  "current_version": "10.11",
   "versions": [
     {
       "version": "1.00",
@@ -1568,6 +1568,32 @@
       "rf_r_squared": 0.8018,
       "rf_rmse": 0.9472,
       "notes": "Backfilled app-logged metadata, merged duplicate Spotify IDs, and added strict data-quality gate",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.11",
+      "name": "Enriched II",
+      "major": 10,
+      "minor": 11,
+      "run_date": "2026-10-19T08:49:08.091398",
+      "dataset_size": 439,
+      "best_model": "random_forest",
+      "r_squared": 0.7959,
+      "rmse": 0.9611,
+      "mae": 0.6852,
+      "feature_count": 167,
+      "best_k": 3,
+      "ridge_r_squared": 0.4797,
+      "ridge_rmse": 1.5345,
+      "rf_r_squared": 0.7959,
+      "rf_rmse": 0.9611,
+      "notes": "Second pass: fill remaining key players and soft metadata",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,

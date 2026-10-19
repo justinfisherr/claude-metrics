@@ -4244,7 +4244,15 @@
       "tempo_bpm": 60,
       "duration_s": 255,
       "popularity": 69,
-      "time_signature": 4
+      "time_signature": 4,
+      "acousticness": 0.936,
+      "danceability": 0.464,
+      "spotify_energy": 0.305,
+      "instrumentalness": 0.0848,
+      "liveness": 0.208,
+      "loudness": -12.435,
+      "speechiness": 0.0316,
+      "spotify_valence": 0.281
     },
     "discovered_from": "self",
     "instrumentation": [
@@ -23021,7 +23029,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "drums"
+    "primary_instrument": "drums",
+    "audio_features": {
+      "acousticness": 0.78,
+      "danceability": 0.308,
+      "spotify_energy": 0.386,
+      "instrumentalness": 1.17e-05,
+      "liveness": 0.385,
+      "loudness": -14.835,
+      "speechiness": 0.0394,
+      "spotify_valence": 0.562
+    }
   },
   {
     "era": "Hard Bop",
@@ -23063,7 +23081,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone"
+    "primary_instrument": "tenor saxophone",
+    "audio_features": {
+      "acousticness": 0.985,
+      "danceability": 0.479,
+      "spotify_energy": 0.191,
+      "instrumentalness": 0.51,
+      "liveness": 0.109,
+      "loudness": -10.319,
+      "speechiness": 0.0384,
+      "spotify_valence": 0.164
+    }
   },
   {
     "era": "Cool Jazz",
@@ -23112,7 +23140,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.932,
+      "danceability": 0.488,
+      "spotify_energy": 0.176,
+      "instrumentalness": 0.00345,
+      "liveness": 0.0935,
+      "loudness": -15.979,
+      "speechiness": 0.0399,
+      "spotify_valence": 0.497
+    }
   },
   {
     "era": "Hard Bop",
@@ -23206,7 +23244,17 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "alto saxophone"
+    "primary_instrument": "alto saxophone",
+    "audio_features": {
+      "acousticness": 0.185,
+      "danceability": 0.576,
+      "spotify_energy": 0.422,
+      "instrumentalness": 0.244,
+      "liveness": 0.264,
+      "loudness": -11.277,
+      "speechiness": 0.0594,
+      "spotify_valence": 0.57
+    }
   },
   {
     "era": "Contemporary",
@@ -23265,7 +23313,17 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "tenor saxophone"
+    "primary_instrument": "tenor saxophone",
+    "audio_features": {
+      "acousticness": 0.0829,
+      "danceability": 0.312,
+      "spotify_energy": 0.767,
+      "instrumentalness": 0.841,
+      "liveness": 0.04,
+      "loudness": -7.514,
+      "speechiness": 0.157,
+      "spotify_valence": 0.553
+    }
   },
   {
     "era": "Post-Bop",
@@ -23361,7 +23419,17 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.942,
+      "danceability": 0.381,
+      "spotify_energy": 0.187,
+      "instrumentalness": 0.135,
+      "liveness": 0.161,
+      "loudness": -13.497,
+      "speechiness": 0.0322,
+      "spotify_valence": 0.215
+    }
   },
   {
     "era": "Spiritual Jazz",
@@ -23488,7 +23556,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "alto saxophone"
+    "primary_instrument": "alto saxophone",
+    "audio_features": {
+      "acousticness": 0.962,
+      "danceability": 0.339,
+      "spotify_energy": 0.342,
+      "instrumentalness": 0.319,
+      "liveness": 0.162,
+      "loudness": -7.596,
+      "speechiness": 0.0313,
+      "spotify_valence": 0.393
+    }
   },
   {
     "year": 2008,
@@ -23539,7 +23617,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.149,
+      "danceability": 0.701,
+      "spotify_energy": 0.445,
+      "instrumentalness": 0.59,
+      "liveness": 0.0963,
+      "loudness": -10.583,
+      "speechiness": 0.0834,
+      "spotify_valence": 0.405
+    }
   },
   {
     "era": "Contemporary",
@@ -23580,7 +23668,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.802,
+      "danceability": 0.457,
+      "spotify_energy": 0.264,
+      "instrumentalness": 0.736,
+      "liveness": 0.092,
+      "loudness": -13.703,
+      "speechiness": 0.0301,
+      "spotify_valence": 0.14
+    }
   },
   {
     "era": "Contemporary",
@@ -23621,7 +23719,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.955,
+      "danceability": 0.416,
+      "spotify_energy": 0.124,
+      "instrumentalness": 0.616,
+      "liveness": 0.163,
+      "loudness": -14.572,
+      "speechiness": 0.0327,
+      "spotify_valence": 0.155
+    }
   },
   {
     "era": "Hard Bop",
@@ -23666,7 +23774,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.865,
+      "danceability": 0.587,
+      "spotify_energy": 0.43,
+      "instrumentalness": 0.00847,
+      "liveness": 0.134,
+      "loudness": -10.952,
+      "speechiness": 0.0343,
+      "spotify_valence": 0.825
+    }
   },
   {
     "era": "Cool Jazz",
@@ -23799,7 +23917,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.357,
+      "danceability": 0.658,
+      "spotify_energy": 0.501,
+      "instrumentalness": 0.0211,
+      "liveness": 0.0727,
+      "loudness": -8.174,
+      "speechiness": 0.0333,
+      "spotify_valence": 0.528
+    }
   },
   {
     "era": "Cool Jazz",
@@ -23890,7 +24018,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.979,
+      "danceability": 0.524,
+      "spotify_energy": 0.123,
+      "instrumentalness": 0.676,
+      "liveness": 0.103,
+      "loudness": -15.183,
+      "speechiness": 0.0513,
+      "spotify_valence": 0.238
+    }
   },
   {
     "era": "Post-Bop",
@@ -23935,7 +24073,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.96,
+      "danceability": 0.488,
+      "spotify_energy": 0.125,
+      "instrumentalness": 0.775,
+      "liveness": 0.129,
+      "loudness": -15.265,
+      "speechiness": 0.0425,
+      "spotify_valence": 0.313
+    }
   },
   {
     "era": "Post-Bop",
@@ -23980,7 +24128,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.862,
+      "danceability": 0.443,
+      "spotify_energy": 0.18,
+      "instrumentalness": 0.0383,
+      "liveness": 0.102,
+      "loudness": -16.562,
+      "speechiness": 0.0389,
+      "spotify_valence": 0.131
+    }
   },
   {
     "era": "Post-Bop",
@@ -24025,7 +24183,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.91,
+      "danceability": 0.513,
+      "spotify_energy": 0.395,
+      "instrumentalness": 0.427,
+      "liveness": 0.103,
+      "loudness": -13.088,
+      "speechiness": 0.0305,
+      "spotify_valence": 0.322
+    }
   },
   {
     "era": "Soul/Funk",
@@ -24070,7 +24238,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.713,
+      "danceability": 0.398,
+      "spotify_energy": 0.527,
+      "instrumentalness": 0.934,
+      "liveness": 0.119,
+      "loudness": -16.591,
+      "speechiness": 0.0297,
+      "spotify_valence": 0.353
+    }
   },
   {
     "era": "Post-Bop",
@@ -24112,7 +24290,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone"
+    "primary_instrument": "tenor saxophone",
+    "audio_features": {
+      "acousticness": 0.768,
+      "danceability": 0.53,
+      "spotify_energy": 0.454,
+      "instrumentalness": 0.116,
+      "liveness": 0.113,
+      "loudness": -11.19,
+      "speechiness": 0.028,
+      "spotify_valence": 0.492
+    }
   },
   {
     "era": "Post-Bop",
@@ -24156,7 +24344,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.93,
+      "danceability": 0.423,
+      "spotify_energy": 0.119,
+      "instrumentalness": 0.482,
+      "liveness": 0.18,
+      "loudness": -20.354,
+      "speechiness": 0.0334,
+      "spotify_valence": 0.122
+    }
   },
   {
     "era": "Hard Bop",
@@ -24200,7 +24398,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone"
+    "primary_instrument": "tenor saxophone",
+    "audio_features": {
+      "acousticness": 0.45,
+      "danceability": 0.578,
+      "spotify_energy": 0.18,
+      "instrumentalness": 0.0328,
+      "liveness": 0.0918,
+      "loudness": -17.671,
+      "speechiness": 0.0535,
+      "spotify_valence": 0.367
+    }
   },
   {
     "era": "Post-Bop",
@@ -24254,7 +24462,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.975,
+      "danceability": 0.247,
+      "spotify_energy": 0.072,
+      "instrumentalness": 0.631,
+      "liveness": 0.101,
+      "loudness": -13.544,
+      "speechiness": 0.032,
+      "spotify_valence": 0.0872
+    }
   },
   {
     "era": "Hard Bop",
@@ -24303,7 +24521,17 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "tenor saxophone"
+    "primary_instrument": "tenor saxophone",
+    "audio_features": {
+      "acousticness": 0.794,
+      "danceability": 0.539,
+      "spotify_energy": 0.403,
+      "instrumentalness": 0.000613,
+      "liveness": 0.278,
+      "loudness": -9.168,
+      "speechiness": 0.0531,
+      "spotify_valence": 0.699
+    }
   },
   {
     "era": "Post-Bop",
@@ -24348,7 +24576,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.93,
+      "danceability": 0.501,
+      "spotify_energy": 0.301,
+      "instrumentalness": 0.937,
+      "liveness": 0.11,
+      "loudness": -14.938,
+      "speechiness": 0.0285,
+      "spotify_valence": 0.36
+    }
   },
   {
     "era": "Cool Jazz",
@@ -24397,7 +24635,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet"
+    "primary_instrument": "trumpet",
+    "audio_features": {
+      "acousticness": 0.983,
+      "danceability": 0.186,
+      "spotify_energy": 0.0367,
+      "instrumentalness": 0.231,
+      "liveness": 0.103,
+      "loudness": -19.738,
+      "speechiness": 0.0371,
+      "spotify_valence": 0.0731
+    }
   },
   {
     "era": "Bebop",
@@ -24436,7 +24684,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "alto saxophone"
+    "primary_instrument": "alto saxophone",
+    "audio_features": {
+      "acousticness": 0.961,
+      "danceability": 0.554,
+      "spotify_energy": 0.0787,
+      "instrumentalness": 0.505,
+      "liveness": 0.11,
+      "loudness": -17.683,
+      "speechiness": 0.0458,
+      "spotify_valence": 0.51
+    }
   },
   {
     "era": "Vocal Jazz",
@@ -24480,7 +24738,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "vocals"
+    "primary_instrument": "vocals",
+    "audio_features": {
+      "acousticness": 0.976,
+      "danceability": 0.34,
+      "spotify_energy": 0.209,
+      "instrumentalness": 1.36e-06,
+      "liveness": 0.104,
+      "loudness": -9.312,
+      "speechiness": 0.0288,
+      "spotify_valence": 0.112
+    }
   },
   {
     "era": "Vocal Jazz",
@@ -24523,7 +24791,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "vocals"
+    "primary_instrument": "vocals",
+    "audio_features": {
+      "acousticness": 0.745,
+      "danceability": 0.687,
+      "spotify_energy": 0.51,
+      "instrumentalness": 0.0,
+      "liveness": 0.117,
+      "loudness": -8.501,
+      "speechiness": 0.076,
+      "spotify_valence": 0.666
+    }
   },
   {
     "era": "Post-Bop",
@@ -24566,7 +24844,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone"
+    "primary_instrument": "tenor saxophone",
+    "audio_features": {
+      "acousticness": 0.971,
+      "danceability": 0.446,
+      "spotify_energy": 0.13,
+      "instrumentalness": 0.445,
+      "liveness": 0.108,
+      "loudness": -14.403,
+      "speechiness": 0.0386,
+      "spotify_valence": 0.172
+    }
   },
   {
     "era": "Hard Bop",
@@ -24623,7 +24911,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.636,
+      "danceability": 0.53,
+      "spotify_energy": 0.347,
+      "instrumentalness": 0.0,
+      "liveness": 0.277,
+      "loudness": -12.568,
+      "speechiness": 0.0773,
+      "spotify_valence": 0.351
+    }
   },
   {
     "era": "Hard Bop",
@@ -24677,7 +24975,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.511,
+      "danceability": 0.583,
+      "spotify_energy": 0.364,
+      "instrumentalness": 0.219,
+      "liveness": 0.0654,
+      "loudness": -10.258,
+      "speechiness": 0.0345,
+      "spotify_valence": 0.369
+    }
   },
   {
     "era": "Hard Bop",
@@ -24731,7 +25039,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.596,
+      "danceability": 0.566,
+      "spotify_energy": 0.374,
+      "instrumentalness": 0.0102,
+      "liveness": 0.172,
+      "loudness": -11.194,
+      "speechiness": 0.0507,
+      "spotify_valence": 0.326
+    }
   },
   {
     "era": "Hard Bop",
@@ -24785,7 +25103,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.677,
+      "danceability": 0.536,
+      "spotify_energy": 0.255,
+      "instrumentalness": 0.167,
+      "liveness": 0.115,
+      "loudness": -9.73,
+      "speechiness": 0.0334,
+      "spotify_valence": 0.14
+    }
   },
   {
     "era": "Hard Bop",
@@ -24839,7 +25167,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.988,
+      "danceability": 0.548,
+      "spotify_energy": 0.134,
+      "instrumentalness": 0.902,
+      "liveness": 0.166,
+      "loudness": -16.242,
+      "speechiness": 0.0529,
+      "spotify_valence": 0.0772
+    }
   },
   {
     "era": "Hard Bop",
@@ -24893,7 +25231,17 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.55,
+      "danceability": 0.543,
+      "spotify_energy": 0.534,
+      "instrumentalness": 0.225,
+      "liveness": 0.0586,
+      "loudness": -7.492,
+      "speechiness": 0.0332,
+      "spotify_valence": 0.518
+    }
   },
   {
     "era": "Hard Bop",
@@ -24953,7 +25301,17 @@
       "But Not for Me"
     ],
     "metadata_complete": true,
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.392,
+      "danceability": 0.591,
+      "spotify_energy": 0.554,
+      "instrumentalness": 0.666,
+      "liveness": 0.97,
+      "loudness": -14.071,
+      "speechiness": 0.0944,
+      "spotify_valence": 0.561
+    }
   },
   {
     "era": "Cool Jazz",
@@ -25013,7 +25371,17 @@
       "Surrey with the Fringe on Top"
     ],
     "metadata_complete": true,
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.428,
+      "danceability": 0.465,
+      "spotify_energy": 0.519,
+      "instrumentalness": 0.58,
+      "liveness": 0.698,
+      "loudness": -15.647,
+      "speechiness": 0.0626,
+      "spotify_valence": 0.717
+    }
   },
   {
     "era": "Hard Bop",
@@ -25076,7 +25444,17 @@
       "Moonlight in Vermont"
     ],
     "metadata_complete": true,
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.658,
+      "danceability": 0.427,
+      "spotify_energy": 0.379,
+      "instrumentalness": 0.0667,
+      "liveness": 0.966,
+      "loudness": -18.124,
+      "speechiness": 0.105,
+      "spotify_valence": 0.329
+    }
   },
   {
     "era": "Cool Jazz",
@@ -25123,6 +25501,16 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "piano"
+    "primary_instrument": "piano",
+    "audio_features": {
+      "acousticness": 0.625,
+      "danceability": 0.694,
+      "spotify_energy": 0.665,
+      "instrumentalness": 0.155,
+      "liveness": 0.925,
+      "loudness": -14.045,
+      "speechiness": 0.0528,
+      "spotify_valence": 0.741
+    }
   }
 ]
