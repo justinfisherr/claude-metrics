@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-10-19T23:01:11.992166",
-    "version": "10.12",
+    "generated_at": "2026-10-19T23:08:52.074207",
+    "version": "10.13",
     "is_major": false,
     "total_tracks": 459,
     "total_albums": 17,
@@ -12,7 +12,9 @@
       "missing_era": 0,
       "missing_primary_instrument": 0,
       "missing_key_players": 50,
-      "needs_enrichment": 0
+      "needs_enrichment": 0,
+      "excluded_for_metadata": 0,
+      "excluded_tracks": []
     }
   },
   "models": {
@@ -23658,6 +23660,20 @@
       "ridge_rmse": 1.5345,
       "rf_r_squared": 0.7959,
       "rf_rmse": 0.9611
+    },
+    {
+      "run_date": "2026-10-19",
+      "dataset_size": 459,
+      "best_model": "random_forest",
+      "r_squared": 0.7588,
+      "rmse": 1.0386,
+      "mae": 0.7454,
+      "best_k": 3,
+      "silhouette_score": 0.0603,
+      "ridge_r_squared": 0.4842,
+      "ridge_rmse": 1.5186,
+      "rf_r_squared": 0.7588,
+      "rf_rmse": 1.0386
     },
     {
       "run_date": "2026-10-19",

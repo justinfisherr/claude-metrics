@@ -1,5 +1,5 @@
 {
-  "current_version": "10.12",
+  "current_version": "10.13",
   "versions": [
     {
       "version": "1.00",
@@ -1620,6 +1620,32 @@
       "rf_r_squared": 0.7588,
       "rf_rmse": 1.0386,
       "notes": "Backfill metadata for new app-logged tracks",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.13",
+      "name": "Auto exclude",
+      "major": 10,
+      "minor": 13,
+      "run_date": "2026-10-19T23:08:52.098867",
+      "dataset_size": 459,
+      "best_model": "random_forest",
+      "r_squared": 0.7588,
+      "rmse": 1.0386,
+      "mae": 0.7454,
+      "feature_count": 169,
+      "best_k": 3,
+      "ridge_r_squared": 0.4842,
+      "ridge_rmse": 1.5186,
+      "rf_r_squared": 0.7588,
+      "rf_rmse": 1.0386,
+      "notes": "End-to-end app training with metadata auto-exclusion",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
