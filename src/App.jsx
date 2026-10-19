@@ -6,6 +6,7 @@ import Compare from './pages/Compare';
 import Review from './pages/Review';
 import Dictionary from './pages/Dictionary';
 import Playlists from './pages/Playlists';
+import AI from './pages/AI';
 import Wrapped from './pages/Wrapped';
 import Memories from './pages/Memories';
 import Facts from './pages/Facts';
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/review" element={<Review />} />
           <Route path="/dictionary" element={<Dictionary />} />
           <Route path="/playlists" element={<Playlists />} />
+          <Route path="/ai" element={<AI />} />
           <Route path="/wrapped" element={<Wrapped />} />
           <Route path="/memories" element={<Memories />} />
           <Route path="/facts" element={<Facts />} />
