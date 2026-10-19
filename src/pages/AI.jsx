@@ -3,10 +3,14 @@ import Navigation from '../components/shared/Navigation';
 import TrackReviewPanel from '../components/TrackReviewPanel';
 import { useAuth } from '../lib/authContext';
 import { authHeaders } from '../lib/auth';
+import useSpotifyPlayer from '../hooks/useSpotifyPlayer';
+import SpotifyPlayerBar from '../components/SpotifyPlayerBar';
 import '../styles/search.css';
 import '../styles/ai.css';
 
 const API = 'https://jazz-score-api.vercel.app';
+
+const appUri = (kind, id) => (id ? `spotify:${kind}:${id}` : null);
 
 const KINDS = [
   { key: 'track', label: 'Track' },
@@ -54,7 +58,7 @@ function TrackCard({ rec, onReviewed }) {
       {rec.score < 5.5 ? <p className="ai-caveat">The model is not convinced — treat this as an exploration pick, not a safe bet.</p> : null}
 
       <div className="ai-actions">
-        {rec.url ? <a className="ai-link" href={rec.url} target="_blank" rel="noopener noreferrer">Listen on Spotify ↗</a> : null}
+        {rec.spotify_id ? <a className="ai-link" href={appUri('track', rec.spotify_id)}>Open in Spotify app</a> : null}
         <a className="ai-link" href={`#/review?${new URLSearchParams({ title: rec.title, artist: rec.artist, spotify_id: rec.spotify_id || '' }).toString()}`}>Full review page →</a>
       </div>
 
@@ -118,7 +122,7 @@ function AlbumCard({ rec, onRated }) {
       </div>
       {rec.reason ? <p className="ai-reason">{rec.reason}</p> : null}
       <div className="ai-actions">
-        {rec.url ? <a className="ai-link" href={rec.url} target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a> : null}
+        {rec.id ? <a className="ai-link" href={appUri('album', rec.id)}>Open in Spotify app</a> : null}
         {rec.id ? <a className="ai-link" href={`#/listen?tab=albums&id=${rec.id}`}>Score every track in Listen →</a> : null}
       </div>
       <div className="ai-album-rate">
@@ -155,7 +159,7 @@ function PlaylistCard({ rec }) {
       </div>
       {rec.reason ? <p className="ai-reason">{rec.reason}</p> : null}
       <div className="ai-actions">
-        {rec.url ? <a className="ai-link" href={rec.url} target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a> : null}
+        {rec.id ? <a className="ai-link" href={appUri('album', rec.id)}>Open in Spotify app</a> : null}
         {rec.spotify_id ? <a className="ai-link" href={`#/listen?tab=playlists&id=${rec.spotify_id}`}>Score every track in Listen →</a> : null}
       </div>
     </article>
@@ -168,7 +172,9 @@ export default function AI() {
   const [prompt, setPrompt] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [playError, setPlayError] = useState('');
   const [result, setResult] = useState(null);
+  const player = useSpotifyPlayer();
 
   const ask = useCallback(async () => {
     if (!(await ensureAuthed())) return;
@@ -244,7 +250,24 @@ export default function AI() {
             <div className="ai-result-head">
               <span>{result.recommendations.length} {kind}{result.recommendations.length === 1 ? '' : 's'}</span>
               <span className="ai-model-line">{result.model} · {result.profile?.tracks} tracks in profile</span>
+              {kind === 'track' && result.recommendations.some((r) => r.spotify_id) ? (
+                <button
+                  className="ai-playall"
+                  onClick={async () => {
+                    setPlayError('');
+                    try {
+                      await player.playAll(result.recommendations.filter((r) => r.spotify_id).map((r) => appUri('track', r.spotify_id)));
+                    } catch (e) {
+                      setPlayError(e.message);
+                    }
+                  }}
+                  disabled={!player.ready}
+                >
+                  {player.ready ? `Play all ${result.recommendations.filter((r) => r.spotify_id).length} in order` : 'Connecting player…'}
+                </button>
+              ) : null}
             </div>
+            {playError ? <p className="ai-note ai-play-error">{playError}</p> : null}
             <div className="ai-grid">
               {result.recommendations.map((rec) => (
                 kind === 'track' ? <TrackCard key={`${rec.title}-${rec.artist}`} rec={rec} onReviewed={markReviewed} /> :
@@ -258,6 +281,8 @@ export default function AI() {
         {result && !result.recommendations?.length && !result.message ? (
           <p className="ai-note">No picks came back. Try a more specific prompt.</p>
         ) : null}
+
+        <SpotifyPlayerBar player={player} />
       </main>
     </>
   );
