@@ -45,6 +45,7 @@ import BalladAnalysis from '../components/panels/BalladAnalysis';
 import FeatureConfidenceMetrics from '../components/panels/FeatureConfidenceMetrics';
 import DataQualityReport from '../components/panels/DataQualityReport';
 import CollaboratorNetwork from '../components/panels/CollaboratorNetwork';
+import TrainModel from '../components/panels/TrainModel';
 
 export default function Dashboard() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
@@ -58,7 +59,6 @@ export default function Dashboard() {
       <Navigation showSections={true} />
       <main className="wrapper">
         <header className="page-header">
-          <p className="eyebrow">Taste model dashboard</p>
           <h1>Jazz Taste Analysis</h1>
           <p className="subtitle">
             Model trained on <strong>{data?.meta?.total_tracks ?? '—'}</strong> rated tracks.
@@ -108,6 +108,7 @@ export default function Dashboard() {
             {/* Overview */}
             <TasteSummary data={data} />
             <Changelog />
+            <TrainModel />
             <Metrics data={data} />
             {/* Patterns */}
             <ClusterScatter data={data} />

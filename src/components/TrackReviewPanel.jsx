@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { authHeaders } from '../lib/auth';
+import { useAuth } from '../lib/authContext';
 
 const API = 'https://jazz-score-api.vercel.app';
 
@@ -9,17 +11,19 @@ function formatRating(r) {
 }
 
 export default function TrackReviewPanel({ title, artist, spotifyId, year, initialRating, initialNotes, onSaved, onRemoved }) {
+  const { ensureAuthed } = useAuth();
   const [rating, setRating] = useState(initialRating ?? 5);
   const [notes, setNotes] = useState(initialNotes ?? '');
   const [savedMsg, setSavedMsg] = useState(null);
   const [error, setError] = useState(null);
 
   async function saveReview() {
+    if (!(await ensureAuthed())) return;
     setSavedMsg(null);
     try {
       const res = await fetch(`${API}/api/rate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({
           title,
           artist,
@@ -40,11 +44,12 @@ export default function TrackReviewPanel({ title, artist, spotifyId, year, initi
 
   async function removeReview() {
     if (!window.confirm(`Remove your review of "${title}"?`)) return;
+    if (!(await ensureAuthed())) return;
     setSavedMsg(null);
     try {
       const res = await fetch(`${API}/api/rate/delete`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({ title, artist }),
       });
       const data = await res.json();

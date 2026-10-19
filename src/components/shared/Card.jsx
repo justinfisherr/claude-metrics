@@ -7,7 +7,7 @@ export default function Card({ title, content, accent }) {
       padding: '14px',
     }}>
       <div style={{
-        fontSize: '0.65rem', fontWeight: 800, textTransform: 'uppercase',
+        fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase',
         letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '6px'
       }}>{title}</div>
       <div style={{ fontSize: '0.88rem', color: accent || 'var(--text)', lineHeight: 1.5 }}>

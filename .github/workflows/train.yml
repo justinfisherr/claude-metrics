@@ -1,0 +1,98 @@
+name: Train taste model
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Release codename (optional)'
+        required: false
+        default: ''
+      major:
+        description: 'Major release (snapshot to versions/)'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+      notes:
+        description: 'Why this release (optional)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: train-model
+  cancel-in-progress: false
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.JAZZ_DATABASE_URL }}
+      GH_PAT: ${{ secrets.GH_PAT }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: team_zXzMunM9NwscXMx0d5CI9eP3
+      NAME: ${{ inputs.name }}
+      MAJOR: ${{ inputs.major }}
+      NOTES: ${{ inputs.notes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt psycopg2-binary
+
+      - name: Fold pending reviews and pull live dataset
+        run: |
+          python3 merge_pending.py
+          python3 pull_dataset.py
+
+      - name: Train model
+        run: |
+          args=()
+          [ "$MAJOR" = "true" ] && args+=(--major)
+          [ -n "$NAME" ] && args+=(--name "$NAME")
+          [ -n "$NOTES" ] && args+=(--notes "$NOTES")
+          python3 train.py "${args[@]}"
+
+      - name: Commit model artifacts
+        run: |
+          git config user.name "train-bot"
+          git config user.email "train-bot@users.noreply.github.com"
+          git add dashboard-data.json versions.json versions model.joblib training-data.json
+          if git diff --cached --quiet; then
+            echo "No artifact changes to commit"
+          else
+            git commit -m "Retrain model${NAME:+ — $NAME}"
+            git push origin HEAD:main
+          fi
+
+      - name: Deploy dashboard
+        env:
+          VERCEL_PROJECT_ID: prj_Vko0P4s9DA344MyCgNYKKMkhV9wd
+        run: npx vercel@latest --prod --yes --token="$VERCEL_TOKEN" --build-env VITE_BASE_URL=/
+
+      - name: Sync scoring API model and deploy
+        env:
+          VERCEL_PROJECT_ID: prj_8a9RkaDYABtJNM4KDAfwfTVqD5sS
+        run: |
+          git clone "https://x-access-token:${GH_PAT}@github.com/justinfisherr/jazz-score-api.git" /tmp/score-api
+          cp model.joblib training-data.json /tmp/score-api/
+          cd /tmp/score-api
+          git config user.name "train-bot"
+          git config user.email "train-bot@users.noreply.github.com"
+          git add model.joblib training-data.json
+          if git diff --cached --quiet; then
+            echo "Scoring API already current"
+          else
+            git commit -m "Sync model artifacts from claude-metrics"
+            git push origin HEAD:main
+          fi
+          npx vercel@latest --prod --yes --token="$VERCEL_TOKEN"

@@ -66,19 +66,26 @@ export default function FeatureConfidenceMetrics({ data }) {
           Top Artists by Track Count & Confidence
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '0.6rem' }}>
-          {stats.artistCounts.slice(0, 8).map((a, i) => (
+          {stats.artistCounts.slice(0, 8).map((a, i) => {
+            const conf = parseFloat(a.confidence);
+            const confColor = conf > 0.8 ? '#50c878' : conf > 0.5 ? '#ffc832' : '#ff6b6b';
+            return (
             <div key={i} style={{
-              padding: '0.6rem',
-              backgroundColor: 'rgba(93,155,224,0.05)',
-              borderRadius: '0.3rem',
-              borderLeft: `3px solid ${parseFloat(a.confidence) > 0.8 ? '#50c878' : parseFloat(a.confidence) > 0.5 ? '#ffc832' : '#ff6b6b'}`,
+              padding: '10px 0 0',
+              backgroundColor: 'transparent',
+              borderRadius: 0,
+              borderTop: '1px solid var(--border)',
             }}>
-              <div style={{ fontSize: '0.7rem', fontWeight: 'bold', marginBottom: '0.2rem' }}>{a.artist}</div>
+              <div style={{ fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '0.2rem' }}>{a.artist}</div>
               <div style={{ fontSize: '0.8rem', color: '#50c878', fontWeight: 'bold' }}>{a.count}T</div>
-              <div style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>conf: {a.confidence}</div>
-              <div style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>⌀ {a.mean}</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--muted)', display: 'flex', alignItems: 'center', gap: 5 }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: confColor, flex: 'none' }} aria-hidden="true" />
+                conf: {a.confidence}
+              </div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>avg {a.mean}</div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </Panel>

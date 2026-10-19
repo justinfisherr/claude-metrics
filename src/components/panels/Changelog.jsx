@@ -39,10 +39,11 @@ export default function Changelog() {
 
       {active && (
         <div style={{
-          background: 'var(--panel-2)',
-          border: '1px solid var(--border)',
-          borderRadius: 'var(--radius-sm)',
-          padding: '16px',
+          background: 'none',
+          border: 'none',
+          borderTop: '1px solid var(--border)',
+          borderRadius: 0,
+          padding: '14px 0 0',
         }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 8 }}>
             <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--accent)' }}>

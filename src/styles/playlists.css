@@ -91,7 +91,7 @@
 
 .playlist-score-label {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -113,7 +113,7 @@
   border-radius: 999px;
   background: var(--panel-2);
   color: var(--muted);
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
@@ -129,7 +129,7 @@
   color: var(--text);
   line-height: 1.55;
   padding: 12px 14px;
-  border-left: 3px solid var(--accent);
+  border-left: 1px solid var(--accent);
   background: rgba(74, 158, 255, 0.04);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   margin-bottom: 14px;
@@ -157,7 +157,7 @@
 .playlist-expand-arrow {
   display: inline-block;
   transition: transform 0.2s;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 
 .playlist-expand-arrow.open {
@@ -234,7 +234,7 @@
 }
 
 .playlist-track-rating-label {
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   color: var(--muted-2);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -251,7 +251,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--muted);
   text-decoration: none;
   font-weight: 600;
@@ -278,3 +278,10 @@
     display: none;
   }
 }
+
+::placeholder { color: var(--muted); opacity: 1; }
+
+.playlists-refresh { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.playlists-refresh-msg { margin: 0; color: var(--muted); font-size: 0.8rem; }
+.playlist-track-ratings { display: flex; gap: 14px; align-items: center; }
+.playlist-track-rating { text-align: right; }

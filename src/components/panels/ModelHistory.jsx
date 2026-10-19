@@ -204,7 +204,7 @@ export default function ModelHistory({ data }) {
         {majorMarkers.length > 0 && ` Dashed blue lines mark major releases: ${majorMarkers.map(m => m.name).join(', ')}.`}
       </p>
 
-      <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
+      <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
         Best Model (hover shows algo)
       </p>
       <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', marginBottom: '1.5rem' }}>
@@ -215,7 +215,7 @@ export default function ModelHistory({ data }) {
 
       {perModelChartData && (
         <>
-          <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
+          <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
             Ridge vs Random Forest R²
           </p>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>

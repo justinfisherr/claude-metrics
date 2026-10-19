@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from '../components/shared/Navigation';
 import moodAxes from '../../mood-axes.json';
+import { authHeaders } from '../lib/auth';
+import { useAuth } from '../lib/authContext';
 import '../styles/review.css';
 
 const API = 'https://jazz-score-api.vercel.app';
@@ -26,6 +28,7 @@ function ratingColor(r) {
 }
 
 export default function Review() {
+  const { ensureAuthed } = useAuth();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
@@ -121,6 +124,7 @@ export default function Review() {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
+    if (!(await ensureAuthed())) return;
     const review = {
       title: title.trim() || '(untitled)',
       artist: artist.trim() || '(unknown artist)',
@@ -142,7 +146,7 @@ export default function Review() {
     try {
       const res = await fetch(`${API}/api/pending`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify(review),
       });
       const data = await res.json();
@@ -158,10 +162,11 @@ export default function Review() {
   const deleteReview = useCallback(async (index) => {
     const review = reviews[index];
     if (!review) return;
+    if (!(await ensureAuthed())) return;
     try {
       await fetch(`${API}/api/pending/clear`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({ ids: [review.id] }),
       });
     } catch {
@@ -172,10 +177,11 @@ export default function Review() {
 
   const clearAll = useCallback(async () => {
     if (!window.confirm('Clear all pending reviews from the database?')) return;
+    if (!(await ensureAuthed())) return;
     try {
       await fetch(`${API}/api/pending/clear`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({}),
       });
       setReviews([]);

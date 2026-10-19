@@ -99,9 +99,19 @@ export default function Navigation({ showSections = true }) {
 
   return (
     <nav className="section-nav">
+      <Link to="/" className="nav-brand" aria-label="Jazz Taste Analysis home">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 18V5l12-2v13" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+          <circle cx="6" cy="18" r="3" fill="currentColor" />
+          <circle cx="18" cy="16" r="3" fill="currentColor" />
+        </svg>
+        <span>Jazz Taste</span>
+      </Link>
       <button
         className="hamburger-btn"
         onClick={e => { e.stopPropagation(); setMenuOpen(!menuOpen); }}
+        aria-label="Open page menu"
+        aria-expanded={menuOpen}
       >
         <span /><span /><span />
       </button>

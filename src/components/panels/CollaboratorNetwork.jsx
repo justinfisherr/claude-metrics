@@ -40,9 +40,9 @@ function sentimentText(bayes, global) {
 function StatRow({ label, value, color, sub }) {
   return (
     <div style={{ marginBottom: '0.5rem' }}>
-      <span style={{ fontSize: '0.68rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>{label} </span>
+      <span style={{ fontSize: '0.75rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>{label} </span>
       <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: color || 'var(--text)' }}>{value}</span>
-      {sub && <span style={{ fontSize: '0.68rem', color: 'var(--muted)', marginLeft: '0.3rem' }}>{sub}</span>}
+      {sub && <span style={{ fontSize: '0.75rem', color: 'var(--muted)', marginLeft: '0.3rem' }}>{sub}</span>}
     </div>
   );
 }
@@ -93,7 +93,7 @@ function HelpPanel({ onClose }) {
       borderRadius: '0.5rem', padding: '1rem', width: '260px',
       boxShadow: '0 4px 16px rgba(0,0,0,0.5)', fontSize: '0.75rem', color: '#d7e6f7',
     }}>
-      <div style={{ fontWeight: 800, fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.8rem', color: 'var(--muted)' }}>
+      <div style={{ fontWeight: 800, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.8rem', color: 'var(--muted)' }}>
         How to read this
       </div>
       {[
@@ -117,7 +117,7 @@ function HelpPanel({ onClose }) {
       <div style={{ borderTop: '1px solid var(--border-faint)', paddingTop: '0.6rem', marginTop: '0.4rem', color: 'var(--muted)', fontStyle: 'italic' }}>
         Stats shown here are dashboard summaries (full sample), not LOO-encoded training values.
       </div>
-      <button onClick={onClose} style={{ marginTop: '0.8rem', background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.7rem', width: '100%' }}>
+      <button onClick={onClose} style={{ marginTop: '0.8rem', background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.75rem', width: '100%' }}>
         Close
       </button>
     </div>
@@ -489,28 +489,28 @@ export default function CollaboratorNetwork({ data }) {
           }}
         />
         <select value={minTracks} onChange={e => setMinTracks(+e.target.value)}
-          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.72rem' }}>
+          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.75rem' }}>
           {[2, 3, 5, 8].map(v => <option key={v} value={v}>≥{v} tracks</option>)}
         </select>
         <select value={minPairRating} onChange={e => setMinPairRating(+e.target.value)}
-          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.72rem' }}>
+          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.75rem' }}>
           <option value={0}>Any pair rating</option>
           <option value={5}>Pair ≥5.0</option>
           <option value={6}>Pair ≥6.0</option>
           <option value={7}>Pair ≥7.0</option>
         </select>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.72rem', color: 'var(--muted)', cursor: 'pointer' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.75rem', color: 'var(--muted)', cursor: 'pointer' }}>
           <input type="checkbox" checked={highConfOnly} onChange={e => setHighConfOnly(e.target.checked)} />
           High-conf only
         </label>
         <select value={labelMode} onChange={e => setLabelMode(e.target.value)}
-          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.72rem' }}>
+          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.75rem' }}>
           <option value="auto">Labels: auto</option>
           <option value="always">Labels: always</option>
           <option value="hide">Labels: hide</option>
         </select>
         <select value={vizMode} onChange={e => setVizMode(e.target.value)}
-          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.72rem' }}>
+          style={{ background: '#0d1c30', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', padding: '0.3rem 0.5rem', fontSize: '0.75rem' }}>
           <option value="taste">Personal taste</option>
           <option value="historical">Historical (co-appearances)</option>
           <option value="gaps">Exploration gaps</option>
@@ -525,7 +525,7 @@ export default function CollaboratorNetwork({ data }) {
       </div>
 
       {/* Color legend */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.6rem', fontSize: '0.68rem', color: 'var(--muted)' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.6rem', fontSize: '0.75rem', color: 'var(--muted)' }}>
         {vizMode === 'gaps' ? (
           <>
             <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -542,7 +542,7 @@ export default function CollaboratorNetwork({ data }) {
             </span>
           ))
         )}
-        <span style={{ color: 'rgba(93,155,224,0.5)' }}>
+        <span style={{ color: 'var(--muted)' }}>
           {filteredNodes.length} musicians · {filteredLinks.length} edges
           {selectedIds.length === 1 && ' · click another to compare'}
           {selectedIds.length === 2 && ' · click background to clear'}
@@ -561,10 +561,10 @@ export default function CollaboratorNetwork({ data }) {
             boxShadow: '0 2px 10px rgba(0,0,0,0.5)',
           }}>
             <strong style={{ color: pairColor(tooltip.node.bayesRating) }}>{tooltip.node.id}</strong>
-            {tooltip.node.instrument && <span style={{ color: 'var(--muted)', fontWeight: 400, marginLeft: '0.4rem', fontSize: '0.72rem' }}>{tooltip.node.instrument}</span>}
+            {tooltip.node.instrument && <span style={{ color: 'var(--muted)', fontWeight: 400, marginLeft: '0.4rem', fontSize: '0.75rem' }}>{tooltip.node.instrument}</span>}
             <br />
             {tooltip.node.count} tracks · avg {tooltip.node.avgRating.toFixed(1)} · Bayes {tooltip.node.bayesRating.toFixed(2)}<br />
-            <span style={{ color: confLabel(tooltip.node.confidence).color, fontSize: '0.7rem' }}>
+            <span style={{ color: confLabel(tooltip.node.confidence).color, fontSize: '0.75rem' }}>
               {confLabel(tooltip.node.confidence).text} confidence ({(tooltip.node.confidence * 100).toFixed(0)}%)
             </span>
           </div>
@@ -596,16 +596,16 @@ export default function CollaboratorNetwork({ data }) {
                     href={`https://www.google.com/search?q=${encodeURIComponent(m.id + ' jazz ' + (m.instrument || ''))}`}
                     target="_blank"
                     rel="noreferrer"
-                    style={{ fontSize: '0.68rem', color: '#87a2c3', textDecoration: 'none', opacity: 0.7 }}
+                    style={{ fontSize: '0.75rem', color: '#87a2c3', textDecoration: 'none', opacity: 0.7 }}
                     onMouseEnter={e => e.target.style.opacity = 1}
                     onMouseLeave={e => e.target.style.opacity = 0.7}
                   >
                     search ↗
                   </a>
                 </div>
-                <div style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '0.2rem' }}>Click another musician to compare them as a pair</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '0.2rem' }}>Click another musician to compare them as a pair</div>
               </div>
-              <button onClick={() => setSelectedIds([])} style={{ background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.72rem' }}>
+              <button onClick={() => setSelectedIds([])} style={{ background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.75rem' }}>
                 ✕ Clear
               </button>
             </div>
@@ -613,7 +613,7 @@ export default function CollaboratorNetwork({ data }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
               {/* Stats */}
               <div>
-                <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Stats</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Stats</div>
                 <StatRow label="Tracks" value={m.count} />
                 <StatRow label="Avg rating" value={m.avgRating.toFixed(2)} color={pairColor(m.avgRating)} />
                 <StatRow label="Bayesian rating" value={m.bayesRating.toFixed(2)} color={pairColor(m.bayesRating)} sub="(k=15)" />
@@ -622,21 +622,21 @@ export default function CollaboratorNetwork({ data }) {
 
               {/* Top tracks */}
               <div>
-                <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Top Tracks</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Top Tracks</div>
                 {m.tracks.slice(0, 5).map((t, i) => <TrackRow key={i} track={t} predLookup={predLookup} />)}
               </div>
 
               {/* Collaborator rankings */}
               <div>
-                <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem' }}>Most Common Collaborators</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem' }}>Most Common Collaborators</div>
                 {collabList.slice(0, 4).map(([name, d]) => (
                   <CollabRow key={name} name={name} data={d} onClick={() => setSelectedIds([m.id, name])} />
                 ))}
-                <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem', marginTop: '0.8rem' }}>Highest-Rated Pairings</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem', marginTop: '0.8rem' }}>Highest-Rated Pairings</div>
                 {topByRating.slice(0, 3).map(([name, d]) => (
                   <CollabRow key={name} name={name} data={d} onClick={() => setSelectedIds([m.id, name])} />
                 ))}
-                <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem', marginTop: '0.8rem' }}>Lowest-Rated Pairings</div>
+                <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem', marginTop: '0.8rem' }}>Lowest-Rated Pairings</div>
                 {lowByRating.slice(0, 3).map(([name, d]) => (
                   <CollabRow key={name} name={name} data={d} onClick={() => setSelectedIds([m.id, name])} />
                 ))}
@@ -653,10 +653,10 @@ export default function CollaboratorNetwork({ data }) {
                 {showExploration && (
                   <div style={{ marginTop: '0.8rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
                     <div>
-                      <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#a78bfa', marginBottom: '0.4rem' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#a78bfa', marginBottom: '0.4rem' }}>
                         Unexplored 2nd-degree connections
                       </div>
-                      <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
                         Known musicians not yet heard with {m.id.split(' ').slice(-1)[0]}
                       </div>
                       {explorationCandidates.secondDegree.length ? explorationCandidates.secondDegree.map(n => (
@@ -664,13 +664,13 @@ export default function CollaboratorNetwork({ data }) {
                           <span>{n.id}</span>
                           <span style={{ color: pairColor(n.bayesRating) }}>{n.bayesRating.toFixed(1)}</span>
                         </div>
-                      )) : <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>None found</div>}
+                      )) : <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>None found</div>}
                     </div>
                     <div>
-                      <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#a78bfa', marginBottom: '0.4rem' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#a78bfa', marginBottom: '0.4rem' }}>
                         Underconfident pairings
                       </div>
-                      <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
                         Co-appeared but need more data
                       </div>
                       {explorationCandidates.weakPairs.length ? explorationCandidates.weakPairs.map((l, i) => {
@@ -681,14 +681,14 @@ export default function CollaboratorNetwork({ data }) {
                             <span style={{ color: 'var(--muted)' }}>{l.count}T · {(l.pairConfidence * 100).toFixed(0)}% conf</span>
                           </div>
                         );
-                      }) : <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>None found</div>}
+                      }) : <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>None found</div>}
                     </div>
                     {explorationCandidates.missingEras.length > 0 && (
                       <div>
-                        <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#a78bfa', marginBottom: '0.4rem' }}>
+                        <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#a78bfa', marginBottom: '0.4rem' }}>
                           Missing eras
                         </div>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>
                           Eras you haven't heard {m.id.split(' ').slice(-1)[0]} in
                         </div>
                         {explorationCandidates.missingEras.map(era => (
@@ -722,9 +722,9 @@ export default function CollaboratorNetwork({ data }) {
                   <span style={{ color: 'var(--muted)', margin: '0 0.5rem' }}>×</span>
                   <span style={{ color: pairColor(b.bayesRating) }}>{b.id}</span>
                 </div>
-                <div style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '0.2rem' }}>Pair mode — click background to clear</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '0.2rem' }}>Pair mode — click background to clear</div>
               </div>
-              <button onClick={() => setSelectedIds([])} style={{ background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.72rem' }}>
+              <button onClick={() => setSelectedIds([])} style={{ background: 'none', border: '1px solid var(--border-faint)', borderRadius: '0.3rem', color: 'var(--muted)', cursor: 'pointer', padding: '0.3rem 0.6rem', fontSize: '0.75rem' }}>
                 ✕ Clear
               </button>
             </div>
@@ -737,29 +737,29 @@ export default function CollaboratorNetwork({ data }) {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
                   {/* Pair stats */}
                   <div>
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Pair Statistics</div>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Pair Statistics</div>
                     <StatRow label="Shared tracks" value={pe.count} />
                     <StatRow label="Avg rating" value={pe.pairAvgRating.toFixed(2)} color={pairColor(pe.pairAvgRating)} />
                     <StatRow label="Bayesian rating" value={pe.pairBayesRating.toFixed(2)} color={pairColor(pe.pairBayesRating)} sub="(k=15)" />
                     <StatRow label="Confidence" value={`${(pe.pairConfidence * 100).toFixed(0)}%`} color={conf.color} sub={conf.text} />
                     <StatRow label="Rating spread" value={`±${Math.sqrt(pe.pairVariance).toFixed(2)}`} />
-                    <div style={{ marginTop: '0.8rem', padding: '0.5rem 0.7rem', background: 'rgba(93,155,224,0.06)', borderRadius: '0.3rem', borderLeft: `3px solid ${sentiment.color}` }}>
-                      <div style={{ fontSize: '0.68rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>Verdict</div>
+                    <div style={{ marginTop: '0.8rem', padding: '0.5rem 0.7rem', background: 'none', borderRadius: 0, borderTop: '1px solid var(--border)', padding: '0.6rem 0 0' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>Verdict</div>
                       <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: sentiment.color, marginTop: '0.2rem' }}>{sentiment.text}</div>
                     </div>
                   </div>
 
                   {/* Best / worst */}
                   <div>
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Best / Worst</div>
-                    <div style={{ fontSize: '0.72rem', color: 'var(--muted)', marginBottom: '0.3rem' }}>BEST</div>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>Best / Worst</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.3rem' }}>BEST</div>
                     <TrackRow track={pe.pairBestTrack} predLookup={predLookup} />
-                    <div style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '0.8rem', marginBottom: '0.3rem' }}>WORST</div>
+                    <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '0.8rem', marginBottom: '0.3rem' }}>WORST</div>
                     <TrackRow track={pe.pairWorstTrack} predLookup={predLookup} />
                     {sharedConnections.length > 0 && (
                       <>
-                        <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem', marginTop: '1rem' }}>Shared Connections</div>
-                        <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>Musicians they've both appeared with</div>
+                        <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.4rem', marginTop: '1rem' }}>Shared Connections</div>
+                        <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '0.4rem' }}>Musicians they've both appeared with</div>
                         {sharedConnections.slice(0, 4).map(n => (
                           <div key={n.id} style={{ fontSize: '0.75rem', padding: '0.2rem 0', borderBottom: '1px solid var(--border-faint)', display: 'flex', justifyContent: 'space-between' }}>
                             <button onClick={() => setSelectedIds([a.id, n.id])} style={{ background: 'none', border: 'none', color: 'var(--text)', cursor: 'pointer', fontSize: '0.75rem', padding: 0, textAlign: 'left' }}>{n.id}</button>
@@ -772,7 +772,7 @@ export default function CollaboratorNetwork({ data }) {
 
                   {/* All shared tracks */}
                   <div style={{ gridColumn: 'span 1' }}>
-                    <div style={{ fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted-2)', marginBottom: '0.6rem' }}>
                       All Shared Tracks ({pe.sharedTracks.length})
                     </div>
                     {pe.sharedTracks.map((t, i) => <TrackRow key={i} track={t} predLookup={predLookup} />)}
@@ -788,7 +788,7 @@ export default function CollaboratorNetwork({ data }) {
                   {a.id} and {b.id} haven't appeared on any of your rated tracks together. This is an exploration gap — finding a recording where they play together would add a new edge to the model.
                 </div>
                 {sharedConnections.length > 0 && (
-                  <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>
                     <strong style={{ color: '#a78bfa' }}>Bridge musicians:</strong>{' '}
                     {sharedConnections.slice(0, 3).map(n => n.id).join(', ')} have appeared with both — exploring those pairings may produce a path between them.
                   </div>

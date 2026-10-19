@@ -226,3 +226,5 @@
     margin-left: 0;
   }
 }
+
+::placeholder { color: var(--muted); opacity: 1; }

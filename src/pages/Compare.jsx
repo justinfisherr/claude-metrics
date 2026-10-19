@@ -465,7 +465,7 @@ function TimelinePanel({ manifest }) {
         letterSpacing: '0.08em', color: 'var(--muted)', margin: '0 0 1rem',
       }}>Version Timeline</h2>
 
-      <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
+      <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
         Best Model (hover shows algo)
       </p>
       <div className="timeline-wrap" style={{ marginBottom: '1.5rem' }}>
@@ -474,7 +474,7 @@ function TimelinePanel({ manifest }) {
 
       {hasPerModel && (
         <>
-          <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
+          <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
             Ridge vs Random Forest R²
           </p>
           <div className="timeline-wrap">

@@ -25,11 +25,11 @@ export default function DataQualityReport({ data }) {
 
   if (!stats) return null;
 
-  const qualityIndicator = (pct) => {
+  const qualityColor = (pct) => {
     const p = parseInt(pct);
-    if (p >= 95) return '🟢';
-    if (p >= 80) return '🟡';
-    return '🔴';
+    if (p >= 95) return '#50c878';
+    if (p >= 80) return '#ffc832';
+    return '#ff6b6b';
   };
 
   return (
@@ -44,25 +44,26 @@ export default function DataQualityReport({ data }) {
           { label: 'Replayability', ...stats.replayability },
         ].map((item, i) => (
           <div key={i} style={{
-            padding: '0.6rem',
-            backgroundColor: 'rgba(93,155,224,0.05)',
-            borderRadius: '0.3rem',
-            borderLeft: `3px solid ${parseInt(item.pct) >= 95 ? '#50c878' : parseInt(item.pct) >= 80 ? '#ffc832' : '#ff6b6b'}`,
+            padding: '10px 0 0',
+            backgroundColor: 'transparent',
+            borderRadius: 0,
+            borderTop: '1px solid var(--border)',
           }}>
-            <div style={{ fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '0.3rem' }}>
-              {qualityIndicator(item.pct)} {item.label}
+            <div style={{ fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '0.3rem', display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ width: 7, height: 7, borderRadius: '50%', background: qualityColor(item.pct), flex: 'none' }} aria-hidden="true" />
+              {item.label}
             </div>
-            <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: parseInt(item.pct) >= 95 ? '#50c878' : parseInt(item.pct) >= 80 ? '#ffc832' : '#ff6b6b' }}>
+            <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: qualityColor(item.pct) }}>
               {item.pct}%
             </div>
-            <div style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>
               {item.count} / {stats.total}
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border-faint)', fontSize: '0.75rem', color: 'var(--muted)' }}>
+      <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border-faint)', fontSize: '0.75rem', color: 'var(--muted)', maxWidth: '62ch' }}>
         <strong>New Features:</strong> v6.00 added 45 features including ballad splits, artist×era ratings, label×decade interactions, confidence metrics, and missingness indicators. These features were trained with Leave-One-Out cross-validation to prevent data leakage.
       </div>
     </Panel>

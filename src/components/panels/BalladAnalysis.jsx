@@ -97,7 +97,7 @@ export default function BalladAnalysis({ data }) {
             <Stat label="Non-Ballads" value={stats.nonBallads.mean} color="#50c878"
               sub={`${stats.nonBallads.count} tracks`} size="lg" />
           </div>
-          <div style={{ marginTop: 'auto', fontSize: '0.72rem', color: 'var(--muted)', padding: '0.5rem 0.6rem', backgroundColor: 'rgba(93,155,224,0.06)', borderRadius: '0.3rem' }}>
+          <div style={{ marginTop: 'auto', fontSize: '0.75rem', color: 'var(--muted)', padding: '0.5rem 0.6rem', backgroundColor: 'rgba(93,155,224,0.06)', borderRadius: '0.3rem' }}>
             <strong>Insight:</strong> {insightText}
           </div>
         </div>
@@ -109,13 +109,13 @@ export default function BalladAnalysis({ data }) {
 function Stat({ label, value, color, sub, size }) {
   return (
     <div>
-      <div style={{ fontSize: '0.7rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>
+      <div style={{ fontSize: '0.75rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>
         {label}
       </div>
       <div style={{ fontSize: size === 'lg' ? '1.8rem' : '1.3rem', fontWeight: 'bold', color, marginTop: '0.1rem' }}>
         {value != null ? value : '—'}
       </div>
-      <div style={{ fontSize: '0.7rem', color: 'var(--muted)' }}>{sub}</div>
+      <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>{sub}</div>
     </div>
   );
 }

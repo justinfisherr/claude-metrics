@@ -58,7 +58,7 @@ export default function MoodZoneTracks({ data }) {
 
         <div style={{ maxHeight: 600, overflowY: 'auto' }}>
           {activeZoneTracks.length === 0 ? (
-            <div style={{ color: '#999', padding: '1rem' }}>No tracks in this zone</div>
+            <div style={{ color: 'var(--muted)', padding: '1rem' }}>No tracks in this zone</div>
           ) : (
             <table style={{ width: '100%', fontSize: '0.85rem' }}>
               <thead>
@@ -75,7 +75,7 @@ export default function MoodZoneTracks({ data }) {
                   <tr key={i} style={{ borderBottom: '1px solid #333' }}>
                     <td style={{ padding: '0.5rem', color: '#bbb' }}>
                       <div style={{ fontWeight: 'bold', color: '#fff' }}>{track.title}</div>
-                      <div style={{ fontSize: '0.8rem', color: '#999' }}>{track.artist}</div>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>{track.artist}</div>
                     </td>
                     <td style={{ textAlign: 'center', padding: '0.5rem', fontWeight: 'bold', color: '#ffc832' }}>
                       {track.actual}/10

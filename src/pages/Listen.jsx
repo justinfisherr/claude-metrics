@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Navigation from '../components/shared/Navigation';
 import TrackReviewPanel from '../components/TrackReviewPanel';
+import { authHeaders } from '../lib/auth';
+import { useAuth } from '../lib/authContext';
 import '../styles/search.css';
 
 const API = 'https://jazz-score-api.vercel.app';
@@ -35,6 +37,7 @@ function buildParams(obj) {
 }
 
 export default function Listen() {
+  const { ensureAuthed } = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
   const tabParam = searchParams.get('tab');
   const tab = TABS.some((t) => t.key === tabParam) ? tabParam : 'tracks';
@@ -53,8 +56,30 @@ export default function Listen() {
   const [expanded, setExpanded] = useState(null);
   const [sortBy, setSortBy] = useState('original');
   const cache = useRef({});
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   useEffect(() => { setQuery(q); }, [q]);
+
+  useEffect(() => {
+    const term = query.trim();
+    if (term.length < 2) { setSuggestions([]); setShowSuggestions(false); return; }
+    const t = setTimeout(async () => {
+      try {
+        const endpoint = tab === 'tracks' ? '/api/search' : tab === 'albums' ? '/api/album' : '/api/playlist';
+        const key = tab === 'tracks' ? 'results' : tab === 'albums' ? 'albums' : 'playlists';
+        const res = await fetch(`${API}${endpoint}?q=${encodeURIComponent(term)}`);
+        const data = await res.json();
+        if (!res.ok) return;
+        const arr = (data[key] || []).slice(0, 6);
+        setSuggestions(arr);
+        setShowSuggestions(arr.length > 0);
+      } catch {
+        /* ignore */
+      }
+    }, 350);
+    return () => clearTimeout(t);
+  }, [query, tab]);
 
   const resetReview = useCallback(() => {
     setRating(null);
@@ -120,8 +145,9 @@ export default function Listen() {
     }
   }, [tab, resetReview]);
 
-  const openCollection = useCallback(async (cid) => {
+  const openCollection = useCallback(async (cid, force = false) => {
     const cacheKey = `${tab}:${cid}`;
+    if (force) delete cache.current[cacheKey];
     if (cache.current[cacheKey]) {
       setItem(cache.current[cacheKey]);
       setList(null);
@@ -173,6 +199,12 @@ export default function Listen() {
     setSearchParams(buildParams({ tab, id: pickedId, genre: tab === 'tracks' ? genre : '' }));
   }
 
+  function pickSuggestion(r) {
+    setSuggestions([]);
+    setShowSuggestions(false);
+    pick(r.id);
+  }
+
   function back() {
     setSearchParams(buildParams({ tab, q, genre: tab === 'tracks' ? genre : '' }));
   }
@@ -183,11 +215,12 @@ export default function Listen() {
 
   async function rateAlbum(r) {
     if (!item) return;
+    if (!(await ensureAuthed())) return;
     setRatingMsg(null);
     try {
       const res = await fetch(`${API}/api/rate`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({
           title: item.name,
           artist: item.artist,
@@ -275,16 +308,46 @@ export default function Listen() {
           ))}
         </div>
 
-        <form className="search-form" onSubmit={run}>
-          <input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={placeholder}
-            autoFocus
-            aria-label="Search"
-          />
-          <button type="submit" disabled={loading}>{loading ? 'Loading…' : 'Search'}</button>
-        </form>
+        <div className="search-wrap">
+          <form className="search-form" onSubmit={run}>
+            <input
+              value={query}
+              onChange={(e) => { setQuery(e.target.value); setShowSuggestions(true); }}
+              onFocus={() => setShowSuggestions(true)}
+              placeholder={placeholder}
+              autoFocus
+              autoComplete="off"
+              aria-label="Search"
+            />
+            <button type="submit" disabled={loading}>{loading ? 'Loading…' : 'Search'}</button>
+          </form>
+          {showSuggestions && query.trim().length >= 2 && suggestions.length > 0 && query.trim() !== q && (
+            <div className="search-preview">
+              <div className="search-preview-head">
+                <span>Top matches</span>
+                <button type="button" onClick={run}>See all results →</button>
+              </div>
+              <ul>
+                {suggestions.slice(0, 5).map((r) => (
+                  <li key={r.id}>
+                    <button type="button" onClick={() => pickSuggestion(r)}>
+                      {r.image ? <img className="ac-img" src={r.image} alt="" /> : <span className="ac-img ac-img-empty" />}
+                      <span className="ac-body">
+                        <span className="ac-title">{r.title || r.name}</span>
+                        <span className="ac-sub">
+                          {r.artist || r.owner}
+                          {r.year ? ` · ${r.year}` : ''}
+                          {r.track_count != null ? ` · ${r.track_count} tracks` : ''}
+                        </span>
+                      </span>
+                      {r.reviewed ? <span className="reviewed-badge">{r.rating != null ? `${r.rating}/10` : 'reviewed'}</span> : null}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
 
         {tab === 'tracks' && (
           <div className="genre-row">
@@ -301,6 +364,15 @@ export default function Listen() {
 
         {list && !result && !item && (
           <div className="pl-results">
+            {q ? (
+              <div className="results-head">
+                <div>
+                  <h2>Results for “{q}”</h2>
+                  <p>{list.length} {tab === 'tracks' ? 'track' : tab === 'albums' ? 'album' : 'playlist'}{list.length === 1 ? '' : 's'} · scored against your taste</p>
+                </div>
+                <button type="button" className="results-clear" onClick={() => { setQuery(''); setSearchParams(buildParams({ tab })); }}>Clear</button>
+              </div>
+            ) : null}
             {list.length === 0 && <p className="search-note">No results.</p>}
             {list.map((r) => (
               <button key={r.id} className="pl-card" onClick={() => pick(r.id)}>
@@ -391,7 +463,14 @@ export default function Listen() {
                   <a className="sr-link" href={item.url} target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a>
                 ) : null}
               </div>
-              <button className="pl-back" onClick={back}>←</button>
+              <div className="pl-head-actions">
+                {tab === 'playlists' && (
+                  <button className="pl-refresh" onClick={() => openCollection(id, true)} disabled={loading}>
+                    {loading ? 'Refreshing…' : 'Refresh from Spotify'}
+                  </button>
+                )}
+                <button className="pl-back" onClick={back}>←</button>
+              </div>
             </div>
 
             {tab === 'albums' && (

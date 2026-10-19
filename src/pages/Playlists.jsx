@@ -3,6 +3,8 @@ import Navigation from '../components/shared/Navigation';
 import { useDashboardData } from '../hooks/useDashboardData';
 import '../styles/playlists.css';
 
+const API = 'https://jazz-score-api.vercel.app';
+
 function ratingColor(rating) {
   if (rating >= 9) return 'var(--good)';
   if (rating >= 7) return 'var(--accent)';
@@ -151,24 +153,26 @@ function PlaylistCard({ playlist }) {
                 <span className="playlist-track-title">{t.title}</span>
                 <span className="playlist-track-artist">{t.artist}</span>
               </div>
-              {t.matched ? (
-                <div className="playlist-track-ratings">
+              <div className="playlist-track-ratings">
+                {t.matched && t.actual != null ? (
                   <div className="playlist-track-rating">
                     <div className="playlist-track-rating-value" style={{ color: ratingColor(t.actual) }}>
                       {t.actual}
                     </div>
                     <div className="playlist-track-rating-label">Actual</div>
                   </div>
+                ) : null}
+                {t.predicted != null ? (
                   <div className="playlist-track-rating">
                     <div className="playlist-track-rating-value" style={{ color: ratingColor(t.predicted) }}>
-                      {t.predicted}
+                      {typeof t.predicted === 'number' ? t.predicted.toFixed(1) : t.predicted}
                     </div>
                     <div className="playlist-track-rating-label">Predicted</div>
                   </div>
-                </div>
-              ) : (
-                <span className="playlist-track-unrated">Unrated</span>
-              )}
+                ) : (
+                  <span className="playlist-track-unrated">Unrated</span>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -179,11 +183,54 @@ function PlaylistCard({ playlist }) {
 
 export default function Playlists() {
   const { data, manifest, loading, error, currentVersion, switchVersion } = useDashboardData();
+  const [live, setLive] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const [refreshMsg, setRefreshMsg] = useState('');
+  const [refreshedAt, setRefreshedAt] = useState(null);
 
   if (loading) return <div style={{ padding: 40, color: 'var(--muted)' }}>Loading...</div>;
   if (error) return <div style={{ padding: 40, color: 'var(--bad)' }}>Error: {error}</div>;
 
   const playlists = data?.playlists || [];
+  const shown = live || playlists;
+
+  async function refreshPlaylists() {
+    setRefreshing(true);
+    setRefreshMsg('');
+    const results = await Promise.allSettled(playlists.map(async (pl) => {
+      const res = await fetch(`${API}/api/playlist?id=${encodeURIComponent(pl.id)}`);
+      const body = await res.json();
+      if (!res.ok) throw new Error(body.error || `HTTP ${res.status}`);
+      const tracks = (body.tracks || []).map((t) => ({
+        title: t.title,
+        artist: t.artist,
+        matched: !!(t.reviewed || t.rating != null),
+        actual: t.rating,
+        predicted: t.score,
+      }));
+      const preds = tracks.map((t) => t.predicted).filter((n) => typeof n === 'number');
+      const actuals = tracks.filter((t) => t.actual != null).map((t) => t.actual);
+      return {
+        ...pl,
+        name: body.name || pl.name,
+        track_count: tracks.length,
+        matched_count: actuals.length,
+        avg_predicted: preds.length ? preds.reduce((a, b) => a + b, 0) / preds.length : null,
+        avg_actual: actuals.length ? actuals.reduce((a, b) => a + b, 0) / actuals.length : null,
+        avg_energy: null,
+        avg_replayability: null,
+        top_moods: [],
+        top_eras: [],
+        tracks,
+      };
+    }));
+    const next = results.map((r, i) => (r.status === 'fulfilled' ? r.value : playlists[i]));
+    const failed = results.filter((r) => r.status === 'rejected').length;
+    setLive(next);
+    setRefreshedAt(new Date());
+    setRefreshMsg(failed ? `Refreshed ${next.length - failed} of ${next.length} playlists — ${failed} unavailable.` : `Refreshed ${next.length} playlists from Spotify.`);
+    setRefreshing(false);
+  }
   const loadableVersions = manifest
     ? manifest.versions.filter(v => v.is_major || v.version === manifest.current_version)
     : [];
@@ -193,7 +240,6 @@ export default function Playlists() {
       <Navigation showSections={false} />
       <div className="playlists-wrapper">
         <div className="playlists-header">
-          <p className="eyebrow">Jazz Taste Model</p>
           <h1>Your Jazz Playlists</h1>
           <p className="subtitle">
             How your curated playlists perform against the taste model.
@@ -214,15 +260,25 @@ export default function Playlists() {
               </select>
             </div>
           )}
+          <div className="playlists-refresh">
+            <button
+              className="pl-refresh"
+              onClick={refreshPlaylists}
+              disabled={refreshing || !playlists.length}
+            >
+              {refreshing ? 'Pulling from Spotify…' : 'Refresh from Spotify'}
+            </button>
+            {refreshMsg && <p className="playlists-refresh-msg">{refreshMsg}{refreshedAt ? ` · ${refreshedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : ''}</p>}
+          </div>
         </div>
 
-        {playlists.length === 0 && (
+        {shown.length === 0 && (
           <div style={{ color: 'var(--muted)', textAlign: 'center', padding: 40 }}>
-            No playlist data available. Run train.py to generate playlist analytics.
+            No playlist data available. Refresh from Spotify or run train.py to generate playlist analytics.
           </div>
         )}
 
-        {playlists.map(pl => (
+        {shown.map(pl => (
           <PlaylistCard key={pl.id} playlist={pl} />
         ))}
       </div>

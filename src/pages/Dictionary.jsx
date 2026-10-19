@@ -50,14 +50,14 @@ function RSquaredViz() {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
       <div>
-        <p style={{ fontSize: '0.7rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Dumb model — R² ≈ 0</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Dumb model — R² ≈ 0</p>
         <div style={{ height: 140 }}><Bar data={barConfig(dumb, '#ff6b6b', 'Predicted')} options={opts} /></div>
-        <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '6px' }}>Predicts your average (6) every time. Knows nothing.</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '6px' }}>Predicts your average (6) every time. Knows nothing.</p>
       </div>
       <div>
-        <p style={{ fontSize: '0.7rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Your model — R² ≈ 0.25</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Your model — R² ≈ 0.25</p>
         <div style={{ height: 140 }}><Bar data={barConfig(model, '#50c878', 'Predicted')} options={opts} /></div>
-        <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '6px' }}>Not perfect — but knows your highs from your lows.</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '6px' }}>Not perfect — but knows your highs from your lows.</p>
       </div>
     </div>
   );
@@ -73,18 +73,18 @@ function ErrorViz() {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
       <div>
-        <p style={{ fontSize: '0.7rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Absolute errors (MAE)</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Absolute errors (MAE)</p>
         <div style={{ height: 130 }}>
           <Bar data={{ labels: songs, datasets: [{ data: absErrors, backgroundColor: '#ffc832cc', borderColor: '#ffc832', borderWidth: 1, borderRadius: 3 }] }} options={miniOpts('Song', 'Error', 4)} />
         </div>
-        <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '6px' }}>MAE = {(absErrors.reduce((s,e)=>s+e,0)/absErrors.length).toFixed(2)} — the average miss, in points</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '6px' }}>MAE = {(absErrors.reduce((s,e)=>s+e,0)/absErrors.length).toFixed(2)} — the average miss, in points</p>
       </div>
       <div>
-        <p style={{ fontSize: '0.7rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Squared errors (RMSE)</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Squared errors (RMSE)</p>
         <div style={{ height: 130 }}>
           <Bar data={{ labels: songs, datasets: [{ data: squaredErrors, backgroundColor: '#ff6b6bcc', borderColor: '#ff6b6b', borderWidth: 1, borderRadius: 3 }] }} options={miniOpts('Song', 'Error²', 6)} />
         </div>
-        <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '6px' }}>Big misses explode. RMSE = {Math.sqrt(squaredErrors.reduce((s,e)=>s+e,0)/squaredErrors.length).toFixed(2)} — punishes outliers harder</p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '6px' }}>Big misses explode. RMSE = {Math.sqrt(squaredErrors.reduce((s,e)=>s+e,0)/squaredErrors.length).toFixed(2)} — punishes outliers harder</p>
       </div>
     </div>
   );
@@ -99,7 +99,7 @@ function BayesViz() {
 
   return (
     <div>
-      <p style={{ fontSize: '0.7rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+      <p style={{ fontSize: '0.75rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
         A musician whose true avg is 8.5 — how confidence grows with more tracks
       </p>
       <div style={{ height: 150 }}>
@@ -142,7 +142,7 @@ function BayesViz() {
           }}
         />
       </div>
-      <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '6px' }}>
+      <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '6px' }}>
         With 1 track: rating pulled toward 6.0 (global). By ~20 tracks: you've earned the 8.5. k=15.
       </p>
     </div>
@@ -154,7 +154,7 @@ function FeatureStrengthViz() {
   const deltas = [0.109, 0.063, 0.014, 0.008, 0.005, 0.003, 0.001];
   return (
     <div>
-      <p style={{ fontSize: '0.7rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+      <p style={{ fontSize: '0.75rem', color: 'var(--muted)', margin: '0 0 6px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
         ΔR² when each feature group is removed (ablation study)
       </p>
       <div style={{ height: 160 }}>
@@ -178,7 +178,7 @@ function FeatureStrengthViz() {
           }}
         />
       </div>
-      <p style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '6px' }}>
+      <p style={{ fontSize: '0.75rem', color: 'var(--muted)', marginTop: '6px' }}>
         Green = matters a lot. Remove collaborators and R² drops by 0.109. Remove missingness indicators and almost nothing changes.
       </p>
     </div>
@@ -532,7 +532,6 @@ export default function Dictionary() {
       <Navigation showSections={false} />
       <div className="dictionary-wrapper">
         <div className="dictionary-header">
-          <p className="eyebrow">Jazz Taste Model</p>
           <h1>Field Guide</h1>
           <p className="subtitle">
             How the model works — and what your taste actually looks like from the inside.

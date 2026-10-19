@@ -17,7 +17,7 @@
 }
 
 .version-pick label {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -65,7 +65,7 @@
 }
 
 .metric-card .metric-label {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -85,7 +85,7 @@
 }
 
 .metric-card .metric-tag {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--muted-2);
   display: block;
@@ -112,7 +112,7 @@
 }
 
 .feat-col h3 {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -131,7 +131,7 @@
   padding: 7px 10px;
   border-bottom: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -168,3 +168,5 @@
   color: var(--muted);
   margin: 0 0 12px;
 }
+
+::placeholder { color: var(--muted); opacity: 1; }

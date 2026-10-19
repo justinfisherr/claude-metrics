@@ -100,7 +100,7 @@ export default function TasteMap({ data }) {
             position: 'absolute',
             top: q.top,
             left: q.left,
-            fontSize: '0.68rem',
+            fontSize: '0.75rem',
             fontWeight: 800,
             letterSpacing: '0.06em',
             textTransform: 'uppercase',
@@ -115,7 +115,7 @@ export default function TasteMap({ data }) {
       </div>
       <div style={{ display: 'flex', gap: 12, marginTop: 10, flexWrap: 'wrap' }}>
         {[['≥9','#50c878'],['7–8','#4a9eff'],['5–6','#ffc144'],['≤4','#ff6b6b']].map(([lbl, col]) => (
-          <span key={lbl} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: '0.73rem', color: 'var(--muted)' }}>
+          <span key={lbl} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: '0.75rem', color: 'var(--muted)' }}>
             <span style={{ width: 9, height: 9, borderRadius: '50%', background: col, display: 'inline-block' }} />
             {lbl}
           </span>

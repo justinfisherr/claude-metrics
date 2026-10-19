@@ -136,7 +136,7 @@ export default function ArtistJourneys({ data }) {
             style={{
               padding: '0.5rem 1rem',
               backgroundColor: activeZone === zone ? ZONE_COLORS[zone] : 'transparent',
-              color: activeZone === zone ? '#000' : '#ccc',
+              color: activeZone === zone ? (zone === 'introspective' || zone === 'tense' || zone === 'all' ? '#fff' : '#111') : '#ccc',
               border: `1px solid ${ZONE_COLORS[zone] || '#666'}`,
               borderRadius: '4px',
               cursor: 'pointer',
@@ -167,15 +167,13 @@ export default function ArtistJourneys({ data }) {
             <div
               key={name}
               style={{
-                background: 'var(--panel-2)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-sm)',
-                padding: '12px',
+                background: 'none',
+                border: 'none',
+                borderTop: '1px solid var(--border)',
+                borderRadius: 0,
+                padding: '12px 0 0',
                 cursor: 'pointer',
-                transition: 'all 0.15s',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
-              onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border)'}
             >
               <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginBottom: '6px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {name}
@@ -183,7 +181,7 @@ export default function ArtistJourneys({ data }) {
               <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent)', marginBottom: '8px' }}>
                 {mean.toFixed(1)}/10
               </div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--muted)', marginBottom: '8px' }}>
+              <div style={{ fontSize: '0.75rem', color: 'var(--muted)', marginBottom: '8px' }}>
                 {tracks.length} track{tracks.length !== 1 ? 's' : ''}
               </div>
               <div style={{ display: 'flex', gap: '2px', height: '20px' }}>

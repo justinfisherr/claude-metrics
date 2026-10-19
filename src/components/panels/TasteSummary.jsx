@@ -4,13 +4,14 @@ import PanelHeader from '../shared/PanelHeader';
 function SummaryCard({ title, children, accent }) {
   return (
     <div style={{
-      background: 'var(--panel-2)',
-      border: '1px solid var(--border)',
-      borderRadius: 'var(--radius-sm)',
-      padding: '14px',
+      background: 'none',
+      border: 'none',
+      borderTop: '1px solid var(--border)',
+      borderRadius: 0,
+      padding: '12px 0 0',
     }}>
       <div style={{
-        fontSize: '0.65rem',
+        fontSize: '0.75rem',
         fontWeight: 800,
         textTransform: 'uppercase',
         letterSpacing: '0.08em',
