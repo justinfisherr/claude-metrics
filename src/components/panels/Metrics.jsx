@@ -27,6 +27,11 @@ export default function Metrics({ data }) {
           </p>
         );
       })()}
+      {data?.meta?.data_quality?.excluded_for_metadata ? (
+        <p className="panel-note">
+          {data.meta.data_quality.excluded_for_metadata} track(s) were excluded from this model because they are missing era or primary instrument.
+        </p>
+      ) : null}
       <p className="panel-desc">
         Two regression models are trained on your dataset using <strong>Leave-One-Out Cross-Validation (LOOCV)</strong> — each track is held out once and predicted from the remaining tracks, then scores are averaged. <strong>R&sup2;</strong> (0&ndash;1) measures how much variance in your ratings the model explains; 1.0 is perfect, 0 means the model is no better than always guessing the mean. <strong>RMSE</strong> (Root Mean Squared Error) and <strong>MAE</strong> (Mean Absolute Error) express average prediction error in rating points — lower is better. The card highlighted in blue is the winning model used for all downstream scoring and the <code>predict.py</code> script.
       </p>

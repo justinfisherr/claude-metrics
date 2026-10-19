@@ -1600,14 +1600,15 @@ def main():
     print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
 
     critical_missing = [t for t in tracks if not t.get("era") or not t.get("primary_instrument")]
-    soft_missing = [t for t in tracks if not t.get("key_players") or not t.get("label") or not t.get("subgenres") or not t.get("moods")]
-    print(f"Data quality: {len(critical_missing)} missing era/instrument, {len(soft_missing)} missing player/label/subgenre/mood")
     if critical_missing:
-        print("  Critical gaps:")
+        print(f"Data quality: excluding {len(critical_missing)} track(s) missing era or primary instrument from this model:")
         for t in critical_missing[:20]:
             print(f"    - {t.get('title')} — {t.get('artist')}")
         if args.strict:
             raise SystemExit(f"Refusing to train: {len(critical_missing)} track(s) missing era or primary instrument. Run enrich_tracks.py first.")
+        tracks = [t for t in tracks if t.get("era") and t.get("primary_instrument")]
+    soft_missing = [t for t in tracks if not t.get("key_players") or not t.get("label") or not t.get("subgenres") or not t.get("moods")]
+    print(f"Data quality: {len(tracks)} complete tracks, {len(soft_missing)} missing player/label/subgenre/mood")
 
     print("Engineering features...")
     X, y, feature_names, common_subgenres, common_labels = engineer_features(tracks)
@@ -1702,6 +1703,11 @@ def main():
                 "missing_primary_instrument": sum(1 for t in tracks if not t.get("primary_instrument")),
                 "missing_key_players": sum(1 for t in tracks if not t.get("key_players")),
                 "needs_enrichment": sum(1 for t in tracks if t.get("needs_enrichment")),
+                "excluded_for_metadata": len(critical_missing),
+                "excluded_tracks": [
+                    {"title": t.get("title"), "artist": t.get("artist")}
+                    for t in critical_missing[:20]
+                ],
             },
         },
         "models": {
