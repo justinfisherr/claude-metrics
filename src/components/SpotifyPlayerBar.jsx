@@ -20,7 +20,7 @@ export default function SpotifyPlayerBar({ player }) {
       </div>
     );
   }
-  if (!player.ready && !player.track) return null;
+  if (!player.track) return null;
 
   const track = player.track;
   const shown = drag != null ? drag : player.position;
