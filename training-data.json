@@ -15,11 +15,13 @@
     "artist": "John Coltrane",
     "energy": 9,
     "rating": 10,
+    "liked_at": "2026-10-19T22:45:57.290131",
     "subgenres": [
       "modal jazz"
     ],
     "date_added": "2026-06-20",
     "spotify_id": "2JOEPbuwVf0nafGnMSVEhH",
+    "entity_type": "track",
     "key_players": [
       "McCoy Tyner - piano",
       "John Coltrane - soprano saxophone",
@@ -55,6 +57,8 @@
       "drums"
     ],
     "favorite_moments": null,
+    "needs_enrichment": false,
+    "metadata_complete": true,
     "notable_qualities": [
       "soprano sax debut",
       "extended modal vamp",
@@ -4244,15 +4248,7 @@
       "tempo_bpm": 60,
       "duration_s": 255,
       "popularity": 69,
-      "time_signature": 4,
-      "acousticness": 0.936,
-      "danceability": 0.464,
-      "spotify_energy": 0.305,
-      "instrumentalness": 0.0848,
-      "liveness": 0.208,
-      "loudness": -12.435,
-      "speechiness": 0.0316,
-      "spotify_valence": 0.281
+      "time_signature": 4
     },
     "discovered_from": "self",
     "instrumentation": [
@@ -11139,6 +11135,7 @@
       "modal"
     ],
     "date_added": "2026-07-01",
+    "era_source": "curated-album",
     "spotify_id": "52GKwMjXBDxSAH4y4DMzHe",
     "key_players": [
       "McCoy Tyner - piano",
@@ -11146,8 +11143,9 @@
       "Lex Humphries - drums"
     ],
     "playthrough": null,
-    "year_source": "dataset-album",
+    "year_source": "curated-album",
     "album_source": "spotify",
+    "label_source": "curated-album",
     "replayability": null,
     "audio_features": {
       "liveness": 0.0644,
@@ -11168,6 +11166,7 @@
     ],
     "needs_enrichment": false,
     "metadata_complete": true,
+    "key_players_source": "curated-album",
     "primary_instrument": "piano"
   },
   {
@@ -23029,17 +23028,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "drums",
-    "audio_features": {
-      "acousticness": 0.78,
-      "danceability": 0.308,
-      "spotify_energy": 0.386,
-      "instrumentalness": 1.17e-05,
-      "liveness": 0.385,
-      "loudness": -14.835,
-      "speechiness": 0.0394,
-      "spotify_valence": 0.562
-    }
+    "primary_instrument": "drums"
   },
   {
     "era": "Hard Bop",
@@ -23081,17 +23070,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone",
-    "audio_features": {
-      "acousticness": 0.985,
-      "danceability": 0.479,
-      "spotify_energy": 0.191,
-      "instrumentalness": 0.51,
-      "liveness": 0.109,
-      "loudness": -10.319,
-      "speechiness": 0.0384,
-      "spotify_valence": 0.164
-    }
+    "primary_instrument": "tenor saxophone"
   },
   {
     "era": "Cool Jazz",
@@ -23140,17 +23119,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.932,
-      "danceability": 0.488,
-      "spotify_energy": 0.176,
-      "instrumentalness": 0.00345,
-      "liveness": 0.0935,
-      "loudness": -15.979,
-      "speechiness": 0.0399,
-      "spotify_valence": 0.497
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Hard Bop",
@@ -23244,17 +23213,7 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "alto saxophone",
-    "audio_features": {
-      "acousticness": 0.185,
-      "danceability": 0.576,
-      "spotify_energy": 0.422,
-      "instrumentalness": 0.244,
-      "liveness": 0.264,
-      "loudness": -11.277,
-      "speechiness": 0.0594,
-      "spotify_valence": 0.57
-    }
+    "primary_instrument": "alto saxophone"
   },
   {
     "era": "Contemporary",
@@ -23313,17 +23272,7 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "tenor saxophone",
-    "audio_features": {
-      "acousticness": 0.0829,
-      "danceability": 0.312,
-      "spotify_energy": 0.767,
-      "instrumentalness": 0.841,
-      "liveness": 0.04,
-      "loudness": -7.514,
-      "speechiness": 0.157,
-      "spotify_valence": 0.553
-    }
+    "primary_instrument": "tenor saxophone"
   },
   {
     "era": "Post-Bop",
@@ -23419,17 +23368,7 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.942,
-      "danceability": 0.381,
-      "spotify_energy": 0.187,
-      "instrumentalness": 0.135,
-      "liveness": 0.161,
-      "loudness": -13.497,
-      "speechiness": 0.0322,
-      "spotify_valence": 0.215
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Spiritual Jazz",
@@ -23556,17 +23495,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "alto saxophone",
-    "audio_features": {
-      "acousticness": 0.962,
-      "danceability": 0.339,
-      "spotify_energy": 0.342,
-      "instrumentalness": 0.319,
-      "liveness": 0.162,
-      "loudness": -7.596,
-      "speechiness": 0.0313,
-      "spotify_valence": 0.393
-    }
+    "primary_instrument": "alto saxophone"
   },
   {
     "year": 2008,
@@ -23617,17 +23546,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.149,
-      "danceability": 0.701,
-      "spotify_energy": 0.445,
-      "instrumentalness": 0.59,
-      "liveness": 0.0963,
-      "loudness": -10.583,
-      "speechiness": 0.0834,
-      "spotify_valence": 0.405
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Contemporary",
@@ -23668,17 +23587,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.802,
-      "danceability": 0.457,
-      "spotify_energy": 0.264,
-      "instrumentalness": 0.736,
-      "liveness": 0.092,
-      "loudness": -13.703,
-      "speechiness": 0.0301,
-      "spotify_valence": 0.14
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Contemporary",
@@ -23719,17 +23628,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.955,
-      "danceability": 0.416,
-      "spotify_energy": 0.124,
-      "instrumentalness": 0.616,
-      "liveness": 0.163,
-      "loudness": -14.572,
-      "speechiness": 0.0327,
-      "spotify_valence": 0.155
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Hard Bop",
@@ -23774,17 +23673,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.865,
-      "danceability": 0.587,
-      "spotify_energy": 0.43,
-      "instrumentalness": 0.00847,
-      "liveness": 0.134,
-      "loudness": -10.952,
-      "speechiness": 0.0343,
-      "spotify_valence": 0.825
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Cool Jazz",
@@ -23917,17 +23806,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.357,
-      "danceability": 0.658,
-      "spotify_energy": 0.501,
-      "instrumentalness": 0.0211,
-      "liveness": 0.0727,
-      "loudness": -8.174,
-      "speechiness": 0.0333,
-      "spotify_valence": 0.528
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Cool Jazz",
@@ -24018,17 +23897,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.979,
-      "danceability": 0.524,
-      "spotify_energy": 0.123,
-      "instrumentalness": 0.676,
-      "liveness": 0.103,
-      "loudness": -15.183,
-      "speechiness": 0.0513,
-      "spotify_valence": 0.238
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Post-Bop",
@@ -24073,17 +23942,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.96,
-      "danceability": 0.488,
-      "spotify_energy": 0.125,
-      "instrumentalness": 0.775,
-      "liveness": 0.129,
-      "loudness": -15.265,
-      "speechiness": 0.0425,
-      "spotify_valence": 0.313
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Post-Bop",
@@ -24128,17 +23987,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.862,
-      "danceability": 0.443,
-      "spotify_energy": 0.18,
-      "instrumentalness": 0.0383,
-      "liveness": 0.102,
-      "loudness": -16.562,
-      "speechiness": 0.0389,
-      "spotify_valence": 0.131
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Post-Bop",
@@ -24183,17 +24032,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.91,
-      "danceability": 0.513,
-      "spotify_energy": 0.395,
-      "instrumentalness": 0.427,
-      "liveness": 0.103,
-      "loudness": -13.088,
-      "speechiness": 0.0305,
-      "spotify_valence": 0.322
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Soul/Funk",
@@ -24238,17 +24077,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.713,
-      "danceability": 0.398,
-      "spotify_energy": 0.527,
-      "instrumentalness": 0.934,
-      "liveness": 0.119,
-      "loudness": -16.591,
-      "speechiness": 0.0297,
-      "spotify_valence": 0.353
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Post-Bop",
@@ -24290,17 +24119,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone",
-    "audio_features": {
-      "acousticness": 0.768,
-      "danceability": 0.53,
-      "spotify_energy": 0.454,
-      "instrumentalness": 0.116,
-      "liveness": 0.113,
-      "loudness": -11.19,
-      "speechiness": 0.028,
-      "spotify_valence": 0.492
-    }
+    "primary_instrument": "tenor saxophone"
   },
   {
     "era": "Post-Bop",
@@ -24344,17 +24163,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.93,
-      "danceability": 0.423,
-      "spotify_energy": 0.119,
-      "instrumentalness": 0.482,
-      "liveness": 0.18,
-      "loudness": -20.354,
-      "speechiness": 0.0334,
-      "spotify_valence": 0.122
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Hard Bop",
@@ -24398,17 +24207,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone",
-    "audio_features": {
-      "acousticness": 0.45,
-      "danceability": 0.578,
-      "spotify_energy": 0.18,
-      "instrumentalness": 0.0328,
-      "liveness": 0.0918,
-      "loudness": -17.671,
-      "speechiness": 0.0535,
-      "spotify_valence": 0.367
-    }
+    "primary_instrument": "tenor saxophone"
   },
   {
     "era": "Post-Bop",
@@ -24462,17 +24261,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.975,
-      "danceability": 0.247,
-      "spotify_energy": 0.072,
-      "instrumentalness": 0.631,
-      "liveness": 0.101,
-      "loudness": -13.544,
-      "speechiness": 0.032,
-      "spotify_valence": 0.0872
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -24521,17 +24310,7 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
-    "primary_instrument": "tenor saxophone",
-    "audio_features": {
-      "acousticness": 0.794,
-      "danceability": 0.539,
-      "spotify_energy": 0.403,
-      "instrumentalness": 0.000613,
-      "liveness": 0.278,
-      "loudness": -9.168,
-      "speechiness": 0.0531,
-      "spotify_valence": 0.699
-    }
+    "primary_instrument": "tenor saxophone"
   },
   {
     "era": "Post-Bop",
@@ -24576,17 +24355,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.93,
-      "danceability": 0.501,
-      "spotify_energy": 0.301,
-      "instrumentalness": 0.937,
-      "liveness": 0.11,
-      "loudness": -14.938,
-      "speechiness": 0.0285,
-      "spotify_valence": 0.36
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Cool Jazz",
@@ -24635,17 +24404,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "trumpet",
-    "audio_features": {
-      "acousticness": 0.983,
-      "danceability": 0.186,
-      "spotify_energy": 0.0367,
-      "instrumentalness": 0.231,
-      "liveness": 0.103,
-      "loudness": -19.738,
-      "speechiness": 0.0371,
-      "spotify_valence": 0.0731
-    }
+    "primary_instrument": "trumpet"
   },
   {
     "era": "Bebop",
@@ -24684,17 +24443,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "alto saxophone",
-    "audio_features": {
-      "acousticness": 0.961,
-      "danceability": 0.554,
-      "spotify_energy": 0.0787,
-      "instrumentalness": 0.505,
-      "liveness": 0.11,
-      "loudness": -17.683,
-      "speechiness": 0.0458,
-      "spotify_valence": 0.51
-    }
+    "primary_instrument": "alto saxophone"
   },
   {
     "era": "Vocal Jazz",
@@ -24738,17 +24487,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "vocals",
-    "audio_features": {
-      "acousticness": 0.976,
-      "danceability": 0.34,
-      "spotify_energy": 0.209,
-      "instrumentalness": 1.36e-06,
-      "liveness": 0.104,
-      "loudness": -9.312,
-      "speechiness": 0.0288,
-      "spotify_valence": 0.112
-    }
+    "primary_instrument": "vocals"
   },
   {
     "era": "Vocal Jazz",
@@ -24791,17 +24530,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "vocals",
-    "audio_features": {
-      "acousticness": 0.745,
-      "danceability": 0.687,
-      "spotify_energy": 0.51,
-      "instrumentalness": 0.0,
-      "liveness": 0.117,
-      "loudness": -8.501,
-      "speechiness": 0.076,
-      "spotify_valence": 0.666
-    }
+    "primary_instrument": "vocals"
   },
   {
     "era": "Post-Bop",
@@ -24844,17 +24573,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "tenor saxophone",
-    "audio_features": {
-      "acousticness": 0.971,
-      "danceability": 0.446,
-      "spotify_energy": 0.13,
-      "instrumentalness": 0.445,
-      "liveness": 0.108,
-      "loudness": -14.403,
-      "speechiness": 0.0386,
-      "spotify_valence": 0.172
-    }
+    "primary_instrument": "tenor saxophone"
   },
   {
     "era": "Hard Bop",
@@ -24911,17 +24630,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.636,
-      "danceability": 0.53,
-      "spotify_energy": 0.347,
-      "instrumentalness": 0.0,
-      "liveness": 0.277,
-      "loudness": -12.568,
-      "speechiness": 0.0773,
-      "spotify_valence": 0.351
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -24975,17 +24684,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.511,
-      "danceability": 0.583,
-      "spotify_energy": 0.364,
-      "instrumentalness": 0.219,
-      "liveness": 0.0654,
-      "loudness": -10.258,
-      "speechiness": 0.0345,
-      "spotify_valence": 0.369
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -25039,17 +24738,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.596,
-      "danceability": 0.566,
-      "spotify_energy": 0.374,
-      "instrumentalness": 0.0102,
-      "liveness": 0.172,
-      "loudness": -11.194,
-      "speechiness": 0.0507,
-      "spotify_valence": 0.326
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -25103,17 +24792,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.677,
-      "danceability": 0.536,
-      "spotify_energy": 0.255,
-      "instrumentalness": 0.167,
-      "liveness": 0.115,
-      "loudness": -9.73,
-      "speechiness": 0.0334,
-      "spotify_valence": 0.14
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -25167,17 +24846,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.988,
-      "danceability": 0.548,
-      "spotify_energy": 0.134,
-      "instrumentalness": 0.902,
-      "liveness": 0.166,
-      "loudness": -16.242,
-      "speechiness": 0.0529,
-      "spotify_valence": 0.0772
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -25231,17 +24900,7 @@
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
     "key_players_source": "curated-album",
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.55,
-      "danceability": 0.543,
-      "spotify_energy": 0.534,
-      "instrumentalness": 0.225,
-      "liveness": 0.0586,
-      "loudness": -7.492,
-      "speechiness": 0.0332,
-      "spotify_valence": 0.518
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -25301,17 +24960,7 @@
       "But Not for Me"
     ],
     "metadata_complete": true,
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.392,
-      "danceability": 0.591,
-      "spotify_energy": 0.554,
-      "instrumentalness": 0.666,
-      "liveness": 0.97,
-      "loudness": -14.071,
-      "speechiness": 0.0944,
-      "spotify_valence": 0.561
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Cool Jazz",
@@ -25371,17 +25020,7 @@
       "Surrey with the Fringe on Top"
     ],
     "metadata_complete": true,
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.428,
-      "danceability": 0.465,
-      "spotify_energy": 0.519,
-      "instrumentalness": 0.58,
-      "liveness": 0.698,
-      "loudness": -15.647,
-      "speechiness": 0.0626,
-      "spotify_valence": 0.717
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Hard Bop",
@@ -25444,17 +25083,7 @@
       "Moonlight in Vermont"
     ],
     "metadata_complete": true,
-    "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.658,
-      "danceability": 0.427,
-      "spotify_energy": 0.379,
-      "instrumentalness": 0.0667,
-      "liveness": 0.966,
-      "loudness": -18.124,
-      "speechiness": 0.105,
-      "spotify_valence": 0.329
-    }
+    "primary_instrument": "piano"
   },
   {
     "era": "Cool Jazz",
@@ -25501,16 +25130,761 @@
     "needs_enrichment": false,
     "date_added_source": "db_updated_at",
     "metadata_complete": true,
+    "primary_instrument": "piano"
+  },
+  {
+    "era": "Electric",
+    "year": 1970,
+    "album": "Bitches Brew",
+    "label": "Columbia",
+    "moods": [
+      "hypnotic",
+      "dark",
+      "raw",
+      "trippy"
+    ],
+    "title": "Bitches Brew",
+    "artist": "Miles Davis",
+    "rating": 2,
+    "subgenres": [
+      "electric jazz",
+      "jazz fusion",
+      "psychedelic jazz"
+    ],
+    "spotify_id": "15tLhnzO4o8fMOEjdZGfII",
+    "key_players": [
+      "Miles Davis - trumpet",
+      "Wayne Shorter - soprano saxophone",
+      "Bennie Maupin - bass clarinet",
+      "John McLaughlin - electric guitar",
+      "Chick Corea - electric piano",
+      "Joe Zawinul - electric piano",
+      "Dave Holland - bass",
+      "Harvey Brooks - electric bass",
+      "Jack DeJohnette - drums",
+      "Lenny White - drums"
+    ],
+    "album_source": "spotify",
+    "instrumentation": [
+      "trumpet",
+      "electric guitar",
+      "electric piano",
+      "bass",
+      "drums",
+      "percussion"
+    ],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:album",
+      "instrumentation:album",
+      "label:album",
+      "moods:album",
+      "players:album",
+      "subgenres:album"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 1968,
+    "album": "The Inflated Tear",
+    "label": "Atlantic",
+    "moods": [
+      "bluesy",
+      "spiritual",
+      "playful"
+    ],
+    "title": "The Inflated Tear - Live Version",
+    "artist": "Rahsaan Roland Kirk",
+    "rating": 4,
+    "subgenres": [
+      "post-bop",
+      "avant-garde jazz"
+    ],
+    "era_source": "curated-album",
+    "spotify_id": "1gtBt4RuqguF7CfIBrDJ5s",
+    "key_players": [
+      "Rahsaan Roland Kirk - tenor saxophone, manzello, stritch, flute",
+      "Ron Burton - piano",
+      "Steve Novosel - bass",
+      "Jimmy Hopps - drums"
+    ],
+    "year_source": "curated-album",
+    "album_source": "spotify",
+    "label_source": "curated-album",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:year-neighbours"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
+    "key_players_source": "curated-album",
+    "primary_instrument": "tenor saxophone",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1966,
+    "album": "The Gigolo",
+    "moods": [
+      "repetitive",
+      "flat"
+    ],
+    "title": "The Gigolo",
+    "artist": "Lee Morgan",
+    "rating": 7,
+    "subgenres": [
+      "hard bop",
+      "soul jazz",
+      "boogaloo"
+    ],
+    "spotify_id": "1KHBXcAbYTYrUYczFOPHEp",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 2005,
+    "album": "The Big Beat (The Rudy Van Gelder Edition)",
+    "moods": [
+      "bittersweet",
+      "melancholic",
+      "sexy",
+      "corny"
+    ],
+    "title": "Dat Dere - Remastered 2005",
+    "artist": "Art Blakey & The Jazz Messengers",
+    "rating": 4,
+    "subgenres": [
+      "hard bop"
+    ],
+    "spotify_id": "0fYXEHGIJqfimplx8Y4683",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "drums",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 2004,
+    "album": "The Cape Verdean Blues",
+    "label": "Blue Note",
+    "moods": [
+      "joyful",
+      "funky",
+      "playful",
+      "swinging"
+    ],
+    "title": "The Cape Verdean Blues - Rudy Van Gelder Edition / 2003 Remastered",
+    "artist": "Horace Silver Quintet",
+    "rating": 6.5,
+    "subgenres": [
+      "hard bop",
+      "bebop",
+      "soul jazz"
+    ],
+    "spotify_id": "2Z7Z8BDwjZQeYuzwe3LdOp",
+    "key_players": [
+      "Horace Silver - piano",
+      "Art Farmer - trumpet",
+      "Hank Mobley - tenor saxophone",
+      "Teddy Kotick - bass",
+      "Louis Hayes - drums"
+    ],
+    "album_source": "spotify",
+    "instrumentation": [
+      "piano",
+      "trumpet",
+      "tenor saxophone",
+      "bass",
+      "drums"
+    ],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:album",
+      "instrumentation:album",
+      "label:album",
+      "moods:album",
+      "players:album",
+      "subgenres:album"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
     "primary_instrument": "piano",
-    "audio_features": {
-      "acousticness": 0.625,
-      "danceability": 0.694,
-      "spotify_energy": 0.665,
-      "instrumentalness": 0.155,
-      "liveness": 0.925,
-      "loudness": -14.045,
-      "speechiness": 0.0528,
-      "spotify_valence": 0.741
-    }
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1999,
+    "album": "Idle Moments",
+    "moods": [
+      "mellow"
+    ],
+    "title": "Jean De Fleur - Rudy Van Gelder Edition / Remastered 1999",
+    "artist": "Grant Green",
+    "rating": 3.5,
+    "subgenres": [
+      "hard bop",
+      "soul jazz"
+    ],
+    "spotify_id": "6ZniDtZIvYjdYHG8sHh2jD",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:album",
+      "moods:album",
+      "subgenres:album"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "guitar",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 1999,
+    "album": "The Kicker",
+    "moods": [
+      "gentle",
+      "soft"
+    ],
+    "title": "The Kicker",
+    "artist": "Bobby Hutcherson",
+    "rating": 7,
+    "subgenres": [
+      "post-bop",
+      "ballad"
+    ],
+    "spotify_id": "2vbwftVDzPgXHuTnZ92Grx",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "vibraphone",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 2016,
+    "album": "The Tour, Vol. 1 (Recorded Live in Stuttgart, March 22, 1976)",
+    "moods": [
+      "lyrical",
+      "warm"
+    ],
+    "title": "The Moontrane - Recorded Live in Stuttgart, March 22, 1976",
+    "artist": "Woody Shaw",
+    "rating": 2,
+    "subgenres": [
+      "post-bop",
+      "modern jazz"
+    ],
+    "spotify_id": "4h6Ll1OZxgPnIVXMgdhLEz",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Electric",
+    "year": 1981,
+    "album": "The Birthday Concert (Live at Mr. Pip's, Ft. Lauderdale, FL, 12/1/81)",
+    "label": "Warner Bros.",
+    "moods": [
+      "funky",
+      "energetic",
+      "celebratory"
+    ],
+    "title": "Soul Intro / The Chicken - Live at Mr. Pip's, feat. Lauderdale, FL, 12/1/81",
+    "artist": "Jaco Pastorius",
+    "rating": 6.5,
+    "subgenres": [
+      "jazz fusion",
+      "jazz funk"
+    ],
+    "era_source": "curated-album",
+    "spotify_id": "3ZqpGNEFhF7thoffF97e0i",
+    "key_players": [
+      "Jaco Pastorius - bass",
+      "Randy Brecker - trumpet",
+      "Bob Mintzer - tenor saxophone",
+      "Othello Molineaux - steel pans",
+      "Don Alias - percussion",
+      "Peter Erskine - drums"
+    ],
+    "year_source": "curated-album",
+    "album_source": "spotify",
+    "label_source": "curated-album",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:year-neighbours"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
+    "key_players_source": "curated-album",
+    "primary_instrument": "bass",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 1971,
+    "album": "Straight Life (CTI Records 40th Anniversary Edition)",
+    "moods": [
+      "sexy",
+      "pretty",
+      "lovely",
+      "joyful",
+      "peaceful",
+      "atmospheric"
+    ],
+    "title": "Mr. Clean",
+    "artist": "Freddie Hubbard",
+    "rating": 4,
+    "subgenres": [
+      "jazz-funk",
+      "post-bop",
+      "hard bop"
+    ],
+    "spotify_id": "4ZWojS2l1H2teFLrWq3zyJ",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Soul/Funk",
+    "year": 1975,
+    "album": "Sunburst",
+    "label": "Blue Note",
+    "moods": [
+      "funky",
+      "groovy",
+      "spacious"
+    ],
+    "title": "The Kumquat Kids",
+    "artist": "Eddie Henderson",
+    "rating": 3.5,
+    "subgenres": [
+      "jazz fusion",
+      "soul jazz"
+    ],
+    "era_source": "curated-album",
+    "spotify_id": "2LyjDg604LyRHjPpiymW7Z",
+    "key_players": [
+      "Eddie Henderson - trumpet",
+      "George Cables - piano",
+      "Bennie Maupin - tenor saxophone",
+      "Julian Priester - trombone",
+      "Buster Williams - bass",
+      "Lenny White - drums"
+    ],
+    "year_source": "curated-album",
+    "album_source": "spotify",
+    "label_source": "curated-album",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:year-neighbours"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
+    "key_players_source": "curated-album",
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 2018,
+    "album": "Full Circle: The Music of Joni Mitchell",
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "title": "The Dry Cleaner from Des Moines",
+    "artist": "Charles Mingus",
+    "rating": 4,
+    "subgenres": [
+      "big band",
+      "avant-garde jazz",
+      "hard bop"
+    ],
+    "spotify_id": "5q6ZMmRRyYlQUe88nmhpyA",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "bass",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1989,
+    "album": "The Best Of Horace Silver",
+    "liked": true,
+    "moods": [
+      "joyful",
+      "funky",
+      "playful",
+      "swinging"
+    ],
+    "title": "Nutville",
+    "artist": "Horace Silver Quintet",
+    "rating": 7,
+    "liked_at": "2026-10-19T22:55:38.935248",
+    "subgenres": [
+      "hard bop",
+      "bebop",
+      "soul jazz"
+    ],
+    "date_added": "2026-10-19",
+    "spotify_id": "5C3djIv5cQpGDhR6sKeOBo",
+    "entity_type": "track",
+    "key_players": [],
+    "album_source": "spotify",
+    "discovered_from": "ai-like",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "piano"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1967,
+    "album": "The Jody Grind",
+    "liked": true,
+    "moods": [
+      "joyful",
+      "funky",
+      "playful",
+      "swinging"
+    ],
+    "title": "The Jody Grind",
+    "artist": "Horace Silver",
+    "rating": 3.5,
+    "liked_at": "2026-10-19T22:55:49.200375",
+    "subgenres": [
+      "hard bop",
+      "bebop",
+      "soul jazz"
+    ],
+    "date_added": "2026-10-19",
+    "spotify_id": "2gK90iDN9ggQoECv4494mb",
+    "entity_type": "track",
+    "key_players": [],
+    "album_source": "spotify",
+    "discovered_from": "ai-like",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "piano"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 1960,
+    "album": "Blues & Roots",
+    "liked": true,
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "title": "E's Flat Ah's Flat Too",
+    "artist": "Charles Mingus",
+    "rating": 6.5,
+    "liked_at": "2026-10-19T22:55:58.877372",
+    "subgenres": [
+      "big band",
+      "avant-garde jazz",
+      "hard bop"
+    ],
+    "date_added": "2026-10-19",
+    "spotify_id": "2uG5erIimWW9wLnz57BFFZ",
+    "entity_type": "track",
+    "key_players": [],
+    "album_source": "spotify",
+    "discovered_from": "ai-like",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "bass"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 1963,
+    "album": "Mingus Mingus Mingus Mingus Mingus",
+    "label": "Impulse!",
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "title": "Hora Decubitus",
+    "artist": "Charles Mingus",
+    "rating": 6,
+    "subgenres": [
+      "big band",
+      "avant-garde jazz",
+      "hard bop"
+    ],
+    "spotify_id": "6evehXa14Rvbt355gFnMdH",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Eric Dolphy - alto saxophone",
+      "Booker Ervin - tenor saxophone",
+      "Jaki Byard - piano",
+      "Dannie Richmond - drums"
+    ],
+    "album_source": "spotify",
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "piano",
+      "drums"
+    ],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:album",
+      "instrumentation:album",
+      "label:album",
+      "moods:album",
+      "players:album",
+      "subgenres:album"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
+    "primary_instrument": "bass",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1960,
+    "album": "Byrd In Flight (Remastered 2015)",
+    "moods": [
+      "spiritual",
+      "atmospheric",
+      "cinematic"
+    ],
+    "title": "Ghana - Remastered 2015",
+    "artist": "Donald Byrd",
+    "rating": 4.5,
+    "subgenres": [
+      "hard bop",
+      "gospel jazz"
+    ],
+    "spotify_id": "4Ux4F8AEFCFhbam8mpQvSo",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Post-Bop",
+    "year": 1956,
+    "album": "Pithecanthropus Erectus",
+    "moods": [
+      "euphoric",
+      "tense"
+    ],
+    "title": "Pithecanthropus Erectus",
+    "artist": "Charles Mingus",
+    "rating": 5,
+    "subgenres": [
+      "big band",
+      "avant-garde jazz",
+      "hard bop"
+    ],
+    "spotify_id": "5lDqsu4gUAfFo8rPEEhHKw",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "bass",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1959,
+    "album": "Mingus Ah Um",
+    "label": "Columbia",
+    "moods": [
+      "joyful",
+      "ecstatic",
+      "passionate",
+      "communal"
+    ],
+    "title": "Better Get Hit In Your Soul - Instrumental",
+    "artist": "Charles Mingus",
+    "rating": 8,
+    "subgenres": [
+      "hard bop",
+      "gospel jazz",
+      "blues"
+    ],
+    "spotify_id": "0mbJqo6y9E3d57fhvYQKyT",
+    "key_players": [
+      "Charles Mingus - bass and composer",
+      "Booker Ervin - tenor saxophone",
+      "John Handy - alto saxophone",
+      "Jimmy Knepper - trombone",
+      "Horace Parlan - piano",
+      "Dannie Richmond - drums"
+    ],
+    "album_source": "spotify",
+    "instrumentation": [
+      "bass",
+      "alto saxophone",
+      "tenor saxophone",
+      "trombone",
+      "piano",
+      "drums"
+    ],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:album",
+      "instrumentation:album",
+      "label:album",
+      "moods:album",
+      "players:album",
+      "subgenres:album"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": true,
+    "primary_instrument": "bass",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
+  },
+  {
+    "era": "Hard Bop",
+    "year": 1958,
+    "album": "Benny Golson And The Philadelphians",
+    "moods": [
+      "cool",
+      "smooth",
+      "hip"
+    ],
+    "title": "Blues March",
+    "artist": "Benny Golson",
+    "rating": 3.5,
+    "subgenres": [
+      "hard bop"
+    ],
+    "spotify_id": "3z6vI20hNUo15h3fCduRQm",
+    "key_players": [],
+    "album_source": "spotify",
+    "instrumentation": [],
+    "metadata_sources": [
+      "era:dataset",
+      "instrument:artist",
+      "moods:artist",
+      "subgenres:artist"
+    ],
+    "needs_enrichment": false,
+    "metadata_complete": false,
+    "primary_instrument": "trumpet",
+    "date_added": "2026-10-19",
+    "date_added_source": "db_updated_at"
   }
 ]

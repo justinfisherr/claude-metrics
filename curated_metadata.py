@@ -6,6 +6,27 @@ Keys match on artist + album substring. Personnel is the album/session lineup;
 
 ALBUM_META = [
     {
+        "artist": "Rahsaan Roland Kirk", "album": "The Inflated Tear", "year": 1968, "era": "Post-Bop", "label": "Atlantic",
+        "primary_instrument": "tenor saxophone",
+        "subgenres": ["post-bop", "avant-garde jazz"],
+        "moods": ["bluesy", "spiritual", "playful"],
+        "key_players": ["Rahsaan Roland Kirk - tenor saxophone, manzello, stritch, flute", "Ron Burton - piano", "Steve Novosel - bass", "Jimmy Hopps - drums"],
+    },
+    {
+        "artist": "Jaco Pastorius", "album": "The Birthday Concert", "year": 1981, "era": "Electric", "label": "Warner Bros.",
+        "primary_instrument": "bass",
+        "subgenres": ["jazz fusion", "jazz funk"],
+        "moods": ["funky", "energetic", "celebratory"],
+        "key_players": ["Jaco Pastorius - bass", "Randy Brecker - trumpet", "Bob Mintzer - tenor saxophone", "Othello Molineaux - steel pans", "Don Alias - percussion", "Peter Erskine - drums"],
+    },
+    {
+        "artist": "Eddie Henderson", "album": "Sunburst", "year": 1975, "era": "Soul/Funk", "label": "Blue Note",
+        "primary_instrument": "trumpet",
+        "subgenres": ["jazz fusion", "soul jazz"],
+        "moods": ["funky", "groovy", "spacious"],
+        "key_players": ["Eddie Henderson - trumpet", "George Cables - piano", "Bennie Maupin - tenor saxophone", "Julian Priester - trombone", "Buster Williams - bass", "Lenny White - drums"],
+    },
+    {
         "artist": "Ahmad Jamal Trio", "album": "The Awakening", "year": 1970, "era": "Post-Bop", "label": "Impulse!",
         "key_players": ["Ahmad Jamal - piano", "Jamil Nasser - bass", "Frank Gant - drums"],
     },
