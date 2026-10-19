@@ -12,17 +12,7 @@
   font-weight: 900;
   letter-spacing: -0.03em;
   margin: 0;
-  background: linear-gradient(135deg, var(--accent), #ffc144, var(--accent));
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: wrapped-gradient 4s ease-in-out infinite;
-}
-
-@keyframes wrapped-gradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  color: var(--warning);
 }
 
 .wrapped-subtitle {
@@ -269,7 +259,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(74, 158, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
 
