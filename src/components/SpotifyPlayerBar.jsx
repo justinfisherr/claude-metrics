@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const PlayIcon = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>;
 const PauseIcon = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z" /></svg>;
@@ -10,23 +10,17 @@ function fmt(ms) {
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 }
 
-export default function SpotifyPlayerBar({ player, onClose }) {
+export default function SpotifyPlayerBar({ player }) {
   const [drag, setDrag] = useState(null);
-  const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    if (player.track || player.ready) setVisible(true);
-  }, [player.track, player.ready]);
-
-  if (!visible) return null;
   if (player.error) {
     return (
       <div className="spot-player spot-player-error">
         <span>{player.error}</span>
-        <button className="spot-close" onClick={() => { setVisible(false); onClose?.(); }} aria-label="Hide player">×</button>
       </div>
     );
   }
+  if (!player.ready && !player.track) return null;
 
   const track = player.track;
   const shown = drag != null ? drag : player.position;
@@ -72,8 +66,6 @@ export default function SpotifyPlayerBar({ player, onClose }) {
         <span aria-hidden="true">Vol</span>
         <input type="range" min="0" max="1" step="0.05" value={player.volume} onChange={(e) => player.setVolume(Number(e.target.value))} aria-label="Volume" />
       </div>
-
-      <button className="spot-close" onClick={() => { setVisible(false); onClose?.(); }} aria-label="Hide player">×</button>
     </div>
   );
 }

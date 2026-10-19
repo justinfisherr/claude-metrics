@@ -34,7 +34,7 @@ async function getToken(force = false) {
     headers: authHeaders(),
   });
   const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Spotify playback is not connected');
+  if (!res.ok) throw new Error('Spotify playback is not connected. Connect Spotify in Transcribe first.');
   tokenCache = { value: data.access_token, expiresAt: Date.now() + (data.expires_in || 3600) * 1000 };
   return tokenCache.value;
 }
@@ -54,6 +54,7 @@ export default function useSpotifyPlayer({ enabled = true } = {}) {
       setError('');
       return;
     }
+    getToken().catch((e) => setError(e.message));
     let alive = true;
     let player = null;
     loadSdk()

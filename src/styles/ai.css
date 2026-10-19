@@ -133,3 +133,7 @@
 }
 .ai-more:hover { border-color: var(--accent); }
 .ai-more:disabled { opacity: 0.55; cursor: default; }
+
+@media (max-width: 760px) {
+  .spot-player { bottom: calc(8px + env(safe-area-inset-bottom)); }
+}
