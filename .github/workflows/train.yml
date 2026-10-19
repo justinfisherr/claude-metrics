@@ -93,6 +93,6 @@ jobs:
             echo "Scoring API already current"
           else
             git commit -m "Sync model artifacts from claude-metrics"
-            git push origin HEAD:main
+            git push origin HEAD:master
           fi
           npx vercel@latest --prod --yes --token="$VERCEL_TOKEN"
