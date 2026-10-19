@@ -122,3 +122,10 @@ input[type="range"]:not(.rating-slider) { accent-color: var(--accent); }
 .review-feedback { min-height: 18px; margin-top: 2px; }
 .review-feedback .rate-done { color: var(--good); font-size: 0.78rem; }
 .review-feedback .search-error { font-size: 0.78rem; }
+
+@media (max-width: 560px) {
+  .rating-control { flex-wrap: wrap; gap: 4px 10px; }
+  .rating-label { width: 100%; }
+  .rating-track-wrap { flex: 1; min-width: 0; }
+  .rating-value { min-width: 54px; font-size: 1.3rem; }
+}

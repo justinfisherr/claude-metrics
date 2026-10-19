@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Navigation from '../components/shared/Navigation';
 import TrackReviewPanel from '../components/TrackReviewPanel';
 import { useAuth } from '../lib/authContext';
@@ -9,6 +9,7 @@ import '../styles/search.css';
 import '../styles/ai.css';
 
 const API = 'https://jazz-score-api.vercel.app';
+const STORAGE_KEY = 'jazz_ai_results_v1';
 
 const appUri = (kind, id) => (id ? `spotify:${kind}:${id}` : null);
 
@@ -23,6 +24,13 @@ const EXAMPLES = {
   album: ['A 1960s Blue Note album I have not rated', 'Something spiritual and large-ensemble', 'A modern album that earns its length'],
   playlist: ['A late-night walking playlist', 'Spiritual jazz without the obvious names', 'A short hard-bop playlist for driving'],
 };
+
+function loadStore() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch { return {}; }
+}
+function saveStore(store) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(store)); } catch {}
+}
 
 function scoreColor(score) {
   if (score >= 8.5) return 'var(--good)';
@@ -40,11 +48,11 @@ function TrackCard({ rec, onReviewed }) {
           {rec.image ? <img src={rec.image} alt="" /> : <span>♪</span>}
         </div>
         <div className="ai-card-id">
-          <h2>{rec.title}</h2>
+          <h2 title={rec.title}>{rec.title}</h2>
           <p>{rec.artist}{rec.album ? ` · ${rec.album}` : ''}{rec.year ? ` · ${rec.year}` : ''}</p>
           <div className="ai-badges">
             <span className="ai-verdict" style={{ color: scoreColor(rec.score), borderColor: scoreColor(rec.score) }}>{verdict}</span>
-            {rec.confidence ? <span className="ai-tag">{rec.confidence} confidence</span> : null}
+            {rec.confidence ? <span className="ai-tag">{rec.confidence} fit</span> : null}
             {rec.reviewed ? <span className="ai-tag ai-tag-reviewed">Rated {rec.rating}/10</span> : <span className="ai-tag">Unrated</span>}
           </div>
         </div>
@@ -112,10 +120,10 @@ function AlbumCard({ rec, onRated }) {
       <div className="ai-card-head">
         <div className="ai-art">{rec.image ? <img src={rec.image} alt="" /> : <span>♪</span>}</div>
         <div className="ai-card-id">
-          <h2>{rec.name}</h2>
+          <h2 title={rec.name}>{rec.name}</h2>
           <p>{rec.artist}{rec.year ? ` · ${rec.year}` : ''}{rec.track_count ? ` · ${rec.track_count} tracks` : ''}</p>
           <div className="ai-badges">
-            {rec.confidence ? <span className="ai-tag">{rec.confidence} confidence</span> : null}
+            {rec.confidence ? <span className="ai-tag">{rec.confidence} fit</span> : null}
             {rec.reviewed ? <span className="ai-tag ai-tag-reviewed">Already reviewed</span> : <span className="ai-tag">New to you</span>}
           </div>
         </div>
@@ -150,16 +158,16 @@ function PlaylistCard({ rec }) {
       <div className="ai-card-head">
         <div className="ai-art">{rec.image ? <img src={rec.image} alt="" /> : <span>♪</span>}</div>
         <div className="ai-card-id">
-          <h2>{rec.title}</h2>
+          <h2 title={rec.title}>{rec.title}</h2>
           <p>{rec.artist || 'Spotify playlist'}{rec.track_count ? ` · ${rec.track_count} tracks` : ''}</p>
           <div className="ai-badges">
-            {rec.confidence ? <span className="ai-tag">{rec.confidence} confidence</span> : null}
+            {rec.confidence ? <span className="ai-tag">{rec.confidence} fit</span> : null}
           </div>
         </div>
       </div>
       {rec.reason ? <p className="ai-reason">{rec.reason}</p> : null}
       <div className="ai-actions">
-        {rec.id ? <a className="ai-link" href={appUri('album', rec.id)}>Open in Spotify app</a> : null}
+        {rec.spotify_id ? <a className="ai-link" href={appUri('playlist', rec.spotify_id)}>Open in Spotify app</a> : null}
         {rec.spotify_id ? <a className="ai-link" href={`#/listen?tab=playlists&id=${rec.spotify_id}`}>Score every track in Listen →</a> : null}
       </div>
     </article>
@@ -168,13 +176,51 @@ function PlaylistCard({ rec }) {
 
 export default function AI() {
   const { ensureAuthed, authed } = useAuth();
-  const [kind, setKind] = useState('track');
-  const [prompt, setPrompt] = useState('');
+  const boot = useMemo(() => {
+    const store = loadStore();
+    const savedKind = KINDS.some((k) => k.key === store.lastKind) ? store.lastKind : 'track';
+    const entry = store.tabs?.[savedKind];
+    return {
+      kind: savedKind,
+      prompt: entry?.prompt || '',
+      result: entry?.result || null,
+      at: entry?.at || null,
+    };
+  }, []);
+  const [kind, setKind] = useState(boot.kind);
+  const [prompt, setPrompt] = useState(boot.prompt);
+  const [resultAt, setResultAt] = useState(boot.at);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [playError, setPlayError] = useState('');
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(boot.result);
   const player = useSpotifyPlayer({ enabled: authed });
+  const restoring = useRef(false);
+
+  useEffect(() => {
+    const store = loadStore();
+    store.lastKind = kind;
+    saveStore(store);
+    const entry = store.tabs?.[kind];
+    restoring.current = true;
+    setPrompt(entry?.prompt || '');
+    setResult(entry?.result || null);
+    setResultAt(entry?.at || null);
+    setTimeout(() => { restoring.current = false; }, 0);
+  }, [kind]);
+
+  useEffect(() => {
+    if (!result || restoring.current) return;
+    const store = loadStore();
+    const at = Date.now();
+    store.lastKind = kind;
+    store.tabs = {
+      ...(store.tabs || {}),
+      [kind]: { prompt: result.prompt || prompt, result, at },
+    };
+    saveStore(store);
+    setResultAt(at);
+  }, [result, kind]);
 
   const ask = useCallback(async (more = false) => {
     if (!(await ensureAuthed())) return;
@@ -240,7 +286,7 @@ export default function AI() {
 
         <div className="ai-tabs">
           {KINDS.map((k) => (
-            <button key={k.key} className={`mode-tab ${kind === k.key ? 'mode-tab-on' : ''}`} onClick={() => { setKind(k.key); setResult(null); }}>
+            <button key={k.key} className={`mode-tab ${kind === k.key ? 'mode-tab-on' : ''}`} onClick={() => setKind(k.key)}>
               {k.label}
             </button>
           ))}
@@ -272,7 +318,10 @@ export default function AI() {
           <>
             <div className="ai-result-head">
               <span>{result.recommendations.length} {kind}{result.recommendations.length === 1 ? '' : 's'}</span>
-              <span className="ai-model-line">{result.model} · {result.profile?.tracks} tracks in profile</span>
+              <span className="ai-model-line">
+                {result.model} · {result.profile?.tracks} tracks in profile
+                {resultAt ? ` · saved ${new Date(resultAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : ''}
+              </span>
               {kind === 'track' && result.recommendations.some((r) => r.spotify_id) ? (
                 <button
                   className="ai-playall"
