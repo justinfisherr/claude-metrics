@@ -176,26 +176,49 @@ export default function AI() {
   const [result, setResult] = useState(null);
   const player = useSpotifyPlayer();
 
-  const ask = useCallback(async () => {
+  const ask = useCallback(async (more = false) => {
     if (!(await ensureAuthed())) return;
     setLoading(true);
     setError('');
-    setResult(null);
+    setPlayError('');
+    if (!more) setResult(null);
+    const existing = more ? (result?.recommendations || []) : [];
+    const remaining = more ? Math.max(1, 10 - existing.length) : (kind === 'track' ? 10 : 2);
     try {
       const res = await fetch(`${API}/api/recommend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
-        body: JSON.stringify({ kind, prompt: prompt.trim(), count: kind === 'track' ? 10 : 2 }),
+        body: JSON.stringify({
+          kind,
+          prompt: prompt.trim(),
+          count: remaining,
+          exclude: existing.map((r) => `${r.title} — ${r.artist}`),
+        }),
       });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error || `HTTP ${res.status}`);
-      setResult(body);
+      if (more && !body.recommendations?.length) {
+        setResult((prev) => prev ? { ...prev, message: 'No more new picks came back. Try a different prompt.' } : prev);
+        return;
+      }
+      setResult((prev) => {
+        if (!more || !prev) return body;
+        const merged = [...prev.recommendations, ...(body.recommendations || [])];
+        const seen = new Set();
+        const unique = merged.filter((r) => {
+          const key = `${r.title}|${r.artist}`.toLowerCase();
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+        return { ...prev, ...body, recommendations: unique.slice(0, 10), message: null };
+      });
     } catch (e) {
       setError(e.message);
     } finally {
       setLoading(false);
     }
-  }, [ensureAuthed, kind, prompt]);
+  }, [ensureAuthed, kind, prompt, result]);
 
   const markReviewed = (rec, rating) => {
     setResult((prev) => prev ? {
@@ -237,7 +260,7 @@ export default function AI() {
           </div>
           <div className="ai-submit-row">
             <span className="ai-hint">The model sees your ratings, eras, artists, and moods. It avoids things you have already rated.</span>
-            <button className="ai-submit" onClick={ask} disabled={loading}>{loading ? 'Thinking…' : 'Ask the model'}</button>
+            <button className="ai-submit" onClick={() => ask(false)} disabled={loading}>{loading ? 'Thinking…' : 'Ask the model'}</button>
           </div>
         </div>
 
@@ -264,6 +287,11 @@ export default function AI() {
                   disabled={!player.ready}
                 >
                   {player.ready ? `Play all ${result.recommendations.filter((r) => r.spotify_id).length} in order` : 'Connecting player…'}
+                </button>
+              ) : null}
+              {kind === 'track' && result.recommendations.length < 10 ? (
+                <button className="ai-more" onClick={() => ask(true)} disabled={loading}>
+                  {loading ? 'Finding…' : `Find ${10 - result.recommendations.length} more`}
                 </button>
               ) : null}
             </div>

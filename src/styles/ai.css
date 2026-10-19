@@ -119,3 +119,17 @@
 .ai-playall:disabled { opacity: 0.55; cursor: default; filter: none; }
 .ai-play-error { color: var(--warning); }
 .ai-page { padding-bottom: 130px; }
+
+.ai-more {
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--accent);
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ai-more:hover { border-color: var(--accent); }
+.ai-more:disabled { opacity: 0.55; cursor: default; }
