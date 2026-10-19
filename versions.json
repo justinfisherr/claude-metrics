@@ -1,5 +1,5 @@
 {
-  "current_version": "10.08",
+  "current_version": "10.09",
   "versions": [
     {
       "version": "1.00",
@@ -1516,6 +1516,32 @@
       "rf_r_squared": 0.7299,
       "rf_rmse": 1.1155,
       "notes": "",
+      "changelog": [],
+      "is_major": false,
+      "training_data_snapshot": false,
+      "artifacts": {
+        "dashboard_data": "dashboard-data.json",
+        "model": "model.joblib"
+      }
+    },
+    {
+      "version": "10.09",
+      "name": "site-test",
+      "major": 10,
+      "minor": 9,
+      "run_date": "2026-10-19T07:51:58.708193",
+      "dataset_size": 447,
+      "best_model": "random_forest",
+      "r_squared": 0.7069,
+      "rmse": 1.1554,
+      "mae": 0.8125,
+      "feature_count": 164,
+      "best_k": 3,
+      "ridge_r_squared": 0.4335,
+      "ridge_rmse": 1.6062,
+      "rf_r_squared": 0.7069,
+      "rf_rmse": 1.1554,
+      "notes": "Verify in-site training",
       "changelog": [],
       "is_major": false,
       "training_data_snapshot": false,
