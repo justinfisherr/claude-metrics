@@ -222,3 +222,19 @@
 .like-msg { margin-top: 4px; color: var(--good); font-size: 0.7rem; }
 .like-empty { padding: 8px; color: var(--muted); font-size: 0.75rem; }
 .like-error { color: var(--warning); }
+
+.ai-band {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.ai-band-label { flex: none; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+@media (max-width: 560px) {
+  .ai-band { font-size: 0.75rem; }
+}

@@ -75,6 +75,7 @@ function LikeMenu({ rec, playlists, loading, error, onLiked }) {
           artist: rec.artist,
           album: rec.album,
           year: rec.year,
+          key_players: rec.key_players || [],
         }),
       });
       const body = await res.json();
@@ -141,6 +142,12 @@ function TrackCard({ rec, playlists, playlistsLoading, playlistsError, onReviewe
       </div>
 
       {rec.reason ? <p className="ai-reason">{rec.reason}</p> : null}
+      {rec.key_players?.length ? (
+        <div className="ai-band" title={rec.key_players.join(' · ')}>
+          <span className="ai-band-label">Band</span>
+          <span>{rec.key_players.join(' · ')}</span>
+        </div>
+      ) : null}
       {rec.score < 5.5 ? <p className="ai-caveat">The model is not convinced — treat this as an exploration pick, not a safe bet.</p> : null}
 
       <div className="ai-actions">
