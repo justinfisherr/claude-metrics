@@ -1,5 +1,5 @@
 {
-  "current_version": "10.14",
+  "current_version": "11.00",
   "versions": [
     {
       "version": "1.00",
@@ -1678,6 +1678,33 @@
       "artifacts": {
         "dashboard_data": "dashboard-data.json",
         "model": "model.joblib"
+      }
+    },
+    {
+      "version": "11.00",
+      "name": "Snorlax",
+      "major": 11,
+      "minor": 0,
+      "run_date": "2026-10-21T19:36:21.072520",
+      "dataset_size": 504,
+      "best_model": "random_forest",
+      "r_squared": 0.7334,
+      "rmse": 1.0769,
+      "mae": 0.7769,
+      "feature_count": 173,
+      "best_k": 4,
+      "ridge_r_squared": 0.4155,
+      "ridge_rmse": 1.5944,
+      "rf_r_squared": 0.7334,
+      "rf_rmse": 1.0769,
+      "notes": "",
+      "changelog": [],
+      "is_major": true,
+      "training_data_snapshot": true,
+      "artifacts": {
+        "dashboard_data": "versions/v11.00/dashboard-data.json",
+        "model": "versions/v11.00/model.joblib",
+        "training_data": "versions/v11.00/training-data.md"
       }
     }
   ]
