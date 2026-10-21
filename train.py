@@ -1599,6 +1599,15 @@ def main():
     tracks, albums = load_data()
     print(f"Loaded {len(tracks)} tracks, {len(albums)} albums")
 
+    # Feature engineering reads t["rating"] directly, so a single unrated row
+    # (e.g. a track liked/enriched before it was scored) would crash training.
+    unrated = [t for t in tracks if t.get("rating") is None]
+    if unrated:
+        print(f"Data quality: excluding {len(unrated)} track(s) with no rating from this model:")
+        for t in unrated[:20]:
+            print(f"    - {t.get('title')} — {t.get('artist')}")
+        tracks = [t for t in tracks if t.get("rating") is not None]
+
     critical_missing = [t for t in tracks if not t.get("era") or not t.get("primary_instrument")]
     if critical_missing:
         print(f"Data quality: excluding {len(critical_missing)} track(s) missing era or primary instrument from this model:")
