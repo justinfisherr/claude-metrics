@@ -17,13 +17,13 @@ const PAGES = [
 const SECTIONS = [
   { label: 'Overview', items: [
     { id: 'taste-summary-panel', label: 'Taste Summary' },
-    { id: 'metrics-panel', label: 'Model' },
+    { id: 'metrics-panel', label: 'Model Performance' },
   ]},
   { label: 'Patterns', items: [
-    { id: 'clusters-panel', label: 'Clusters' },
-    { id: 'radar-panel', label: 'Profiles' },
-    { id: 'constellation-panel', label: 'Constellation' },
-    { id: 'importance-panel', label: 'Features' },
+    { id: 'clusters-panel', label: 'Taste Clusters' },
+    { id: 'cluster-profiles-panel', label: 'Cluster Mood Zones' },
+    { id: 'importance-panel', label: 'Feature Importance' },
+    { id: 'top-drivers-panel', label: 'Top Drivers' },
     { id: 'correlations-panel', label: 'Correlations' },
   ]},
   { label: 'Ratings', items: [
@@ -34,12 +34,19 @@ const SECTIONS = [
     { id: 'year-rating-panel', label: 'By Year' },
     { id: 'duration-rating-panel', label: 'By Duration' },
   ]},
+  { label: 'Audio', items: [
+    { id: 'audio-scatter-panel', label: 'Audio Feature Explorer' },
+    { id: 'sound-dna-panel', label: 'Sound DNA' },
+    { id: 'audio-feature-ratings-panel', label: 'Audio Features vs Rating' },
+    { id: 'mood-zone-ratings', label: 'Rating by Mood Zone' },
+    { id: 'mood-zone-profiles', label: 'Mood Zone Fingerprints' },
+    { id: 'mood-zone-tracks', label: 'Tracks by Mood Zone' },
+  ]},
   { label: 'Music', items: [
     { id: 'era-panel', label: 'Eras' },
     { id: 'instrument-panel', label: 'Instruments' },
     { id: 'instrument-combos-panel', label: 'Combos' },
     { id: 'harmonic-panel', label: 'Harmony' },
-    { id: 'cof-panel', label: 'Circle of Fifths' },
     { id: 'sound-panel', label: 'Sound Profile' },
     { id: 'ensemble-panel', label: 'Ensemble' },
     { id: 'ballad-panel', label: 'Ballad Analysis' },
@@ -55,16 +62,12 @@ const SECTIONS = [
   { label: 'Engagement', items: [
     { id: 'replayability-panel', label: 'Replayability' },
     { id: 'playthrough-panel', label: 'Playthrough' },
-    { id: 'playthrough-era-panel', label: 'By Era' },
-    { id: 'mood-rating-panel', label: 'Mood x Rating' },
-    { id: 'mood-axes-panel', label: 'Mood Axes' },
-    { id: 'polarity-panel', label: 'Mood Polarity' },
-    { id: 'v2features-panel', label: 'v2 Features' },
+    { id: 'playthrough-era-panel', label: 'Playthrough by Era' },
   ]},
   { label: 'Meta', items: [
     { id: 'taste-world-panel', label: 'Taste vs World' },
     { id: 'albums-panel', label: 'Albums' },
-    { id: 'history-panel', label: 'History' },
+    { id: 'history-panel', label: 'Model History' },
     { id: 'feature-confidence-panel', label: 'Feature Confidence' },
     { id: 'data-quality-panel', label: 'Data Quality' },
   ]},

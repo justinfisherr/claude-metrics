@@ -17,10 +17,10 @@ export default function Changelog() {
   return (
     <Panel id="changelog-panel" span={12}>
       <PanelHeader title="Version History" note="Major releases and what changed" />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 10, marginBottom: 16 }}>
         <select
           className="version-select"
-          style={{ maxWidth: 260 }}
+          style={{ maxWidth: 260, minWidth: 0, flex: '1 1 220px' }}
           value={active?.version || ''}
           onChange={e => setSelectedVersion(e.target.value)}
         >
@@ -31,8 +31,8 @@ export default function Changelog() {
           ))}
         </select>
         {active && (
-          <span style={{ fontSize: '0.75rem', color: 'var(--muted-2)' }}>
-            {active.dataset_size} tracks · {active.feature_count} features · R² {active.r_squared.toFixed(3)}
+          <span style={{ fontSize: '0.75rem', color: 'var(--muted-2)', minWidth: 0, overflowWrap: 'anywhere' }}>
+            {active.dataset_size} tracks · {active.feature_count} features · legacy R² {active.r_squared.toFixed(3)}
           </span>
         )}
       </div>

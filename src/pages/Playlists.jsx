@@ -41,8 +41,8 @@ function generateInsight(pl) {
 
   // Replayability insight
   if (pl.avg_replayability != null) {
-    if (pl.avg_replayability >= 0.85) parts.push('with very high replayability');
-    else if (pl.avg_replayability >= 0.7) parts.push('with solid replayability');
+    if (pl.avg_replayability >= 8.5) parts.push('with very high replayability');
+    else if (pl.avg_replayability >= 7) parts.push('with solid replayability');
   }
 
   // Energy insight
@@ -122,7 +122,7 @@ function PlaylistCard({ playlist }) {
           <span className="playlist-tag">Energy: {avg_energy}</span>
         )}
         {avg_replayability != null && (
-          <span className="playlist-tag">Replay: {(avg_replayability * 100).toFixed(0)}%</span>
+          <span className="playlist-tag">Replay: {avg_replayability.toFixed(1)}/10</span>
         )}
       </div>
 

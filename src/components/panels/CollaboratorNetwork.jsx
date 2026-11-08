@@ -294,7 +294,8 @@ export default function CollaboratorNetwork({ data }) {
     svg.selectAll('*').remove();
 
     const W = el.clientWidth || 900;
-    const H = 520;
+    const H = el.clientHeight || 520;
+    const narrow = W < 640;
 
     const rScale = d3.scaleSqrt().domain([2, d3.max(filteredNodes, d => d.count) || 2]).range([5, 20]);
     const lwScale = d3.scaleLinear().domain([1, d3.max(filteredLinks, d => d.count) || 1]).range([0.8, 4]);
@@ -321,8 +322,8 @@ export default function CollaboratorNetwork({ data }) {
 
     const sim = d3.forceSimulation(nodeData)
       .force('link', d3.forceLink(linkData).id(d => d.id)
-        .distance(l => vizMode === 'historical' ? 50 + l.count * 2 : 60 + (8 - Math.min(l.pairBayesRating, 8)) * 5))
-      .force('charge', d3.forceManyBody().strength(-160))
+        .distance(l => vizMode === 'historical' ? 50 + l.count * 2 : (narrow ? 42 : 60) + (8 - Math.min(l.pairBayesRating, 8)) * (narrow ? 3 : 5)))
+      .force('charge', d3.forceManyBody().strength(narrow ? -70 : -160))
       .force('center', d3.forceCenter(W / 2, H / 2))
       .force('collide', d3.forceCollide().radius(d => rScale(d.count) + 5));
 
@@ -358,7 +359,7 @@ export default function CollaboratorNetwork({ data }) {
         });
       });
 
-    const showLabel = d => labelMode === 'always' || (labelMode === 'auto' && d.count >= 5);
+    const showLabel = d => labelMode === 'always' || (labelMode === 'auto' && !narrow && d.count >= 5);
     const label = g.append('g').selectAll('text')
       .data(nodeData).join('text')
       .text(d => d.id.split(' ').slice(-1)[0])
@@ -373,6 +374,11 @@ export default function CollaboratorNetwork({ data }) {
     svg.on('click', () => setSelectedIds([]));
 
     sim.on('tick', () => {
+      const margin = 26;
+      nodeData.forEach(d => {
+        d.x = Math.max(margin, Math.min(W - margin, d.x));
+        d.y = Math.max(margin, Math.min(H - margin, d.y));
+      });
       link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
           .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
       node.attr('cx', d => d.x).attr('cy', d => d.y);
@@ -401,7 +407,7 @@ export default function CollaboratorNetwork({ data }) {
         return rScale(d.count);
       });
       linkSel.attr('stroke-opacity', l => Math.max(0.12, l.pairConfidence * 0.7));
-      if (labelSel) labelSel.attr('fill-opacity', d => (labelMode === 'always' || (labelMode === 'auto' && d.count >= 5)) ? 0.85 : 0);
+      if (labelSel) labelSel.attr('fill-opacity', d => (labelMode === 'always' || (labelMode === 'auto' && window.innerWidth >= 640 && d.count >= 5)) ? 0.85 : 0);
       return;
     }
 
@@ -551,7 +557,7 @@ export default function CollaboratorNetwork({ data }) {
 
       {/* Graph */}
       <div style={{ position: 'relative' }}>
-        <svg ref={svgRef} style={{ width: '100%', height: '520px', display: 'block' }} />
+        <svg ref={svgRef} style={{ width: '100%', height: 'clamp(380px, 52vw, 520px)', display: 'block' }} />
         {tooltip && (
           <div style={{
             position: 'absolute', left: tooltip.x + 14, top: tooltip.y - 12,
@@ -743,7 +749,7 @@ export default function CollaboratorNetwork({ data }) {
                     <StatRow label="Bayesian rating" value={pe.pairBayesRating.toFixed(2)} color={pairColor(pe.pairBayesRating)} sub="(k=15)" />
                     <StatRow label="Confidence" value={`${(pe.pairConfidence * 100).toFixed(0)}%`} color={conf.color} sub={conf.text} />
                     <StatRow label="Rating spread" value={`±${Math.sqrt(pe.pairVariance).toFixed(2)}`} />
-                    <div style={{ marginTop: '0.8rem', padding: '0.5rem 0.7rem', background: 'none', borderRadius: 0, borderTop: '1px solid var(--border)', padding: '0.6rem 0 0' }}>
+                    <div style={{ marginTop: '0.8rem', background: 'none', borderRadius: 0, borderTop: '1px solid var(--border)', padding: '0.6rem 0 0' }}>
                       <div style={{ fontSize: '0.75rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>Verdict</div>
                       <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: sentiment.color, marginTop: '0.2rem' }}>{sentiment.text}</div>
                     </div>

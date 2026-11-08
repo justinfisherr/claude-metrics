@@ -11,8 +11,6 @@ import PredVsActual from '../components/panels/PredVsActual';
 import RatingDistribution from '../components/panels/RatingDistribution';
 import ClusterProfiles from '../components/panels/ClusterProfiles';
 import Correlations from '../components/panels/Correlations';
-import Constellation from '../components/panels/Constellation';
-import CircleOfFifths from '../components/panels/CircleOfFifths';
 import TasteVsWorld from '../components/panels/TasteVsWorld';
 import ArtistJourneys from '../components/panels/ArtistJourneys';
 import Replayability from '../components/panels/Replayability';
@@ -36,7 +34,6 @@ import ModelHistory from '../components/panels/ModelHistory';
 import AudioScatter from '../components/panels/AudioScatter';
 import SoundDNA from '../components/panels/SoundDNA';
 import AudioFeatureRatings from '../components/panels/AudioFeatureRatings';
-import MoodZoneMap from '../components/panels/MoodZoneMap';
 import MoodZoneRatings from '../components/panels/MoodZoneRatings';
 import MoodZoneProfiles from '../components/panels/MoodZoneProfiles';
 import MoodZoneTracks from '../components/panels/MoodZoneTracks';
@@ -113,7 +110,6 @@ export default function Dashboard() {
             {/* Patterns */}
             <ClusterScatter data={data} />
             <ClusterProfiles data={data} />
-            <Constellation data={data} />
             <FeatureImportance data={data} />
             <TopDrivers data={data} />
             <Correlations data={data} />
@@ -130,7 +126,6 @@ export default function Dashboard() {
             <AudioScatter data={data} />
             <SoundDNA data={data} />
             <AudioFeatureRatings data={data} />
-            <MoodZoneMap data={data} />
             <MoodZoneRatings data={data} />
             <MoodZoneProfiles data={data} />
             <MoodZoneTracks data={data} />
@@ -140,7 +135,6 @@ export default function Dashboard() {
             <InstrumentRatings data={data} />
             <InstrumentCombos data={data} />
             <HarmonicComplexity data={data} />
-            <CircleOfFifths data={data} />
             <SoundProfile data={data} />
             <EnsembleSize data={data} />
 

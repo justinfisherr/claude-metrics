@@ -14,10 +14,8 @@ function colorFor(index) {
 export default function TopArtists({ data }) {
   const [selected, setSelected] = useState('');
 
-  if (!data) return null;
-  const predictions = data.predictions || [];
-
   const sorted = useMemo(() => {
+    const predictions = data?.predictions || [];
     const groups = {};
     predictions.forEach(p => {
       groups[p.artist] = groups[p.artist] || [];
@@ -29,20 +27,19 @@ export default function TopArtists({ data }) {
       .map(([artist, tracks]) => ({
         artist,
         avg: tracks.reduce((s, t) => s + t.actual, 0) / tracks.length,
-        bayes_avg: tracks[0]?.artist_mean_rating || (tracks.reduce((s, t) => s + t.actual, 0) / tracks.length),
         count: tracks.length,
         tracks,
       }))
-      .sort((a, b) => b.bayes_avg - a.bayes_avg);
-  }, [predictions]);
+      .sort((a, b) => b.avg - a.avg);
+  }, [data]);
 
-  if (!sorted.length) return null;
+  if (!data || !sorted.length) return null;
 
   const chartData = {
     labels: sorted.map(s => s.artist),
     datasets: [{
-      label: 'Bayesian Avg Rating',
-      data: sorted.map(s => Math.round(s.bayes_avg * 100) / 100),
+      label: 'Average Rating',
+      data: sorted.map(s => Math.round(s.avg * 100) / 100),
       backgroundColor: sorted.map((_, i) => colorFor(i)),
       borderColor: sorted.map((_, i) => colorFor(i)),
       borderWidth: 1,

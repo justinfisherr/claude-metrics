@@ -47,7 +47,7 @@ export default function MindChanges({ data }) {
       )}
 
       <div className="table-scroll">
-        <table className="misses-table">
+        <table className="misses-table responsive">
           <thead>
             <tr>
               <th>Title</th>
@@ -67,14 +67,14 @@ export default function MindChanges({ data }) {
 
               return (
                 <tr key={i}>
-                  <td>
+                  <td data-label="Title">
                     {c.title}
                     {c.is_album && <span className="mc-album-tag">album</span>}
                   </td>
-                  <td style={{ color: 'var(--muted)' }}>{c.artist}</td>
-                  <td className="mc-journey">{journey}</td>
-                  <td style={{ fontWeight: 800 }}>{c.new_rating}</td>
-                  <td>
+                  <td data-label="Artist" style={{ color: 'var(--muted)' }}>{c.artist}</td>
+                  <td data-label="Journey" className="mc-journey">{journey}</td>
+                  <td data-label="Current" style={{ fontWeight: 800 }}>{c.new_rating}</td>
+                  <td data-label="Change">
                     <span className={`miss-diff ${cls}`}>
                       {arrow} {sign}{c.change.toFixed(1)}
                     </span>

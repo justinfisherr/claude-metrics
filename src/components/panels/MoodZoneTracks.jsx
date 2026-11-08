@@ -35,7 +35,7 @@ export default function MoodZoneTracks({ data }) {
     <Panel id="mood-zone-tracks" span={12}>
       <PanelHeader title="Tracks by Mood Zone" />
       <div style={{ padding: '1rem 0' }}>
-        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid #333' }}>
+        <div className="tab-strip">
           {['euphoric', 'tense', 'introspective', 'serene'].map(zone => (
             <button
               key={zone}
@@ -60,14 +60,15 @@ export default function MoodZoneTracks({ data }) {
           {activeZoneTracks.length === 0 ? (
             <div style={{ color: 'var(--muted)', padding: '1rem' }}>No tracks in this zone</div>
           ) : (
-            <table style={{ width: '100%', fontSize: '0.85rem' }}>
+            <div className="table-scroll">
+            <table className="mood-zone-table" style={{ width: '100%', fontSize: '0.85rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #444' }}>
                   <th style={{ textAlign: 'left', padding: '0.5rem' }}>Track</th>
                   <th style={{ textAlign: 'center', padding: '0.5rem' }}>Rating</th>
-                  <th style={{ textAlign: 'center', padding: '0.5rem', fontSize: '0.75rem' }}>Dance</th>
-                  <th style={{ textAlign: 'center', padding: '0.5rem', fontSize: '0.75rem' }}>Val</th>
-                  <th style={{ textAlign: 'center', padding: '0.5rem', fontSize: '0.75rem' }}>Eng</th>
+                  <th className="col-extra" style={{ textAlign: 'center', padding: '0.5rem', fontSize: '0.75rem' }}>Dance</th>
+                  <th className="col-extra" style={{ textAlign: 'center', padding: '0.5rem', fontSize: '0.75rem' }}>Val</th>
+                  <th className="col-extra" style={{ textAlign: 'center', padding: '0.5rem', fontSize: '0.75rem' }}>Eng</th>
                 </tr>
               </thead>
               <tbody>
@@ -80,19 +81,20 @@ export default function MoodZoneTracks({ data }) {
                     <td style={{ textAlign: 'center', padding: '0.5rem', fontWeight: 'bold', color: '#ffc832' }}>
                       {track.actual}/10
                     </td>
-                    <td style={{ textAlign: 'center', padding: '0.5rem' }}>
+                    <td className="col-extra" style={{ textAlign: 'center', padding: '0.5rem' }}>
                       {track.danceability != null ? track.danceability.toFixed(2) : '—'}
                     </td>
-                    <td style={{ textAlign: 'center', padding: '0.5rem' }}>
+                    <td className="col-extra" style={{ textAlign: 'center', padding: '0.5rem' }}>
                       {track.spotify_valence != null ? track.spotify_valence.toFixed(2) : '—'}
                     </td>
-                    <td style={{ textAlign: 'center', padding: '0.5rem' }}>
+                    <td className="col-extra" style={{ textAlign: 'center', padding: '0.5rem' }}>
                       {track.spotify_energy != null ? track.spotify_energy.toFixed(2) : '—'}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            </div>
           )}
         </div>
       </div>

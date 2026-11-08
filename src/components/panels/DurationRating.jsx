@@ -2,6 +2,7 @@ import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
+import ClusterLegend from '../shared/ClusterLegend';
 import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
@@ -99,6 +100,7 @@ export default function DurationRating({ data }) {
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = track length in minutes (from <code>audio_features.duration_s</code>). <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Reveals your pacing sensitivity — whether longer tracks tend to get docked, and what your sweet spot for runtime is. Only tracks with a logged duration are shown.
       </p>
+      <ClusterLegend data={data} />
       <div className="chart-shell">
         <Scatter data={chartData} options={options} />
       </div>

@@ -35,7 +35,7 @@ export default function RatingDistribution({ data }) {
   const chartData = {
     labels: bins.map(bin => String(bin)),
     datasets: byCluster.map((cluster, index) => ({
-      label: profiles[index]?.top_moods?.[0] || `Cluster ${cluster.cluster + 1}`,
+      label: profiles[index]?.label || `Cluster ${index + 1}`,
       data: bins.map(bin => (cluster.ratings || []).filter(rating => rating === bin).length),
       backgroundColor: colorFor(index),
       borderRadius: 7,
@@ -65,19 +65,21 @@ export default function RatingDistribution({ data }) {
     scales: {
       x: {
         stacked: true,
+        title: { display: true, text: 'Rating', color: GR.label },
         grid: { color: GR.grid },
         ticks: { color: GR.tick },
       },
       y: {
         stacked: true,
+        title: { display: true, text: 'Tracks', color: GR.label },
         grid: { color: GR.grid },
-        ticks: { color: GR.tick, precision: 0, stepSize: 1 },
+        ticks: { color: GR.tick, precision: 0, stepSize: 2 },
       },
     },
   };
 
   return (
-    <Panel id="distribution-panel" span={6}>
+    <Panel id="distribution-panel" span={12}>
       <PanelHeader title="Rating Distribution" note="Ratings split by cluster" />
       {(() => {
         const allRatings = byCluster.flatMap(c => c.ratings || []);

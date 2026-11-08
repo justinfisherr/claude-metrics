@@ -670,3 +670,9 @@
   .pl-head-actions { width: 100%; margin-left: 0; justify-content: space-between; }
 }
 
+
+@media (max-width: 460px) {
+  .search-main { padding-top: clamp(28px, 5vh, 48px); }
+  .search-form { flex-direction: column; }
+  .search-form button { width: 100%; }
+}

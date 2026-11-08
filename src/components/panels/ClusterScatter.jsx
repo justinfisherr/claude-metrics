@@ -57,8 +57,8 @@ export default function ClusterScatter({ data }) {
       })),
       backgroundColor: colorFor(cluster),
       borderColor: colorFor(cluster),
-      pointRadius: points.map(p => Math.max(5, 3 + Number(p.actual || 0) * 0.65)),
-      pointHoverRadius: 9,
+      pointRadius: points.map(p => Math.max(4, 2.5 + Number(p.actual || 0) * 0.55)),
+      pointHoverRadius: 8,
     });
   }
 
@@ -102,7 +102,7 @@ export default function ClusterScatter({ data }) {
         const descs = profiles.map((p) => p.label || `Cluster`).join(', ');
         return (
           <p className="panel-insight">
-            Your taste splits into {clusterCount} distinct zones: {descs}. Tracks near the center of the map share qualities of multiple clusters.
+            Your taste falls into {clusterCount} loose groups: {descs}. Separation is weak, so read them as a description of the library rather than hard taste segments. Tracks near the center share qualities of multiple groups.
           </p>
         );
       })()}

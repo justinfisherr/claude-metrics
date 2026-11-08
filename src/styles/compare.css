@@ -170,3 +170,14 @@
 }
 
 ::placeholder { color: var(--muted); opacity: 1; }
+
+@media (max-width: 560px) {
+  .compare-selectors { gap: 10px; }
+  .version-pick { width: 100%; align-items: stretch; }
+  .version-pick select { min-width: 0; width: 100%; }
+  .vs-label { padding-top: 0; text-align: center; }
+  .metrics-grid { grid-template-columns: minmax(0, 1fr); }
+  .metric-card .metric-values { gap: 24px; }
+  .pred-table { font-size: 0.75rem; }
+  .pred-table th, .pred-table td { padding: 7px 6px; }
+}

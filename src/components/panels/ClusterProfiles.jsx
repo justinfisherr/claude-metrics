@@ -75,7 +75,8 @@ export default function ClusterProfiles({ data }) {
         min: 0,
         max: 1,
         grid: { color: GR.grid },
-        ticks: { color: GR.tick },
+        ticks: { color: GR.tick, callback: v => `${Math.round(v * 100)}%` },
+        title: { display: true, text: 'Share of tracks in zone', color: GR.label },
       },
       y: {
         grid: { color: GR.grid },
@@ -94,10 +95,19 @@ export default function ClusterProfiles({ data }) {
         if (!best || !worst || sorted.length < 2) return null;
         const bestZone = best.top_mood_zones?.[0] || 'mixed';
         const worstZone = worst.top_mood_zones?.[0] || 'mixed';
+        const silhouette = Math.max(...(data?.clusters?.silhouette_scores || [0]));
         return (
-          <p className="panel-insight">
-            Your strongest cluster averages {best.mean_rating}/10, with {bestZone} energy. Your weakest averages {worst.mean_rating}/10 — those tracks tend toward {worstZone}.
-          </p>
+          <>
+            <p className="panel-insight">
+              Your strongest cluster averages {best.mean_rating}/10, with {bestZone} energy. Your weakest averages {worst.mean_rating}/10 — those tracks tend toward {worstZone}.
+            </p>
+            {silhouette < 0.15 ? (
+              <p className="panel-note">
+                Separation is weak (silhouette {silhouette.toFixed(2)}). Read these groups as a
+                loose description of the library, not as distinct taste segments.
+              </p>
+            ) : null}
+          </>
         );
       })()}
       <div className="chart-shell">

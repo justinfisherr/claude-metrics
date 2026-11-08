@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -153,7 +153,7 @@ function MetricsPanel({ entryA, entryB, dataA, dataB }) {
       }}>Model Performance by Type</h2>
 
       {dataA && dataB ? (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div className="metrics-grid">
           {/* Ridge Comparison */}
           <div className="metric-card">
             <div className="metric-label">Ridge R²</div>
@@ -464,9 +464,14 @@ function TimelinePanel({ manifest }) {
         fontSize: '0.78rem', fontWeight: 800, textTransform: 'uppercase',
         letterSpacing: '0.08em', color: 'var(--muted)', margin: '0 0 1rem',
       }}>Version Timeline</h2>
+      <p style={{ fontSize: '0.78rem', color: 'var(--muted)', lineHeight: 1.6, margin: '0 0 1rem', maxWidth: '68ch' }}>
+        R&sup2; below is the legacy in-sample metric. It is not comparable across the
+        post-v10.14 evaluation change — use the dashboard&rsquo;s unseen-album Spearman
+        for the current model.
+      </p>
 
       <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
-        Best Model (hover shows algo)
+        Legacy in-sample R&sup2; (hover shows algo)
       </p>
       <div className="timeline-wrap" style={{ marginBottom: '1.5rem' }}>
         <Line data={bestData} options={bestOptions} />
@@ -475,7 +480,7 @@ function TimelinePanel({ manifest }) {
       {hasPerModel && (
         <>
           <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: '0.5rem' }}>
-            Ridge vs Random Forest R²
+            Ridge vs Random Forest legacy R&sup2;
           </p>
           <div className="timeline-wrap">
             <Line data={perModelData} options={perModelOptions} />
