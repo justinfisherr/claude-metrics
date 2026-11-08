@@ -2,6 +2,7 @@ import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
+import ClusterLegend from '../shared/ClusterLegend';
 import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
@@ -58,14 +59,14 @@ export default function Playthrough({ data }) {
       x: {
         title: { display: true, text: 'Playthrough %', color: GR.label, font: { weight: 800 } },
         min: 0,
-        max: 105,
+        max: 100,
         grid: { color: GR.grid },
         ticks: { color: GR.tick, callback: v => v + '%' },
       },
       y: {
         title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } },
         min: 0,
-        max: 11,
+        max: 10.5,
         grid: { color: GR.grid },
         ticks: { color: GR.tick, stepSize: 1 },
       },
@@ -97,6 +98,7 @@ export default function Playthrough({ data }) {
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = how much of the track you listened to (0–100%). <strong>Y axis</strong> = your rating. Tracks in the <strong>top-right</strong> = loved and listened fully. <strong>Bottom-left</strong> = bailed early and rated low. <strong>Top-left</strong> = rated well but didn't finish (rare). <strong>Bottom-right</strong> = sat through it but didn't like it. Hover for title.
       </p>
+      <ClusterLegend data={data} />
       <div className="chart-shell">
         <Scatter data={chartData} options={options} />
       </div>

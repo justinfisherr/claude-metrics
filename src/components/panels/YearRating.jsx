@@ -2,6 +2,7 @@ import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
+import ClusterLegend from '../shared/ClusterLegend';
 import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
@@ -103,6 +104,7 @@ export default function YearRating({ data }) {
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = year of recording. <strong>Y axis</strong> = your rating. <strong>Color</strong> = cluster. Shows exactly which era of jazz history your highest ratings cluster in — and where you've barely explored. Hover any dot for the title, artist, and year.
       </p>
+      <ClusterLegend data={data} />
       <div className="chart-shell">
         <Scatter data={chartData} options={options} />
       </div>

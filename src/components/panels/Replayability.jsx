@@ -1,7 +1,8 @@
-import { Scatter, Line } from 'react-chartjs-2';
+import { Scatter } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from 'chart.js';
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
+import ClusterLegend from '../shared/ClusterLegend';
 import { GR, CLUSTER_COLORS } from '../../utils/chartDefaults';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
@@ -71,14 +72,14 @@ export default function Replayability({ data }) {
       x: {
         title: { display: true, text: 'Replayability', color: GR.label, font: { weight: 800 } },
         min: 0,
-        max: 11,
+        max: 10.5,
         grid: { color: GR.grid },
         ticks: { color: GR.tick, stepSize: 1 },
       },
       y: {
         title: { display: true, text: 'Your Rating', color: GR.label, font: { weight: 800 } },
         min: 0,
-        max: 11,
+        max: 10.5,
         grid: { color: GR.grid },
         ticks: { color: GR.tick, stepSize: 1 },
       },
@@ -118,6 +119,7 @@ export default function Replayability({ data }) {
       <p className="panel-desc">
         Each dot is a track. <strong>X axis</strong> = replayability (1–10). <strong>Y axis</strong> = your rating. Tracks on the diagonal line are perfectly aligned — you rate them as much as you'd replay them. <strong>Above the line</strong> = one-listen masterpieces (rated high, wouldn't replay). <strong>Below the line</strong> = guilty pleasures (replay more than the rating suggests). Hover any dot for the title.
       </p>
+      <ClusterLegend data={data} />
       <div className="chart-shell">
         <Scatter data={chartData} options={options} />
       </div>

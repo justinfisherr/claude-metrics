@@ -80,8 +80,8 @@ export default function BalladAnalysis({ data }) {
   return (
     <Panel id="ballad-panel" span={6}>
       <PanelHeader title="Ballad × Vocal Split Analysis" />
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.2rem' }}>
-        <div style={{ height: '260px' }}>
+      <div className="ballad-grid">
+        <div className="ballad-chart">
           <Bar data={chartData} options={chartOptions} />
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>

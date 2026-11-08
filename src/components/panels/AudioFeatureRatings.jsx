@@ -95,7 +95,7 @@ export default function AudioFeatureRatings({ data }) {
     },
     scales: {
       x: {
-        min: 3,
+        min: 0,
         max: 10,
         grid: { color: GR.grid },
         ticks: { color: GR.tick, stepSize: 1 },

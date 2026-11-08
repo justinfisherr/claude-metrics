@@ -53,7 +53,7 @@ export default function MoodZoneRatings({ data }) {
       responsive: true,
       maintainAspectRatio: false,
       plugins: {
-        legend: { display: true, labels: { color: GR.label } },
+        legend: { display: false },
         tooltip: {
           enabled: true,
           backgroundColor: 'rgba(0,0,0,0.8)',
@@ -70,6 +70,7 @@ export default function MoodZoneRatings({ data }) {
           type: 'linear',
           min: 0,
           max: 10,
+          title: { display: true, text: 'Average rating', color: GR.label },
           ticks: { color: GR.tick },
           grid: { color: GR.grid },
         },

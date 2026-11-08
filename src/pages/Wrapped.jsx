@@ -93,7 +93,7 @@ export default function Wrapped() {
       fetch('training-data.json').then(r => r.json()),
       fetch('artwork-cache.json').then(r => r.json()).catch(() => ({ albums: {}, artists: {} })),
     ]).then(([t, a]) => {
-      setTracks(t);
+      setTracks(t.filter(item => item.rating != null));
       setArtwork(a);
       setLoading(false);
     });
@@ -222,7 +222,8 @@ export default function Wrapped() {
   }, [filteredTracks, artwork]);
 
   const tabData = { tracks: topTracks, artists: topArtists, albums: topAlbums, 'albums-liked': topAlbumsLiked };
-  const avgRating = tracks.length ? (tracks.reduce((s, t) => s + t.rating, 0) / tracks.length).toFixed(1) : '—';
+  const rated = tracks.filter(t => typeof t.rating === 'number');
+  const avgRating = rated.length ? (rated.reduce((s, t) => s + t.rating, 0) / rated.length).toFixed(1) : '—';
   const likedCount = tracks.filter(t => t.liked).length;
   const uniqueArtists = new Set(tracks.map(t => t.artist)).size;
 

@@ -159,7 +159,22 @@ def tempo_label(bpm):
 
 def clean_title(name):
     # "So What (feat. John Coltrane, Cannonball Adderley & Bill Evans)" -> "So What"
-    return re.sub(r"\s*[\(\[].*?(?:feat\.|ft\.|with ).*?[\)\]]", "", name, flags=re.IGNORECASE).strip()
+    cleaned = re.sub(r"\s*[\(\[].*?(?:feat\.|ft\.|with ).*?[\)\]]", "", name, flags=re.IGNORECASE).strip()
+    # Packaging noise, not part of the title. Live takes are left alone because a
+    # live performance is a different recording.
+    cleaned = re.sub(
+        r"\s*[-–]\s*(?:\d{4}\s*)?(?:digital\s+)?remaster(?:ed)?\b.*$",
+        "", cleaned, flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(
+        r"\s*[-–]\s*(?:rudy van gelder\b.*|mono|stereo|album version|single version)\s*$",
+        "", cleaned, flags=re.IGNORECASE,
+    )
+    cleaned = re.sub(
+        r"\s*[\(\[](?:[^\)\]]*(?:remaster|mono|stereo|album version|single version)[^\)\]]*)[\)\]]\s*$",
+        "", cleaned, flags=re.IGNORECASE,
+    )
+    return cleaned.strip()
 
 
 def track_image(track):

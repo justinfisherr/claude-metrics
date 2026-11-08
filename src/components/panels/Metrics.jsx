@@ -1,9 +1,25 @@
 import Panel from '../shared/Panel';
 import PanelHeader from '../shared/PanelHeader';
 
+const MODEL_NAMES = {
+  ridge: 'Ridge Regression',
+  gradient_boosting: 'Gradient Boosting',
+  random_forest: 'Gradient Boosting',
+  knn: 'Nearest Neighbours',
+};
+
 export default function Metrics({ data }) {
   if (!data) return null;
 
+  const deployed = data?.meta?.deployed_model;
+  const evaluation = data?.meta?.evaluation;
+  const unseen = evaluation?.unseen_album;
+  const challengers = evaluation?.challengers || {};
+  const loo = evaluation?.in_sample_loo;
+  const rank = Number(unseen?.spearman ?? 0);
+  const lift = Number(unseen?.top_decile_lift ?? 0);
+  const unseenR2 = Number(unseen?.r_squared ?? 0);
+  const selfFound = evaluation?.by_source?.self;
   const models = [
     { key: 'ridge', name: 'Ridge Regression' },
     { key: 'random_forest', name: 'Gradient Boosting' },
@@ -11,43 +27,66 @@ export default function Metrics({ data }) {
 
   return (
     <Panel id="metrics-panel" span={12}>
-      <PanelHeader title="Model Performance" note="Cross-validation summary and dataset size" />
-      {(() => {
-        const bestKey = data?.meta?.best_model;
-        const bestStats = bestKey && data?.models?.[bestKey];
-        if (!bestStats) return null;
-        const r2 = Number(bestStats.r_squared);
-        const pct = Math.round(r2 * 100);
-        const interp = r2 >= 0.7 ? 'strong — it reads your taste well'
-          : r2 >= 0.4 ? 'moderate — it catches your broad preferences but misses nuance'
-          : 'still learning — more tracks will sharpen it';
-        return (
-          <p className="panel-insight">
-            The model explains {pct}% of the variance in your ratings — {interp}. It tends to be most confident about tracks you love or hate, and least sure about the middle.
-          </p>
-        );
-      })()}
-      {data?.meta?.data_quality?.excluded_for_metadata ? (
+      <PanelHeader
+        title="Model Performance"
+        note="How it does on records it has never seen"
+      />
+      {unseen ? (
+        <p className="panel-insight">
+          Deployed: <strong>{MODEL_NAMES[deployed] || deployed}</strong>. On albums held out of
+          training entirely, it ranks tracks at <strong>Spearman {rank.toFixed(2)}</strong>{' '}
+          and its top decile rates <strong>{lift.toFixed(1)} points</strong> above
+          the rest. That is a rough sort, not a verdict.
+        </p>
+      ) : (
+        <p className="panel-insight">
+          No honest evaluation in this dataset yet — retrain to measure performance on unseen
+          albums.
+        </p>
+      )}
+      {selfFound ? (
         <p className="panel-note">
-          {data.meta.data_quality.excluded_for_metadata} track(s) were excluded from this model because they are missing era or primary instrument.
+          On the {selfFound.n} tracks you found yourself it ranks at Spearman{' '}
+          {Number(selfFound.spearman).toFixed(2)} — weaker than the overall number, which is
+          lifted by tracks the recommender picked. Discovery is still a weak sort.
         </p>
       ) : null}
       <p className="panel-desc">
-        Two regression models are trained on your dataset using <strong>Leave-One-Out Cross-Validation (LOOCV)</strong> — each track is held out once and predicted from the remaining tracks, then scores are averaged. <strong>R&sup2;</strong> (0&ndash;1) measures how much variance in your ratings the model explains; 1.0 is perfect, 0 means the model is no better than always guessing the mean. <strong>RMSE</strong> (Root Mean Squared Error) and <strong>MAE</strong> (Mean Absolute Error) express average prediction error in rating points — lower is better. The card highlighted in blue is the winning model used for all downstream scoring and the <code>predict.py</code> script.
+        Whole albums are hidden, every rating-derived average is rebuilt without them, and the
+        model is scored on the records it lost. This replaced the old headline number: leave-one-out
+        R&sup2; looked strong because each track&rsquo;s album siblings were still in the training
+        set, so it measured album recall rather than taste. <strong>Spearman</strong> is the rank
+        correlation between predicted and actual ratings; <strong>top-decile lift</strong> is how
+        much better the model&rsquo;s ten best picks are than everything else. In-sample numbers are
+        kept for comparison only.
       </p>
       <div className="cards">
+        {unseen ? (
+          <div className="card best">
+            <h3>
+              {MODEL_NAMES[deployed] || deployed}
+              <span className="badge">Deployed</span>
+            </h3>
+            <div className="metric">Spearman {rank.toFixed(2)}</div>
+            <div className="detail">
+              Top-decile lift: {lift.toFixed(1)} pts &middot; R&sup2; {unseenR2.toFixed(2)}
+            </div>
+          </div>
+        ) : null}
         {models.map(model => {
           const stats = data?.models?.[model.key];
           if (!stats) return null;
-          const isBest = data?.meta?.best_model === model.key;
+          const honest = challengers[model.key === 'random_forest' ? 'gradient_boosting' : model.key];
           return (
-            <div key={model.key} className={`card${isBest ? ' best' : ''}`}>
-              <h3>
-                {model.name}
-                {isBest && <span className="badge">Best</span>}
-              </h3>
-              <div className="metric">R&sup2; = {stats.r_squared}</div>
-              <div className="detail">RMSE: {stats.rmse} &middot; MAE: {stats.mae}</div>
+            <div key={model.key} className="card">
+              <h3>{model.name}</h3>
+              <div className="metric">
+                {honest ? `Spearman ${honest.spearman.toFixed(2)}` : `R\u00b2 = ${stats.r_squared}`}
+              </div>
+              <div className="detail">
+                Unseen albums{honest ? ` \u00b7 R\u00b2 ${honest.r_squared.toFixed(2)}` : ''} &middot;
+                in-sample R&sup2; {stats.r_squared.toFixed(2)}
+              </div>
             </div>
           );
         })}
@@ -59,8 +98,22 @@ export default function Metrics({ data }) {
           </div>
         </div>
       </div>
+      {loo ? (
+        <p className="panel-note">
+          In-sample LOO R&sup2; {loo.r_squared.toFixed(2)} &middot; Spearman{' '}
+          {loo.spearman.toFixed(2)}. Same-album siblings were in the fit, so this runs high and is
+          not the number to quote.
+        </p>
+      ) : null}
+      {data?.meta?.data_quality?.excluded_for_metadata ? (
+        <p className="panel-note">
+          {data.meta.data_quality.excluded_for_metadata} track(s) were excluded from this model
+          because they are missing era or primary instrument.
+        </p>
+      ) : null}
       <p className="caveat">
-        Trained on {data?.meta?.total_tracks ?? '—'} tracks with Leave-One-Out Cross-Validation. Small dataset — patterns are suggestive, not definitive.
+        Trained on {data?.meta?.total_tracks ?? '—'} tracks. The deployed scorer is the model that
+        won the unseen-album holdout, not the one with the best in-sample R&sup2;.
       </p>
     </Panel>
   );

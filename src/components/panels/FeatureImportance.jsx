@@ -9,7 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 export default function FeatureImportance({ data }) {
   if (!data) return null;
 
-  const features = (data?.feature_importance || []).slice(0, 12).reverse();
+  const features = (data?.feature_importance || []).slice(0, 12);
   if (!features.length) return null;
 
   const chartData = {
@@ -50,6 +50,7 @@ export default function FeatureImportance({ data }) {
       x: {
         grid: { color: GR.grid },
         ticks: { color: GR.tick, font: { size: 11 } },
+        title: { display: true, text: 'Relative importance (0–1)', color: GR.label },
       },
       y: {
         grid: { display: false },

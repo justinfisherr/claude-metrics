@@ -64,7 +64,7 @@ export default function DataQualityReport({ data }) {
       </div>
 
       <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--border-faint)', fontSize: '0.75rem', color: 'var(--muted)', maxWidth: '62ch' }}>
-        <strong>New Features:</strong> v6.00 added 45 features including ballad splits, artist×era ratings, label×decade interactions, confidence metrics, and missingness indicators. These features were trained with Leave-One-Out cross-validation to prevent data leakage.
+        <strong>How to read this:</strong> the deployed model is scored on an album-grouped holdout; rating-derived averages are kept for the correlation panel but are not fed to the model. Missing coverage above is the main data debt — fill it with real values rather than guesses, which tested worse.
       </div>
     </Panel>
   );

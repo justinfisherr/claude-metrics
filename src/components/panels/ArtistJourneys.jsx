@@ -122,7 +122,7 @@ export default function ArtistJourneys({ data }) {
       <PanelHeader title="Artist Journeys" note="Faceted by mood zone — each block is a track" />
 
       {/* Tab bar */}
-      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid #333' }}>
+      <div className="tab-strip">
         {[
           { zone: 'all', label: `All (${all.length})` },
           { zone: 'euphoric', label: `Euphoric (${byZone.zoneCounts.euphoric})` },

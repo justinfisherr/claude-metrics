@@ -2,6 +2,11 @@
 
 ## Overview
 
+> **Evaluation note (2026-10-21):** the metrics quoted in this document are historical
+> (v5–v6). The current methodology hides whole albums and rebuilds all rating encodings
+> without them; the headline is unseen-album Spearman, not leave-one-out R². See
+> `AUDIT-2026-10-21.md` and `eval.py` for the current truth.
+
 This is a personalized jazz track rating prediction system. It ingests human ratings of jazz tracks, engineers features from track metadata and Spotify audio features, trains two competing regression models (Ridge and Random Forest), and generates predictions for candidate tracks. The system includes interactive visualizations of model performance, cluster analysis, and taste profiles.
 
 ---

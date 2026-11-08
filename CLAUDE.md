@@ -2,6 +2,26 @@
 
 This repo holds Justin's personal jazz recommendation ML pipeline: training, prediction, and an interactive dashboard.
 
+## Evaluation — read this before quoting a number
+
+The number to trust is **unseen-album Spearman**, produced by `album_holdout()` in
+`train.py` and `eval.py` (`python3 eval.py --parity --leak`). Whole albums are hidden
+and every rating encoding is rebuilt without them.
+
+Do **not** quote leave-one-out R². It used to reach 0.76 by letting each track's album
+siblings into its features; after removing that leak the same metric sits near zero.
+Rating-derived averages (`TARGET_ENCODING_KEYS`) are still computed for the correlation
+panel but are deliberately excluded from the model — they made unseen-album ranking
+worse. The deployed model is chosen on the holdout, not on in-sample fit.
+
+Quote the split, not just the aggregate: the model ranks recommender-picked tracks at
+≈0.36 and self-discovered tracks at ≈0.07. Discovery is still a weak sort.
+
+The full diagnosis and evidence are in `AUDIT-2026-10-21.md`. Tests:
+`python3 -m pytest tests -q`. Live scoring quality:
+`DATABASE_URL=$(cat ~/.jazz_db_url) python3 reco_report.py` (joins the
+`recommendations` log to later ratings).
+
 ## What This Is
 
 A self-improving system that learns Justin's jazz taste from rated tracks and recommends new ones. The training data lives in his Obsidian vault (`~/Documents/remote/Music/Jazz Dataset/training-data.md`), not in this repo.
